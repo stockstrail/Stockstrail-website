@@ -1,26 +1,334 @@
+/* === Font imports === */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
+/* Tailwind v4 core */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* === Tailwind design tokens === */
+@theme {
+  --color-stockstrail-bg: #012928;
+  --color-stockstrail-bg-light: #003a39;
+  --color-stockstrail-green-light: #00ff97;
+  --color-stockstrail-green-dark: #007d42;
+  --color-stockstrail-green-accent: #00d873;
+
+  --font-product-sans: "Product Sans", system-ui, sans-serif;
+  --font-work-sans: "Work Sans", system-ui, sans-serif;
+  --font-montserrat: "Montserrat", system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* ================= BASE LAYER ================= */
+@layer base {
+  /**
+   * shadcn-style CSS vars (HSL)
+   */
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* global border color */
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    @apply bg-stockstrail-bg text-white font-work-sans;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-product-sans;
+  }
+
+  /* Fallback font class */
+  .font-product-sans {
+    font-family: "Product Sans", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, sans-serif;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Scrolling animation for partner logos */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+.animate-scroll {
+  animation: scroll 65s linear infinite;
+  will-change: transform; /* Optimize for smooth animation */
+  animation-fill-mode: both;
+}
+
+/* Pause marquee on hover */
+.partners-track:hover {
+  animation-play-state: paused;
+}
+
+.partners-track {
+  display: flex;
+  gap: 2rem;
+  width: fit-content;
+  animation-timing-function: linear;
+}
+
+/* Fade in animation for Why Choose section */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+  animation-delay: var(--animation-delay, 0ms);
+}
+
+  /* Custom gradient text utility */
+  .gradient-text {
+    background: linear-gradient(42deg, #00ff97 0%, #007d42 70.81%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ===== Animations used in Hero ===== */
+
+  /* Slide in from top */
+  @keyframes slide-in-from-top {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-in-from-top {
+    animation: slide-in-from-top 0.3s ease-out;
+  }
+
+  /* Bounce (gentle) */
+  @keyframes bounce-gentle {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-0.5rem);
+    }
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce-gentle 3s ease-in-out infinite;
+  }
+
+  /* Glow pulse for main circle (keep, but soft) */
+  @keyframes glow-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 40px rgba(0, 255, 151, 0.28),
+        0 0 120px rgba(0, 255, 151, 0.18);
+    }
+    50% {
+      box-shadow: 0 0 80px rgba(0, 255, 151, 0.35),
+        0 0 180px rgba(0, 255, 151, 0.22);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: glow-pulse 4s ease-in-out infinite;
+  }
+
+  /* Very subtle grid drift – MUCH softer than before */
+  @keyframes grid-move {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(24px, 24px, 0);
+    }
+  }
+
+  .grid-mesh {
+    will-change: transform;
+    animation: grid-move 60s linear infinite;
+  }
+}
+
+/* ================= COMPONENTS LAYER ================= */
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    padding: 0.75rem 1.5rem;
+    background-color: #00ff97;
+    color: #012928;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 10px 25px rgba(0, 255, 151, 0.3);
+    transform: scale(1.05);
+  }
+
+  .btn-secondary {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #00ff97;
+    color: #00ff97;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    background-color: #00ff97;
+    color: #012928;
+  }
+
+  /* Card styles */
+  .card-base {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(1rem);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: all 0.3s;
+  }
+
+  .card-base:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Text utilities */
+  .text-white-70 {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .text-white-50 {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .text-white-30 {
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* ================= UTILITIES LAYER ================= */
+@layer utilities {
+  /* Custom heavy blur utility used on hero circle */
+  .blur-100 {
+    filter: blur(120px);
+  }
 }
