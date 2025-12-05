@@ -41,6 +41,8 @@ export default function MutualFunds() {
         </div>
       </section>
 
+      
+
       <section className="relative px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -74,6 +76,19 @@ export default function MutualFunds() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA after 'What is a Mutual Fund' */}
+      <section className="px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-6xl mx-auto text-center">
+          <a
+            href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 transition-all duration-300 font-work-sans font-medium"
+          >
+            <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
+            Secure Your First SIP — Start Now
+          </a>
         </div>
       </section>
 
@@ -147,6 +162,8 @@ export default function MutualFunds() {
         </div>
       </section>
 
+      
+
       <section className="relative px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
@@ -210,6 +227,19 @@ export default function MutualFunds() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Mid-page CTA after 'Types of Mutual Funds' */}
+      <section className="px-4 sm:px-6 lg:px-8 py-10">
+        <div className="max-w-6xl mx-auto text-center">
+          <a
+            href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-stockstrail-green-accent/5 border-2 border-stockstrail-green-accent/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-bg hover:bg-stockstrail-green-accent transition-all duration-300 font-work-sans font-medium"
+          >
+            <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
+            Compare SIP Plans & Get Personalized Advice
+          </a>
         </div>
       </section>
 

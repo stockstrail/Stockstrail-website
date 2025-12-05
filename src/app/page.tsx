@@ -247,6 +247,8 @@ const ServicesSection = () => {
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="w-full h-96 bg-stockstrail-bg-light blur-185 opacity-40"></div>
+        {/* Pulsing ring (hero-style) */}
+        <div className="absolute left-1/2 top-10 -translate-x-1/2 w-[700px] h-[700px] bg-stockstrail-bg-light rounded-full blur-100 opacity-60 animate-pulse-glow pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -374,6 +376,8 @@ const CalculatorsSection = () => {
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="w-full h-96 bg-stockstrail-bg-light blur-185 opacity-40"></div>
+        {/* Pulsing ring (hero-style) behind Calculators header */}
+        <div className="absolute left-1/2 top-6 -translate-x-1/2 w-[620px] h-[620px] bg-stockstrail-bg-light rounded-full blur-100 opacity-50 animate-pulse-glow pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -493,6 +497,8 @@ const WhyChooseSection = () => {
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="w-full h-96 bg-stockstrail-bg-light blur-185 opacity-40"></div>
+        {/* Pulsing ring (hero-style) behind Why Choose header */}
+        <div className="absolute left-1/2 top-8 -translate-x-1/2 w-[640px] h-[640px] bg-stockstrail-bg-light rounded-full blur-100 opacity-55 animate-pulse-glow pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">

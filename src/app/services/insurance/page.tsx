@@ -107,7 +107,7 @@ export default function Insurance() {
           </div>
 
           {/* SIDEBAR IMAGE + EXAMPLE */}
-          <aside className="rounded-2xl p-6 bg-stockstrail-bg-light/40 border border-white/10">
+          <aside className="rounded-2xl p-10 bg-stockstrail-bg-light/40 border border-white/10">
             <Image
               src="/services/insurance2.webp"
               alt="Insurance overview"
@@ -128,6 +128,21 @@ export default function Insurance() {
               Get personalised insurance advice
             </a>
           </aside>
+        </div>
+      </section>
+
+      {/* CTA after intro overview */}
+      <section className="px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-6xl mx-auto text-center">
+          <a
+            href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 transition-all duration-300 font-work-sans font-medium"
+          >
+            <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
+            Get Personalised Insurance Guidance
+          </a>
         </div>
       </section>
 
@@ -212,6 +227,19 @@ export default function Insurance() {
                 Explore Term Insurance Plans
               </a>
             </div>
+            
+            {/* Mid-page CTA after Term Insurance
+            <div className="mt-8">
+              <a
+                href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-stockstrail-green-accent/5 border-2 border-stockstrail-green-accent/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-bg hover:bg-stockstrail-green-accent transition-all duration-300 font-work-sans font-medium"
+              >
+                <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
+                Talk to an Insurance Expert
+              </a>
+            </div> */}
           </div>
         </div>
       </section>
@@ -220,7 +248,7 @@ export default function Insurance() {
       {/* HEALTH INSURANCE SECTION */}
       {/* ========================================================= */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-12">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* CONTENT */}
           <div className="rounded-2xl p-6 bg-stockstrail-bg-light/30">
             <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
@@ -288,7 +316,7 @@ export default function Insurance() {
                 width={520}
                 height={360}
                 loading="lazy"
-                className="w-full object-contain max-h-80 sm:max-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
+                className="w-full object-contain max-h- sm:max80-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
               />
             </div>
           </div>
@@ -305,7 +333,7 @@ export default function Insurance() {
           </h2>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+            <table className="w-full text-center border-collapse">
               <thead>
                 <tr>
                   <th className="pb-3 text-white/80">Feature</th>
@@ -343,7 +371,7 @@ export default function Insurance() {
             </table>
           </div>
 
-          <p className="text-white/70 mt-6 text-sm">
+          <p className="text-white/70 mt-6 text-sm text-center">
             Both play different roles — term insurance protects family income
             after death while health insurance protects your savings during
             medical emergencies. Most households benefit from having both.

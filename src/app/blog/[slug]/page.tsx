@@ -139,8 +139,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2">
-              <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-stockstrail-green-light/20 hover:bg-white/10  hover:border-stockstrail-green-light/40 hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-500 flex flex-col lg:h-[calc(100vh-8rem)]">
-                <div className="flex-1 overflow-y-auto p-8 scrollable-blog-content">
+              <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-stockstrail-green-light/20 hover:bg-white/10  hover:border-stockstrail-green-light/40 hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-500 flex flex-col lg:h-[calc(100vh-6rem)]">
+                <div className="flex-1 overflow-y-auto overflow-x-hidden p-8 scrollable-blog-content">
                   <article className="space-y-10 text-white">
                     <div className="text-center space-y-8">
                       <h1 className="font-product-sans text-3xl sm:text-4xl lg:text-4xl font-normal uppercase gradient-text leading-tight">
@@ -183,6 +183,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         .scrollable-blog-content::-webkit-scrollbar-thumb:hover { background: rgba(0,255,151,0.7); }
         .blog-content { color: rgba(255,255,255,0.85); font-family: 'Work Sans', system-ui, sans-serif; line-height: 1.85; max-width: none; }
         .blog-content p { margin-bottom: 1.25rem; line-height: 1.85; color: rgba(255,255,255,0.85); font-size: 1.0625rem; }
+        .blog-content img, .blog-content iframe, .blog-content video { max-width: 100%; height: auto; display: block; }
+        .blog-content pre, .blog-content code, .blog-content table { max-width: 100%; overflow-x: auto; }
+        /* Ensure text wraps and long tokens don't cause horizontal overflow */
+        .blog-content, .blog-content * { box-sizing: border-box; }
+        .blog-content { overflow-wrap: anywhere; word-break: break-word; hyphens: auto; }
+        .blog-content p, .blog-content li { overflow-wrap: anywhere; word-break: break-word; }
+        .blog-content code { white-space: pre-wrap; word-break: break-word; }
+        .blog-content pre { white-space: pre-wrap; }
         @media (max-width: 640px) { .blog-content p { font-size: 0.9375rem; margin-bottom: 1.25rem; } }
         .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4, .blog-content h5, .blog-content h6 {
           background: linear-gradient(42deg, #00FF97 0%, #007D42 70.81%);

@@ -81,6 +81,19 @@ export default function Others() {
         </div>
       </section>
 
+          {/* CTA after intro */}
+      <section className="px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-6xl mx-auto text-center">
+          <a
+            href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 transition-all duration-300 font-work-sans font-medium"
+          >
+            <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
+            Explore Additional Services — Get Help
+          </a>
+        </div>
+      </section>
+
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
@@ -248,6 +261,19 @@ export default function Others() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+         {/* Mid-page CTA after 'Our Financial & Protection Services' */}
+      <section className="px-4 sm:px-6 lg:px-8 py-10">
+        <div className="max-w-6xl mx-auto text-center">
+          <a
+            href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-stockstrail-green-accent/5 border-2 border-stockstrail-green-accent/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-bg hover:bg-stockstrail-green-accent transition-all duration-300 font-work-sans font-medium"
+          >
+            <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
+            Get Help Choosing The Right Service
+          </a>
         </div>
       </section>
 
