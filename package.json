@@ -70,5 +70,10 @@
     "three": "^0.181.2",
     "typescript": "^5",
     "vaul": "^1.1.2"
-  }
+  },
+  "browserslist": [
+    "defaults and fully supports es6-module",
+    "not ie 11",
+    "not dead"
+  ]
 }

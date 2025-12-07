@@ -1,5 +1,27 @@
 ﻿import type { Metadata } from "next";
 import "./globals.css";
+import { Inter, Work_Sans, Montserrat } from 'next/font/google';
+
+const inter = Inter({ 
+  subsets: ['latin'], 
+  display: 'swap',
+  variable: '--font-inter',
+  weight: ['400', '600', '700', '800']
+});
+
+const workSans = Work_Sans({ 
+  subsets: ['latin'], 
+  display: 'swap',
+  variable: '--font-work-sans',
+  weight: ['300', '400', '500', '600', '700']
+});
+
+const montserrat = Montserrat({ 
+  subsets: ['latin'], 
+  display: 'swap',
+  variable: '--font-montserrat',
+  weight: ['400', '600', '700']
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://stockstrail.in"),
@@ -49,19 +71,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${workSans.variable} ${montserrat.variable}`}>
       <head>
         {/* Extra meta not included in metadata */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
-        {/* Preconnect to Google Fonts to reduce latency */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* Load fonts with swap to prevent FOUT and unblock rendering */}
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
       </head>
 
       <body className="antialiased">{children}</body>

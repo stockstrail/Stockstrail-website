@@ -20,6 +20,8 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["@radix-ui/react-*"],
   },
+  // Optimize compression
+  compress: true,
 };
 
 export default nextConfig;

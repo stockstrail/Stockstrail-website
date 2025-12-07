@@ -2,9 +2,24 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import Layout from '@/components/layout/Layout';
 import { addReview, getRandomReviews } from '@/lib/reviews';
 import { Review } from '@/lib/supabase';
+
+// Dynamic imports for below-fold sections to reduce initial bundle size
+const TestimonialsSection = dynamic(() => Promise.resolve(TestimonialsSectionComponent), {
+  loading: () => <div className="min-h-screen" />
+});
+const AboutSection = dynamic(() => Promise.resolve(AboutSectionComponent), {
+  loading: () => <div className="min-h-[600px]" />
+});
+const WhyChooseSection = dynamic(() => Promise.resolve(WhyChooseSectionComponent), {
+  loading: () => <div className="min-h-screen" />
+});
+const DisclaimerSection = dynamic(() => Promise.resolve(DisclaimerSectionComponent), {
+  loading: () => <div className="min-h-[400px]" />
+});
 
 const HeroLogo = () => (
   <div className="flex justify-center items-center gap-4 sm:gap-8 group w-full">
@@ -472,7 +487,7 @@ const CalculatorsSection = () => {
 };
 
 // Why Choose Section
-const WhyChooseSection = () => {
+const WhyChooseSectionComponent = () => {
   const features = [
     {
       icon: "https://c.animaapp.com/mfilofkpBLsyal/img/frame-3.svg",
@@ -542,7 +557,7 @@ const WhyChooseSection = () => {
   );
 };
 
-const TestimonialsSection = () => {
+const TestimonialsSectionComponent = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [testimonials, setTestimonials] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
@@ -1008,7 +1023,7 @@ const TestimonialsSection = () => {
 };
 
 // About Section
-const AboutSection = () => {
+const AboutSectionComponent = () => {
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 relative">
       {/* Enhanced background effects */}
@@ -1055,7 +1070,7 @@ const AboutSection = () => {
 };
 
 // Disclaimer Section
-const DisclaimerSection = () => {
+const DisclaimerSectionComponent = () => {
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 relative">
       {/* Enhanced background effects */}
