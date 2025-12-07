@@ -156,13 +156,6 @@
   animation: scroll 65s linear infinite;
   will-change: transform;
   animation-fill-mode: both;
-  /* Pause animation to reduce main-thread work - re-enable if needed */
-  animation-play-state: paused;
-}
-
-/* Resume animation on hover only */
-.partners-section:hover .animate-scroll {
-  animation-play-state: running;
 }
 
 /* Pause marquee on hover */
@@ -220,7 +213,7 @@
     animation: slide-in-from-top 0.3s ease-out;
   }
 
-  /* Bounce (gentle) - pause by default to reduce main-thread work */
+  /* Bounce (gentle) - GPU accelerated */
   @keyframes bounce-gentle {
     0%,
     100% {
@@ -234,18 +227,9 @@
   .animate-bounce-gentle {
     animation: bounce-gentle 3s ease-in-out infinite;
     will-change: transform;
-    /* Disable by default - use reduce-motion media query */
-    animation-play-state: paused;
   }
 
-  /* Enable animations only if user prefers motion */
-  @media (prefers-reduced-motion: no-preference) {
-    .animate-bounce-gentle {
-      animation-play-state: running;
-    }
-  }
-
-  /* Glow pulse for main circle - reduced intensity */
+  /* Glow pulse for main circle - GPU accelerated */
   @keyframes glow-pulse {
     0%,
     100% {
@@ -261,18 +245,9 @@
   .animate-pulse-glow {
     animation: glow-pulse 4s ease-in-out infinite;
     will-change: box-shadow;
-    /* Pause by default to reduce main-thread work */
-    animation-play-state: paused;
   }
 
-  /* Enable only if motion is preferred */
-  @media (prefers-reduced-motion: no-preference) {
-    .animate-pulse-glow {
-      animation-play-state: running;
-    }
-  }
-
-  /* Very subtle grid drift – paused by default */
+  /* Grid drift animation - GPU accelerated with transform3d */
   @keyframes grid-move {
     0% {
       transform: translate3d(0, 0, 0);
@@ -285,15 +260,6 @@
   .grid-mesh {
     will-change: transform;
     animation: grid-move 60s linear infinite;
-    /* Disable animation to reduce main-thread work */
-    animation-play-state: paused;
-  }
-
-  /* Re-enable grid animation for users who prefer motion */
-  @media (prefers-reduced-motion: no-preference) {
-    .grid-mesh {
-      animation-play-state: running;
-    }
   }
 }
 
