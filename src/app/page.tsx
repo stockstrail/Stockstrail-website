@@ -16,6 +16,7 @@ const HeroLogo = () => (
       width={128}
       height={128}
       priority
+      sizes="(max-width: 640px) 128px, 0px"
     />
     {/* Desktop/Laptop version */}
     <Image
@@ -25,6 +26,7 @@ const HeroLogo = () => (
       width={300}
       height={300}
       priority
+      sizes="(max-width: 768px) 144px, (max-width: 1024px) 192px, 300px"
     />
   </div>
 );
@@ -183,6 +185,8 @@ const PartnerLogosSection = () => {
                   width={192}
                   height={92}
                   draggable={false}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             ))}

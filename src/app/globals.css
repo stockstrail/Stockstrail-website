@@ -216,6 +216,15 @@
     animation: slide-in-from-top 0.3s ease-out;
   }
 
+  /* Reduce animation intensity on initial page load - defer bounce animations */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-slide-in-from-top,
+    .animate-bounce-gentle,
+    .animate-bounce {
+      animation: none;
+    }
+  }
+
   /* Bounce (gentle) */
   @keyframes bounce-gentle {
     0%,
