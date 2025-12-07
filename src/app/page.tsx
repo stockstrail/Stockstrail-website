@@ -31,7 +31,7 @@ const HeroLogo = () => (
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-8 sm:px-12 lg:px-16 overflow-hidden">
+    <section className="relative min-h-screen flex items-start lg:items-center justify-center px-8 sm:px-12 lg:px-16 pt-4 sm:pt-8 lg:pt-0 overflow-hidden">
       {/* Background layer */}
       <div className="absolute inset-0">
         {/* Main animated blur circle with glow */}
