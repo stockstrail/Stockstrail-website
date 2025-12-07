@@ -1101,15 +1101,17 @@ const DisclaimerSection = () => {
 export default function Home() {
   return (
     <Layout>
-      {/* SEO handled via Next.js metadata in `src/app/layout.tsx` */}
-      <HeroSection />
-      <PartnerLogosSection />
-      <ServicesSection />
-      <CalculatorsSection />
-      <WhyChooseSection />
-      <TestimonialsSection />
-      <AboutSection />
-      <DisclaimerSection />
+      <div className="overflow-x-hidden">
+        {/* SEO handled via Next.js metadata in `src/app/layout.tsx` */}
+        <HeroSection />
+        <PartnerLogosSection />
+        <ServicesSection />
+        <CalculatorsSection />
+        <WhyChooseSection />
+        <TestimonialsSection />
+        <AboutSection />
+        <DisclaimerSection />
+      </div>
     </Layout>
   );
 }
