@@ -179,7 +179,7 @@
     animation-timing-function: linear;
   }
 
-  /* Fade in animation */
+  /* Fade in animation - quick one-time on mount */
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -196,7 +196,7 @@
     animation-delay: var(--animation-delay, 0ms);
   }
 
-  /* Slide in from top */
+  /* Slide in from top - quick one-time on mount */
   @keyframes slide-in-from-top {
     from {
       opacity: 0;
@@ -212,7 +212,7 @@
     animation: slide-in-from-top 0.3s ease-out;
   }
 
-  /* Bounce (gentle) */
+  /* Bounce (gentle) - reduce performance impact */
   @keyframes bounce-gentle {
     0%,
     100% {
@@ -225,9 +225,10 @@
 
   .animate-bounce-gentle {
     animation: bounce-gentle 3s ease-in-out infinite;
+    will-change: auto;
   }
 
-  /* Glow pulse */
+  /* Glow pulse - use box-shadow sparingly */
   @keyframes glow-pulse {
     0%,
     100% {
@@ -242,9 +243,10 @@
 
   .animate-pulse-glow {
     animation: glow-pulse 4s ease-in-out infinite;
+    will-change: auto;
   }
 
-  /* Grid drift */
+  /* Grid drift - performance intensive, use sparingly */
   @keyframes grid-move {
     0% {
       transform: translate3d(0, 0, 0);
@@ -255,11 +257,11 @@
   }
 
   .grid-mesh {
-    will-change: transform;
+    will-change: auto;
     animation: grid-move 60s linear infinite;
   }
 
-  /* Reduce motion preference */
+  /* Reduce motion preference - disable all animations for accessibility */
   @media (prefers-reduced-motion: reduce) {
     .animate-slide-in-from-top,
     .animate-bounce-gentle,
@@ -269,6 +271,7 @@
     .animate-pulse-glow,
     .grid-mesh {
       animation: none !important;
+      will-change: auto;
     }
   }
 }

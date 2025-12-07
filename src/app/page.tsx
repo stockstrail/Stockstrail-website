@@ -51,25 +51,25 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-start lg:items-center justify-center px-8 sm:px-12 lg:px-16 pt-8 sm:pt-8 lg:pt-0 overflow-hidden">
       {/* Background layer */}
       <div className="absolute inset-0">
-        {/* Main animated blur circle with glow */}
-        <div className="absolute w-[871px] h-[887px] bg-stockstrail-bg-light rounded-full blur-100 opacity-60 left-1/2 top-20 -translate-x-1/2 animate-pulse-glow" />
+        {/* Main animated blur circle with glow - DISABLED for performance */}
+        <div className="absolute w-[871px] h-[887px] bg-stockstrail-bg-light rounded-full blur-100 opacity-60 left-1/2 top-20 -translate-x-1/2" />
 
-        {/* Floating particles */}
-        <div className="absolute top-20 left-10 w-2 h-2 bg-stockstrail-green-light/40 rounded-full animate-bounce-gentle" />
-        <div className="absolute top-40 right-20 w-3 h-3 bg-stockstrail-green-accent/30 rounded-full animate-ping" />
-        <div className="absolute bottom-40 left-20 w-4 h-4 bg-white/20 rounded-full animate-bounce" />
-        <div className="absolute top-1/2 right-10 w-2 h-2 bg-stockstrail-green-light/50 rounded-full animate-pulse" />
-        <div className="absolute bottom-20 right-1/3 w-3 h-3 bg-stockstrail-green-accent/40 rounded-full animate-bounce-gentle" />
+        {/* Floating particles - DISABLED for performance */}
+        <div className="absolute top-20 left-10 w-2 h-2 bg-stockstrail-green-light/40 rounded-full" />
+        <div className="absolute top-40 right-20 w-3 h-3 bg-stockstrail-green-accent/30 rounded-full" />
+        <div className="absolute bottom-40 left-20 w-4 h-4 bg-white/20 rounded-full" />
+        <div className="absolute top-1/2 right-10 w-2 h-2 bg-stockstrail-green-light/50 rounded-full" />
+        <div className="absolute bottom-20 right-1/3 w-3 h-3 bg-stockstrail-green-accent/40 rounded-full" />
 
         {/* Gradient mesh overlay */}
         <div className="absolute inset-0 opacity-10">
           <div className="w-full h-full bg-linear-to-br from-stockstrail-green-light/20 via-transparent to-stockstrail-green-accent/10" />
         </div>
 
-        {/* Subtle animated grid pattern */}
+        {/* Subtle animated grid pattern - DISABLED for performance */}
         <div className="absolute inset-0 opacity-[0.03]">
           <div
-            className="w-full h-full grid-mesh"
+            className=""
             style={{
               backgroundImage:
                 "radial-gradient(circle at 1px 1px, rgba(0,255,151,0.25) 1px, transparent 0)",
@@ -178,9 +178,9 @@ const PartnerLogosSection = () => {
   <section className="py-16 relative overflow-hidden lg:pt-32">
       {/* Enhanced background effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-10 left-1/4 w-4 h-4 bg-stockstrail-green-light/20 rounded-full animate-ping"></div>
-        <div className="absolute bottom-10 right-1/4 w-3 h-3 bg-stockstrail-green-accent/30 rounded-full animate-bounce"></div>
-        <div className="absolute top-1/2 left-10 w-2 h-2 bg-white/20 rounded-full animate-pulse"></div>
+        <div className="absolute top-10 left-1/4 w-4 h-4 bg-stockstrail-green-light/20 rounded-full"></div>
+        <div className="absolute bottom-10 right-1/4 w-3 h-3 bg-stockstrail-green-accent/30 rounded-full"></div>
+        <div className="absolute top-1/2 left-10 w-2 h-2 bg-white/20 rounded-full"></div>
       </div>
       
       <div className="relative z-10">
@@ -267,7 +267,7 @@ const ServicesSection = () => {
       <div className="absolute inset-0">
         <div className="w-full h-96 bg-stockstrail-bg-light blur-185 opacity-40"></div>
         {/* Pulsing ring (hero-style) */}
-        <div className="absolute left-1/2 top-10 -translate-x-1/2 w-[700px] h-[700px] bg-stockstrail-bg-light rounded-full blur-100 opacity-60 animate-pulse-glow pointer-events-none" />
+        <div className="absolute left-1/2 top-10 -translate-x-1/2 w-[700px] h-[700px] bg-stockstrail-bg-light rounded-full blur-100 opacity-60 pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -396,7 +396,7 @@ const CalculatorsSection = () => {
       <div className="absolute inset-0">
         <div className="w-full h-96 bg-stockstrail-bg-light blur-185 opacity-40"></div>
         {/* Pulsing ring (hero-style) behind Calculators header */}
-        <div className="absolute left-1/2 top-6 -translate-x-1/2 w-[620px] h-[620px] bg-stockstrail-bg-light rounded-full blur-100 opacity-50 animate-pulse-glow pointer-events-none" />
+        <div className="absolute left-1/2 top-6 -translate-x-1/2 w-[620px] h-[620px] bg-stockstrail-bg-light rounded-full blur-100 opacity-50 pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -517,7 +517,7 @@ const WhyChooseSectionComponent = () => {
       <div className="absolute inset-0">
         <div className="w-full h-96 bg-stockstrail-bg-light blur-185 opacity-40"></div>
         {/* Pulsing ring (hero-style) behind Why Choose header */}
-        <div className="absolute left-1/2 top-8 -translate-x-1/2 w-[640px] h-[640px] bg-stockstrail-bg-light rounded-full blur-100 opacity-55 animate-pulse-glow pointer-events-none" />
+        <div className="absolute left-1/2 top-8 -translate-x-1/2 w-[640px] h-[640px] bg-stockstrail-bg-light rounded-full blur-100 opacity-55 pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -564,8 +564,10 @@ const TestimonialsSectionComponent = () => {
   const [submitting, setSubmitting] = useState(false);
   const [dragStartX, setDragStartX] = useState<number | null>(null);
   const [dragDelta, setDragDelta] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
   const dragging = React.useRef(false);
   const lastWheelTs = React.useRef(0);
+  const sectionRef = React.useRef<HTMLDivElement>(null);
 
   const defaultTestimonials = useMemo(() => [
     {
@@ -641,12 +643,35 @@ const TestimonialsSectionComponent = () => {
   }, [defaultTestimonials]);
 
   useEffect(() => {
-    if (loading || testimonials.length === 0) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    // Only run interval when section is visible
+    if (loading || testimonials.length === 0 || !isVisible) return;
+    
     const intervalId = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 3000);
+    
     return () => clearInterval(intervalId);
-  }, [loading, testimonials.length]);
+  }, [loading, testimonials.length, isVisible]);
 
   const renderStars = (rating: number) => {
     const stars = [];
@@ -762,12 +787,12 @@ const TestimonialsSectionComponent = () => {
   };
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 relative">
-      {/* Background Effects */}
+    <section className="py-24 px-4 sm:px-6 lg:px-8 relative" ref={sectionRef}>
+      {/* Background Effects - MINIMAL to reduce main-thread work */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-4 h-4 bg-stockstrail-green-light/20 rounded-full animate-ping"></div>
-        <div className="absolute bottom-20 left-20 w-3 h-3 bg-stockstrail-green-accent/30 rounded-full animate-bounce"></div>
-        <div className="absolute top-1/2 right-10 w-2 h-2 bg-white/20 rounded-full animate-pulse"></div>
+        <div className="absolute top-20 right-20 w-4 h-4 bg-stockstrail-green-light/20 rounded-full"></div>
+        <div className="absolute bottom-20 left-20 w-3 h-3 bg-stockstrail-green-accent/30 rounded-full"></div>
+        <div className="absolute top-1/2 right-10 w-2 h-2 bg-white/20 rounded-full"></div>
       </div>
 
       <div className="max-w-4xl mx-auto text-center">
@@ -1028,10 +1053,10 @@ const AboutSectionComponent = () => {
     <section className="py-24 px-4 sm:px-6 lg:px-8 relative">
       {/* Enhanced background effects */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-20 left-20 w-4 h-4 bg-stockstrail-green-light/20 rounded-full animate-ping"></div>
-        <div className="absolute bottom-20 right-20 w-3 h-3 bg-stockstrail-green-accent/30 rounded-full animate-bounce"></div>
-        <div className="absolute top-1/2 left-10 w-2 h-2 bg-white/20 rounded-full animate-pulse"></div>
-        <div className="absolute top-1/3 right-10 w-5 h-5 bg-stockstrail-green-light/10 rounded-full animate-bounce-gentle"></div>
+        <div className="absolute top-20 left-20 w-4 h-4 bg-stockstrail-green-light/20 rounded-full"></div>
+        <div className="absolute bottom-20 right-20 w-3 h-3 bg-stockstrail-green-accent/30 rounded-full"></div>
+        <div className="absolute top-1/2 left-10 w-2 h-2 bg-white/20 rounded-full"></div>
+        <div className="absolute top-1/3 right-10 w-5 h-5 bg-stockstrail-green-light/10 rounded-full"></div>
       </div>
       
       <div className="max-w-6xl mx-auto text-center relative z-10">
@@ -1075,9 +1100,9 @@ const DisclaimerSectionComponent = () => {
     <section className="py-24 px-4 sm:px-6 lg:px-8 relative">
       {/* Enhanced background effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-4 h-4 bg-stockstrail-green-light/20 rounded-full animate-ping"></div>
-        <div className="absolute bottom-20 left-20 w-3 h-3 bg-stockstrail-green-accent/30 rounded-full animate-bounce"></div>
-        <div className="absolute top-1/2 right-10 w-2 h-2 bg-white/20 rounded-full animate-pulse"></div>
+        <div className="absolute top-20 right-20 w-4 h-4 bg-stockstrail-green-light/20 rounded-full"></div>
+        <div className="absolute bottom-20 left-20 w-3 h-3 bg-stockstrail-green-accent/30 rounded-full"></div>
+        <div className="absolute top-1/2 right-10 w-2 h-2 bg-white/20 rounded-full"></div>
       </div>
       
       <div className="max-w-6xl mx-auto text-center">
