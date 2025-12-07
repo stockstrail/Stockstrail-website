@@ -10,6 +10,11 @@ export const metadata: Metadata = {
     "financial planning, investment, mutual funds, insurance, loan, fixed deposit, stockstrail",
   authors: [{ name: "Stockstrail" }],
 
+  // Resource hints for font performance
+  other: {
+    "dns-prefetch": ["https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+  },
+
   // FAVICONS
   icons: {
     icon: [
@@ -53,6 +58,27 @@ export default function RootLayout({
       <head>
         {/* Extra meta not included in metadata */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        {/* DNS prefetch for early domain resolution */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        
+        {/* Preconnect to establish early connection for font resources */}
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        
+        {/* Load fonts with display=swap for fast fallback text rendering */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Work+Sans:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap"
+        />
       </head>
 
       <body className="antialiased">{children}</body>

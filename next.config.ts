@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Enable experimental features if needed
+  // Enable experimental features and optimize for modern browsers
   experimental: {
     optimizePackageImports: ["@radix-ui/react-*"],
   },

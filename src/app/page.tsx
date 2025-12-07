@@ -21,7 +21,7 @@ const HeroLogo = () => (
     <Image
       src="/1..gif"
       alt="Stockstrail Logo"
-      className="hidden sm:block w-36 h-36 lg:w-52 lg:h-52 group-hover:scale-110 transition-transform duration-500 object-contain"
+      className="hidden sm:block w-36 h-36 lg:w-48 lg:h-48 group-hover:scale-110 transition-transform duration-500 object-contain"
       width={300}
       height={300}
       priority

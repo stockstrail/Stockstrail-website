@@ -1,7 +1,4 @@
-/* === Font imports === */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+/* === Font imports removed - preloaded in layout.tsx for non-blocking load === */
 
 /* Tailwind v4 core */
 @import "tailwindcss";
@@ -145,7 +142,7 @@
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
-  /* Scrolling animation for partner logos */
+  /* Scrolling animation for partner logos - GPU accelerated */
   @keyframes scroll {
     0% {
       transform: translateX(0%);
@@ -157,8 +154,15 @@
 
 .animate-scroll {
   animation: scroll 65s linear infinite;
-  will-change: transform; /* Optimize for smooth animation */
+  will-change: transform;
   animation-fill-mode: both;
+  /* Pause animation to reduce main-thread work - re-enable if needed */
+  animation-play-state: paused;
+}
+
+/* Resume animation on hover only */
+.partners-section:hover .animate-scroll {
+  animation-play-state: running;
 }
 
 /* Pause marquee on hover */
@@ -216,7 +220,7 @@
     animation: slide-in-from-top 0.3s ease-out;
   }
 
-  /* Bounce (gentle) */
+  /* Bounce (gentle) - pause by default to reduce main-thread work */
   @keyframes bounce-gentle {
     0%,
     100% {
@@ -229,9 +233,19 @@
 
   .animate-bounce-gentle {
     animation: bounce-gentle 3s ease-in-out infinite;
+    will-change: transform;
+    /* Disable by default - use reduce-motion media query */
+    animation-play-state: paused;
   }
 
-  /* Glow pulse for main circle (keep, but soft) */
+  /* Enable animations only if user prefers motion */
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-bounce-gentle {
+      animation-play-state: running;
+    }
+  }
+
+  /* Glow pulse for main circle - reduced intensity */
   @keyframes glow-pulse {
     0%,
     100% {
@@ -246,9 +260,19 @@
 
   .animate-pulse-glow {
     animation: glow-pulse 4s ease-in-out infinite;
+    will-change: box-shadow;
+    /* Pause by default to reduce main-thread work */
+    animation-play-state: paused;
   }
 
-  /* Very subtle grid drift – MUCH softer than before */
+  /* Enable only if motion is preferred */
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-pulse-glow {
+      animation-play-state: running;
+    }
+  }
+
+  /* Very subtle grid drift – paused by default */
   @keyframes grid-move {
     0% {
       transform: translate3d(0, 0, 0);
@@ -261,6 +285,15 @@
   .grid-mesh {
     will-change: transform;
     animation: grid-move 60s linear infinite;
+    /* Disable animation to reduce main-thread work */
+    animation-play-state: paused;
+  }
+
+  /* Re-enable grid animation for users who prefer motion */
+  @media (prefers-reduced-motion: no-preference) {
+    .grid-mesh {
+      animation-play-state: running;
+    }
   }
 }
 
