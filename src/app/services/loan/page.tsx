@@ -3,19 +3,20 @@ import Image from "next/image";
 import Layout from "@/components/layout/Layout";
 
 export const metadata: Metadata = {
+            
   title: "Loans — LAMF, Business & Home Loans | Stockstrail",
   description:
     "Explore Loan Against Mutual Funds, business loans, and home loans with expert guidance, minimal documentation, and competitive rates from Stockstrail.",
   keywords:
     "loan against mutual funds, LAMF, business loan, home loan, personal loan, Stockstrail loans",
   alternates: {
-    canonical: "https://stockstrail.com/services/loan",
+    canonical: "https://stockstrail.in/services/loan",
   },
   openGraph: {
     title: "Loans — LAMF, Business & Home Loans | Stockstrail",
     description:
       "Access funds without selling investments. Explore LAMF, business loans & home loans with expert assistance.",
-    url: "https://stockstrail.com/services/loan",
+    url: "https://stockstrail.in/services/loan",
     locale: "en_IN",
     type: "website",
     images: ["/stockstrail.png"],
@@ -128,6 +129,8 @@ export default function Loan() {
 
             <a
               href="/contact"
+              target="_blank"
+            rel="noopener noreferrer"
               className="text-stockstrail-green-light underline focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-stockstrail-green-light"
             >
               Get personalised loan advice
@@ -141,6 +144,8 @@ export default function Loan() {
         <div className="max-w-6xl mx-auto text-center">
           <a
             href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 transition-all duration-300 font-work-sans font-medium"
           >
             <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
@@ -321,6 +326,8 @@ export default function Loan() {
         <div className="max-w-6xl mx-auto text-center">
           <a
             href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 bg-stockstrail-green-accent/5 border-2 border-stockstrail-green-accent/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-bg hover:bg-stockstrail-green-accent transition-all duration-300 font-work-sans font-medium"
           >
             <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
@@ -469,6 +476,8 @@ export default function Loan() {
 
           <a
             href="/contact"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 transition-all duration-300 font-work-sans"
           >
             Get personalised loan advice

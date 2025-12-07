@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   keywords:
     "term insurance, health insurance, life cover, family protection, Stockstrail insurance",
   alternates: {
-    canonical: "https://stockstrail.com/services/insurance",
+    canonical: "https://stockstrail.in/services/insurance",
   },
   openGraph: {
     title: "Insurance — Term & Health Plans | Stockstrail",
     description:
       "Secure your family’s future with Term & Health Insurance. Compare plans and get guidance from Stockstrail.",
-    url: "https://stockstrail.com/services/insurance",
+    url: "https://stockstrail.in/services/insurance",
     locale: "en_IN",
     type: "website",
     images: ["/stockstrail.png"],
@@ -123,6 +123,8 @@ export default function Insurance() {
             </p>
             <a
               href="https://insurance.assetplus.in/284122"
+              target="_blank"
+            rel="noopener noreferrer"
               className="inline-block text-stockstrail-green-light underline focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-stockstrail-green-light"
             >
               Get personalised insurance advice
@@ -428,6 +430,8 @@ export default function Insurance() {
 
           <a
             href="https://insurance.assetplus.in/284122"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 transition-all font-work-sans"
           >
             Get personalised insurance advice

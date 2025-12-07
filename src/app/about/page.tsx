@@ -138,7 +138,7 @@ export default function About() {
           <div className="bg-white/5 border border-white/10 rounded-2xl p-8 sm:p-10 hover:border-stockstrail-green-light/50 transition-colors duration-300">
             <div className="mb-6">
               <h3 className="text-3xl font-product-sans text-stockstrail-green-light mb-2">Vikrant Bhardwaj</h3>
-              <p className="text-white/70 text-lg">AMFI-Registered Mutual Fund Distributor | Certified Financial Professional</p>
+              <p className="text-white/70 text-lg">AMFI-Registered Mutual Fund Distributor</p>
             </div>
 
             <p className="text-white/80 text-lg leading-relaxed mb-6">

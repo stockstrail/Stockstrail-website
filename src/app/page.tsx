@@ -10,11 +10,11 @@ const HeroLogo = () => (
   <div className="flex justify-center items-center gap-4 sm:gap-8 group w-full">
     {/* Mobile version */}
     <Image
-      src="/stockstrail_logo.gif"
+      src="/1..gif"
       alt="Stockstrail Logo"
-      className="w-32 h-32 sm:hidden group-hover:scale-110 transition-transform duration-500 object-contain"
-      width={128}
-      height={128}
+      className="w-24 h-24 sm:hidden group-hover:scale-110 transition-transform duration-500 object-contain"
+      width={96}
+      height={96}
       priority
     />
     {/* Desktop/Laptop version */}
@@ -22,8 +22,8 @@ const HeroLogo = () => (
       src="/1..gif"
       alt="Stockstrail Logo"
       className="hidden sm:block w-36 h-36 lg:w-52 lg:h-52 group-hover:scale-110 transition-transform duration-500 object-contain"
-      width={320}
-      height={320}
+      width={300}
+      height={300}
       priority
     />
   </div>
@@ -31,7 +31,7 @@ const HeroLogo = () => (
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 sm:px-6 lg:px-6 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center px-8 sm:px-12 lg:px-16 overflow-hidden">
       {/* Background layer */}
       <div className="absolute inset-0">
         {/* Main animated blur circle with glow */}
