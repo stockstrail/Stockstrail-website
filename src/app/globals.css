@@ -1,4 +1,7 @@
-/* === Font imports removed - preloaded in layout.tsx for non-blocking load === */
+/* === Font imports === */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
 
 /* Tailwind v4 core */
 @import "tailwindcss";
@@ -142,7 +145,7 @@
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
-  /* Scrolling animation for partner logos - GPU accelerated */
+  /* Scrolling animation for partner logos */
   @keyframes scroll {
     0% {
       transform: translateX(0%);
@@ -154,7 +157,7 @@
 
 .animate-scroll {
   animation: scroll 65s linear infinite;
-  will-change: transform;
+  will-change: transform; /* Optimize for smooth animation */
   animation-fill-mode: both;
 }
 
@@ -213,7 +216,7 @@
     animation: slide-in-from-top 0.3s ease-out;
   }
 
-  /* Bounce (gentle) - GPU accelerated */
+  /* Bounce (gentle) */
   @keyframes bounce-gentle {
     0%,
     100% {
@@ -226,10 +229,9 @@
 
   .animate-bounce-gentle {
     animation: bounce-gentle 3s ease-in-out infinite;
-    will-change: transform;
   }
 
-  /* Glow pulse for main circle - GPU accelerated */
+  /* Glow pulse for main circle (keep, but soft) */
   @keyframes glow-pulse {
     0%,
     100% {
@@ -244,10 +246,9 @@
 
   .animate-pulse-glow {
     animation: glow-pulse 4s ease-in-out infinite;
-    will-change: box-shadow;
   }
 
-  /* Grid drift animation - GPU accelerated with transform3d */
+  /* Very subtle grid drift – MUCH softer than before */
   @keyframes grid-move {
     0% {
       transform: translate3d(0, 0, 0);
