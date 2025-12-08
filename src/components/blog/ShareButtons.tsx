@@ -3,12 +3,11 @@
 import { MessageCircle, Send, Facebook, Linkedin, Instagram, Share2 } from 'lucide-react';
 
 export default function ShareButtons({ title, url }: { title: string; url: string }) {
-  const encodedTitle = encodeURIComponent(title);
   const encodedUrl = encodeURIComponent(url);
 
   const shareLinks = {
-    whatsapp: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`,
-    telegram: `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}`,
+    whatsapp: `https://wa.me/?text=${encodedUrl}`,
+    telegram: `https://t.me/share/url?url=${encodedUrl}`,
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
     instagram: `https://www.instagram.com/`
