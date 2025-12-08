@@ -32,11 +32,14 @@ export const metadata: Metadata = {
     "financial planning, investment, mutual funds, insurance, loan, fixed deposit, stockstrail",
   authors: [{ name: "Stockstrail" }],
 
-  // FAVICONS
+  // FAVICONS with multiple formats for browser compatibility
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },  
-    ],                      
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/stockstrail.png", type: "image/png", sizes: "32x32" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/stockstrail.png",
   },
 
   openGraph: {
@@ -48,7 +51,7 @@ export const metadata: Metadata = {
       "Achieve financial independence with expert financial planning and investment guidance.",
     images: [
       {
-        url: "/og-default.png",
+        url: "/favcon.svg",
         width: 1200,
         height: 630,
         alt: "Stockstrail OG Image",
@@ -61,7 +64,7 @@ export const metadata: Metadata = {
     title: "Stockstrail - Financial Planning & Investment Guidance",
     description:
       "Achieve financial independence with expert financial planning and investment guidance.",
-    images: ["/og-default.png"],
+    images: ["/favcon.svg"],
   },
 };
 
