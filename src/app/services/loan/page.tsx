@@ -3,20 +3,21 @@ import Image from "next/image";
 import Layout from "@/components/layout/Layout";
 
 export const metadata: Metadata = {
-            
+            target="_blank"
+            rel="noopener noreferrer"
   title: "Loans — LAMF, Business & Home Loans | Stockstrail",
   description:
     "Explore Loan Against Mutual Funds, business loans, and home loans with expert guidance, minimal documentation, and competitive rates from Stockstrail.",
   keywords:
     "loan against mutual funds, LAMF, business loan, home loan, personal loan, Stockstrail loans",
   alternates: {
-    canonical: "https://stockstrail.in/services/loan",
+    canonical: "https://stockstrail.com/services/loan",
   },
   openGraph: {
     title: "Loans — LAMF, Business & Home Loans | Stockstrail",
     description:
       "Access funds without selling investments. Explore LAMF, business loans & home loans with expert assistance.",
-    url: "https://stockstrail.in/services/loan",
+    url: "https://stockstrail.com/services/loan",
     locale: "en_IN",
     type: "website",
     images: ["/stockstrail.png"],
@@ -111,16 +112,14 @@ export default function Loan() {
           </div>
 
           {/* SIDEBAR */}
-          <aside className="rounded-2xl p-6 sm:p-16 bg-stockstrail-bg-light/40 border border-white/10">
+          <aside className="rounded-2xl p-16 bg-stockstrail-bg-light/40 border border-white/10">
             <Image
               src="/services/loan2.webp"
               alt="Loan Overview"
               width={480}
               height={320}
               loading="lazy"
-              className="w-full h-36 sm:h-44 md:h-56 object-cover rounded-lg mb-4 bg-white/5"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-              quality={85}
+              className="w-full h-36 sm:h-44 md:h-56 object-contain rounded-lg mb-4 bg-white/5"
             />
 
             <h4 className="text-white font-semibold mb-3">Quick Example</h4>
@@ -131,8 +130,6 @@ export default function Loan() {
 
             <a
               href="/contact"
-              target="_blank"
-            rel="noopener noreferrer"
               className="text-stockstrail-green-light underline focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-stockstrail-green-light"
             >
               Get personalised loan advice
@@ -328,8 +325,6 @@ export default function Loan() {
         <div className="max-w-6xl mx-auto text-center">
           <a
             href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 bg-stockstrail-green-accent/5 border-2 border-stockstrail-green-accent/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-bg hover:bg-stockstrail-green-accent transition-all duration-300 font-work-sans font-medium"
           >
             <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
@@ -478,8 +473,6 @@ export default function Loan() {
 
           <a
             href="/contact"
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 transition-all duration-300 font-work-sans"
           >
             Get personalised loan advice

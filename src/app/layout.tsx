@@ -91,28 +91,9 @@ export default function RootLayout({
       className={`${inter.variable} ${workSans.variable} ${montserrat.variable}`}
     >
       <head>
-        {/* Enhanced Viewport for iPhone & Mobile Devices */}
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover"
-        />
-        
-        {/* iPhone & iOS Specific */}
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="Stockstrail" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        
-        {/* Android Chrome */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#00ff97" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        
-        {/* Windows */}
         <meta name="msapplication-TileColor" content="#012928" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
-        
-        {/* Disable automatic phone number detection */}
-        <meta name="format-detection" content="telephone=no" />
 
         {/* All favicon links are now controlled by metadata.icons */}
       </head>

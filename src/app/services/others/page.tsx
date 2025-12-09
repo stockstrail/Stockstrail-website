@@ -46,7 +46,7 @@ export default function Others() {
 
       <section className="relative px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
               <Image
                 src="/services/others2.webp"
@@ -54,9 +54,7 @@ export default function Others() {
                 width={720}
                 height={420}
                 loading="lazy"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
-                quality={85}
+                className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
               />
             </div>
 
@@ -99,6 +97,8 @@ export default function Others() {
       </section>
 
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
+            target="_blank"
+            rel="noopener noreferrer"
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
             Why Choose These Additional Services?
@@ -273,8 +273,6 @@ export default function Others() {
         <div className="max-w-6xl mx-auto text-center">
           <a
             href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 bg-stockstrail-green-accent/5 border-2 border-stockstrail-green-accent/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-bg hover:bg-stockstrail-green-accent transition-all duration-300 font-work-sans font-medium"
           >
             <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
@@ -398,8 +396,6 @@ export default function Others() {
           </p>
           <a
             href="/contact"
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 transition-all duration-300 font-work-sans focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-stockstrail-green-light"
           >
             Get Personalized Recommendations

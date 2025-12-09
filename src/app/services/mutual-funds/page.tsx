@@ -45,7 +45,7 @@ export default function MutualFunds() {
 
       <section className="relative px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
               <Image
                 src="/services/mf2.webp"
@@ -53,9 +53,7 @@ export default function MutualFunds() {
                 loading="lazy"
                 width={720}
                 height={420}
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
-                quality={85}
+                className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
               />
             </div>
 
@@ -505,8 +503,6 @@ export default function MutualFunds() {
           <div className="mt-12 text-center">
             <a
               href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
-              target="_blank"
-            rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-110 transition-all duration-300 font-work-sans font-medium group"
             >
               <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full group-hover:scale-125 transition-transform duration-300"></div>
