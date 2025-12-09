@@ -31,7 +31,7 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
   return (
     <div id={id} className="grid grid-cols-1 gap-10 items-start group">
       {/* Image on top */}
-      <div className="justify-self-center w-full">
+      <div className="justify-self-center">
         <div className="w-full max-w-[420px] h-[200px] sm:h-[250px] md:h-[300px] rounded-xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group-hover:border-stockstrail-green-light group-hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
           <Image
             src={imageSrc}
@@ -40,8 +40,6 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
             width={420}
             height={300}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 420px"
-            quality={85}
           />
         </div>
       </div>
