@@ -32,14 +32,17 @@ export const metadata: Metadata = {
     "financial planning, investment, mutual funds, insurance, loan, fixed deposit, stockstrail",
   authors: [{ name: "Stockstrail" }],
 
-  // FAVICONS with multiple formats for browser compatibility
+  // FAVICONS with multiple formats for cross-browser compatibility
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
       { url: "/stockstrail.png", type: "image/png", sizes: "32x32" },
+      { url: "/stockstrail.png", type: "image/png", sizes: "192x192" },
     ],
     shortcut: "/favicon.svg",
-    apple: "/stockstrail.png",
+    apple: [
+      { url: "/stockstrail.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 
   openGraph: {
@@ -78,6 +81,17 @@ export default function RootLayout({
       <head>
         {/* Extra meta not included in metadata */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        {/* Favicon with cross-browser support */}
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/stockstrail.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/stockstrail.png" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/stockstrail.png" sizes="180x180" />
+        <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
+        
+        {/* Browser theme color */}
+        <meta name="theme-color" content="#00ff97" />
+        <meta name="msapplication-TileColor" content="#012928" />
       </head>
 
       <body className="antialiased">{children}</body>

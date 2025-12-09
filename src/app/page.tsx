@@ -532,7 +532,7 @@ const WhyChooseSectionComponent = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="translate-y-[-1rem] animate-fade-in opacity-0 bg-[#012928] border-2 border-[#ffffff21] backdrop-blur-[50px] backdrop-brightness-100 [-webkit-backdrop-filter:blur(50px)_brightness(100%)] rounded-[100px] md:rounded-[200px] h-[250px] md:h-[307px] w-full max-w-[250px] mx-auto transition-all duration-300 hover:border-white hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:shadow-white/20 hover:scale-105 group cursor-pointer"
+              className="-translate-y-4 animate-fade-in opacity-0 bg-stockstrail-bg border-2 border-[#ffffff21] backdrop-blur-[50px] backdrop-brightness-100 [-webkit-backdrop-filter:blur(50px)_brightness(100%)] rounded-[100px] md:rounded-[200px] h-[250px] md:h-[307px] w-full max-w-[250px] mx-auto transition-all duration-300 hover:border-white hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:shadow-white/20 hover:scale-105 group cursor-pointer"
               style={
                 { "--animation-delay": feature.delay } as React.CSSProperties
               }
