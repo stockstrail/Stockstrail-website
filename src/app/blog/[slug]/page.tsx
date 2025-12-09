@@ -191,20 +191,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <Layout>
-      <div className="pt-20 pb-24 px-4 sm:px-6 lg:px-8">
+      <div className="pt-20 pb-24 px-3 sm:px-6 lg:px-8 safe-area-inset">
         <div className="max-w-7xl mx-auto">
           <Link href="/blog" className="inline-flex items-center text-white/50 hover:text-stockstrail-green-light mb-16 transition-colors duration-300 font-work-sans text-sm sm:text-base group">
             <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
             Back to All Posts
           </Link>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
             <div className="lg:col-span-2">
               <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-stockstrail-green-light/20 hover:bg-white/10  hover:border-stockstrail-green-light/40 hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-500 flex flex-col lg:h-[calc(100vh-6rem)]">
-                <div className="flex-1 overflow-y-auto overflow-x-hidden p-8 scrollable-blog-content">
+                <div className="flex-1 overflow-y-auto overflow-x-hidden p-6 sm:p-8 scrollable-blog-content">
                   <article className="space-y-10 text-white">
                     <div className="text-center space-y-8">
-                      <h1 className="font-product-sans text-3xl sm:text-4xl lg:text-4xl font-normal uppercase gradient-text leading-tight">
+                      <h1 className="font-product-sans text-2xl sm:text-3xl lg:text-4xl font-normal uppercase gradient-text leading-tight">
                         {post.title}
                       </h1>
                       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base pb-8 border-b border-white/10 max-w-3xl mx-auto">

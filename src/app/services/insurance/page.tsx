@@ -107,14 +107,16 @@ export default function Insurance() {
           </div>
 
           {/* SIDEBAR IMAGE + EXAMPLE */}
-          <aside className="rounded-2xl p-10 bg-stockstrail-bg-light/40 border border-white/10">
+          <aside className="rounded-2xl p-6 sm:p-10 bg-stockstrail-bg-light/40 border border-white/10">
             <Image
               src="/services/insurance2.webp"
               alt="Insurance overview"
               width={480}
               height={320}
               loading="lazy"
-              className="w-full h-36 sm:h-44 md:h-56 object-contain rounded-lg mb-4 bg-white/5"
+              className="w-full h-36 sm:h-44 md:h-56 object-cover rounded-lg mb-4 bg-white/5"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+              quality={85}
             />
             <h4 className="text-white font-semibold mb-3">Quick Example</h4>
             <p className="text-white/80 mb-2">
@@ -152,7 +154,7 @@ export default function Insurance() {
       {/* TERM INSURANCE SECTION */}
       {/* ========================================================= */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* IMAGE */}
           <div className="flex items-center justify-center">
             <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 w-full max-w-md group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
@@ -162,7 +164,9 @@ export default function Insurance() {
                 width={520}
                 height={360}
                 loading="lazy"
-                className="w-full object-contain max-h- sm:max80-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
+                className="w-full object-cover max-h-80 sm:max-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 480px"
+                quality={85}
               />
             </div>
           </div>

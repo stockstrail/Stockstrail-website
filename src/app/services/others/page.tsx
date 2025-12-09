@@ -46,7 +46,7 @@ export default function Others() {
 
       <section className="relative px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
               <Image
                 src="/services/others2.webp"
@@ -54,7 +54,9 @@ export default function Others() {
                 width={720}
                 height={420}
                 loading="lazy"
-                className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+                quality={85}
               />
             </div>
 

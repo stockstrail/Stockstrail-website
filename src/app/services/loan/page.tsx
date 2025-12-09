@@ -111,14 +111,16 @@ export default function Loan() {
           </div>
 
           {/* SIDEBAR */}
-          <aside className="rounded-2xl p-16 bg-stockstrail-bg-light/40 border border-white/10">
+          <aside className="rounded-2xl p-6 sm:p-16 bg-stockstrail-bg-light/40 border border-white/10">
             <Image
               src="/services/loan2.webp"
               alt="Loan Overview"
               width={480}
               height={320}
               loading="lazy"
-              className="w-full h-36 sm:h-44 md:h-56 object-contain rounded-lg mb-4 bg-white/5"
+              className="w-full h-36 sm:h-44 md:h-56 object-cover rounded-lg mb-4 bg-white/5"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+              quality={85}
             />
 
             <h4 className="text-white font-semibold mb-3">Quick Example</h4>

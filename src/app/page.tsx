@@ -22,33 +22,37 @@ const DisclaimerSection = dynamic(() => Promise.resolve(DisclaimerSectionCompone
 });
 
 const HeroLogo = () => (
-  <div className="flex justify-center items-center gap-4 sm:gap-8 group w-full">
-    {/* Mobile version */}
+  <div className="flex justify-center items-center gap-4 sm:gap-8 group w-full px-4">
+    {/* Mobile/iPhone version - optimized for small screens */}
     <Image
       src="/1..gif"
       alt="Stockstrail Logo"
-      className="w-32 h-32 sm:hidden group-hover:scale-110 transition-transform duration-500 object-contain"
-      width={128}
-      height={128}
+      className="w-24 h-24 xs:w-28 xs:h-28 sm:hidden group-hover:scale-110 transition-transform duration-500 object-contain will-change-transform"
+      width={96}
+      height={96}
       priority
-      sizes="(max-width: 640px) 128px, 0px"
+      sizes="(max-width: 380px) 96px, (max-width: 640px) 112px, 0px"
+      loading="eager"
+      decoding="async"
     />
-    {/* Desktop/Laptop version */}
+    {/* Tablet/Desktop version */}
     <Image
       src="/1..gif"
       alt="Stockstrail Logo"
-      className="hidden sm:block w-36 h-36 lg:w-48 lg:h-48 group-hover:scale-110 transition-transform duration-500 object-contain"
+      className="hidden sm:block w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 group-hover:scale-110 transition-transform duration-500 object-contain will-change-transform"
       width={300}
       height={300}
       priority
-      sizes="(max-width: 768px) 144px, (max-width: 1024px) 192px, 300px"
+      sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, (max-width: 1024px) 192px, 300px"
+      loading="eager"
+      decoding="async"
     />
   </div>
 );
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-start lg:items-center justify-center px-8 sm:px-12 lg:px-16 pt-8 sm:pt-8 lg:pt-0 overflow-hidden">
+    <section className="relative min-h-screen flex items-start lg:items-center justify-center px-3 xs:px-4 sm:px-8 lg:px-16 pt-8 sm:pt-8 lg:pt-0 overflow-hidden safe-area-inset">
       {/* Background layer */}
       <div className="absolute inset-0">
         {/* Main animated blur circle with glow - DISABLED for performance */}
