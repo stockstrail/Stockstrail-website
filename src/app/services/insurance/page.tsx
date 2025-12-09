@@ -107,15 +107,17 @@ export default function Insurance() {
           </div>
 
           {/* SIDEBAR IMAGE + EXAMPLE */}
-          <aside className="rounded-2xl p-10 bg-stockstrail-bg-light/40 border border-white/10">
-            <Image
-              src="/services/insurance2.webp"
-              alt="Insurance overview"
-              width={480}
-              height={320}
-              loading="lazy"
-              className="w-full h-36 sm:h-44 md:h-56 object-contain rounded-lg mb-4 bg-white/5"
-            />
+          <aside className="rounded-2xl p-6 sm:p-10 bg-stockstrail-bg-light/40 border border-white/10">
+            <div className="relative w-full aspect-[3/2] mb-4">
+              <Image
+                src="/services/insurance2.webp"
+                alt="Insurance overview"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                loading="lazy"
+                className="object-contain rounded-lg"
+              />
+            </div>
             <h4 className="text-white font-semibold mb-3">Quick Example</h4>
             <p className="text-white/80 mb-2">
               For ~₹500/month you could secure a ₹50 lakh term insurance cover —
@@ -153,14 +155,14 @@ export default function Insurance() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* IMAGE */}
           <div className="flex items-center justify-center">
-            <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 w-full max-w-md group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
+            <div className="relative w-full max-w-md aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
               <Image
                 src="/services/insurance3.webp"
                 alt="Term Insurance"
-                width={520}
-                height={360}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 loading="lazy"
-                className="w-full object-contain max-h- sm:max80-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>
@@ -309,14 +311,14 @@ export default function Insurance() {
 
           {/* IMAGE */}
           <div className="flex items-center justify-center">
-            <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 w-full max-w-md group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
+            <div className="relative w-full max-w-md aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
               <Image
                 src="/services/insurance4.webp"
-                alt="Term Insurance"
-                width={520}
-                height={360}
+                alt="Health Insurance"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 loading="lazy"
-                className="w-full object-contain max-h- sm:max80-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>

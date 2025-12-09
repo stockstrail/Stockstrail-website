@@ -29,17 +29,18 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
   ctaLink,
 }) => {
   return (
-    <div id={id} className="grid grid-cols-1 gap-10 items-start group">
-      {/* Image on top */}
-      <div className="justify-self-center">
-        <div className="w-full max-w-[420px] h-[200px] sm:h-[250px] md:h-[300px] rounded-xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group-hover:border-stockstrail-green-light group-hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
+    <div id={id} className="grid grid-cols-1 gap-10 items-start group px-4 sm:px-0">
+      {/* Image on top - fully responsive */}
+      <div className="w-full">
+        <div className="relative w-full aspect-[16/10] sm:aspect-[16/11] md:aspect-[16/9] max-w-full sm:max-w-[420px] rounded-xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group-hover:border-stockstrail-green-light group-hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300 mx-auto">
           <Image
             src={imageSrc}
             alt={imageAlt}
             loading="lazy"
-            width={420}
-            height={300}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, 420px"
+            quality={85}
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
         </div>
       </div>

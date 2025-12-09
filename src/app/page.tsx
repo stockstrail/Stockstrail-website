@@ -23,24 +23,26 @@ const DisclaimerSection = dynamic(() => Promise.resolve(DisclaimerSectionCompone
 
 const HeroLogo = () => (
   <div className="flex justify-center items-center gap-4 sm:gap-8 group w-full">
-    {/* Mobile version */}
+    {/* Mobile/iPhone version - optimized for smaller screens */}
     <Image
       src="/1..gif"
       alt="Stockstrail Logo"
-      className="w-32 h-32 sm:hidden group-hover:scale-110 transition-transform duration-500 object-contain"
+      className="w-28 h-28 xs:w-32 xs:h-32 sm:hidden group-hover:scale-110 transition-transform duration-500 object-contain"
       width={128}
       height={128}
       priority
-      sizes="(max-width: 640px) 128px, 0px"
+      unoptimized
+      sizes="(max-width: 375px) 112px, (max-width: 640px) 128px, 0px"
     />
-    {/* Desktop/Laptop version */}
+    {/* Desktop/Tablet version */}
     <Image
       src="/1..gif"
       alt="Stockstrail Logo"
-      className="hidden sm:block w-36 h-36 lg:w-48 lg:h-48 group-hover:scale-110 transition-transform duration-500 object-contain"
+      className="hidden sm:block w-36 h-36 md:w-40 md:h-40 lg:w-48 lg:h-48 group-hover:scale-110 transition-transform duration-500 object-contain"
       width={300}
       height={300}
       priority
+      unoptimized
       sizes="(max-width: 768px) 144px, (max-width: 1024px) 192px, 300px"
     />
   </div>

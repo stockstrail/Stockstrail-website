@@ -15,6 +15,8 @@ const nextConfig: NextConfig = {
         hostname: '**',
       },
     ],
+    qualities: [75, 85, 90], // Add quality options for responsive images
+    unoptimized: false,
   },
   // Enable experimental features and optimize for modern browsers
   experimental: {
