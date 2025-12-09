@@ -3,8 +3,6 @@ import Image from "next/image";
 import Layout from "@/components/layout/Layout";
 
 export const metadata: Metadata = {
-            target="_blank"
-            rel="noopener noreferrer"
   title: "Loans — LAMF, Business & Home Loans | Stockstrail",
   description:
     "Explore Loan Against Mutual Funds, business loans, and home loans with expert guidance, minimal documentation, and competitive rates from Stockstrail.",
