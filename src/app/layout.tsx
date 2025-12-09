@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       "Achieve financial independence with expert financial planning and investment guidance.",
     images: [
       {
-        url: "/favcon.svg",
+        url: "/favicon.svg",
         width: 1200,
         height: 630,
         alt: "Stockstrail OG Image",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: "Stockstrail - Financial Planning & Investment Guidance",
     description:
       "Achieve financial independence with expert financial planning and investment guidance.",
-    images: ["/favcon.svg"],
+    images: ["/favicon.svg"],
   },
 };
 
