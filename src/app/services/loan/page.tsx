@@ -111,7 +111,7 @@ export default function Loan() {
 
           {/* SIDEBAR */}
           <aside className="rounded-2xl p-6 sm:p-16 bg-stockstrail-bg-light/40 border border-white/10">
-            <div className="relative w-full aspect-[3/2] mb-4">
+            <div className="relative w-full aspect-3/2 mb-4">
               <Image
                 src="/services/loan2.webp"
                 alt="Loan Overview"
@@ -158,7 +158,7 @@ export default function Loan() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* IMAGE */}
           <div className="flex items-center justify-center">
-            <div className="relative w-full max-w-md aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
+            <div className="relative w-full max-w-md aspect-4/3 rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
               <Image
                 src="/services/loan4.webp"
                 alt="Loan Against Mutual Funds"
@@ -306,7 +306,7 @@ export default function Loan() {
 
           {/* IMAGE */}
           <div className="flex items-center justify-center">
-            <div className="relative w-full max-w-md aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
+            <div className="relative w-full max-w-md aspect-4/3 rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
               <Image
                 src="/services/loan3.webp"
                 alt="Business and Home Loans"
