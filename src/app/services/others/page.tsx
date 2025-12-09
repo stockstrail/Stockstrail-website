@@ -97,8 +97,6 @@ export default function Others() {
       </section>
 
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
-            target="_blank"
-            rel="noopener noreferrer"
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
             Why Choose These Additional Services?
