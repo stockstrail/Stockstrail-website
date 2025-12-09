@@ -1,30 +1,33 @@
 ﻿import type { Metadata } from "next";
 import "./globals.css";
-import { Inter, Work_Sans, Montserrat } from 'next/font/google';
+import { Inter, Work_Sans, Montserrat } from "next/font/google";
 
-const inter = Inter({ 
-  subsets: ['latin'], 
-  display: 'swap',
-  variable: '--font-inter',
-  weight: ['400', '600', '700', '800']
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+  weight: ["400", "600", "700", "800"],
 });
 
-const workSans = Work_Sans({ 
-  subsets: ['latin'], 
-  display: 'swap',
-  variable: '--font-work-sans',
-  weight: ['300', '400', '500', '600', '700']
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-work-sans",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const montserrat = Montserrat({ 
-  subsets: ['latin'], 
-  display: 'swap',
-  variable: '--font-montserrat',
-  weight: ['400', '600', '700']
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-montserrat",
+  weight: ["400", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://stockstrail.in"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://stockstrail.in"
+  ),
+
   title: "Stockstrail - Financial Planning & Investment Guidance",
   description:
     "Achieve financial independence with expert financial planning, investment guidance, and advisory services from Stockstrail.",
@@ -32,19 +35,24 @@ export const metadata: Metadata = {
     "financial planning, investment, mutual funds, insurance, loan, fixed deposit, stockstrail",
   authors: [{ name: "Stockstrail" }],
 
-  // FAVICONS with multiple formats for cross-browser compatibility
+  // -----------------------------
+  // CLEAN & OPTIMIZED FAVICON SETUP
+  // -----------------------------
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
-      { url: "/stockstrail.png", type: "image/png", sizes: "32x32" },
-      { url: "/stockstrail.png", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.ico" }, // classic browser + Google fallback
+      { url: "/favicon.svg", type: "image/svg+xml" }, // modern browsers
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" }, // Google recommended size
     ],
-    shortcut: "/favicon.svg",
     apple: [
-      { url: "/stockstrail.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
+    shortcut: "/favicon.ico",
   },
 
+  // -----------------------------
+  // SOCIAL SHARE META
+  // -----------------------------
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -54,8 +62,8 @@ export const metadata: Metadata = {
       "Achieve financial independence with expert financial planning and investment guidance.",
     images: [
       {
-        url: "/favicon.svg",
-        width: 1200,
+        url: "/og-stockstrail.png", // Must exist in /public
+        width: 1100,
         height: 630,
         alt: "Stockstrail OG Image",
       },
@@ -67,7 +75,7 @@ export const metadata: Metadata = {
     title: "Stockstrail - Financial Planning & Investment Guidance",
     description:
       "Achieve financial independence with expert financial planning and investment guidance.",
-    images: ["/favicon.svg"],
+    images: ["/og-stockstrail.png"],
   },
 };
 
@@ -77,21 +85,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${workSans.variable} ${montserrat.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${workSans.variable} ${montserrat.variable}`}
+    >
       <head>
-        {/* Extra meta not included in metadata */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
-        {/* Favicon with cross-browser support */}
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/stockstrail.png" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/stockstrail.png" type="image/png" sizes="192x192" />
-        <link rel="apple-touch-icon" href="/stockstrail.png" sizes="180x180" />
-        <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
-        
-        {/* Browser theme color */}
         <meta name="theme-color" content="#00ff97" />
         <meta name="msapplication-TileColor" content="#012928" />
+
+        {/* All favicon links are now controlled by metadata.icons */}
       </head>
 
       <body className="antialiased">{children}</body>
