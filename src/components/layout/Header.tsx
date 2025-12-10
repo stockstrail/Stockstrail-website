@@ -113,16 +113,8 @@ const Header = () => {
         { name: 'Tax Calculator', href: '/calculators?tab=TAX' },
       ]
     },
-    {
-      name: 'Others',
-      href: '#',
-      hasDropdown: true,
-      dropdownItems: [
-        { name: 'About Us', href: '/about' },
-        { name: 'Contact Us', href: '/contact' },
-      ],
-    },
-  ];
+   { name: 'About Us', href: '/about' },
+  ];   
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-stockstrail-bg/80 backdrop-blur-[100px] border-b border-white/10">

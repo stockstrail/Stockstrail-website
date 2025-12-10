@@ -29,35 +29,37 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
   ctaLink,
 }) => {
   return (
-    <div id={id} className="grid grid-cols-1 gap-10 items-start group px-4 sm:px-0">
-      {/* Image on top */}
-<div className="justify-self-center w-full">
-  <div className="relative w-full max-w-[420px] aspect-4/3 sm:aspect-video rounded-xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group-hover:border-stockstrail-green-light group-hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
-    <Image
-      src={imageSrc}
-      alt={imageAlt}
-      loading="lazy"
-      fill
-      sizes="(max-width: 640px) 100vw, 420px"
-      className="object-cover group-hover:scale-105 transition-transform duration-300"
-    />
-  </div>
-</div>
-
+    <div id={id} className="grid grid-cols-1 gap-10 items-start group">
+      {/* Image on top - fully responsive with maintained aspect ratio */}
+      <div className="justify-self-center w-full">
+        <div className="w-full max-w-[420px] mx-auto rounded-xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group-hover:border-stockstrail-green-light group-hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
+          <div className="relative w-full aspect-4/3">
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              loading="lazy"
+              fill
+              className="object-contain group-hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 390px) 90vw, (max-width: 640px) 95vw, (max-width: 768px) 420px, 420px"
+              quality={90}
+            />
+          </div>
+        </div>
+      </div>
 
       {/* Text below */}
       <div>
-        <h3 className="text-stockstrail-green-light text-lg tracking-wide font-semibold mb-3 group-hover:text-white transition-colors duration-300">
+        <h3 className="text-stockstrail-green-light text-base sm:text-lg lg:text-xl tracking-wide font-semibold mb-3 group-hover:text-white transition-colors duration-300">
           {title}
         </h3>
-        <p className="text-white/80 leading-relaxed mb-5 max-w-4xl group-hover:text-white/90 transition-colors duration-300">
+        <p className="text-white/80 text-xs sm:text-sm lg:text-base leading-relaxed mb-5 max-w-4xl group-hover:text-white/90 transition-colors duration-300">
           {description}
         </p>
         <div className="mb-6">
-          <p className="text-white/80 font-semibold mb-2 group-hover:text-white transition-colors duration-300">
+          <p className="text-white/80 text-xs sm:text-sm lg:text-base font-semibold mb-2 group-hover:text-white transition-colors duration-300">
             Benefits:
           </p>
-          <ul className="space-y-2 text-white/80 list-disc pl-5 group-hover:text-white/90 transition-colors duration-300">
+          <ul className="space-y-2 text-white/80 text-xs sm:text-sm lg:text-base list-disc pl-5 group-hover:text-white/90 transition-colors duration-300">
             {benefits.map((b, i) => (
               <li
                 key={i}
@@ -161,7 +163,7 @@ const ServicesPage: React.FC = () => {
       {/* Page title */}
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-10">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="font-product-sans text-5xl sm:text-6xl font-normal uppercase gradient-text">
+          <h1 className="font-product-sans text-3xl sm:text-4xl lg:text-6xl font-normal uppercase gradient-text">
             Services
           </h1>
         </div>
@@ -261,7 +263,7 @@ const ServicesPage: React.FC = () => {
 
           {/* Partners marquee */}
           <section className="mt-20 overflow-hidden">
-            <h3 className="text-center font-product-sans text-5xl sm:text-6xl font-normal uppercase gradient-text mb-8">
+            <h3 className="text-center font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase gradient-text mb-8">
               OUR PARTNERS
             </h3>
             <div className="w-full bg-[#0F2A2A] border-y border-[#1A3A3A] overflow-hidden">
@@ -274,10 +276,10 @@ const ServicesPage: React.FC = () => {
                     <Image
                       src={partner.logo}
                       alt={`${partner.name} logo`}
-                      className="h-20 sm:h-24 w-auto object-contain group-hover:scale-110 group-hover:brightness-110 transition-all duration-300"
+                      className="h-24 sm:h-32 w-auto object-contain group-hover:scale-110 group-hover:brightness-110 transition-all duration-300"
                       loading="lazy"
-                      width={200}
-                      height={96}
+                      width={256}
+                      height={128}
                       draggable={false}
                     />
                   </div>

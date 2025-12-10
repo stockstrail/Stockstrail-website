@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        'xs': '375px', // iPhone SE, iPhone 12 mini and similar small devices
+        'xs': '390px', // Extra small devices (iPhone SE, small Android phones)
       },
       colors: {
         // Colors referenced by the project's globals.css via CSS variables.

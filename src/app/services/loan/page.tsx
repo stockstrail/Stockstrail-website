@@ -32,7 +32,7 @@ export default function Loan() {
         </div>
 
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="font-product-sans text-5xl sm:text-6xl font-normal uppercase gradient-text mb-6">
+          <h1 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase gradient-text mb-6">
             Smart Loans for Your Financial Goals
           </h1>
           <p className="text-white/80 max-w-3xl mx-auto leading-relaxed text-lg">
@@ -110,17 +110,15 @@ export default function Loan() {
           </div>
 
           {/* SIDEBAR */}
-          <aside className="rounded-2xl p-6 sm:p-16 bg-stockstrail-bg-light/40 border border-white/10">
-            <div className="relative w-full aspect-3/2 mb-4">
-              <Image
-                src="/services/loan2.webp"
-                alt="Loan Overview"
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                loading="lazy"
-                className="object-contain rounded-lg"
-              />
-            </div>
+          <aside className="rounded-2xl p-16 bg-stockstrail-bg-light/40 border border-white/10">
+            <Image
+              src="/services/loan2.webp"
+              alt="Loan Overview"
+              width={480}
+              height={320}
+              loading="lazy"
+              className="w-full h-36 sm:h-44 md:h-56 object-contain rounded-lg mb-4 bg-white/5"
+            />
 
             <h4 className="text-white font-semibold mb-3">Quick Example</h4>
             <p className="text-white/80 mb-2">
@@ -158,17 +156,17 @@ export default function Loan() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* IMAGE */}
           <div className="flex items-center justify-center">
-            <div className="relative w-full max-w-md aspect-4/3 rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
-              <Image
-                src="/services/loan4.webp"
-                alt="Loan Against Mutual Funds"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                loading="lazy"
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-          </div>
+                      <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 w-full max-w-md group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
+                        <Image
+                          src="/services/loan4.webp"
+                          alt="Loan Against Mutual Funds"
+                          width={520}
+                          height={360}
+                          loading="lazy"
+                          className="w-full object-contain max-h- sm:max80-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
+                        />
+                      </div>
+                    </div>
 
           {/* CONTENT */}
           <div>
@@ -306,17 +304,17 @@ export default function Loan() {
 
           {/* IMAGE */}
           <div className="flex items-center justify-center">
-            <div className="relative w-full max-w-md aspect-4/3 rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
-              <Image
-                src="/services/loan3.webp"
-                alt="Business and Home Loans"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                loading="lazy"
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-          </div>
+                      <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 w-full max-w-md group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
+                        <Image
+                          src="/services/loan3.webp"
+                          alt="Business and Home Loans"
+                          width={520}
+                          height={360}
+                          loading="lazy"
+                          className="w-full object-contain max-h- sm:max80-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
+                        />
+                      </div>
+                    </div>
         </div>
       </section>
 

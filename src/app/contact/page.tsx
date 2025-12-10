@@ -52,36 +52,36 @@ const TelegramIcon = () => (
 /* ---------------- LOGO BLOCK ---------------- */
 
 const StockstrailLogoBW = () => (
-  <div className="flex items-center gap-3 xs:gap-4 sm:gap-8 group flex-wrap justify-center sm:justify-start">
-    {/* Mobile/iPhone optimized logo */}
+  <div className="flex items-center gap-4 sm:gap-8 group">
+    {/* Mobile optimized logo for Android & iPhone */}
     <Image
       src="/stockstrail_logo.gif"
       alt="Stockstrail Logo"
       width={96}
       height={96}
-      sizes="(max-width: 375px) 80px, (max-width: 640px) 96px, 0px"
-      unoptimized
-      priority
       className="w-20 h-20 xs:w-24 xs:h-24 sm:hidden group-hover:scale-110 transition-transform duration-500 object-contain"
+      sizes="(max-width: 390px) 80px, (max-width: 640px) 96px, 0px"
+      quality={90}
+      priority
     />
 
-    {/* Desktop/Tablet logo */}
+    {/* Desktop logo */}
     <Image
       src="/1..gif"
       alt="Stockstrail Logo"
       width={300}
       height={300}
-      sizes="(max-width: 768px) 144px, (max-width: 1024px) 208px, 300px"
-      unoptimized
-      priority
       className="hidden sm:block w-36 h-36 lg:w-52 lg:h-52 group-hover:scale-110 transition-transform duration-500 object-contain"
+      sizes="(max-width: 768px) 144px, (max-width: 1024px) 192px, 300px"
+      quality={90}
+      priority
     />
 
     <div className="flex items-baseline">
-      <span className="text-white font-product-sans text-3xl xs:text-4xl sm:text-7xl font-bold group-hover:text-stockstrail-green-light transition-colors duration-500">
+      <span className="text-white font-product-sans text-4xl sm:text-7xl font-bold group-hover:text-stockstrail-green-light transition-colors duration-500">
         Stocks
       </span>
-      <span className="text-white font-product-sans text-3xl xs:text-4xl sm:text-7xl font-normal group-hover:text-stockstrail-green-light transition-colors duration-500">
+      <span className="text-white font-product-sans text-4xl sm:text-7xl font-normal group-hover:text-stockstrail-green-light transition-colors duration-500">
         trail
       </span>
     </div>

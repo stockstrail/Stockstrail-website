@@ -5,6 +5,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { ChevronLeft, Send, Facebook, Linkedin, Instagram } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import ShareButtons from '@/components/blog/ShareButtons';
+import MobileShareButton from '@/components/blog/MobileShareButton';
 
 export const dynamic = 'force-dynamic';
 
@@ -197,6 +198,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
             Back to All Posts
           </Link>
+            
+          {/* Floating Mobile Share Button - always visible on mobile */}
+          <MobileShareButton />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2">
@@ -224,7 +228,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </div>
 
             <div className="lg:col-span-1 space-y-6">
-              <ShareButtons title={post.title} url={currentUrl} />
+              <div id="share-section">
+                <ShareButtons title={post.title} url={currentUrl} />
+              </div>
               <div className="sticky top-24">
                 <ContactCard />
               </div>
@@ -254,8 +260,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         .blog-content pre { white-space: pre-wrap; }
         @media (max-width: 640px) { .blog-content p { font-size: 0.9375rem; margin-bottom: 1.25rem; } }
         .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4, .blog-content h5, .blog-content h6 {
-          background: linear-gradient(42deg, #00FF97 0%, #007D42 70.81%);
-          -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important;
+          color: #00FF97 !important;
           font-family: 'Product Sans', system-ui, sans-serif; font-weight: 600; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; line-height: 1.3;
         }
       `}</style>

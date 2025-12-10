@@ -23,27 +23,30 @@ const DisclaimerSection = dynamic(() => Promise.resolve(DisclaimerSectionCompone
 
 const HeroLogo = () => (
   <div className="flex justify-center items-center gap-4 sm:gap-8 group w-full">
-    {/* Mobile/iPhone version - optimized for smaller screens */}
+    {/* Mobile version - optimized for Android & iPhone with transparent background */}
     <Image
       src="/1..gif"
       alt="Stockstrail Logo"
       className="w-28 h-28 xs:w-32 xs:h-32 sm:hidden group-hover:scale-110 transition-transform duration-500 object-contain"
+      style={{ background: 'transparent', mixBlendMode: 'normal' }}
       width={128}
       height={128}
       priority
-      unoptimized
-      sizes="(max-width: 375px) 112px, (max-width: 640px) 128px, 0px"
+      sizes="(max-width: 390px) 112px, (max-width: 640px) 128px, 0px"
+      quality={90}
+      placeholder="empty"
     />
-    {/* Desktop/Tablet version */}
+    {/* Desktop/Laptop version */}
     <Image
       src="/1..gif"
       alt="Stockstrail Logo"
-      className="hidden sm:block w-36 h-36 md:w-40 md:h-40 lg:w-48 lg:h-48 group-hover:scale-110 transition-transform duration-500 object-contain"
+      className="hidden sm:block w-36 h-36 lg:w-48 lg:h-48 group-hover:scale-110 transition-transform duration-500 object-contain"
+      style={{ background: 'transparent', mixBlendMode: 'normal' }}
       width={300}
       height={300}
       priority
-      unoptimized
       sizes="(max-width: 768px) 144px, (max-width: 1024px) 192px, 300px"
+      quality={90}
     />
   </div>
 );
@@ -106,7 +109,7 @@ const HeroSection = () => {
           className="animate-slide-in-from-top"
           style={{ animationDelay: "200ms" }}
         >
-          <p className="text-white/50 text-lg sm:text-xl font-work-sans leading-relaxed max-w-[881px] mx-auto mb-8 group-hover:text-white/70 transition-colors duration-500">
+          <p className="text-white/50 text-base sm:text-lg lg:text-xl font-work-sans leading-relaxed max-w-[881px] mx-auto mb-8 group-hover:text-white/70 transition-colors duration-500">
             Achieve financial independence with Stockstrail. Our expert guidance
             and innovative tools help you navigate investing and reach your
             long-term goals. Whether you&apos;re a beginner or experienced investor,
@@ -187,7 +190,7 @@ const PartnerLogosSection = () => {
       
       <div className="relative z-10">
         <div className="animate-slide-in-from-top">
-          <h3 className="text-center font-product-sans text-5xl sm:text-6xl font-normal uppercase gradient-text mb-10 px-4 sm:px-6 lg:px-8 group hover:scale-105 transition-transform duration-500">
+          <h3 className="text-center font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase gradient-text mb-10 px-4 sm:px-6 lg:px-8 group hover:scale-105 transition-transform duration-500">
           OUR PARTNERS
         </h3>
         </div>
@@ -199,8 +202,8 @@ const PartnerLogosSection = () => {
                   src={partner.logo}
                   alt={`${partner.name} logo`}
                   className="h-20 sm:h-24 w-auto object-contain group-hover:scale-110 group-hover:brightness-110 transition-all duration-300"
-                  width={192}
-                  height={92}
+                  width={256}
+                  height={128}
                   draggable={false}
                   loading="lazy"
                   decoding="async"
@@ -274,7 +277,7 @@ const ServicesSection = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-product-sans text-4xl sm:text-5xl lg:text-6xl font-normal uppercase mb-8">
+          <h2 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase mb-8">
             <span className="text-white">Invest your </span>
             <span className="gradient-text">money</span>
             <span className="text-white"> on the go</span>
@@ -305,10 +308,10 @@ const ServicesSection = () => {
 
                 {/* Text */}
                 <div className="grow text-center">
-                  <h3 className="font-product-sans text-xl sm:text-2xl font-normal uppercase text-white mb-4 group-hover:text-stockstrail-green-light transition-colors duration-300">
+                  <h3 className="font-product-sans text-lg sm:text-xl lg:text-2xl font-normal uppercase text-white mb-4 group-hover:text-stockstrail-green-light transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-white/50 font-work-sans text-sm sm:text-base leading-relaxed max-w-[662px] mx-auto group-hover:text-white/70 transition-colors duration-300">
+                  <p className="text-white/50 font-work-sans text-xs sm:text-sm lg:text-base leading-relaxed max-w-[662px] mx-auto group-hover:text-white/70 transition-colors duration-300">
                     {service.description}
                   </p>
                 </div>
@@ -403,11 +406,11 @@ const CalculatorsSection = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-product-sans text-4xl sm:text-5xl lg:text-6xl font-normal uppercase mb-6">
+          <h2 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase mb-6">
             <span className="text-white">Financial </span>
             <span className="gradient-text">Tools</span>
           </h2>
-          <p className="text-white/70 text-lg sm:text-xl font-work-sans max-w-2xl mx-auto">
+          <p className="text-white/70 text-sm sm:text-base lg:text-lg font-work-sans max-w-2xl mx-auto">
             Use our free calculators to plan your investments, loans, and savings with precision
           </p>
         </div>
@@ -439,12 +442,12 @@ const CalculatorsSection = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-product-sans text-xl sm:text-2xl font-semibold text-white mb-3 group-hover:text-stockstrail-green-light transition-colors duration-300">
+                <h3 className="font-product-sans text-lg sm:text-xl lg:text-2xl font-semibold text-white mb-3 group-hover:text-stockstrail-green-light transition-colors duration-300">
                   {calculator.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-white/60 text-sm sm:text-base font-work-sans leading-relaxed mb-6 grow group-hover:text-white/80 transition-colors duration-300">
+                <p className="text-white/60 text-xs sm:text-sm lg:text-base font-work-sans leading-relaxed mb-6 grow group-hover:text-white/80 transition-colors duration-300">
                   {calculator.description}
                 </p>
 
@@ -524,7 +527,7 @@ const WhyChooseSectionComponent = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-product-sans text-4xl sm:text-5xl lg:text-6xl font-normal uppercase">
+          <h2 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase">
             <span className="text-white">Why Choose </span>
             <span className="gradient-text">StocksTrail</span>
           </h2>
@@ -547,7 +550,7 @@ const WhyChooseSectionComponent = () => {
                   width={48}
                   height={48}
                 />
-                <div className="font-normal text-white text-lg md:text-xl text-center tracking-[0] leading-[26px] md:leading-[30px] whitespace-pre-line transition-all duration-300 group-hover:text-[#00FF97] group-hover:drop-shadow-[0_0_10px_rgba(0,255,151,0.3)]">
+                <div className="font-normal text-white text-sm sm:text-base md:text-lg lg:text-xl text-center tracking-[0] leading-5 sm:leading-6 md:leading-[26px] lg:leading-[30px] whitespace-pre-line transition-all duration-300 group-hover:text-[#00FF97] group-hover:drop-shadow-[0_0_10px_rgba(0,255,151,0.3)]">
                   {feature.title}
                 </div>
               </div>
@@ -798,7 +801,7 @@ const TestimonialsSectionComponent = () => {
       </div>
 
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="font-product-sans text-4xl sm:text-5xl lg:text-6xl font-normal uppercase mb-16">
+        <h2 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase mb-16">
           <span className="text-white">What our </span>
           <span className="gradient-text inline-block">client</span>
           <span className="text-white"> says</span>
@@ -1121,13 +1124,13 @@ const DisclaimerSectionComponent = () => {
               <span className="text-white"> is the official website of </span>
               <span className="gradient-text inline-block">Vikrant Bhardwaj</span>
               <span className="text-white">, who is registered under </span>
-              <span className="gradient-text inline-block">ARN-284122</span>
+              <span className="text-stockstrail-green-light inline-block font-bold">ARN-284122</span>
               <span className="text-white"> as an AMFI Registered Mutual Fund Distributor. This website is intended to provide educational and informative content related to investments and also facilitates online transactions in Mutual Funds.</span>
             </p>
           </div>
 
           <div className="animate-slide-in-from-top" style={{ animationDelay: '400ms' }}>
-            <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed max-w-5xl mx-auto group-hover:text-stockstrail-green-light transition-colors duration-500">
+            <p className="text-white font-work-sans text-xs sm:text-base lg:text-lg font-light leading-relaxed max-w-5xl mx-auto group-hover:text-stockstrail-green-light transition-colors duration-500">
               <span className="text-white">We do not charge any fees for the calculators or information provided on this website. Our earnings come in the form of commissions received from the respective Mutual Fund companies.</span>
             </p>
           </div>

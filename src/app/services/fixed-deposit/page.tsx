@@ -32,7 +32,7 @@ export default function FixedDeposit() {
         </div>
 
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="font-product-sans text-5xl sm:text-6xl font-normal uppercase gradient-text mb-6">
+          <h1 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase gradient-text mb-6">
             Secure Your Savings with Fixed Deposits
           </h1>
           <p className="text-white/80 max-w-3xl mx-auto leading-relaxed text-lg">
@@ -48,14 +48,14 @@ export default function FixedDeposit() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Image */}
-            <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
               <Image
                 src="/services/fd2.webp"
                 alt="What is Fixed Deposit"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                width={720}
+                height={420}
                 loading="lazy"
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
               />
             </div>
 
