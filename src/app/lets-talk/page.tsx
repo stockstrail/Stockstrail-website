@@ -354,9 +354,6 @@ export default function LetsTalk() {
                     <option value="Loan" className="bg-[#0b1c1b]">
                       Loan
                     </option>
-                    <option value="Open Demat" className="bg-[#0b1c1b]">
-                      Open Demat
-                    </option>
                     <option value="Others" className="bg-[#0b1c1b]">
                       Others
                     </option>
