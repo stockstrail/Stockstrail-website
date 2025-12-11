@@ -324,7 +324,6 @@ export default function LetsTalk() {
                     onChange={onChange}
                     required
                     inputMode="numeric"
-                    pattern="[1-9][0-9]{9}"
                     maxLength={10}
                     className="w-full px-3 py-2 rounded-lg bg-white/10 text-white border border-white/20 focus:outline-none focus:border-stockstrail-green-light"
                   />
