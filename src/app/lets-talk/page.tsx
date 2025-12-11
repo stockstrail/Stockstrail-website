@@ -109,11 +109,22 @@ export default function LetsTalk() {
       return;
     }
 
+    const phoneDigits = form.phone.replace(/\D/g, '');
+    if (!/^[1-9]\d{9}$/.test(phoneDigits)) {
+      setError('Please enter a valid 10-digit number that does not start with 0.');
+      return;
+    }
+
+    if (form.message.trim().length < 20) {
+      setError('Message should be at least 20 characters.');
+      return;
+    }
+
     setSubmitting(true);
     try {
       const { error } = await addQuery({
         name: form.name,
-        phone: form.phone,
+        phone: phoneDigits,
         email: form.email,
         service: form.service,
         message: form.message,
@@ -312,6 +323,9 @@ export default function LetsTalk() {
                     value={form.phone}
                     onChange={onChange}
                     required
+                    inputMode="numeric"
+                    pattern="[1-9][0-9]{9}"
+                    maxLength={10}
                     className="w-full px-3 py-2 rounded-lg bg-white/10 text-white border border-white/20 focus:outline-none focus:border-stockstrail-green-light"
                   />
                 </div>
@@ -369,6 +383,7 @@ export default function LetsTalk() {
                     onChange={onChange}
                     rows={4}
                     required
+                    minLength={20}
                     className="w-full px-3 py-2 rounded-lg bg-white/10 text-white border border-white/20 focus:outline-none focus:border-stockstrail-green-light"
                   />
                 </div>
