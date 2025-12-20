@@ -363,21 +363,32 @@
 /* ================= UTILITIES LAYER ================= */
 @layer utilities {
 
-  /* Custom heavy blur utility used on hero circle */
+  /* Desktop / Android real blur */
   .blur-100 {
     filter: blur(120px);
   }
 
-  /* Fix for iOS Safari white box issue on Hero Logo */
+  /* iOS Safari fixes */
   @supports (-webkit-touch-callout: none) {
     .hero-logo-ios {
       animation: none !important;
       transform: none !important;
     }
 
-    .ios-disable-blur {
+    .ios-blur-fallback {
       filter: none !important;
       backdrop-filter: none !important;
+
+      background: radial-gradient(
+        circle at center,
+        rgba(0, 58, 57, 0.55) 0%,
+        rgba(0, 58, 57, 0.35) 35%,
+        rgba(0, 58, 57, 0.18) 55%,
+        rgba(0, 58, 57, 0.08) 70%,
+        rgba(0, 58, 57, 0.02) 85%,
+        transparent 100%
+      ) !important;
+
       opacity: 1 !important;
     }
   }
