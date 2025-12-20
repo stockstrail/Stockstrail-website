@@ -355,4 +355,12 @@
   .blur-100 {
     filter: blur(120px);
   }
+
+  /* Fix for iOS Safari white box issue on Hero Logo */
+  @supports (-webkit-touch-callout: none) {
+    .hero-logo-ios {
+      animation: none !important;
+      transform: none !important;
+    }
+  }
 }
