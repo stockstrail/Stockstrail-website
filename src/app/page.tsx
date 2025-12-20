@@ -23,22 +23,16 @@ const DisclaimerSection = dynamic(() => Promise.resolve(DisclaimerSectionCompone
 
 const HeroLogo = () => (
   <div className="flex justify-center items-center gap-4 sm:gap-8 group w-full">
-    {/* Mobile version - optimized for Android & iPhone with transparent background */}
-    <Image
+    {/* Mobile version - optimized for Android & iPhone with transparent background using standard img tag to avoid Next.js Image artifacts */}
+    <img
       src="/1..gif"
       alt="Stockstrail Logo"
       className="w-28 h-28 xs:w-32 xs:h-32 sm:hidden group-hover:scale-110 transition-transform duration-500 object-contain"
-      width={128}
-      height={128}
-      priority
-      sizes="(max-width: 390px) 112px, (max-width: 640px) 128px, 0px"
-      quality={90}
-      placeholder="empty"
-      unoptimized
       style={{
-        transform: 'translate3d(0, 0, 0)',
-        WebkitBackfaceVisibility: 'hidden',
-        WebkitPerspective: '1000px'
+        background: 'transparent',
+        WebkitUserSelect: 'none',
+        userSelect: 'none',
+        pointerEvents: 'none'
       }}
     />
     {/* Desktop/Laptop version */}
