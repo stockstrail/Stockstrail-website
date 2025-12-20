@@ -91,7 +91,7 @@ const HeroSection = () => {
       {/* Background layer */}
       <div className="absolute inset-0">
         {/* Main animated blur circle with glow - DISABLED for performance */}
-        <div className="absolute w-[871px] h-[887px] bg-stockstrail-bg-light rounded-full blur-100 opacity-60 left-1/2 top-20 -translate-x-1/2" />
+        <div className="absolute w-[871px] h-[887px] bg-stockstrail-bg-light rounded-full blur-100 opacity-60 ios-disable-blur left-1/2 top-20 -translate-x-1/2" />
 
         {/* Floating particles - DISABLED for performance */}
         <div className="absolute top-20 left-10 w-2 h-2 bg-stockstrail-green-light/40 rounded-full" />
