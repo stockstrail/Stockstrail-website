@@ -35,6 +35,11 @@ const HeroLogo = () => (
       quality={90}
       placeholder="empty"
       unoptimized
+      style={{
+        transform: 'translate3d(0, 0, 0)',
+        WebkitBackfaceVisibility: 'hidden',
+        WebkitPerspective: '1000px'
+      }}
     />
     {/* Desktop/Laptop version */}
     <Image
@@ -932,8 +937,8 @@ const TestimonialsSectionComponent = () => {
                 key={index}
                 onClick={() => setCurrentTestimonial(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentTestimonial
-                    ? "bg-stockstrail-green-light scale-125"
-                    : "bg-white/30 hover:bg-white/50"
+                  ? "bg-stockstrail-green-light scale-125"
+                  : "bg-white/30 hover:bg-white/50"
                   }`}
               />
             ))}
