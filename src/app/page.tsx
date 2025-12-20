@@ -22,12 +22,12 @@ const DisclaimerSection = dynamic(() => Promise.resolve(DisclaimerSectionCompone
 });
 
 const HeroLogo = () => (
-  <div className="flex justify-center items-center gap-4 sm:gap-8 group w-full">
+  <div className="flex justify-center items-center gap-4 sm:gap-8 group w-full bg-transparent">
     {/* Mobile version - optimized for Android & iPhone with transparent background */}
     <Image
       src="/1..gif"
       alt="Stockstrail Logo"
-      className="w-28 h-28 xs:w-32 xs:h-32 sm:hidden group-hover:scale-110 transition-transform duration-500 object-contain"
+      className="w-28 h-28 xs:w-32 xs:h-32 sm:hidden object-contain"
       width={128}
       height={128}
       priority
@@ -35,13 +35,6 @@ const HeroLogo = () => (
       quality={90}
       placeholder="empty"
       unoptimized
-      style={{
-        transform: 'translate3d(0, 0, 0)',
-        WebkitBackfaceVisibility: 'hidden',
-        WebkitPerspective: '1000px',
-        opacity: 0.99, // Hack to force Safari to treat it as a separate layer correctly
-        willChange: 'transform'
-      }}
     />
     {/* Desktop/Laptop version */}
     <Image
