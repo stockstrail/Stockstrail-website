@@ -388,7 +388,7 @@ const TestimonialsSectionComponent = () => {
                         {!showForm && (
                             <button
                                 className="inline-flex items-center gap-4 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-110 hover:shadow-[0_0_30px_rgba(0,255,151,0.4)] transition-all duration-500 font-work-sans font-medium group"
-                                onClick={() => setShowForm(true)}
+                                onClick={() => { setShowForm(true); setForm(prev => ({ ...prev, rating: 2.5 })); }}
                                 style={{ pointerEvents: 'auto' }}
                             >
                                 <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full group-hover:scale-125 group-hover:animate-pulse transition-all duration-300"></div>
@@ -446,21 +446,25 @@ const TestimonialsSectionComponent = () => {
                                     </div>
                                     <div className="flex flex-col text-left">
                                         <label className="text-white font-medium mb-1">Star Rating<span className="text-red-500">*</span></label>
-                                        <div className="flex gap-2 mt-1">
-                                            {[1, 2, 3, 4, 5].map((star) => (
-                                                <button
-                                                    type="button"
-                                                    key={star}
-                                                    className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${form.rating >= star ? "bg-stockstrail-green-light border-stockstrail-green-light" : "bg-white/10 border-white/30"}`}
-                                                    onClick={() => handleRatingChange(star)}
-                                                    aria-label={`Rate ${star} star${star > 1 ? "s" : ""}`}
-                                                >
-                                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                                    </svg>
-                                                </button>
-                                            ))}
+                                        {/* Live preview of selected rating with half-star support */}
+                                        <div className="flex items-center gap-3 mt-2">
+                                            <div className="flex items-center">
+                                                {renderStars(form.rating || 0)}
+                                            </div>
+                                            <span className="text-white/80 text-sm">{form.rating ? `${form.rating} / 5` : 'Select rating'}</span>
                                         </div>
+                                        {/* Slider for 0.5 steps from 0.5 to 5 */}
+                                        <input
+                                            type="range"
+                                            min={0.5}
+                                            max={5}
+                                            step={0.5}
+                                            value={form.rating || 2.5}
+                                            onChange={(e) => handleRatingChange(parseFloat(e.target.value))}
+                                            className="mt-3 w-full accent-stockstrail-green-light"
+                                            aria-label="Select star rating in half-star steps"
+                                        />
+                                        <span className="text-white/50 text-xs mt-1">Use the slider to pick half stars (e.g., 4.5).</span>
                                     </div>
                                     {formError && <div className="text-red-500 text-sm mt-2">{formError}</div>}
                                     <button
