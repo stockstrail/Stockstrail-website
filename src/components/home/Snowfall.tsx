@@ -7,6 +7,7 @@ import React, { useState, useEffect, useRef } from "react";
 type Flake = {
   key: number;
   left: number;
+  startY: number; // NEGATIVE PX
   size: number;
   opacity: number;
   duration: number;
@@ -18,6 +19,7 @@ type Flake = {
 type CSSVars = React.CSSProperties & {
   "--drift"?: string;
   "--pageHeight"?: string;
+  "--startY"?: string;
 };
 
 /* ---------------- HELPERS ---------------- */
@@ -25,16 +27,22 @@ type CSSVars = React.CSSProperties & {
 const createFlakes = (): Flake[] => {
   const total = 220;
 
-  return Array.from({ length: total }).map((_, index) => ({
-    key: index,
-    left: Math.random() * 100,
-    size: 6 + Math.random() * 10,
-    opacity: 0.4 + Math.random() * 0.3,
-    duration: 36 + Math.random() * 18,
-    delay: Math.random() * -20,
-    drift: -24 + Math.random() * 48,
-    kind: Math.random() > 0.5 ? "dendrite" : "dot",
-  }));
+  return Array.from({ length: total }).map((_, index) => {
+    const duration = 36 + Math.random() * 18;
+
+    return {
+      key: index,
+      left: Math.random() * 100,
+      // ❄ ALWAYS above viewport (px-based, no rounding issues)
+      startY: -(300 + Math.random() * 900), // -300px → -1200px
+      size: 6 + Math.random() * 10,
+      opacity: 0.4 + Math.random() * 0.3,
+      duration,
+      delay: -Math.random() * duration,
+      drift: -24 + Math.random() * 48,
+      kind: Math.random() > 0.5 ? "dendrite" : "dot",
+    };
+  });
 };
 
 /* ---------------- COMPONENT ---------------- */
@@ -50,7 +58,7 @@ const Snowfall: React.FC = () => {
       const height = document.documentElement.scrollHeight;
       containerRef.current?.style.setProperty(
         "--pageHeight",
-        `${height + 200}px`
+        `${height + 600}px` // bottom buffer
       );
     };
 
@@ -63,17 +71,21 @@ const Snowfall: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="pointer-events-none absolute top-0 left-0 w-full z-60 overflow-hidden"
+      className="pointer-events-none absolute top-[-600px] left-0 w-full z-60 overflow-hidden"
       aria-hidden="true"
-      style={{ height: "var(--pageHeight)" }}
+      style={{ height: "calc(var(--pageHeight) + 600px)" }}
     >
       {/* Animations */}
       <style jsx>{`
         @keyframes snow-fall {
-          0% {
-            transform: translate3d(0, -100px, 0);
+          from {
+            transform: translate3d(
+              0,
+              var(--startY, -600px),
+              0
+            );
           }
-          100% {
+          to {
             transform: translate3d(
               var(--drift, 0px),
               var(--pageHeight, 200vh),
@@ -99,6 +111,7 @@ const Snowfall: React.FC = () => {
           opacity: flake.opacity,
           animation: `snow-fall ${flake.duration}s linear ${flake.delay}s infinite`,
           "--drift": `${flake.drift}px`,
+          "--startY": `${flake.startY}px`,
         };
 
         if (flake.kind === "dendrite") {
