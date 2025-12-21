@@ -2,6 +2,7 @@
 import "./globals.css";
 import { Inter, Work_Sans, Montserrat } from "next/font/google";
 import Script from "next/script";
+import SnowfallWrapper from "@/components/SnowfallWrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -111,7 +112,10 @@ export default function RootLayout({
         <Script id="clarity-src" src={`https://www.clarity.ms/tag/${clarityId}`} strategy="afterInteractive" />
       </head>
 
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <SnowfallWrapper />
+        {children}
+      </body>
     </html>
   );
 }
