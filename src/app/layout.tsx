@@ -85,6 +85,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID || "up26ltx46a";
   return (
     <html
       lang="en"
@@ -97,15 +98,17 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#012928" />
 
         {/* All favicon links are now controlled by metadata.icons */}
-
-        {/* Microsoft Clarity */}
-        <Script id="clarity" strategy="beforeInteractive">
-          {`(function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "up26ltx46a");`}
+        {/* Microsoft Clarity - load after hydration to avoid early runtime issues */}
+        <Script id="clarity-init" strategy="afterInteractive">
+          {`(function(){
+            if (typeof window !== 'undefined') {
+              if (typeof window.clarity !== 'function') {
+                window.clarity = function(){ (window.clarity.q = window.clarity.q || []).push(arguments); };
+              }
+            }
+          })();`}
         </Script>
+        <Script id="clarity-src" src={`https://www.clarity.ms/tag/${clarityId}`} strategy="afterInteractive" />
       </head>
 
       <body className="antialiased">{children}</body>
