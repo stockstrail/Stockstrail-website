@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, Work_Sans, Montserrat } from "next/font/google";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -96,6 +97,15 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#012928" />
 
         {/* All favicon links are now controlled by metadata.icons */}
+
+        {/* Microsoft Clarity */}
+        <Script id="clarity" strategy="beforeInteractive">
+          {`(function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "up26ltx46a");`}
+        </Script>
       </head>
 
       <body className="antialiased">{children}</body>
