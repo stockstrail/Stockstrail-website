@@ -24,9 +24,7 @@ type CSSVars = React.CSSProperties & {
 
 /* ---------------- HELPERS ---------------- */
 
-const createFlakes = (): Flake[] => {
-  const total = 220;
-
+const createFlakes = (total: number): Flake[] => {
   return Array.from({ length: total }).map((_, index) => {
     const duration = 36 + Math.random() * 18;
 
@@ -47,10 +45,17 @@ const createFlakes = (): Flake[] => {
 /* ---------------- COMPONENT ---------------- */
 
 const Snowfall: React.FC = () => {
-  const [flakes] = useState(createFlakes);
+  const [flakes, setFlakes] = useState<Flake[]>([]);
 
   const overlayRef = useRef<HTMLDivElement>(null);
   const worldRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Reduce flakes on mobile for performance
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const count = isMobile ? 200 : 220; // 200 flakes on mobile, 220 on desktop
+    setFlakes(createFlakes(count));
+  }, []);
 
   /* -------- PAGE HEIGHT (read-only, safe) -------- */
 
@@ -74,6 +79,7 @@ const Snowfall: React.FC = () => {
 
     const updateCamera = () => {
       if (worldRef.current) {
+        // This makes the snow "World Fixed" so you can scroll past it
         worldRef.current.style.transform = `translateY(${-window.scrollY}px)`;
       }
       rafId = requestAnimationFrame(updateCamera);
@@ -86,13 +92,14 @@ const Snowfall: React.FC = () => {
   return (
     <div
       ref={overlayRef}
-      className="pointer-events-none fixed inset-0 z-60 overflow-hidden"
+      className="pointer-events-none fixed inset-0 z-50 overflow-hidden"
       aria-hidden="true"
     >
       {/* WORLD */}
       <div
         ref={worldRef}
         className="absolute top-0 left-0 w-full"
+        // Key optimization: Tell browser to promote this layer
         style={{ willChange: "transform" }}
       >
         <style jsx>{`
@@ -144,14 +151,14 @@ const Snowfall: React.FC = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   style={{
-                    animation: `snow-spin ${
-                      flake.duration * 1.4
-                    }s linear infinite`,
+                    animation: `snow-spin ${flake.duration * 1.4
+                      }s linear infinite`,
                   }}
                 >
                   <path d="M16 3v26M16 16l8-8M16 16l-8-8M16 16l8 8M16 16l-8 8" />
                   <path d="M16 8l2.5-2.5M16 8l-2.5-2.5M16 24l2.5 2.5M16 24l-2.5 2.5" />
                   <path d="M21 11l3-1M21 11l1-3M11 21l-3 1M11 21l-1 3" />
+                  <path d="M21 21l3 1M21 21l1 3M11 11l-3-1M11 11l-1-3" />
                   <path d="M21 21l3 1M21 21l1 3M11 11l-3-1M11 11l-1-3" />
                 </svg>
               </span>
