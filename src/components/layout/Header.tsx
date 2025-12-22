@@ -127,8 +127,8 @@ const Header = () => {
         { name: 'Tax Calculator', href: '/calculators?tab=TAX' },
       ]
     },
-   { name: 'About Us', href: '/about' },
-  ];   
+    { name: 'About Us', href: '/about' },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-stockstrail-bg/80 backdrop-blur-[100px] border-b border-white/10">
@@ -157,7 +157,7 @@ const Header = () => {
                         <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${openDropdown === item.name ? 'rotate-180' : ''}`} />
                       </button>
                       {openDropdown === item.name && (
-                        <div 
+                        <div
                           className="absolute top-full left-0 mt-2 w-56 bg-stockstrail-bg/95 backdrop-blur-lg border border-white/10 rounded-lg py-2 shadow-lg animate-in slide-in-from-top-2 duration-200"
                           onMouseEnter={() => openMenu(item.name)}
                           onMouseLeave={() => closeMenuWithDelay(250)}
@@ -199,6 +199,7 @@ const Header = () => {
           <button
             className="lg:hidden p-2 text-white hover:text-stockstrail-green-light hover:scale-110 transition-all duration-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>

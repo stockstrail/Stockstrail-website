@@ -375,11 +375,16 @@ const TestimonialsSectionComponent = () => {
                             <button
                                 key={index}
                                 onClick={() => setCurrentTestimonial(index)}
-                                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentTestimonial
-                                    ? "bg-stockstrail-green-light scale-125"
-                                    : "bg-white/30 hover:bg-white/50"
-                                    }`}
-                            />
+                                aria-label={`Go to testimonial ${index + 1}`}
+                                className="w-12 h-12 flex items-center justify-center focus:outline-none group"
+                            >
+                                <span
+                                    className={`block w-3 h-3 rounded-full transition-all duration-300 ${index === currentTestimonial
+                                        ? "bg-stockstrail-green-light scale-125"
+                                        : "bg-white/30 group-hover:bg-white/50"
+                                        }`}
+                                />
+                            </button>
                         ))}
                     </div>
 

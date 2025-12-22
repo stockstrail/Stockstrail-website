@@ -66,9 +66,9 @@ const FooterSection = ({
   className?: string;
 }) => (
   <div className={`flex flex-col gap-4 ${className}`}>
-    <h4 className="text-white font-montserrat font-semibold text-lg uppercase">
+    <h3 className="text-white font-montserrat font-semibold text-lg uppercase">
       {title}
-    </h4>
+    </h3>
     <div className="flex flex-col gap-4">
       {children}
     </div>
@@ -175,16 +175,16 @@ const Footer = () => {
 
         {/* Social Media Links */}
         <div className="flex justify-center gap-8 mb-12 mt-20">
-          <a href="https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
+          <a href="https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
             <Facebook className="w-6 h-6" />
           </a>
-          <a href="https://www.linkedin.com/company/stockstrail/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
+          <a href="https://www.linkedin.com/company/stockstrail/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
             <Linkedin className="w-6 h-6" />
           </a>
-          <a href="http://instagram.com/stockstrail/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
+          <a href="http://instagram.com/stockstrail/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
             <Instagram className="w-6 h-6" />
           </a>
-          <a href="https://t.me/stockstrail" target="_blank" rel="noopener noreferrer" className="group text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
+          <a href="https://t.me/stockstrail" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="group text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
             <Send className="w-6 h-6" />
           </a>
         </div>
