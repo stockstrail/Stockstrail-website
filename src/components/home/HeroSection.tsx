@@ -56,7 +56,7 @@ const HeroSection = () => {
 
                 {/* Sub text - Removed animation for LCP optimization (Element render delay fix) */}
                 <div className="mt-4">
-                    <p className="text-white/50 text-base sm:text-lg lg:text-xl font-work-sans leading-relaxed max-w-[881px] mx-auto mb-8 group-hover:text-white/70 transition-colors duration-500">
+                    <p className="text-white/50 text-base sm:text-lg lg:text-xl font-work-sans leading-relaxed max-w-[881px] mx-auto mb-8 group-hover:text-white/70">
                         Achieve financial independence with Stockstrail. Our expert guidance
                         and innovative tools help you navigate investing and reach your
                         long-term goals. Whether you&apos;re a beginner or experienced investor,

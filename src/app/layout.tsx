@@ -111,6 +111,7 @@ export default function RootLayout({
         </Script>
         <Script id="clarity-src" src={`https://www.clarity.ms/tag/${clarityId}`} strategy="afterInteractive" />
         <link rel="preconnect" href="https://q.clarity.ms" />
+        <link rel="preconnect" href="https://luwzjngwignnmpdakxkw.supabase.co" />
       </head>
 
       <body className="antialiased">
