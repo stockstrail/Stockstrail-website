@@ -1,7 +1,6 @@
-﻿'use client';
-
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import { ArrowRight, Facebook, Linkedin, Instagram, Send } from 'lucide-react';
+import BackToTopButton from './BackToTopButton';
 
 const StockstrailLogo = () => (
   <div className="flex items-center gap-2.5">
@@ -77,12 +76,6 @@ const FooterSection = ({
 );
 
 const Footer = () => {
-  const scrollToTop = () => {
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
   return (
     <footer className="bg-black/75 py-16 px-4 sm:px-6 lg:px-8 w-full">
       <div className="max-w-7xl mx-auto">
@@ -178,15 +171,7 @@ const Footer = () => {
         </div>
 
         {/* Back to top fixed button */}
-        <button
-          type="button"
-          aria-label="Back to top"
-          onClick={scrollToTop}
-          suppressHydrationWarning
-          className="fixed right-6 bottom-6 z-40 w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] bg-[#1E1E1E] rounded-full flex items-center justify-center cursor-pointer hover:bg-stockstrail-green-light hover:scale-110 hover:shadow-[0_0_20px_rgba(0,255,151,0.3)] transition-all duration-300 group"
-        >
-          <ArrowRight className="w-7 h-7 sm:w-8 sm:h-8 text-white -rotate-90 transition-colors duration-300" />
-        </button>
+        <BackToTopButton />
 
         {/* Social Media Links */}
         <div className="flex justify-center gap-8 mb-12 mt-20">

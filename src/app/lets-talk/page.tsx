@@ -160,7 +160,7 @@ export default function LetsTalk() {
 
   return (
     <Layout>
-      <section className="relative px-4 sm:px-6 lg:px-8 pt-4 pb-20">
+      <section className="relative px-4 sm:px-6 lg:px-8 pt-4 pb-20 overflow-hidden">
         {/* soft glow */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute w-[800px] h-[800px] bg-stockstrail-bg-light rounded-full blur-3xl opacity-40 left-1/2 -translate-x-1/2 top-24" />

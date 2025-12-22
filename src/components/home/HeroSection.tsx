@@ -43,20 +43,31 @@ const HeroSection = () => {
 
                 {/* Heading - Removed animation for LCP optimization */}
                 <div className="mt-8">
-                    <h1 className="fast-paint font-product-sans text-4xl sm:text-5xl lg:text-7xl font-normal leading-tight lg:leading-20 mb-8 group">
-                        <span className="fast-paint text-white group-hover:text-stockstrail-green-light transition-colors duration-500">
+                    <h1
+                        className="font-product-sans text-4xl sm:text-5xl lg:text-7xl font-normal leading-tight lg:leading-20 mb-8 group"
+                        style={{ contentVisibility: 'visible', opacity: 1, transform: 'none', transition: 'none', willChange: 'auto' }}
+                    >
+                        <span
+                            className="text-white group-hover:text-stockstrail-green-light transition-colors duration-500"
+                            style={{ opacity: 1 }}
+                        >
                             Embark on Your
                         </span>
                         <br />
-                        <span className="fast-paint text-white group-hover:text-stockstrail-green-light transition-colors duration-500">
+                        <span
+                            className="text-white group-hover:text-stockstrail-green-light transition-colors duration-500"
+                            style={{ opacity: 1 }}
+                        >
                             Journey to Success
                         </span>
                     </h1>
                 </div>
 
                 {/* Sub text - Removed animation for LCP optimization (Element render delay fix) */}
-                {/* Sub text - Removed animation for LCP optimization (Element render delay fix) */}
-                <p className="mt-4 fast-paint text-[#809393] text-base sm:text-lg lg:text-xl font-work-sans leading-relaxed max-w-[881px] mx-auto mb-8 group-hover:text-white/70">
+                <p
+                    className="mt-4 text-[#809393] text-base sm:text-lg lg:text-xl font-work-sans leading-relaxed max-w-[881px] mx-auto mb-8 group-hover:text-white/70"
+                    style={{ contentVisibility: 'visible', opacity: 1, transform: 'none', transition: 'none', willChange: 'auto' }}
+                >
                     Achieve financial independence with Stockstrail. Our expert guidance
                     and innovative tools help you navigate investing and reach your
                     long-term goals. Whether you&apos;re a beginner or experienced investor,

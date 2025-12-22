@@ -43,7 +43,7 @@ export const getRandomReviews = async (limit: number = 5) => {
     // Shuffle in-place using Fisher-Yates
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1))
-      ;[arr[i], arr[j]] = [arr[j], arr[i]]
+        ;[arr[i], arr[j]] = [arr[j], arr[i]]
     }
     const picked = arr.slice(0, limit)
     return { data: picked, error: null }
