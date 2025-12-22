@@ -66,10 +66,5 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5",
     "vaul": "^1.1.2"
-  },
-  "browserslist": [
-    "defaults",
-    "not ie 11",
-    "not dead"
-  ]
+  }
 }
