@@ -111,7 +111,7 @@
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    
+
   }
 
   h1,
@@ -364,6 +364,16 @@
 /* ================= UTILITIES LAYER ================= */
 @layer utilities {
 
+  /* Force immediate paint for LCP elements */
+  .fast-paint {
+    content-visibility: visible !important;
+    contain-intrinsic-size: auto !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+
   /* Desktop / Android real blur */
   .blur-100 {
     filter: blur(120px);
@@ -380,15 +390,13 @@
       filter: none !important;
       backdrop-filter: none !important;
 
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 58, 57, 0.55) 0%,
-        rgba(0, 58, 57, 0.35) 35%,
-        rgba(0, 58, 57, 0.18) 55%,
-        rgba(0, 58, 57, 0.08) 70%,
-        rgba(0, 58, 57, 0.02) 85%,
-        transparent 100%
-      ) !important;
+      background: radial-gradient(circle at center,
+          rgba(0, 58, 57, 0.55) 0%,
+          rgba(0, 58, 57, 0.35) 35%,
+          rgba(0, 58, 57, 0.18) 55%,
+          rgba(0, 58, 57, 0.08) 70%,
+          rgba(0, 58, 57, 0.02) 85%,
+          transparent 100%) !important;
 
       opacity: 1 !important;
     }

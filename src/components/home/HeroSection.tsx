@@ -43,12 +43,12 @@ const HeroSection = () => {
 
                 {/* Heading - Removed animation for LCP optimization */}
                 <div className="mt-8">
-                    <h1 className="font-product-sans text-4xl sm:text-5xl lg:text-7xl font-normal leading-tight lg:leading-20 mb-8 group">
-                        <span className="text-white group-hover:text-stockstrail-green-light transition-colors duration-500">
+                    <h1 className="fast-paint font-product-sans text-4xl sm:text-5xl lg:text-7xl font-normal leading-tight lg:leading-20 mb-8 group">
+                        <span className="fast-paint text-white group-hover:text-stockstrail-green-light transition-colors duration-500">
                             Embark on Your
                         </span>
                         <br />
-                        <span className="text-white group-hover:text-stockstrail-green-light transition-colors duration-500">
+                        <span className="fast-paint text-white group-hover:text-stockstrail-green-light transition-colors duration-500">
                             Journey to Success
                         </span>
                     </h1>
@@ -56,7 +56,7 @@ const HeroSection = () => {
 
                 {/* Sub text - Removed animation for LCP optimization (Element render delay fix) */}
                 <div className="mt-4">
-                    <p className="text-white/50 text-base sm:text-lg lg:text-xl font-work-sans leading-relaxed max-w-[881px] mx-auto mb-8 group-hover:text-white/70">
+                    <p className="fast-paint text-white/50 text-base sm:text-lg lg:text-xl font-work-sans leading-relaxed max-w-[881px] mx-auto mb-8 group-hover:text-white/70">
                         Achieve financial independence with Stockstrail. Our expert guidance
                         and innovative tools help you navigate investing and reach your
                         long-term goals. Whether you&apos;re a beginner or experienced investor,
