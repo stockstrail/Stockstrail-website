@@ -68,7 +68,7 @@
     "vaul": "^1.1.2"
   },
   "browserslist": [
-    "defaults and fully supports es6-module",
+    "defaults",
     "not ie 11",
     "not dead"
   ]

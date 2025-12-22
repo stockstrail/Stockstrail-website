@@ -110,14 +110,15 @@ export default function RootLayout({
           })();`}
         </Script>
         <Script id="clarity-src" src={`https://www.clarity.ms/tag/${clarityId}`} strategy="afterInteractive" />
+        <link rel="preconnect" href="https://q.clarity.ms" />
       </head>
 
       <body className="antialiased">
-  <main className="relative min-h-screen">
-    <SnowfallWrapper />
-    {children}
-  </main>
-</body>
+        <main className="relative min-h-screen">
+          <SnowfallWrapper />
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
