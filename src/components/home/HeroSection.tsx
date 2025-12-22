@@ -54,11 +54,8 @@ const HeroSection = () => {
                     </h1>
                 </div>
 
-                {/* Sub text - Keep animation slightly delayed or remove if desired, keeping for now but reducing delay */}
-                <div
-                    className="animate-slide-in-from-top"
-                    style={{ animationDelay: "100ms" }}
-                >
+                {/* Sub text - Removed animation for LCP optimization (Element render delay fix) */}
+                <div className="mt-4">
                     <p className="text-white/50 text-base sm:text-lg lg:text-xl font-work-sans leading-relaxed max-w-[881px] mx-auto mb-8 group-hover:text-white/70 transition-colors duration-500">
                         Achieve financial independence with Stockstrail. Our expert guidance
                         and innovative tools help you navigate investing and reach your
