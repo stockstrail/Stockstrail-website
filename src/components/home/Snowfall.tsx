@@ -53,13 +53,17 @@ const Snowfall: React.FC = () => {
   useEffect(() => {
     // Reduce flakes on mobile for performance
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-    const count = isMobile ? 200 : 220; // 200 flakes on mobile, 220 on desktop
+    // User requested to "comment out" logic on mobile -> 0 flakes
+    const count = isMobile ? 0 : 220;
     setFlakes(createFlakes(count));
   }, []);
 
   /* -------- PAGE HEIGHT (read-only, safe) -------- */
 
   useEffect(() => {
+    // Skip height calculation on mobile if no flakes
+    if (typeof window !== 'undefined' && window.innerWidth < 768) return;
+
     const updateHeight = () => {
       const h =
         document.documentElement.scrollHeight || document.body.scrollHeight;
@@ -75,6 +79,9 @@ const Snowfall: React.FC = () => {
   /* -------- CAMERA (smooth, no stutter) -------- */
 
   useEffect(() => {
+    // Skip animation loop on mobile
+    if (typeof window !== 'undefined' && window.innerWidth < 768) return;
+
     let rafId: number;
 
     const updateCamera = () => {
