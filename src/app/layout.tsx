@@ -113,9 +113,11 @@ export default function RootLayout({
       </head>
 
       <body className="antialiased">
-        <SnowfallWrapper />
-        {children}
-      </body>
+  <main className="relative min-h-screen">
+    <SnowfallWrapper />
+    {children}
+  </main>
+</body>
     </html>
   );
 }
