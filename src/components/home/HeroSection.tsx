@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroLogo from './HeroLogo';
+//import HeroLogo from './HeroLogo';
 
 const HeroSection = () => {
     return (
@@ -37,9 +37,9 @@ const HeroSection = () => {
             {/* Foreground content */}
             <div className="relative z-10 max-w-6xl mx-auto text-center">
                 {/* Logo */}
-                <div className="animate-slide-in-from-top">
+                {/* <div className="animate-slide-in-from-top">
                     <HeroLogo />
-                </div>
+                </div> */}
 
                 {/* Heading - Removed animation for LCP optimization */}
                 <div className="mt-8">
