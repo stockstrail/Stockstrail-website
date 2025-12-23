@@ -22,7 +22,7 @@ const DisclaimerSection = () => {
                 <div className="space-y-8 text-center">
                     <div className="animate-slide-in-from-top" style={{ animationDelay: '200ms' }}>
                         <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed max-w-5xl mx-auto group-hover:text-stockstrail-green-light transition-colors duration-500">
-                            <span className="text-white">www.stockstrail.in </span>
+                            <span className="text-white">www.stockstrail.in is an online website of</span>
                             <span className="text-stockstrail-green-light inline-block font-bold"> Vikrant Bhardwaj</span>
                             <span className="text-white">, who is registered under </span>
                             <span className="text-stockstrail-green-light inline-block font-bold">ARN-284122</span>
@@ -31,7 +31,7 @@ const DisclaimerSection = () => {
                     </div>
 
                     <div className="animate-slide-in-from-top" style={{ animationDelay: '400ms' }}>
-                        <p className="text-white font-work-sans text-xs sm:text-base lg:text-lg font-light leading-relaxed max-w-5xl mx-auto group-hover:text-stockstrail-green-light transition-colors duration-500">
+                        <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed max-w-5xl mx-auto group-hover:text-stockstrail-green-light transition-colors duration-500">
                             <span className="text-white">We do not charge any fees for the calculators or information provided on this website. Our earnings come in the form of commissions received from the respective Mutual Fund companies.</span>
                         </p>
                     </div>
