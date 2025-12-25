@@ -143,10 +143,10 @@ const Footer = () => {
                 <div className="flex items-center justify-between gap-4 p-3 rounded-md hover:bg-white/5 transition-colors duration-200">
                   <div>
                     <div className="text-white font-montserrat text-base group-hover:text-stockstrail-green-light">
-                      NSE Holiday List 2025
+                      NSE Holiday List 2026
                     </div>
                     <div className="text-white/70 text-xs mt-1 max-w-[220px]">
-                      Maha Shivratri — Feb 26, 2025 · Holi — Mar 14, 2025 · Good Friday — Apr 18, 2025
+                        Republic Day — Jan 26, 2026 · Holi — Mar 03, 2026 · Good Friday — Apr 03, 2026
                     </div>
                   </div>
                   <ArrowRight className="w-4 h-4 text-white group-hover:text-stockstrail-green-light group-hover:translate-x-1 transition-all" />
@@ -157,10 +157,10 @@ const Footer = () => {
                 <div className="flex items-center justify-between gap-4 p-3 rounded-md hover:bg-white/5 transition-colors duration-200">
                   <div>
                     <div className="text-white font-montserrat text-base group-hover:text-stockstrail-green-light">
-                      BSE Holiday List 2025
+                      BSE Holiday List 2026
                     </div>
                     <div className="text-white/70 text-xs mt-1 max-w-[220px]">
-                      Republic Day — Jan 26, 2025 · Diwali — Oct 21-22, 2025 · Christmas — Dec 25, 2025
+                      Republic Day — Jan 26, 2026 · Holi — Mar 03, 2026 · Christmas — Dec 25, 2026
                     </div>
                   </div>
                   <ArrowRight className="w-4 h-4 text-white group-hover:text-stockstrail-green-light group-hover:translate-x-1 transition-all" />

@@ -4,7 +4,7 @@ import React from 'react';
 
 const DisclaimerSection = () => {
     return (
-        <section className="py-24 px-4 sm:px-6 lg:px-8 relative">
+        <section className="py-12 px-4 sm:px-6 lg:px-8 relative">
             {/* Enhanced background effects */}
             <div className="absolute inset-0">
                 <div className="absolute top-20 right-20 w-4 h-4 bg-stockstrail-green-light/20 rounded-full"></div>

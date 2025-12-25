@@ -28,7 +28,7 @@ const WhyChooseSectionComponent = () => {
     ];
 
     return (
-        <section className="w-full py-12 md:py-16 px-4 sm:px-6 lg:px-8 relative">
+        <section className="w-full py-12 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
             {/* Background elements */}
             <div className="absolute inset-0">
                 <div className="w-full h-96 bg-stockstrail-bg-light blur-185 opacity-40"></div>
