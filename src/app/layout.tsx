@@ -44,10 +44,6 @@ export const metadata: Metadata = {
     icon: [
       { url: "/favicon.ico" }, // classic browser + Google fallback
       { url: "/favicon.svg", type: "image/svg+xml" }, // modern browsers
-      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" }, // Google recommended size
-    ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
     shortcut: "/favicon.ico",
   },
