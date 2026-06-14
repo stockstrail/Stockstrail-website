@@ -9,10 +9,9 @@
     ],
     "module": "ESNext",
     "skipLibCheck": true,
-    "noImplicitAny": false, "skipLibCheck": true,
+    "noImplicitAny": false,
     "strict": false,
     "esModuleInterop": true,
-    "ignoreDeprecations": "6.0",
     "resolveJsonModule": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
