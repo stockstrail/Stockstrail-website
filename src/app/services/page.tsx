@@ -260,6 +260,24 @@ const ServicesPage: React.FC = () => {
           />
 
           <SectionBlock
+            id="demat"
+            title="Your Gateway to Stock Market | DEMAT ACCOUNT"
+            description="Open your Demat and Trading account to start your journey in the stock market. Trade stocks, mutual funds, ETFs, and more with our secure and user-friendly platform. Enjoy real-time market access with competitive brokerage charges."
+            benefits={[
+              '100% paperless account opening process',
+              'Secure digital locker for your securities',
+              'Real-time market access for buying and selling',
+              'Competitive brokerage charges and zero AMC',
+              'User-friendly mobile and desktop trading platforms',
+              'Dedicated customer support and assistance',
+            ]}
+            cta="OPEN DEMAT ACCOUNT"
+            ctaLink="/services/open-demat"
+            imageSrc="/services/da.webp"
+            imageAlt="Demat Account"
+          />
+
+          <SectionBlock
             id="others"
             title="Complete Financial Protection | OTHER SERVICES"
             description="Beyond core investments, Stockstrail offers comprehensive additional financial services including Motor Insurance, Travel Insurance, Demat accounts, ULIPs, and Guaranteed Plans. Each service is designed to provide complete protection and convenience at every stage of life."

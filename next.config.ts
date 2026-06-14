@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
     deviceSizes: [320, 420, 640, 768, 1024, 1280, 1536],
     imageSizes: [16, 32, 48, 64, 96, 128, 160, 256],
     // Use modern formats
-    formats: ['image/avif', 'image/webp'],
+    formats: ['image/webp', 'image/avif'],
     // Quality presets
     qualities: [60, 75],
   },

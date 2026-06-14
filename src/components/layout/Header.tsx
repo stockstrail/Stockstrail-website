@@ -167,6 +167,7 @@ const Header = () => {
         { name: 'Fixed Deposit', href: '/services#fd' },
         { name: 'Insurance', href: '/services#insurance' },
         { name: 'Loan', href: '/services#loan' },
+        { name: 'Demat Account', href: '/services#demat' },
         { name: 'Other Services', href: '/services#others' },
       ],
     },
