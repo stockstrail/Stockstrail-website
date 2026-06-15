@@ -45,7 +45,7 @@ const brokers = [
   {
     name: "Alice Blue",
     key: "aliceblue",
-    href: "https://aliceblueonline.com/open-an-account/",
+    href: "https://ekyc.aliceblueonline.com/?source=EKOL716",
     logoSrc: "/logos/aliceblue.webp",
   },
   // {
@@ -57,7 +57,7 @@ const brokers = [
   {
     name: "Zerodha",
     key: "zerodha",
-    href: "https://zerodha.com/open-account",
+    href: "https://zerodha.com/open-account?c=FBX218",
     logoSrc: "/logos/zerodha.webp",
   },
 
