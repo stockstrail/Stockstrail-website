@@ -154,7 +154,7 @@ const Footer = () => {
                       NSE Holiday List 2026
                     </div>
                     <div className="text-white/70 text-xs mt-1 max-w-[220px]">
-                        Republic Day — Jan 26, 2026 · Holi — Mar 03, 2026 · Good Friday — Apr 03, 2026
+                        Republic Day - Jan 26, 2026 · Holi - Mar 03, 2026 · Good Friday - Apr 03, 2026
                     </div>
                   </div>
                   <ArrowRight className="w-4 h-4 text-white group-hover:text-stockstrail-green-light group-hover:translate-x-1 transition-all" />
@@ -168,7 +168,7 @@ const Footer = () => {
                       BSE Holiday List 2026
                     </div>
                     <div className="text-white/70 text-xs mt-1 max-w-[220px]">
-                      Republic Day — Jan 26, 2026 · Holi — Mar 03, 2026 · Christmas — Dec 25, 2026
+                      Republic Day - Jan 26, 2026 · Holi - Mar 03, 2026 · Christmas - Dec 25, 2026
                     </div>
                   </div>
                   <ArrowRight className="w-4 h-4 text-white group-hover:text-stockstrail-green-light group-hover:translate-x-1 transition-all" />

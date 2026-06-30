@@ -56,7 +56,7 @@ export default function FixedDeposit() {
                 height={420}
                 loading="lazy"
                 className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
-              />
+            />
             </div>
 
             {/* Content */}
@@ -94,7 +94,7 @@ export default function FixedDeposit() {
             className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 transition-all duration-300 font-work-sans font-medium"
           >
             <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
-            Quick FD Setup — Open Now
+            Quick FD Setup - Open Now
           </a>
         </div>
       </section>
@@ -168,7 +168,7 @@ export default function FixedDeposit() {
               },
               {
                 title: "Senior Citizen Fixed Deposit",
-                desc: "Higher interest rates (0.25% – 0.75% extra).",
+                desc: "Higher interest rates (0.25% - 0.75% extra).",
                 sub: "Best for retirees seeking steady income.",
               },
               {
@@ -253,7 +253,7 @@ export default function FixedDeposit() {
               </h3>
               <p className="text-white/80 mb-4">
                 Interest is added to the principal and paid at the end of
-                tenure—benefits from compounding.
+                tenure - benefits from compounding.
               </p>
               <div className="bg-stockstrail-green-light/10 border border-stockstrail-green-light/20 rounded-lg p-4">
                 <p className="text-sm text-white/80">
@@ -344,7 +344,7 @@ export default function FixedDeposit() {
 
           <div className="space-y-4">
             {[
-              "Most banks allow premature withdrawal with a 0.5% – 1% penalty.",
+              "Most banks allow premature withdrawal with a 0.5% - 1% penalty.",
               "If withdrawn early, interest may be lower than promised.",
               "Policies depend on the bank's specific terms.",
               "Tax-saving FDs (5-year lock-in) cannot be withdrawn early without tax impact.",

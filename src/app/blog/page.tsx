@@ -1,126 +1,115 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import { format } from 'date-fns';
-import { Skeleton } from '@/components/ui/skeleton';
 import Layout from '@/components/layout/Layout';
+import { createClient } from '@/lib/supabase/server';
 
 export const dynamic = 'force-dynamic';
 
-interface BlogPost {
-  id: string;
-  slug?: string;
-  title: string;
-  url: string;
-  content: string;
-  published: string;
-  author: {
-    displayName: string;
-  };
-}
-
 export default async function BlogPage() {
-  // Server-side fetch from Blogger API for SSR (no prerendering)
-  const BLOG_ID = process.env.BLOG_ID || process.env.NEXT_PUBLIC_BLOG_ID || process.env.NEXT_PUBLIC_BLOGGER_ID;
-  const API_KEY = process.env.BLOGGER_API_KEY || process.env.NEXT_PUBLIC_BLOGGER_API_KEY || process.env.BLOGGER_KEY;
+  const supabase = await createClient();
+  
+  // Fetch published blogs from Supabase
+  const { data: posts, error } = await supabase
+    .from("blogs")
+    .select(`
+      *,
+      profiles:author_id (full_name)
+    `)
+    .eq("published", true)
+    .order("created_at", { ascending: false });
 
-  if (!BLOG_ID || !API_KEY) {
-    return (
-      <Layout>
-        <div className="pt-20 pb-24 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto text-center text-red-400">Missing BLOG_ID or BLOGGER_API_KEY environment variables.</div>
-        </div>
-      </Layout>
-    );
+  if (error) {
+    console.error("Error fetching blogs:", error);
   }
-
-  const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOG_ID}/posts?maxResults=50&key=${API_KEY}`;
-  const res = await fetch(url, { cache: 'no-store' });
-  const data = await res.ok ? await res.json() : { items: [] };
-  const posts: BlogPost[] = data.items || [];
-
-  const extractSnippet = (html: string) => {
-    let plainText = html.replace(/<[^>]*>?/gm, '');
-    plainText = plainText.replace(/&nbsp;|&#160;/gi, ' ');
-    plainText = plainText.replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&quot;/gi, '"').replace(/&#39;/gi, "'");
-    plainText = plainText.replace(/\s+/g, ' ').trim();
-    return plainText.length > 150 ? plainText.substring(0, 150) + '...' : plainText;
-  };
-
-  const extractImage = (html: string): string | null => {
-    const imgRegex = /<img[^>]+src="([^"]+)"/;
-    const match = html.match(imgRegex);
-    return match ? match[1] : null;
-  };
 
   return (
     <Layout>
-      <div className="pt-20 pb-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="font-product-sans text-5xl sm:text-6xl font-normal text-center uppercase gradient-text mb-12">
-            OUR BLOG
-          </h1>
+      <div className="relative pt-24 pb-32 px-4 sm:px-6 lg:px-8 min-h-screen overflow-hidden">
+        {/* Premium Background Elements */}
+        <div className="absolute inset-0 -z-10 bg-[#020d0b]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-stockstrail-green/10 blur-[120px] rounded-full opacity-50 -z-10" />
+        
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="text-center mb-16 space-y-4">
+            <h1 className="font-product-sans text-5xl sm:text-6xl md:text-7xl font-normal uppercase bg-gradient-to-br from-white via-emerald-100 to-stockstrail-green bg-clip-text text-transparent drop-shadow-sm">
+              Discover Our Insights
+            </h1>
+            <p className="text-white/60 text-lg sm:text-xl max-w-2xl mx-auto font-work-sans">
+              Expert analysis, financial strategies, and market trends to help you secure your financial future.
+            </p>
+          </div>
 
-          {posts.length === 0 ? (
-            <p className="text-white/60 text-center text-lg">No blog posts found.</p>
+          {!posts || posts.length === 0 ? (
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-12 text-center">
+              <p className="text-white/60 text-lg">No blog posts found at the moment. Check back soon!</p>
+            </div>
           ) : (
-            <div className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {posts.map((post) => {
-                const imageUrl = extractImage(post.content);
-                const slugFromTitle = (post.title || '')
-                  .toLowerCase()
-                  .normalize('NFKD')
-                  .replace(/[^a-z0-9]+/g, '-')
-                  .replace(/^-+|-+$/g, '')
-                  .replace(/-{2,}/g, '-');
-                const slug = post.slug || slugFromTitle || 'post';
-                const postPath = `/blog/${slug}-${post.id}`;
+                const authorName = post.profiles?.full_name || 'Anonymous';
+                const postPath = `/blog/${post.slug}`;
+                
                 return (
                   <article
                     key={post.id}
-                    className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-xl overflow-hidden border border-white/5 hover:border-stockstrail-green-light/30 hover:shadow-[0_0_24px_rgba(0,255,151,0.12)] transition-all duration-500 group"
+                    className="relative group bg-[#051613]/50 backdrop-blur-md rounded-2xl overflow-hidden border border-emerald-900/40 hover:border-emerald-500/50 hover:shadow-[0_8px_40px_rgba(0,255,151,0.12)] transition-all duration-500 hover:-translate-y-1 flex flex-col h-full"
                   >
-                    <div className="flex flex-col lg:flex-row gap-6 p-6 lg:p-6">
-                      {imageUrl && (
-                        <div className="w-full lg:w-72 shrink-0">
-                          <div className="w-full">
-                            <Image
-                              src={imageUrl}
-                              alt={post.title}
-                              className="w-full h-auto object-contain rounded-lg border border-white/10 group-hover:scale-[1.02] transition-transform duration-500"
-                              style={{ objectPosition: 'center' }}
-                              width={800}
-                              height={450}
-                            />
+                    {/* Inner glowing accent */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-stockstrail-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                    
+                    <Link href={postPath} className="block w-full shrink-0 relative overflow-hidden group/img cursor-pointer">
+                      {post.image_url ? (
+                        <div className="w-full h-48 sm:h-56 relative bg-[#0a1a17]">
+                          <Image
+                            src={post.image_url}
+                            alt={post.title}
+                            fill
+                            className="object-cover group-hover/img:scale-105 transition-transform duration-700 ease-out"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#051613] via-transparent to-transparent opacity-80" />
+                        </div>
+                      ) : (
+                        <div className="w-full h-48 sm:h-56 relative bg-gradient-to-br from-emerald-900/40 to-[#051613] flex items-center justify-center">
+                          <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay" />
+                          <div className="w-16 h-16 rounded-full bg-stockstrail-green/10 flex items-center justify-center border border-stockstrail-green/20 group-hover/img:scale-110 group-hover/img:bg-stockstrail-green/20 transition-all duration-500">
+                             <svg className="w-8 h-8 text-stockstrail-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H14" />
+                             </svg>
                           </div>
                         </div>
                       )}
+                      
+                    </Link>
 
-                      <div className="flex-1 flex flex-col justify-between min-w-0">
-                        <div>
-                          <p className="text-stockstrail-green-light text-xs sm:text-sm uppercase tracking-wider mb-4 font-work-sans font-medium">
-                            {post.author?.displayName || 'Building Vendor'}
-                          </p>
-                          <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold mb-3 font-product-sans leading-snug">
-                            <Link href={postPath} className="text-stockstrail-green-light hover:text-white transition-colors duration-300">
-                              {post.title}
-                            </Link>
-                          </h2>
-                          <p className="text-white/70 text-sm sm:text-sm lg:text-base leading-relaxed mb-4 line-clamp-2 font-work-sans">
-                            {extractSnippet(post.content)}
-                          </p>
-                        </div>
-
-                        <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                          <Link href={postPath} className="inline-flex items-center gap-2 text-stockstrail-green-light hover:text-white font-medium transition-colors duration-300 font-work-sans text-sm sm:text-base group-hover:gap-3">
-                            Read More
-                            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
+                    <div className="flex-1 flex flex-col p-5 sm:p-6 relative z-10">
+                      <div className="flex-1">
+                        <h2 className="text-lg sm:text-xl font-semibold mb-2 font-product-sans leading-snug text-stockstrail-green group-hover:text-emerald-300 transition-colors duration-300 line-clamp-2">
+                          <Link href={postPath} className="focus:outline-none before:absolute before:inset-0">
+                            {post.title}
                           </Link>
-                          <p className="text-white/40 text-xs sm:text-xs lg:text-sm font-work-sans">
-                            {format(new Date(post.published), 'd MMMM, yyyy')}
+                        </h2>
+                        {post.excerpt && (
+                          <p className="text-white/60 text-sm leading-relaxed mb-4 line-clamp-2 font-work-sans">
+                            {post.excerpt}
                           </p>
-                        </div>
+                        )}
+                      </div>
+
+                      <div className="flex items-center justify-between pt-5 mt-auto border-t border-white/5 group-hover:border-emerald-500/20 transition-colors duration-500">
+                        <p className="text-white/40 text-xs sm:text-sm font-work-sans flex items-center gap-1.5">
+                           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          {format(new Date(post.created_at), 'MMM d, yyyy')}
+                        </p>
+                        <Link href={postPath} className="relative z-20 inline-flex items-center gap-1.5 bg-gradient-to-r from-emerald-500/20 to-stockstrail-green/20 hover:from-emerald-400/40 hover:to-stockstrail-green/40 border border-emerald-500/30 hover:border-emerald-400 text-stockstrail-green hover:text-white font-medium transition-all duration-300 font-work-sans text-xs sm:text-sm px-4 py-1.5 rounded-full shadow-[0_0_15px_rgba(0,255,151,0.1)] hover:shadow-[0_0_20px_rgba(0,255,151,0.3)] backdrop-blur-md group-hover:gap-2.5">
+                          Read Post
+                          <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                          </svg>
+                        </Link>
                       </div>
                     </div>
                   </article>

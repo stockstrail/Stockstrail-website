@@ -1,3 +1,5 @@
+// Force white filter bf437137
+// Cache bust 74c854de
 'use client';
 
 import React from 'react';
@@ -9,35 +11,35 @@ const ServicesSection = () => {
             title: "MUTUAL FUNDS",
             description:
                 "Our expertly managed funds offer a convenient way to grow your wealth over time, with the potential for long-term returns and minimal risk.",
-            icon: "/piggybank.webp",
+            icon: "/piggybank-white.webp",
             isImage: true,
         },
         {
             title: "FIXED DEPOSIT",
             description:
                 "Secure your savings with guaranteed returns through our fixed deposit schemes, offering competitive interest rates and flexible tenure options.",
-            icon: "/fd.webp",
+            icon: "/fd-white.webp",
             isImage: true,
         },
         {
             title: "INSURANCE",
             description:
                 "Protect yourself and your loved ones from life's uncertainties with our comprehensive insurance plans.",
-            icon: "/insurance.webp",
+            icon: "/insurance-white.webp",
             isImage: true,
         },
         {
             title: "LOAN",
             description:
                 "Get quick approval for personal, home, and business loans with competitive interest rates and flexible repayment terms.",
-            icon: "/loan.webp",
+            icon: "/loan-white.webp",
             isImage: true,
         },
         {
             title: "OTHERS",
             description:
                 "In addition to our core financial services, we also offer a range of other solutions to support your financial well-being.",
-            icon: "/others.webp",
+            icon: "/others-white.webp",
             isImage: true,
         },
     ];
@@ -77,15 +79,14 @@ const ServicesSection = () => {
                                 {/* Icon / Image */}
                                 <div className="w-16 h-16 sm:w-24 sm:h-24 bg-white/10 rounded-full flex items-center justify-center mb-4 sm:mb-0 sm:mr-8 shrink-0 group-hover:scale-110 group-hover:bg-stockstrail-green-light/20 transition-all duration-300">
                                     {service.isImage ? (
-                                        <Image
+                                        <Image unoptimized={true}
                                             src={service.icon}
                                             alt={service.title}
-                                            className="w-8 h-8 sm:w-16 sm:h-16 object-contain group-hover:scale-110 transition-transform duration-300"
+                                            className="w-8 h-8 sm:w-16 sm:h-16 object-contain group-hover:scale-110 transition-transform duration-300 brightness-0 invert"
                                             width={48}
                                             height={48}
                                             loading="lazy"
-                                            decoding="async"
-                                        />
+                                            decoding="async" />
                                     ) : (
                                         <span className="text-2xl sm:text-4xl group-hover:scale-110 transition-transform duration-300">
                                             {service.icon}

@@ -1,5 +1,5 @@
 "use client";
-
+// Force HMR resync
 import React, { useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import SEO from "@/components/common/SEO";
@@ -29,26 +29,25 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
   ctaLink,
 }) => {
   return (
-    <div id={id} className="grid grid-cols-1 gap-10 items-start group">
-      {/* Image on top - fully responsive with maintained aspect ratio */}
-      <div className="justify-self-center w-full">
-        <div className="w-full max-w-[420px] mx-auto rounded-xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group-hover:border-stockstrail-green-light group-hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
-          <div className="relative w-full aspect-4/3">
-            <Image
-              src={imageSrc}
-              alt={imageAlt}
-              loading="lazy"
-              fill
-              className="object-contain group-hover:scale-105 transition-transform duration-300"
-              sizes="(max-width: 390px) 90vw, (max-width: 640px) 95vw, (max-width: 768px) 420px, 420px"
-              quality={90}
-            />
-          </div>
+    <div id={id} className="flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center group p-6 sm:p-8 bg-white/5 rounded-2xl border border-white/10 hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.1)] transition-all duration-300">
+      {/* Icon on left */}
+      <div className="flex-shrink-0 w-full md:w-1/3 lg:w-1/4 flex justify-center md:justify-start">
+        <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-full md:aspect-square relative rounded-xl overflow-hidden bg-white/5 border border-white/10 group-hover:border-stockstrail-green-light transition-colors duration-300 flex items-center justify-center p-4 sm:p-6">
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            loading="lazy"
+            fill
+            className="object-contain p-4 group-hover:scale-110 transition-transform duration-300"
+            sizes="(max-width: 768px) 192px, 300px"
+            quality={90}
+            style={{ filter: 'brightness(0) invert(1)' }}
+          />
         </div>
       </div>
 
-      {/* Text below */}
-      <div>
+      {/* Text on right */}
+      <div className="flex-grow md:w-2/3 lg:w-3/4">
         <h3 className="text-stockstrail-green-light text-base sm:text-lg lg:text-xl tracking-wide font-semibold mb-3 group-hover:text-white transition-colors duration-300">
           {title}
         </h3>

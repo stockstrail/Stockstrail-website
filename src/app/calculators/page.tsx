@@ -401,6 +401,15 @@
 
 'use client';
 
+import SIPCalculatorSEO from '@/components/calculators/seo/SIPCalculatorSEO';
+import LumpsumCalculatorSEO from '@/components/calculators/seo/LumpsumCalculatorSEO';
+import FDCalculatorSEO from '@/components/calculators/seo/FDCalculatorSEO';
+import RDCalculatorSEO from '@/components/calculators/seo/RDCalculatorSEO';
+import EMICalculatorSEO from '@/components/calculators/seo/EMICalculatorSEO';
+import TaxCalculatorSEO from '@/components/calculators/seo/TaxCalculatorSEO';
+import CalculatorsPageSEO from '@/components/calculators/seo/CalculatorsPageSEO';
+
+
 import React, { useMemo, useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Layout from '@/components/layout/Layout';
@@ -1000,146 +1009,15 @@ function CalculatorsPageContent() {
             </div>
 
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-5 text-white/80">
-              {tab === "SIP" && (
-                <div className="space-y-6">
-                  <h2 className="text-white text-2xl font-semibold underline">SIP Calculator – Systematic Investment Plan</h2>
-                  <h4 className="text-white/90 italic">Plan your investments smartly, one step at a time.</h4>
-                  <div className="space-y-3">
-                    <h3 className="text-white font-semibold underline">What is a SIP Calculator?</h3>
-                    <p>A SIP (Systematic Investment Plan) calculator is a financial tool that helps investors estimate the returns from investing a fixed amount regularly into mutual funds. Instead of investing a large lump sum, SIPs allow you to contribute smaller amounts at weekly, monthly, or quarterly intervals, making investing more disciplined and accessible.</p>
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-white font-semibold underline">Why is it useful?</h3>
-                    <ul className="list-disc pl-5 space-y-1">
-                      <li><span className="font-semibold italic">Helps</span> you understand how much wealth you can create with small, consistent investments.</li>
-                      <li><span className="font-semibold italic">Encourages</span> savings habits and long-term financial discipline.</li>
-                      <li><span className="font-semibold italic">Gives clarity</span> on how compounding benefits your investments.</li>
-                    </ul>
-                  </div>
-                  <h4 className="text-white/90 italic">👉 Use the SIP calculator below to estimate your investment growth.</h4>
-                  <p className="text-white/60 text-xs">Note: Estimates exclude expense ratio/exit load and do not guarantee returns.</p>
-                </div>
-              )}
-              {tab === "LUMPSUM" && (
-                <div className="space-y-6">
-                  <h2 className="text-white text-2xl font-semibold underline">Lumpsum Calculator</h2>
-                  <h4 className="text-white/90 italic">Estimate returns from one-time investments.</h4>
-                  <div className="space-y-3">
-                    <h3 className="text-white font-semibold underline">What is a Lumpsum Calculator?</h3>
-                    <p>Unlike SIPs, lumpsum investments involve investing a large amount at once. A lumpsum calculator helps you forecast the future value of such investments by factoring in tenure and expected return rates.</p>
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-white font-semibold underline">Why is it useful?</h3>
-                    <ul className="list-disc pl-5 space-y-1">
-                      <li><span className="font-semibold italic">Provides clarity</span> on long-term wealth creation from one-time investments.</li>
-                      <li><span className="font-semibold italic">Helps compare</span> returns across different mutual fund schemes.</li>
-                      <li><span className="font-semibold italic">Useful</span> for bonuses, inheritances, or surplus funds.</li>
-                    </ul>
-                  </div>
-                  <h4 className="text-white/90 italic">👉 Use the lumpsum calculator to instantly project your potential returns.</h4>
-                </div>
-              )}
-              {tab === "FD" && (
-                <div className="space-y-6">
-                  <h2 className="text-white text-2xl font-semibold underline">FD Calculator – Fixed Deposit</h2>
-                  <h4 className="text-white/90 italic">Secure savings with guaranteed returns.</h4>
-                  <div className="space-y-3">
-                    <h3 className="text-white font-semibold underline">What is an FD Calculator?</h3>
-                    <p>Fixed Deposits (FDs) are one of the most trusted investment options in India, known for safety and guaranteed returns. An FD calculator helps you estimate the maturity value and interest earned over a fixed period.</p>
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-white font-semibold underline">Why is it useful?</h3>
-                    <ul className="list-disc pl-5 space-y-1">
-                      <li><span className="font-semibold italic">Shows</span> guaranteed interest outcomes, free from market fluctuations.</li>
-                      <li><span className="font-semibold italic">Helps compare</span> FD tenures and rates across banks and NBFCs.</li>
-                      <li><span className="font-semibold italic">Useful</span> for planning risk-free financial goals.</li>
-                    </ul>
-                  </div>
-                  <h4 className="text-white/90 italic">👉 Try the FD calculator to plan safe and secure savings.</h4>
-                  <p className="text-white/60 text-xs">Note: Bank policies, compounding conventions, and premature withdrawal charges may vary.</p>
-                </div>
-              )}
-              {tab === "RD" && (
-                <div className="space-y-6">
-                  <h2 className="text-white text-2xl font-semibold underline">RD Calculator – Recurring Deposit</h2>
-                  <h4 className="text-white/90 italic">Save small, grow big with recurring deposits.</h4>
-                  <div className="space-y-3">
-                    <h3 className="text-white font-semibold underline">What is an RD Calculator?</h3>
-                    <p>A Recurring Deposit (RD) calculator helps you calculate the maturity value of small, regular deposits made monthly. RDs are ideal for salaried individuals who want to save a fixed amount systematically and earn guaranteed returns.</p>
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-white font-semibold underline">Why is it useful?</h3>
-                    <ul className="list-disc pl-5 space-y-1">
-                      <li><span className="font-semibold italic">Encourages</span> disciplined monthly savings.</li>
-                      <li><span className="font-semibold italic">Helps estimate</span> how small amounts add up to a large corpus.</li>
-                      <li><span className="font-semibold italic">Useful</span> for short- and medium-term goals like education or travel.</li>
-                    </ul>
-                  </div>
-                  <h4 className="text-white/90 italic">👉 Use the RD calculator to see how your disciplined savings can grow over time.</h4>
-                </div>
-              )}
-              {tab === "EMI" && (
-                <div className="space-y-6">
-                  <h2 className="text-white text-2xl font-semibold underline">EMI Calculator</h2>
-                  <h4 className="text-white/90 italic">Plan your loans better with accurate EMI estimates.</h4>
-                  <div className="space-y-3">
-                    <h3 className="text-white font-semibold underline">What is an EMI Calculator?</h3>
-                    <p>An EMI (Equated Monthly Instalment) calculator helps you calculate the monthly repayment amount for loans such as home, personal, education, or car loans. It considers the principal amount, interest rate, and loan tenure to give precise results.</p>
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-white font-semibold underline">Why is it useful?</h3>
-                    <ul className="list-disc pl-5 space-y-1">
-                      <li><span className="font-semibold italic">Saves time</span> by eliminating manual calculations</li>
-                      <li><span className="font-semibold italic">Ensures accuracy</span> and avoids miscalculations</li>
-                      <li><span className="font-semibold italic">Helps compare</span> loan offers and repayment options</li>
-                      <li><span className="font-semibold italic">Assists</span> in maintaining a healthy debt-to-income ratio</li>
-                    </ul>
-                  </div>
-                  <h4 className="text-white/90 italic">👉 Enter your loan amount, interest rate, and tenure to instantly calculate your monthly EMIs and repayment schedule.</h4>
-                </div>
-              )}
-              {tab === "TAX" && (
-                <div className="space-y-6">
-                  <h2 className="text-white text-2xl font-semibold underline">Income Tax Calculator</h2>
-                  <h4 className="text-white/90 italic">Simplify your tax planning with just a few clicks.</h4>
-                  <div className="space-y-3">
-                    <h3 className="text-white font-semibold underline">What is an Income Tax Calculator?</h3>
-                    <p>It estimates tax liability based on your income, applicable deductions, and current tax slabs. Compare liability between the old regime (with deductions) and the new regime (simplified slabs, fewer deductions).</p>
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-white font-semibold underline">Why is it useful?</h3>
-                    <ul className="list-disc pl-5 space-y-1">
-                      <li><span className="font-semibold italic">Accurate</span> tax liability in seconds</li>
-                      <li><span className="font-semibold italic">Eliminates</span> manual errors</li>
-                      <li><span className="font-semibold italic">Helps plan</span> investments in ELSS, PPF, NPS</li>
-                      <li><span className="font-semibold italic">Clarifies</span> old vs new regime suitability</li>
-                    </ul>
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-white font-semibold underline">Latest Tax Updates (Budget 2025-26)</h3>
-                    <ul className="list-disc pl-5 space-y-1 text-white/90">
-                      <li>Rebate increased to ₹60,000 (no tax up to ₹12 lakh in the new regime)</li>
-                      <li>TDS limit on rent raised to ₹50,000/month</li>
-                      <li>Senior citizens&apos; interest income deduction up to ₹1,00,000</li>
-                      <li>Higher thresholds for TCS on overseas remittances</li>
-                    </ul>
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-white font-semibold underline">Revised Income Tax Slabs (FY 2025-26, New Regime)</h3>
-                    <ul className="list-disc pl-5 space-y-1 text-white/90">
-                      <li>Up to ₹4 Lakhs → Nil</li>
-                      <li>₹4 Lakhs – ₹8 Lakhs → 5%</li>
-                      <li>₹8 Lakhs – ₹12 Lakhs → 10%</li>
-                      <li>₹12 Lakhs – ₹16 Lakhs → 15%</li>
-                      <li>₹16 Lakhs – ₹20 Lakhs → 20%</li>
-                      <li>₹20 Lakhs – ₹24 Lakhs → 25%</li>
-                      <li>Above ₹24 Lakhs → 30%</li>
-                    </ul>
-                  </div>
-                  <h4 className="text-white/90 italic">👉 Use the income tax calculator below to instantly estimate your liability and plan smarter.</h4>
-                </div>
-              )}
+              {tab === "SIP" && <SIPCalculatorSEO />}
+              {tab === "LUMPSUM" && <LumpsumCalculatorSEO />}
+              {tab === "FD" && <FDCalculatorSEO />}
+              {tab === "RD" && <RDCalculatorSEO />}
+              {tab === "EMI" && <EMICalculatorSEO />}
+              {tab === "TAX" && <TaxCalculatorSEO />}
             </div>
+            
+            <CalculatorsPageSEO />
           </div>
         </div>
       </section>

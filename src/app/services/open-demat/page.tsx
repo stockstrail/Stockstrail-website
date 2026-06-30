@@ -140,7 +140,7 @@ export default function OpenDemat() {
                 height={420}
                 loading="lazy"
                 className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
-              />
+            />
             </div>
 
             {/* Content */}
@@ -202,7 +202,7 @@ export default function OpenDemat() {
               },
               {
                 title: "Single Dashboard",
-                desc: "View all your investments — stocks, bonds, ETFs, and mutual funds — in one place.",
+                desc: "View all your investments - stocks, bonds, ETFs, and mutual funds - in one place.",
               },
             ].map((item, index) => (
               <div
@@ -367,7 +367,7 @@ export default function OpenDemat() {
 //       className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 transition-all duration-300 font-work-sans font-medium"
 //     >
 //       <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
-//       Open Free Demat Account — Get Started
+//       Open Free Demat Account - Get Started
 //     </a>
 //   </div>
 // </section>

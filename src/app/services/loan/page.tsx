@@ -3,7 +3,7 @@ import Image from "next/image";
 import Layout from "@/components/layout/Layout";
 
 export const metadata: Metadata = {
-  title: "Loans — LAMF, Business & Home Loans | Stockstrail",
+  title: "Loans - LAMF, Business & Home Loans | Stockstrail",
   description:
     "Explore Loan Against Mutual Funds, business loans, and home loans with expert guidance, minimal documentation, and competitive rates from Stockstrail.",
   keywords:
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     canonical: "https://stockstrail.com/services/loan",
   },
   openGraph: {
-    title: "Loans — LAMF, Business & Home Loans | Stockstrail",
+    title: "Loans - LAMF, Business & Home Loans | Stockstrail",
     description:
       "Access funds without selling investments. Explore LAMF, business loans & home loans with expert assistance.",
     url: "https://stockstrail.com/services/loan",
@@ -36,7 +36,7 @@ export default function Loan() {
             Smart Loans for Your Financial Goals
           </h1>
           <p className="text-white/80 max-w-3xl mx-auto leading-relaxed text-lg">
-            Access funds without disrupting your investments — explore LAMF,
+            Access funds without disrupting your investments - explore LAMF,
             business loans, and home loans with minimal documentation and
             transparent guidance from Stockstrail.
           </p>
@@ -49,11 +49,11 @@ export default function Loan() {
           {/* LEFT SECTION */}
           <div className="lg:col-span-2">
             <h2 className="text-2xl sm:text-3xl font-product-sans text-white mb-4">
-              Loans — Complete Service Overview
+              Loans - Complete Service Overview
             </h2>
 
             <p className="text-white/80 mb-4 leading-relaxed">
-              Financial needs can arise at any stage—whether expanding a
+              Financial needs can arise at any stage - whether expanding a
               business, buying a home, or handling urgent personal expenses.
               Instead of breaking investments, the right loan solution provides
               immediate support with structured repayment options.
@@ -122,8 +122,8 @@ export default function Loan() {
 
             <h4 className="text-white font-semibold mb-3">Quick Example</h4>
             <p className="text-white/80 mb-2">
-              A ₹50 lakh mutual fund portfolio can secure a LAMF of ₹25–30 lakh
-              at ~7–8% interest while your investments continue to grow.
+              A ₹50 lakh mutual fund portfolio can secure a LAMF of ₹25 - 30 lakh
+              at ~7 - 8% interest while your investments continue to grow.
             </p>
 
             <a
@@ -146,7 +146,7 @@ export default function Loan() {
             className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 transition-all duration-300 font-work-sans font-medium"
           >
             <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
-            Apply For A Loan — Quick Start
+            Apply For A Loan - Quick Start
           </a>
         </div>
       </section>
@@ -164,20 +164,20 @@ export default function Loan() {
                           height={360}
                           loading="lazy"
                           className="w-full object-contain max-h- sm:max80-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
-                        />
+            />
                       </div>
                     </div>
 
           {/* CONTENT */}
           <div>
             <h2 className="text-2xl sm:text-3xl text-stockstrail-green-light font-semibold mb-4">
-              Loan Against Mutual Funds — What & Why
+              Loan Against Mutual Funds - What & Why
             </h2>
 
             <p className="text-white/80 mb-4">
               LAMF lets you borrow by pledging your mutual fund units as
               collateral. Your investments remain active and can continue to
-              grow while you access liquidity—making this a smart borrowing
+              grow while you access liquidity - making this a smart borrowing
               strategy.
             </p>
 
@@ -185,10 +185,10 @@ export default function Loan() {
             <ul className="list-disc list-inside text-white/80 space-y-2">
               <li>No need to redeem investments</li>
               <li>
-                Lower interest rates (7–9%) compared to unsecured personal loans
+                Lower interest rates (7 - 9%) compared to unsecured personal loans
               </li>
               <li>Quick approval with minimal documentation</li>
-              <li>Loan value: 50–60% of equity funds, higher for debt funds</li>
+              <li>Loan value: 50 - 60% of equity funds, higher for debt funds</li>
               <li>Continue earning market returns</li>
             </ul>
 
@@ -207,15 +207,15 @@ export default function Loan() {
 
               <div className="space-y-4 text-white/80">
                 <div>
-                  <p className="font-semibold">Professional — Urgent Need</p>
+                  <p className="font-semibold">Professional - Urgent Need</p>
                   <p>
-                    Needed ₹3–4 lakh. Instead of redeeming funds, pledged mutual
+                    Needed ₹3 - 4 lakh. Instead of redeeming funds, pledged mutual
                     funds & repaid loan in months without affecting SIPs.
                   </p>
                 </div>
 
                 <div>
-                  <p className="font-semibold">Shop Owner — Working Capital</p>
+                  <p className="font-semibold">Shop Owner - Working Capital</p>
                   <p>
                     Needed ₹5 lakh for inventory. Used LAMF instead of costly
                     personal loans and repaid after sales cycle.
@@ -223,7 +223,7 @@ export default function Loan() {
                 </div>
 
                 <div>
-                  <p className="font-semibold">Investor — Opportunity Borrowing</p>
+                  <p className="font-semibold">Investor - Opportunity Borrowing</p>
                   <p>
                     Used LAMF for short-term opportunity without disturbing
                     long-term investments.
@@ -241,7 +241,7 @@ export default function Loan() {
           {/* LEFT CONTENT */}
           <div className="rounded-2xl p-6 bg-stockstrail-bg-light/30">
             <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-              Business & Home Loans — What & Why
+              Business & Home Loans - What & Why
             </h2>
 
             {/* BUSINESS LOANS */}
@@ -284,7 +284,7 @@ export default function Loan() {
 
               <div className="space-y-4 text-white/80">
                 <div>
-                  <p className="font-semibold">Trader — Business Loan</p>
+                  <p className="font-semibold">Trader - Business Loan</p>
                   <p>
                     Needed ₹3 lakh before festive season. Took loan, stocked
                     inventory, increased sales, repaid comfortably.
@@ -292,9 +292,9 @@ export default function Loan() {
                 </div>
 
                 <div>
-                  <p className="font-semibold">Young Family — Home Loan</p>
+                  <p className="font-semibold">Young Family - Home Loan</p>
                   <p>
-                    Purchased ₹50 lakh home with long-term EMI plan—achieved
+                    Purchased ₹50 lakh home with long-term EMI plan - achieved
                     homeownership early without financial strain.
                   </p>
                 </div>
@@ -312,7 +312,7 @@ export default function Loan() {
                           height={360}
                           loading="lazy"
                           className="w-full object-contain max-h- sm:max80-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
-                        />
+            />
                       </div>
                     </div>
         </div>

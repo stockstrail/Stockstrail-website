@@ -55,7 +55,7 @@ export default function Others() {
                 height={420}
                 loading="lazy"
                 className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
-              />
+            />
             </div>
 
             <div>
@@ -74,7 +74,7 @@ export default function Others() {
               </p>
               <p className="text-white/80 leading-relaxed">
                 From protecting your vehicle on the road to securing your investments in the market, from planning
-                travel protection to building long-term wealth with traditional plans—we have you covered.
+                travel protection to building long-term wealth with traditional plans - we have you covered.
               </p>
             </div>
           </div>
@@ -91,7 +91,7 @@ export default function Others() {
             className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 transition-all duration-300 font-work-sans font-medium"
           >
             <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
-            Explore Additional Services — Get Help
+            Explore Additional Services - Get Help
           </a>
         </div>
       </section>

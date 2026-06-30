@@ -3,7 +3,7 @@ import Image from "next/image";
 import Layout from "@/components/layout/Layout";
 
 export const metadata: Metadata = {
-  title: "Insurance — Term & Health Plans | Stockstrail",
+  title: "Insurance - Term & Health Plans | Stockstrail",
   description:
     "Compare term and health insurance plans, see real-life examples, and get tailored guidance to protect your family’s finances.",
   keywords:
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     canonical: "https://stockstrail.com/services/insurance",
   },
   openGraph: {
-    title: "Insurance — Term & Health Plans | Stockstrail",
+    title: "Insurance - Term & Health Plans | Stockstrail",
     description:
       "Secure your family’s future with Term & Health Insurance. Compare plans and get guidance from Stockstrail.",
     url: "https://stockstrail.com/services/insurance",
@@ -38,7 +38,7 @@ export default function Insurance() {
             Secure Your Family&apos;s Future with Insurance
           </h1>
           <p className="text-white/80 max-w-3xl mx-auto leading-relaxed text-lg">
-            Protection that gives you peace of mind — compare term and health
+            Protection that gives you peace of mind - compare term and health
             plans, understand how they work, and get personalised recommendations
             from Stockstrail.
           </p>
@@ -53,7 +53,7 @@ export default function Insurance() {
           {/* LEFT CONTENT */}
           <div className="lg:col-span-2">
             <h2 className="text-2xl sm:text-3xl font-product-sans text-white mb-4">
-              Insurance — Complete Service Overview
+              Insurance - Complete Service Overview
             </h2>
             <p className="text-white/80 mb-4 leading-relaxed">
               Insurance provides financial protection against unexpected events
@@ -66,7 +66,7 @@ export default function Insurance() {
               {[
                 {
                   title: "Term Insurance",
-                  desc: "High life cover at affordable premiums — pays a lump-sum (Sum Assured) to the nominee if the policyholder passes away.",
+                  desc: "High life cover at affordable premiums - pays a lump-sum (Sum Assured) to the nominee if the policyholder passes away.",
                   link: "https://insurance.assetplus.in/284122/term",
                 },
                 {
@@ -118,7 +118,7 @@ export default function Insurance() {
             />
             <h4 className="text-white font-semibold mb-3">Quick Example</h4>
             <p className="text-white/80 mb-2">
-              For ~₹500/month you could secure a ₹50 lakh term insurance cover —
+              For ~₹500/month you could secure a ₹50 lakh term insurance cover - 
               protecting education, mortgage and lifestyle goals for your family.
             </p>
             <a
@@ -161,14 +161,14 @@ export default function Insurance() {
                 height={360}
                 loading="lazy"
                 className="w-full object-contain max-h- sm:max80-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
-              />
+            />
             </div>
           </div>
 
           {/* CONTENT */}
           <div>
             <h2 className="text-2xl sm:text-3xl text-stockstrail-green-light font-semibold mb-4">
-              Term Insurance — What & Why
+              Term Insurance - What & Why
             </h2>
             <p className="text-white/80 mb-4">
               Term insurance gives a high life cover at a low cost. It ensures
@@ -180,14 +180,14 @@ export default function Insurance() {
             <ul className="list-disc list-inside text-white/80 space-y-2">
               <li>High coverage at low premiums (₹50L, ₹1Cr)</li>
               <li>Protects family from income loss & loans</li>
-              <li>Simple structure — pay premium, nominee receives sum assured</li>
+              <li>Simple structure - pay premium, nominee receives sum assured</li>
               <li>Ideal for young professionals and families</li>
             </ul>
 
             <h4 className="text-white font-semibold mt-6 mb-2">How it works</h4>
             <ol className="list-decimal list-inside text-white/80 space-y-2">
               <li>Choose coverage (e.g., ₹1 crore)</li>
-              <li>Select policy term (10–40 years)</li>
+              <li>Select policy term (10 - 40 years)</li>
               <li>Pay premiums regularly</li>
               <li>
                 If death occurs within term, nominee receives the sum assured
@@ -200,7 +200,7 @@ export default function Insurance() {
 
               <div className="space-y-4 text-white/80">
                 <div>
-                  <p className="font-semibold">Rahul — 35, family breadwinner</p>
+                  <p className="font-semibold">Rahul - 35, family breadwinner</p>
                   <p>
                     Buys ₹1 crore cover at ~₹12,000/year. On claim, family clears
                     home loan and funds children’s education.
@@ -208,7 +208,7 @@ export default function Insurance() {
                 </div>
 
                 <div>
-                  <p className="font-semibold">Pooja — 28, supporting parents</p>
+                  <p className="font-semibold">Pooja - 28, supporting parents</p>
                   <p>
                     Buys ₹50 lakh plan ensuring parents&apos; financial safety in case
                     of loss.
@@ -252,7 +252,7 @@ export default function Insurance() {
           {/* CONTENT */}
           <div className="rounded-2xl p-6 bg-stockstrail-bg-light/30">
             <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-              Health Insurance — What & Why
+              Health Insurance - What & Why
             </h2>
             <p className="text-white/80 mb-4">
               Health insurance protects you from high medical bills and offers
@@ -269,22 +269,22 @@ export default function Insurance() {
 
             <h4 className="text-white font-semibold mt-6 mb-2">How it works</h4>
             <ol className="list-decimal list-inside text-white/80 space-y-2">
-              <li>Select sum insured (₹3L–₹10L+)</li>
+              <li>Select sum insured (₹3L - ₹10L+)</li>
               <li>Pay annual premium</li>
               <li>Use network hospitals or claim reimbursement</li>
             </ol>
 
             {/* Real Case Examples */}
             <div className="mt-6 rounded-2xl p-6 bg-stockstrail-bg-light/30 border border-white/10">
-              <h4 className="text-white font-semibold mb-3">Health — Real Cases</h4>
+              <h4 className="text-white font-semibold mb-3">Health - Real Cases</h4>
               <div className="space-y-4 text-white/80">
                 <div>
-                  <p className="font-semibold">Mr. Sharma — Dengue</p>
+                  <p className="font-semibold">Mr. Sharma - Dengue</p>
                   <p>₹78,000 bill fully covered by cashless claim.</p>
                 </div>
 
                 <div>
-                  <p className="font-semibold">Mrs. Kavita — Surgery</p>
+                  <p className="font-semibold">Mrs. Kavita - Surgery</p>
                   <p>₹1.2 lakh gallbladder surgery covered.</p>
                 </div>
 
@@ -317,7 +317,7 @@ export default function Insurance() {
                 height={360}
                 loading="lazy"
                 className="w-full object-contain max-h- sm:max80-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
-              />
+            />
             </div>
           </div>
         </div>
@@ -356,7 +356,7 @@ export default function Insurance() {
                   ],
                   [
                     "Duration",
-                    "10–40 years long-term",
+                    "10 - 40 years long-term",
                     "Annual or multi-year renewals",
                   ],
                   ["Beneficiary", "Nominee / Family", "Policyholder"],
@@ -372,7 +372,7 @@ export default function Insurance() {
           </div>
 
           <p className="text-white/70 mt-6 text-sm text-center">
-            Both play different roles — term insurance protects family income
+            Both play different roles - term insurance protects family income
             after death while health insurance protects your savings during
             medical emergencies. Most households benefit from having both.
           </p>

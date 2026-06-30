@@ -54,7 +54,7 @@ export default function MutualFunds() {
                 width={720}
                 height={420}
                 className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
-              />
+            />
             </div>
 
             <div>
@@ -89,7 +89,7 @@ export default function MutualFunds() {
             className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 transition-all duration-300 font-work-sans font-medium"
           >
             <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
-            Secure Your First SIP — Start Now
+            Secure Your First SIP - Start Now
           </a>
         </div>
       </section>
@@ -136,7 +136,7 @@ export default function MutualFunds() {
                 Higher Returns Potential
               </h3>
               <p className="text-white/80">
-                Over the long term, mutual funds—especially equity-oriented funds—have historically delivered higher
+                Over the long term, mutual funds - especially equity-oriented funds - have historically delivered higher
                 returns compared to savings accounts.
               </p>
             </div>
@@ -308,7 +308,7 @@ export default function MutualFunds() {
               <div className="mt-6 p-4 bg-stockstrail-green-light/10 border border-stockstrail-green-light/20 rounded-lg">
                 <p className="text-sm text-white/80">
                   <strong className="text-white">Example:</strong> A monthly SIP of ₹2,000 for 15 years may potentially
-                  grow into ₹10–12 lakh depending on the fund&apos;s performance.
+                  grow into ₹10 - 12 lakh depending on the fund&apos;s performance.
                 </p>
               </div>
             </div>
@@ -354,7 +354,7 @@ export default function MutualFunds() {
             <div className="bg-stockstrail-bg-light/50 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
               <p className="text-stockstrail-green-light font-semibold mb-2">Example 1:</p>
               <p className="text-white/80">
-                Investing ₹1,000 per month for 10 years may grow to approximately ₹2–2.5 lakh depending on market
+                Investing ₹1,000 per month for 10 years may grow to approximately ₹2 - 2.5 lakh depending on market
                 conditions.
               </p>
             </div>
@@ -362,7 +362,7 @@ export default function MutualFunds() {
             <div className="bg-stockstrail-bg-light/50 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
               <p className="text-stockstrail-green-light font-semibold mb-2">Example 2:</p>
               <p className="text-white/80">
-                Investing ₹5,000 per month for 20 years may create a corpus of ₹50–60 lakh, assuming consistent market
+                Investing ₹5,000 per month for 20 years may create a corpus of ₹50 - 60 lakh, assuming consistent market
                 performance.
               </p>
             </div>
@@ -370,7 +370,7 @@ export default function MutualFunds() {
             <div className="bg-stockstrail-bg-light/50 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
               <p className="text-stockstrail-green-light font-semibold mb-2">Example 3:</p>
               <p className="text-white/80">
-                Investing ₹1,00,000 in a debt fund for one year may yield around ₹6,000–8,000 in returns, depending on
+                Investing ₹1,00,000 in a debt fund for one year may yield around ₹6,000 - 8,000 in returns, depending on
                 interest rate conditions.
               </p>
             </div>

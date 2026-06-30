@@ -1,3 +1,5 @@
+// Force white filter 8b71a5f9
+// Cache bust d4dcd73f
 'use client';
 
 import React from 'react';
@@ -6,22 +8,22 @@ import Image from 'next/image';
 const WhyChooseSectionComponent = () => {
     const features = [
         {
-            icon: "https://c.animaapp.com/mfilofkpBLsyal/img/frame-3.svg",
+            icon: "/assets/icons/frame-3.svg",
             title: "GOAL PLANNING",
             delay: "0ms",
         },
         {
-            icon: "https://c.animaapp.com/mfilofkpBLsyal/img/frame-4.svg",
+            icon: "/assets/icons/frame-4.svg",
             title: "FREE CONSULTATION",
             delay: "200ms",
         },
         {
-            icon: "https://c.animaapp.com/mfilofkpBLsyal/img/frame-2.svg",
+            icon: "/assets/icons/frame-2.svg",
             title: "BANK LEVEL\nSECURITY",
             delay: "400ms",
         },
         {
-            icon: "https://c.animaapp.com/mfilofkpBLsyal/img/frame-1.svg",
+            icon: "/assets/icons/frame-1.svg",
             title: "SAFE AND\nSECURE",
             delay: "600ms",
         },
@@ -54,13 +56,12 @@ const WhyChooseSectionComponent = () => {
                             }
                         >
                             <div className="flex flex-col items-center justify-center gap-4 md:gap-5 h-full p-6 md:p-8">
-                                <Image
-                                    className="w-12 h-12 md:w-16 md:h-16 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(0,255,151,0.5)]"
+                                <Image unoptimized={true}
+                                    className="w-12 h-12 md:w-16 md:h-16 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(0,255,151,0.5)] brightness-0 invert"
                                     alt="Feature icon"
                                     src={feature.icon}
                                     width={48}
-                                    height={48}
-                                />
+                                    height={48} />
                                 <div className="font-normal text-white text-sm sm:text-base md:text-lg lg:text-xl text-center tracking-[0] leading-5 sm:leading-6 md:leading-[26px] lg:leading-[30px] whitespace-pre-line transition-all duration-300 group-hover:text-[#00FF97] group-hover:drop-shadow-[0_0_10px_rgba(0,255,151,0.3)]">
                                     {feature.title}
                                 </div>

@@ -1,24 +1,13 @@
 import Link from 'next/link';
 import { format } from 'date-fns';
 import type { Metadata } from 'next';
-import { Skeleton } from '@/components/ui/skeleton';
 import { ChevronLeft, Send, Facebook, Linkedin, Instagram } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import ShareButtons from '@/components/blog/ShareButtons';
 import MobileShareButton from '@/components/blog/MobileShareButton';
+import { createClient } from '@/lib/supabase/server';
 
 export const dynamic = 'force-dynamic';
-
-interface Post {
-  id: string;
-  slug?: string;
-  title: string;
-  content: string;
-  published: string;
-  author: {
-    displayName: string;
-  };
-}
 
 const ContactCard = () => {
   return (
@@ -44,10 +33,10 @@ const ContactCard = () => {
       <div className="mt-6">
         <h4 className="text-white/80 text-sm uppercase tracking-widest mb-2">Socials</h4>
         <div className="flex items-center gap-5">
-          <a href="https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-stockstrail-green-light hover:scale-110 transition-transform duration-300"><Facebook className="w-6 h-6"/></a>
-          <a href="https://www.linkedin.com/company/stockstrail/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-stockstrail-green-light hover:scale-110 transition-transform duration-300"><Linkedin className="w-6 h-6"/></a>
-          <a href="http://instagram.com/stockstrail/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-stockstrail-green-light hover:scale-110 transition-transform duration-300"><Instagram className="w-6 h-6"/></a>
-          <a href="https://t.me/stockstrail" target="_blank" rel="noopener noreferrer" className="text-white hover:text-stockstrail-green-light hover:scale-110 transition-transform duration-300"><Send className="w-6 h-6"/></a>
+          <a href="https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white hover:scale-110 transition-transform duration-300"><Facebook className="w-6 h-6"/></a>
+          <a href="https://www.linkedin.com/company/stockstrail/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white hover:scale-110 transition-transform duration-300"><Linkedin className="w-6 h-6"/></a>
+          <a href="http://instagram.com/stockstrail/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white hover:scale-110 transition-transform duration-300"><Instagram className="w-6 h-6"/></a>
+          <a href="https://t.me/stockstrail" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white hover:scale-110 transition-transform duration-300"><Send className="w-6 h-6"/></a>
         </div>
       </div>
     </div>
@@ -58,124 +47,70 @@ export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
   const resolvedParams = await params;
-  const slugOrId = resolvedParams?.slug;
-  const BLOG_ID = process.env.BLOG_ID || process.env.NEXT_PUBLIC_BLOG_ID || process.env.NEXT_PUBLIC_BLOGGER_ID;
-  const API_KEY = process.env.BLOGGER_API_KEY || process.env.NEXT_PUBLIC_BLOGGER_API_KEY || process.env.BLOGGER_KEY;
+  const slug = resolvedParams?.slug;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://stockstrail.in";
   const baseUrl = siteUrl.replace(/\/$/, '');
-  const postUrl = `${baseUrl}/blog/${slugOrId}`;
+  const postUrl = `${baseUrl}/blog/${slug}`;
 
-  if (!BLOG_ID || !API_KEY) {
+  const supabase = await createClient();
+  const { data: post } = await supabase
+    .from("blogs")
+    .select(`*, profiles:author_id(full_name)`)
+    .eq("slug", slug)
+    .single();
+
+  if (!post) {
     return {
-      title: "Blog Post",
+      title: "Blog Post Not Found | Stockstrail",
       description: "Read our latest financial insights",
     };
   }
 
-  let post: Post | null = null;
-  const idMatch = String(slugOrId || '').match(/-(\d+)$/);
-  
-  try {
-    if (idMatch) {
-      const id = idMatch[1];
-      const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOG_ID}/posts/${id}?key=${API_KEY}`;
-      const res = await fetch(url, { cache: 'no-store' });
-      if (res.ok) post = await res.json();
-    } else {
-      const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOG_ID}/posts/search?q=${encodeURIComponent(slugOrId || '')}&key=${API_KEY}`;
-      const res = await fetch(url, { cache: 'no-store' });
-      if (res.ok) {
-        const data = await res.json();
-        if (data.items?.length) post = data.items[0];
-      }
-    }
-  } catch (err) {
-    console.error('Error fetching post metadata:', err);
-  }
+  const title = post.meta_title || post.title;
+  const description = post.meta_description || post.excerpt || "Stockstrail blog post";
+  const authorName = post.profiles?.full_name || "Anonymous";
 
   return {
-    title: post?.title || "Stockstrail Blog",
-    description: post?.title || "Read our latest financial insights",
+    title: `${title} | Stockstrail`,
+    description: description,
+    keywords: post.meta_keywords,
     openGraph: {
       type: "article",
-      title: post?.title || "Stockstrail Blog",
-      description: post?.title || "Read our latest financial insights",
+      title: title,
+      description: description,
       url: postUrl,
       siteName: "Stockstrail",
-      publishedTime: post?.published,
-      authors: [post?.author?.displayName || "Stockstrail"],
+      publishedTime: post.created_at,
+      authors: [authorName],
+      images: post.image_url ? [{ url: post.image_url }] : [],
     },
     twitter: {
       card: "summary_large_image",
-      title: post?.title || "Stockstrail Blog",
-      description: post?.title || "Read our latest financial insights",
+      title: title,
+      description: description,
+      images: post.image_url ? [post.image_url] : [],
     },
   };
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
-  const slugOrId = resolvedParams?.slug;
-  const BLOG_ID = process.env.BLOG_ID || process.env.NEXT_PUBLIC_BLOG_ID || process.env.NEXT_PUBLIC_BLOGGER_ID;
-  const API_KEY = process.env.BLOGGER_API_KEY || process.env.NEXT_PUBLIC_BLOGGER_API_KEY || process.env.BLOGGER_KEY;
+  const slug = resolvedParams?.slug;
+  
+  const supabase = await createClient();
+  const { data: post, error } = await supabase
+    .from("blogs")
+    .select(`*, profiles:author_id(full_name)`)
+    .eq("slug", slug)
+    .single();
 
-  if (!BLOG_ID || !API_KEY) {
-    return (
-      <Layout>
-        <div className="pt-20 pb-24 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto text-center text-red-400">Missing BLOG_ID or BLOGGER_API_KEY environment variables.</div>
-        </div>
-      </Layout>
-    );
-  }
-
-  let post: Post | null = null;
-
-  const idMatch = String(slugOrId || '').match(/-(\d+)$/);
-  if (idMatch) {
-    // fetch by numeric id
-    try {
-      const id = idMatch[1];
-      const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOG_ID}/posts/${id}?key=${API_KEY}`;
-      const res = await fetch(url, { cache: 'no-store' });
-      if (res.ok) post = await res.json();
-    } catch (err) {
-      // fallback to search
-    }
-  }
-
-  if (!post) {
-    // search recent posts for slug match
-    try {
-      const listUrl = `https://www.googleapis.com/blogger/v3/blogs/${BLOG_ID}/posts?maxResults=200&key=${API_KEY}`;
-      const res = await fetch(listUrl, { cache: 'no-store' });
-      const data = res.ok ? await res.json() : { items: [] };
-      const items = data.items || [];
-      const normalizedInput = String(slugOrId || '').replace(/-(\d+)$/, '');
-      const found = items.find((p: any) => {
-        if (p.slug && p.slug === normalizedInput) return true;
-        if (typeof p.url === 'string' && p.url.endsWith(`/${normalizedInput}`)) return true;
-        const titleSlug = (p.title || '')
-          .toLowerCase()
-          .normalize('NFKD')
-          .replace(/[^a-z0-9]+/g, '-')
-          .replace(/^-+|-+$/g, '')
-          .replace(/-{2,}/g, '-');
-        return titleSlug === normalizedInput;
-      });
-      if (found) post = found;
-    } catch (err) {
-      // leave post null
-    }
-  }
-
-  if (!post) {
+  if (error || !post) {
     return (
       <Layout>
         <div className="pt-20 pb-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <h1 className="text-3xl sm:text-4xl font-normal mb-6 gradient-text font-product-sans uppercase">Post Not Found</h1>
-            <p className="text-red-500 mb-10 text-lg">This blog post was not found.</p>
+            <p className="text-red-500 mb-10 text-lg">This blog post could not be found or has been removed.</p>
             <Link href="/blog" className="inline-flex items-center text-stockstrail-green-light hover:text-white transition-colors duration-300 text-lg">
               <ChevronLeft className="w-5 h-5 mr-2" />
               Back to Blog
@@ -189,6 +124,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://stockstrail.in";
   const baseUrl = siteUrl.replace(/\/$/, '');
   const currentUrl = `${baseUrl}/blog/${resolvedParams.slug}`;
+  const authorName = post.profiles?.full_name || "Anonymous";
 
   return (
     <Layout>
@@ -213,14 +149,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                       </h1>
                       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base pb-8 border-b border-white/10 max-w-3xl mx-auto">
                         <p className="text-stockstrail-green-light font-work-sans uppercase tracking-wider font-medium">
-                          {post.author?.displayName || 'Building Vendor'}
+                          {authorName}
                         </p>
                         <span className="hidden sm:block text-white/30">•</span>
                         <p className="text-white/50 font-work-sans">
-                          {format(new Date(post.published), 'd MMMM, yyyy')}
+                          {format(new Date(post.created_at), 'd MMMM, yyyy')}
                         </p>
                       </div>
                     </div>
+                    {/* Sanitizing user input is critical. For TipTap output, since admins create it, we output directly, but consider DOMPurify in production */}
                     <div className="blog-content prose prose-sm sm:prose-base lg:prose-lg mx-auto w-full" dangerouslySetInnerHTML={{ __html: post.content }} />
                   </article>
                 </div>
@@ -250,19 +187,23 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         .scrollable-blog-content::-webkit-scrollbar-thumb:hover { background: rgba(0,255,151,0.7); }
         .blog-content { color: rgba(255,255,255,0.85); font-family: 'Work Sans', system-ui, sans-serif; line-height: 1.85; max-width: none; }
         .blog-content p { margin-bottom: 1.25rem; line-height: 1.85; color: rgba(255,255,255,0.85); font-size: 1.0625rem; }
-        .blog-content img, .blog-content iframe, .blog-content video { max-width: 100%; height: auto; display: block; }
+        .blog-content img, .blog-content iframe, .blog-content video { max-width: 100%; height: auto; display: block; border-radius: 8px; margin: 2rem auto; }
         .blog-content pre, .blog-content code, .blog-content table { max-width: 100%; overflow-x: auto; }
         /* Ensure text wraps and long tokens don't cause horizontal overflow */
         .blog-content, .blog-content * { box-sizing: border-box; }
         .blog-content { overflow-wrap: anywhere; word-break: break-word; hyphens: auto; }
         .blog-content p, .blog-content li { overflow-wrap: anywhere; word-break: break-word; }
         .blog-content code { white-space: pre-wrap; word-break: break-word; }
-        .blog-content pre { white-space: pre-wrap; }
+        .blog-content pre { white-space: pre-wrap; background: #0a1210; padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
         @media (max-width: 640px) { .blog-content p { font-size: 0.9375rem; margin-bottom: 1.25rem; } }
         .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4, .blog-content h5, .blog-content h6 {
           color: #00FF97 !important;
           font-family: 'Product Sans', system-ui, sans-serif; font-weight: 600; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; line-height: 1.3;
         }
+        .blog-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+        .blog-content ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+        .blog-content blockquote { border-left: 4px solid #00FF97; padding-left: 1rem; margin-left: 0; font-style: italic; color: rgba(255,255,255,0.6); }
+        .blog-content a { color: #00FF97; text-decoration: underline; }
       `}</style>
     </Layout>
   );

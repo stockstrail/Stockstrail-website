@@ -1,3 +1,5 @@
+// Force white filter 9a8798ca
+// Cache bust 1517de25
 'use client';
 
 import React from 'react';
@@ -7,42 +9,42 @@ const CalculatorsSection = () => {
         {
             title: "SIP Calculator",
             description: "Calculate the maturity amount of your Systematic Investment Plan with compound growth.",
-            icon: "/logos/sip.webp",
+            icon: "/logos/sip-white.webp",
             isImage: true,
             href: "/calculators?tab=SIP",
         },
         {
             title: "Lumpsum Calculator",
             description: "Find out how your one-time investment will grow over time with market returns.",
-            icon: "/logos/lumpsum.webp",
+            icon: "/logos/lumpsum-white.webp",
             isImage: true,
             href: "/calculators?tab=LUMPSUM",
         },
         {
             title: "FD Calculator",
             description: "Calculate interest earned on your Fixed Deposit and maturity amount.",
-            icon: "/logos/fd.webp",
+            icon: "/logos/fd-white.webp",
             isImage: true,
             href: "/calculators?tab=FD",
         },
         {
             title: "RD Calculator",
             description: "Plan your Recurring Deposit investments and track growth over time.",
-            icon: "/logos/rd.webp",
+            icon: "/logos/rd-white.webp",
             isImage: true,
             href: "/calculators?tab=RD",
         },
         {
             title: "EMI Calculator",
             description: "Calculate your monthly EMI for loans and plan your repayment strategy.",
-            icon: "/logos/emi.webp",
+            icon: "/logos/emi-white.webp",
             isImage: true,
             href: "/calculators?tab=EMI",
         },
         {
             title: "Tax Calculator",
             description: "Estimate your tax liability and optimize your investment for tax savings.",
-            icon: "/logos/tax.webp",
+            icon: "/logos/tax-white.webp",
             isImage: true,
             href: "/calculators?tab=TAX",
         },
@@ -86,12 +88,11 @@ const CalculatorsSection = () => {
                                         <img
                                             src={calculator.icon}
                                             alt={`${calculator.title} icon`}
-                                            className="w-16 h-16 sm:w-20 sm:h-20 object-contain"
+                                            className="w-16 h-16 sm:w-20 sm:h-20 object-contain brightness-0 invert"
                                             width={80}
                                             height={80}
                                             loading="lazy"
-                                            decoding="async"
-                                        />
+                                            decoding="async" />
                                     ) : (
                                         <div className="text-5xl">{calculator.icon}</div>
                                     )}

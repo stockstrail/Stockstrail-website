@@ -27,6 +27,7 @@ import type { Review, QueryRecord } from "@/lib/supabase";
 import { formatDate } from "@/lib/utils";
 import { AdminReviewsContent } from "./AdminReviewsContent";
 import { AdminQueriesContent } from "./AdminQueriesContent";
+import { AdminBlogsContent } from "./AdminBlogsContent";
 
 interface AdminDashboardContentProps {
   attempts: RiskAttemptWithProfile[];
@@ -57,7 +58,7 @@ const riskCategoryColors = {
   Aggressive: "bg-red-500/20 text-red-400 border-red-500/40",
 };
 
-type TabType = "attempts" | "reviews" | "queries";
+type TabType = "attempts" | "reviews" | "queries" | "blogs";
 
 export function AdminDashboardContent({
   attempts,
@@ -203,6 +204,15 @@ export function AdminDashboardContent({
                 }`}
             >
               Queries ({queries.length})
+            </button>
+            <button
+              onClick={() => setActiveTab("blogs")}
+              className={`px-4 py-3 font-medium text-sm sm:text-base transition-colors border-b-2 ${activeTab === "blogs"
+                  ? "text-stockstrail-green-light border-stockstrail-green-light"
+                  : "text-white/70 hover:text-white border-transparent hover:border-white/30"
+                }`}
+            >
+              Blogs
             </button>
           </div>
         </div>
@@ -514,6 +524,9 @@ export function AdminDashboardContent({
 
       {/* Queries Tab */}
       {activeTab === "queries" && <AdminQueriesContent queries={queries} />}
+
+      {/* Blogs Tab */}
+      {activeTab === "blogs" && <AdminBlogsContent />}
     </>
   );
 }
