@@ -38,10 +38,9 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
             alt={imageAlt}
             loading="lazy"
             fill
-            className="object-contain p-4 group-hover:scale-110 transition-transform duration-300"
+            className="object-contain p-4 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(0,255,151,0.6)] transition-all duration-300"
             sizes="(max-width: 768px) 192px, 300px"
             quality={90}
-            style={{ filter: 'brightness(0) invert(1)' }}
           />
         </div>
       </div>

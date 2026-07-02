@@ -1,9 +1,8 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, Work_Sans, Montserrat } from "next/font/google";
 import Script from "next/script";
-
-
+import FloatingWhatsAppButton from "@/components/common/FloatingWhatsAppButton";
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -156,7 +155,7 @@ export default function RootLayout({
       <body className="antialiased">
         <main className="relative min-h-screen">
           {children}
-
+          <FloatingWhatsAppButton />
         </main>
       </body>
     </html>

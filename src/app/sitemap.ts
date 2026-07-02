@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { fetchBlogPosts } from '@/lib/database/blog'
+import { createClient } from '@/lib/supabase/server'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://stockstrail.in'
@@ -110,16 +110,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  // Fetch dynamic blog posts
+  // Fetch dynamic blog posts from Supabase
   let blogRoutes: MetadataRoute.Sitemap = []
   try {
-    const posts = await fetchBlogPosts()
-    blogRoutes = posts.map((post) => ({
-      url: `${baseUrl}/blog/${post.id}`,
-      lastModified: new Date(post.updated),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    }))
+    const supabase = await createClient()
+    const { data: posts, error } = await supabase
+      .from("blogs")
+      .select("slug, updated_at")
+      .eq("published", true)
+
+    if (!error && posts) {
+      blogRoutes = posts.map((post) => ({
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: new Date(post.updated_at),
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+      }))
+    }
   } catch (error) {
     console.error('Error fetching blog posts for sitemap:', error)
   }
