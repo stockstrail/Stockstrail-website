@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Layout from "@/components/layout/Layout";
+import ImageCarousel from '@/components/ui/ImageCarousel';
 
 export const metadata: Metadata = {
   title: "Loans - LAMF, Business & Home Loans | Stockstrail",
@@ -25,7 +26,6 @@ export const metadata: Metadata = {
 export default function Loan() {
   return (
     <Layout>
-      {/* HERO */}
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <div className="absolute inset-0 -z-10">
           <div className="w-full h-72 bg-stockstrail-bg-light blur-185 opacity-40" />
@@ -111,14 +111,21 @@ export default function Loan() {
 
           {/* SIDEBAR */}
           <aside className="rounded-2xl p-16 bg-stockstrail-bg-light/40 border border-white/10">
-            <Image
-              src="/services/loan2.webp"
-              alt="Loan Overview"
-              width={480}
-              height={320}
-              loading="lazy"
-              className="w-full h-36 sm:h-44 md:h-56 object-contain rounded-lg mb-4 bg-white/5"
-            />
+            <div className="relative w-full aspect-video mb-4 rounded-lg overflow-hidden border border-white/10 bg-white/5">
+              <ImageCarousel
+                images={[
+                  {
+                    src: '/hero/services_loans_01.webp',
+                    alt: 'Quick loan approval for home personal and business loans with minimal documentation at Stockstrail',
+                  },
+                  {
+                    src: '/hero/services_loans_02.webp',
+                    alt: 'Loan EMI breakdown calculator for home personal and business loans at Stockstrail India',
+                  }
+                ]}
+                className="w-full h-full object-cover"
+              />
+            </div>
 
             <h4 className="text-white font-semibold mb-3">Quick Example</h4>
             <p className="text-white/80 mb-2">

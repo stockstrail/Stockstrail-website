@@ -1,8 +1,10 @@
 'use client';
 
+import React from 'react';
 import Layout from '@/components/layout/Layout';
 import Image from "next/image";
 import ServiceFAQSection from '@/components/services/ServiceFAQSection';
+import HeroCarousel from '@/components/ui/HeroCarousel';
 
 export default function About() {
   const faqs = [
@@ -63,35 +65,40 @@ export default function About() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-12 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute w-[700px] h-[700px] bg-stockstrail-bg-light rounded-full blur-100 opacity-40 left-1/2 -translate-x-1/2 top-24" />
-          <div className="absolute top-20 left-16 w-3 h-3 bg-stockstrail-green-light/30 rounded-full animate-ping" />
-          <div className="absolute bottom-24 right-20 w-3 h-3 bg-stockstrail-green-accent/30 rounded-full animate-bounce" />
-          <div className="absolute top-1/2 right-10 w-2 h-2 bg-white/20 rounded-full animate-pulse" />
-        </div>
-
-        <div className="relative z-10 max-w-[90%] mx-auto text-center">
-          <h1 className="font-product-sans text-5xl sm:text-6xl font-normal uppercase gradient-text mb-4">About Stockstrail</h1>
-          <p className="text-white/70 text-lg sm:text-xl max-w-[90%] mx-auto mb-6 font-semibold">
+      <HeroCarousel
+        images={[
+          {
+            src: '/hero/about_01.webp',
+            alt: 'Simple transparent financial planning document showing clarity over financial jargon at Stockstrail',
+          },
+          {
+            src: '/hero/about_02.webp',
+            alt: 'Long-term financial planning journey roadmap showing SIP milestones retirement and wealth goals at Stockstrail',
+          }
+        ]}
+        className="px-4 sm:px-6 lg:px-8 pt-24 pb-12 min-h-[600px] flex items-center justify-center"
+      >
+        <div className="relative z-10 max-w-[90%] mx-auto text-center mt-8">
+          <h1 className="font-product-sans text-5xl sm:text-6xl font-normal uppercase gradient-text mb-4 drop-shadow-md bg-white/10 px-4 py-2 inline-block rounded-xl">About Stockstrail</h1>
+          <p className="text-white text-lg sm:text-xl max-w-[90%] mx-auto mb-6 font-semibold drop-shadow-lg">
             Honest Financial Planning & Investment Guidance for Every Indian
           </p>
-          <p className="text-white/80 text-base sm:text-lg max-w-[90%] mx-auto mb-6 leading-relaxed">
+          <p className="text-[#e0e0e0] text-base sm:text-lg max-w-[90%] mx-auto mb-6 leading-relaxed drop-shadow-md bg-black/20 p-4 rounded-xl backdrop-blur-sm">
             The story is simple, and so is the mission. Most people across India do not avoid investing because they lack money. They avoid it because nobody has ever sat down with them and explained it clearly, honestly, and without an ulterior motive. <strong>Stockstrail</strong> was built to be exactly that missing person - the trusted, certified financial advisor who explains everything in plain language, recommends only what is right for you, and stays with you for the long journey ahead.
           </p>
-          <p className="text-white/80 text-base sm:text-lg max-w-[90%] mx-auto mb-6 leading-relaxed">
+          <p className="text-[#e0e0e0] text-base sm:text-lg max-w-[90%] mx-auto mb-6 leading-relaxed drop-shadow-md bg-black/20 p-4 rounded-xl backdrop-blur-sm">
             At its heart, <em>Stockstrail&apos;s approach to financial planning & investment guidance</em> is rooted in a single belief: when people understand their money, they make better decisions - not just financially, but in every area of their lives. Financial confidence is not a privilege for the wealthy. It is a right that every working individual in India deserves, and Stockstrail is committed to making it accessible - from the mountains of Himachal Pradesh to the busy streets of DelhiNCR, from Chandigarh&apos;s IT corridors to the towns of Uttar Pradesh and Uttarakhand.
           </p>
-          <p className="text-white/80 text-base sm:text-lg max-w-[90%] mx-auto mb-8 leading-relaxed">
+          <p className="text-[#e0e0e0] text-base sm:text-lg max-w-[90%] mx-auto mb-8 leading-relaxed drop-shadow-md bg-black/20 p-4 rounded-xl backdrop-blur-sm">
             Led by AMFI-Registered Mutual Fund Distributor and SEBI-Certified Advisor Vikrant Bhardwaj, Stockstrail has served over 200 clients across North India with a zero-pressure, jargon-free, deeply personalised advisory experience. Our services span <strong>Mutual Funds</strong>, <strong>Fixed Deposits (FD)</strong>, <strong>Insurance</strong>, <strong>Loans</strong>, <strong>Demat Account opening</strong>, and <strong>Risk Profile Assessment</strong> - everything you need to build, protect, and grow your financial future under one trusted roof.
           </p>
-          <div className="inline-block px-6 py-3 bg-stockstrail-green-light/10 border border-stockstrail-green-light/30 rounded-full">
+          <div className="inline-block px-6 py-3 bg-stockstrail-green-light/20 border border-stockstrail-green-light/30 rounded-full backdrop-blur-sm drop-shadow-md">
             <p className="text-stockstrail-green-light font-product-sans text-lg sm:text-xl font-medium">
               Not for Profit Alone, but for People First
             </p>
           </div>
         </div>
-      </section>
+      </HeroCarousel>
 
       {/* Purpose section */}
       <section className="px-4 sm:px-6 lg:px-8 py-12">

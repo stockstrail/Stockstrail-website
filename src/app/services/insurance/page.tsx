@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Layout from "@/components/layout/Layout";
+import ImageCarousel from '@/components/ui/ImageCarousel';
 
 export const metadata: Metadata = {
   title: "Insurance - Term & Health Plans | Stockstrail",
@@ -108,14 +109,21 @@ export default function Insurance() {
 
           {/* SIDEBAR IMAGE + EXAMPLE */}
           <aside className="rounded-2xl p-10 bg-stockstrail-bg-light/40 border border-white/10">
-            <Image
-              src="/services/insurance2.webp"
-              alt="Insurance overview"
-              width={480}
-              height={320}
-              loading="lazy"
-              className="w-full h-36 sm:h-44 md:h-56 object-contain rounded-lg mb-4 bg-white/5"
-            />
+            <div className="relative w-full aspect-video mb-4 rounded-lg overflow-hidden border border-white/10 bg-white/5">
+              <ImageCarousel
+                images={[
+                  {
+                    src: '/hero/services_insurance_01.webp',
+                    alt: 'Indian family protected under comprehensive life and health insurance coverage with Stockstrail',
+                  },
+                  {
+                    src: '/hero/services_insurance_02.webp',
+                    alt: 'Health insurance plan card for families and individuals offered by Stockstrail India',
+                  }
+                ]}
+                className="w-full h-full object-cover"
+              />
+            </div>
             <h4 className="text-white font-semibold mb-3">Quick Example</h4>
             <p className="text-white/80 mb-2">
               For ~₹500/month you could secure a ₹50 lakh term insurance cover - 

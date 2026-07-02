@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Layout from "@/components/layout/Layout";
+import ImageCarousel from '@/components/ui/ImageCarousel';
 
 export const metadata: Metadata = {
   title: "Fixed Deposits - Secure & Guaranteed Returns | Stockstrail",
@@ -28,7 +29,7 @@ export default function FixedDeposit() {
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <div className="absolute inset-0 -z-10">
-          <div className="w-full h-96 bg-stockstrail-bg-light blur-185 opacity-40" />
+          <div className="w-full h-72 bg-stockstrail-bg-light blur-185 opacity-40" />
         </div>
 
         <div className="max-w-6xl mx-auto text-center">
@@ -48,15 +49,22 @@ export default function FixedDeposit() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Image */}
-            <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
-              <Image
-                src="/services/fd2.webp"
-                alt="What is Fixed Deposit"
-                width={720}
-                height={420}
-                loading="lazy"
-                className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
-            />
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300 flex items-center justify-center">
+              <div className="relative w-full aspect-video">
+                <ImageCarousel
+                  images={[
+                    {
+                      src: '/hero/services_FD_01.webp',
+                      alt: 'Fixed deposit secure guaranteed returns 7.5 percent per annum with Stockstrail India',
+                    },
+                    {
+                      src: '/hero/services_fd_02.webp',
+                      alt: 'Fixed deposit tenure options from 7 days to 10 years flexible investment timeline at Stockstrail',
+                    }
+                  ]}
+                  className="w-full h-full rounded-2xl"
+                />
+              </div>
             </div>
 
             {/* Content */}
