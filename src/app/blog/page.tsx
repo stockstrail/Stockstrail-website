@@ -63,7 +63,7 @@ export default async function BlogPage() {
                         <div className="w-full h-48 sm:h-56 relative bg-[#0a1a17]">
                           <Image
                             src={post.image_url}
-                            alt={post.title}
+                            alt={post.image_alt || post.title}
                             fill
                             className="object-cover group-hover/img:scale-105 transition-transform duration-700 ease-out"
                             sizes="(max-width: 768px) 100vw, 50vw"

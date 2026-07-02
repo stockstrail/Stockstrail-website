@@ -21,6 +21,7 @@ export interface Blog {
   excerpt: string;
   content: string;
   image_url: string;
+  image_alt?: string;
   published: boolean;
   author_id: string | null;
   meta_title: string;

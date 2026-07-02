@@ -13,7 +13,7 @@ const AboutSection = () => {
                 <div className="absolute top-1/3 right-10 w-5 h-5 bg-stockstrail-green-light/10 rounded-full"></div>
             </div>
 
-            <div className="max-w-6xl mx-auto text-center relative z-10">
+            <div className="max-w-[90%] mx-auto text-center relative z-10">
                 <div className="animate-slide-in-from-top" style={{ animationDelay: '100ms' }}>
                     <h2 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase mb-8 group">
                         <span className="text-white group-hover:text-stockstrail-green-light transition-colors duration-500">About </span>
@@ -22,14 +22,14 @@ const AboutSection = () => {
                 </div>
 
                 <div className="animate-slide-in-from-top" style={{ animationDelay: '200ms' }}>
-                    <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed max-w-5xl mx-auto mb-12 group-hover:text-stockstrail-green-light transition-colors duration-500">
-                        We ensure a secure and safe mutual fund investment platform through a structured and disciplined approach. We offer a wide range of services, including Mutual Funds, Insurance, Fixed Deposits, and more, combining top-tier proprietary and third-party products.
+                    <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed max-w-[90%] mx-auto mb-12 group-hover:text-stockstrail-green-light transition-colors duration-500">
+                        Financial planning & investment guidance is not a luxury reserved for the rich - it is a necessity for every earning individual in India. At Stockstrail, we believe that every person, regardless of their background or income level, deserves a clear, honest, and personalised financial roadmap. Whether you are a young professional in Shimla, a business owner in Chandigarh, or a salaried employee in Delhi - your financial goals matter, and so does the quality of guidance you receive.
                     </p>
                 </div>
 
                 <div className="animate-slide-in-from-top" style={{ animationDelay: '400ms' }}>
-                    <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed max-w-5xl mx-auto group-hover:text-stockstrail-green-light transition-colors duration-500">
-                        Our goal is to provide quick transaction services tailored to your profile and risk appetite. Partner with us to develop a savings and investment habit, along with a protection plan that helps you achieve your investment goals according to your specific needs. Our advice ensures you choose the best schemes under the SEBI-defined riskometer.
+                    <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed max-w-[90%] mx-auto group-hover:text-stockstrail-green-light transition-colors duration-500">
+                        Most people do not start investing because they lack money. They stay away because nobody has ever explained it to them in simple, human language. The financial world is full of jargon, commission-driven advice, and one-size-fits-all products that rarely fit anyone's actual life. Stockstrail was built to fix exactly this problem. We offer financial planning & investment guidance that starts with listening - to your goals, your concerns, your timeline, and your life situation - before recommending anything at all.
                     </p>
                 </div>
 

@@ -81,6 +81,11 @@ const DisclaimerSection = dynamic(() => import('@/components/home/DisclaimerSect
   loading: () => <div className="h-24 bg-stockstrail-bg" />,
 });
 
+const HomePageSEOContent = dynamic(() => import('@/components/home/HomePageSEOContent'), {
+  ssr: false,
+  loading: () => <div className="min-h-[400px]" />,
+});
+
 export default function BelowFoldSections() {
   return (
     <>
@@ -101,6 +106,9 @@ export default function BelowFoldSections() {
       </Defer>
       <Defer fallback={<div className="min-h-[400px] bg-transparent" />}>
         <AboutSection />
+      </Defer>
+      <Defer fallback={<div className="min-h-[400px] bg-transparent" />}>
+        <HomePageSEOContent />
       </Defer>
       <Defer fallback={<div className="h-24 bg-[#001F1F]" />}>
         <DisclaimerSection />

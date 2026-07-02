@@ -103,169 +103,83 @@ const Contact = () => {
         <div className="absolute top-1/2 left-5 w-3 h-3 bg-stockstrail-green-accent/30 rounded-full animate-bounce-gentle"></div>
         <div className="absolute top-1/3 right-5 w-4 h-4 bg-white/10 rounded-full animate-pulse"></div>
 
-        <div className="max-w-7xl mx-auto relative">
-
-          {/* MOBILE LAYOUT */}
-          <div className="lg:hidden space-y-12">
-
-            <div className="flex flex-col items-center text-center group">
-              <div className="mb-6 hover:scale-105 transition-transform duration-500">
-                <StockstrailLogoBW />
-              </div>
-              <div className="group-hover:scale-105 transition-transform duration-300">
-                <h3 className="text-white/80 text-xl mb-4 group-hover:text-stockstrail-green-light transition-colors duration-300">Get in touch</h3>
-                <p className="text-white/60 group-hover:text-white/80 transition-colors duration-300">We welcome your inquiries by phone or e-mail</p>
-              </div>
+        <div className="max-w-[95%] mx-auto relative z-10 flex flex-col items-center">
+          
+          {/* TOP SECTION: Logo */}
+          <div className="flex flex-col items-center text-center mb-16">
+            <div className="mb-8 hover:scale-105 transition-transform duration-500">
+              <StockstrailLogoBW />
             </div>
-
-            {/* Address */}
-            <div className="space-y-6 text-white/90">
-              <div className="group">
-                <h2 className="text-white text-sm uppercase tracking-widest mb-2 group-hover:text-stockstrail-green-light transition-colors duration-300">Address</h2>
-
-                <a
-                  href="https://maps.google.com/maps?q=Near+Punjab+And+Sind+Bank,+V.P.O.+Chintpurni+Teh:Amb,+Distt.-+Una,+Himachal+Pradesh+177110"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-stockstrail-green-light block p-3 rounded-lg transition-all duration-300 hover:bg-white/5 hover:shadow-[0_0_15px_rgba(0,255,151,0.2)]"
-                >
-                  <LocationIcon />
-                  Near Punjab And Sind Bank,<br /> V.P.O. Chintpurni Teh:Amb,<br /> Distt.- Una, Himachal Pradesh (177110)
-                </a>
-              </div>
-
-              {/* Email */}
-              <div className="group">
-                <h2 className="text-white text-sm uppercase tracking-widest mb-2">Email</h2>
-                <a
-                  href="mailto:connect@stockstrail.in"
-                  className="underline block p-3 rounded-lg hover:text-stockstrail-green-light hover:bg-white/5 hover:shadow-[0_0_15px_rgba(0,255,151,0.2)] transition-all duration-300"
-                >
-                  <EmailIcon /> connect@stockstrail.in
-                </a>
-              </div>
-
-              {/* Socials */}
-              <div className="group">
-                <h2 className="text-white text-sm uppercase tracking-widest mb-2">Socials</h2>
-                <div className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors duration-300">
-                  <a href="https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/" target="_blank" className="hover:text-stockstrail-green-light hover:scale-110 transition-transform">
-                    <Facebook className="w-6 h-6" />
-                  </a>
-                  <a href="https://www.linkedin.com/company/stockstrail/" target="_blank" className="hover:text-stockstrail-green-light hover:scale-110 transition-transform">
-                    <Linkedin className="w-6 h-6" />
-                  </a>
-                  <a href="http://instagram.com/stockstrail/" target="_blank" className="hover:text-stockstrail-green-light hover:scale-110 transition-transform">
-                    <Instagram className="w-6 h-6" />
-                  </a>
-                  <a href="https://t.me/stockstrail" target="_blank" className="hover:text-stockstrail-green-light hover:scale-110 transition-transform">
-                    <Send className="w-6 h-6" />
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Call & WhatsApp */}
-            <div className="space-y-6 text-white/90">
-              <div className="group">
-                <h2 className="text-white text-sm uppercase tracking-widest mb-2">Call Us</h2>
-                <a
-                  href="tel:+919736304663"
-                  className="underline block p-2 rounded-lg hover:text-stockstrail-green-light hover:bg-white/5 hover:scale-105 transition-all duration-300"
-                >
-                  <PhoneIcon /> +91 97363-04663
-                </a>
-              </div>
-
-              <div className="group">
-                <h2 className="text-white text-sm uppercase tracking-widest mb-2">WhatsApp</h2>
-                <a
-                  href="https://wa.me/919736304663"
-                  target="_blank"
-                  className="underline block p-2 rounded-lg hover:text-stockstrail-green-light hover:bg-white/5 hover:scale-105 transition-all duration-300"
-                >
-                  <WhatsAppIcon /> +91 97363-04663
-                </a>
-              </div>
-            </div>
+            <h3 className="text-white/90 text-2xl mb-4 text-stockstrail-green-light transition-colors duration-300 font-product-sans">Get in touch</h3>
+            <p className="text-white/70 max-w-sm">We welcome your inquiries by phone or e-mail</p>
           </div>
 
-          {/* DESKTOP LAYOUT */}
-          <div className="hidden lg:block relative min-h-[480px]">
-
-            {/* Top Left */}
-            <div className="absolute top-0 left-0 space-y-6 text-white/90 max-w-sm">
-              {/* Address */}
-              <div>
-                <h2 className="text-white text-sm uppercase tracking-widest mb-2">Address</h2>
-                <a
-                  href="https://maps.google.com/maps?q=Near+Punjab+And+Sind+Bank,+V.P.O.+Chintpurni+Teh:Amb,+Distt.-+Una,+Himachal+Pradesh+177110"
-                  target="_blank"
-                  className="block p-3 rounded-lg hover:bg-white/5 hover:text-stockstrail-green-light transition-all"
-                >
-                  <LocationIcon />
-                  Near Punjab And Sind Bank,<br /> V.P.O. Chintpurni Teh:Amb,<br /> Distt.- Una, Himachal Pradesh (177110)
-                </a>
-              </div>
-
-              {/* Email */}
-              <div>
-                <h2 className="text-white text-sm uppercase tracking-widest mb-2">Email</h2>
-                <a
-                  href="mailto:connect@stockstrail.in"
-                  className="underline block p-3 rounded-lg hover:bg-white/5 hover:text-stockstrail-green-light transition-all"
-                >
-                  <EmailIcon /> connect@stockstrail.in
-                </a>
-              </div>
-
-              {/* Socials */}
-              <div>
-                <h2 className="text-white text-sm uppercase tracking-widest mb-2">Socials</h2>
-                <div className="flex items-center gap-4 p-3">
-                  <a href="https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/" target="_blank" className="hover:text-stockstrail-green-light hover:scale-110 transition-transform">
-                    <Facebook className="w-6 h-6" />
-                  </a>
-                  <a href="https://www.linkedin.com/company/stockstrail/" target="_blank" className="hover:text-stockstrail-green-light hover:scale-110 transition-transform">
-                    <Linkedin className="w-6 h-6" />
-                  </a>
-                  <a href="http://instagram.com/stockstrail/" target="_blank" className="hover:text-stockstrail-green-light hover:scale-110 transition-transform">
-                    <Instagram className="w-6 h-6" />
-                  </a>
-                  <a href="https://t.me/stockstrail" target="_blank" className="hover:text-stockstrail-green-light hover:scale-110 transition-transform">
-                    <Send className="w-6 h-6" />
-                  </a>
-                </div>
-              </div>
+          {/* BOTTOM SECTION: 5 Cards in a row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 w-full">
+            
+            {/* Address Card */}
+            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:border-stockstrail-green-light/50 transition-all duration-300 group">
+              <h2 className="text-white text-sm uppercase tracking-widest mb-4 group-hover:text-stockstrail-green-light transition-colors duration-300">Address</h2>
+              <a
+                href="https://maps.google.com/maps?q=Near+Punjab+And+Sind+Bank,+V.P.O.+Chintpurni+Teh:Amb,+Distt.-+Una,+Himachal+Pradesh+177110"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white block leading-relaxed text-sm lg:text-base"
+              >
+                <LocationIcon />
+                Near Punjab And Sind Bank,<br /> V.P.O. Chintpurni Teh:Amb,<br /> Distt.- Una, Himachal Pradesh (177110)
+              </a>
             </div>
 
-            {/* Center Logo */}
-            <div className="absolute top-1/2 left-[53%] -translate-x-1/2 -translate-y-1/2 text-center">
-              <StockstrailLogoBW />
-              <h3 className="text-white/80 text-xl mt-6 mb-4 group-hover:text-stockstrail-green-light transition-colors duration-300">Get in touch</h3>
-              <p className="text-center text-white/60 group-hover:text-white/80 transition-colors duration-300">We welcome your inquiries by phone or e-mail</p>
+            {/* Email Card */}
+            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:border-stockstrail-green-light/50 transition-all duration-300 group">
+              <h2 className="text-white text-sm uppercase tracking-widest mb-4 group-hover:text-stockstrail-green-light transition-colors duration-300">Email</h2>
+              <a
+                href="mailto:connect@stockstrail.in"
+                className="text-white/80 hover:text-white block underline break-words"
+              >
+                <EmailIcon /> connect@stockstrail.in
+              </a>
             </div>
 
-            {/* Bottom Right */}
-            <div className="absolute bottom-0 right-0 space-y-6 text-white/90 max-w-sm">
-              <div>
-                <h2 className="text-white text-sm uppercase tracking-widest mb-2">Call Us</h2>
-                <a
-                  href="tel:+919736304663"
-                  className="underline block p-2 rounded-lg hover:bg-white/5 hover:text-stockstrail-green-light transition-all"
-                >
-                  <PhoneIcon /> +91 97363-04663
-                </a>
-              </div>
+            {/* Call Card */}
+            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:border-stockstrail-green-light/50 transition-all duration-300 group">
+              <h2 className="text-white text-sm uppercase tracking-widest mb-4 group-hover:text-stockstrail-green-light transition-colors duration-300">Call Us</h2>
+              <a
+                href="tel:+919736304663"
+                className="text-white/80 hover:text-white block underline sm:text-lg"
+              >
+                <PhoneIcon /> +91 97363-04663
+              </a>
+            </div>
 
-              <div>
-                <h2 className="text-white text-sm uppercase tracking-widest mb-2">WhatsApp</h2>
-                <a
-                  href="https://wa.me/919736304663"
-                  target="_blank"
-                  className="underline block p-2 rounded-lg hover:bg-white/5 hover:text-stockstrail-green-light transition-all"
-                >
-                  <WhatsAppIcon /> +91 97363-04663
+            {/* WhatsApp Card */}
+            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:border-stockstrail-green-light/50 transition-all duration-300 group">
+              <h2 className="text-white text-sm uppercase tracking-widest mb-4 group-hover:text-stockstrail-green-light transition-colors duration-300">WhatsApp</h2>
+              <a
+                href="https://wa.me/919736304663"
+                target="_blank"
+                className="text-white/80 hover:text-white block underline sm:text-lg"
+              >
+                <WhatsAppIcon /> +91 97363-04663
+              </a>
+            </div>
+
+            {/* Socials Card */}
+            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:border-stockstrail-green-light/50 transition-all duration-300 group">
+              <h2 className="text-white text-sm uppercase tracking-widest mb-4 group-hover:text-stockstrail-green-light transition-colors duration-300">Socials</h2>
+              <div className="flex items-center gap-4 flex-wrap">
+                <a href="https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/" target="_blank" className="text-white/70 hover:text-stockstrail-green-light hover:scale-110 transition-all">
+                  <Facebook className="w-5 h-5 lg:w-6 lg:h-6" />
+                </a>
+                <a href="https://www.linkedin.com/company/stockstrail/" target="_blank" className="text-white/70 hover:text-stockstrail-green-light hover:scale-110 transition-all">
+                  <Linkedin className="w-5 h-5 lg:w-6 lg:h-6" />
+                </a>
+                <a href="http://instagram.com/stockstrail/" target="_blank" className="text-white/70 hover:text-stockstrail-green-light hover:scale-110 transition-all">
+                  <Instagram className="w-5 h-5 lg:w-6 lg:h-6" />
+                </a>
+                <a href="https://t.me/stockstrail" target="_blank" className="text-white/70 hover:text-stockstrail-green-light hover:scale-110 transition-all">
+                  <Send className="w-5 h-5 lg:w-6 lg:h-6" />
                 </a>
               </div>
             </div>

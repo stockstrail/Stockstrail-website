@@ -67,6 +67,7 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
     slug: "",
     excerpt: "",
     image_url: "",
+    image_alt: "",
     meta_title: "",
     meta_description: "",
     meta_keywords: "",
@@ -95,6 +96,7 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
           slug: blog.slug || "",
           excerpt: blog.excerpt || "",
           image_url: blog.image_url || "",
+          image_alt: blog.image_alt || "",
           meta_title: blog.meta_title || "",
           meta_description: blog.meta_description || "",
           meta_keywords: blog.meta_keywords || "",
@@ -107,6 +109,7 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
           slug: "",
           excerpt: "",
           image_url: "",
+          image_alt: "",
           meta_title: "",
           meta_description: "",
           meta_keywords: "",
@@ -181,6 +184,7 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
         excerpt: formData.excerpt,
         content: content,
         image_url: formData.image_url,
+        image_alt: formData.image_alt,
         meta_title: formData.meta_title,
         meta_description: formData.meta_description,
         meta_keywords: formData.meta_keywords,
@@ -269,6 +273,17 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
                   />
                 </div>
               </div>
+
+              <div>
+                <Label htmlFor="image_alt" className="text-white/70">Image Alt Text (Optional)</Label>
+                <Input
+                  id="image_alt"
+                  value={formData.image_alt}
+                  onChange={(e) => setFormData({ ...formData, image_alt: e.target.value })}
+                  placeholder="Describe the image for accessibility and SEO"
+                  className="bg-white/5 border-white/10 text-white mt-1"
+                />
+              </div>
             </div>
 
             <div className="space-y-4">
@@ -334,7 +349,7 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
             <Button
               type="submit"
               disabled={loading}
-              className="bg-stockstrail-green hover:bg-stockstrail-green-light text-black font-semibold"
+              className="bg-gradient-to-r from-emerald-400 to-stockstrail-green-light hover:from-emerald-300 hover:to-stockstrail-green text-[#031815] font-semibold shadow-[0_0_20px_rgba(0,255,151,0.25)] hover:shadow-[0_0_30px_rgba(0,255,151,0.5)] transition-all duration-300 hover:-translate-y-0.5 border border-emerald-300/30 px-6"
             >
               {loading ? "Saving..." : (blog ? "Update Post" : "Create Post")}
             </Button>

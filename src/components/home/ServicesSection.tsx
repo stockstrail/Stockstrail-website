@@ -10,35 +10,35 @@ const ServicesSection = () => {
         {
             title: "MUTUAL FUNDS",
             description:
-                "Our expertly managed funds offer a convenient way to grow your wealth over time, with the potential for long-term returns and minimal risk.",
+                "Stockstrail helps you select top-performing mutual funds tailored to your risk profile and goals. Whether you want to start a monthly SIP or invest a lump sum, we guide you through equity, debt, and hybrid funds from leading AMCs.",
             icon: "/piggybank-white.webp",
             isImage: true,
         },
         {
             title: "FIXED DEPOSIT",
             description:
-                "Secure your savings with guaranteed returns through our fixed deposit schemes, offering competitive interest rates and flexible tenure options.",
+                "Looking for guaranteed returns without stock market risks? We assist in booking high-interest Fixed Deposits with trusted bank and NBFC partners, ensuring capital protection and predictable income.",
             icon: "/fd-white.webp",
             isImage: true,
         },
         {
             title: "INSURANCE",
             description:
-                "Protect yourself and your loved ones from life's uncertainties with our comprehensive insurance plans.",
+                "Protect your family's future with the right coverage. Stockstrail offers unbiased advice on Term Life Insurance, Health Insurance (Mediclaim), Motor Insurance, Travel Insurance, and ULIPs to secure your financial dependents.",
             icon: "/insurance-white.webp",
             isImage: true,
         },
         {
             title: "LOAN",
             description:
-                "Get quick approval for personal, home, and business loans with competitive interest rates and flexible repayment terms.",
+                "We facilitate quick and hassle-free loans to meet your capital needs. This includes Home Loans, Business Loans, Personal Loans, and Loans Against Mutual Funds (LAMF) at competitive interest rates.",
             icon: "/loan-white.webp",
             isImage: true,
         },
         {
             title: "OTHERS",
             description:
-                "In addition to our core financial services, we also offer a range of other solutions to support your financial well-being.",
+                "In addition to our core financial services, we offer Demat Account opening and a free online Risk Profile Assessment tool to give you a personalised asset allocation strategy.",
             icon: "/others-white.webp",
             isImage: true,
         },
@@ -62,7 +62,7 @@ const ServicesSection = () => {
                 <div className="absolute left-1/2 top-10 -translate-x-1/2 w-[700px] h-[700px] bg-stockstrail-bg-light rounded-full blur-100 opacity-60 pointer-events-none" />
             </div>
 
-            <div className="relative z-10 max-w-6xl mx-auto">
+            <div className="relative z-10 max-w-[90%] mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase mb-8">
                         <span className="text-white">Invest your </span>
