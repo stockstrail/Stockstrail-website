@@ -11,28 +11,28 @@ export default function ServicesPage() {
       title: 'Mutual Funds',
       description: 'Expertly managed funds to help you achieve your long-term financial goals.',
       icon: '/assets/icons/mutual_fund.webp',
-      link: '/services/mutual-funds'
+      link: '/mutual-funds'
     },
     {
       id: 'fixed-deposit',
       title: 'Fixed Deposits',
       description: 'Secure your savings with guaranteed returns and flexible tenures.',
       icon: '/assets/icons/fd.webp',
-      link: '/services/fixed-deposit'
+      link: '/fixed-deposit'
     },
     {
       id: 'insurance',
       title: 'Insurance',
       description: 'Comprehensive protection for your health, life, and valuable assets.',
       icon: '/assets/icons/insurance.webp',
-      link: '/services/insurance'
+      link: '/insurance'
     },
     {
       id: 'loan',
       title: 'Loans',
       description: 'Quick and hassle-free loans to meet your personal or business needs.',
       icon: '/assets/icons/loan.webp',
-      link: '/services/loan'
+      link: '/loan'
     },
     {
       id: 'open-demat',

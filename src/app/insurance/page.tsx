@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   keywords:
     "term insurance, health insurance, life cover, family protection, Stockstrail insurance",
   alternates: {
-    canonical: "https://stockstrail.com/services/insurance",
+    canonical: '/insurance',
   },
   openGraph: {
     title: "Insurance - Term & Health Plans | Stockstrail",
     description:
       "Secure your family’s future with Term & Health Insurance. Compare plans and get guidance from Stockstrail.",
-    url: "https://stockstrail.com/services/insurance",
+    url: "https://stockstrail.com/insurance",
     locale: "en_IN",
     type: "website",
     images: ["/stockstrail.png"],
@@ -320,7 +320,7 @@ export default function Insurance() {
             <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 w-full max-w-md group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
               <Image
                 src="/services/insurance4.webp"
-                alt="Term Insurance"
+                alt="Health Insurance"
                 width={520}
                 height={360}
                 loading="lazy"

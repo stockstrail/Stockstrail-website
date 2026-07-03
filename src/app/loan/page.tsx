@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   keywords:
     "loan against mutual funds, LAMF, business loan, home loan, personal loan, Stockstrail loans",
   alternates: {
-    canonical: "https://stockstrail.com/services/loan",
+    canonical: '/loan',
   },
   openGraph: {
     title: "Loans - LAMF, Business & Home Loans | Stockstrail",
     description:
       "Access funds without selling investments. Explore LAMF, business loans & home loans with expert assistance.",
-    url: "https://stockstrail.com/services/loan",
+    url: "https://stockstrail.com/loan",
     locale: "en_IN",
     type: "website",
     images: ["/stockstrail.png"],
@@ -165,7 +165,7 @@ export default function Loan() {
           <div className="flex items-center justify-center">
                       <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 w-full max-w-md group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
                         <Image
-                          src="/services/loan4.webp"
+                          src="/loan4.webp"
                           alt="Loan Against Mutual Funds"
                           width={520}
                           height={360}
@@ -313,7 +313,7 @@ export default function Loan() {
           <div className="flex items-center justify-center">
                       <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 w-full max-w-md group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
                         <Image
-                          src="/services/loan3.webp"
+                          src="/loan3.webp"
                           alt="Business and Home Loans"
                           width={520}
                           height={360}

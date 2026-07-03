@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: 'At Stockstrail, we provide honest, jargon-free financial planning and investment guidance. Explore Mutual Funds, FD, Insurance, and Loans across India.',
   keywords: 'Financial Planning, Investment Guidance, Mutual Funds, Loans, FD, Insurance, Open Demat Account',
   alternates: {
-    canonical: 'https://stockstrail.in',
+    canonical: '/',
   }
 };
 

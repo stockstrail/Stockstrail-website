@@ -334,22 +334,22 @@ export default function About() {
             {
               title: "Mutual Funds Advisory",
               desc: "SIP planning, goal-based investing, ELSS tax saving, lump sum allocation, and regular portfolio reviews - all delivered with complete fund transparency and personalised recommendations across 25+ AMCs.",
-              href: "/services/mutual-funds",
+              href: "/mutual-funds",
             },
             {
               title: "Fixed Deposit (FD) Planning",
               desc: "Competitive FD rates up to 7.5% p.a. through partner banks and NBFCs. Tenure planning, taxsaving FDs, senior citizen rates, and FD laddering strategies for optimal liquidity and returns.",
-              href: "/services/fixed-deposit",
+              href: "/fixed-deposit",
             },
             {
               title: "Insurance Advisory",
               desc: "Term life insurance, health insurance, ULIPs, guaranteed savings plans, motor insurance, and travel insurance - all evaluated objectively for your specific coverage needs and budget.",
-              href: "/services/insurance",
+              href: "/insurance",
             },
             {
               title: "Loan Advisory",
               desc: "Home loans, business loans, personal loans, and loans against mutual funds - with honest rate comparisons and repayment planning that fits your monthly cash flow without unnecessary stress.",
-              href: "/services/loan",
+              href: "/loan",
             },
             {
               title: "Open Demat Account",

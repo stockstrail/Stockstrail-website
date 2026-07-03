@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   keywords:
     "fixed deposit, FD investment, guaranteed returns, safe investment, savings account, interest rates",
   alternates: {
-    canonical: "https://stockstrail.com/services/fixed-deposit",
+    canonical: '/fixed-deposit',
   },
   openGraph: {
     title: "Fixed Deposits - Secure & Guaranteed Returns",
     description:
       "Guaranteed returns, flexible tenure, zero market risk. Compare FD rates and grow your wealth safely.",
-    url: "https://stockstrail.com/services/fixed-deposit",
+    url: "https://stockstrail.com/fixed-deposit",
     type: "website",
     locale: "en_IN",
     images: ["/stockstrail.png"],

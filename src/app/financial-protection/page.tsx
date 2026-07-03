@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   keywords:
     'motor insurance, travel insurance, ULIPs, guaranteed return plans, mutual funds, loans, FD, risk profile, demat account, Stockstrail',
   alternates: {
-    canonical: 'https://stockstrail.in/services/financial-protection',
+    canonical: '/financial-protection',
   },
   openGraph: {
     title: 'Complete Financial Protection Services by Stockstrail - Motor Insurance, Travel Insurance, ULIPs & More',
     description:
       'Comprehensive financial and protection services including Motor Insurance, Travel Insurance, ULIPs, and Guaranteed Plans.',
-    url: 'https://stockstrail.in/services/financial-protection',
+    url: 'https://stockstrail.in/financial-protection',
     type: 'website',
   },
   twitter: {
@@ -88,7 +88,7 @@ export default function Others() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
               <Image
-                src="/services/others2.webp"
+                src="/financial-protection2.webp"
                 alt="Financial Protection Services"
                 width={720}
                 height={420}

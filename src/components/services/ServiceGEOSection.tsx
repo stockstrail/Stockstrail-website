@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 type ServiceGEOSectionProps = {
   serviceName: string; // e.g., "Mutual Fund SIP & Investment Advisory"
-  serviceUrl?: string; // e.g., "/services/mutual-funds"
+  serviceUrl?: string; // e.g., "/mutual-funds"
 };
 
 const geoStates = [

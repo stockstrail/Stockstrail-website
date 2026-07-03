@@ -186,7 +186,7 @@ const ServicesPage: React.FC = () => {
               "Regular portfolio reviews and rebalancing",
             ]}
             cta="APPLY MUTUAL FUNDS"
-            ctaLink="/services/mutual-funds"
+            ctaLink="/mutual-funds"
             imageSrc="/services/MUTUAL FUNDS.webp"
             imageAlt="Mutual Funds"
           />
@@ -219,7 +219,7 @@ const ServicesPage: React.FC = () => {
               "Tax-saving FD options under Section 80C",
             ]}
             cta="APPLY FIXED DEPOSIT"
-            ctaLink="/services/fixed-deposit"
+            ctaLink="/fixed-deposit"
             imageSrc="/services/FIX DEPOSIT.webp"
             imageAlt="Fixed Deposit"
           />
@@ -236,7 +236,7 @@ const ServicesPage: React.FC = () => {
               "Expert guidance in choosing the right insurance plan",
             ]}
             cta="APPLY INSURANCE"
-            ctaLink="/services/insurance"
+            ctaLink="/insurance"
             imageSrc="/services/insurance.webp"
             imageAlt="Insurance"
           />
@@ -252,7 +252,7 @@ const ServicesPage: React.FC = () => {
               "Dedicated relationship manager for personalized service",
             ]}
             cta="APPLY LOAN"
-            ctaLink="/services/loan"
+            ctaLink="/loan"
             imageSrc="/services/BANK LOANS.webp"
             imageAlt="Loan Services"
           />
@@ -270,7 +270,7 @@ const ServicesPage: React.FC = () => {
               'Dedicated customer support and assistance',
             ]}
             cta="OPEN DEMAT ACCOUNT"
-            ctaLink="/services/open-demat"
+            ctaLink="/open-demat"
             imageSrc="/services/da.webp"
             imageAlt="Demat Account"
           />
@@ -288,7 +288,7 @@ const ServicesPage: React.FC = () => {
               "Professional guidance and transparent recommendations",
             ]}
             cta="EXPLORE OTHER SERVICES"
-            ctaLink="/services/others"
+            ctaLink="/financial-protection"
             imageSrc="/services/OTHER SERVICES.webp"
             imageAlt="Other Services"
           />

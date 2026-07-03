@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     question: "How do I buy insurance through Stockstrail?",
-    answer: "You can buy insurance through Stockstrail by visiting stockstrail.in/services/insurance or contacting Stockstrail via the 'Let's Talk' page. Vikrant Bhardwaj will assess your family's protection needs and recommend the most suitable term, health, or ULIP plan from leading insurers - with full transparency on premium, coverage, and claim process."
+    answer: "You can buy insurance through Stockstrail by visiting stockstrail.in/insurance or contacting Stockstrail via the 'Let's Talk' page. Vikrant Bhardwaj will assess your family's protection needs and recommend the most suitable term, health, or ULIP plan from leading insurers - with full transparency on premium, coverage, and claim process."
   },
   {
     question: "Can I get a loan against my mutual funds through Stockstrail?",
@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     question: "How do I open a Demat Account through Stockstrail?",
-    answer: "To open a Demat Account through Stockstrail, visit stockstrail.in/services/open-demat or contact Stockstrail directly. The process is 100% online - you will need your PAN card, Aadhaar, bank account details, and a selfie. Stockstrail will guide you through choosing the right broker from partners like AngelOne, Zerodha, Alice Blue, or HDFC Sky based on your investing needs."
+    answer: "To open a Demat Account through Stockstrail, visit stockstrail.in/open-demat or contact Stockstrail directly. The process is 100% online - you will need your PAN card, Aadhaar, bank account details, and a selfie. Stockstrail will guide you through choosing the right broker from partners like AngelOne, Zerodha, Alice Blue, or HDFC Sky based on your investing needs."
   },
   {
     question: "How do I check my risk profile with Stockstrail?",

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Mutual Funds Investment Guide | Grow Your Wealth with Stockstrail',
     description:
       "Learn about mutual funds, how they work, and why they're ideal for wealth creation.",
-    url: 'https://stockstrail.in/services/mutual-funds',
+    url: 'https://stockstrail.in/mutual-funds',
     type: 'website',
   },
   twitter: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
       "Learn about mutual funds, how they work, and why they're ideal for wealth creation.",
   },
   alternates: {
-    canonical: 'https://stockstrail.in/services/mutual-funds',
+    canonical: '/mutual-funds',
   },
 
 };
