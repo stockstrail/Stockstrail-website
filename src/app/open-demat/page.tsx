@@ -32,7 +32,7 @@ export default function OpenDematPage() {
             Choose from India's top brokers like AngelOne, Zerodha, and Groww. We provide end-to-end guidance to set up your account completely free of cost.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#brokers" className="inline-flex items-center justify-center px-8 py-4 bg-stockstrail-green-light hover:bg-stockstrail-green-accent text-black font-semibold rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(0,255,151,0.2)] hover:shadow-[0_0_30px_rgba(0,255,151,0.4)] hover:-translate-y-1 w-full sm:w-auto">
+            <a href="#brokers" className="inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-[#012928] hover:bg-white/90 text-[#012928] font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 w-full sm:w-auto">
               Compare Brokers
             </a>
             <a href="/lets-talk" className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white/20 text-white font-semibold rounded-full hover:border-stockstrail-green-light hover:text-stockstrail-green-light transition-all duration-300 w-full sm:w-auto">

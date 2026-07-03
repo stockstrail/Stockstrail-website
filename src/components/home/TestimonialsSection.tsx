@@ -392,7 +392,7 @@ const TestimonialsSectionComponent = () => {
                     <div className="mt-8 flex flex-col items-center">
                         {!showForm && (
                             <button
-                                className="inline-flex items-center gap-4 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-110 hover:shadow-[0_0_30px_rgba(0,255,151,0.4)] transition-all duration-500 font-work-sans font-medium group"
+                                className="inline-flex items-center gap-4 px-8 py-4 bg-white border-2 border-[#012928] rounded-full text-[#012928] hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-work-sans font-semibold group"
                                 onClick={() => { setShowForm(true); setForm(prev => ({ ...prev, rating: 2.5 })); }}
                                 style={{ pointerEvents: 'auto' }}
                             >

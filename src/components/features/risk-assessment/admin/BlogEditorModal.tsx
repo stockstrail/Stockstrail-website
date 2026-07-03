@@ -1,15 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useEditor, EditorContent } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import Image from "@tiptap/extension-image";
-import Link from "@tiptap/extension-link";
-import { X, Bold, Italic, List, ListOrdered, Link as LinkIcon, Image as ImageIcon, Heading1, Heading2, Quote } from "lucide-react";
+import { Copy, XCircle, Eye, EyeOff } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
 import { createClient } from "@/lib/supabase/client";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Blog } from "./AdminBlogsContent";
@@ -21,44 +18,7 @@ interface BlogEditorModalProps {
   onSave: () => void;
 }
 
-const MenuBar = ({ editor }: { editor: any }) => {
-  if (!editor) return null;
 
-  const addLink = () => {
-    const previousUrl = editor.getAttributes('link').href
-    const url = window.prompt('URL', previousUrl)
-    if (url === null) return
-    if (url === '') {
-      editor.chain().focus().extendMarkRange('link').unsetLink().run()
-      return
-    }
-    editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run()
-  }
-
-  const addImage = () => {
-    const url = window.prompt('Image URL')
-    if (url) {
-      editor.chain().focus().setImage({ src: url }).run()
-    }
-  }
-
-  return (
-    <div className="flex flex-wrap items-center gap-1 p-2 bg-white/5 border-b border-white/10 rounded-t-md">
-      <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleBold().run()} className={`h-8 w-8 p-0 ${editor.isActive('bold') ? 'bg-white/20' : ''}`}><Bold className="w-4 h-4" /></Button>
-      <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleItalic().run()} className={`h-8 w-8 p-0 ${editor.isActive('italic') ? 'bg-white/20' : ''}`}><Italic className="w-4 h-4" /></Button>
-      <div className="w-px h-6 bg-white/10 mx-1" />
-      <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()} className={`h-8 w-8 p-0 ${editor.isActive('heading', { level: 1 }) ? 'bg-white/20' : ''}`}><Heading1 className="w-4 h-4" /></Button>
-      <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} className={`h-8 w-8 p-0 ${editor.isActive('heading', { level: 2 }) ? 'bg-white/20' : ''}`}><Heading2 className="w-4 h-4" /></Button>
-      <div className="w-px h-6 bg-white/10 mx-1" />
-      <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleBulletList().run()} className={`h-8 w-8 p-0 ${editor.isActive('bulletList') ? 'bg-white/20' : ''}`}><List className="w-4 h-4" /></Button>
-      <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleOrderedList().run()} className={`h-8 w-8 p-0 ${editor.isActive('orderedList') ? 'bg-white/20' : ''}`}><ListOrdered className="w-4 h-4" /></Button>
-      <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleBlockquote().run()} className={`h-8 w-8 p-0 ${editor.isActive('blockquote') ? 'bg-white/20' : ''}`}><Quote className="w-4 h-4" /></Button>
-      <div className="w-px h-6 bg-white/10 mx-1" />
-      <Button variant="ghost" size="sm" onClick={addLink} className={`h-8 w-8 p-0 ${editor.isActive('link') ? 'bg-white/20' : ''}`}><LinkIcon className="w-4 h-4" /></Button>
-      <Button variant="ghost" size="sm" onClick={addImage} className="h-8 w-8 p-0"><ImageIcon className="w-4 h-4" /></Button>
-    </div>
-  )
-}
 
 export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditorModalProps) {
   const [loading, setLoading] = useState(false);
@@ -71,22 +31,13 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
     meta_title: "",
     meta_description: "",
     meta_keywords: "",
+    content_images: [] as string[],
+    content: "",
     published: false,
   });
+  const [showPreview, setShowPreview] = useState(false);
   
-  const editor = useEditor({
-    extensions: [
-      StarterKit,
-      Image,
-      Link.configure({ openOnClick: false }),
-    ],
-    content: "",
-    editorProps: {
-      attributes: {
-        class: 'prose prose-invert prose-sm sm:prose-base max-w-none focus:outline-none min-h-[300px] p-4 bg-white/5 rounded-b-md',
-      },
-    },
-  });
+
 
   useEffect(() => {
     if (open) {
@@ -100,9 +51,10 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
           meta_title: blog.meta_title || "",
           meta_description: blog.meta_description || "",
           meta_keywords: blog.meta_keywords || "",
+          content_images: blog.content_images || [],
+          content: blog.content || "",
           published: blog.published || false,
         });
-        setTimeout(() => editor?.commands.setContent(blog.content || ""), 100);
       } else {
         setFormData({
           title: "",
@@ -113,12 +65,13 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
           meta_title: "",
           meta_description: "",
           meta_keywords: "",
+          content_images: [],
+          content: "",
           published: false,
         });
-        setTimeout(() => editor?.commands.setContent(""), 100);
       }
     }
-  }, [open, blog, editor]);
+  }, [open, blog]);
 
   const generateSlug = (title: string) => {
     return title.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
@@ -169,14 +122,69 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
     }
   };
 
+  const handleAdditionalImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (formData.content_images.length >= 4) {
+      alert("You can only upload a maximum of 4 additional images.");
+      return;
+    }
+
+    if (file.size > 102400) {
+      alert("Image exceeds the 100 KB limit. Please upload a smaller image.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const supabase = createClient();
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Math.random()}.${fileExt}`;
+      const filePath = `additional/${fileName}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from('blog-images')
+        .upload(filePath, file);
+
+      if (uploadError) throw uploadError;
+
+      const { data: { publicUrl } } = supabase.storage
+        .from('blog-images')
+        .getPublicUrl(filePath);
+
+      setFormData(prev => ({ 
+        ...prev, 
+        content_images: [...prev.content_images, publicUrl] 
+      }));
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      alert('Error uploading additional image!');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const copyToClipboard = (url: string) => {
+    navigator.clipboard.writeText(url).catch(err => {
+      console.error("Could not copy text: ", err);
+    });
+  };
+
+  const removeAdditionalImage = (indexToRemove: number) => {
+    setFormData(prev => ({
+      ...prev,
+      content_images: prev.content_images.filter((_, index) => index !== indexToRemove)
+    }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editor) return;
 
     setLoading(true);
     try {
       const supabase = createClient();
-      const content = editor.getHTML();
+      const content = formData.content;
 
       const payload = {
         title: formData.title,
@@ -185,6 +193,7 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
         content: content,
         image_url: formData.image_url,
         image_alt: formData.image_alt,
+        content_images: formData.content_images,
         meta_title: formData.meta_title,
         meta_description: formData.meta_description,
         meta_keywords: formData.meta_keywords,
@@ -284,6 +293,51 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
                   className="bg-white/5 border-white/10 text-white mt-1"
                 />
               </div>
+
+              <div>
+                <Label htmlFor="additional_images" className="text-white/70">Additional Images for Content (Up to 4, Max 100KB)</Label>
+                <div className="mt-2 space-y-3">
+                  {formData.content_images.length < 4 && (
+                    <Input
+                      id="additional_images"
+                      type="file"
+                      accept="image/jpeg, image/png, image/webp"
+                      onChange={handleAdditionalImageUpload}
+                      className="bg-white/5 border-white/10 text-white"
+                      disabled={loading}
+                    />
+                  )}
+                  {formData.content_images.length > 0 && (
+                    <div className="grid grid-cols-2 gap-2 mt-2">
+                      {formData.content_images.map((url, idx) => (
+                        <div key={idx} className="relative group w-full h-24 rounded border border-white/20 overflow-hidden bg-black/40">
+                          <img src={url} alt={`Additional ${idx + 1}`} className="w-full h-full object-cover opacity-70 group-hover:opacity-40 transition-opacity" />
+                          <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <Button 
+                              type="button" 
+                              size="sm" 
+                              variant="secondary" 
+                              onClick={() => copyToClipboard(url)}
+                              className="h-8 px-2 bg-emerald-500 hover:bg-emerald-400 text-white"
+                              title="Copy Image URL"
+                            >
+                              <Copy className="w-4 h-4 mr-1" /> Copy URL
+                            </Button>
+                            <button 
+                              type="button"
+                              onClick={() => removeAdditionalImage(idx)}
+                              className="text-red-400 hover:text-red-300 bg-black/50 rounded-full p-1"
+                              title="Remove Image"
+                            >
+                              <XCircle className="w-5 h-5" />
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
 
             <div className="space-y-4">
@@ -317,22 +371,47 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
                 />
               </div>
 
-              <div className="flex items-center space-x-2 pt-6">
-                <Switch
+              <div className="flex items-center space-x-3 pt-6">
+                <input
+                  type="checkbox"
                   id="published"
                   checked={formData.published}
-                  onCheckedChange={(checked) => setFormData({ ...formData, published: checked })}
+                  onChange={(e) => setFormData({ ...formData, published: e.target.checked })}
+                  className="w-5 h-5 rounded border-white/20 bg-black/40 text-stockstrail-green-light focus:ring-stockstrail-green-light focus:ring-offset-[#0a1210] cursor-pointer"
                 />
-                <Label htmlFor="published" className="text-white/70">Publish post immediately</Label>
+                <Label htmlFor="published" className="text-white/90 font-medium cursor-pointer text-base">Publish post immediately</Label>
               </div>
             </div>
           </div>
 
           <div className="space-y-2 pt-4">
-            <Label className="text-white/70">Content</Label>
-            <div className="border border-white/10 rounded-md bg-[#0a1210]">
-              <MenuBar editor={editor} />
-              <EditorContent editor={editor} />
+            <div className="flex items-center justify-between">
+              <Label className="text-white/70">Content (Markdown)</Label>
+              <Button 
+                type="button" 
+                variant="ghost" 
+                size="sm" 
+                onClick={() => setShowPreview(!showPreview)}
+                className="text-white/70 hover:text-white"
+              >
+                {showPreview ? <><EyeOff className="w-4 h-4 mr-2" /> Edit</> : <><Eye className="w-4 h-4 mr-2" /> Preview</>}
+              </Button>
+            </div>
+            <div className="border border-white/10 rounded-md bg-[#0a1210] min-h-[300px]">
+              {showPreview ? (
+                <div className="p-4 prose prose-invert prose-sm sm:prose-base max-w-none">
+                  <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                    {formData.content}
+                  </ReactMarkdown>
+                </div>
+              ) : (
+                <textarea
+                  value={formData.content}
+                  onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                  placeholder="Type your markdown here...&#10;&#10;e.g. # Heading 1&#10;&#10;![Image description](https://...)"
+                  className="w-full h-full min-h-[300px] p-4 bg-transparent text-white border-none focus:ring-0 focus:outline-none resize-y"
+                />
+              )}
             </div>
           </div>
 

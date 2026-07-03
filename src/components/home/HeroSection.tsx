@@ -1,22 +1,10 @@
 import React from 'react';
-import HeroCarousel from '@/components/ui/HeroCarousel';
 
 const HeroSection = () => {
-  const images = [
-    {
-      src: '/hero/financial-planning-investment-guidance.png',
-      alt: 'Indian family standing on hilltop at sunrise representing journey to financial freedom with Stockstrail',
-    },
-    {
-      src: '/hero/stockstrail-trusted-financial-advisors.webp',
-      alt: 'Abstract upward trending investment growth chart with rupee symbols for Stockstrail homepage',
-    }
-  ];
-
   return (
-    <HeroCarousel
-      images={images}
+    <section
       className="
+        relative
         flex
         items-start
         lg:items-center
@@ -24,8 +12,12 @@ const HeroSection = () => {
         min-h-[600px]
         px-6 sm:px-12 md:px-16 
         pt-8 sm:pt-12 md:pt-4
+        overflow-hidden
       "
     >
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-stockstrail-green-light/5 blur-[120px] rounded-full pointer-events-none"></div>
+      </div>
       {/* LCP Content */}
       <div className="relative z-10 max-w-6xl mx-auto text-center mt-12 sm:mt-8 md:mt-8">
         {/* Heading */}
@@ -85,16 +77,16 @@ const HeroSection = () => {
               gap-3 sm:gap-4
               px-4 sm:px-6
               py-3 sm:py-4
-              border-2 border-white/20
+              bg-white
+              border-2 border-[#012928]
               rounded-full
-              text-white
-              hover:border-stockstrail-green-light
-              hover:text-stockstrail-green-light
-              bg-black/20
-              backdrop-blur-sm
-              transition-colors
+              text-[#012928]
+              hover:bg-white/90
+              hover:-translate-y-1
+              hover:shadow-lg
+              transition-all
               duration-300
-              font-medium
+              font-semibold
             "
           >
             <div className="w-2 h-2 sm:w-3 sm:h-3 bg-stockstrail-green-accent rounded-full" />
@@ -128,7 +120,7 @@ const HeroSection = () => {
           </a>
         </div>
       </div>
-    </HeroCarousel>
+    </section>
   );
 };
 

@@ -22,6 +22,7 @@ export interface Blog {
   content: string;
   image_url: string;
   image_alt?: string;
+  content_images?: string[];
   published: boolean;
   author_id: string | null;
   meta_title: string;

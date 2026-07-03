@@ -7,6 +7,8 @@ import ShareButtons from '@/components/blog/ShareButtons';
 import MobileShareButton from '@/components/blog/MobileShareButton';
 import { createClient } from '@/lib/supabase/server';
 import JsonLd from '@/components/common/JsonLd';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 export const dynamic = 'force-dynamic';
 
@@ -169,8 +171,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2">
-              <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-stockstrail-green-light/20 hover:bg-white/10  hover:border-stockstrail-green-light/40 hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-500 flex flex-col lg:h-[calc(100vh-6rem)]">
-                <div className="flex-1 overflow-y-auto overflow-x-hidden p-8 scrollable-blog-content">
+              <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-stockstrail-green-light/20 hover:bg-white/10 hover:border-stockstrail-green-light/40 hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-500 flex flex-col">
+                <div className="flex-1 p-8">
                   <article className="space-y-10 text-white">
                     <div className="text-center space-y-8">
                       <h1 className="font-product-sans text-3xl sm:text-4xl lg:text-4xl font-normal uppercase gradient-text leading-tight">
@@ -186,8 +188,31 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         </p>
                       </div>
                     </div>
-                    {/* Sanitizing user input is critical. For TipTap output, since admins create it, we output directly, but consider DOMPurify in production */}
-                    <div className="blog-content prose prose-sm sm:prose-base lg:prose-lg mx-auto w-full" dangerouslySetInnerHTML={{ __html: post.content }} />
+                    {post.image_url && (
+                      <div className="mb-10 w-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(0,255,151,0.1)]">
+                        <img 
+                          src={post.image_url} 
+                          alt={post.image_alt || post.title} 
+                          className="w-full h-auto max-h-[60vh] object-cover hover:scale-105 transition-transform duration-700"
+                        />
+                      </div>
+                    )}
+                    {/* Render Markdown content with raw HTML support for legacy posts */}
+                    <div className="blog-content prose prose-sm sm:prose-base lg:prose-lg mx-auto w-full prose-invert">
+                      <ReactMarkdown
+                        rehypePlugins={[rehypeRaw]}
+                        components={{
+                          a: ({ node, href, children, ...props }) => {
+                            if (href && href.match(/\.(jpeg|jpg|gif|png|webp)$/i)) {
+                              return <img src={href} alt={String(children)} className="w-full h-auto rounded-lg shadow-lg" />;
+                            }
+                            return <a href={href} {...props}>{children}</a>;
+                          }
+                        }}
+                      >
+                        {post.content}
+                      </ReactMarkdown>
+                    </div>
                   </article>
                 </div>
               </div>

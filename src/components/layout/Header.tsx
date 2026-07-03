@@ -256,7 +256,7 @@ const Header = () => {
           <div className="hidden lg:flex">
             <Link
               href="/lets-talk"
-              className="inline-flex items-center gap-4 px-6 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light transition-all duration-300 font-medium group"
+              className="inline-flex items-center gap-4 px-6 py-4 bg-white border-2 border-[#012928] rounded-full text-[#012928] hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-semibold group"
             >
               <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full group-hover:animate-pulse"></div>
               Let&apos;s Talk
@@ -326,7 +326,7 @@ const Header = () => {
 
               <Link
                 href="/lets-talk"
-                className="inline-flex items-center gap-4 px-6 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light transition-all duration-300 font-medium group w-fit"
+                className="inline-flex items-center gap-4 px-6 py-4 bg-white border-2 border-[#012928] rounded-full text-[#012928] hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-semibold group w-fit"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full group-hover:animate-pulse"></div>
