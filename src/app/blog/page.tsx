@@ -6,6 +6,17 @@ import { createClient } from '@/lib/supabase/server';
 
 export const dynamic = 'force-dynamic';
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Financial Insights & Investment Strategies Blog | Stockstrail',
+  description: 'Read the latest articles on financial planning, mutual funds, and wealth creation from the certified experts at Stockstrail.',
+  keywords: 'Financial Blog, Stockstrail Blog, Investment Strategies, Mutual Funds Info',
+  alternates: {
+    canonical: 'https://stockstrail.in/blog',
+  }
+};
+
 export default async function BlogPage() {
   const supabase = await createClient();
   

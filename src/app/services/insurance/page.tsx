@@ -113,11 +113,11 @@ export default function Insurance() {
               <ImageCarousel
                 images={[
                   {
-                    src: '/hero/services_insurance_01.webp',
+                    src: '/hero/term-health-insurance-plans.webp',
                     alt: 'Indian family protected under comprehensive life and health insurance coverage with Stockstrail',
                   },
                   {
-                    src: '/hero/services_insurance_02.webp',
+                    src: '/hero/comprehensive-insurance-coverage.webp',
                     alt: 'Health insurance plan card for families and individuals offered by Stockstrail India',
                   }
                 ]}

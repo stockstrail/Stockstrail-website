@@ -4,6 +4,16 @@ import HeroSection from '@/components/home/HeroSection'; // Static import for LC
 import BelowFoldSections from '@/components/home/BelowFoldSections';
 import { WelcomeModal } from '@/components/home/WelcomeModal';
 import { AuthCallbackHandler } from '@/components/home/AuthCallbackHandler';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Financial Planning & Investment Guidance | Stockstrail',
+  description: 'At Stockstrail, we provide honest, jargon-free financial planning and investment guidance. Explore Mutual Funds, FD, Insurance, and Loans across India.',
+  keywords: 'Financial Planning, Investment Guidance, Mutual Funds, Loans, FD, Insurance, Open Demat Account',
+  alternates: {
+    canonical: 'https://stockstrail.in',
+  }
+};
 
 export default function Home() {
   return (

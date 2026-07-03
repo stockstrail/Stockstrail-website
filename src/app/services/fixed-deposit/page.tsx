@@ -54,11 +54,11 @@ export default function FixedDeposit() {
                 <ImageCarousel
                   images={[
                     {
-                      src: '/hero/services_FD_01.webp',
+                      src: '/hero/fixed-deposit-investment-planning.webp',
                       alt: 'Fixed deposit secure guaranteed returns 7.5 percent per annum with Stockstrail India',
                     },
                     {
-                      src: '/hero/services_fd_02.webp',
+                      src: '/hero/guaranteed-returns-fd-schemes.webp',
                       alt: 'Fixed deposit tenure options from 7 days to 10 years flexible investment timeline at Stockstrail',
                     }
                   ]}

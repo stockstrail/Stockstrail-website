@@ -6,6 +6,7 @@ import Image from "next/image";
 import ServiceFAQSection from '@/components/services/ServiceFAQSection';
 import HeroCarousel from '@/components/ui/HeroCarousel';
 
+
 export default function About() {
   const faqs = [
     {
@@ -68,11 +69,11 @@ export default function About() {
       <HeroCarousel
         images={[
           {
-            src: '/hero/about_01.webp',
+            src: '/hero/stockstrail-financial-planning-about.webp',
             alt: 'Simple transparent financial planning document showing clarity over financial jargon at Stockstrail',
           },
           {
-            src: '/hero/about_02.webp',
+            src: '/hero/stockstrail-expert-investment-advisors.webp',
             alt: 'Long-term financial planning journey roadmap showing SIP milestones retirement and wealth goals at Stockstrail',
           }
         ]}

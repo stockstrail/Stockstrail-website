@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, Work_Sans, Montserrat } from "next/font/google";
 import Script from "next/script";
+import JsonLd from '@/components/common/JsonLd';
+
 import FloatingWhatsAppButton from "@/components/common/FloatingWhatsAppButton";
 const inter = Inter({
   subsets: ["latin"],
@@ -73,6 +75,44 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'FinancialService'],
+    name: 'Stockstrail',
+    image: 'https://stockstrail.in/stockstrail.png',
+    '@id': 'https://stockstrail.in',
+    url: 'https://stockstrail.in',
+    telephone: '+919736304663',
+    email: 'connect@stockstrail.in',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Near Punjab And Sind Bank, V.P.O. Chintpurni, Teh: Amb',
+      addressLocality: 'Una',
+      addressRegion: 'Himachal Pradesh',
+      postalCode: '177110',
+      addressCountry: 'IN'
+    },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday'
+      ],
+      opens: '09:00',
+      closes: '20:00'
+    },
+    sameAs: [
+      'https://www.facebook.com/Stockstrail',
+      'https://www.instagram.com/stockstrail',
+      'https://www.linkedin.com/company/stockstrail'
+    ]
+  };
+
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID || "up26ltx46a";
   return (
     <html
@@ -153,6 +193,8 @@ export default function RootLayout({
       </head>
 
       <body className="antialiased">
+        <JsonLd data={localBusinessSchema} />
+
         <main className="relative min-h-screen">
           {children}
           <FloatingWhatsAppButton />

@@ -115,11 +115,11 @@ export default function Loan() {
               <ImageCarousel
                 images={[
                   {
-                    src: '/hero/services_loans_01.webp',
+                    src: '/hero/business-home-personal-loans.webp',
                     alt: 'Quick loan approval for home personal and business loans with minimal documentation at Stockstrail',
                   },
                   {
-                    src: '/hero/services_loans_02.webp',
+                    src: '/hero/loan-against-mutual-funds.webp',
                     alt: 'Loan EMI breakdown calculator for home personal and business loans at Stockstrail India',
                   }
                 ]}

@@ -22,6 +22,10 @@ export const metadata: Metadata = {
     description:
       "Learn about mutual funds, how they work, and why they're ideal for wealth creation.",
   },
+  alternates: {
+    canonical: 'https://stockstrail.in/services/mutual-funds',
+  },
+
 };
 
 export default function MutualFunds() {
@@ -53,11 +57,11 @@ export default function MutualFunds() {
                 <ImageCarousel
                   images={[
                     {
-                      src: '/hero/services_mutual fund_01.webp',
+                      src: '/hero/mutual-funds-sip-investment.webp',
                       alt: 'SIP monthly investment of Rs 500 growing into wealth tree symbolising mutual fund returns in India',
                     },
                     {
-                      src: '/hero/services_mutual fund_02.webp',
+                      src: '/hero/equity-debt-hybrid-mutual-funds.webp',
                       alt: 'Mutual fund portfolio diversification across equity debt and gold asset classes at Stockstrail',
                     }
                   ]}

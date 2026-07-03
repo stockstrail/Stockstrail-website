@@ -6,6 +6,7 @@ import Layout from '@/components/layout/Layout';
 import ShareButtons from '@/components/blog/ShareButtons';
 import MobileShareButton from '@/components/blog/MobileShareButton';
 import { createClient } from '@/lib/supabase/server';
+import JsonLd from '@/components/common/JsonLd';
 
 export const dynamic = 'force-dynamic';
 
@@ -126,8 +127,36 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const currentUrl = `${baseUrl}/blog/${resolvedParams.slug}`;
   const authorName = post.profiles?.full_name || "Anonymous";
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.meta_description || post.excerpt,
+    image: post.image_url,
+    author: {
+      '@type': 'Person',
+      name: authorName,
+      url: baseUrl
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Stockstrail',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/stockstrail.png`
+      }
+    },
+    datePublished: post.created_at,
+    dateModified: post.updated_at || post.created_at,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': currentUrl
+    }
+  };
+
   return (
     <Layout>
+      <JsonLd data={articleSchema} />
       <div className="pt-20 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <Link href="/blog" className="inline-flex items-center text-white/50 hover:text-stockstrail-green-light mb-16 transition-colors duration-300 font-work-sans text-sm sm:text-base group">

@@ -17,6 +17,8 @@ type ServiceFAQSectionProps = {
   subtitle?: string;
 };
 
+import JsonLd from '@/components/common/JsonLd';
+
 const ServiceFAQSection: React.FC<ServiceFAQSectionProps> = ({ 
   faqs, 
   title = "FAQ",
@@ -24,8 +26,22 @@ const ServiceFAQSection: React.FC<ServiceFAQSectionProps> = ({
 }) => {
   if (!faqs || faqs.length === 0) return null;
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
+  };
+
   return (
     <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative mt-12 border-t border-white/10">
+      <JsonLd data={faqSchema} />
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-stockstrail-green-light/5 blur-[120px] rounded-full pointer-events-none"></div>
       </div>

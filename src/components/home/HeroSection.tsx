@@ -4,11 +4,11 @@ import HeroCarousel from '@/components/ui/HeroCarousel';
 const HeroSection = () => {
   const images = [
     {
-      src: '/hero/home_01.png',
+      src: '/hero/financial-planning-investment-guidance.png',
       alt: 'Indian family standing on hilltop at sunrise representing journey to financial freedom with Stockstrail',
     },
     {
-      src: '/hero/home_02.webp',
+      src: '/hero/stockstrail-trusted-financial-advisors.webp',
       alt: 'Abstract upward trending investment growth chart with rupee symbols for Stockstrail homepage',
     }
   ];
