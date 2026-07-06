@@ -55,8 +55,8 @@ const StockstrailLogo = () => (
       </defs>
     </svg>
     <div className="flex items-baseline">
-      <span className="text-white font-product-sans text-2xl font-normal">Stocks</span>
-      <span className="text-white font-product-sans text-2xl font-normal">trail</span>
+      <span className="text-white font-product-sans text-[28px] font-bold">Stocks</span>
+      <span className="text-white font-product-sans text-[28px] font-normal">trail</span>
     </div>
   </div>
 );
