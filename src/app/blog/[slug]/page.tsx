@@ -71,7 +71,7 @@ export async function generateMetadata(
 
   const title = post.meta_title || post.title;
   const description = post.meta_description || post.excerpt || "Stockstrail blog post";
-  const authorName = post.profiles?.full_name || "Anonymous";
+  const authorName = post.profiles?.full_name || "Vikrant Bhardwaj";
 
   return {
     title: `${title} | Stockstrail`,
@@ -127,7 +127,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://stockstrail.in";
   const baseUrl = siteUrl.replace(/\/$/, '');
   const currentUrl = `${baseUrl}/blog/${resolvedParams.slug}`;
-  const authorName = post.profiles?.full_name || "Anonymous";
+  const authorName = post.profiles?.full_name || "Vikrant Bhardwaj";
 
   const articleSchema = {
     '@context': 'https://schema.org',

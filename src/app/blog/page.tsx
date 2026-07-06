@@ -58,7 +58,7 @@ export default async function BlogPage() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {posts.map((post) => {
-                const authorName = post.profiles?.full_name || 'Anonymous';
+                const authorName = post.profiles?.full_name || 'Vikrant Bhardwaj';
                 const postPath = `/blog/${post.slug}`;
                 
                 return (
