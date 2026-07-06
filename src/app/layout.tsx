@@ -190,6 +190,17 @@ export default function RootLayout({
         <link rel="preconnect" href="https://luwzjngwignnmpdakxkw.supabase.co" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Google Analytics 4 */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-NS7B14241Y" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-NS7B14241Y');
+          `}
+        </Script>
       </head>
 
       <body className="antialiased">

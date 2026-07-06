@@ -56,7 +56,7 @@ export function AdminBlogsContent() {
 
       const formattedBlogs = data.map((b: any) => ({
         ...b,
-        author_name: b.profiles?.full_name || "Vikrant Bhardwaj",
+        author_name: "Vikrant Bhardwaj",
       }));
       setBlogs(formattedBlogs);
     } catch (err) {
