@@ -146,7 +146,7 @@ export function AdminBlogsContent() {
                     <tr className="border-b border-white/10">
                       <th className="text-left py-3 px-4 text-white/70 font-medium text-sm">Title</th>
                       <th className="text-left py-3 px-4 text-white/70 font-medium text-sm">Status</th>
-                      <th className="text-left py-3 px-4 text-white/70 font-medium text-sm">Author</th>
+
                       <th className="text-left py-3 px-4 text-white/70 font-medium text-sm">Date</th>
                       <th className="text-right py-3 px-4 text-white/70 font-medium text-sm">Actions</th>
                     </tr>
@@ -162,9 +162,7 @@ export function AdminBlogsContent() {
                             {blog.published ? 'Published' : 'Draft'}
                           </span>
                         </td>
-                        <td className="py-3 px-4 text-white/80">
-                          {blog.author_name}
-                        </td>
+
                         <td className="py-3 px-4 text-white/80 text-sm">
                           {formatDate(blog.created_at)}
                         </td>
