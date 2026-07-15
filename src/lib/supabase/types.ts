@@ -35,3 +35,9 @@ export type Response = {
 export type RiskAttemptWithProfile = RiskAttempt & {
   profiles: Profile
 }
+
+export type BlogFAQ = {
+  question: string
+  answer: string
+  is_published: boolean
+}

@@ -6,9 +6,16 @@ import Layout from '@/components/layout/Layout';
 import ShareButtons from '@/components/blog/ShareButtons';
 import MobileShareButton from '@/components/blog/MobileShareButton';
 import { createClient } from '@/lib/supabase/server';
+import { BlogFAQ } from '@/types';
 import JsonLd from '@/components/common/JsonLd';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 
 export const dynamic = 'force-dynamic';
 
@@ -124,6 +131,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     );
   }
 
+  // Get and filter published FAQs from the inline jsonb column
+  const blogFaqs = (post.faqs as BlogFAQ[] || []).filter(faq => faq.is_published);
+
+  const faqSchema = blogFaqs && blogFaqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: blogFaqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
+  } : null;
+
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://stockstrail.in";
   const baseUrl = siteUrl.replace(/\/$/, '');
   const currentUrl = `${baseUrl}/blog/${resolvedParams.slug}`;
@@ -159,6 +182,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <Layout>
       <JsonLd data={articleSchema} />
+      {faqSchema && <JsonLd data={faqSchema} />}
       <div className="pt-20 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <Link href="/blog" className="inline-flex items-center text-white/50 hover:text-stockstrail-green-light mb-16 transition-colors duration-300 font-work-sans text-sm sm:text-base group">
@@ -216,15 +240,38 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   </article>
                 </div>
               </div>
+
+              {/* FAQs Section */}
+              {blogFaqs && blogFaqs.length > 0 && (
+                <div className="mt-8 bg-white/5 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-stockstrail-green-light/20 hover:bg-white/10 hover:border-stockstrail-green-light/40 hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-500 flex flex-col">
+                  <h2 className="font-product-sans text-2xl sm:text-3xl font-normal uppercase gradient-text mb-6">
+                    Frequently Asked Questions
+                  </h2>
+                  <Accordion type="single" collapsible className="w-full space-y-4">
+                    {blogFaqs.map((faq, index) => (
+                      <AccordionItem
+                        key={index}
+                        value={`faq-${index}`}
+                        className="bg-white/5 border border-white/10 rounded-xl px-6 data-[state=open]:border-stockstrail-green-light/50 transition-colors"
+                      >
+                        <AccordionTrigger className="text-left text-white text-lg sm:text-xl font-work-sans py-4 hover:no-underline hover:text-stockstrail-green-light">
+                          {faq.question}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-white/80 text-base leading-relaxed pb-6 whitespace-pre-line">
+                          {faq.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
+              )}
             </div>
 
-            <div className="lg:col-span-1 space-y-6">
+            <div className="lg:col-span-1 sticky-sidebar space-y-6">
               <div id="share-section">
                 <ShareButtons title={post.title} url={currentUrl} />
               </div>
-              <div className="sticky top-24">
-                <ContactCard />
-              </div>
+              <ContactCard />
             </div>
           </div>
         </div>
@@ -258,6 +305,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         .blog-content ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; }
         .blog-content blockquote { border-left: 4px solid #00FF97; padding-left: 1rem; margin-left: 0; font-style: italic; color: rgba(255,255,255,0.6); }
         .blog-content a { color: #00FF97; text-decoration: underline; }
+        @media (min-width: 1024px) {
+          .sticky-sidebar {
+            position: -webkit-sticky !important;
+            position: sticky !important;
+            top: 6rem !important;
+          }
+        }
       `}</style>
     </Layout>
   );

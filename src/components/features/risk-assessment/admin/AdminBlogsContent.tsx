@@ -14,6 +14,8 @@ import {
 import { formatDate } from "@/lib/utils";
 import { BlogEditorModal } from "./BlogEditorModal";
 
+import { BlogFAQ } from "@/types";
+
 export interface Blog {
   id: string;
   title: string;
@@ -31,6 +33,7 @@ export interface Blog {
   created_at: string;
   updated_at: string;
   author_name?: string;
+  faqs?: BlogFAQ[];
 }
 
 export function AdminBlogsContent() {

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Copy, XCircle, Eye, EyeOff } from "lucide-react";
+import { Copy, XCircle, Eye, EyeOff, Plus, Trash2, ArrowUp, ArrowDown } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import { Button } from "@/components/ui/button";
@@ -36,6 +37,44 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
     published: false,
   });
   const [showPreview, setShowPreview] = useState(false);
+  const [faqs, setFaqs] = useState<{
+    question: string;
+    answer: string;
+    is_published: boolean;
+  }[]>([]);
+
+  const handleAddFaq = () => {
+    setFaqs(prev => [
+      ...prev,
+      {
+        question: "",
+        answer: "",
+        is_published: true,
+      }
+    ]);
+  };
+
+  const handleUpdateFaq = (index: number, updates: Partial<{ question: string; answer: string; is_published: boolean }>) => {
+    setFaqs(prev => prev.map((faq, idx) => idx === index ? { ...faq, ...updates } : faq));
+  };
+
+  const handleDeleteFaq = (index: number) => {
+    setFaqs(prev => prev.filter((_, idx) => idx !== index));
+  };
+
+  const handleMoveFaq = (index: number, direction: 'up' | 'down') => {
+    if (direction === 'up' && index === 0) return;
+    if (direction === 'down' && index === faqs.length - 1) return;
+
+    const targetIndex = direction === 'up' ? index - 1 : index + 1;
+    setFaqs(prev => {
+      const newList = [...prev];
+      const temp = newList[index];
+      newList[index] = newList[targetIndex];
+      newList[targetIndex] = temp;
+      return newList;
+    });
+  };
   
 
 
@@ -55,6 +94,7 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
           content: blog.content || "",
           published: blog.published || false,
         });
+        setFaqs((blog.faqs as any[]) || []);
       } else {
         setFormData({
           title: "",
@@ -69,6 +109,7 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
           content: "",
           published: false,
         });
+        setFaqs([]);
       }
     }
   }, [open, blog]);
@@ -181,6 +222,14 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Validate FAQs
+    for (let i = 0; i < faqs.length; i++) {
+      if (!faqs[i].question.trim() || !faqs[i].answer.trim()) {
+        alert("FAQ question and answer cannot be empty. Please fill them out or remove the FAQ.");
+        return;
+      }
+    }
+
     setLoading(true);
     try {
       const supabase = createClient();
@@ -198,6 +247,11 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
         meta_description: formData.meta_description,
         meta_keywords: formData.meta_keywords,
         published: formData.published,
+        faqs: faqs.map(faq => ({
+          question: faq.question.trim(),
+          answer: faq.answer.trim(),
+          is_published: faq.is_published,
+        })),
       };
 
       if (blog) {
@@ -206,7 +260,6 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
         if (error) throw error;
       } else {
         // Create
-        // Need to get author_id from auth user
         const { data: { user } } = await supabase.auth.getUser();
         if (!user) throw new Error("Not authenticated");
         
@@ -413,6 +466,116 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
                 />
               )}
             </div>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="space-y-4 pt-6 border-t border-white/10">
+            <div className="flex items-center justify-between">
+              <div className="space-y-1">
+                <Label className="text-xl font-product-sans text-white">Frequently Asked Questions</Label>
+                <p className="text-sm text-white/50">Add FAQs specific to this blog post</p>
+              </div>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={handleAddFaq}
+                className="border-stockstrail-green-light/30 hover:border-stockstrail-green-light/80 hover:bg-stockstrail-green-light/10 text-stockstrail-green-light transition-all rounded-lg"
+              >
+                <Plus className="w-4 h-4 mr-2" /> Add FAQ
+              </Button>
+            </div>
+
+            {faqs.length === 0 ? (
+              <div className="text-center py-8 rounded-xl border border-dashed border-white/10 bg-white/5">
+                <p className="text-sm text-white/40">No FAQs added yet. Click &quot;Add FAQ&quot; to add one.</p>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <div key={index} className="bg-white/5 border border-white/10 rounded-xl p-4 sm:p-5 relative space-y-4 group">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                      <span className="text-sm font-semibold text-stockstrail-green-light uppercase tracking-wider">
+                        FAQ #{index + 1}
+                      </span>
+                      <div className="flex items-center gap-2 self-stretch sm:self-auto justify-end">
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleMoveFaq(index, 'up')}
+                          disabled={index === 0}
+                          className="h-8 w-8 p-0 text-white/50 hover:text-white disabled:opacity-30 disabled:pointer-events-none"
+                          title="Move Up"
+                        >
+                          <ArrowUp className="w-4 h-4" />
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleMoveFaq(index, 'down')}
+                          disabled={index === faqs.length - 1}
+                          className="h-8 w-8 p-0 text-white/50 hover:text-white disabled:opacity-30 disabled:pointer-events-none"
+                          title="Move Down"
+                        >
+                          <ArrowDown className="w-4 h-4" />
+                        </Button>
+                        
+                        <div className="flex items-center space-x-2 bg-white/5 px-3 py-1 rounded-lg border border-white/5">
+                          <input
+                            type="checkbox"
+                            id={`faq-publish-${index}`}
+                            checked={faq.is_published}
+                            onChange={(e) => handleUpdateFaq(index, { is_published: e.target.checked })}
+                            className="w-4 h-4 rounded border-white/20 bg-black/40 text-stockstrail-green-light focus:ring-stockstrail-green-light cursor-pointer"
+                          />
+                          <Label htmlFor={`faq-publish-${index}`} className="text-xs text-white/80 cursor-pointer select-none">
+                            Published
+                          </Label>
+                        </div>
+
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleDeleteFaq(index)}
+                          className="h-8 w-8 p-0 text-red-400 hover:text-red-300 hover:bg-red-500/10"
+                          title="Delete FAQ"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </Button>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div>
+                        <Label htmlFor={`faq-q-${index}`} className="text-xs text-white/70">Question</Label>
+                        <Input
+                          id={`faq-q-${index}`}
+                          value={faq.question}
+                          onChange={(e) => handleUpdateFaq(index, { question: e.target.value })}
+                          placeholder="e.g., What are mutual funds?"
+                          className="bg-white/5 border-white/10 text-white mt-1 h-9"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor={`faq-a-${index}`} className="text-xs text-white/70">Answer</Label>
+                        <Textarea
+                          id={`faq-a-${index}`}
+                          value={faq.answer}
+                          onChange={(e) => handleUpdateFaq(index, { answer: e.target.value })}
+                          placeholder="Type the answer here..."
+                          className="bg-white/5 border-white/10 text-white mt-1 min-h-[80px]"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="flex justify-end gap-3 pt-6 border-t border-white/10">

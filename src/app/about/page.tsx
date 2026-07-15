@@ -66,6 +66,8 @@ export default function About() {
   return (
     <Layout>
       {/* Hero */}
+      {/* Hero - Slideshow commented out as requested */}
+      {/* 
       <HeroCarousel
         images={[
           {
@@ -79,7 +81,25 @@ export default function About() {
         ]}
         className="px-4 sm:px-6 lg:px-8 pt-24 pb-12 min-h-[600px] flex items-center justify-center"
       >
-        <div className="relative z-10 max-w-[90%] mx-auto text-center mt-8">
+      */}
+      <section className="relative w-full overflow-hidden px-4 sm:px-6 lg:px-8 pt-24 pb-12 min-h-[600px] flex items-center justify-center">
+        {/* Static Background Image commented out as requested */}
+        {/* 
+        <div className="absolute inset-0 z-0">
+          <Image
+            src='/hero/stockstrail-financial-planning-about.webp'
+            alt='Simple transparent financial planning document showing clarity over financial jargon at Stockstrail'
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        */}
+        {/* Dark Green Gradient Overlay */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-t from-[#012928] via-[#012928]/80 to-[#012928]/40" />
+        <div className="absolute inset-0 z-0 bg-black/20" />
+
+        <div className={`relative z-10 max-w-[90%] mx-auto text-center mt-8 ${/* drop-shadow-[0_4px_12px_rgba(0,125,66,0.8)] */ ""}`}>
           <h1 className="font-product-sans text-5xl sm:text-6xl font-normal uppercase gradient-text mb-4 drop-shadow-md bg-white/10 px-4 py-2 inline-block rounded-xl">About Stockstrail</h1>
           <p className="text-white text-lg sm:text-xl max-w-[90%] mx-auto mb-6 font-semibold drop-shadow-lg">
             Honest Financial Planning & Investment Guidance for Every Indian
@@ -99,7 +119,10 @@ export default function About() {
             </p>
           </div>
         </div>
+      </section>
+      {/* 
       </HeroCarousel>
+      */}
 
       {/* Purpose section */}
       <section className="px-4 sm:px-6 lg:px-8 py-12">
