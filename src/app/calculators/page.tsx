@@ -595,7 +595,7 @@ function CalculatorsPageContent() {
   const [emiPrincipal, setEmiPrincipal] = useState(1000000);
   const [emiRate, setEmiRate] = useState(10);
   const [emiYears, setEmiYears] = useState(5);
-  const [taxAY, setTaxAY] = useState("2025-26");
+  const [taxAY, setTaxAY] = useState("2026-27");
   const [taxAgeCat, setTaxAgeCat] = useState<"<60" | "60-80" | ">=80">("<60");
   const [taxIncome, setTaxIncome] = useState(1800000);
   const [tax80C, setTax80C] = useState(0);
@@ -610,6 +610,15 @@ function CalculatorsPageContent() {
   const [rentPaid, setRentPaid] = useState(0);
   const [isMetro, setIsMetro] = useState(false);
   const [taxOpen, setTaxOpen] = useState<{ income: boolean; deductions: boolean; hra: boolean }>({ income: true, deductions: false, hra: false });
+
+  // Independent income breakdown states and salaried toggle
+  const [incomeSalary, setIncomeSalary] = useState(0);
+  const [incomeOther, setIncomeOther] = useState(0);
+  const [incomeInterest, setIncomeInterest] = useState(0);
+  const [incomeRental, setIncomeRental] = useState(0);
+  const [homeLoanInterestSelf, setHomeLoanInterestSelf] = useState(0);
+  const [homeLoanInterestLetOut, setHomeLoanInterestLetOut] = useState(0);
+  const [isSalaried, setIsSalaried] = useState(true);
 
   const months = years * 12;
   const amountMax = (tab === "LUMPSUM" || tab === "FD") ? 10000000 : 200000;
@@ -667,19 +676,32 @@ function CalculatorsPageContent() {
   };
 
   const taxCalc = useMemo(() => {
+    const totalCalculatedIncome = incomeSalary + incomeOther + incomeInterest + incomeRental;
+    const activeGrossIncome = totalCalculatedIncome > 0 ? totalCalculatedIncome : taxIncome;
+
+    const standardDeductionNew = isSalaried ? 75000 : 0;
+    const standardDeductionOld = isSalaried ? 50000 : 0;
+
     const hraExempt = computeHRAExemption(basicSalary, da, hra, rentPaid, isMetro);
-    const grossOld = Math.max(0, taxIncome - hraExempt);
+    const baseGrossOld = Math.max(0, activeGrossIncome - standardDeductionOld - hraExempt);
+    const homeLoanDeduction = Math.min(200000, homeLoanInterestSelf) + homeLoanInterestLetOut;
+    const grossOld = Math.max(0, baseGrossOld - homeLoanDeduction);
 
     // Fix 80TTA deduction with proper limits
     const ttaLimit = taxAgeCat === "<60" ? 10000 : 50000;
     const ttaDeduction = Math.min(tax80TTA, ttaLimit);
 
-    const totalDeductions = Math.min(150000, tax80C) + Math.min(50000, tax80CCD1B) + tax80D + tax80G + tax80E + ttaDeduction;
+    const totalDeductions = Math.min(150000, tax80C) +
+                            Math.min(50000, tax80CCD1B) +
+                            Math.min(taxAgeCat === "<60" ? 25000 : 50000, tax80D) +
+                            tax80G +
+                            tax80E +
+                            ttaDeduction;
     const taxableOld = Math.max(0, grossOld - totalDeductions);
 
-    const taxableNew = Math.max(0, taxIncome);
+    const taxableNew = Math.max(0, activeGrossIncome - standardDeductionNew);
 
-    // New regime with Section 87A rebate (Budget 2025)
+    // New regime slabs and 87A rebate/marginal relief calculation
     const slabTaxNew = (ti: number) => {
       let t = 0;
       const addBand = (from: number, to: number | null, rate: number) => {
@@ -688,16 +710,47 @@ function CalculatorsPageContent() {
         const band = Math.min(ti, upper) - from;
         return Math.max(0, band * rate);
       };
-      t += addBand(400000, 800000, 0.05);
-      t += addBand(800000, 1200000, 0.10);
-      t += addBand(1200000, 1600000, 0.15);
-      t += addBand(1600000, 2000000, 0.20);
-      t += addBand(2000000, 2400000, 0.25);
-      t += addBand(2400000, null, 0.30);
 
-      // Apply rebate under Section 87A
-      const rebate = ti <= 1200000 ? Math.min(t, 60000) : 0;
-      return Math.max(0, t - rebate);
+      if (taxAY === "2025-26") {
+        // Budget 2024 slabs (FY 2024-25 / AY 2025-26)
+        t += addBand(300000, 600000, 0.05);
+        t += addBand(600000, 900000, 0.10);
+        t += addBand(900000, 1200000, 0.15);
+        t += addBand(1200000, 1500000, 0.20);
+        t += addBand(1500000, null, 0.30);
+
+        // Rebate under Section 87A: if taxable income <= 7L, full rebate
+        if (ti <= 700000) {
+          return 0;
+        }
+        // Marginal relief
+        const rawTax = t;
+        const excessIncome = ti - 700000;
+        if (rawTax > excessIncome) {
+          return excessIncome;
+        }
+        return rawTax;
+      } else {
+        // Budget 2025 slabs (FY 2025-26 & FY 2026-27 / AY 2026-27 & AY 2027-28)
+        t += addBand(400000, 800000, 0.05);
+        t += addBand(800000, 1200000, 0.10);
+        t += addBand(1200000, 1600000, 0.15);
+        t += addBand(1600000, 2000000, 0.20);
+        t += addBand(2000000, 2400000, 0.25);
+        t += addBand(2400000, null, 0.30);
+
+        // Rebate under Section 87A: if taxable income <= 12L, full rebate
+        if (ti <= 1200000) {
+          return 0;
+        }
+        // Marginal relief
+        const rawTax = t;
+        const excessIncome = ti - 1200000;
+        if (rawTax > excessIncome) {
+          return excessIncome;
+        }
+        return rawTax;
+      }
     };
 
     // Old regime with age-based exemption limits
@@ -714,6 +767,12 @@ function CalculatorsPageContent() {
       t += add(oldExemption, 500000, 0.05);
       t += add(500000, 1000000, 0.20);
       t += add(1000000, null, 0.30);
+
+      // Rebate under Section 87A for Old Regime: if taxable income <= 5L, rebate up to 12.5k
+      if (ti <= 500000) {
+        const rebate = Math.min(t, 12500);
+        return Math.max(0, t - rebate);
+      }
       return t;
     };
 
@@ -736,7 +795,12 @@ function CalculatorsPageContent() {
       cessNew,
       totalNew,
     };
-  }, [taxIncome, tax80C, tax80CCD1B, tax80D, tax80G, tax80E, tax80TTA, basicSalary, da, hra, rentPaid, isMetro]);
+  }, [
+    taxIncome, tax80C, tax80CCD1B, tax80D, tax80G, tax80E, tax80TTA,
+    basicSalary, da, hra, rentPaid, isMetro,
+    incomeSalary, incomeOther, incomeInterest, incomeRental,
+    homeLoanInterestSelf, homeLoanInterestLetOut, isSalaried, taxAY, taxAgeCat
+  ]);
 
   const active = tab === "SIP" ? sip : tab === "LUMPSUM" ? lumpsum : tab === "FD" ? fd : tab === "RD" ? rd : undefined as any;
 
@@ -848,8 +912,9 @@ function CalculatorsPageContent() {
                               style={{ backgroundColor: '#0d2520', color: 'white' }}
                               className="text-white text-sm px-3 py-1 rounded-md hover:bg-[#1a3d35] hover:border-stockstrail-green-light border border-transparent focus:border-stockstrail-green-light focus:outline-none transition-all duration-300 cursor-pointer"
                             >
-                              <option value="2025-26" style={{ backgroundColor: '#0d2520', color: 'white' }}>2025-26</option>
-                              <option value="2024-25" style={{ backgroundColor: '#0d2520', color: 'white' }}>2024-25</option>
+                              <option value="2027-28" style={{ backgroundColor: '#0d2520', color: 'white' }}>2027-28 (FY 2026-27)</option>
+                              <option value="2026-27" style={{ backgroundColor: '#0d2520', color: 'white' }}>2026-27 (FY 2025-26)</option>
+                              <option value="2025-26" style={{ backgroundColor: '#0d2520', color: 'white' }}>2025-26 (FY 2024-25)</option>
                             </select>
                           </span>
                         </div>
@@ -868,6 +933,15 @@ function CalculatorsPageContent() {
                             </select>
                           </span>
                         </div>
+                        <div className="flex items-center justify-between text-white/80">
+                          <span className="uppercase tracking-wide text-xs sm:text-sm">Salaried Employee</span>
+                          <input
+                            type="checkbox"
+                            checked={isSalaried}
+                            onChange={(e) => setIsSalaried(e.target.checked)}
+                            className="w-5 h-5 accent-[#00FF97] cursor-pointer"
+                          />
+                        </div>
                       </div>
                       <div className="space-y-3">
                         <div className="flex items-center justify-between text-white/80">
@@ -884,12 +958,12 @@ function CalculatorsPageContent() {
                       </button>
                       {taxOpen.income && (
                         <div className="p-4 space-y-3">
-                          <div className="flex items-center justify-between text-white/80"><span>Gross salary income</span><ValueChip ariaLabel="basic" value={basicSalary} prefix="₹ " onChange={(n) => setBasicSalary(Math.max(0, n))} /></div>
-                          <div className="flex items-center justify-between text-white/80"><span>Annual income from other sources</span><ValueChip ariaLabel="da" value={da} prefix="₹ " onChange={(n) => setDa(Math.max(0, n))} /></div>
-                          <div className="flex items-center justify-between text-white/80"><span>Annual income from interest</span><ValueChip ariaLabel="80tta-inc" value={tax80TTA} prefix="₹ " onChange={(n) => setTax80TTA(Math.max(0, n))} /></div>
-                          <div className="flex items-center justify-between text-white/80"><span>Annual income from let-out property</span><ValueChip ariaLabel="rentinc" value={rentPaid} prefix="₹ " onChange={(n) => setRentPaid(Math.max(0, n))} /></div>
-                          <div className="flex items-center justify-between text-white/80"><span>Interest on home loan (self-occupied)</span><ValueChip ariaLabel="homeint1" value={tax80E} prefix="₹ " onChange={(n) => setTax80E(Math.max(0, n))} /></div>
-                          <div className="flex items-center justify-between text-white/80"><span>Interest on home loan (let-out)</span><ValueChip ariaLabel="homeint2" value={tax80G} prefix="₹ " onChange={(n) => setTax80G(Math.max(0, n))} /></div>
+                          <div className="flex items-center justify-between text-white/80"><span>Gross salary income</span><ValueChip ariaLabel="basic" value={incomeSalary} prefix="₹ " onChange={(n) => setIncomeSalary(Math.max(0, n))} /></div>
+                          <div className="flex items-center justify-between text-white/80"><span>Annual income from other sources</span><ValueChip ariaLabel="da" value={incomeOther} prefix="₹ " onChange={(n) => setIncomeOther(Math.max(0, n))} /></div>
+                          <div className="flex items-center justify-between text-white/80"><span>Annual income from interest</span><ValueChip ariaLabel="80tta-inc" value={incomeInterest} prefix="₹ " onChange={(n) => setIncomeInterest(Math.max(0, n))} /></div>
+                          <div className="flex items-center justify-between text-white/80"><span>Annual income from let-out property</span><ValueChip ariaLabel="rentinc" value={incomeRental} prefix="₹ " onChange={(n) => setIncomeRental(Math.max(0, n))} /></div>
+                          <div className="flex items-center justify-between text-white/80"><span>Interest on home loan (self-occupied)</span><ValueChip ariaLabel="homeint1" value={homeLoanInterestSelf} prefix="₹ " onChange={(n) => setHomeLoanInterestSelf(Math.max(0, n))} /></div>
+                          <div className="flex items-center justify-between text-white/80"><span>Interest on home loan (let-out)</span><ValueChip ariaLabel="homeint2" value={homeLoanInterestLetOut} prefix="₹ " onChange={(n) => setHomeLoanInterestLetOut(Math.max(0, n))} /></div>
                         </div>
                       )}
                     </div>
