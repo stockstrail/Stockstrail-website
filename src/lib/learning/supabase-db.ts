@@ -164,24 +164,37 @@ export async function getCourseBySlug(slug: string): Promise<Course | null> {
     popularity: 100 - course.display_order * 5,
     thumbnailAccent: ["#059669", "#064e3b"],
     thumbnailGlyph: course.learning_categories?.name?.slice(0, 3)?.toUpperCase() || "📖",
-    modules: (modules ?? []).map((m: any) => ({
-      slug: m.slug,
-      title: m.title,
-      summary: m.summary || "",
-      lessons: [
-        {
+    modules: (modules ?? []).map((m: any) => {
+      const rawContent: string = m.learning_module_content?.[0]?.markdown_content || "";
+      // Try to parse sub-topics JSON format (from the admin multi-subtopic editor)
+      let lessons: { slug: string; title: string; minutes: number; blocks: { type: "markdown"; text: string }[] }[] = [];
+      try {
+        const parsed = JSON.parse(rawContent);
+        if (Array.isArray(parsed) && parsed.length > 0 && "title" in parsed[0]) {
+          lessons = parsed.map((sub: any, si: number) => ({
+            slug: `${m.slug}-${si + 1}`,
+            title: sub.title ?? `Part ${si + 1}`,
+            minutes: Math.max(1, Math.round((sub.markdown_content?.length ?? 0) / 800)),
+            blocks: [{ type: "markdown" as const, text: sub.markdown_content ?? "" }],
+          }));
+        }
+      } catch {}
+      // Legacy: plain markdown → single lesson
+      if (lessons.length === 0) {
+        lessons = [{
           slug: m.slug,
           title: m.title,
           minutes: m.reading_time || 5,
-          blocks: [
-            {
-              type: "markdown",
-              text: m.learning_module_content?.[0]?.markdown_content || "",
-            },
-          ],
-        },
-      ],
-    })),
+          blocks: [{ type: "markdown" as const, text: rawContent }],
+        }];
+      }
+      return {
+        slug: m.slug,
+        title: m.title,
+        summary: m.summary || "",
+        lessons,
+      };
+    }),
     faqs: (faqs ?? []).map((f) => ({
       q: f.question,
       a: f.answer,

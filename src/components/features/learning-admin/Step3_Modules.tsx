@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
 import { DragDropContext, Droppable, Draggable, DropResult } from "@hello-pangea/dnd";
 import { createClient } from "@/lib/supabase/client";
-import { Plus, GripVertical, ChevronDown, ChevronUp, Trash2, Copy, Loader2, Save } from "lucide-react";
+import { Plus, GripVertical, ChevronDown, ChevronUp, Trash2, Loader2, Save, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -21,15 +21,48 @@ function slugify(s: string) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
-type ModuleState = LearningModule & { markdown_content: string; dirty: boolean; saving: boolean };
+// Each sub-topic inside a module
+interface SubTopic {
+  id: string; // local UUID
+  title: string;
+  markdown_content: string;
+}
+
+type ModuleState = LearningModule & {
+  sub_topics: SubTopic[];
+  dirty: boolean;
+  saving: boolean;
+  // legacy single content (kept for backward compat during save)
+  markdown_content: string;
+};
 
 const ic = "bg-white/5 border-white/10 text-white placeholder:text-white/40";
 const lc = "text-white/70 text-sm";
+
+function genId() { return Math.random().toString(36).slice(2) + Date.now().toString(36); }
+
+function parseSubTopics(raw: string | null | undefined): SubTopic[] {
+  if (!raw) return [{ id: genId(), title: "Introduction", markdown_content: "" }];
+  // Try to parse as JSON array of sub_topics
+  try {
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed) && parsed.length > 0 && "title" in parsed[0]) {
+      return parsed.map((t: any) => ({ id: t.id ?? genId(), title: t.title ?? "", markdown_content: t.markdown_content ?? "" }));
+    }
+  } catch {}
+  // Legacy: plain markdown string → convert to single sub-topic
+  return [{ id: genId(), title: "Content", markdown_content: raw }];
+}
+
+function serializeSubTopics(subTopics: SubTopic[]): string {
+  return JSON.stringify(subTopics.map(({ id, title, markdown_content }) => ({ id, title, markdown_content })));
+}
 
 export function Step3_Modules({ courseId }: Step3Props) {
   const [modules, setModules] = useState<ModuleState[]>([]);
   const [loading, setLoading] = useState(false);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const [activeSubTopic, setActiveSubTopic] = useState<Record<string, string>>({}); // moduleId -> subTopicId
 
   const fetchModules = useCallback(async () => {
     if (!courseId) return;
@@ -41,12 +74,22 @@ export function Step3_Modules({ courseId }: Step3Props) {
         .select("*, learning_module_content(markdown_content)")
         .eq("course_id", courseId)
         .order("module_order", { ascending: true });
-      setModules((data ?? []).map((m: any) => ({
-        ...m,
-        markdown_content: m.learning_module_content?.[0]?.markdown_content ?? "",
-        dirty: false,
-        saving: false,
-      })));
+      const mapped: ModuleState[] = (data ?? []).map((m: any) => {
+        const rawContent = m.learning_module_content?.[0]?.markdown_content ?? "";
+        const sub_topics = parseSubTopics(rawContent);
+        return {
+          ...m,
+          sub_topics,
+          markdown_content: rawContent,
+          dirty: false,
+          saving: false,
+        };
+      });
+      setModules(mapped);
+      // Set first sub-topic as active for each module
+      const initialActive: Record<string, string> = {};
+      mapped.forEach(m => { if (m.sub_topics.length > 0) initialActive[m.id] = m.sub_topics[0].id; });
+      setActiveSubTopic(initialActive);
     } finally { setLoading(false); }
   }, [courseId]);
 
@@ -66,31 +109,94 @@ export function Step3_Modules({ courseId }: Step3Props) {
       free_preview: false,
     }).select().single();
     if (!error && data) {
-      await supabase.from("learning_module_content").insert({ module_id: data.id, markdown_content: "" });
-      const newMod: ModuleState = { ...data, markdown_content: "", dirty: false, saving: false };
+      const firstSubTopic: SubTopic = { id: genId(), title: "Introduction", markdown_content: "" };
+      await supabase.from("learning_module_content").insert({
+        module_id: data.id,
+        markdown_content: serializeSubTopics([firstSubTopic]),
+      });
+      const newMod: ModuleState = {
+        ...data,
+        sub_topics: [firstSubTopic],
+        markdown_content: "",
+        dirty: false,
+        saving: false,
+      };
       setModules(prev => [...prev, newMod]);
       setExpanded(prev => new Set([...prev, data.id]));
+      setActiveSubTopic(prev => ({ ...prev, [data.id]: firstSubTopic.id }));
     }
   };
 
   const updateLocal = (id: string, updates: Partial<ModuleState>) =>
     setModules(prev => prev.map(m => m.id === id ? { ...m, ...updates, dirty: true } : m));
 
+  // Add a new sub-topic to a module
+  const addSubTopic = (moduleId: string) => {
+    setModules(prev => prev.map(m => {
+      if (m.id !== moduleId) return m;
+      const newSub: SubTopic = { id: genId(), title: `Sub-topic ${m.sub_topics.length + 1}`, markdown_content: "" };
+      const updated = { ...m, sub_topics: [...m.sub_topics, newSub], dirty: true };
+      setActiveSubTopic(ap => ({ ...ap, [moduleId]: newSub.id }));
+      return updated;
+    }));
+  };
+
+  // Update a sub-topic field
+  const updateSubTopic = (moduleId: string, subId: string, updates: Partial<SubTopic>) => {
+    setModules(prev => prev.map(m => {
+      if (m.id !== moduleId) return m;
+      return {
+        ...m,
+        dirty: true,
+        sub_topics: m.sub_topics.map(s => s.id === subId ? { ...s, ...updates } : s),
+      };
+    }));
+  };
+
+  // Delete a sub-topic
+  const deleteSubTopic = (moduleId: string, subId: string) => {
+    setModules(prev => prev.map(m => {
+      if (m.id !== moduleId) return m;
+      const remaining = m.sub_topics.filter(s => s.id !== subId);
+      if (remaining.length === 0) return m; // never allow 0 sub-topics
+      const updated = { ...m, sub_topics: remaining, dirty: true };
+      setActiveSubTopic(ap => {
+        const current = ap[moduleId];
+        if (current === subId) return { ...ap, [moduleId]: remaining[0].id };
+        return ap;
+      });
+      return updated;
+    }));
+  };
+
+  // Reorder sub-topics via drag
+  const onSubTopicDragEnd = (moduleId: string, result: DropResult) => {
+    if (!result.destination) return;
+    setModules(prev => prev.map(m => {
+      if (m.id !== moduleId) return m;
+      const reordered = Array.from(m.sub_topics);
+      const [moved] = reordered.splice(result.source.index, 1);
+      reordered.splice(result.destination!.index, 0, moved);
+      return { ...m, sub_topics: reordered, dirty: true };
+    }));
+  };
+
   const saveModule = async (mod: ModuleState) => {
     const supabase = createClient();
     setModules(prev => prev.map(m => m.id === mod.id ? { ...m, saving: true } : m));
-    const { markdown_content, dirty, saving, content, ...meta } = mod as any;
     await supabase.from("learning_modules").update({
       title: mod.title, slug: mod.slug, summary: mod.summary,
       reading_time: mod.reading_time, module_order: mod.module_order,
       publish: mod.publish, free_preview: mod.free_preview, icon: mod.icon,
       updated_at: new Date().toISOString(),
     }).eq("id", mod.id);
+    // Save sub-topics as serialized JSON in markdown_content
+    const serialized = serializeSubTopics(mod.sub_topics);
     const { data: existing } = await supabase.from("learning_module_content").select("id").eq("module_id", mod.id).single();
     if (existing) {
-      await supabase.from("learning_module_content").update({ markdown_content: mod.markdown_content, updated_at: new Date().toISOString() }).eq("module_id", mod.id);
+      await supabase.from("learning_module_content").update({ markdown_content: serialized, updated_at: new Date().toISOString() }).eq("module_id", mod.id);
     } else {
-      await supabase.from("learning_module_content").insert({ module_id: mod.id, markdown_content: mod.markdown_content });
+      await supabase.from("learning_module_content").insert({ module_id: mod.id, markdown_content: serialized });
     }
     setModules(prev => prev.map(m => m.id === mod.id ? { ...m, dirty: false, saving: false } : m));
   };
@@ -130,7 +236,7 @@ export function Step3_Modules({ courseId }: Step3Props) {
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-white font-medium">Course Modules</h3>
-          <p className="text-white/50 text-xs mt-0.5">Drag to reorder. Each module has its own markdown editor.</p>
+          <p className="text-white/50 text-xs mt-0.5">Drag to reorder modules. Each module can have multiple sub-topics.</p>
         </div>
         <Button onClick={addModule} className="bg-gradient-to-r from-emerald-400 to-stockstrail-green-light text-[#031815] font-semibold rounded-xl text-sm">
           <Plus className="w-4 h-4 mr-1" /> Add Module
@@ -160,6 +266,7 @@ export function Step3_Modules({ courseId }: Step3Props) {
                           onChange={e => updateLocal(mod.id, { title: e.target.value, slug: slugify(e.target.value) })}
                           placeholder="Module title..."
                         />
+                        <span className="text-white/30 text-xs shrink-0">{mod.sub_topics.length} sub-topic{mod.sub_topics.length !== 1 ? "s" : ""}</span>
                         <div className="flex items-center gap-2 shrink-0">
                           {mod.dirty && (
                             <Button size="sm" variant="ghost" onClick={() => saveModule(mod)} disabled={mod.saving}
@@ -180,6 +287,7 @@ export function Step3_Modules({ courseId }: Step3Props) {
                       {/* Expanded Content */}
                       {expanded.has(mod.id) && (
                         <div className="border-t border-white/10 p-4 space-y-4">
+                          {/* Module meta fields */}
                           <div className="grid gap-4 md:grid-cols-3">
                             <div className="space-y-1">
                               <Label className={lc}>Slug</Label>
@@ -209,19 +317,90 @@ export function Step3_Modules({ courseId }: Step3Props) {
                               </label>
                             ))}
                           </div>
-                          {/* Markdown Editor */}
-                          <div className="space-y-2">
-                            <Label className={lc}>Module Content (Markdown)</Label>
-                            <div data-color-mode="dark" className="rounded-xl overflow-hidden">
-                              <MDEditor
-                                value={mod.markdown_content}
-                                onChange={v => updateLocal(mod.id, { markdown_content: v ?? "" })}
-                                height={400}
-                                preview="live"
-                              />
+
+                          {/* ── Sub-topics section ── */}
+                          <div className="space-y-3 pt-2">
+                            <div className="flex items-center justify-between">
+                              <Label className="text-white/80 text-sm font-medium">Sub-topics</Label>
+                              <Button size="sm" variant="ghost"
+                                onClick={() => addSubTopic(mod.id)}
+                                className="text-stockstrail-green-light hover:bg-white/5 border border-stockstrail-green-light/30 rounded-lg text-xs h-7 px-3">
+                                <Plus className="w-3 h-3 mr-1" /> Add Sub-topic
+                              </Button>
                             </div>
+
+                            {/* Sub-topic tabs */}
+                            <DragDropContext onDragEnd={(r) => onSubTopicDragEnd(mod.id, r)}>
+                              <div className="flex flex-col gap-3">
+                                {/* Tab list */}
+                                <Droppable droppableId={`subtopics-${mod.id}`} direction="horizontal">
+                                  {(sp) => (
+                                    <div {...sp.droppableProps} ref={sp.innerRef}
+                                      className="flex flex-wrap gap-2 min-h-[36px]">
+                                      {mod.sub_topics.map((sub, si) => (
+                                        <Draggable key={sub.id} draggableId={sub.id} index={si}>
+                                          {(sdp, ss) => (
+                                            <div
+                                              ref={sdp.innerRef} {...sdp.draggableProps}
+                                              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium cursor-pointer transition-all
+                                                ${activeSubTopic[mod.id] === sub.id
+                                                  ? "bg-stockstrail-green-light/20 border-stockstrail-green-light/50 text-stockstrail-green-light"
+                                                  : "bg-white/5 border-white/10 text-white/50 hover:border-white/30 hover:text-white/80"}
+                                                ${ss.isDragging ? "opacity-75 scale-95" : ""}`}
+                                              onClick={() => setActiveSubTopic(ap => ({ ...ap, [mod.id]: sub.id }))}
+                                            >
+                                              <span {...sdp.dragHandleProps} className="cursor-grab" onClick={e => e.stopPropagation()}>
+                                                <GripVertical className="w-3 h-3 opacity-50" />
+                                              </span>
+                                              <FileText className="w-3 h-3" />
+                                              <span className="max-w-[120px] truncate">{sub.title || `Sub-topic ${si + 1}`}</span>
+                                              {mod.sub_topics.length > 1 && (
+                                                <button
+                                                  onClick={e => { e.stopPropagation(); deleteSubTopic(mod.id, sub.id); }}
+                                                  className="ml-1 text-red-400/70 hover:text-red-300 rounded"
+                                                >×</button>
+                                              )}
+                                            </div>
+                                          )}
+                                        </Draggable>
+                                      ))}
+                                      {sp.placeholder}
+                                    </div>
+                                  )}
+                                </Droppable>
+
+                                {/* Active sub-topic editor */}
+                                {mod.sub_topics.map(sub => (
+                                  activeSubTopic[mod.id] === sub.id && (
+                                    <div key={sub.id} className="space-y-3 rounded-xl border border-white/10 bg-white/[0.02] p-4">
+                                      <div className="space-y-1">
+                                        <Label className={lc}>Sub-topic Title</Label>
+                                        <Input
+                                          value={sub.title}
+                                          onChange={e => updateSubTopic(mod.id, sub.id, { title: e.target.value })}
+                                          className={`${ic} text-sm`}
+                                          placeholder="e.g. What is inflation?"
+                                        />
+                                      </div>
+                                      <div className="space-y-2">
+                                        <Label className={lc}>Content (Markdown)</Label>
+                                        <div data-color-mode="dark" className="rounded-xl overflow-hidden">
+                                          <MDEditor
+                                            value={sub.markdown_content}
+                                            onChange={v => updateSubTopic(mod.id, sub.id, { markdown_content: v ?? "" })}
+                                            height={380}
+                                            preview="live"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  )
+                                ))}
+                              </div>
+                            </DragDropContext>
                           </div>
-                          <div className="flex justify-end">
+
+                          <div className="flex justify-end pt-2">
                             <Button onClick={() => saveModule(mod)} disabled={mod.saving}
                               className="bg-gradient-to-r from-emerald-400 to-stockstrail-green-light text-[#031815] font-semibold rounded-xl text-sm">
                               {mod.saving ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Save className="w-4 h-4 mr-2" />}
