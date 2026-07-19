@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Copy, XCircle, Eye, EyeOff, Plus, Trash2, ArrowUp, ArrowDown } from "lucide-react";
+import { Copy, XCircle, X, Eye, EyeOff, Plus, Trash2, ArrowUp, ArrowDown } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -131,15 +131,24 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Check size (1 MB limit)
-    if (file.size > 1048576) {
-      alert("Image exceeds the 1 MB limit. Please upload a smaller image.");
+    // Check size (5 MB limit)
+    if (file.size > 5242880) {
+      alert("Image exceeds the 5 MB limit. Please upload a smaller image.");
       return;
     }
 
     try {
       setLoading(true);
       const supabase = createClient();
+
+      // Delete old cover image from Supabase storage if it exists
+      if (formData.image_url) {
+        const oldPath = formData.image_url.split("/blog-images/")[1];
+        if (oldPath) {
+          await supabase.storage.from("blog-images").remove([oldPath]);
+        }
+      }
+
       const fileExt = file.name.split('.').pop();
       const fileName = `${Math.random()}.${fileExt}`;
       const filePath = `${fileName}`;
@@ -163,6 +172,36 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
     }
   };
 
+  const handleRemoveCoverImage = async () => {
+    const imageUrl = formData.image_url;
+    if (!imageUrl) return;
+
+    try {
+      setLoading(true);
+      const path = imageUrl.split("/blog-images/")[1];
+      if (path) {
+        const supabase = createClient();
+        const { error } = await supabase.storage
+          .from("blog-images")
+          .remove([path]);
+        if (error) {
+          console.error("Error deleting cover image from storage:", error);
+        }
+      }
+      setFormData(prev => ({ ...prev, image_url: "" }));
+
+      // Clear file input value
+      const fileInput = document.getElementById("image") as HTMLInputElement | null;
+      if (fileInput) {
+        fileInput.value = "";
+      }
+    } catch (error) {
+      console.error("Error removing cover image:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleAdditionalImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -172,8 +211,8 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
       return;
     }
 
-    if (file.size > 1048576) {
-      alert("Image exceeds the 1 MB limit. Please upload a smaller image.");
+    if (file.size > 5242880) {
+      alert("Image exceeds the 5 MB limit. Please upload a smaller image.");
       return;
     }
 
@@ -212,11 +251,37 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
     });
   };
 
-  const removeAdditionalImage = (indexToRemove: number) => {
-    setFormData(prev => ({
-      ...prev,
-      content_images: prev.content_images.filter((_, index) => index !== indexToRemove)
-    }));
+  const handleRemoveAdditionalImage = async (indexToRemove: number) => {
+    const imageUrl = formData.content_images[indexToRemove];
+    if (!imageUrl) return;
+
+    try {
+      setLoading(true);
+      const path = imageUrl.split("/blog-images/")[1];
+      if (path) {
+        const supabase = createClient();
+        const { error } = await supabase.storage
+          .from("blog-images")
+          .remove([path]);
+        if (error) {
+          console.error("Error deleting additional image from storage:", error);
+        }
+      }
+      setFormData(prev => ({
+        ...prev,
+        content_images: prev.content_images.filter((_, index) => index !== indexToRemove)
+      }));
+
+      // Clear file input value
+      const fileInput = document.getElementById("additional_images") as HTMLInputElement | null;
+      if (fileInput) {
+        fileInput.value = "";
+      }
+    } catch (error) {
+      console.error("Error removing additional image:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -321,10 +386,20 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
               </div>
 
               <div>
-                <Label htmlFor="image" className="text-white/70">Cover Image (Max 1MB)</Label>
+                <Label htmlFor="image" className="text-white/70">Cover Image (Max 5MB)</Label>
                 <div className="flex items-center gap-4 mt-1">
                   {formData.image_url && (
-                    <img src={formData.image_url} alt="Cover" className="w-16 h-16 object-cover rounded border border-white/20" />
+                    <div className="relative w-16 h-16 flex-shrink-0">
+                      <img src={formData.image_url} alt="Cover" className="w-full h-full object-cover rounded border border-white/20" />
+                      <button 
+                        type="button"
+                        onClick={handleRemoveCoverImage}
+                        className="absolute -top-1.5 -right-1.5 bg-red-500 hover:bg-red-600 text-white rounded-full p-0.5 transition-colors shadow-lg"
+                        title="Remove Cover Image"
+                      >
+                        <X className="w-3 h-3" />
+                      </button>
+                    </div>
                   )}
                   <Input
                     id="image"
@@ -348,7 +423,7 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
               </div>
 
               <div>
-                <Label htmlFor="additional_images" className="text-white/70">Additional Images for Content (Up to 4, Max 1MB)</Label>
+                <Label htmlFor="additional_images" className="text-white/70">Additional Images for Content (Up to 4, Max 5MB)</Label>
                 <div className="mt-2 space-y-3">
                   {formData.content_images.length < 4 && (
                     <Input
@@ -376,9 +451,9 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
                             >
                               <Copy className="w-4 h-4 mr-1" /> Copy URL
                             </Button>
-                            <button 
+                             <button 
                               type="button"
-                              onClick={() => removeAdditionalImage(idx)}
+                              onClick={() => handleRemoveAdditionalImage(idx)}
                               className="text-red-400 hover:text-red-300 bg-black/50 rounded-full p-1"
                               title="Remove Image"
                             >

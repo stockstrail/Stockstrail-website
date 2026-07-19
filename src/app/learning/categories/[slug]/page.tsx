@@ -22,10 +22,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${category.name} Courses — StocksTrail Learning`,
       description: category.description,
-      url: `/learning/categories/${slug}`,
+      url: `https://learning.stockstrail.in/categories/${slug}`,
     },
     alternates: {
-      canonical: `/learning/categories/${slug}`,
+      canonical: `https://learning.stockstrail.in/categories/${slug}`,
     }
   };
 }

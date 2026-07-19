@@ -34,7 +34,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://stockstrail.in"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.stockstrail.in"
   ),
 
   title: "Stockstrail - Financial Planning & Investment Guidance",

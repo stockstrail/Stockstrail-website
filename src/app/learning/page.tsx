@@ -11,10 +11,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "StocksTrail Learning — Free Investing & Personal Finance Courses for India",
     description: "Free structured courses on mutual funds, SIP, insurance, tax saving, stock market, and retirement planning — built for Indian investors.",
-    url: "/learning",
+    url: "https://www.learning.stockstrail.in",
   },
   alternates: {
-    canonical: "/learning",
+    canonical: "https://www.learning.stockstrail.in",
   }
 };
 

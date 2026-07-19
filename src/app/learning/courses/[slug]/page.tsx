@@ -22,10 +22,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: c.title,
       description: c.description,
       type: "article",
-      url: `/learning/courses/${slug}`,
+      url: `https://learning.stockstrail.in/courses/${slug}`,
     },
     alternates: {
-      canonical: `/learning/courses/${slug}`,
+      canonical: `https://learning.stockstrail.in/courses/${slug}`,
     }
   };
 }

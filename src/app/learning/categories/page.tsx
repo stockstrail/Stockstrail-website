@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Categories — StocksTrail Learning",
     description: "Browse finance topics on StocksTrail Learning.",
-    url: "/learning/categories",
+    url: "https://learning.stockstrail.in/categories",
   },
   alternates: {
-    canonical: "/learning/categories",
+    canonical: "https://learning.stockstrail.in/categories",
   }
 };
 
