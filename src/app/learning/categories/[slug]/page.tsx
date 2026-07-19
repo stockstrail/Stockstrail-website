@@ -1,0 +1,77 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { getCategoryBySlug, coursesByCategory } from "@/lib/learning/courses";
+import { CourseCard } from "@/components/learn/cards";
+
+interface Props {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const category = getCategoryBySlug(slug);
+  if (!category) {
+    return {
+      title: "Category not found — StocksTrail Learning",
+    };
+  }
+  return {
+    title: `${category.name} Courses — StocksTrail Learning`,
+    description: category.description,
+    openGraph: {
+      title: `${category.name} Courses — StocksTrail Learning`,
+      description: category.description,
+      url: `/learning/categories/${slug}`,
+    },
+    alternates: {
+      canonical: `/learning/categories/${slug}`,
+    }
+  };
+}
+
+export default async function CategoryDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const category = getCategoryBySlug(slug);
+  if (!category) {
+    notFound();
+  }
+
+  const list = coursesByCategory(category.slug);
+
+  return (
+    <section className="relative overflow-hidden">
+      <span className="glow-blob top-[-100px] left-[-100px] h-[420px] w-[420px]" />
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 py-14 animate-fade-up">
+        <nav aria-label="Breadcrumb" className="text-xs text-white/50">
+          <Link href="/learning" className="hover:text-white">Home</Link>
+          <span className="mx-1">/</span>
+          <Link href="/learning/categories" className="hover:text-white">Categories</Link>
+          <span className="mx-1">/</span>
+          <span className="text-white/80">{category.name}</span>
+        </nav>
+        <div className="mt-6 flex items-start gap-5">
+          <div className="shrink-0 w-16 h-16 rounded-2xl bg-white/5 border border-[color:var(--color-brand-border)] text-[color:var(--color-brand-green)] font-display font-bold flex items-center justify-center text-lg shadow-inner">
+            {category.icon}
+          </div>
+          <div>
+            <h1 className="text-4xl sm:text-5xl text-white font-normal" style={{ fontFamily: "var(--font-product-sans)" }}>{category.name}</h1>
+            <p className="mt-2 text-white/65 max-w-2xl">{category.description}</p>
+          </div>
+        </div>
+
+        <div className="mt-10 animate-fade-up" style={{ animationDelay: '100ms' }}>
+          {list.length === 0 ? (
+            <div className="rounded-2xl border border-dashed border-[color:var(--color-brand-border)] p-10 text-center text-white/60">
+              We're preparing courses in this category. Check back soon.
+            </div>
+          ) : (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {list.map((c) => <CourseCard key={c.slug} course={c} />)}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}

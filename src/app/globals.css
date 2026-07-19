@@ -9,6 +9,15 @@
   --color-stockstrail-green-dark: #007d42;
   --color-stockstrail-green-accent: #00d873;
 
+  /* Brand tokens (StocksTrail) */
+  --color-brand-bg: #012928;
+  --color-brand-bg-light: #003a39;
+  --color-brand-surface: #002424;
+  --color-brand-border: rgba(0, 255, 151, 0.14);
+  --color-brand-green: #00ff97;
+  --color-brand-green-dark: #007d42;
+  --color-brand-green-accent: #00d873;
+
   /* Font families using next/font variables */
   --font-product-sans: var(--font-inter), system-ui, sans-serif;
   --font-work-sans: var(--font-work-sans), system-ui, sans-serif;
@@ -129,9 +138,29 @@
       "Segoe UI", Roboto, sans-serif;
   }
 
-  /* Smooth scrolling */
+  /* Smooth scrolling & global custom scrollbar */
   html {
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 255, 151, 0.3) transparent;
+  }
+
+  html::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 151, 0.25);
+    border-radius: 9999px;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 151, 0.5);
   }
 
   /* Hide scrollbar but keep functionality */
@@ -142,6 +171,30 @@
 
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Custom scrollbar utility */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 255, 151, 0.25) transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 151, 0.2);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 151, 0.45);
   }
 
   /* Custom gradient text utility */
@@ -407,4 +460,85 @@
       opacity: 1 !important;
     }
   }
+}
+
+/* ================= LEARNING PLATFORM CUSTOM CLASSES ================= */
+
+@utility glow-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(120px);
+  pointer-events: none;
+  background: rgba(0, 255, 151, 0.18);
+}
+
+@utility card-surface {
+  background: linear-gradient(180deg, rgba(0, 255, 151, 0.04) 0%, rgba(0, 255, 151, 0.01) 100%);
+  border: 1px solid rgba(0, 255, 151, 0.12);
+  backdrop-filter: blur(6px);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+.animate-float { animation: float 9s ease-in-out infinite; }
+.animate-float-slow { animation: float 14s ease-in-out infinite; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up { animation: fade-up 0.7s ease-out both; }
+
+/* Prose for course content */
+.prose-learn {
+  color: #e5efec;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+.prose-learn h2 {
+  font-family: var(--font-product-sans);
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 2.5rem 0 1rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+.prose-learn h3 {
+  font-family: var(--font-product-sans);
+  font-size: 1.375rem;
+  margin: 2rem 0 0.75rem;
+  color: #ffffff;
+}
+.prose-learn p { margin: 0 0 1.1rem; }
+.prose-learn strong { color: #ffffff; font-weight: 600; }
+.prose-learn a { color: #00ff97; text-decoration: underline; text-underline-offset: 3px; }
+.prose-learn ul, .prose-learn ol { margin: 0 0 1.25rem 1.25rem; }
+.prose-learn ul li { list-style: disc; margin-bottom: 0.4rem; }
+.prose-learn ol li { list-style: decimal; margin-bottom: 0.4rem; }
+.prose-learn code {
+  background: rgba(0, 255, 151, 0.1);
+  color: #00ff97;
+  padding: 0.15rem 0.4rem;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+.prose-learn table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+.prose-learn th, .prose-learn td {
+  border: 1px solid rgba(0, 255, 151, 0.14);
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+}
+.prose-learn th {
+  background: rgba(0, 255, 151, 0.06);
+  color: #ffffff;
+  font-weight: 600;
 }
