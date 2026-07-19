@@ -5,8 +5,9 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const host = request.headers.get("host") || "";
 
-  // Matches learning.stockstrail.in or learning.localhost:3000
-  const isLearningSubdomain = host.startsWith("learning.");
+  // Matches learning.stockstrail.in OR www.learning.stockstrail.in (and local equivalents)
+  const isLearningSubdomain =
+    host.startsWith("learning.") || host.startsWith("www.learning.");
 
   if (isLearningSubdomain) {
     // If the path does not already start with /learning, rewrite it internally
