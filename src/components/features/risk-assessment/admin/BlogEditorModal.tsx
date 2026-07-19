@@ -131,9 +131,9 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Check size (250 KB limit)
-    if (file.size > 256000) {
-      alert("Image exceeds the 250 KB limit. Please upload a smaller image.");
+    // Check size (1 MB limit)
+    if (file.size > 1048576) {
+      alert("Image exceeds the 1 MB limit. Please upload a smaller image.");
       return;
     }
 
@@ -172,8 +172,8 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
       return;
     }
 
-    if (file.size > 256000) {
-      alert("Image exceeds the 250 KB limit. Please upload a smaller image.");
+    if (file.size > 1048576) {
+      alert("Image exceeds the 1 MB limit. Please upload a smaller image.");
       return;
     }
 
@@ -321,7 +321,7 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
               </div>
 
               <div>
-                <Label htmlFor="image" className="text-white/70">Cover Image (Max 250KB)</Label>
+                <Label htmlFor="image" className="text-white/70">Cover Image (Max 1MB)</Label>
                 <div className="flex items-center gap-4 mt-1">
                   {formData.image_url && (
                     <img src={formData.image_url} alt="Cover" className="w-16 h-16 object-cover rounded border border-white/20" />
@@ -348,7 +348,7 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
               </div>
 
               <div>
-                <Label htmlFor="additional_images" className="text-white/70">Additional Images for Content (Up to 4, Max 250KB)</Label>
+                <Label htmlFor="additional_images" className="text-white/70">Additional Images for Content (Up to 4, Max 1MB)</Label>
                 <div className="mt-2 space-y-3">
                   {formData.content_images.length < 4 && (
                     <Input
