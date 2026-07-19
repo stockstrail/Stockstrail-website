@@ -43,17 +43,37 @@ export function AdminLearningCourses() {
     setLoading(true);
     try {
       const supabase = createClient();
-      const [{ data: coursesData }, { data: catsData }] = await Promise.all([
-        supabase.from("learning_courses").select("*, learning_categories(id,name,slug), learning_modules(count)").order("display_order"),
+      // Fetch courses and categories separately to avoid PostgREST embedding ambiguity
+      const [{ data: coursesData, error: coursesError }, { data: catsData, error: catsError }] = await Promise.all([
+        supabase.from("learning_courses").select("*").order("display_order"),
         supabase.from("learning_categories").select("*").order("name"),
       ]);
+      if (coursesError) {
+        console.error("Courses fetch error - code:", coursesError.code, "msg:", coursesError.message);
+        throw coursesError;
+      }
+      if (catsError) {
+        console.error("Categories fetch error - code:", catsError.code, "msg:", catsError.message);
+        throw catsError;
+      }
+      // Build a lookup map of categories
+      const catMap: Record<string, any> = {};
+      (catsData ?? []).forEach((cat: any) => { catMap[cat.id] = cat; });
+      // Fetch module counts separately
+      const { data: modulesData } = await supabase
+        .from("learning_modules")
+        .select("course_id");
+      const moduleCountMap: Record<string, number> = {};
+      (modulesData ?? []).forEach((m: any) => {
+        if (m.course_id) moduleCountMap[m.course_id] = (moduleCountMap[m.course_id] ?? 0) + 1;
+      });
       setCourses((coursesData ?? []).map((c: any) => ({
         ...c,
-        category: c.learning_categories,
-        module_count: c.learning_modules?.[0]?.count ?? 0,
+        category: catMap[c.category_id] ?? null,
+        module_count: moduleCountMap[c.id] ?? 0,
       })));
       setCategories(catsData ?? []);
-    } catch (e) { console.error("Error fetching courses data:", e); }
+    } catch (e: any) { console.error("Error fetching courses data:", e?.message ?? e); }
     finally { setLoading(false); }
   };
 

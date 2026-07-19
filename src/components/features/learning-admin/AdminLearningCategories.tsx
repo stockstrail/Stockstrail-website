@@ -40,18 +40,30 @@ export function AdminLearningCategories() {
     setLoading(true);
     try {
       const supabase = createClient();
+      // Fetch categories without embedding to avoid FK ambiguity errors
       const { data, error } = await supabase
         .from("learning_categories")
-        .select("*, learning_courses(count)")
+        .select("*")
         .order("display_order", { ascending: true });
-      if (error) throw error;
+      if (error) {
+        console.error("Error fetching categories - code:", error.code, "message:", error.message, "details:", error.details, "hint:", error.hint);
+        throw error;
+      }
+      // Fetch course counts separately to avoid PostgREST embedding ambiguity
+      const { data: courseData } = await supabase
+        .from("learning_courses")
+        .select("category_id");
+      const countMap: Record<string, number> = {};
+      (courseData ?? []).forEach((c: any) => {
+        if (c.category_id) countMap[c.category_id] = (countMap[c.category_id] ?? 0) + 1;
+      });
       const mapped = (data ?? []).map((c: any) => ({
         ...c,
-        course_count: c.learning_courses?.[0]?.count ?? 0,
+        course_count: countMap[c.id] ?? 0,
       }));
       setCategories(mapped);
-    } catch (e) {
-      console.error("Error fetching categories:", e);
+    } catch (e: any) {
+      console.error("Error fetching categories:", e?.message ?? e);
     } finally {
       setLoading(false);
     }
