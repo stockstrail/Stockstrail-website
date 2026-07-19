@@ -1,23 +1,41 @@
 import Link from "next/link";
-import type { Course, Category } from "@/lib/learning/courses";
+import type { Course, Category } from "@/lib/learning/supabase-db";
+
+function getInitials(title: string): string {
+  const words = title.trim().split(/\s+/).filter(Boolean);
+  if (words.length === 0) return "";
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return (words[0][0] + words[1][0]).toUpperCase();
+}
 
 export function CourseThumbnail({ course, className = "" }: { course: Course; className?: string }) {
   const [c1, c2] = course.thumbnailAccent;
+  const imageSrc = course.coverImage || course.thumbnail;
+
   return (
     <div
-      className={`relative overflow-hidden ${className}`}
-      style={{ background: `radial-gradient(120% 120% at 0% 0%, ${c1}55 0%, transparent 50%), linear-gradient(135deg, ${c2} 0%, #002424 100%)` }}
+      className={`relative overflow-hidden ${className} flex items-center justify-center bg-[#001717]`}
       aria-hidden="true"
     >
-      <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "radial-gradient(circle at 20% 80%, rgba(255,255,255,0.08) 0, transparent 40%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0, transparent 40%)" }} />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span
-          className="font-display text-6xl sm:text-7xl font-bold tracking-tight"
-          style={{ background: `linear-gradient(135deg, ${c1}, #ffffff40)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontFamily: "var(--font-product-sans)" }}
-        >
-          {course.thumbnailGlyph}
-        </span>
-      </div>
+      {imageSrc ? (
+        <img src={imageSrc} alt={course.title} className="absolute inset-0 w-full h-full object-cover" />
+      ) : (
+        <>
+          <div
+            className="absolute inset-0"
+            style={{ background: `radial-gradient(120% 120% at 0% 0%, ${c1}55 0%, transparent 50%), linear-gradient(135deg, ${c2} 0%, #002424 100%)` }}
+          />
+          <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "radial-gradient(circle at 20% 80%, rgba(255,255,255,0.08) 0, transparent 40%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0, transparent 40%)" }} />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span
+              className="font-display text-6xl sm:text-7xl font-bold tracking-tight"
+              style={{ background: `linear-gradient(135deg, ${c1}, #ffffff40)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontFamily: "var(--font-product-sans)" }}
+            >
+              {getInitials(course.title)}
+            </span>
+          </div>
+        </>
+      )}
       <div className="absolute top-3 left-3 flex gap-1.5">
         <span className="text-[10px] font-semibold uppercase tracking-wider text-white/90 bg-black/30 backdrop-blur px-2 py-0.5 rounded-full border border-white/10">
           {course.difficulty}
@@ -72,8 +90,12 @@ export function CategoryCard({ category, count }: { category: Category; count: n
     >
       <div className={`pointer-events-none absolute -top-14 -right-10 h-40 w-40 rounded-full bg-gradient-to-br ${category.accent} blur-2xl opacity-70 group-hover:opacity-100 transition-opacity`} />
       <div className="relative">
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 border border-[color:var(--color-brand-border)] text-[color:var(--color-brand-green)] font-display font-bold text-sm tracking-wider">
-          {category.icon}
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 border border-[color:var(--color-brand-border)] text-[color:var(--color-brand-green)] font-display font-semibold text-sm tracking-wider overflow-hidden">
+          {category.thumbnail ? (
+            <img src={category.thumbnail} alt={category.name} className="w-full h-full object-cover" />
+          ) : (
+            category.icon || getInitials(category.name)
+          )}
         </div>
         <h3 className="mt-4 text-white font-semibold">{category.name}</h3>
         <p className="mt-1 text-sm text-white/60 line-clamp-2">{category.description}</p>

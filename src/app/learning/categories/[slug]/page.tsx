@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getCategoryBySlug, coursesByCategory } from "@/lib/learning/courses";
+import { getCategoryBySlug, getCoursesByCategory } from "@/lib/learning/supabase-db";
 import { CourseCard } from "@/components/learn/cards";
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const category = getCategoryBySlug(slug);
+  const category = await getCategoryBySlug(slug);
   if (!category) {
     return {
       title: "Category not found — StocksTrail Learning",
@@ -32,12 +32,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CategoryDetailPage({ params }: Props) {
   const { slug } = await params;
-  const category = getCategoryBySlug(slug);
+  const category = await getCategoryBySlug(slug);
   if (!category) {
     notFound();
   }
 
-  const list = coursesByCategory(category.slug);
+  const list = await getCoursesByCategory(category.slug);
 
   return (
     <section className="relative overflow-hidden">
@@ -51,8 +51,17 @@ export default async function CategoryDetailPage({ params }: Props) {
           <span className="text-white/80">{category.name}</span>
         </nav>
         <div className="mt-6 flex items-start gap-5">
-          <div className="shrink-0 w-16 h-16 rounded-2xl bg-white/5 border border-[color:var(--color-brand-border)] text-[color:var(--color-brand-green)] font-display font-bold flex items-center justify-center text-lg shadow-inner">
-            {category.icon}
+          <div className="shrink-0 w-16 h-16 rounded-2xl bg-white/5 border border-[color:var(--color-brand-border)] text-[color:var(--color-brand-green)] font-display font-semibold flex items-center justify-center text-base shadow-inner overflow-hidden">
+            {category.thumbnail ? (
+              <img src={category.thumbnail} alt={category.name} className="w-full h-full object-cover" />
+            ) : (
+              category.icon || (() => {
+                const words = category.name.trim().split(/\s+/).filter(Boolean);
+                if (words.length === 0) return "";
+                if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+                return (words[0][0] + words[1][0]).toUpperCase();
+              })()
+            )}
           </div>
           <div>
             <h1 className="text-4xl sm:text-5xl text-white font-normal" style={{ fontFamily: "var(--font-product-sans)" }}>{category.name}</h1>

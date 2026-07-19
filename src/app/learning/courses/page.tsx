@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getCategories, getCourses } from "@/lib/learning/supabase-db";
 import CoursesPageClient from "./CoursesPageClient";
 
 export const metadata: Metadata = {
@@ -14,6 +15,9 @@ export const metadata: Metadata = {
   }
 };
 
-export default function CoursesPage() {
-  return <CoursesPageClient />;
+export default async function CoursesPage() {
+  const courses = await getCourses();
+  const categories = await getCategories();
+  
+  return <CoursesPageClient initialCourses={courses} initialCategories={categories} />;
 }

@@ -1,22 +1,26 @@
 "use client";
-
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { categories, courses } from "@/lib/learning/courses";
 import { CourseCard } from "@/components/learn/cards";
 import { SearchBar } from "@/components/learn/search";
+import type { Course, Category } from "@/lib/learning/supabase-db";
 
 type Sort = "popular" | "newest" | "shortest" | "beginner";
 type Level = "all" | "Beginner" | "Intermediate" | "Advanced";
 
-export default function CoursesPageClient() {
+interface Props {
+  initialCourses: Course[];
+  initialCategories: Category[];
+}
+
+export default function CoursesPageClient({ initialCourses, initialCategories }: Props) {
   const [sort, setSort] = useState<Sort>("popular");
   const [level, setLevel] = useState<Level>("all");
   const [cat, setCat] = useState<string>("all");
   const [maxTime, setMaxTime] = useState<number>(120);
 
   const filtered = useMemo(() => {
-    let list = [...courses];
+    let list = [...initialCourses];
     if (level !== "all") list = list.filter((c) => c.difficulty === level);
     if (cat !== "all") list = list.filter((c) => c.category === cat);
     list = list.filter((c) => c.minutes <= maxTime);
@@ -27,7 +31,7 @@ export default function CoursesPageClient() {
       case "beginner": list.sort((a, b) => (a.difficulty === "Beginner" ? -1 : 1)); break;
     }
     return list;
-  }, [sort, level, cat, maxTime]);
+  }, [initialCourses, sort, level, cat, maxTime]);
 
   return (
     <>
@@ -66,7 +70,7 @@ export default function CoursesPageClient() {
             { v: "Intermediate", l: "Intermediate" },
             { v: "Advanced", l: "Advanced" },
           ]} />
-          <Filter label="Category" value={cat} onChange={setCat} options={[{ v: "all", l: "All categories" }, ...categories.map((c) => ({ v: c.slug, l: c.name }))]} />
+          <Filter label="Category" value={cat} onChange={setCat} options={[{ v: "all", l: "All categories" }, ...initialCategories.map((c) => ({ v: c.slug, l: c.name }))]} />
           <div>
             <label className="block text-[11px] uppercase tracking-wider text-white/55 font-semibold mb-1.5">Max reading time</label>
             <input type="range" min={15} max={120} step={5} value={maxTime} onChange={(e) => setMaxTime(Number(e.target.value))} className="w-full accent-[color:var(--color-brand-green)]" />

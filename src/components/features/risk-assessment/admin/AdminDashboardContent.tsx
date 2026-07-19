@@ -28,6 +28,8 @@ import { formatDate } from "@/lib/utils";
 import { AdminReviewsContent } from "./AdminReviewsContent";
 import { AdminQueriesContent } from "./AdminQueriesContent";
 import { AdminBlogsContent } from "./AdminBlogsContent";
+import { AdminLearningCategories } from "@/components/features/learning-admin/AdminLearningCategories";
+import { AdminLearningCourses } from "@/components/features/learning-admin/AdminLearningCourses";
 
 interface AdminDashboardContentProps {
   attempts: RiskAttemptWithProfile[];
@@ -58,7 +60,7 @@ const riskCategoryColors = {
   Aggressive: "bg-red-500/20 text-red-400 border-red-500/40",
 };
 
-type TabType = "attempts" | "reviews" | "queries" | "blogs";
+type TabType = "attempts" | "reviews" | "queries" | "blogs" | "learning-categories" | "learning-courses";
 
 export function AdminDashboardContent({
   attempts,
@@ -213,6 +215,24 @@ export function AdminDashboardContent({
                 }`}
             >
               Blogs
+            </button>
+            <button
+              onClick={() => setActiveTab("learning-categories")}
+              className={`px-4 py-3 font-medium text-sm sm:text-base transition-colors border-b-2 ${activeTab === "learning-categories"
+                  ? "text-stockstrail-green-light border-stockstrail-green-light"
+                  : "text-white/70 hover:text-white border-transparent hover:border-white/30"
+                }`}
+            >
+              Learning Categories
+            </button>
+            <button
+              onClick={() => setActiveTab("learning-courses")}
+              className={`px-4 py-3 font-medium text-sm sm:text-base transition-colors border-b-2 ${activeTab === "learning-courses"
+                  ? "text-stockstrail-green-light border-stockstrail-green-light"
+                  : "text-white/70 hover:text-white border-transparent hover:border-white/30"
+                }`}
+            >
+              Learning Courses
             </button>
           </div>
         </div>
@@ -527,6 +547,12 @@ export function AdminDashboardContent({
 
       {/* Blogs Tab */}
       {activeTab === "blogs" && <AdminBlogsContent />}
+
+      {/* Learning Categories Tab */}
+      {activeTab === "learning-categories" && <AdminLearningCategories />}
+
+      {/* Learning Courses Tab */}
+      {activeTab === "learning-courses" && <AdminLearningCourses />}
     </>
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getCourseBySlug } from "@/lib/learning/courses";
+import { getCourseBySlug, getCategoryBySlug, getRelatedCourses } from "@/lib/learning/supabase-db";
 import { CoursePageClient } from "./CoursePageClient";
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const c = getCourseBySlug(slug);
+  const c = await getCourseBySlug(slug);
   if (!c) {
     return {
       title: "Course not found — StocksTrail Learning",
@@ -32,10 +32,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CourseDetailPage({ params }: Props) {
   const { slug } = await params;
-  const course = getCourseBySlug(slug);
+  const course = await getCourseBySlug(slug);
   if (!course) {
     notFound();
   }
+
+  const category = await getCategoryBySlug(course.category);
+  const related = await getRelatedCourses(course);
 
   // Schema markup injected inside the page
   const courseSchema = {
@@ -80,7 +83,7 @@ export default async function CourseDetailPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <CoursePageClient course={course} />
+      <CoursePageClient course={course} category={category} related={related} />
     </>
   );
 }

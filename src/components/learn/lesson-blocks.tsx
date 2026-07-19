@@ -1,5 +1,7 @@
 import { useState } from "react";
 import type { LessonBlock, QuizQuestion, FAQ } from "@/lib/learning/courses";
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 
 const CALLOUT_STYLE: Record<string, { border: string; bg: string; label: string; icon: string }> = {
   tip: { border: "border-[color:var(--color-brand-green)]/40", bg: "bg-[color:var(--color-brand-green)]/[0.06]", label: "Tip", icon: "★" },
@@ -8,8 +10,16 @@ const CALLOUT_STYLE: Record<string, { border: string; bg: string; label: string;
   mistake: { border: "border-rose-400/40", bg: "bg-rose-400/[0.06]", label: "Common mistake", icon: "×" },
 };
 
-export function BlockRenderer({ block }: { block: LessonBlock }) {
+export function BlockRenderer({ block }: { block: any }) {
   switch (block.type) {
+    case "markdown":
+      return (
+        <div className="prose prose-invert prose-emerald max-w-none prose-learn">
+          <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+            {block.text}
+          </ReactMarkdown>
+        </div>
+      );
     case "p":
       return <p>{block.text}</p>;
     case "h3":

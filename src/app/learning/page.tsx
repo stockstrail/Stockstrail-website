@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { categories, courses, coursesByCategory } from "@/lib/learning/courses";
+import { getCategories, getCourses } from "@/lib/learning/supabase-db";
 import { CourseCard, CategoryCard } from "@/components/learn/cards";
 import { SearchBar } from "@/components/learn/search";
 
@@ -18,7 +18,9 @@ export const metadata: Metadata = {
   }
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const categories = await getCategories();
+  const courses = await getCourses();
   const featured = [...courses].sort((a, b) => b.popularity - a.popularity).slice(0, 6);
   const topCats = categories.slice(0, 8);
 
@@ -147,7 +149,7 @@ export default function HomePage() {
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {topCats.map((c) => (
-            <CategoryCard key={c.slug} category={c} count={coursesByCategory(c.slug).length} />
+            <CategoryCard key={c.slug} category={c} count={courses.filter(x => x.category === c.slug).length} />
           ))}
         </div>
       </section>

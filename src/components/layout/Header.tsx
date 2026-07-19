@@ -174,7 +174,7 @@ const Header = () => {
     },
     { name: 'About Us', href: '/about' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Learn', href: process.env.NODE_ENV === 'production' ? 'https://learning.stockstrail.in' : '/learning' },
+    { name: 'Learn', href: process.env.NODE_ENV === 'production' ? 'https://learning.stockstrail.in' : 'http://learning.localhost:3000' },
     {
       name: 'Calculators',
       href: '/calculators',

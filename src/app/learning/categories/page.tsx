@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { categories, coursesByCategory } from "@/lib/learning/courses";
+import { getCategories, getCourses } from "@/lib/learning/supabase-db";
 import { CategoryCard } from "@/components/learn/cards";
 
 export const metadata: Metadata = {
@@ -16,7 +16,10 @@ export const metadata: Metadata = {
   }
 };
 
-export default function CategoriesPage() {
+export default async function CategoriesPage() {
+  const categories = await getCategories();
+  const courses = await getCourses();
+
   return (
     <section className="relative overflow-hidden">
       <span className="glow-blob top-[-100px] right-[-100px] h-[420px] w-[420px]" />
@@ -32,7 +35,7 @@ export default function CategoriesPage() {
         </p>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 animate-fade-up" style={{ animationDelay: '100ms' }}>
           {categories.map((c) => (
-            <CategoryCard key={c.slug} category={c} count={coursesByCategory(c.slug).length} />
+            <CategoryCard key={c.slug} category={c} count={courses.filter(x => x.category === c.slug).length} />
           ))}
         </div>
       </div>

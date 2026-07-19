@@ -1,20 +1,19 @@
 "use client";
-
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import type { Course } from "@/lib/learning/courses";
-import { getCategoryBySlug, getRelatedCourses } from "@/lib/learning/courses";
+import type { Course, Category } from "@/lib/learning/supabase-db";
 import { CourseSidebar } from "@/components/learn/course-sidebar";
 import { BlockRenderer, FAQAccordion, Quiz } from "@/components/learn/lesson-blocks";
 import { CourseCard, CourseThumbnail } from "@/components/learn/cards";
 
 interface Props {
   course: Course;
+  category: Category | null;
+  related: Course[];
 }
 
-export function CoursePageClient({ course }: Props) {
-  const cat = getCategoryBySlug(course.category);
-  const related = getRelatedCourses(course);
+export function CoursePageClient({ course, category, related }: Props) {
+  const cat = category;
 
   const allLessons = useMemo(
     () => course.modules.flatMap((m) => m.lessons.map((l) => ({ moduleSlug: m.slug, lessonSlug: l.slug, moduleTitle: m.title, lesson: l }))),

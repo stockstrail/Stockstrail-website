@@ -9,6 +9,7 @@ export interface Category {
   description: string;
   icon: string; // emoji or short glyph token — swap for real illustration later
   accent: string; // gradient token
+  thumbnail?: string;
 }
 
 export interface QuizQuestion {
@@ -28,7 +29,8 @@ export type LessonBlock =
   | { type: "table"; headers: string[]; rows: string[][] }
   | { type: "formula"; title: string; formula: string; text?: string }
   | { type: "quote"; text: string; author?: string }
-  | { type: "video"; url: string; title?: string };
+  | { type: "video"; url: string; title?: string }
+  | { type: "markdown"; text: string };
 
 export interface Lesson {
   slug: string;
@@ -69,6 +71,8 @@ export interface Course {
   quiz: QuizQuestion[];
   related: string[]; // course slugs
   keyTakeaways: string[];
+  coverImage?: string;
+  thumbnail?: string;
 }
 
 export const categories: Category[] = [
