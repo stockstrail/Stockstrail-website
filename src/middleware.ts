@@ -14,6 +14,14 @@ export function middleware(request: NextRequest) {
       url.pathname = `/learning${url.pathname}`;
       return NextResponse.rewrite(url);
     }
+  } else {
+    // On the main domain, redirect any /learning/* paths to the learning subdomain
+    if (url.pathname.startsWith("/learning")) {
+      const learningHost = host.replace(/^www\./, "learning.");
+      const subPath = url.pathname.replace(/^\/learning/, "") || "/";
+      const redirectUrl = `${url.protocol}//${learningHost}${subPath}${url.search}`;
+      return NextResponse.redirect(redirectUrl, { status: 301 });
+    }
   }
 
   return NextResponse.next();
