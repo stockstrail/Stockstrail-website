@@ -41,39 +41,47 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-[color:var(--color-brand-bg)]/85 border-b border-[color:var(--color-brand-border)]">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 h-20 flex items-center justify-between gap-4">
-        <LearnLogo />
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#012928]/80 backdrop-blur-none sm:backdrop-blur-[100px] border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+        {/* Logo */}
+        <LearnLogo className="hover:opacity-80 hover:scale-105 transition-all duration-300 group" />
 
-        <nav className="hidden md:flex items-center gap-1">
-          {NAV.map((n) => {
-            const href = n.to === "/" ? "/learning" : `/learning${n.to}`;
-            const isActive = n.to === "/" ? pathname === "/learning" : pathname.startsWith(href);
-            return (
-              <Link
-                key={n.to}
-                href={href}
-                className={`px-3 py-2 text-sm font-medium transition-colors rounded-md ${
-                  isActive ? "text-[color:var(--color-brand-green)]" : "text-white/80 hover:text-white"
-                }`}
-              >
-                {n.label}
-              </Link>
-            );
-          })}
+        {/* Desktop Navigation Capsule */}
+        <nav className="hidden lg:flex items-center">
+          <div className="flex items-center bg-white/5 backdrop-blur-[37.5px] px-14 py-4 rounded-[45px] space-x-16 hover:bg-white/10 transition-all duration-300">
+            {NAV.map((n) => {
+              const href = n.to === "/" ? "/learning" : `/learning${n.to}`;
+              const isActive = n.to === "/" ? pathname === "/learning" : pathname.startsWith(href);
+              return (
+                <Link
+                  key={n.to}
+                  href={href}
+                  className={`font-work-sans font-medium transition-all duration-300 ${
+                    isActive ? "text-[#00ff97]" : "text-white hover:text-[#00ff97]"
+                  }`}
+                >
+                  {n.label}
+                </Link>
+              );
+            })}
+          </div>
         </nav>
 
+        {/* Action Button */}
         <div className="flex items-center gap-2">
           <Link
             href="https://www.stockstrail.in"
-            className="hidden sm:inline-flex items-center gap-2 rounded-full border border-[color:var(--color-brand-border)] px-5 py-2.5 text-xs font-medium text-white/80 hover:text-white hover:border-[color:var(--color-brand-green)]/60 transition-all duration-300"
+            className="hidden sm:inline-flex items-center gap-4 px-6 py-4 bg-white border-2 border-[#012928] rounded-full text-[#012928] hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-semibold group"
           >
+            <svg className="w-4 h-4 shrink-0 overflow-visible" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="7" fill="#00ff97" opacity="0.6" className="animate-ping origin-center" />
+              <circle cx="8" cy="8" r="5" fill="#00d873" />
+            </svg>
             Back to Stockstrail
-            <span aria-hidden>→</span>
           </Link>
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-[color:var(--color-brand-border)] text-white"
+            className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-[color:var(--color-brand-border)] text-white hover:bg-white/10 transition-colors"
             aria-label="Toggle navigation"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -85,8 +93,8 @@ export function SiteHeader() {
         </div>
       </div>
       {open && (
-        <div className="md:hidden border-t border-[color:var(--color-brand-border)] px-5 py-3 bg-[color:var(--color-brand-bg)]">
-          <nav className="flex flex-col">
+        <div className="lg:hidden border-t border-white/10 px-5 py-4 bg-[#012928]">
+          <nav className="flex flex-col space-y-3">
             {NAV.map((n) => {
               const href = n.to === "/" ? "/learning" : `/learning${n.to}`;
               return (
@@ -94,13 +102,23 @@ export function SiteHeader() {
                   key={n.to}
                   href={href}
                   onClick={() => setOpen(false)}
-                  className="py-2.5 text-sm font-medium text-white/85 hover:text-[color:var(--color-brand-green)]"
+                  className="py-2 text-sm font-medium text-white/85 hover:text-[#00ff97] transition-colors"
                 >
                   {n.label}
                 </Link>
               );
             })}
-            <Link href="https://www.stockstrail.in" className="py-2.5 text-sm text-white/70" onClick={() => setOpen(false)}>Back to Stockstrail →</Link>
+            <Link
+              href="https://www.stockstrail.in"
+              className="inline-flex items-center gap-4 px-6 py-4 bg-white border-2 border-[#012928] rounded-full text-[#012928] hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-semibold group w-fit mt-3"
+              onClick={() => setOpen(false)}
+            >
+              <svg className="w-4 h-4 shrink-0 overflow-visible" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="8" cy="8" r="7" fill="#00ff97" opacity="0.6" className="animate-ping origin-center" />
+                <circle cx="8" cy="8" r="5" fill="#00d873" />
+              </svg>
+              Back to Stockstrail
+            </Link>
           </nav>
         </div>
       )}
