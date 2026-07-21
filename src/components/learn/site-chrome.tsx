@@ -13,8 +13,12 @@ const NAV = [
 
 export function LearnLogo({ className = "" }: { className?: string }) {
   return (
-    <Link href="/learning" className={`flex items-center gap-2.5 ${className}`} aria-label="Stockstrail Learning home">
-      <svg width="32" height="35" viewBox="0 0 32 35" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" aria-hidden="true">
+    <Link 
+      href="/learning" 
+      className={`flex items-center gap-2.5 hover:opacity-90 hover:scale-[1.03] transition-all duration-300 group ${className}`} 
+      aria-label="Stockstrail Learning home"
+    >
+      <svg width="32" height="35" viewBox="0 0 32 35" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 transition-transform group-hover:rotate-6 duration-300" aria-hidden="true">
         <rect x="3.74" y="16.02" width="20.89" height="3.72" fill="url(#g)" />
         <path d="M1.15 18.55C0.92 18.32 0.92 17.94 1.15 17.71L15.59 3.52c0.5-0.49 1.3-0.48 1.8 0.01l1.28 1.28c0.5 0.5 0.5 1.31 0 1.83L6.53 18.58c-1.49 1.47-3.89 1.46-5.38-0.03Z" fill="#00D873" />
         <path d="M20.5 0.96c0.42-0.1 0.79 0.28 0.69 0.69l-1.48 6.35c-0.1 0.44-0.65 0.6-0.97 0.28L13.87 3.41c-0.32-0.32-0.16-0.87 0.28-0.97l6.35-1.48Z" fill="#00D873" />
@@ -41,39 +45,44 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-[color:var(--color-brand-bg)]/85 border-b border-[color:var(--color-brand-border)]">
+    <header className="sticky top-0 z-50 bg-[#012928]/80 backdrop-blur-md border-b border-white/10">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 h-20 flex items-center justify-between gap-4">
+        {/* Logo */}
         <LearnLogo />
 
-        <nav className="hidden md:flex items-center gap-1">
-          {NAV.map((n) => {
-            const href = n.to === "/" ? "/learning" : `/learning${n.to}`;
-            const isActive = n.to === "/" ? pathname === "/learning" : pathname.startsWith(href);
-            return (
-              <Link
-                key={n.to}
-                href={href}
-                className={`px-3 py-2 text-sm font-medium transition-colors rounded-md ${
-                  isActive ? "text-[color:var(--color-brand-green)]" : "text-white/80 hover:text-white"
-                }`}
-              >
-                {n.label}
-              </Link>
-            );
-          })}
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center">
+          <div className="flex items-center bg-white/5 backdrop-blur-[37.5px] px-6 py-2 rounded-full space-x-6 hover:bg-white/10 transition-all duration-300 border border-white/[0.03]">
+            {NAV.map((n) => {
+              const href = n.to === "/" ? "/learning" : `/learning${n.to}`;
+              const isActive = n.to === "/" ? pathname === "/learning" : pathname.startsWith(href);
+              return (
+                <Link
+                  key={n.to}
+                  href={href}
+                  className={`font-display text-[13px] font-medium transition-all duration-300 ${
+                    isActive ? "text-[#00ff97] font-semibold" : "text-white/80 hover:text-[#00ff97]"
+                  }`}
+                >
+                  {n.label}
+                </Link>
+              );
+            })}
+          </div>
         </nav>
 
-        <div className="flex items-center gap-2">
+        {/* Action Button */}
+        <div className="flex items-center gap-3">
           <Link
             href="https://www.stockstrail.in"
-            className="hidden sm:inline-flex items-center gap-2 rounded-full border border-[color:var(--color-brand-border)] px-5 py-2.5 text-xs font-medium text-white/80 hover:text-white hover:border-[color:var(--color-brand-green)]/60 transition-all duration-300"
+            className="group hidden sm:inline-flex items-center gap-2.5 px-5 py-2.5 bg-white border border-[#012928] rounded-full text-[#012928] font-semibold text-xs hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-[0_10px_25px_-5px_rgba(0,255,151,0.25)] transition-all duration-300"
           >
+            <div className="w-2 h-2 bg-[#00d873] rounded-full group-hover:animate-pulse shrink-0"></div>
             Back to Stockstrail
-            <span aria-hidden>→</span>
           </Link>
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-[color:var(--color-brand-border)] text-white"
+            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-[color:var(--color-brand-border)] text-white hover:bg-white/5 transition-colors"
             aria-label="Toggle navigation"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
