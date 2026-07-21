@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default async function HomePage() {
   const categories = await getCategories();
   const courses = await getCourses();
-  const featured = [...courses].sort((a, b) => b.popularity - a.popularity).slice(0, 6);
+  const featured = [...courses].sort((a, b) => b.popularity - a.popularity).slice(0, 3);
   const topCats = categories.slice(0, 8);
 
   return (
@@ -255,51 +255,86 @@ export default async function HomePage() {
             Every lasting financial plan rests on the same three foundations. Our courses cover all of them — in the right order.
           </p>
         </div>
-        <div className="grid gap-8 lg:grid-cols-3">
-          <div className="card-surface rounded-2xl p-7 space-y-4">
-            <div className="w-10 h-10 rounded-xl bg-[color:var(--color-brand-green)]/10 border border-[color:var(--color-brand-green)]/20 flex items-center justify-center text-lg">📈</div>
-            <h3 className="text-lg font-semibold text-white" style={{ fontFamily: "var(--font-product-sans)" }}>
-              Compounding &amp; Wealth Creation
-            </h3>
-            <p className="text-sm text-white/60 leading-relaxed">
-              The most powerful force in personal finance is time. A ₹5,000 monthly SIP started at age 25, invested in a diversified <strong>Nifty 50 index fund</strong>, grows to over ₹2.6 crore by retirement — assuming a modest 12% CAGR. The same SIP started at 35 would produce less than half that amount.
-            </p>
-            <p className="text-sm text-white/60 leading-relaxed">
-              Our courses on <strong>Mutual Funds</strong>, <strong>SIP Mastery</strong>, and <strong>Goal-Based Investing</strong> teach you how to harness compounding systematically — through equity funds, index funds, and step-up SIPs — without requiring any prior knowledge of finance or markets.
-            </p>
-            <Link href="/learning/courses/mutual-funds" className="inline-flex items-center gap-1 text-sm text-[color:var(--color-brand-green)] font-medium hover:underline">
-              Learn Mutual Funds →
-            </Link>
+        <div className="grid gap-6 md:grid-cols-3 items-stretch">
+          {/* Pillar 1 */}
+          <div className="group relative flex flex-col justify-between rounded-2xl border border-white/5 border-t-2 border-t-[#00ff97] bg-white/[0.015] hover:bg-white/[0.025] hover:border-white/10 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 shadow-sm">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-[#00ff97] font-semibold">Pillar 01</span>
+                <div className="w-9 h-9 rounded-lg bg-[#00ff97]/10 border border-[#00ff97]/20 flex items-center justify-center text-base">📈</div>
+              </div>
+              <h3 className="text-lg font-semibold text-white group-hover:text-[#00ff97] transition-colors" style={{ fontFamily: "var(--font-product-sans)" }}>
+                Compounding &amp; Wealth Creation
+              </h3>
+              <p className="text-xs sm:text-sm text-white/55 leading-relaxed">
+                The most powerful force in personal finance is time. A ₹5,000 monthly SIP started at age 25, invested in a diversified <strong>Nifty 50 index fund</strong>, grows to over ₹2.6 crore by retirement (assuming 12% CAGR). The same SIP started at 35 would produce less than half that amount.
+              </p>
+              <p className="text-xs sm:text-sm text-white/55 leading-relaxed">
+                Our courses on <strong>Mutual Funds</strong> and <strong>Goal-Based Investing</strong> teach you how to harness compounding systematically — through equity funds, index funds, and step-up SIPs.
+              </p>
+            </div>
+            <div className="pt-6 mt-6 border-t border-white/5">
+              <Link href="/learning/courses/mutual-funds" className="inline-flex items-center gap-1.5 text-xs text-[#00ff97] font-medium hover:text-white transition-colors">
+                Explore Wealth Courses
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:translate-x-0.5">
+                  <path d="M5 12h14M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+            </div>
           </div>
-          <div className="card-surface rounded-2xl p-7 space-y-4">
-            <div className="w-10 h-10 rounded-xl bg-sky-400/10 border border-sky-400/20 flex items-center justify-center text-lg">🛡️</div>
-            <h3 className="text-lg font-semibold text-white" style={{ fontFamily: "var(--font-product-sans)" }}>
-              Protection &amp; Risk Management
-            </h3>
-            <p className="text-sm text-white/60 leading-relaxed">
-              A single medical emergency or an untimely death can erase years of careful investing. Before you place your first SIP, you need two protections in place: a <strong>pure term insurance plan</strong> (cover of at least 10–15× your annual income) and a <strong>comprehensive health insurance policy</strong>.
-            </p>
-            <p className="text-sm text-white/60 leading-relaxed">
-              Beyond insurance, an <strong>Emergency Fund</strong> — typically 6× your monthly expenses parked in a liquid mutual fund — acts as your financial airbag. Our <strong>Insurance Fundamentals</strong> and <strong>Financial Planning Basics</strong> courses explain how to build this safety net before you focus on growth.
-            </p>
-            <Link href="/learning/courses/insurance-fundamentals" className="inline-flex items-center gap-1 text-sm text-[color:var(--color-brand-green)] font-medium hover:underline">
-              Learn Insurance →
-            </Link>
+
+          {/* Pillar 2 */}
+          <div className="group relative flex flex-col justify-between rounded-2xl border border-white/5 border-t-2 border-t-sky-400 bg-white/[0.015] hover:bg-white/[0.025] hover:border-white/10 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 shadow-sm">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-sky-400 font-semibold">Pillar 02</span>
+                <div className="w-9 h-9 rounded-lg bg-sky-400/10 border border-sky-400/20 flex items-center justify-center text-base">🛡️</div>
+              </div>
+              <h3 className="text-lg font-semibold text-white group-hover:text-sky-400 transition-colors" style={{ fontFamily: "var(--font-product-sans)" }}>
+                Protection &amp; Risk Management
+              </h3>
+              <p className="text-xs sm:text-sm text-white/55 leading-relaxed">
+                A single medical emergency or an untimely death can erase years of careful investing. Before you place your first SIP, you need two protections in place: a <strong>pure term insurance plan</strong> (cover of 10–15× annual income) and a <strong>comprehensive health policy</strong>.
+              </p>
+              <p className="text-xs sm:text-sm text-white/55 leading-relaxed">
+                An <strong>Emergency Fund</strong> acts as your financial airbag. Our <strong>Insurance Fundamentals</strong> courses explain how to build this safety net before you focus on wealth growth.
+              </p>
+            </div>
+            <div className="pt-6 mt-6 border-t border-white/5">
+              <Link href="/learning/courses/insurance-fundamentals" className="inline-flex items-center gap-1.5 text-xs text-sky-400 font-medium hover:text-white transition-colors">
+                Explore Risk Courses
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:translate-x-0.5">
+                  <path d="M5 12h14M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+            </div>
           </div>
-          <div className="card-surface rounded-2xl p-7 space-y-4">
-            <div className="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-lg">🧾</div>
-            <h3 className="text-lg font-semibold text-white" style={{ fontFamily: "var(--font-product-sans)" }}>
-              Tax Efficiency &amp; Retirement
-            </h3>
-            <p className="text-sm text-white/60 leading-relaxed">
-              Paying more tax than you legally owe is the most common wealth leak in India. <strong>Section 80C</strong> alone allows a ₹1.5 lakh deduction — that's up to ₹46,800 saved per year for someone in the 30% bracket. Instruments like <strong>ELSS</strong>, <strong>PPF</strong>, and <strong>NPS</strong> make tax planning a wealth-building strategy in itself.
-            </p>
-            <p className="text-sm text-white/60 leading-relaxed">
-              Long-term, a <strong>Systematic Withdrawal Plan (SWP)</strong> from an equity fund can replace the need for a pension — delivering monthly income with lower tax incidence than a traditional FD.
-            </p>
-            <Link href="/learning/courses/tax-saving-investments" className="inline-flex items-center gap-1 text-sm text-[color:var(--color-brand-green)] font-medium hover:underline">
-              Learn Tax Saving →
-            </Link>
+
+          {/* Pillar 3 */}
+          <div className="group relative flex flex-col justify-between rounded-2xl border border-white/5 border-t-2 border-t-amber-400 bg-white/[0.015] hover:bg-white/[0.025] hover:border-white/10 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 shadow-sm">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-amber-400 font-semibold">Pillar 03</span>
+                <div className="w-9 h-9 rounded-lg bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-base">🧾</div>
+              </div>
+              <h3 className="text-lg font-semibold text-white group-hover:text-amber-400 transition-colors" style={{ fontFamily: "var(--font-product-sans)" }}>
+                Tax Efficiency &amp; Retirement
+              </h3>
+              <p className="text-xs sm:text-sm text-white/55 leading-relaxed">
+                Paying more tax than you legally owe is the most common wealth leak in India. <strong>Section 80C</strong> alone allows a ₹1.5 lakh deduction — that's up to ₹46,800 saved per year for someone in the 30% bracket. Instruments like <strong>ELSS</strong>, <strong>PPF</strong>, and <strong>NPS</strong> make tax planning a wealth strategy.
+              </p>
+              <p className="text-xs sm:text-sm text-white/55 leading-relaxed">
+                Long-term, a <strong>Systematic Withdrawal Plan (SWP)</strong> from an equity fund can replace the need for a pension — delivering monthly income with lower tax incidence than a traditional FD.
+              </p>
+            </div>
+            <div className="pt-6 mt-6 border-t border-white/5">
+              <Link href="/learning/courses/tax-saving-investments" className="inline-flex items-center gap-1.5 text-xs text-amber-400 font-medium hover:text-white transition-colors">
+                Explore Tax Courses
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:translate-x-0.5">
+                  <path d="M5 12h14M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
