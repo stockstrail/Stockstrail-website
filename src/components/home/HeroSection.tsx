@@ -29,9 +29,9 @@ const HeroSection = () => {
             text-white
           "
         >
-          Helping You Make Better Financial 
+          Personalized Financial Planning to Build Wealth
           <br />
-          Decisions with Confidence
+          and Protect Your Future
         </h1>
 
         {/* LCP paragraph — MUST be plain, fast, and paintable */}
@@ -62,7 +62,7 @@ const HeroSection = () => {
           "
         >
           <span className="gradient-text inline-block drop-shadow-md bg-white/10 px-4 rounded-xl">
-            Personalized Financial Planning • Mutual Funds • Insurance Solutions
+            Build Wealth • Protect Your Family • Achieve Your Financial Goals
           </span>
         </h2>
 
