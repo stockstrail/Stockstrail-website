@@ -29,9 +29,9 @@ const HeroSection = () => {
             text-white
           "
         >
-          Financial Planning That Helps
+          Helping You Make Better Financial 
           <br />
-          You Invest With Confidence
+          Decisions with Confidence
         </h1>
 
         {/* LCP paragraph — MUST be plain, fast, and paintable */}
@@ -47,16 +47,16 @@ const HeroSection = () => {
             drop-shadow-md
           "
         >
-          Whether you're starting your first investment, planning for retirement, 
-          protecting your family with insurance, or working towards long-term financial goals.
-          Stockstrail helps you make informed financial decisions through personalized financial planning,
-          mutual funds, and insurance solutions.
+          Whether you're investing for the first time, growing your wealth through mutual funds, protecting your 
+          family with insurance, planning for retirement, or working towards life's financial goals. 
+          Stockstrail provides personalized financial planning, expert mutual fund guidance, insurance solutions, and practical
+          support to help you make informed financial decisions with confidence at every stage of your financial journey.
         </p>
 
         {/* Subheading */}
         <h2
           className="
-            text-4xl sm:text-5xl lg:text-6xl
+            text-3xl sm:text-4xl lg:text-5xl
             font-normal
             mb-8
           "
