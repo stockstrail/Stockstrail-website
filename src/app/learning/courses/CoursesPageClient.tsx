@@ -1,7 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { CourseCard } from "@/components/learn/cards";
+import { CourseCardsGrid } from "@/components/learn/CourseCardsGrid";
 import { SearchBar } from "@/components/learn/search";
 import type { Course, Category } from "@/lib/learning/supabase-db";
 
@@ -87,9 +87,7 @@ export default function CoursesPageClient({ initialCourses, initialCategories }:
             No courses match those filters. Try relaxing the difficulty or category.
           </div>
         ) : (
-          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((c) => <CourseCard key={c.slug} course={c} />)}
-          </div>
+          <CourseCardsGrid courses={filtered} />
         )}
       </section>
     </>

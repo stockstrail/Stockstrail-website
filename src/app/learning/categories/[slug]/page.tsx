@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCategoryBySlug, getCoursesByCategory } from "@/lib/learning/supabase-db";
-import { CourseCard } from "@/components/learn/cards";
+import { CourseCardsGrid } from "@/components/learn/CourseCardsGrid";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -75,9 +75,7 @@ export default async function CategoryDetailPage({ params }: Props) {
               We're preparing courses in this category. Check back soon.
             </div>
           ) : (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {list.map((c) => <CourseCard key={c.slug} course={c} />)}
-            </div>
+            <CourseCardsGrid courses={list} />
           )}
         </div>
       </div>

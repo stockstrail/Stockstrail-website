@@ -63,7 +63,9 @@ export function CourseCard({ course }: { course: Course }) {
         </h3>
         <p className="mt-2 text-sm text-white/65 line-clamp-2">{course.tagline}</p>
         <div className="mt-4 flex flex-wrap items-center gap-2 text-[11px] text-white/60">
-          <span className="rounded-full bg-white/5 border border-[color:var(--color-brand-border)] px-2 py-0.5">{course.modules.length} modules</span>
+          <span className="rounded-full bg-white/5 border border-[color:var(--color-brand-border)] px-2 py-0.5">
+            {course.modules.length} modules · {course.modules.reduce((n, m) => n + (m?.lessons?.length || 0), 0)} lessons
+          </span>
           {course.hasImages && <span className="rounded-full bg-white/5 border border-[color:var(--color-brand-border)] px-2 py-0.5">Illustrated</span>}
           {course.hasQuiz && <span className="rounded-full bg-white/5 border border-[color:var(--color-brand-border)] px-2 py-0.5">Quiz</span>}
           {course.hasVideos && <span className="rounded-full bg-white/5 border border-[color:var(--color-brand-border)] px-2 py-0.5">Videos</span>}

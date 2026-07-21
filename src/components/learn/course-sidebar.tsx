@@ -24,54 +24,14 @@ export function CourseSidebar({ course, activeLessonSlug, completedLessons, onSe
   const totalLessons = course.modules.reduce((n, m) => n + m.lessons.length, 0);
   const progress = totalLessons > 0 ? (completedLessons.length / totalLessons) * 100 : 0;
 
-  const buttonText = (() => {
-    if (activeLessonSlug && !["takeaways", "faqs", "quiz"].includes(activeLessonSlug)) return "Restart Course";
-    if (completedLessons.length > 0) return "Resume Course";
-    return "Start Course";
-  })();
-
   return (
     <aside className="w-full space-y-5">
-      {/* Course Progress Card */}
+      {/* Course Info Card */}
       <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-5 backdrop-blur-md shadow-sm">
         <div className="text-[11px] uppercase tracking-wider text-[color:var(--color-brand-green)] font-semibold">
           {course.category.replace(/-/g, " ")}
         </div>
         <h2 className="mt-2 text-lg font-semibold text-white leading-snug">{course.title}</h2>
-        
-        {/* Progress Tracker */}
-        <div className="mt-4">
-          <div className="flex items-center justify-between text-[11px] text-white/55">
-            <span>Reading progress</span>
-            <span className="font-medium text-white/90">{completedLessons.length} / {totalLessons} lessons ({Math.round(progress)}%)</span>
-          </div>
-          <div className="mt-1.5 h-2 rounded-full bg-white/5 overflow-hidden">
-            <div 
-              className="h-full bg-gradient-to-r from-[color:var(--color-brand-green)] to-[color:var(--color-brand-green-accent)] transition-all duration-500 shadow-[0_0_10px_rgba(0,255,151,0.2)]" 
-              style={{ width: `${progress}%` }} 
-            />
-          </div>
-        </div>
-
-        <button
-          type="button"
-          onClick={() => {
-            if (activeLessonSlug && !["takeaways", "faqs", "quiz"].includes(activeLessonSlug)) {
-              onRestart();
-            } else {
-              // Resume or start
-              const firstUncompleted = course.modules.flatMap(m => m.lessons).find((l) => !completedLessons.includes(l.slug));
-              const target = firstUncompleted ?? course.modules[0]?.lessons[0];
-              if (target) {
-                const mod = course.modules.find(m => m.lessons.some(l => l.slug === target.slug));
-                if (mod) onSelect(mod.slug, target.slug);
-              }
-            }
-          }}
-          className="mt-5 w-full rounded-full bg-[color:var(--color-brand-green)] text-[color:var(--color-brand-bg)] font-semibold text-sm py-3 hover:bg-white hover:shadow-[0_4px_15px_rgba(0,255,151,0.25)] transition-all active:scale-[0.98]"
-        >
-          {buttonText}
-        </button>
       </div>
 
       {/* Navigation */}
@@ -88,30 +48,6 @@ export function CourseSidebar({ course, activeLessonSlug, completedLessons, onSe
             }`}
           >
             <span className="text-sm">🏠 Course Overview</span>
-          </button>
-          
-          <button
-            type="button"
-            onClick={() => onSelect("", "takeaways")}
-            className={`w-full flex items-center gap-3 px-4 py-2.5 text-left rounded-xl border transition-all ${
-              activeLessonSlug === "takeaways"
-                ? "text-[color:var(--color-brand-green)] bg-[color:var(--color-brand-green)]/[0.08] font-semibold border-[color:var(--color-brand-green)]/30"
-                : "text-white/75 hover:text-white hover:bg-white/[0.015] border-white/5 bg-white/[0.01]"
-            }`}
-          >
-            <span className="text-sm">💡 Key Takeaways</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => onSelect("", "faqs")}
-            className={`w-full flex items-center gap-3 px-4 py-2.5 text-left rounded-xl border transition-all ${
-              activeLessonSlug === "faqs"
-                ? "text-[color:var(--color-brand-green)] bg-[color:var(--color-brand-green)]/[0.08] font-semibold border-[color:var(--color-brand-green)]/30"
-                : "text-white/75 hover:text-white hover:bg-white/[0.015] border-white/5 bg-white/[0.01]"
-            }`}
-          >
-            <span className="text-sm">💬 FAQs</span>
           </button>
 
           {course.hasQuiz && (

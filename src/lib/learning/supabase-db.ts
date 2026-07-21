@@ -42,6 +42,51 @@ export async function getCategoryBySlug(slug: string): Promise<Category | null> 
   };
 }
 
+async function fetchModulesAndLessonsMapping(supabase: any): Promise<Record<string, any[]>> {
+  const [{ data: dbModules }, { data: dbContents }] = await Promise.all([
+    supabase
+      .from("learning_modules")
+      .select("id, course_id, slug, title")
+      .eq("publish", true),
+    supabase
+      .from("learning_module_content")
+      .select("module_id, markdown_content")
+  ]);
+
+  const contentByModuleId: Record<string, string> = {};
+  (dbContents ?? []).forEach((c: any) => {
+    contentByModuleId[c.module_id] = c.markdown_content ?? "";
+  });
+
+  const courseModulesMap: Record<string, any[]> = {};
+  (dbModules ?? []).forEach((m: any) => {
+    if (!m.course_id) return;
+    if (!courseModulesMap[m.course_id]) {
+      courseModulesMap[m.course_id] = [];
+    }
+
+    let lessonsCount = 0;
+    const rawContent = contentByModuleId[m.id] || "";
+    try {
+      const parsed = JSON.parse(rawContent);
+      if (Array.isArray(parsed) && parsed.length > 0 && "title" in parsed[0]) {
+        lessonsCount = parsed.length;
+      }
+    } catch {}
+    if (lessonsCount === 0) {
+      lessonsCount = 1;
+    }
+
+    courseModulesMap[m.course_id].push({
+      slug: m.slug,
+      title: m.title,
+      lessons: new Array(lessonsCount),
+    });
+  });
+
+  return courseModulesMap;
+}
+
 export async function getCourses(): Promise<Course[]> {
   const supabase = await createClient();
   const { data: dbCourses } = await supabase
@@ -58,6 +103,8 @@ export async function getCourses(): Promise<Course[]> {
     (cats ?? []).forEach((cat: any) => { catSlugMap[cat.id] = cat.slug; });
   }
 
+  const courseModulesMap = await fetchModulesAndLessonsMapping(supabase);
+
   return (dbCourses ?? []).map((c: any) => ({
     slug: c.slug,
     title: c.title,
@@ -73,7 +120,7 @@ export async function getCourses(): Promise<Course[]> {
     popularity: 100 - c.display_order * 5,
     thumbnailAccent: ["#059669", "#064e3b"],
     thumbnailGlyph: "📖",
-    modules: [],
+    modules: courseModulesMap[c.id] || [],
     faqs: [],
     quiz: [],
     related: [],
@@ -101,6 +148,8 @@ export async function getCoursesByCategory(categorySlug: string): Promise<Course
     .eq("publish", true)
     .order("display_order", { ascending: true });
 
+  const courseModulesMap = await fetchModulesAndLessonsMapping(supabase);
+
   return (dbCourses ?? []).map((c: any) => ({
     slug: c.slug,
     title: c.title,
@@ -116,7 +165,7 @@ export async function getCoursesByCategory(categorySlug: string): Promise<Course
     popularity: 100 - c.display_order * 5,
     thumbnailAccent: ["#059669", "#064e3b"],
     thumbnailGlyph: "📖",
-    modules: [],
+    modules: courseModulesMap[c.id] || [],
     faqs: [],
     quiz: [],
     related: [],
@@ -263,6 +312,8 @@ export async function getRelatedCourses(course: Course): Promise<Course[]> {
     .neq("slug", course.slug)
     .limit(2);
 
+  const courseModulesMap = await fetchModulesAndLessonsMapping(supabase);
+
   return (dbCourses ?? []).map((c: any) => ({
     slug: c.slug,
     title: c.title,
@@ -278,7 +329,7 @@ export async function getRelatedCourses(course: Course): Promise<Course[]> {
     popularity: 100 - c.display_order * 5,
     thumbnailAccent: ["#059669", "#064e3b"],
     thumbnailGlyph: "📖",
-    modules: [],
+    modules: courseModulesMap[c.id] || [],
     faqs: [],
     quiz: [],
     related: [],

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getCategories, getCourses } from "@/lib/learning/supabase-db";
-import { CourseCard, CategoryCard } from "@/components/learn/cards";
+import { CategoryCard } from "@/components/learn/cards";
+import { CourseCardsGrid } from "@/components/learn/CourseCardsGrid";
 import { SearchBar } from "@/components/learn/search";
 
 export const metadata: Metadata = {
@@ -129,9 +130,7 @@ export default async function HomePage() {
             View all courses →
           </Link>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((c) => <CourseCard key={c.slug} course={c} />)}
-        </div>
+        <CourseCardsGrid courses={featured} />
       </section>
 
       {/* CATEGORIES */}
