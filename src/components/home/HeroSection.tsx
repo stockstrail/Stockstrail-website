@@ -29,9 +29,9 @@ const HeroSection = () => {
             text-white
           "
         >
-          Personalized Financial Planning to Build Wealth
+          Personalized Financial Planning to Build 
           <br />
-          and Protect Your Future
+          Wealth and Protect Your Future
         </h1>
 
         {/* LCP paragraph — MUST be plain, fast, and paintable */}
