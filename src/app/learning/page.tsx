@@ -5,11 +5,11 @@ import { CourseCard, CategoryCard } from "@/components/learn/cards";
 import { SearchBar } from "@/components/learn/search";
 
 export const metadata: Metadata = {
-  title: "StocksTrail Learning — Free Investing & Personal Finance Courses for India",
+  title: "Stockstrail Learning — Free Investing & Personal Finance Courses for India",
   description: "Free structured courses on mutual funds, SIP, insurance, tax saving, stock market, and retirement planning — built for Indian investors. No login, no ads, SEBI-aware content.",
   keywords: "mutual fund course India, SIP investing guide, ELSS tax saving, financial literacy India, free investing course, personal finance India, SEBI AMFI, retirement planning India",
   openGraph: {
-    title: "StocksTrail Learning — Free Investing & Personal Finance Courses for India",
+    title: "Stockstrail Learning — Free Investing & Personal Finance Courses for India",
     description: "Free structured courses on mutual funds, SIP, insurance, tax saving, stock market, and retirement planning — built for Indian investors.",
     url: "https://www.learning.stockstrail.in",
   },
@@ -45,7 +45,7 @@ export default async function HomePage() {
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8 lg:px-12 pt-16 sm:pt-24 pb-16 text-center animate-fade-up">
           <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-brand-border)] bg-white/[0.03] px-4 py-1.5 text-xs text-white/75">
             <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--color-brand-green)] animate-pulse-glow" />
-            The financial knowledge hub by StocksTrail
+            The financial knowledge hub by Stockstrail
           </div>
           <h1 className="mt-6 text-4xl sm:text-5xl lg:text-7xl font-normal leading-[1.05] tracking-tight text-white" style={{ fontFamily: "var(--font-product-sans)" }}>
             Learn investing
@@ -321,13 +321,13 @@ export default async function HomePage() {
             The consequences are visible everywhere: people chase <em>last year&apos;s top-performing fund</em> (which statistically underperforms next year), invest in traditional endowment plans that return just 3–5% CAGR (barely beating inflation), leave substantial <strong>Section 80C deductions</strong> unclaimed, and — most expensively — stay entirely out of the market due to fear of loss, missing decades of compounding.
           </p>
           <p>
-            StocksTrail Learning was built specifically for this gap. Every course is written for the Indian context: INR examples, SEBI regulations, AMFI-registered fund categories, NSE/BSE market structure, and Indian tax law (Section 80C, 80D, LTCG, STCG). If a lesson discusses a <strong>Systematic Investment Plan</strong>, the numbers are in rupees, the funds are from Indian AMCs, and the tax impact follows Indian law.
+            Stockstrail Learning was built specifically for this gap. Every course is written for the Indian context: INR examples, SEBI regulations, AMFI-registered fund categories, NSE/BSE market structure, and Indian tax law (Section 80C, 80D, LTCG, STCG). If a lesson discusses a <strong>Systematic Investment Plan</strong>, the numbers are in rupees, the funds are from Indian AMCs, and the tax impact follows Indian law.
           </p>
           <p>
             More importantly, our courses are structured — not scattered. A beginner does not need 50 blog posts about different funds. They need a clear path: understand what a mutual fund is → learn how SIPs reduce timing risk → pick the right fund category for the goal → understand the tax implications → automate and let compounding do its work. That complete pathway exists here, free of charge, without registration.
           </p>
           <p>
-            This is financial education designed to be used, not just read. Each module ends with a <strong>Knowledge Check</strong> quiz, a set of <strong>Key Takeaways</strong> you can reference later, and a curated list of related courses to follow. For personalised guidance beyond self-learning, the main StocksTrail platform connects you with an <strong>AMFI-registered, SEBI-certified advisor</strong> who can turn your knowledge into an actual portfolio.
+            This is financial education designed to be used, not just read. Each module ends with a <strong>Knowledge Check</strong> quiz, a set of <strong>Key Takeaways</strong> you can reference later, and a curated list of related courses to follow. For personalised guidance beyond self-learning, the main Stockstrail platform connects you with an <strong>AMFI-registered, SEBI-certified advisor</strong> who can turn your knowledge into an actual portfolio.
           </p>
         </div>
       </section>
@@ -362,16 +362,16 @@ export default async function HomePage() {
         <div className="space-y-3">
           {[
             {
-              q: "What is StocksTrail Learning, and who is it for?",
-              a: "StocksTrail Learning is a dedicated, distraction-free educational platform designed for Indian retail investors, beginner savers, and intermediate wealth builders. It provides structured, SEBI-aware courses to help you master mutual funds, SIPs, insurance, retirement, and tax planning without jargon or product pitches."
+              q: "What is Stockstrail Learning, and who is it for?",
+              a: "Stockstrail Learning is a dedicated, distraction-free educational platform designed for Indian retail investors, beginner savers, and intermediate wealth builders. It provides structured, SEBI-aware courses to help you master mutual funds, SIPs, insurance, retirement, and tax planning without jargon or product pitches."
             },
             {
               q: "Is this learning platform free, and do I need to create an account?",
-              a: "Yes, StocksTrail Learning is 100% free and always will be. We believe financial literacy should be accessible to everyone. There are no paywalls, no login requirements, no ads, and no sign-ups. You can start reading any course instantly."
+              a: "Yes, Stockstrail Learning is 100% free and always will be. We believe financial literacy should be accessible to everyone. There are no paywalls, no login requirements, no ads, and no sign-ups. You can start reading any course instantly."
             },
             {
               q: "How do structured courses differ from scattered financial blogs?",
-              a: "Most financial advice online is scattered across isolated articles or videos, making it hard to build a coherent system. StocksTrail Learning uses structured, progressive modules. Each course acts as a step-by-step pathway from basic definitions to advanced, goal-based execution — with quizzes and key takeaways at each stage."
+              a: "Most financial advice online is scattered across isolated articles or videos, making it hard to build a coherent system. Stockstrail Learning uses structured, progressive modules. Each course acts as a step-by-step pathway from basic definitions to advanced, goal-based execution — with quizzes and key takeaways at each stage."
             },
             {
               q: "Which course should I start with if I'm a complete beginner?",
@@ -390,8 +390,8 @@ export default async function HomePage() {
               a: "In a Regular plan, a distributor earns a commission from the AMC, which raises the expense ratio — typically by 0.5% to 1% annually. In a Direct plan, you invest without an intermediary, paying a lower expense ratio. Over 20+ years, this difference can amount to 10–20% of your final corpus. Our Mutual Funds course covers this in detail."
             },
             {
-              q: "How does StocksTrail Learning connect to the main StocksTrail website?",
-              a: "StocksTrail Learning serves as the educational subdomain of stockstrail.in. Once you build your knowledge foundation here, you can use the main website's tools — such as the free online Risk Profile Assessment, consultation booking, or direct advisory from an AMFI-registered, SEBI-certified advisor for personalised investment guidance."
+              q: "How does Stockstrail Learning connect to the main Stockstrail website?",
+              a: "Stockstrail Learning serves as the educational subdomain of stockstrail.in. Once you build your knowledge foundation here, you can use the main website's tools — such as the free online Risk Profile Assessment, consultation booking, or direct advisory from an AMFI-registered, SEBI-certified advisor for personalised investment guidance."
             },
             {
               q: "Can I learn about insurance on this platform?",

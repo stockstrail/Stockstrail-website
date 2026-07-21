@@ -13,14 +13,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = await getCategoryBySlug(slug);
   if (!category) {
     return {
-      title: "Category not found — StocksTrail Learning",
+      title: "Category not found — Stockstrail Learning",
     };
   }
   return {
-    title: `${category.name} Courses — StocksTrail Learning`,
+    title: `${category.name} Courses — Stockstrail Learning`,
     description: category.description,
     openGraph: {
-      title: `${category.name} Courses — StocksTrail Learning`,
+      title: `${category.name} Courses — Stockstrail Learning`,
       description: category.description,
       url: `https://www.learning.stockstrail.in/categories/${slug}`,
     },

@@ -3,11 +3,11 @@ import { getCategories, getCourses } from "@/lib/learning/supabase-db";
 import CoursesPageClient from "./CoursesPageClient";
 
 export const metadata: Metadata = {
-  title: "All Courses — StocksTrail Learning",
-  description: "Browse every finance course on StocksTrail Learning. Filter by difficulty, category and reading time.",
+  title: "All Courses — Stockstrail Learning",
+  description: "Browse every finance course on Stockstrail Learning. Filter by difficulty, category and reading time.",
   openGraph: {
-    title: "All Courses — StocksTrail Learning",
-    description: "Browse every finance course on StocksTrail Learning.",
+    title: "All Courses — Stockstrail Learning",
+    description: "Browse every finance course on Stockstrail Learning.",
     url: "https://www.learning.stockstrail.in/courses",
   },
   alternates: {

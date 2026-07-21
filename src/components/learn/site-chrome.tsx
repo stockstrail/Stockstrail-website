@@ -13,7 +13,7 @@ const NAV = [
 
 export function LearnLogo({ className = "" }: { className?: string }) {
   return (
-    <Link href="/learning" className={`flex items-center gap-2.5 ${className}`} aria-label="StocksTrail Learning home">
+    <Link href="/learning" className={`flex items-center gap-2.5 ${className}`} aria-label="Stockstrail Learning home">
       <svg width="32" height="35" viewBox="0 0 32 35" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" aria-hidden="true">
         <rect x="3.74" y="16.02" width="20.89" height="3.72" fill="url(#g)" />
         <path d="M1.15 18.55C0.92 18.32 0.92 17.94 1.15 17.71L15.59 3.52c0.5-0.49 1.3-0.48 1.8 0.01l1.28 1.28c0.5 0.5 0.5 1.31 0 1.83L6.53 18.58c-1.49 1.47-3.89 1.46-5.38-0.03Z" fill="#00D873" />
@@ -68,7 +68,7 @@ export function SiteHeader() {
             href="/"
             className="hidden sm:inline-flex items-center gap-2 rounded-full border border-[color:var(--color-brand-border)] px-5 py-2.5 text-xs font-medium text-white/80 hover:text-white hover:border-[color:var(--color-brand-green)]/60 transition-all duration-300"
           >
-            Back to StocksTrail
+            Back to Stockstrail
             <span aria-hidden>→</span>
           </Link>
           <button
@@ -100,7 +100,7 @@ export function SiteHeader() {
                 </Link>
               );
             })}
-            <Link href="/" className="py-2.5 text-sm text-white/70" onClick={() => setOpen(false)}>Back to StocksTrail →</Link>
+            <Link href="/" className="py-2.5 text-sm text-white/70" onClick={() => setOpen(false)}>Back to Stockstrail →</Link>
           </nav>
         </div>
       )}
@@ -115,7 +115,7 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <LearnLogo />
           <p className="mt-4 max-w-md text-sm text-white/70 leading-relaxed">
-            A premium financial education hub by StocksTrail. Structured courses on investing, personal finance and wealth
+            A premium financial education hub by Stockstrail. Structured courses on investing, personal finance and wealth
             creation — built for Indian investors.
           </p>
         </div>
@@ -128,7 +128,7 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <h4 className="text-white text-sm font-semibold mb-3">StocksTrail</h4>
+          <h4 className="text-white text-sm font-semibold mb-3">Stockstrail</h4>
           <ul className="space-y-2 text-sm text-white/70">
             <li><Link href="/" className="hover:text-[color:var(--color-brand-green)]">Main site</Link></li>
             <li><Link href="/services" className="hover:text-[color:var(--color-brand-green)]">Services</Link></li>
@@ -138,7 +138,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-[color:var(--color-brand-border)]">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 py-6 text-xs text-white/50 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p>© {new Date().getFullYear()} StocksTrail Learning. Educational content only — not investment advice.</p>
+          <p>© {new Date().getFullYear()} Stockstrail Learning. Educational content only — not investment advice.</p>
           <p>Made with care in India.</p>
         </div>
       </div>

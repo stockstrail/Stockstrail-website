@@ -17,11 +17,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const c = await getCourseBySlug(slug);
   if (!c) {
     return {
-      title: "Course not found — StocksTrail Learning",
+      title: "Course not found — Stockstrail Learning",
     };
   }
   return {
-    title: `${c.title} — StocksTrail Learning`,
+    title: `${c.title} — Stockstrail Learning`,
     description: c.description,
     openGraph: {
       title: c.title,
@@ -53,7 +53,7 @@ export default async function CourseDetailPage({ params }: Props) {
     "description": course.description,
     "provider": {
       "@type": "Organization",
-      "name": "StocksTrail Learning",
+      "name": "Stockstrail Learning",
       "sameAs": "https://stockstrail.in"
     },
     "educationalLevel": course.difficulty,

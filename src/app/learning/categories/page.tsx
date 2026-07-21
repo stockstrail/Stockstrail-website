@@ -4,11 +4,11 @@ import { getCategories, getCourses } from "@/lib/learning/supabase-db";
 import { CategoryCard } from "@/components/learn/cards";
 
 export const metadata: Metadata = {
-  title: "Categories — StocksTrail Learning",
+  title: "Categories — Stockstrail Learning",
   description: "Browse finance topics — mutual funds, SIP, insurance, stocks, tax, retirement and more.",
   openGraph: {
-    title: "Categories — StocksTrail Learning",
-    description: "Browse finance topics on StocksTrail Learning.",
+    title: "Categories — Stockstrail Learning",
+    description: "Browse finance topics on Stockstrail Learning.",
     url: "https://www.learning.stockstrail.in/categories",
   },
   alternates: {
