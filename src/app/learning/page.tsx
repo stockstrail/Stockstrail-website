@@ -78,16 +78,26 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10 max-w-3xl mx-auto">
+          <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
             {[
-              { k: `${courses.length}+`, v: "Structured courses" },
-              { k: `${categories.length}+`, v: "Finance topics" },
-              { k: "Free", v: "Always, no login" },
-              { k: "SEBI-aware", v: "India-first content" },
+              { k: `${courses.length}+`, v: "Structured Courses" },
+              { k: `${categories.length}+`, v: "Finance Topics" },
+              { k: "Free", v: "No Login Required" },
+              { k: "SEBI", v: "India-First Content" },
             ].map((s) => (
-              <div key={s.v} className="text-center">
-                <div className="text-2xl sm:text-3xl font-semibold text-white" style={{ fontFamily: "var(--font-product-sans)" }}>{s.k}</div>
-                <div className="mt-1 text-xs text-white/55">{s.v}</div>
+              <div 
+                key={s.v} 
+                className="flex flex-col items-center justify-center rounded-2xl border border-white/5 bg-white/[0.015] p-5 h-[96px] text-center shadow-sm"
+              >
+                <div 
+                  className="text-xl sm:text-2xl font-semibold text-white tracking-tight" 
+                  style={{ fontFamily: "var(--font-product-sans)" }}
+                >
+                  {s.k}
+                </div>
+                <div className="mt-1 text-[11px] text-white/55 font-medium tracking-wide">
+                  {s.v}
+                </div>
               </div>
             ))}
           </div>
