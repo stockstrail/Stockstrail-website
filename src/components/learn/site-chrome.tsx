@@ -65,7 +65,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <Link
-            href="/"
+            href="https://www.stockstrail.in"
             className="hidden sm:inline-flex items-center gap-2 rounded-full border border-[color:var(--color-brand-border)] px-5 py-2.5 text-xs font-medium text-white/80 hover:text-white hover:border-[color:var(--color-brand-green)]/60 transition-all duration-300"
           >
             Back to Stockstrail
@@ -100,7 +100,7 @@ export function SiteHeader() {
                 </Link>
               );
             })}
-            <Link href="/" className="py-2.5 text-sm text-white/70" onClick={() => setOpen(false)}>Back to Stockstrail →</Link>
+            <Link href="https://www.stockstrail.in" className="py-2.5 text-sm text-white/70" onClick={() => setOpen(false)}>Back to Stockstrail →</Link>
           </nav>
         </div>
       )}
@@ -130,9 +130,9 @@ export function SiteFooter() {
         <div>
           <h4 className="text-white text-sm font-semibold mb-3">Stockstrail</h4>
           <ul className="space-y-2 text-sm text-white/70">
-            <li><Link href="/" className="hover:text-[color:var(--color-brand-green)]">Main site</Link></li>
-            <li><Link href="/services" className="hover:text-[color:var(--color-brand-green)]">Services</Link></li>
-            <li><Link href="/contact" className="hover:text-[color:var(--color-brand-green)]">Contact</Link></li>
+            <li><Link href="https://www.stockstrail.in" className="hover:text-[color:var(--color-brand-green)]">Main site</Link></li>
+            <li><Link href="https://www.stockstrail.in/services" className="hover:text-[color:var(--color-brand-green)]">Services</Link></li>
+            <li><Link href="https://www.stockstrail.in/contact" className="hover:text-[color:var(--color-brand-green)]">Contact</Link></li>
           </ul>
         </div>
       </div>
