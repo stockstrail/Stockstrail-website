@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: 'Read the latest articles on financial planning, mutual funds, and wealth creation from the certified experts at Stockstrail.',
   keywords: 'Financial Blog, Stockstrail Blog, Investment Strategies, Mutual Funds Info',
   alternates: {
-    canonical: 'https://stockstrail.in/blog',
+    canonical: 'https://www.stockstrail.in/blog',
   }
 };
 

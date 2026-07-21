@@ -69,13 +69,30 @@ export function Step3_Modules({ courseId }: Step3Props) {
     setLoading(true);
     try {
       const supabase = createClient();
-      const { data } = await supabase
+      // Fetch modules without embedding to avoid PostgREST FK ambiguity
+      const { data: modulesData } = await supabase
         .from("learning_modules")
-        .select("*, learning_module_content(markdown_content)")
+        .select("*")
         .eq("course_id", courseId)
         .order("module_order", { ascending: true });
-      const mapped: ModuleState[] = (data ?? []).map((m: any) => {
-        const rawContent = m.learning_module_content?.[0]?.markdown_content ?? "";
+
+      // Fetch content for all modules separately
+      const moduleIds = (modulesData ?? []).map((m: any) => m.id);
+      const { data: contentData } = moduleIds.length > 0
+        ? await supabase
+            .from("learning_module_content")
+            .select("module_id, markdown_content")
+            .in("module_id", moduleIds)
+        : { data: [] };
+
+      // Build a map of module_id -> markdown_content
+      const contentMap: Record<string, string> = {};
+      (contentData ?? []).forEach((mc: any) => {
+        contentMap[mc.module_id] = mc.markdown_content ?? "";
+      });
+
+      const mapped: ModuleState[] = (modulesData ?? []).map((m: any) => {
+        const rawContent = contentMap[m.id] ?? "";
         const sub_topics = parseSubTopics(rawContent);
         return {
           ...m,

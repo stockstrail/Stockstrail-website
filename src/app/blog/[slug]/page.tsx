@@ -58,7 +58,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const resolvedParams = await params;
   const slug = resolvedParams?.slug;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://stockstrail.in";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.stockstrail.in";
   const baseUrl = siteUrl.replace(/\/$/, '');
   const postUrl = `${baseUrl}/blog/${slug}`;
 
@@ -147,7 +147,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     }))
   } : null;
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://stockstrail.in";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.stockstrail.in";
   const baseUrl = siteUrl.replace(/\/$/, '');
   const currentUrl = `${baseUrl}/blog/${resolvedParams.slug}`;
   const authorName = "Vikrant Bhardwaj";

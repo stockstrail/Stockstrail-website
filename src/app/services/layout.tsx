@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Explore Stockstrail's range of financial services including Mutual Funds, Insurance, Loans, and Fixed Deposits. Achieve your financial goals with us.",
   keywords: "financial services, mutual funds, insurance, loans, fixed deposits, demat account, Stockstrail services",
   alternates: {
-    canonical: "/services",
+    canonical: "https://www.stockstrail.in/services",
   }
 };
 

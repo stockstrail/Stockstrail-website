@@ -46,16 +46,24 @@ export async function getCourses(): Promise<Course[]> {
   const supabase = await createClient();
   const { data: dbCourses } = await supabase
     .from("learning_courses")
-    .select("*, learning_categories(slug)")
+    .select("*")
     .eq("publish", true)
     .order("display_order", { ascending: true });
+
+  // Build category slug map
+  const catIds = [...new Set((dbCourses ?? []).map((c: any) => c.category_id).filter(Boolean))];
+  let catSlugMap: Record<string, string> = {};
+  if (catIds.length > 0) {
+    const { data: cats } = await supabase.from("learning_categories").select("id, slug").in("id", catIds);
+    (cats ?? []).forEach((cat: any) => { catSlugMap[cat.id] = cat.slug; });
+  }
 
   return (dbCourses ?? []).map((c: any) => ({
     slug: c.slug,
     title: c.title,
     tagline: c.short_description || "",
     description: c.description || "",
-    category: c.learning_categories?.slug || "",
+    category: catSlugMap[c.category_id] || "",
     difficulty: c.difficulty,
     minutes: c.reading_time || 0,
     hasImages: !!c.cover_image,
@@ -80,7 +88,7 @@ export async function getCoursesByCategory(categorySlug: string): Promise<Course
   // Fetch category ID first
   const { data: cat } = await supabase
     .from("learning_categories")
-    .select("id")
+    .select("id, slug")
     .eq("slug", categorySlug)
     .single();
 
@@ -88,7 +96,7 @@ export async function getCoursesByCategory(categorySlug: string): Promise<Course
 
   const { data: dbCourses } = await supabase
     .from("learning_courses")
-    .select("*, learning_categories(slug)")
+    .select("*")
     .eq("category_id", cat.id)
     .eq("publish", true)
     .order("display_order", { ascending: true });
@@ -98,7 +106,7 @@ export async function getCoursesByCategory(categorySlug: string): Promise<Course
     title: c.title,
     tagline: c.short_description || "",
     description: c.description || "",
-    category: c.learning_categories?.slug || "",
+    category: (cat as any).slug || "",
     difficulty: c.difficulty,
     minutes: c.reading_time || 0,
     hasImages: !!c.cover_image,
@@ -118,22 +126,25 @@ export async function getCoursesByCategory(categorySlug: string): Promise<Course
   }));
 }
 
+
 export async function getCourseBySlug(slug: string): Promise<Course | null> {
   const supabase = await createClient();
 
+  // Fetch course without embedding to avoid PostgREST FK ambiguity
   const { data: course } = await supabase
     .from("learning_courses")
-    .select("*, learning_categories(id, name, slug)")
+    .select("*")
     .eq("slug", slug)
     .eq("publish", true)
     .single();
 
   if (!course) return null;
 
+  // Fetch related data with separate queries (no embedding)
   const [{ data: modules }, { data: quiz }, { data: faqs }] = await Promise.all([
     supabase
       .from("learning_modules")
-      .select("*, learning_module_content(markdown_content)")
+      .select("id, title, slug, summary, reading_time, module_order, publish, free_preview, icon")
       .eq("course_id", course.id)
       .eq("publish", true)
       .order("module_order", { ascending: true }),
@@ -149,12 +160,30 @@ export async function getCourseBySlug(slug: string): Promise<Course | null> {
       .order("display_order", { ascending: true }),
   ]);
 
+  // Fetch module content separately
+  const moduleIds = (modules ?? []).map((m: any) => m.id);
+  const { data: moduleContents } = moduleIds.length > 0
+    ? await supabase
+        .from("learning_module_content")
+        .select("module_id, markdown_content")
+        .in("module_id", moduleIds)
+    : { data: [] };
+  const contentByModuleId: Record<string, string> = {};
+  (moduleContents ?? []).forEach((mc: any) => {
+    contentByModuleId[mc.module_id] = mc.markdown_content ?? "";
+  });
+
+  // Fetch category separately
+  const { data: catData } = course.category_id
+    ? await supabase.from("learning_categories").select("id, name, slug").eq("id", course.category_id).single()
+    : { data: null };
+
   return {
     slug: course.slug,
     title: course.title,
     tagline: course.short_description || "",
     description: course.description || "",
-    category: course.learning_categories?.slug || "",
+    category: (catData as any)?.slug || "",
     difficulty: course.difficulty,
     minutes: course.reading_time || 0,
     hasImages: !!course.cover_image,
@@ -163,9 +192,9 @@ export async function getCourseBySlug(slug: string): Promise<Course | null> {
     updatedAt: course.updated_at,
     popularity: 100 - course.display_order * 5,
     thumbnailAccent: ["#059669", "#064e3b"],
-    thumbnailGlyph: course.learning_categories?.name?.slice(0, 3)?.toUpperCase() || "📖",
+    thumbnailGlyph: (catData as any)?.name?.slice(0, 3)?.toUpperCase() || "📖",
     modules: (modules ?? []).map((m: any) => {
-      const rawContent: string = m.learning_module_content?.[0]?.markdown_content || "";
+      const rawContent: string = contentByModuleId[m.id] || "";
       // Try to parse sub-topics JSON format (from the admin multi-subtopic editor)
       let lessons: { slug: string; title: string; minutes: number; blocks: { type: "markdown"; text: string }[] }[] = [];
       try {
@@ -212,19 +241,23 @@ export async function getCourseBySlug(slug: string): Promise<Course | null> {
   };
 }
 
+
 export async function getRelatedCourses(course: Course): Promise<Course[]> {
   const supabase = await createClient();
+
+  // Find the category ID by slug
   const { data: cat } = await supabase
     .from("learning_categories")
-    .select("id")
+    .select("id, slug")
     .eq("slug", course.category)
     .single();
 
   if (!cat) return [];
 
+  // Fetch courses in same category without embedding
   const { data: dbCourses } = await supabase
     .from("learning_courses")
-    .select("*, learning_categories(slug)")
+    .select("*")
     .eq("category_id", cat.id)
     .eq("publish", true)
     .neq("slug", course.slug)
@@ -235,7 +268,7 @@ export async function getRelatedCourses(course: Course): Promise<Course[]> {
     title: c.title,
     tagline: c.short_description || "",
     description: c.description || "",
-    category: c.learning_categories?.slug || "",
+    category: (cat as any).slug || "",
     difficulty: c.difficulty,
     minutes: c.reading_time || 0,
     hasImages: !!c.cover_image,

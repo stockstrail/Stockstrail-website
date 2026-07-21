@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: 'Learn about Stockstrail\'s mission to provide honest, jargon-free financial planning, mutual funds, and insurance guidance across India.',
   keywords: 'About Stockstrail, Honest Financial Planning, Investment Guidance',
   alternates: {
-    canonical: 'https://stockstrail.in/about',
+    canonical: 'https://www.stockstrail.in/about',
   }
 };
 

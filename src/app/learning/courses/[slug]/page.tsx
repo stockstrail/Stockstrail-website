@@ -3,6 +3,11 @@ import { notFound } from "next/navigation";
 import { getCourseBySlug, getCategoryBySlug, getRelatedCourses } from "@/lib/learning/supabase-db";
 import { CoursePageClient } from "./CoursePageClient";
 
+// Always fetch fresh content from Supabase on every request
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -22,10 +27,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: c.title,
       description: c.description,
       type: "article",
-      url: `https://learning.stockstrail.in/courses/${slug}`,
+      url: `https://www.learning.stockstrail.in/courses/${slug}`,
     },
     alternates: {
-      canonical: `https://learning.stockstrail.in/courses/${slug}`,
+      canonical: `https://www.learning.stockstrail.in/courses/${slug}`,
     }
   };
 }

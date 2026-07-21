@@ -34,7 +34,9 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://www.stockstrail.in"
+    process.env.NODE_ENV === "production"
+      ? "https://www.stockstrail.in"
+      : (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000")
   ),
 
   title: "Stockstrail - Financial Planning & Investment Guidance",
@@ -47,7 +49,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://stockstrail.in",
+    url: "https://www.stockstrail.in",
     title: "Stockstrail - Financial Planning & Investment Guidance",
     description:
       "Achieve financial independence with expert financial planning and investment guidance.",
