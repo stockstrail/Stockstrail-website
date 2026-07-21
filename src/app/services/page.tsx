@@ -278,13 +278,14 @@ const ServicesPage: React.FC = () => {
           <SectionBlock
             id="others"
             title="Complete Financial Protection | OTHER SERVICES"
-            description="Beyond core investments, Stockstrail offers comprehensive additional financial services including Motor Insurance, Travel Insurance, Demat accounts, ULIPs, and Guaranteed Plans. Each service is designed to provide complete protection and convenience at every stage of life."
+            description="Beyond core investments, Stockstrail offers comprehensive additional financial services including Motor Insurance, Travel Insurance, Demat accounts, ULIPs, Guaranteed Plans, and Tax Filing. Each service is designed to provide complete protection, tax compliance, and convenience at every stage of life."
             benefits={[
               "Motor Insurance for comprehensive vehicle protection",
               "Travel Insurance for domestic and international coverage",
               "Demat accounts for stock market participation",
               "ULIPs combining investment and life insurance",
               "Guaranteed Plans for risk-free, assured returns",
+              "Seamless Tax Filing via KFintech partnership",
               "Professional guidance and transparent recommendations",
             ]}
             cta="EXPLORE OTHER SERVICES"

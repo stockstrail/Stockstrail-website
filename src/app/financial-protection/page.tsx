@@ -5,26 +5,26 @@ import ServiceFAQSection from '@/components/services/ServiceFAQSection';
 import ServiceGEOSection from '@/components/services/ServiceGEOSection';
 
 export const metadata: Metadata = {
-  title: 'Complete Financial Protection Services by Stockstrail - Motor Insurance, Travel Insurance, ULIPs & More',
+  title: 'Complete Financial Protection & Tax Filing Services by Stockstrail - Motor Insurance, Travel Insurance, ULIPs & More',
   description:
-    'Comprehensive financial and protection services including Motor Insurance, Travel Insurance, ULIPs, and Guaranteed Plans. Expert guidance for complete financial coverage.',
+    'Comprehensive financial and protection services including Motor Insurance, Travel Insurance, ULIPs, Guaranteed Plans, and Tax Filing. Expert guidance for complete financial coverage.',
   keywords:
-    'motor insurance, travel insurance, ULIPs, guaranteed return plans, mutual funds, loans, FD, risk profile, demat account, Stockstrail',
+    'motor insurance, travel insurance, ULIPs, guaranteed return plans, mutual funds, loans, FD, risk profile, demat account, tax filing, KFintech, Stockstrail',
   alternates: {
     canonical: '/financial-protection',
   },
   openGraph: {
-    title: 'Complete Financial Protection Services by Stockstrail - Motor Insurance, Travel Insurance, ULIPs & More',
+    title: 'Complete Financial Protection & Tax Filing Services by Stockstrail - Motor Insurance, Travel Insurance, ULIPs & More',
     description:
-      'Comprehensive financial and protection services including Motor Insurance, Travel Insurance, ULIPs, and Guaranteed Plans.',
+      'Comprehensive financial and protection services including Motor Insurance, Travel Insurance, ULIPs, Guaranteed Plans, and Tax Filing.',
     url: 'https://stockstrail.in/financial-protection',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Complete Financial Protection Services by Stockstrail - Motor Insurance, Travel Insurance, ULIPs & More',
+    title: 'Complete Financial Protection & Tax Filing Services by Stockstrail - Motor Insurance, Travel Insurance, ULIPs & More',
     description:
-      'Comprehensive financial and protection services including Motor Insurance, Travel Insurance, ULIPs, and Guaranteed Plans.',
+      'Comprehensive financial and protection services including Motor Insurance, Travel Insurance, ULIPs, Guaranteed Plans, and Tax Filing.',
   },
 };
 
@@ -64,6 +64,11 @@ const faqs = [
     answer:
       'Premiums paid for ULIPs and most traditional life insurance plans qualify for deduction under Section 80C of the Income Tax Act (up to ₹1.5 lakh per year). Maturity proceeds are generally exempt under Section 10(10D), subject to applicable conditions. Consult a tax advisor for personalised guidance.',
   },
+  {
+    question: 'How does Stockstrail facilitate tax filing?',
+    answer:
+      'Stockstrail has partnered with KFintech to offer a secure, digital tax filing solution. Through this partnership, you can access KFintech\'s user-friendly tax filing platform directly, allowing you to file your Income Tax Returns (ITR), report capital gains, and manage tax documentation seamlessly.',
+  },
 ];
 
 export default function Others() {
@@ -78,7 +83,7 @@ export default function Others() {
             Complete Financial Protection Services
           </h1>
           <p className="text-white/80 max-w-3xl mx-auto leading-relaxed text-lg">
-            Complete Financial Protection Services by Stockstrail go far beyond investments and loans. Whether you need to protect your vehicle, secure your travel plans, build long-term wealth through market-linked insurance products, or create guaranteed returns for your future - Stockstrail brings all of these solutions under one trusted platform.
+            Complete Financial Protection Services by Stockstrail go far beyond investments and loans. Whether you need to protect your vehicle, secure your travel plans, build long-term wealth through market-linked insurance products, file your taxes easily, or create guaranteed returns for your future - Stockstrail brings all of these solutions under one trusted platform.
           </p>
         </div>
       </section>
@@ -105,7 +110,7 @@ export default function Others() {
                 Most people think of insurance only when something goes wrong. But real financial planning means protecting your assets, health, vehicles, and life goals before emergencies arise. That is exactly why Complete Financial Protection Services by Stockstrail are designed - to ensure you, your family, and your assets are always covered.
               </p>
               <p className="text-white/80 leading-relaxed mb-4">
-                At Stockstrail, we offer a full financial ecosystem. In addition to <strong>Motor Insurance</strong>, <strong>Travel Insurance</strong>, <strong>ULIPs</strong>, and <strong>Guaranteed Return Plans</strong>, we also help you invest in <strong>Mutual Funds</strong>, open a <strong>Demat Account</strong>, access <strong>Loans</strong>, explore <strong>Fixed Deposits (FD)</strong>, and check your <strong>Risk Profile</strong>. We are your one-stop financial partner.
+                At Stockstrail, we offer a full financial ecosystem. In addition to <strong>Motor Insurance</strong>, <strong>Travel Insurance</strong>, <strong>ULIPs</strong>, <strong>Guaranteed Return Plans</strong>, and <strong>Tax Filing</strong>, we also help you invest in <strong>Mutual Funds</strong>, open a <strong>Demat Account</strong>, access <strong>Loans</strong>, explore <strong>Fixed Deposits (FD)</strong>, and check your <strong>Risk Profile</strong>. We are your one-stop financial partner.
               </p>
               <p className="text-white/80 leading-relaxed">
                 We serve clients across all stages of life and across pan India, with a special focus on Himachal Pradesh, Chandigarh Tricity, Delhi, Haryana, Uttar Pradesh, and Uttarakhand.
@@ -237,6 +242,46 @@ export default function Others() {
                 </div>
               </div>
             </div>
+
+            <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
+              <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-3">Tax Filing Services by Stockstrail - Partnered with KFintech</h3>
+              <p className="text-white/80 mb-4">
+                Filing your taxes correctly is vital to maintaining a clean financial profile and avoiding legal notices. Stockstrail has partnered with <strong>KFintech</strong> to provide a simplified, swift, and highly secure online tax filing experience. You can report your income, capital gains, investments, and claim appropriate deductions effortlessly.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <p className="text-white font-semibold mb-2">Key Features:</p>
+                  <ul className="space-y-2 text-white/70 text-sm">
+                    <li><strong>• Direct Integration:</strong> Access the tax filing module securely through KFintech's official portal.</li>
+                    <li><strong>• Investment Reporting:</strong> Seamlessly declare mutual funds, stock market trades, and capital gains.</li>
+                    <li><strong>• Guided Digital Process:</strong> 100% paperless filing with clear step-by-step assistance.</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-white font-semibold mb-2">Why It Matters for Investors:</p>
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    Underreporting capital gains from stock market and mutual fund investments is one of the most common reasons for getting income tax notices. The integrated KFintech portal ensures that your investment transactions are captured accurately, helping you remain compliant while optimizing your tax benefits.
+                  </p>
+                </div>
+              </div>
+              <div className="bg-white/5 rounded-lg p-4 border border-white/10 text-sm text-white/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                  <strong>Get Started with Tax Filing:</strong> You can access your personalized tax filing link now. Share this link with your investors and start your process.
+                </div>
+                <a
+                  href="https://gi9.in/KFINTH/v8qS3L"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 inline-flex items-center gap-2 px-6 py-2.5 bg-stockstrail-green-accent text-[#012928] hover:bg-stockstrail-green-light rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105"
+                >
+                  File Taxes via KFintech
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -317,6 +362,7 @@ export default function Others() {
               'Parents planning for children\'s education, marriage, or other future milestones',
               'Individuals approaching retirement who want risk-free wealth accumulation',
               'Business owners wanting to protect personal and business assets comprehensively',
+              'Taxpayers and investors who need error-free, secure tax filing for their capital gains and assets',
               'Anyone wanting a single financial partner for all investment and protection needs',
             ].map((item, idx) => (
               <div
@@ -339,7 +385,7 @@ export default function Others() {
 
           <div className="space-y-4">
             {[
-              'Identify Your Need: Which service fits your current situation - motor insurance renewal, travel insurance, a ULIP, or a guaranteed plan?',
+              'Identify Your Need: Which service fits your current situation - motor insurance renewal, travel insurance, a ULIP, guaranteed plan, or tax filing?',
               'Discuss with Our Specialists: Connect with our advisors. Share your requirements, budget, and timeline.',
               'Receive Personalised Recommendations: We compare multiple providers and give you a clear comparison of options.',
               'Submit Documentation: Our team guides you through the documentation process for your chosen service.',
