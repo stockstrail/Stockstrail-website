@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: "Stockstrail Learning — Free Investing & Personal Finance Courses for India",
   description: "Free structured courses on mutual funds, SIP, insurance, tax saving, stock market, and retirement planning — built for Indian investors. No login, no ads, SEBI-aware content.",
   keywords: "mutual fund course India, SIP investing guide, ELSS tax saving, financial literacy India, free investing course, personal finance India, SEBI AMFI, retirement planning India",
+  icons: {
+    icon: { url: "/favicon.svg?v=3", type: "image/svg+xml" },
+    shortcut: "/favicon.svg?v=3",
+    apple: "/favicon.svg?v=3",
+  },
   openGraph: {
     title: "Stockstrail Learning — Free Investing & Personal Finance Courses for India",
     description: "Free structured courses on mutual funds, SIP, insurance, tax saving, stock market, and retirement planning — built for Indian investors.",

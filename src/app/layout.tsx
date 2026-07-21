@@ -45,6 +45,11 @@ export const metadata: Metadata = {
   keywords:
     "financial planning, investment, mutual funds, insurance, loan, fixed deposit, stockstrail",
   authors: [{ name: "Stockstrail" }],
+  icons: {
+    icon: { url: "/favicon.svg?v=3", type: "image/svg+xml" },
+    shortcut: "/favicon.svg?v=3",
+    apple: "/favicon.svg?v=3",
+  },
 
   openGraph: {
     type: "website",
@@ -145,9 +150,9 @@ export default function RootLayout({
         }} />
 
         {/* Favicon - explicit link for Google and all browsers */}
-        <link rel="icon" href="/favicon.svg" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/x-icon" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.svg?v=3" />
+        <link rel="apple-touch-icon" href="/favicon.svg?v=3" />
 
         {/* Microsoft Clarity - load only after first user interaction to avoid long tasks during initial render */}
         <Script id="clarity-bootstrap" strategy="afterInteractive">

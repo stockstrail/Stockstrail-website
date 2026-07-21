@@ -9,6 +9,8 @@ export function middleware(request: NextRequest) {
   const isLearningSubdomain =
     host.startsWith("learning.") || host.startsWith("www.learning.");
 
+  const isLocalhost = host.includes("localhost") || host.includes("127.0.0.1");
+
   if (isLearningSubdomain) {
     // If the path does not already start with /learning, rewrite it internally
     if (!url.pathname.startsWith("/learning")) {
@@ -16,8 +18,8 @@ export function middleware(request: NextRequest) {
       return NextResponse.rewrite(url);
     }
   } else {
-    // On the main domain, redirect any /learning/* paths to the learning subdomain
-    if (url.pathname.startsWith("/learning")) {
+    // On the main domain in production (non-localhost), redirect /learning/* paths to the learning subdomain
+    if (!isLocalhost && url.pathname.startsWith("/learning")) {
       const learningHost = host.replace(/^www\./, "learning.");
       const subPath = url.pathname.replace(/^\/learning/, "") || "/";
       const redirectUrl = `${url.protocol}//${learningHost}${subPath}${url.search}`;
@@ -31,12 +33,12 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     /*
-     * Match all request paths except for the ones starting with:
+     * Match all request paths except for:
      * - api (API routes)
      * - _next/static (static files)
      * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
+     * - any static file with an extension (e.g. favicon.svg, .ico, .png)
      */
-    "/((?!api|_next/static|_next/image|favicon.ico).*)",
+    "/((?!api|_next/static|_next/image|.*\\..*).*)",
   ],
 };

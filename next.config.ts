@@ -79,6 +79,25 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // Favicons: revalidate so updates reflect immediately
+        source: '/favicon.svg',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, must-revalidate',
+          },
+        ],
+      },
+      {
+        source: '/icon.svg',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, must-revalidate',
+          },
+        ],
+      },
+      {
         // Cache public assets (logos, services images) for 1 year
         source: '/:path*.(webp|png|jpg|jpeg|gif|svg|ico)',
         headers: [
