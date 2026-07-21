@@ -29,9 +29,9 @@ const HeroSection = () => {
             text-white
           "
         >
-          Embark on Your
+          Financial Planning That Helps
           <br />
-          Journey to Success
+          You Invest With Confidence
         </h1>
 
         {/* LCP paragraph — MUST be plain, fast, and paintable */}
@@ -47,10 +47,10 @@ const HeroSection = () => {
             drop-shadow-md
           "
         >
-          Achieve financial independence with Stockstrail. Our expert guidance
-          and innovative tools help you navigate investing and reach your
-          long-term goals. Whether you&apos;re a beginner or experienced investor,
-          stay ahead and attain.
+          Whether you're starting your first investment, planning for retirement, 
+          protecting your family with insurance, or working towards long-term financial goals.
+          Stockstrail helps you make informed financial decisions through personalized financial planning,
+          mutual funds, and insurance solutions.
         </p>
 
         {/* Subheading */}
@@ -62,7 +62,7 @@ const HeroSection = () => {
           "
         >
           <span className="gradient-text inline-block drop-shadow-md bg-white/10 px-4 rounded-xl">
-            Financial Freedom
+            Personalized Financial Planning • Mutual Funds • Insurance Solutions
           </span>
         </h2>
 
