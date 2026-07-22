@@ -54,7 +54,7 @@ export default async function CourseDetailPage({ params }: Props) {
     "provider": {
       "@type": "Organization",
       "name": "Stockstrail Learning",
-      "sameAs": "https://stockstrail.in"
+      "sameAs": "https://www.stockstrail.in"
     },
     "educationalLevel": course.difficulty,
     "timeRequired": `PT${course.minutes}M`,

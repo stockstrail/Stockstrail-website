@@ -174,7 +174,7 @@ const Header = () => {
     },
     { name: 'About Us', href: '/about' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Learn', href: process.env.NODE_ENV === 'production' ? 'https://learning.stockstrail.in' : 'http://learning.localhost:3000' },
+    { name: 'Learn', href: process.env.NODE_ENV === 'production' ? 'https://www.learning.stockstrail.in' : 'http://learning.localhost:3000' },
     {
       name: 'Calculators',
       href: '/calculators',
@@ -213,14 +213,14 @@ const Header = () => {
                       onMouseEnter={() => openMenu(item.name)}
                       onMouseLeave={() => closeMenuWithDelay(250)}
                     >
-                      <button className="flex items-center gap-2 text-white hover:text-stockstrail-green-light transition-all duration-300 font-work-sans font-medium">
+                      <Link href={item.href} className="flex items-center gap-2 text-white hover:text-stockstrail-green-light transition-all duration-300 font-work-sans font-medium">
                         {item.name}
                         <IconChevronDown
                           className={`w-4 h-4 transition-transform duration-300 ${
                             openDropdown === item.name ? 'rotate-180' : ''
                           }`}
                         />
-                      </button>
+                      </Link>
 
                       {openDropdown === item.name && (
                         <div
@@ -282,21 +282,30 @@ const Header = () => {
                 <div key={item.name}>
                   {item.hasDropdown ? (
                     <>
-                      <button
-                        className="flex items-center justify-between w-full py-2 text-white font-medium"
-                        onClick={() =>
-                          setOpenMobileDropdown(
-                            openMobileDropdown === item.name ? null : item.name
-                          )
-                        }
-                      >
-                        {item.name}
-                        <IconChevronDown
-                          className={`w-4 h-4 transition-transform ${
-                            openMobileDropdown === item.name ? 'rotate-180' : ''
-                          }`}
-                        />
-                      </button>
+                      <div className="flex items-center justify-between w-full py-2">
+                        <Link
+                          href={item.href}
+                          className="text-white font-medium"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                        <button
+                          className="p-1 text-white"
+                          onClick={() =>
+                            setOpenMobileDropdown(
+                              openMobileDropdown === item.name ? null : item.name
+                            )
+                          }
+                          aria-label={`Toggle ${item.name} submenu`}
+                        >
+                          <IconChevronDown
+                            className={`w-4 h-4 transition-transform ${
+                              openMobileDropdown === item.name ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </button>
+                      </div>
 
                       {openMobileDropdown === item.name && (
                         <div className="pl-4 space-y-2 mt-2">

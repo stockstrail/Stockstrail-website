@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Layout from '@/components/layout/Layout';
+import JsonLd from '@/components/common/JsonLd';
 import { addQuery } from '@/lib/database/queries';
 import { Facebook, Linkedin, Instagram, Send } from 'lucide-react';
 
@@ -158,8 +159,42 @@ export default function LetsTalk() {
     }
   };
 
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'FinancialService'],
+    name: 'Stockstrail',
+    image: 'https://www.stockstrail.in/stockstrail.png',
+    '@id': 'https://www.stockstrail.in',
+    url: 'https://www.stockstrail.in/lets-talk',
+    telephone: '+919736304663',
+    email: 'connect@stockstrail.in',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Near Punjab And Sind Bank, V.P.O. Chintpurni, Teh: Amb',
+      addressLocality: 'Una',
+      addressRegion: 'Himachal Pradesh',
+      postalCode: '177110',
+      addressCountry: 'IN'
+    },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday', 'Tuesday', 'Wednesday', 'Thursday',
+        'Friday', 'Saturday', 'Sunday'
+      ],
+      opens: '09:00',
+      closes: '20:00'
+    },
+    sameAs: [
+      'https://www.facebook.com/Stockstrail',
+      'https://www.instagram.com/stockstrail',
+      'https://www.linkedin.com/company/stockstrail'
+    ]
+  };
+
   return (
     <Layout>
+      <JsonLd data={localBusinessSchema} />
       <section className="relative px-4 sm:px-6 lg:px-8 pt-4 pb-20 overflow-hidden">
         {/* soft glow */}
         <div className="absolute inset-0 pointer-events-none">

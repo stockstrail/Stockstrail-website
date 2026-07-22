@@ -284,7 +284,7 @@ export function AdminLearningCategories() {
                         <td className={`${tdCls} text-white/40 text-xs`}>{formatDate(cat.updated_at)}</td>
                         <td className={tdCls}>
                           <div className="flex items-center justify-end gap-1">
-                            <Button variant="ghost" size="sm" onClick={() => window.open(`https://learning.stockstrail.in/categories/${cat.slug}`, "_blank")}
+                            <Button variant="ghost" size="sm" onClick={() => window.open(`https://www.learning.stockstrail.in/categories/${cat.slug}`, "_blank")}
                               className="text-white/50 hover:text-stockstrail-green-light hover:bg-white/10 h-8 w-8 p-0" title="Preview">
                               <Eye className="w-4 h-4" />
                             </Button>

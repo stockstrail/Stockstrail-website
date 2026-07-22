@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Stockstrail - Honest Financial Planning & Investment Guidance',
+  title: 'About Us | Stockstrail — Founder, Certifications & Our Approach',
   description: 'Learn about Stockstrail\'s mission to provide honest, jargon-free financial planning, mutual funds, and insurance guidance across India.',
   keywords: 'About Stockstrail, Honest Financial Planning, Investment Guidance',
   alternates: {

@@ -20,7 +20,7 @@ function SerpPreview({ title, description, slug }: { title: string; description:
   return (
     <div className="p-4 rounded-xl border border-white/10 bg-white/5 space-y-1">
       <p className="text-[11px] text-white/30 uppercase tracking-wider mb-2">Live SERP Preview</p>
-      <p className="text-xs text-white/40">https://learning.stockstrail.in/courses/{slug || "your-course-slug"}</p>
+      <p className="text-xs text-white/40">https://www.learning.stockstrail.in/courses/{slug || "your-course-slug"}</p>
       <p className={`text-base font-medium ${title ? "text-blue-400" : "text-blue-400/40"} leading-snug`}>
         {title || "Your SEO Title will appear here"}
       </p>
@@ -62,7 +62,7 @@ export function Step6_SEO({ form, setForm }: Step6Props) {
       <div className="grid gap-5 md:grid-cols-2">
         <div className="space-y-2">
           <Label className={lc}>Canonical URL</Label>
-          <Input value={form.canonical_url ?? ""} onChange={e => set("canonical_url", e.target.value)} className={ic} placeholder="https://learning.stockstrail.in/courses/..." />
+          <Input value={form.canonical_url ?? ""} onChange={e => set("canonical_url", e.target.value)} className={ic} placeholder="https://www.learning.stockstrail.in/courses/..." />
         </div>
         <div className="space-y-2">
           <Label className={lc}>Robots</Label>

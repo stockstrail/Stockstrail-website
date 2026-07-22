@@ -86,9 +86,9 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'FinancialService'],
     name: 'Stockstrail',
-    image: 'https://stockstrail.in/stockstrail.png',
-    '@id': 'https://stockstrail.in',
-    url: 'https://stockstrail.in',
+    image: 'https://www.stockstrail.in/stockstrail.png',
+    '@id': 'https://www.stockstrail.in',
+    url: 'https://www.stockstrail.in',
     telephone: '+919736304663',
     email: 'connect@stockstrail.in',
     address: {

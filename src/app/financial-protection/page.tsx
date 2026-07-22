@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'Complete Financial Protection & Tax Filing Services by Stockstrail - Motor Insurance, Travel Insurance, ULIPs & More',
     description:
       'Comprehensive financial and protection services including Motor Insurance, Travel Insurance, ULIPs, Guaranteed Plans, and Tax Filing.',
-    url: 'https://stockstrail.in/financial-protection',
+    url: 'https://www.stockstrail.in/financial-protection',
     type: 'website',
   },
   twitter: {

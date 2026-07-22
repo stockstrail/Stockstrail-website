@@ -21,7 +21,7 @@ const SEO = ({
   type = "website",
   structuredData,
 }: SEOProps) => {
-  const siteUrl = "https://stockstrail.in";
+  const siteUrl = "https://www.stockstrail.in";
 
   // Resolve full URL
   const fullUrl =

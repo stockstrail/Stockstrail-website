@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "Open Demat Account - Start Stock Market Investing | Stockstrail",
     description:
       "Open a free Demat account and start investing in stocks, IPOs, and mutual funds. Zero charges, quick KYC, expert support.",
-    url: "https://stockstrail.in/open-demat",
+    url: "https://www.stockstrail.in/open-demat",
     type: "website",
     locale: "en_IN",
     images: ["/stockstrail.png"],
