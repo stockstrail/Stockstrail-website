@@ -1,0 +1,53 @@
+# Stockstrail
+
+> Stockstrail is an India-focused financial services platform helping individuals and families make informed financial decisions through clear, accessible, and goal-oriented financial guidance.
+
+## About Stockstrail
+
+Stockstrail provides financial services and educational resources designed to simplify personal finance and long-term financial planning.
+
+The platform covers areas including mutual funds, SIPs, insurance, loans, fixed deposits, financial planning, and investment-related tools and calculators.
+
+Stockstrail aims to make financial planning simple, transparent, and approachable for individuals and families across India.
+
+## Core Services
+
+- Mutual Funds and SIPs
+- Insurance
+- Loans
+- Fixed Deposits
+- Financial Planning
+- Investment and Financial Calculators
+- Risk Profiling
+- Financial Education
+
+## Important Pages
+
+- Homepage: https://www.stockstrail.in/
+- About: https://www.stockstrail.in/about
+- Services: https://www.stockstrail.in/services
+- Calculators: https://www.stockstrail.in/calculators
+- Contact: https://www.stockstrail.in/contact
+
+## Geographic Focus
+
+Stockstrail serves clients across India, with a focus on providing accessible financial guidance and services to individuals and families.
+
+## Content Topics
+
+Stockstrail publishes information and resources related to:
+
+- Personal finance
+- Mutual funds
+- Systematic Investment Plans (SIPs)
+- Insurance
+- Financial planning
+- Investment education
+- Loans
+- Fixed deposits
+- Risk assessment
+- Financial calculators
+
+## Official Website
+
+https://www.stockstrail.in/
