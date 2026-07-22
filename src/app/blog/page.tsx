@@ -14,7 +14,29 @@ export const metadata: Metadata = {
   keywords: 'Financial Blog, Stockstrail Blog, Investment Strategies, Mutual Funds Info',
   alternates: {
     canonical: 'https://www.stockstrail.in/blog',
-  }
+  },
+  openGraph: {
+    title: 'Financial Insights & Investment Strategies Blog | Stockstrail',
+    description: 'Read the latest articles on financial planning, mutual funds, and wealth creation from the certified experts at Stockstrail.',
+    url: 'https://www.stockstrail.in/blog',
+    siteName: 'Stockstrail',
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: '/og-stockstrail.png',
+        width: 1100,
+        height: 630,
+        alt: 'Stockstrail Blog',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Financial Insights & Investment Strategies Blog | Stockstrail',
+    description: 'Read the latest articles on financial planning, mutual funds, and wealth creation.',
+    images: ['/og-stockstrail.png'],
+  },
 };
 
 export default async function BlogPage() {

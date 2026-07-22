@@ -23,7 +23,7 @@ export const metadata: Metadata = {
       "Learn about mutual funds, how they work, and why they're ideal for wealth creation.",
   },
   alternates: {
-    canonical: '/mutual-funds',
+    canonical: 'https://www.stockstrail.in/mutual-funds',
   },
 
 };

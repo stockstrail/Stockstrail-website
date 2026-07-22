@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   keywords:
     'motor insurance, travel insurance, ULIPs, guaranteed return plans, mutual funds, loans, FD, risk profile, demat account, tax filing, KFintech, Stockstrail',
   alternates: {
-    canonical: '/financial-protection',
+    canonical: 'https://www.stockstrail.in/financial-protection',
   },
   openGraph: {
     title: 'Complete Financial Protection & Tax Filing Services by Stockstrail - Motor Insurance, Travel Insurance, ULIPs & More',

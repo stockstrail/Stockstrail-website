@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   keywords:
     "demat account, open demat, stock trading, share market, IPO, equity investment, stockstrail, online trading",
   alternates: {
-    canonical: "/open-demat",
+    canonical: "https://www.stockstrail.in/open-demat",
   },
   openGraph: {
     title: "Open Demat Account - Start Stock Market Investing | Stockstrail",

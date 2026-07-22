@@ -10,13 +10,14 @@ export const metadata: Metadata = {
   keywords:
     "term insurance, health insurance, life cover, family protection, Stockstrail insurance",
   alternates: {
-    canonical: '/insurance',
+    canonical: 'https://www.stockstrail.in/insurance',
   },
   openGraph: {
     title: "Insurance - Term & Health Plans | Stockstrail",
     description:
       "Secure your family’s future with Term & Health Insurance. Compare plans and get guidance from Stockstrail.",
-    url: "https://stockstrail.com/insurance",
+    url: "https://www.stockstrail.in/insurance",
+    siteName: "Stockstrail",
     locale: "en_IN",
     type: "website",
     images: ["/stockstrail.png"],

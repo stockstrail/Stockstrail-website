@@ -10,13 +10,14 @@ export const metadata: Metadata = {
   keywords:
     "loan against mutual funds, LAMF, business loan, home loan, personal loan, Stockstrail loans",
   alternates: {
-    canonical: '/loan',
+    canonical: 'https://www.stockstrail.in/loan',
   },
   openGraph: {
     title: "Loans - LAMF, Business & Home Loans | Stockstrail",
     description:
       "Access funds without selling investments. Explore LAMF, business loans & home loans with expert assistance.",
-    url: "https://stockstrail.com/loan",
+    url: "https://www.stockstrail.in/loan",
+    siteName: "Stockstrail",
     locale: "en_IN",
     type: "website",
     images: ["/stockstrail.png"],

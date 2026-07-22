@@ -127,37 +127,165 @@ export function SiteHeader() {
 }
 
 export function SiteFooter() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="mt-24 border-t border-[color:var(--color-brand-border)] bg-[#001c1c]/40">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 py-14 grid gap-10 md:grid-cols-4">
-        <div className="md:col-span-2">
-          <LearnLogo />
-          <p className="mt-4 max-w-md text-sm text-white/70 leading-relaxed">
-            A premium financial education hub by Stockstrail. Structured courses on investing, personal finance and wealth
-            creation — built for Indian investors.
-          </p>
+    <footer className="relative mt-24 overflow-hidden">
+      {/* Gradient top border */}
+      <div className="h-px bg-gradient-to-r from-transparent via-[#00D873] to-transparent" />
+
+      {/* Subtle glow behind footer */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#00D873]/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="relative bg-[#001c1c]/60 backdrop-blur-sm">
+        {/* CTA Banner */}
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 pt-14 pb-10">
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] p-8 sm:p-10 group hover:border-[#00D873]/30 transition-colors duration-500">
+            {/* Shimmer effect */}
+            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/[0.04] to-transparent pointer-events-none" />
+            <div className="relative flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-product-sans)" }}>
+                  Ready to master your finances?
+                </h3>
+                <p className="text-white/60 text-sm sm:text-base max-w-md">
+                  Explore free, structured courses on investing, personal finance, and wealth creation — built for Indian investors.
+                </p>
+              </div>
+              <Link
+                href="/learning/courses"
+                className="shrink-0 inline-flex items-center gap-3 px-7 py-3.5 bg-[#00D873] text-[#012928] rounded-full font-semibold hover:shadow-[0_0_24px_rgba(0,216,115,0.35)] hover:scale-105 transition-all duration-300"
+              >
+                Browse Courses
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-0.5"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </Link>
+            </div>
+          </div>
         </div>
-        <div>
-          <h4 className="text-white text-sm font-semibold mb-3">Learn</h4>
-          <ul className="space-y-2 text-sm text-white/70">
-            <li><Link href="/learning/courses" className="hover:text-[color:var(--color-brand-green)]">All Courses</Link></li>
-            <li><Link href="/learning/categories" className="hover:text-[color:var(--color-brand-green)]">Categories</Link></li>
-            <li><Link href="/learning/about" className="hover:text-[color:var(--color-brand-green)]">About</Link></li>
-          </ul>
+
+        {/* Main grid */}
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 pb-12 grid gap-10 sm:gap-12 md:grid-cols-2 lg:grid-cols-4">
+          {/* Brand */}
+          <div className="lg:col-span-1">
+            <LearnLogo />
+            <p className="mt-5 text-sm text-white/55 leading-relaxed max-w-xs">
+              A premium financial education hub by Stockstrail. Structured courses on investing, personal finance, and wealth creation — built for Indian investors.
+            </p>
+            {/* Social icons */}
+            <div className="flex items-center gap-4 mt-6">
+              {[
+                { label: "Facebook", href: "https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/", icon: <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/> },
+                { label: "LinkedIn", href: "https://www.linkedin.com/company/stockstrail/", icon: <><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></> },
+                { label: "Instagram", href: "https://instagram.com/stockstrail/", icon: <><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></> },
+                { label: "Telegram", href: "https://t.me/stockstrail", icon: <path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/> },
+              ].map(({ label, href, icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-white/50 hover:text-[#00D873] hover:border-[#00D873]/40 hover:bg-[#00D873]/10 hover:scale-110 transition-all duration-300"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{icon}</svg>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Learn links */}
+          <div>
+            <h4 className="text-xs uppercase tracking-[0.2em] text-[#00D873]/80 font-semibold mb-5">Learn</h4>
+            <ul className="space-y-3">
+              {[
+                { label: "All Courses", href: "/learning/courses" },
+                { label: "Categories", href: "/learning/categories" },
+                { label: "About Learning", href: "/learning/about" },
+              ].map(({ label, href }) => (
+                <li key={href}>
+                  <Link href={href} className="group flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors duration-300">
+                    <span className="w-1 h-1 rounded-full bg-white/20 group-hover:bg-[#00D873] group-hover:shadow-[0_0_6px_rgba(0,216,115,0.5)] transition-all duration-300" />
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Stockstrail links */}
+          <div>
+            <h4 className="text-xs uppercase tracking-[0.2em] text-[#00D873]/80 font-semibold mb-5">Stockstrail</h4>
+            <ul className="space-y-3">
+              {[
+                { label: "Main Website", href: "https://www.stockstrail.in" },
+                { label: "Services", href: "https://www.stockstrail.in/services" },
+                { label: "Mutual Funds", href: "https://www.stockstrail.in/mutual-funds" },
+                { label: "Let's Talk", href: "https://www.stockstrail.in/lets-talk" },
+                { label: "Contact", href: "https://www.stockstrail.in/contact" },
+              ].map(({ label, href }) => (
+                <li key={href}>
+                  <Link href={href} className="group flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors duration-300">
+                    <span className="w-1 h-1 rounded-full bg-white/20 group-hover:bg-[#00D873] group-hover:shadow-[0_0_6px_rgba(0,216,115,0.5)] transition-all duration-300" />
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-xs uppercase tracking-[0.2em] text-[#00D873]/80 font-semibold mb-5">Get in Touch</h4>
+            <div className="space-y-4">
+              <a href="tel:+919736304663" className="group flex items-center gap-3 text-sm text-white/60 hover:text-white transition-colors duration-300">
+                <span className="w-8 h-8 rounded-lg border border-white/10 flex items-center justify-center group-hover:border-[#00D873]/40 group-hover:bg-[#00D873]/10 transition-all duration-300 shrink-0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/40 group-hover:text-[#00D873] transition-colors"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3.09 5.18 2 2 0 0 1 5.08 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.91 11a16 16 0 0 0 6 6l1.36-1.36a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
+                +91 97363-04663
+              </a>
+              <a href="mailto:connect@stockstrail.in" className="group flex items-center gap-3 text-sm text-white/60 hover:text-white transition-colors duration-300">
+                <span className="w-8 h-8 rounded-lg border border-white/10 flex items-center justify-center group-hover:border-[#00D873]/40 group-hover:bg-[#00D873]/10 transition-all duration-300 shrink-0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/40 group-hover:text-[#00D873] transition-colors"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </span>
+                connect@stockstrail.in
+              </a>
+              <div className="group flex items-start gap-3 text-sm text-white/60">
+                <span className="w-8 h-8 rounded-lg border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/40"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <span className="leading-relaxed">
+                  Near Punjab And Sind Bank,<br />
+                  V.P.O. Chintpurni, Teh: Amb,<br />
+                  Una, Himachal Pradesh 177110
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <h4 className="text-white text-sm font-semibold mb-3">Stockstrail</h4>
-          <ul className="space-y-2 text-sm text-white/70">
-            <li><Link href="https://www.stockstrail.in" className="hover:text-[color:var(--color-brand-green)]">Main site</Link></li>
-            <li><Link href="https://www.stockstrail.in/services" className="hover:text-[color:var(--color-brand-green)]">Services</Link></li>
-            <li><Link href="https://www.stockstrail.in/contact" className="hover:text-[color:var(--color-brand-green)]">Contact</Link></li>
-          </ul>
+
+        {/* Trust badges */}
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 pb-8">
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {["AMFI Registered", "SEBI Certified", "NISM V-A", "200+ Clients"].map((badge) => (
+              <span key={badge} className="px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-wider text-[#00D873]/70 border border-[#00D873]/15 rounded-full bg-[#00D873]/[0.04]">
+                {badge}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="border-t border-[color:var(--color-brand-border)]">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 py-6 text-xs text-white/50 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p>© {new Date().getFullYear()} Stockstrail Learning. Educational content only — not investment advice.</p>
-          <p>Made with care in India.</p>
+
+        {/* Bottom bar */}
+        <div className="border-t border-white/[0.06]">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p className="text-xs text-white/35">
+              © {currentYear} Stockstrail Learning. Educational content only — not investment advice.
+            </p>
+            <div className="flex items-center gap-1.5 text-xs text-white/35">
+              <span>Made with</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#00D873" className="opacity-60"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>in India</span>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
