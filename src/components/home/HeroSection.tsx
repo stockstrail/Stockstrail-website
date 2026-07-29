@@ -80,7 +80,7 @@ const HeroSection = () => {
         <div className="lg:mb-20 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="/services"
-            aria-label="Explore Our Services"
+            aria-label="Explore Our Financial Services"
             className="
               inline-flex
               items-center
@@ -100,7 +100,7 @@ const HeroSection = () => {
             "
           >
             <div className="w-2 h-2 sm:w-3 sm:h-3 bg-stockstrail-green-accent rounded-full" />
-            Explore Our Services
+            Explore Our Financial Services
           </a>
           <a
             href="/check-risk-profile"
