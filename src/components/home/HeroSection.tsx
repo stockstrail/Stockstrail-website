@@ -47,11 +47,12 @@ const HeroSection = () => {
             drop-shadow-md
           "
         >
-          Your financial goals deserve
-          more than one-size-fits-all advice.
+         Your financial goals deserve
+         more than one-size-fits-all advice.
 
-         Stockstrail creates financial plans
-         based on your goals and risk profile.
+         Stockstrail builds financial plans
+         around your goals and risk profile,
+         so every recommendation fits your needs.
         </p>
 
         {/* Subheading */}
