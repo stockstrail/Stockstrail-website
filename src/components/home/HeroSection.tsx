@@ -58,13 +58,13 @@ const HeroSection = () => {
         {/* Subheading */}
         <h2
           className="
-            text-3xl sm:text-4xl lg:text-5xl
-            font-normal
+            text-xl sm:text-2xl lg:text-3xl
+            font-medium
             mb-8
           "
         >
-          <span className="gradient-text inline-block drop-shadow-md bg-white/10 px-4 rounded-xl">
-            Build Wealth • Protect Your Family • Achieve Your Financial Goals
+          <span className="gradient-text inline-block drop-shadow-md bg-white/10 px-3 py-2 rounded-lg">
+            Goal-Based Planning • Smart Investing • Long-Term Wealth
           </span>
         </h2>
 
