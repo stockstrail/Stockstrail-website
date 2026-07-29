@@ -47,10 +47,11 @@ const HeroSection = () => {
             drop-shadow-md
           "
         >
-          Stockstrail helps you make confident
-          financial decisions with a plan
-          built around your goals
-          and risk profile.
+          Your financial goals deserve
+          more than one-size-fits-all advice.
+
+         Stockstrail creates financial plans
+         based on your goals and risk profile.
         </p>
 
         {/* Subheading */}
