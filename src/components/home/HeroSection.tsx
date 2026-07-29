@@ -29,9 +29,9 @@ const HeroSection = () => {
             text-white
           "
         >
-          Personalized Financial Planning to Build 
+          Personalized  
           <br />
-          Wealth and Protect Your Future
+         Financial Planning
         </h1>
 
         {/* LCP paragraph — MUST be plain, fast, and paintable */}
@@ -47,12 +47,20 @@ const HeroSection = () => {
             drop-shadow-md
           "
         >
-         Your financial goals deserve
-         more than one-size-fits-all advice.
+       Every financial journey is unique,
+       and your financial plan should be too.
 
-         Stockstrail builds financial plans
-         around your goals and risk profile,
-         so every recommendation fits your needs.
+       At Stockstrail, we take the time to
+       understand your goals, risk profile,
+       and financial priorities before
+       recommending any solution. Whether
+       you're building wealth, planning for
+       retirement, saving for your child's
+       future, or protecting your family,
+       every recommendation is tailored to
+       help you invest with confidence, build
+       long-term wealth, and achieve your
+       financial goals.
         </p>
 
         {/* Subheading */}
