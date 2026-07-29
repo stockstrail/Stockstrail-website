@@ -47,10 +47,10 @@ const HeroSection = () => {
             drop-shadow-md
           "
         >
-          Whether you're investing for the first time, growing your wealth through mutual funds, protecting your 
-          family with insurance, planning for retirement, or working towards life's financial goals. 
-          Stockstrail provides personalized financial planning, expert mutual fund guidance, insurance solutions, and practical
-          support to help you make informed financial decisions with confidence at every stage of your financial journey.
+          Stockstrail helps you make confident
+          financial decisions with a plan
+          built around your goals
+          and risk profile.
         </p>
 
         {/* Subheading */}
