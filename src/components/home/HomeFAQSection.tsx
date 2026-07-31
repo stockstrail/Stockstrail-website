@@ -8,9 +8,19 @@ import {
 
 const faqs = [
   {
-    question: 'What is Stockstrail?',
-    answer: 'Stockstrail is an AMFI-registered and SEBI-certified financial advisory firm based in India, offering Financial Planning, Mutual Funds, Fixed Deposits (FD), Insurance, Loans, Demat Account opening, and Risk Profile Assessment. Founded by Vikrant Bhardwaj, Stockstrail serves 200+ clients across Himachal Pradesh and North India with honest, jargon-free, personalised financial guidance.',
-  },
+    {
+  question: "How much should I invest every month?",
+
+  answer: `One of the biggest misconceptions is that there's a "perfect" investment amount. In reality, the right amount depends on your income, monthly expenses, financial goals, existing financial commitments, and how long you plan to stay invested.
+
+For example, someone earning ₹35,000 a month doesn't need to invest the same amount as someone earning ₹1,50,000. What's more important is building the habit of investing consistently rather than waiting until you can invest a large amount.
+
+A good starting point is to save and invest around 15–30% of your monthly income. But if that isn't possible right now, don't worry. Even a SIP of just ₹500 per month can be a great way to begin your investment journey. It may seem like a small amount today, but investing consistently and giving your money enough time to grow can make a meaningful difference through the power of compounding.
+
+Before deciding how much to invest, make sure you have an emergency fund in place and avoid investing money that you may need in the next few months. Investing should support your financial goals—not create financial stress.
+
+At Stockstrail, we don't believe in recommending the same investment amount to everyone. We first understand your financial goals, risk profile, existing commitments, and investment horizon before suggesting a personalised investment plan that's right for you.`
+}
   {
     question: 'What services does Stockstrail offer?',
     answer: 'Stockstrail offers six core financial services: (1) Mutual Funds – SIP planning and goal-based investing; (2) Fixed Deposits (FD) – guaranteed returns with flexible tenures; (3) Insurance – life, health, motor, travel, and ULIP plans; (4) Loans – home loans, business loans, personal loans, and loans against mutual funds; (5) Open Demat Account – 100% digital stock market entry; and (6) Check Risk Profile – personalised investment suitability assessment.',
