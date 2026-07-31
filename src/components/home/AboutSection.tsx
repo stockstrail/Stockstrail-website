@@ -22,19 +22,45 @@ const AboutSection = () => {
                 </div>
 
                 <div className="animate-slide-in-from-top" style={{ animationDelay: '200ms' }}>
-                    <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed max-w-[90%] mx-auto mb-12 group-hover:text-stockstrail-green-light transition-colors duration-500">
-                        Financial planning shouldn't be complicated, confusing, or reserved only for people with large amounts of money. Every earning individual deserves access to honest financial guidance that's easy to understand and built around their unique financial goals.
-                        
+                 <div className="max-w-5xl mx-auto mb-12">
+                     <h3 className="text-stockstrail-green-light text-xl sm:text-2xl font-semibold mb-4">
+                         Financial planning shouldn't be complicated.
+                     </h3>
+
+                     <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed">
+                         Financial planning shouldn't be confusing or reserved only for people with large amounts of money. Every earning individual deserves honest financial guidance that's easy to understand and built around their unique financial goals.
+                     </p>
+
+                     <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed mt-6">
                         That's why Stockstrail exists.
-                    </p>
+                     </p>
+                 </div>
                 </div>
 
                 <div className="animate-slide-in-from-top" style={{ animationDelay: '400ms' }}>
-                    <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed max-w-[90%] mx-auto group-hover:text-stockstrail-green-light transition-colors duration-500">
-                        Stockstrail is an AMFI Registered Mutual Fund Distributor dedicated to helping individuals and families make informed financial decisions through personalised financial planning. Instead of recommending products first, we begin by understanding your financial goals, investment horizon, risk profile, existing financial commitments, and life priorities before suggesting suitable investment solutions.
-                        Whether you're starting your first SIP, building long-term wealth, planning for your child's education, preparing for retirement, or looking to protect your family's future, every recommendation is made with one objective—to help you make confident financial decisions that support your long-term goals.
-                        We believe successful investing isn't about chasing the highest returns or following market trends. It's about having the right financial plan, staying disciplined, and making informed decisions at every stage of your financial journey. That's the approach we follow with every investor we work with.
-                    </p> 
+                    <div className="max-w-5xl mx-auto">
+
+                        <h3 className="text-stockstrail-green-light text-xl sm:text-2xl font-semibold mb-4">
+                            Our approach is simple.
+                        </h3>
+
+                        <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed">
+                           At Stockstrail, we don't recommend products first. We begin by understanding your financial goals, investment horizon, risk profile, existing financial commitments, and life priorities before recommending solutions that genuinely fit your needs.
+                        </p>
+
+                        <h3 className="text-stockstrail-green-light text-xl sm:text-2xl font-semibold mt-10 mb-4">
+                            Helping you make better financial decisions.
+                        </h3>
+
+                        <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed">
+                           Whether you're starting your first SIP, building long-term wealth, planning for your child's education, preparing for retirement, or protecting your family's future, every recommendation is designed to help you make confident financial decisions.
+                        </p>
+
+                        <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed mt-6">
+                           We believe successful investing isn't about chasing the highest returns. It's about having the right financial plan, staying disciplined, and staying invested for the long term.
+                        </p>
+
+                    </div>
                 </div>
 
                 <div className="mt-16">
