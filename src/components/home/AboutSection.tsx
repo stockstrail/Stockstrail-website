@@ -22,7 +22,7 @@ const AboutSection = () => {
                 </div>
 
                 <div className="animate-slide-in-from-top" style={{ animationDelay: '200ms' }}>
-                 <div className="max-w-5xl mx-auto mb-10">
+                 <div className="max-w-4xl mx-auto mb-10">
                      <h3 className="text-stockstrail-green-light text-lG sm:text-xl font-semibold mb-3">
                          Financial planning shouldn't be complicated.
                      </h3>
@@ -32,13 +32,13 @@ const AboutSection = () => {
                      </p>
 
                      <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed mt-6">
-                        That's why Stockstrail exists.
+                        That's the purpose behind Stockstrail.
                      </p>
                  </div>
                 </div>
 
                 <div className="animate-slide-in-from-top" style={{ animationDelay: '400ms' }}>
-                    <div className="max-w-5xl mx-auto">
+                    <div className="max-w-4xl mx-auto">
 
                         <h3 className="text-stockstrail-green-light text-xl sm:text-2xl font-semibold mb-4">
                             Our approach is simple.
