@@ -23,14 +23,17 @@ const AboutSection = () => {
 
                 <div className="animate-slide-in-from-top" style={{ animationDelay: '200ms' }}>
                     <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed max-w-[90%] mx-auto mb-12 group-hover:text-stockstrail-green-light transition-colors duration-500">
-                        Financial planning & investment guidance is not a luxury reserved for the rich - it is a necessity for every earning individual in India. At Stockstrail, we believe that every person, regardless of their background or income level, deserves a clear, honest, and personalised financial roadmap. Whether you are a young professional in Shimla, a business owner in Chandigarh, or a salaried employee in Delhi - your financial goals matter, and so does the quality of guidance you receive.
+                        Financial planning shouldn't be complicated, confusing, or reserved only for people with large amounts of money. Every earning individual deserves access to honest financial guidance that's easy to understand and built around their unique financial goals.
+                        
+                        That's why Stockstrail exists.
                     </p>
                 </div>
 
                 <div className="animate-slide-in-from-top" style={{ animationDelay: '400ms' }}>
                     <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed max-w-[90%] mx-auto group-hover:text-stockstrail-green-light transition-colors duration-500">
-                        Most people do not start investing because they lack money. They stay away because nobody has ever explained it to them in simple, human language. The financial world is full of jargon, commission-driven advice, and one-size-fits-all products that rarely fit anyone's actual life. Stockstrail was built to fix exactly this problem. We offer financial planning & investment guidance that starts with listening - to your goals, your concerns, your timeline, and your life situation - before recommending anything at all.
-                    </p>
+                        Stockstrail is an AMFI Registered Mutual Fund Distributor dedicated to helping individuals and families make informed financial decisions through personalised financial planning. Instead of recommending products first, we begin by understanding your financial goals, investment horizon, risk profile, existing financial commitments, and life priorities before suggesting suitable investment solutions.
+                        Whether you're starting your first SIP, building long-term wealth, planning for your child's education, preparing for retirement, or looking to protect your family's future, every recommendation is made with one objective—to help you make confident financial decisions that support your long-term goals.
+                        We believe successful investing isn't about chasing the highest returns or following market trends. It's about having the right financial plan, staying disciplined, and making informed decisions at every stage of your financial journey. That's the approach we follow with every investor we work with.
                 </div>
 
                 <div className="mt-16">
