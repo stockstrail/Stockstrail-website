@@ -56,9 +56,12 @@ const AboutSection = () => {
                            Whether you're starting your first SIP, building long-term wealth, planning for your child's education, preparing for retirement, or protecting your family's future, every recommendation is designed to help you make confident financial decisions.
                         </p>
 
-                        <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-9 mt-6">
+                        <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed mt-6">
                            We believe successful investing isn't about chasing the highest returns. It's about having the right financial plan, staying disciplined, and staying invested for the long term.
                         </p>
+
+                        <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed mt-6">
+                           Today, Stockstrail proudly serves 200+ investors across Himachal Pradesh and clients throughout India, helping individuals and families build wealth through disciplined financial planning, mutual funds, insurance, fixed deposits, and goal-based investment strategies.
 
                     </div>
                 </div>
