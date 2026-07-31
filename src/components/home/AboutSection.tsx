@@ -4,7 +4,7 @@ import React from 'react';
 
 const AboutSection = () => {
     return (
-        <section className="pt-12 sm:pt-24 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 relative">
+        <section className="pt-20 sm:pt-28 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 relative">
             {/* Enhanced background effects */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute top-20 left-20 w-4 h-4 bg-stockstrail-green-light/20 rounded-full"></div>
@@ -27,11 +27,11 @@ const AboutSection = () => {
                          Financial planning shouldn't be complicated.
                      </h3>
 
-                     <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed">
+                     <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-9">
                          Financial planning shouldn't be confusing or reserved only for people with large amounts of money. Every earning individual deserves honest financial guidance that's easy to understand and built around their unique financial goals.
                      </p>
 
-                     <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed mt-6">
+                     <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-9 mt-6">
                         That's the purpose behind Stockstrail.
                      </p>
                  </div>
@@ -44,19 +44,19 @@ const AboutSection = () => {
                             Our approach is simple.
                         </h3>
 
-                        <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed">
+                        <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-9">
                            At Stockstrail, we don't recommend products first. We begin by understanding your financial goals, investment horizon, risk profile, existing financial commitments, and life priorities before recommending solutions that genuinely fit your needs.
                         </p>
 
                         <h3 className="text-stockstrail-green-light text-xl sm:text-2xl font-semibold mt-10 mb-4">
-                            Building long-term financial confidence.
+                            Helping you build long-term financial confidence.
                         </h3>
 
-                        <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed">
+                        <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-9">
                            Whether you're starting your first SIP, building long-term wealth, planning for your child's education, preparing for retirement, or protecting your family's future, every recommendation is designed to help you make confident financial decisions.
                         </p>
 
-                        <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed mt-6">
+                        <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-9 mt-6">
                            We believe successful investing isn't about chasing the highest returns. It's about having the right financial plan, staying disciplined, and staying invested for the long term.
                         </p>
 
