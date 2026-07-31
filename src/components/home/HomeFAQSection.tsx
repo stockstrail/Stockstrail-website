@@ -9,9 +9,12 @@ import {
 const faqs = [
   {
     {
- question: 'What is Stockstrail?', answer: 'Stockstrail is an AMFI-registered and SEBI-certified financial advisory firm based in India, offering Financial Planning, Mutual Funds, Fixed Deposits (FD), Insurance, Loans, Demat Account opening, and Risk Profile Assessment. Founded by Vikrant Bhardwaj, Stockstrail serves 200+ clients across Himachal Pradesh and North India with honest, jargon-free, personalised financial guidance.',
-    question: 'What services does Stockstrail offer?',
-    answer: 'Stockstrail offers six core financial services: (1) Mutual Funds – SIP planning and goal-based investing; (2) Fixed Deposits (FD) – guaranteed returns with flexible tenures; (3) Insurance – life, health, motor, travel, and ULIP plans; (4) Loans – home loans, business loans, personal loans, and loans against mutual funds; (5) Open Demat Account – 100% digital stock market entry; and (6) Check Risk Profile – personalised investment suitability assessment.',
+    question: 'What is Stockstrail?', 
+    answer: 'Stockstrail is an AMFI-registered and SEBI-certified financial advisory firm based in India, offering Financial Planning, Mutual Funds, Fixed Deposits (FD), Insurance, Loans, Demat Account opening, and Risk Profile Assessment. Founded by Vikrant Bhardwaj, Stockstrail serves 200+ clients across Himachal Pradesh and North India with honest, jargon-free, personalised financial guidance.',
+  },
+  {
+       question: 'What services does Stockstrail offer?',
+      answer: 'Stockstrail offers six core financial services: (1) Mutual Funds – SIP planning and goal-based investing; (2) Fixed Deposits (FD) – guaranteed returns with flexible tenures; (3) Insurance – life, health, motor, travel, and ULIP plans; (4) Loans – home loans, business loans, personal loans, and loans against mutual funds; (5) Open Demat Account – 100% digital stock market entry; and (6) Check Risk Profile – personalised investment suitability assessment.',
   },
   {
     question: 'Is Stockstrail certified and regulated?',
