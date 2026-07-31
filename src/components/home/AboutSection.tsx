@@ -4,7 +4,7 @@ import React from 'react';
 
 const AboutSection = () => {
     return (
-        <section className="py-4 sm:py-20 px-4 sm:px-6 lg:px-8 relative">
+        <section className="pt-12 sm:pt-24 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 relative">
             {/* Enhanced background effects */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute top-20 left-20 w-4 h-4 bg-stockstrail-green-light/20 rounded-full"></div>
@@ -22,8 +22,8 @@ const AboutSection = () => {
                 </div>
 
                 <div className="animate-slide-in-from-top" style={{ animationDelay: '200ms' }}>
-                 <div className="max-w-5xl mx-auto mb-12">
-                     <h3 className="text-stockstrail-green-light text-xl sm:text-2xl font-semibold mb-4">
+                 <div className="max-w-5xl mx-auto mb-10">
+                     <h3 className="text-stockstrail-green-light text-lG sm:text-xl font-semibold mb-3">
                          Financial planning shouldn't be complicated.
                      </h3>
 
@@ -49,7 +49,7 @@ const AboutSection = () => {
                         </p>
 
                         <h3 className="text-stockstrail-green-light text-xl sm:text-2xl font-semibold mt-10 mb-4">
-                            Helping you make better financial decisions.
+                            Building long-term financial confidence.
                         </h3>
 
                         <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed">
