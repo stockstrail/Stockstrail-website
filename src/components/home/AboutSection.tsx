@@ -62,7 +62,7 @@ const AboutSection = () => {
 
                         <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed mt-6">
                            Today, Stockstrail proudly serves 200+ investors across Himachal Pradesh and clients throughout India, helping individuals and families build wealth through disciplined financial planning, mutual funds, insurance, fixed deposits, and goal-based investment strategies.
-
+                        </p>
                     </div>
                 </div>
 
