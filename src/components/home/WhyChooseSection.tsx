@@ -10,21 +10,25 @@ const WhyChooseSectionComponent = () => {
         {
             icon: "/assets/icons/frame-3.svg",
             title: "Goal Planning",
+            description: "Build investments around your financial goals.",
             delay: "0ms",
         },
         {
             icon: "/assets/icons/frame-4.svg",
             title: "Personalised\nGuidance",
+            description: "Advice based on your goals and risk profile.",
             delay: "200ms",
         },
         {
             icon: "/assets/icons/frame-2.svg",
             title: "AMFI\nRegistered",
+            description: "Professional mutual fund distribution you can trust.",
             delay: "400ms",
         },
         {
             icon: "/assets/icons/frame-1.svg",
             title: "Trusted\nGuidance",
+            description: "Honest recommendations with complete transparency.",
             delay: "600ms",
         },
     ];
@@ -62,9 +66,15 @@ const WhyChooseSectionComponent = () => {
                                     src={feature.icon}
                                     width={48}
                                     height={48} />
-                                <div className="font-normal text-white text-sm sm:text-base md:text-lg lg:text-xl text-center tracking-[0] leading-5 sm:leading-6 md:leading-[26px] lg:leading-[30px] whitespace-pre-line transition-all duration-300 group-hover:text-[#00FF97] group-hover:drop-shadow-[0_0_10px_rgba(0,255,151,0.3)]">
-                                    {feature.title}
-                                </div>
+                               <div className="text-center">
+                                   <h3 className="font-medium text-white text-lg md:text-xl leading-7 transition-all duration-300 group-hover:text-[#00FF97]">
+                                       {feature.title}
+                                   </h3>
+
+                                   <p className="text-white/70 text-sm leading-6 mt-3 max-w-[170px] mx-auto">
+                                       {feature.description}
+                                   </p>
+                               </div>
                             </div>
                         </div>
                     ))}
