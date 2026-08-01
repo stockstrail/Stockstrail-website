@@ -8,11 +8,11 @@ import {
 
 const faqs = [
   {
-       question: 'What is Stockstrail?', 
-      answer: 'Stockstrail is an AMFI-registered and SEBI-certified financial advisory firm based in India, offering Financial Planning, Mutual Funds, Fixed Deposits (FD), Insurance, Loans, Demat Account opening, and Risk Profile Assessment. Founded by Vikrant Bhardwaj, Stockstrail serves 200+ clients across Himachal Pradesh and North India with honest, jargon-free, personalised financial guidance.',
+       question: 'How much should I invest every month?',
+       answer: 'There is no fixed amount that everyone should invest. The right monthly investment depends on your income, financial goals, monthly expenses, emergency savings, and risk tolerance. You can start with a SIP of just ₹500 and gradually increase your investment as your income grows. Starting early and investing consistently is usually more important than waiting until you can invest a larger amount. If you are unsure where to begin, Stockstrail can help you choose an investment amount based on your financial goals, investment horizon, and risk profile.',
   },
   {
-       question: 'What services does Stockstrail offer?',
+       question: 'Can I start investing with just ₹500?',
       answer: 'Stockstrail offers six core financial services: (1) Mutual Funds – SIP planning and goal-based investing; (2) Fixed Deposits (FD) – guaranteed returns with flexible tenures; (3) Insurance – life, health, motor, travel, and ULIP plans; (4) Loans – home loans, business loans, personal loans, and loans against mutual funds; (5) Open Demat Account – 100% digital stock market entry; and (6) Check Risk Profile – personalised investment suitability assessment.',
   },
   {
