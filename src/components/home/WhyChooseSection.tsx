@@ -48,6 +48,9 @@ const WhyChooseSectionComponent = () => {
                         <span className="text-white">Why Choose </span>
                         <span className="gradient-text">Stockstrail</span>
                     </h2>
+                    <p className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto mt-5 leading-relaxed">
+                       Financial planning built on trust, transparency and long-term relationships.
+                    </p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
@@ -59,7 +62,7 @@ const WhyChooseSectionComponent = () => {
                                 { "--animation-delay": feature.delay } as React.CSSProperties
                             }
                         >
-                            <div className="flex flex-col items-center justify-center gap-4 md:gap-5 h-full p-6 md:p-8">
+                            <div className="flex flex-col items-center justify-center gap-3 md:gap-4 h-full p-6 md:p-8">
                                 <Image unoptimized={true}
                                     className="w-12 h-12 md:w-16 md:h-16 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(0,255,151,0.5)] brightness-0 invert"
                                     alt="Feature icon"
@@ -71,7 +74,7 @@ const WhyChooseSectionComponent = () => {
                                        {feature.title}
                                    </h3>
 
-                                   <p className="text-white/70 text-sm leading-6 mt-3 max-w-[170px] mx-auto">
+                                   <p className="text-white/80 text-sm leading-6 mt-3 max-w-[170px] mx-auto">
                                        {feature.description}
                                    </p>
                                </div>
