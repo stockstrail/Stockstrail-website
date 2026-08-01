@@ -14,17 +14,17 @@ const WhyChooseSectionComponent = () => {
         },
         {
             icon: "/assets/icons/frame-4.svg",
-            title: "FREE CONSULTATION",
+            title: "PERSONALISED\nGUIDANCE",
             delay: "200ms",
         },
         {
             icon: "/assets/icons/frame-2.svg",
-            title: "BANK LEVEL\nSECURITY",
+            title: "AMFI\nREGISTERED",
             delay: "400ms",
         },
         {
             icon: "/assets/icons/frame-1.svg",
-            title: "SAFE AND\nSECURE",
+            title: "TRANSPARENT\nADVICE",
             delay: "600ms",
         },
     ];
