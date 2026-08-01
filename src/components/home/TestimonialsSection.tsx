@@ -249,12 +249,16 @@ const TestimonialsSectionComponent = () => {
                         <span className="text-white">What Our </span>
                         <span className="gradient-text">Clients Say</span>
                     </h2>
+
+                    <p className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto mt-5 leading-relaxed">
+                        Real experiences from investors who trusted Stockstrail with their financial journey.
+                    </p>
                 </div>
 
                 <div className="relative">
                     {/* Testimonial Card with slide animation & touch support */}
                     <div
-                        className="bg-white/5 backdrop-blur-lg rounded-2xl max-w-2xl mx-auto hover:bg-white/10 hover:scale-105 transition-all duration-500 overflow-hidden select-none outline-none"
+                        className="bg-white/5 backdrop-blur-lg rounded-2xl max-w-3xl mx-auto hover:bg-white/10 hover:scale-105 transition-all duration-500 overflow-hidden select-none outline-none"
                         onTouchStart={e => { dragging.current = true; setDragStartX(e.touches[0].clientX); }}
                         onTouchMove={e => {
                             if (dragging.current && dragStartX !== null) {
@@ -352,16 +356,22 @@ const TestimonialsSectionComponent = () => {
                                                 {renderStars(t?.rating || 0)}
                                             </div>
 
-                                            <blockquote className="text-white text-lg leading-relaxed mb-6">
+                                            <blockquote className="text-white text-xl sm:text-2xl font-light leading-relaxed max-w-2xl mx-auto mb-8">
                                                 &quot;{t?.comment || ''}&quot;
                                             </blockquote>
 
-                                            <div className="text-white/70 text-sm">
-                                                — {t?.name || ''}, {t?.position || ''}
-                                                {t?.company && (
-                                                    <span className="text-white/50"> at {t?.company}</span>
-                                                )}
-                                            </div>
+                                           <div className="mt-6">
+                                               <p className="text-white font-semibold text-lg">
+                                                   {t?.name || ''}
+                                               </p>
+
+                                               <p className="text-white/70 text-sm mt-1">
+                                                   {t?.position || ''}
+                                                   {t?.company && (
+                                                       <span className="text-white/50"> • {t.company}</span>
+                                                   )}
+                                               </p>
+                                           </div>
                                         </div>
                                     </div>
                                 ))}
