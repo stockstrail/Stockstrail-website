@@ -128,7 +128,7 @@ const TestimonialsSectionComponent = () => {
                 stars.push(
                     <svg
                         key={i}
-                        className="w-6 h-6 text-stockstrail-green-light"
+                        className="w-7 h-7 text-stockstrail-green-light"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                     >
@@ -139,7 +139,7 @@ const TestimonialsSectionComponent = () => {
                 stars.push(
                     <svg
                         key={i}
-                        className="w-6 h-6 text-stockstrail-green-light"
+                        className="w-7 h-7 text-stockstrail-green-light"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                     >
@@ -159,7 +159,7 @@ const TestimonialsSectionComponent = () => {
                 stars.push(
                     <svg
                         key={i}
-                        className="w-6 h-6 text-gray-500 opacity-50"
+                        className="w-7 h-7 text-gray-500 opacity-50"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                     >
