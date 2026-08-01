@@ -9,22 +9,22 @@ const WhyChooseSectionComponent = () => {
     const features = [
         {
             icon: "/assets/icons/frame-3.svg",
-            title: "GOAL PLANNING",
+            title: "Goal Planning",
             delay: "0ms",
         },
         {
             icon: "/assets/icons/frame-4.svg",
-            title: "PERSONALISED\nGUIDANCE",
+            title: "Personalised\nGuidance",
             delay: "200ms",
         },
         {
             icon: "/assets/icons/frame-2.svg",
-            title: "AMFI\nREGISTERED",
+            title: "AMFI\nRegistered",
             delay: "400ms",
         },
         {
             icon: "/assets/icons/frame-1.svg",
-            title: "TRANSPARENT\nADVICE",
+            title: "Trusted\nGuidance",
             delay: "600ms",
         },
     ];
