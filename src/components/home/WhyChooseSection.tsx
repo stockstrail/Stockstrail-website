@@ -49,8 +49,7 @@ const WhyChooseSectionComponent = () => {
                         <span className="gradient-text">Stockstrail</span>
                     </h2>
                     <p className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto mt-5 leading-relaxed">
-                       Financial planning built on trust, transparency and long-term relationships.
-                    </p>
+                        Helping you achieve your financial goals with trusted, transparent and personalised guidance.
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
