@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Search, Filter, ArrowUpDown, Eye, Trash2 } from "lucide-react";
+import { Search, Filter, ArrowUpDown, Eye, Trash2, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { RiskAnalysisModal } from "@/components/features/risk-assessment/modals/RiskAnalysisModal";
 import { ResponsesModal } from "@/components/features/risk-assessment/modals/ResponsesModal";
+import { RiskLogicModal } from "@/components/features/risk-assessment/modals/RiskLogicModal";
 import { createClient } from "@/lib/supabase/client";
 import {
   Card,
@@ -80,6 +81,7 @@ export function AdminDashboardContent({
   const [selectedAttempt, setSelectedAttempt] = useState<RiskAttemptWithProfile | null>(null);
   const [analysisModalOpen, setAnalysisModalOpen] = useState(false);
   const [responsesModalOpen, setResponsesModalOpen] = useState(false);
+  const [logicModalOpen, setLogicModalOpen] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
 
   const handleTabChange = (tab: TabType) => {
@@ -262,7 +264,7 @@ export function AdminDashboardContent({
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#072923] via-[#031815] to-[#010d0c] opacity-90" />
           <div className="max-w-7xl mx-auto space-y-8">
             {/* Header */}
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <header className="space-y-2">
                 <h1 className="font-product-sans text-4xl sm:text-5xl font-normal text-white">
                   Risk <span className="gradient-text">Attempts</span>
@@ -271,6 +273,15 @@ export function AdminDashboardContent({
                   Manage and view all user risk profiling attempts
                 </p>
               </header>
+              <Button
+                type="button"
+                onClick={() => setLogicModalOpen(true)}
+                className="bg-stockstrail-green-light/10 border border-stockstrail-green-light/40 text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-[#031815] font-semibold rounded-xl px-5 py-2.5 flex items-center gap-2 transition-all shadow-[0_0_20px_rgba(0,255,151,0.15)] shrink-0"
+              >
+                <HelpCircle className="w-4 h-4" />
+                Analysis Logic
+              </Button>
+            </div>
 
               {/* Filters */}
               <Card className="bg-white/5 border-white/10 w-full">
@@ -365,7 +376,6 @@ export function AdminDashboardContent({
                   </div>
                 </CardContent>
               </Card>
-            </div>
 
             {/* Results */}
             <Card className="bg-white/5 border-white/10">
@@ -553,6 +563,10 @@ export function AdminDashboardContent({
                 />
               </>
             )}
+            <RiskLogicModal
+              open={logicModalOpen}
+              onOpenChange={setLogicModalOpen}
+            />
           </div>
         </section>
       )}
