@@ -373,7 +373,7 @@ export default async function HomePage() {
             Why financial literacy is India&apos;s biggest investment opportunity
           </h2>
         </div>
-        <div className="space-y-5 text-sm text-white/65 leading-[1.9]">
+        <div className="space-y-6 text-base sm:text-lg text-white/75 leading-[1.85]">
           <p>
             India has one of the world&apos;s youngest and fastest-growing middle classes, yet financial literacy remains critically low. According to SEBI&apos;s own investor surveys, a majority of retail participants cannot correctly explain the difference between a <strong>debt fund</strong> and an <strong>equity fund</strong>, let alone compare expense ratios across Direct and Regular plans. This knowledge gap costs Indian households hundreds of thousands of crores in sub-optimal returns every year.
           </p>
