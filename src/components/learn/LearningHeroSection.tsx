@@ -20,10 +20,10 @@ export function LearningHeroSection() {
       {/* Subtle grid lines background */}
       <div
         aria-hidden
-        className="absolute inset-0 opacity-[0.015] pointer-events-none"
+        className="absolute inset-0 opacity-[0.035] pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
+            "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
           backgroundSize: "64px 64px",
           maskImage: "radial-gradient(ellipse at center, black 40%, transparent 80%)",
         }}
@@ -165,40 +165,40 @@ export function LearningHeroSection() {
           {/* RIGHT COLUMN: INTERACTIVE FINANCIAL DASHBOARD SHOWCASE (60% width) */}
           <div className="md:col-span-7 relative animate-fade-up" style={{ animationDelay: "0.1s" }}>
             
-            {/* Outer Glassmorphic Card Frame */}
-            <div className="relative bg-[#021716]/90 border border-emerald-500/25 backdrop-blur-xl rounded-2xl p-4 sm:p-5 shadow-[0_0_40px_rgba(0,0,0,0.8)] overflow-hidden">
+            {/* Outer Glassmorphic Card Frame (Tilted clockwise) */}
+            <div className="relative bg-[#021716]/90 border border-emerald-500/25 backdrop-blur-xl rounded-2xl p-5 sm:p-6 pb-16 sm:pb-16 shadow-[0_0_45px_rgba(0,0,0,0.85)] rotate-[2.5deg] hover:rotate-1 transition-transform duration-500 origin-center">
               
               {/* Internal Subtle Ambient Glow */}
-              <div className="absolute -top-16 -right-16 w-48 h-48 bg-[color:var(--color-brand-green)]/15 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -top-16 -right-16 w-56 h-56 bg-[color:var(--color-brand-green)]/15 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
 
               {/* 2x2 GRID OF DASHBOARD WIDGETS */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 relative z-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 relative z-10">
                 
                 {/* WIDGET 1: GOAL PROGRESS */}
-                <div className="bg-[#04201E]/90 border border-white/10 rounded-xl p-3 shadow-md space-y-2 hover:border-emerald-500/30 transition-all">
+                <div className="bg-[#04201E]/90 border border-white/10 rounded-xl p-3.5 sm:p-4 shadow-md space-y-2.5 hover:border-emerald-500/30 transition-all">
                   <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-semibold text-white">Goal Progress</span>
-                    <span className="text-[9px] text-white/50 hover:text-[color:var(--color-brand-green)] cursor-pointer">View all ›</span>
+                    <span className="text-xs font-semibold text-white">Goal Progress</span>
+                    <span className="text-[10px] text-white/50 hover:text-[color:var(--color-brand-green)] cursor-pointer">View all ›</span>
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-2.5">
                     {[
                       { icon: "🌴", title: "Retirement", pct: 75, color: "from-emerald-400 to-green-500" },
                       { icon: "🎓", title: "Child Education", pct: 60, color: "from-emerald-400 to-teal-400" },
                       { icon: "🏡", title: "Dream Home", pct: 40, color: "from-green-400 to-emerald-500" },
                       { icon: "🛡️", title: "Emergency Fund", pct: 85, color: "from-emerald-300 to-green-400" },
                     ].map((g, i) => (
-                      <div key={i} className="space-y-0.5">
+                      <div key={i} className="space-y-1">
                         <div className="flex justify-between items-center text-[10px]">
                           <span className="text-white/80 flex items-center gap-1">
                             <span className="text-[10px]">{g.icon}</span> {g.title}
                           </span>
                           <span className="font-semibold text-white/90">{g.pct}%</span>
                         </div>
-                        <div className="h-1.5 w-full bg-black/40 rounded-full overflow-hidden p-0.5 border border-white/5">
+                        <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden border border-white/10">
                           <div 
-                            className={`h-full bg-gradient-to-r ${g.color} rounded-full transition-all duration-1000`} 
+                            className="h-full bg-gradient-to-r from-emerald-400 via-[color:var(--color-brand-green)] to-teal-300 rounded-full shadow-[0_0_8px_rgba(0,229,153,0.7)] transition-all duration-1000" 
                             style={{ width: `${g.pct}%` }}
                           />
                         </div>
@@ -208,15 +208,15 @@ export function LearningHeroSection() {
                 </div>
 
                 {/* WIDGET 2: RISK PROFILE GAUGE */}
-                <div className="bg-[#04201E]/90 border border-white/10 rounded-xl p-3 shadow-md flex flex-col justify-between hover:border-emerald-500/30 transition-all">
+                <div className="bg-[#04201E]/90 border border-white/10 rounded-xl p-3.5 sm:p-4 shadow-md flex flex-col justify-between hover:border-emerald-500/30 transition-all min-h-[165px]">
                   <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-semibold text-white">Risk Profile</span>
+                    <span className="text-xs font-semibold text-white">Risk Profile</span>
                     <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--color-brand-green)] animate-ping" />
                   </div>
 
                   {/* Semi-circular Gauge Meter */}
-                  <div className="relative my-1 flex flex-col items-center justify-center">
-                    <svg viewBox="0 0 100 55" className="w-32 h-16">
+                  <div className="relative my-2 flex flex-col items-center justify-center">
+                    <svg viewBox="0 0 100 55" className="w-36 h-18">
                       <path
                         d="M 10 50 A 40 40 0 0 1 90 50"
                         fill="none"
@@ -245,13 +245,13 @@ export function LearningHeroSection() {
                     </div>
                   </div>
 
-                  <p className="text-[9px] text-white/60 text-center leading-tight">
+                  <p className="text-[10px] text-white/60 text-center leading-tight">
                     Balanced long-term growth
                   </p>
                 </div>
 
                 {/* WIDGET 3: SIP GROWTH TREND CHART */}
-                <div className="bg-[#04201E]/90 border border-white/10 rounded-xl p-3 shadow-md space-y-1.5 hover:border-emerald-500/30 transition-all">
+                <div className="bg-[#04201E]/90 border border-white/10 rounded-xl p-3.5 sm:p-4 shadow-md space-y-2 hover:border-emerald-500/30 transition-all min-h-[165px]">
                   <div className="flex items-center justify-between text-[10px]">
                     <span className="font-semibold text-white">SIP Growth</span>
                     <span className="px-1.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[8px] text-[color:var(--color-brand-green)]">
@@ -268,7 +268,7 @@ export function LearningHeroSection() {
                   </div>
 
                   {/* Area Chart SVG */}
-                  <div className="h-10 w-full pt-1">
+                  <div className="h-12 w-full pt-1">
                     <svg viewBox="0 0 200 60" className="w-full h-full overflow-visible">
                       <defs>
                         <linearGradient id="chartGradientCompact" x1="0" y1="0" x2="0" y2="1">
@@ -294,7 +294,7 @@ export function LearningHeroSection() {
                 </div>
 
                 {/* WIDGET 4: ASSET ALLOCATION DONUT */}
-                <div className="bg-[#04201E]/90 border border-white/10 rounded-xl p-3 shadow-md flex flex-col justify-between hover:border-emerald-500/30 transition-all">
+                <div className="bg-[#04201E]/90 border border-white/10 rounded-xl p-3.5 sm:p-4 shadow-md flex flex-col justify-between hover:border-emerald-500/30 transition-all min-h-[165px]">
                   <div className="flex items-center justify-between text-[10px]">
                     <span className="font-semibold text-white">Asset Allocation</span>
                     <span className="text-[9px] text-white/50">View Details ›</span>
@@ -302,7 +302,7 @@ export function LearningHeroSection() {
 
                   <div className="flex items-center gap-2.5 my-1">
                     {/* SVG Donut */}
-                    <div className="w-12 h-12 shrink-0">
+                    <div className="w-13 h-13 shrink-0">
                       <svg viewBox="0 0 36 36" className="w-full h-full transform -rotate-90">
                         <circle cx="18" cy="18" r="15.915" fill="none" stroke="#3B82F6" strokeWidth="4.5" strokeDasharray="60 40" />
                         <circle cx="18" cy="18" r="15.915" fill="none" stroke="#EAB308" strokeWidth="4.5" strokeDasharray="30 70" strokeDashoffset="-60" />
@@ -339,19 +339,19 @@ export function LearningHeroSection() {
 
               </div>
 
-              {/* FLOATING OVERLAY BADGE */}
-              <div className="mt-3 sm:mt-0 sm:absolute sm:bottom-3 sm:right-3 z-30 bg-[#06332F]/95 border border-emerald-400/40 backdrop-blur-xl rounded-xl p-2.5 shadow-xl flex items-center gap-2.5 animate-float-slow">
-                <div className="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-sm text-[color:var(--color-brand-green)] shrink-0">
+              {/* FLOATING OVERLAY BADGE (Moved to bottom right corner without overlapping widgets) */}
+              <div className="mt-4 sm:mt-0 sm:absolute sm:-bottom-4 sm:right-4 z-30 bg-[#06332F]/98 border border-emerald-400/50 backdrop-blur-2xl rounded-2xl p-3 shadow-2xl flex items-center gap-3 animate-float-slow">
+                <div className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-base text-[color:var(--color-brand-green)] shrink-0">
                   🛡️
                 </div>
                 <div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-[11px] font-bold text-white">Retirement Corpus</span>
-                    <span className="w-1 h-1 rounded-full bg-[color:var(--color-brand-green)] animate-pulse" />
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-bold text-white">Retirement Corpus</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--color-brand-green)] animate-pulse" />
                     <span className="text-[9px] font-semibold text-[color:var(--color-brand-green)] uppercase">On Track</span>
                   </div>
-                  <div className="text-[10px] text-white/70 mt-0.5">
-                    Projected Corpus: <span className="text-white font-bold text-[10px]">₹ 1.2 Cr+</span>
+                  <div className="text-[11px] text-white/70 mt-0.5">
+                    Projected Corpus: <span className="text-white font-bold text-[11px]">₹ 1.2 Cr+</span>
                   </div>
                 </div>
               </div>
