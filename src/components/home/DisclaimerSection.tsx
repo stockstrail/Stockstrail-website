@@ -22,23 +22,23 @@ const DisclaimerSection = () => {
                 <div className="space-y-8 text-center">
                     <div className="animate-slide-in-from-top" style={{ animationDelay: '200ms' }}>
                         <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed max-w-5xl mx-auto group-hover:text-stockstrail-green-light transition-colors duration-500">
-                            <span className="text-white">www.stockstrail.in is an online website of </span>
-                            <span className="text-stockstrail-green-light inline-block font-bold"> Vikrant Bhardwaj</span>
-                            <span className="text-white">, who is registered under </span>
+                            <span className="text-white">Stockstrail is operated by </span>
+                            <span className="text-stockstrail-green-light inline-block font-bold">Vikrant Bhardwaj</span>
+                            <span className="text-white">, an AMFI Registered Mutual Fund Distributor (</span>
                             <span className="text-stockstrail-green-light inline-block font-bold">ARN-284122</span>
-                            <span className="text-white"> as an AMFI Registered Mutual Fund Distributor. This website is intended to provide educational and informative content related to investments and also facilitates online transactions in Mutual Funds.</span>
+                            <span className="text-white">). This website is intended to provide educational information and facilitate investments in mutual funds through authorised platforms.</span>
                         </p>
                     </div>
 
                     <div className="animate-slide-in-from-top" style={{ animationDelay: '400ms' }}>
                         <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed max-w-5xl mx-auto group-hover:text-stockstrail-green-light transition-colors duration-500">
-                            <span className="text-white">We do not charge any fees for the calculators or information provided on this website. Our earnings come in the form of commissions received from the respective Mutual Fund companies.</span>
+                            <span className="text-white">We believe in complete transparency. The calculators, educational content, and general financial information available on this website are provided free of charge. Wherever applicable, we receive commissions from Asset Management Companies (AMCs) as permitted under AMFI regulations. These commissions do not result in any additional cost to investors.</span>
                         </p>
                     </div>
 
                     <div className="animate-slide-in-from-top" style={{ animationDelay: '600ms' }}>
                         <p className="text-white font-work-sans text-base sm:text-xl lg:text-2xl font-light leading-relaxed max-w-5xl mx-auto group-hover:text-stockstrail-green-light transition-colors duration-500">
-                            <span className="text-white">Please note that investments in Mutual Funds are subject to market risks. The website does not guarantee any specific returns, financial outcomes, or achievement of investment goals.</span>
+                            <span className="text-white">Mutual Fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Investment decisions should always be based on your financial goals, risk appetite, and investment horizon. Past performance is not indicative of future results, and no investment can guarantee returns.</span>
                         </p>
                     </div>
                 </div>
