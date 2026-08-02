@@ -4,6 +4,7 @@ import { getCategories, getCourses } from "@/lib/learning/supabase-db";
 import { CategoryCard } from "@/components/learn/cards";
 import { CourseCardsGrid } from "@/components/learn/CourseCardsGrid";
 import { SearchBar } from "@/components/learn/search";
+import JsonLd from "@/components/common/JsonLd";
 
 export const metadata: Metadata = {
   title: "Stockstrail Learning — Free Investing & Personal Finance Courses for India",
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
     title: "Stockstrail Learning — Free Investing & Personal Finance Courses for India",
     description: "Free structured courses on mutual funds, SIP, insurance, tax saving, stock market, and retirement planning — built for Indian investors.",
     url: "https://www.learning.stockstrail.in",
+    siteName: "Stockstrail Learning",
   },
   alternates: {
     canonical: "https://www.learning.stockstrail.in",
@@ -30,8 +32,17 @@ export default async function HomePage() {
   const featured = [...courses].sort((a, b) => b.popularity - a.popularity).slice(0, 3);
   const topCats = categories.slice(0, 8);
 
+  const webSiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Stockstrail Learning',
+    alternateName: ['Stockstrail Courses', 'Stockstrail Academy'],
+    url: 'https://www.learning.stockstrail.in/',
+  };
+
   return (
     <>
+      <JsonLd data={webSiteSchema} />
       {/* HERO */}
       <section className="relative z-20">
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">

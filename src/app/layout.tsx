@@ -55,6 +55,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://www.stockstrail.in",
+    siteName: "Stockstrail",
     title: "Stockstrail - Financial Planning & Investment Guidance",
     description:
       "Achieve financial independence with expert financial planning and investment guidance.",
@@ -82,6 +83,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const webSiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Stockstrail',
+    alternateName: ['Stockstrail Financial', 'Stockstrail India'],
+    url: 'https://www.stockstrail.in/',
+  };
+
   const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'FinancialService'],
@@ -211,6 +220,7 @@ export default function RootLayout({
       </head>
 
       <body className="antialiased">
+        <JsonLd data={webSiteSchema} />
         <JsonLd data={localBusinessSchema} />
 
         <main className="relative min-h-screen">
