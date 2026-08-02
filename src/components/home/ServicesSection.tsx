@@ -64,11 +64,16 @@ const ServicesSection = () => {
 
             <div className="relative z-10 max-w-[90%] mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase mb-8">
-                        <span className="text-white">Invest your </span>
-                        <span className="gradient-text">money</span>
-                        <span className="text-white"> on the go</span>
+                    <h2 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase mb-5">
+                        <span className="text-white">Build, </span>
+                        <span className="gradient-text">Protect</span>
+                        <span className="text-white"> &amp; Grow Your Wealth</span>
                     </h2>
+                    <p className="text-white/70 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+                        From your first SIP or lump sum investment to insurance, fixed deposits,
+                        loans and long-term financial planning, Stockstrail helps you make
+                        smarter money decisions with personalised guidance tailored to your goals.
+                    </p>
                 </div>
 
                 <div className="space-y-16">
