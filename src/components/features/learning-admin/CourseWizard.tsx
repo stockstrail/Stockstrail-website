@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Loader2, ChevronLeft, ChevronRight, Check, X } from "lucide-react";
+import { Loader2, ChevronLeft, ChevronRight, Check } from "lucide-react";
 import type { LearningCourse, LearningCategory, CourseFormData } from "@/lib/learning/admin-types";
 import { EMPTY_COURSE } from "@/lib/learning/admin-types";
 import { Step1_BasicInfo } from "./Step1_BasicInfo";
@@ -105,13 +105,7 @@ export function CourseWizard({ open, onOpenChange, course, categories, onSave }:
       <DialogContent className="bg-[#031815] border-white/10 text-white max-w-4xl w-full max-h-[95vh] overflow-hidden flex flex-col p-0">
         {/* Header */}
         <div className="flex items-center justify-between p-6 pb-0 shrink-0">
-          <div>
-            <DialogTitle className="font-product-sans text-2xl text-white">{course ? "Edit Course" : "Create Course"}</DialogTitle>
-            {savedCourseId && <p className="text-white/40 text-xs mt-0.5">ID: {savedCourseId.slice(0, 8)}...</p>}
-          </div>
-          <button onClick={() => onOpenChange(false)} className="text-white/40 hover:text-white p-2">
-            <X className="w-5 h-5" />
-          </button>
+          <DialogTitle className="font-product-sans text-2xl text-white">{course ? "Edit Course" : "Create Course"}</DialogTitle>
         </div>
 
         {/* Step Indicator */}

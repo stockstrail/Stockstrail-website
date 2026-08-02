@@ -12,8 +12,8 @@ export function middleware(request: NextRequest) {
   const isLocalhost = host.includes("localhost") || host.includes("127.0.0.1");
 
   if (isLearningSubdomain) {
-    // If the path does not already start with /learning, rewrite it internally
-    if (!url.pathname.startsWith("/learning")) {
+    // If the path does not already start with /learning, /admin, or /api, rewrite it internally
+    if (!url.pathname.startsWith("/learning") && !url.pathname.startsWith("/admin") && !url.pathname.startsWith("/api")) {
       url.pathname = `/learning${url.pathname}`;
       return NextResponse.rewrite(url);
     }

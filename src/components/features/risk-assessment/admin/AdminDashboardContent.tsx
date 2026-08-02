@@ -72,7 +72,8 @@ export function AdminDashboardContent({
 }: AdminDashboardContentProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState<TabType>("attempts");
+  const initialTab = (searchParams.get("tab") as TabType) || "attempts";
+  const [activeTab, setActiveTab] = useState<TabType>(initialTab);
   const [emailFilter, setEmailFilter] = useState(filters.email);
   const [categoryFilter, setCategoryFilter] = useState(filters.category || "all");
   const [sortFilter, setSortFilter] = useState(filters.sort || "highest");
@@ -80,6 +81,13 @@ export function AdminDashboardContent({
   const [analysisModalOpen, setAnalysisModalOpen] = useState(false);
   const [responsesModalOpen, setResponsesModalOpen] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
+
+  const handleTabChange = (tab: TabType) => {
+    setActiveTab(tab);
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("tab", tab);
+    router.push(`/admin/dashboard?${params.toString()}`);
+  };
 
   const updateFilters = (newFilters: { email?: string; category?: string; sort?: string }) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -129,7 +137,11 @@ export function AdminDashboardContent({
     setEmailFilter(filters.email);
     setCategoryFilter(filters.category || "all");
     setSortFilter(filters.sort || "highest");
-  }, [filters.email, filters.category, filters.sort]);
+    const tabFromUrl = searchParams.get("tab") as TabType;
+    if (tabFromUrl && tabFromUrl !== activeTab) {
+      setActiveTab(tabFromUrl);
+    }
+  }, [filters.email, filters.category, filters.sort, searchParams]);
 
   const handleViewAnalysis = (attempt: RiskAttemptWithProfile) => {
     setSelectedAttempt(attempt);
@@ -181,7 +193,8 @@ export function AdminDashboardContent({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-4 overflow-x-auto">
             <button
-              onClick={() => setActiveTab("attempts")}
+              type="button"
+              onClick={() => handleTabChange("attempts")}
               className={`px-4 py-3 font-medium text-sm sm:text-base transition-colors border-b-2 ${activeTab === "attempts"
                   ? "text-stockstrail-green-light border-stockstrail-green-light"
                   : "text-white/70 hover:text-white border-transparent hover:border-white/30"
@@ -190,7 +203,8 @@ export function AdminDashboardContent({
               Risk Attempts ({attempts.length})
             </button>
             <button
-              onClick={() => setActiveTab("reviews")}
+              type="button"
+              onClick={() => handleTabChange("reviews")}
               className={`px-4 py-3 font-medium text-sm sm:text-base transition-colors border-b-2 ${activeTab === "reviews"
                   ? "text-stockstrail-green-light border-stockstrail-green-light"
                   : "text-white/70 hover:text-white border-transparent hover:border-white/30"
@@ -199,7 +213,8 @@ export function AdminDashboardContent({
               Reviews ({reviews.length})
             </button>
             <button
-              onClick={() => setActiveTab("queries")}
+              type="button"
+              onClick={() => handleTabChange("queries")}
               className={`px-4 py-3 font-medium text-sm sm:text-base transition-colors border-b-2 ${activeTab === "queries"
                   ? "text-stockstrail-green-light border-stockstrail-green-light"
                   : "text-white/70 hover:text-white border-transparent hover:border-white/30"
@@ -208,7 +223,8 @@ export function AdminDashboardContent({
               Queries ({queries.length})
             </button>
             <button
-              onClick={() => setActiveTab("blogs")}
+              type="button"
+              onClick={() => handleTabChange("blogs")}
               className={`px-4 py-3 font-medium text-sm sm:text-base transition-colors border-b-2 ${activeTab === "blogs"
                   ? "text-stockstrail-green-light border-stockstrail-green-light"
                   : "text-white/70 hover:text-white border-transparent hover:border-white/30"
@@ -217,7 +233,8 @@ export function AdminDashboardContent({
               Blogs
             </button>
             <button
-              onClick={() => setActiveTab("learning-categories")}
+              type="button"
+              onClick={() => handleTabChange("learning-categories")}
               className={`px-4 py-3 font-medium text-sm sm:text-base transition-colors border-b-2 ${activeTab === "learning-categories"
                   ? "text-stockstrail-green-light border-stockstrail-green-light"
                   : "text-white/70 hover:text-white border-transparent hover:border-white/30"
@@ -226,7 +243,8 @@ export function AdminDashboardContent({
               Learning Categories
             </button>
             <button
-              onClick={() => setActiveTab("learning-courses")}
+              type="button"
+              onClick={() => handleTabChange("learning-courses")}
               className={`px-4 py-3 font-medium text-sm sm:text-base transition-colors border-b-2 ${activeTab === "learning-courses"
                   ? "text-stockstrail-green-light border-stockstrail-green-light"
                   : "text-white/70 hover:text-white border-transparent hover:border-white/30"

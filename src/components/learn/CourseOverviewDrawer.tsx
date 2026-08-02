@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import type { Course } from "@/lib/learning/supabase-db";
 import { FAQAccordion } from "@/components/learn/lesson-blocks";
@@ -17,6 +18,11 @@ interface Props {
 export function CourseOverviewDrawer({ course, onClose }: Props) {
   const router = useRouter();
   const drawerRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   /**
    * We keep the panel mounted in the DOM at all times (when a course is ever
@@ -116,11 +122,11 @@ export function CourseOverviewDrawer({ course, onClose }: Props) {
   };
 
   // Nothing ever in the DOM until a course is first shown
-  if (!displayCourse) return null;
+  if (!displayCourse || !mounted) return null;
 
   const totalLessons = displayCourse.modules.reduce((n, m) => n + m.lessons.length, 0);
 
-  return (
+  return createPortal(
     <>
       <style
         dangerouslySetInnerHTML={{
@@ -354,7 +360,8 @@ export function CourseOverviewDrawer({ course, onClose }: Props) {
         </div>
 
       </div>
-    </>
+    </>,
+    document.body
   );
 }
 
