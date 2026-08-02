@@ -10,6 +10,8 @@ export interface Category {
   icon: string; // emoji or short glyph token — swap for real illustration later
   accent: string; // gradient token
   thumbnail?: string;
+  coverImage?: string;
+  ogImage?: string;
 }
 
 export interface QuizQuestion {
@@ -72,6 +74,7 @@ export interface Course {
   related: string[]; // course slugs
   keyTakeaways: string[];
   coverImage?: string;
+  ogImage?: string;
 }
 
 export const categories: Category[] = [

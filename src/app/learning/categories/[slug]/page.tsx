@@ -16,6 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: "Category not found — Stockstrail Learning",
     };
   }
+  const shareImage = category.ogImage || category.coverImage || category.thumbnail;
+
   return {
     title: `${category.name} Courses — Stockstrail Learning`,
     description: category.description,
@@ -23,6 +25,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${category.name} Courses — Stockstrail Learning`,
       description: category.description,
       url: `https://www.learning.stockstrail.in/categories/${slug}`,
+      siteName: "Stockstrail Learning",
+      images: shareImage ? [{ url: shareImage, alt: category.name }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${category.name} Courses — Stockstrail Learning`,
+      description: category.description,
+      images: shareImage ? [shareImage] : undefined,
     },
     alternates: {
       canonical: `https://www.learning.stockstrail.in/categories/${slug}`,

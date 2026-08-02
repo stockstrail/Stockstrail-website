@@ -40,6 +40,8 @@ export const getCategoryBySlug = cache(async (slug: string): Promise<Category | 
     icon: data.icon || "",
     accent: "from-emerald-400/40 to-emerald-700/10",
     thumbnail: data.thumbnail || undefined,
+    coverImage: data.cover_image || undefined,
+    ogImage: data.og_image || undefined,
   };
 });
 
@@ -283,6 +285,7 @@ export const getCourseBySlug = cache(async (slug: string): Promise<Course | null
     related: [],
     keyTakeaways: course.key_takeaways || [],
     coverImage: course.cover_image || undefined,
+    ogImage: course.og_image || undefined,
   };
 });
 
