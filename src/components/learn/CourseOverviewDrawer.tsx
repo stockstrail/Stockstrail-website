@@ -197,8 +197,8 @@ export function CourseOverviewDrawer({ course, onClose }: Props) {
         {/* Scrollable body */}
         <div className="flex-1 overflow-y-auto custom-scrollbar">
           {/* Thumbnail */}
-          <div className="relative w-full aspect-[16/7] shrink-0 overflow-hidden">
-            <CourseThumbnail course={displayCourse} className="w-full h-full" />
+          <div className="relative w-full shrink-0 overflow-hidden" style={{ aspectRatio: "16/7" }}>
+            <CourseThumbnail course={displayCourse} className="absolute inset-0 w-full h-full" />
             <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-brand-bg)] via-transparent to-transparent" />
           </div>
 

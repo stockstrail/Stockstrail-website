@@ -6,7 +6,7 @@ import { CourseOverviewDrawer } from "@/components/learn/CourseOverviewDrawer";
 /** A single course card that opens the overview drawer on click */
 function DrawerCourseCard({ course, onOpen }: { course: Course; onOpen: (c: Course) => void }) {
   const [c1] = course.thumbnailAccent;
-  const imageSrc = course.coverImage || course.thumbnail;
+  const imageSrc = course.coverImage;
 
   return (
     <button
@@ -19,7 +19,7 @@ function DrawerCourseCard({ course, onOpen }: { course: Course; onOpen: (c: Cour
       {/* Thumbnail */}
       <div className="relative aspect-[16/9] overflow-hidden bg-[#001717] flex items-center justify-center">
         {imageSrc ? (
-          <img src={imageSrc} alt={course.title} className="absolute inset-0 w-full h-full object-cover" />
+          <img src={imageSrc} alt={course.title} className="absolute inset-0 w-full h-full object-contain" />
         ) : (
           <>
             <div

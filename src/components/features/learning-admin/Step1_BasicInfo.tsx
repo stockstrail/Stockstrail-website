@@ -127,10 +127,7 @@ export function Step1_BasicInfo({ form, setForm, categories, slugManual, setSlug
         </div>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
-        <ImageUploader label="Course Cover Image" value={form.cover_image} onChange={url => set("cover_image", url)} storagePath="courses/covers" />
-        <ImageUploader label="Course Thumbnail" value={form.thumbnail} onChange={url => set("thumbnail", url)} storagePath="courses/thumbnails" />
-      </div>
+      <ImageUploader label="Course Cover Image" value={form.cover_image} onChange={url => set("cover_image", url)} storagePath="courses/covers" />
 
       <div className="space-y-3">
         {(["publish", "show_on_homepage", "featured"] as const).map(key => (

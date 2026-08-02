@@ -72,7 +72,6 @@ export interface Course {
   related: string[]; // course slugs
   keyTakeaways: string[];
   coverImage?: string;
-  thumbnail?: string;
 }
 
 export const categories: Category[] = [

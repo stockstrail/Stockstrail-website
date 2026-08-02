@@ -278,10 +278,12 @@ export function AdminLearningCourses() {
                             className="w-4 h-4 rounded border-white/30 bg-white/5 accent-stockstrail-green-light" />
                         </td>
                         <td className={tdCls}>
-                          {c.thumbnail ? (
-                            <img src={c.thumbnail} alt={c.title} className="w-12 h-8 rounded-lg object-cover border border-white/10" />
+                          {c.cover_image ? (
+                            <div className="w-16 h-10 rounded-lg border border-white/10 bg-white/5 overflow-hidden flex items-center justify-center">
+                              <img src={c.cover_image} alt={c.title} className="w-full h-full object-contain" />
+                            </div>
                           ) : (
-                            <div className="w-12 h-8 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center text-[10px] font-bold tracking-wider text-stockstrail-green-light">
+                            <div className="w-16 h-10 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center text-[10px] font-bold tracking-wider text-stockstrail-green-light">
                               {getInitials(c.title)}
                             </div>
                           )}

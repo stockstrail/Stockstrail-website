@@ -63,8 +63,8 @@ export function ImageUploader({ label, value, onChange, storagePath, altText, on
       <Label className="text-white/70 text-sm">{label}</Label>
 
       {value ? (
-        <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5">
-          <img src={value} alt={altText || label} className="w-full h-40 object-cover" />
+        <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5 aspect-[16/9] w-full">
+          <img src={value} alt={altText || label} className="absolute inset-0 w-full h-full object-contain" />
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
             <Button size="sm" variant="ghost"
               onClick={() => inputRef.current?.click()}
@@ -86,7 +86,7 @@ export function ImageUploader({ label, value, onChange, storagePath, altText, on
           onDragLeave={() => setDragOver(false)}
           onDrop={handleDrop}
           onClick={() => inputRef.current?.click()}
-          className={`relative flex flex-col items-center justify-center h-40 rounded-xl border-2 border-dashed cursor-pointer transition-colors
+          className={`relative aspect-[16/9] w-full flex flex-col items-center justify-center rounded-xl border-2 border-dashed cursor-pointer transition-colors
             ${dragOver ? "border-stockstrail-green-light bg-stockstrail-green-light/10" : "border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10"}`}
         >
           {uploading ? (

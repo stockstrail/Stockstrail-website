@@ -10,7 +10,7 @@ function getInitials(title: string): string {
 
 export function CourseThumbnail({ course, className = "" }: { course: Course; className?: string }) {
   const [c1, c2] = course.thumbnailAccent;
-  const imageSrc = course.coverImage || course.thumbnail;
+  const imageSrc = course.coverImage;
 
   return (
     <div
@@ -18,7 +18,7 @@ export function CourseThumbnail({ course, className = "" }: { course: Course; cl
       aria-hidden="true"
     >
       {imageSrc ? (
-        <img src={imageSrc} alt={course.title} className="absolute inset-0 w-full h-full object-cover" />
+        <img src={imageSrc} alt={course.title} className="absolute inset-0 w-full h-full object-contain" />
       ) : (
         <>
           <div

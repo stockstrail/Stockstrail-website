@@ -126,7 +126,6 @@ export async function getCourses(): Promise<Course[]> {
     related: [],
     keyTakeaways: c.key_takeaways || [],
     coverImage: c.cover_image || undefined,
-    thumbnail: c.thumbnail || undefined,
   }));
 }
 
@@ -171,7 +170,6 @@ export async function getCoursesByCategory(categorySlug: string): Promise<Course
     related: [],
     keyTakeaways: c.key_takeaways || [],
     coverImage: c.cover_image || undefined,
-    thumbnail: c.thumbnail || undefined,
   }));
 }
 
@@ -286,7 +284,6 @@ export async function getCourseBySlug(slug: string): Promise<Course | null> {
     related: [],
     keyTakeaways: course.key_takeaways || [],
     coverImage: course.cover_image || undefined,
-    thumbnail: course.thumbnail || undefined,
   };
 }
 
@@ -335,6 +332,5 @@ export async function getRelatedCourses(course: Course): Promise<Course[]> {
     related: [],
     keyTakeaways: c.key_takeaways || [],
     coverImage: c.cover_image || undefined,
-    thumbnail: c.thumbnail || undefined,
   }));
 }

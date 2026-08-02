@@ -38,7 +38,6 @@ export type LearningCourse = {
   short_description: string | null;
   description: string | null;
   cover_image: string | null;
-  thumbnail: string | null;
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
   reading_time: number;
   completion_time: number;
@@ -141,7 +140,7 @@ export const EMPTY_CATEGORY: CategoryFormData = {
 
 export const EMPTY_COURSE: CourseFormData = {
   category_id: null, title: '', slug: '', short_description: '', description: '',
-  cover_image: null, thumbnail: null, difficulty: 'Beginner',
+  cover_image: null, difficulty: 'Beginner',
   reading_time: 0, completion_time: 0, language: 'English',
   author: 'Vikrant Bhardwaj', version: '1.0', tags: [],
   prerequisites: '', learning_outcomes: '', objectives: '',
