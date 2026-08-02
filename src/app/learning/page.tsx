@@ -4,6 +4,7 @@ import { getCategories, getCourses } from "@/lib/learning/supabase-db";
 import { CategoryCard } from "@/components/learn/cards";
 import { CourseCardsGrid } from "@/components/learn/CourseCardsGrid";
 import { SearchBar } from "@/components/learn/search";
+import { LearningHeroSection } from "@/components/learn/LearningHeroSection";
 import JsonLd from "@/components/common/JsonLd";
 
 export const metadata: Metadata = {
@@ -43,82 +44,8 @@ export default async function HomePage() {
   return (
     <>
       <JsonLd data={webSiteSchema} />
-      {/* HERO */}
-      <section className="relative z-20">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <span className="glow-blob top-[-80px] left-[-120px] h-[420px] w-[420px] animate-float" />
-          <span className="glow-blob bottom-[-160px] right-[-120px] h-[520px] w-[520px] animate-float-slow" style={{ background: "rgba(0, 216, 115, 0.12)" }} />
-        </div>
-        {/* Subtle grid backdrop */}
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-            maskImage: "radial-gradient(ellipse at center, black 40%, transparent 75%)",
-          }}
-        />
-        <div className="relative mx-auto max-w-6xl px-5 sm:px-8 lg:px-12 pt-16 sm:pt-24 pb-16 text-center animate-fade-up">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-brand-border)] bg-white/[0.03] px-4 py-1.5 text-xs text-white/75">
-            <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--color-brand-green)] animate-pulse-glow" />
-            The financial knowledge hub by Stockstrail
-          </div>
-          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-7xl font-normal leading-[1.05] tracking-tight text-white" style={{ fontFamily: "var(--font-product-sans)" }}>
-            Learn investing
-            <br />
-            <span className="gradient-text">the right way.</span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-white/70 leading-relaxed">
-            Master mutual funds, SIPs, insurance, stocks and personal finance through structured, distraction-free courses —
-            built for Indian investors, from beginner to intermediate.
-          </p>
-
-          <div className="mx-auto mt-10 max-w-2xl relative z-30">
-            <SearchBar size="lg" />
-          </div>
-
-          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link
-              href="/learning/courses"
-              className="inline-flex items-center gap-2 rounded-full bg-[color:var(--color-brand-green)] px-6 py-3 text-sm font-semibold text-[color:var(--color-brand-bg)] hover:bg-white transition-colors"
-            >
-              Explore Courses
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </Link>
-            <Link
-              href="/learning/categories"
-              className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-brand-border)] bg-white/[0.03] px-6 py-3 text-sm font-medium text-white hover:border-white/40 transition-colors"
-            >
-              Browse Categories
-            </Link>
-          </div>
-
-          <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
-            {[
-              { k: `${courses.length}+`, v: "Structured Courses" },
-              { k: `${categories.length}+`, v: "Finance Topics" },
-              { k: "Free", v: "No Login Required" },
-              { k: "SEBI", v: "India-First Content" },
-            ].map((s) => (
-              <div 
-                key={s.v} 
-                className="flex flex-col items-center justify-center rounded-2xl border border-white/5 bg-white/[0.015] p-5 h-[96px] text-center shadow-sm"
-              >
-                <div 
-                  className="text-xl sm:text-2xl font-semibold text-white tracking-tight" 
-                  style={{ fontFamily: "var(--font-product-sans)" }}
-                >
-                  {s.k}
-                </div>
-                <div className="mt-1 text-[11px] text-white/55 font-medium tracking-wide">
-                  {s.v}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* HERO SECTION */}
+      <LearningHeroSection />
 
       {/* INDIA FINANCIAL LITERACY STATS STRIP */}
       <section className="border-y border-white/5 bg-white/[0.015]">
