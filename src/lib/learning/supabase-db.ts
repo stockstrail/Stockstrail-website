@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { createClient } from "@/lib/supabase/server";
 
 import type { Course, Category, FAQ, QuizQuestion } from "@/lib/learning/courses";
@@ -21,7 +22,7 @@ export async function getCategories(): Promise<Category[]> {
   }));
 }
 
-export async function getCategoryBySlug(slug: string): Promise<Category | null> {
+export const getCategoryBySlug = cache(async (slug: string): Promise<Category | null> => {
   const supabase = await createClient();
   const { data } = await supabase
     .from("learning_categories")
@@ -40,7 +41,7 @@ export async function getCategoryBySlug(slug: string): Promise<Category | null> 
     accent: "from-emerald-400/40 to-emerald-700/10",
     thumbnail: data.thumbnail || undefined,
   };
-}
+});
 
 async function fetchModulesAndLessonsMapping(supabase: any): Promise<Record<string, any[]>> {
   const [{ data: dbModules }, { data: dbContents }] = await Promise.all([
@@ -174,7 +175,7 @@ export async function getCoursesByCategory(categorySlug: string): Promise<Course
 }
 
 
-export async function getCourseBySlug(slug: string): Promise<Course | null> {
+export const getCourseBySlug = cache(async (slug: string): Promise<Course | null> => {
   const supabase = await createClient();
 
   // Fetch course without embedding to avoid PostgREST FK ambiguity
@@ -187,8 +188,8 @@ export async function getCourseBySlug(slug: string): Promise<Course | null> {
 
   if (!course) return null;
 
-  // Fetch related data with separate queries (no embedding)
-  const [{ data: modules }, { data: quiz }, { data: faqs }] = await Promise.all([
+  // Fetch modules, quiz, faqs, and category in PARALLEL
+  const [{ data: modules }, { data: quiz }, { data: faqs }, { data: catData }] = await Promise.all([
     supabase
       .from("learning_modules")
       .select("id, title, slug, summary, reading_time, module_order, publish, free_preview, icon")
@@ -205,6 +206,9 @@ export async function getCourseBySlug(slug: string): Promise<Course | null> {
       .select("*")
       .eq("course_id", course.id)
       .order("display_order", { ascending: true }),
+    course.category_id
+      ? supabase.from("learning_categories").select("id, name, slug").eq("id", course.category_id).single()
+      : Promise.resolve({ data: null }),
   ]);
 
   // Fetch module content separately
@@ -219,11 +223,6 @@ export async function getCourseBySlug(slug: string): Promise<Course | null> {
   (moduleContents ?? []).forEach((mc: any) => {
     contentByModuleId[mc.module_id] = mc.markdown_content ?? "";
   });
-
-  // Fetch category separately
-  const { data: catData } = course.category_id
-    ? await supabase.from("learning_categories").select("id, name, slug").eq("id", course.category_id).single()
-    : { data: null };
 
   return {
     slug: course.slug,
@@ -285,7 +284,7 @@ export async function getCourseBySlug(slug: string): Promise<Course | null> {
     keyTakeaways: course.key_takeaways || [],
     coverImage: course.cover_image || undefined,
   };
-}
+});
 
 
 export async function getRelatedCourses(course: Course): Promise<Course[]> {

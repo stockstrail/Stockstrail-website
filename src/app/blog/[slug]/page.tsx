@@ -10,6 +10,7 @@ import { BlogFAQ } from '@/types';
 import JsonLd from '@/components/common/JsonLd';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 import {
   Accordion,
   AccordionContent,
@@ -224,6 +225,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     {/* Render Markdown content with raw HTML support for legacy posts */}
                     <div className="blog-content prose prose-sm sm:prose-base lg:prose-lg mx-auto w-full prose-invert">
                       <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
                         rehypePlugins={[rehypeRaw]}
                         components={{
                           a: ({ node, href, children, ...props }) => {

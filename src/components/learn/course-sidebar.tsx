@@ -47,7 +47,7 @@ export function CourseSidebar({ course, activeLessonSlug, completedLessons, onSe
                 : "text-white/75 hover:text-white hover:bg-white/[0.015] border-white/5 bg-white/[0.01]"
             }`}
           >
-            <span className="text-sm">🏠 Course Overview</span>
+            <span className="text-sm">Course Overview</span>
           </button>
 
           {course.hasQuiz && (
@@ -60,7 +60,7 @@ export function CourseSidebar({ course, activeLessonSlug, completedLessons, onSe
                   : "text-white/75 hover:text-white hover:bg-white/[0.015] border-white/5 bg-white/[0.01]"
               }`}
             >
-              <span className="text-sm">🏆 Knowledge Check</span>
+              <span className="text-sm">Knowledge Check</span>
             </button>
           )}
         </div>

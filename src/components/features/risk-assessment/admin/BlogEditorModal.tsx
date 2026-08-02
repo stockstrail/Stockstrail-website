@@ -5,6 +5,7 @@ import { Copy, XCircle, X, Eye, EyeOff, Plus, Trash2, ArrowUp, ArrowDown } from 
 import { Textarea } from "@/components/ui/textarea";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -528,7 +529,7 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
             <div className="border border-white/10 rounded-md bg-[#0a1210] min-h-[300px]">
               {showPreview ? (
                 <div className="p-4 prose prose-invert prose-sm sm:prose-base max-w-none">
-                  <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                     {formData.content}
                   </ReactMarkdown>
                 </div>

@@ -42,8 +42,10 @@ export default async function CourseDetailPage({ params }: Props) {
     notFound();
   }
 
-  const category = await getCategoryBySlug(course.category);
-  const related = await getRelatedCourses(course);
+  const [category, related] = await Promise.all([
+    course.category ? getCategoryBySlug(course.category) : Promise.resolve(null),
+    getRelatedCourses(course),
+  ]);
 
   // Schema markup injected inside the page
   const courseSchema = {

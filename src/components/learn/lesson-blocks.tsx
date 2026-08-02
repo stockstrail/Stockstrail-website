@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { LessonBlock, QuizQuestion, FAQ } from "@/lib/learning/courses";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 
 const CALLOUT_STYLE: Record<string, { border: string; bg: string; label: string; icon: string }> = {
   tip: { border: "border-[color:var(--color-brand-green)]/40", bg: "bg-[color:var(--color-brand-green)]/[0.06]", label: "Tip", icon: "★" },
@@ -15,7 +16,7 @@ export function BlockRenderer({ block }: { block: any }) {
     case "markdown":
       return (
         <div className="prose prose-invert prose-emerald max-w-none prose-learn">
-          <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
             {block.text}
           </ReactMarkdown>
         </div>
