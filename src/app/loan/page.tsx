@@ -135,7 +135,7 @@ export default function Loan() {
             </p>
 
             <a
-              href="/contact"
+              href="/lets-talk"
               className="text-stockstrail-green-light underline focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-stockstrail-green-light"
             >
               Get personalised loan advice
@@ -478,7 +478,7 @@ export default function Loan() {
           </p>
 
           <a
-            href="/contact"
+            href="/lets-talk"
             className="inline-flex items-center gap-3 px-8 py-4 bg-white border-2 border-[#012928] rounded-full text-[#012928] hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-work-sans font-semibold group"
           >
             Get personalised loan advice

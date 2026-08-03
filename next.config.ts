@@ -119,6 +119,16 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // Permanent 301 redirect: /contact → /lets-talk
+  async redirects() {
+    return [
+      {
+        source: '/contact',
+        destination: '/lets-talk',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

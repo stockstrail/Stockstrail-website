@@ -13,7 +13,8 @@ export default function robots(): MetadataRoute.Robots {
         '/api/*',
         '/auth/*',
         '/sign-in',
-        '/complete-profile'
+        '/complete-profile',
+        '/contact'
       ],
     },
     sitemap: 'https://www.stockstrail.in/sitemap.xml',

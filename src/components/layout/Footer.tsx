@@ -102,7 +102,7 @@ const Footer = () => {
                   connect@stockstrail.in
                 </a>
               </div>
-              <Link href="/contact" className="flex items-center gap-4 cursor-pointer group hover:text-stockstrail-green-light transition-colors duration-300">
+              <Link href="/lets-talk" className="flex items-center gap-4 cursor-pointer group hover:text-stockstrail-green-light transition-colors duration-300">
                 <span className="text-white font-montserrat text-base group-hover:text-stockstrail-green-light transition-colors duration-300">
                   Get in touch with us
                 </span>

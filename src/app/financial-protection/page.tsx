@@ -417,7 +417,7 @@ export default function Others() {
             Reach out to Stockstrail today and take the first step towards complete financial protection and long-term wealth creation - with zero pressure, complete transparency, and expert guidance at every step.
           </p>
           <a
-            href="/contact"
+            href="/lets-talk"
             className="inline-flex items-center gap-3 px-8 py-4 bg-white border-2 border-[#012928] rounded-full text-[#012928] hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-work-sans font-semibold group"
           >
             Get Personalised Recommendations

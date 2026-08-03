@@ -37,7 +37,7 @@ const geoStates = [
 
 const ServiceGEOSection: React.FC<ServiceGEOSectionProps> = ({ 
   serviceName,
-  serviceUrl = "/contact"
+  serviceUrl = "/lets-talk"
 }) => {
   return (
     <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative border-t border-white/10">
