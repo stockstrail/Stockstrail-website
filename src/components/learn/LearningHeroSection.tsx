@@ -129,7 +129,7 @@ export function LearningHeroSection() {
               </Link>
 
               <Link
-                href="/check-risk-profile"
+                href="https://www.stockstrail.in/check-risk-profile"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-[color:var(--color-brand-green)]/50 bg-white/[0.03] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-[color:var(--color-brand-green)]/10 hover:border-[color:var(--color-brand-green)] hover:scale-105 transition-all shadow-md backdrop-blur-sm"
               >
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" className="text-[color:var(--color-brand-green)]">
