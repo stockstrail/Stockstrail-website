@@ -102,8 +102,8 @@ export default function RootLayout({
     email: 'connect@stockstrail.in',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Near Punjab And Sind Bank, V.P.O. Chintpurni, Teh: Amb',
-      addressLocality: 'Una',
+      streetAddress: 'Mata, Chintapurni Rd, near Punjab & Sind Bank, Moien',
+      addressLocality: 'Chintpurni',
       addressRegion: 'Himachal Pradesh',
       postalCode: '177110',
       addressCountry: 'IN'

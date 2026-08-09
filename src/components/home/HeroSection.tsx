@@ -142,15 +142,15 @@ const HeroSection = () => {
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-1 h-1 rounded-full bg-[color:var(--color-brand-green)]" />
-                <span>200+ Families</span>
+                <span>200+ Families Guided</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-1 h-1 rounded-full bg-[color:var(--color-brand-green)]" />
-                <span>SEBI Aware</span>
+                <span>Goal-First</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-1 h-1 rounded-full bg-[color:var(--color-brand-green)]" />
-                <span>Zero Commission Bias</span>
+                <span>Research-Backed</span>
               </div>
             </div>
 

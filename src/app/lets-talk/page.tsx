@@ -170,8 +170,8 @@ export default function LetsTalk() {
     email: 'connect@stockstrail.in',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Near Punjab And Sind Bank, V.P.O. Chintpurni, Teh: Amb',
-      addressLocality: 'Una',
+      streetAddress: 'Mata, Chintapurni Rd, near Punjab & Sind Bank, Moien',
+      addressLocality: 'Chintpurni',
       addressRegion: 'Himachal Pradesh',
       postalCode: '177110',
       addressCountry: 'IN'
@@ -320,7 +320,7 @@ export default function LetsTalk() {
                     Office
                   </p>
                   <a
-                    href="https://maps.google.com/maps?q=Near+Punjab+And+Sind+Bank,+V.P.O.+Chintpurni+Teh:Amb,+Distt.-+Una,+Himachal+Pradesh+177110"
+                    href="https://maps.google.com/maps?q=Mata+Chintapurni+Rd,+near+Punjab+%26+Sind+Bank,+Moien,+Chintpurni,+Himachal+Pradesh+177110"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white text-sm leading-snug flex items-start"
@@ -328,16 +328,16 @@ export default function LetsTalk() {
                     <span className="mr-2 mt-0.5">
                       <LocationIcon />
                     </span>
-                    Near Punjab And Sind Bank,
-                    <br /> V.P.O. Chintpurni Teh: Amb,
-                    <br /> Distt. Una, Himachal Pradesh (177110)
+                    Mata, Chintapurni Rd, near Punjab &amp; Sind Bank,
+                    <br /> Moien, Chintpurni,
+                    <br /> Himachal Pradesh 177110
                   </a>
 
                   {/* Map embed */}
                   <div className="mt-3 rounded-lg overflow-hidden border border-white/10 shadow-[0_0_15px_rgba(0,255,151,0.08)]">
                     <iframe
                       title="Stockstrail Office Location"
-                      src="https://maps.google.com/maps?q=Near+Punjab+And+Sind+Bank,+VPO+Chintpurni,+Teh+Amb,+Una,+Himachal+Pradesh+177110&output=embed"
+                      src="https://maps.google.com/maps?q=Mata+Chintapurni+Rd,+near+Punjab+%26+Sind+Bank,+Moien,+Chintpurni,+Himachal+Pradesh+177110&output=embed"
                       width="100%"
                       height="200"
                       style={{ border: 0, display: 'block' }}
@@ -347,7 +347,7 @@ export default function LetsTalk() {
                     />
                   </div>
                   <a
-                    href="https://maps.google.com/maps?q=Near+Punjab+And+Sind+Bank,+V.P.O.+Chintpurni+Teh:Amb,+Distt.-+Una,+Himachal+Pradesh+177110"
+                    href="https://maps.google.com/maps?q=Mata+Chintapurni+Rd,+near+Punjab+%26+Sind+Bank,+Moien,+Chintpurni,+Himachal+Pradesh+177110"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-2 inline-flex items-center gap-1.5 text-xs text-stockstrail-green-light hover:text-stockstrail-green-accent transition-colors"

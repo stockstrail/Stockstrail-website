@@ -1,47 +1,61 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { courses } from "@/lib/learning/courses";
 
 interface SearchResult {
-  type: "course" | "module" | "lesson";
+  type: "course" | "module";
   courseSlug: string;
   courseTitle: string;
   title: string;
   hint?: string;
 }
 
-function buildIndex(): SearchResult[] {
-  const items: SearchResult[] = [];
-  for (const c of courses) {
-    items.push({ type: "course", courseSlug: c.slug, courseTitle: c.title, title: c.title, hint: c.tagline });
-    for (const m of c.modules) {
-      items.push({ type: "module", courseSlug: c.slug, courseTitle: c.title, title: m.title, hint: `Module · ${c.title}` });
-      for (const l of m.lessons) {
-        items.push({ type: "lesson", courseSlug: c.slug, courseTitle: c.title, title: l.title, hint: `Lesson · ${c.title}` });
-      }
-    }
-  }
-  return items;
-}
-
-const INDEX = buildIndex();
-
 export function SearchBar({ size = "lg", autoFocus = false }: { size?: "lg" | "md"; autoFocus?: boolean }) {
   const [q, setQ] = useState("");
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
+  const [results, setResults] = useState<SearchResult[]>([]);
+  const [loading, setLoading] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const router = useRouter();
 
-  const results = useMemo(() => {
-    const query = q.trim().toLowerCase();
-    if (!query) return [];
-    return INDEX.filter((it) => it.title.toLowerCase().includes(query) || it.hint?.toLowerCase().includes(query)).slice(0, 8);
-  }, [q]);
+  // Fetch results from the API (debounced)
+  const fetchResults = useCallback(async (query: string) => {
+    if (!query.trim()) {
+      setResults([]);
+      setLoading(false);
+      return;
+    }
+    setLoading(true);
+    try {
+      const res = await fetch(`/api/learning/search?q=${encodeURIComponent(query.trim())}`);
+      const json = await res.json();
+      setResults(json.results ?? []);
+    } catch {
+      setResults([]);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
+  useEffect(() => {
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    if (!q.trim()) {
+      setResults([]);
+      setLoading(false);
+      return;
+    }
+    setLoading(true);
+    debounceRef.current = setTimeout(() => fetchResults(q), 300);
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+    };
+  }, [q, fetchResults]);
+
+  // Close on outside click
   useEffect(() => {
     function onClick(e: MouseEvent) {
       if (!containerRef.current?.contains(e.target as Node)) setOpen(false);
@@ -62,10 +76,16 @@ export function SearchBar({ size = "lg", autoFocus = false }: { size?: "lg" | "m
   return (
     <div ref={containerRef} className="relative w-full">
       <div className={`flex items-center gap-3 rounded-full bg-white/5 border border-[color:var(--color-brand-border)] px-5 ${height} transition-colors focus-within:border-[color:var(--color-brand-green)]/60 focus-within:bg-white/10`}>
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/50 shrink-0">
-          <circle cx="11" cy="11" r="7" />
-          <path d="m20 20-3.5-3.5" strokeLinecap="round" />
-        </svg>
+        {loading ? (
+          <svg className="text-white/50 shrink-0 animate-spin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" strokeLinecap="round" />
+          </svg>
+        ) : (
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/50 shrink-0">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" strokeLinecap="round" />
+          </svg>
+        )}
         <input
           type="text"
           value={q}
@@ -86,8 +106,8 @@ export function SearchBar({ size = "lg", autoFocus = false }: { size?: "lg" | "m
       </div>
       {open && q && (
         <div className="absolute z-30 mt-2 left-0 right-0 rounded-2xl border border-[color:var(--color-brand-border)] bg-brand-surface shadow-2xl overflow-hidden animate-fade-up" style={{ animationDuration: '0.2s' }}>
-          {results.length === 0 ? (
-            <div className="p-6 text-sm text-white/60">No matches for “{q}”. Try “mutual funds” or “SIP”.</div>
+          {results.length === 0 && !loading ? (
+            <div className="p-6 text-sm text-white/60">No matches for "{q}". Try "mutual funds" or "SIP".</div>
           ) : (
             <ul className="py-2 max-h-[60vh] overflow-y-auto">
               {results.map((r, i) => (
