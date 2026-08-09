@@ -20,28 +20,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: "Course not found — Stockstrail Learning",
     };
   }
+
   const shareImage = c.ogImage || c.coverImage;
+  const pageUrl = `https://www.learning.stockstrail.in/courses/${slug}`;
 
   return {
     title: `${c.title} — Stockstrail Learning`,
-    description: c.description,
+    description: c.tagline || c.description,
     openGraph: {
       title: c.title,
-      description: c.description,
+      description: c.tagline || c.description,
       type: "article",
-      url: `https://www.learning.stockstrail.in/courses/${slug}`,
+      url: pageUrl,
       siteName: "Stockstrail Learning",
-      images: shareImage ? [{ url: shareImage, alt: c.title }] : undefined,
+      images: shareImage
+        ? [{
+            url: shareImage,
+            width: 1200,
+            height: 630,
+            alt: c.title,
+          }]
+        : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title: c.title,
-      description: c.description,
+      description: c.tagline || c.description,
       images: shareImage ? [shareImage] : undefined,
     },
     alternates: {
-      canonical: `https://www.learning.stockstrail.in/courses/${slug}`,
-    }
+      canonical: pageUrl,
+    },
   };
 }
 
