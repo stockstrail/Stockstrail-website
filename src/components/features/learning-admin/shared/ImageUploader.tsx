@@ -34,6 +34,8 @@ export function ImageUploader({ label, value, onChange, storagePath, altText, on
       if (uploadErr) throw uploadErr;
       const { data: { publicUrl } } = supabase.storage.from("learning").getPublicUrl(data.path);
       onChange(publicUrl);
+      // Reset so the same file can be re-selected
+      if (inputRef.current) inputRef.current.value = "";
     } catch (err: any) {
       setError(err.message ?? "Upload failed");
     } finally {
@@ -49,13 +51,20 @@ export function ImageUploader({ label, value, onChange, storagePath, altText, on
   };
 
   const handleRemove = async () => {
+    // Always clear the value in state immediately
+    onChange(null);
     if (!value) return;
+    // Attempt to delete from storage — try multiple URL patterns
     try {
       const supabase = createClient();
-      const path = value.split("/learning/")[1];
+      // Pattern 1: .../learning/<path>
+      let path: string | undefined = value.split("/learning/")[1]?.split("?")[0];
+      // Pattern 2: /object/public/learning/<path>
+      if (!path) path = value.split("/object/public/learning/")[1]?.split("?")[0];
       if (path) await supabase.storage.from("learning").remove([path]);
-    } catch {}
-    onChange(null);
+    } catch {
+      // Storage deletion failure is non-blocking — the form value is already cleared
+    }
   };
 
   return (

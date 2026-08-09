@@ -33,6 +33,7 @@ function SerpPreview({ title, description, slug }: { title: string; description:
 
 export function Step6_SEO({ form, setForm }: Step6Props) {
   const set = (key: keyof CourseFormData, val: unknown) => setForm({ ...form, [key]: val });
+  const setOgImage = (url: string | null) => setForm({ ...form, og_image: url, twitter_image: url });
 
   return (
     <div className="space-y-6">
@@ -81,7 +82,7 @@ export function Step6_SEO({ form, setForm }: Step6Props) {
         </div>
       </div>
 
-      <ImageUploader label="OG / Twitter Card Image (1200×630 recommended)" value={form.og_image} onChange={url => { set("og_image", url); set("twitter_image", url); }} storagePath="courses/og" />
+      <ImageUploader label="OG / Twitter Card Image (1200×630 recommended)" value={form.og_image} onChange={setOgImage} storagePath="courses/og" />
 
       <div className="space-y-2">
         <Label className={lc}>Schema Type</Label>
