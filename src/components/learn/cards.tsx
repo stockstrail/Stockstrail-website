@@ -100,7 +100,7 @@ export function CategoryCard({ category, count }: { category: Category; count: n
           )}
         </div>
         <h3 className="mt-4 text-white font-semibold">{category.name}</h3>
-        <p className="mt-1 text-sm text-white/60 line-clamp-2">{category.description}</p>
+        <p className="mt-1 text-sm text-white/60 line-clamp-2">{category.shortDescription || category.description}</p>
         <div className="mt-4 flex items-center justify-between text-xs text-white/55">
           <span>{count} {count === 1 ? "course" : "courses"}</span>
           <span className="inline-flex items-center gap-1 text-[color:var(--color-brand-green)]">

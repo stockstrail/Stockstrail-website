@@ -7,6 +7,7 @@ export interface Category {
   slug: string;
   name: string;
   description: string;
+  shortDescription?: string;
   icon: string; // emoji or short glyph token — swap for real illustration later
   accent: string; // gradient token
   thumbnail?: string;

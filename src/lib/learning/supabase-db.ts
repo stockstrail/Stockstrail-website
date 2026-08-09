@@ -15,7 +15,8 @@ export async function getCategories(): Promise<Category[]> {
   return (data ?? []).map((cat) => ({
     slug: cat.slug,
     name: cat.name,
-    description: cat.short_description || cat.description || "",
+    description: cat.description || cat.short_description || "",
+    shortDescription: cat.short_description || cat.description || "",
     icon: cat.icon || "",
     accent: "from-emerald-400/40 to-emerald-700/10",
     thumbnail: cat.thumbnail || undefined,
@@ -36,7 +37,8 @@ export const getCategoryBySlug = cache(async (slug: string): Promise<Category | 
   return {
     slug: data.slug,
     name: data.name,
-    description: data.short_description || data.description || "",
+    description: data.description || data.short_description || "",
+    shortDescription: data.short_description || data.description || "",
     icon: data.icon || "",
     accent: "from-emerald-400/40 to-emerald-700/10",
     thumbnail: data.thumbnail || undefined,
