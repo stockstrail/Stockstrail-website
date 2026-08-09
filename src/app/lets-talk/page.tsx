@@ -332,6 +332,33 @@ export default function LetsTalk() {
                     <br /> V.P.O. Chintpurni Teh: Amb,
                     <br /> Distt. Una, Himachal Pradesh (177110)
                   </a>
+
+                  {/* Map embed */}
+                  <div className="mt-3 rounded-lg overflow-hidden border border-white/10 shadow-[0_0_15px_rgba(0,255,151,0.08)]">
+                    <iframe
+                      title="Stockstrail Office Location"
+                      src="https://maps.google.com/maps?q=Near+Punjab+And+Sind+Bank,+VPO+Chintpurni,+Teh+Amb,+Una,+Himachal+Pradesh+177110&output=embed"
+                      width="100%"
+                      height="200"
+                      style={{ border: 0, display: 'block' }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
+                  <a
+                    href="https://maps.google.com/maps?q=Near+Punjab+And+Sind+Bank,+V.P.O.+Chintpurni+Teh:Amb,+Distt.-+Una,+Himachal+Pradesh+177110"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-flex items-center gap-1.5 text-xs text-stockstrail-green-light hover:text-stockstrail-green-accent transition-colors"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                    Open in Google Maps
+                  </a>
                 </div>
               </div>
             </div>

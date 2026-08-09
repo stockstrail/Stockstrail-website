@@ -52,7 +52,7 @@ const HeroSection = () => {
                 <span className="gradient-text">Financial Planning.</span>
               </h1>
               <p className="text-xs sm:text-sm text-white/75 leading-relaxed max-w-xl">
-                Honest, jargon-free guidance built around your goals — not products. From SIPs to insurance, every recommendation is tailored to your unique financial journey across India.
+                Making the right financial decisions shouldn't be complicated. From your first SIP and lump sum investment to insurance, fixed deposits and loans, every recommendation is tailored to your goals, risk profile and the life you're building.
               </p>
             </div>
 

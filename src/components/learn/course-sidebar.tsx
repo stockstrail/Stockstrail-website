@@ -98,7 +98,12 @@ export function CourseSidebar({ course, activeLessonSlug, completedLessons, onSe
                     }`}>
                       {String(mi + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-sm font-medium text-white truncate">{m.title}</span>
+                    <span className="min-w-0">
+                      <span className="block text-sm font-medium text-white truncate">{m.title}</span>
+                      {m.summary && (
+                        <span className="block text-[11px] text-white/45 leading-tight mt-0.5 line-clamp-2">{m.summary}</span>
+                      )}
+                    </span>
                   </span>
                   <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" className={`text-white/50 transition-transform ${isCollapsed ? "" : "rotate-180"}`}>
                     <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />

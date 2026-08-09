@@ -223,6 +223,9 @@ export function CoursePageClient({ course, category, related }: Props) {
                         <span>Module {mi + 1}</span>
                       </div>
                       <h3 className="mt-1 text-base font-semibold text-white">{m.title}</h3>
+                      {m.summary && (
+                        <p className="mt-1 text-sm text-white/55 leading-relaxed">{m.summary}</p>
+                      )}
                       <ul className="mt-3 divide-y divide-white/5">
                         {m.lessons.map((l) => {
                           const isCompleted = completedLessons.includes(l.slug);
