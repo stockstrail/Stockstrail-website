@@ -2,11 +2,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { format } from 'date-fns';
 import Layout from '@/components/layout/Layout';
+import BlogPagination from '@/components/blog/BlogPagination';
 import { createClient } from '@/lib/supabase/server';
+import type { Metadata } from 'next';
 
 export const dynamic = 'force-dynamic';
 
-import type { Metadata } from 'next';
+const POSTS_PER_PAGE = 6;
 
 export const metadata: Metadata = {
   title: 'Financial Insights & Investment Strategies Blog | Stockstrail',
@@ -39,10 +41,33 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function BlogPage() {
+export default async function BlogPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const resolvedSearchParams = await searchParams;
+  const requestedPage = Number(resolvedSearchParams?.page);
+  const rawPage = Number.isFinite(requestedPage) && requestedPage > 0 ? Math.floor(requestedPage) : 1;
+
   const supabase = await createClient();
-  
-  // Fetch published blogs from Supabase
+
+  // Cheap head-only count first, so we can clamp the requested page into range
+  // before issuing the ranged query — an out-of-bounds .range() causes Postgrest
+  // to error (416 Range Not Satisfiable) instead of just returning fewer rows.
+  const { count } = await supabase
+    .from("blogs")
+    .select("id", { count: "exact", head: true })
+    .eq("published", true);
+
+  const totalCount = count ?? 0;
+  const totalPages = Math.max(1, Math.ceil(totalCount / POSTS_PER_PAGE));
+  const currentPage = Math.min(rawPage, totalPages);
+
+  const from = (currentPage - 1) * POSTS_PER_PAGE;
+  const to = from + POSTS_PER_PAGE - 1;
+
+  // Fetch only this page's 6 published blogs from Supabase
   const { data: posts, error } = await supabase
     .from("blogs")
     .select(`
@@ -50,7 +75,8 @@ export default async function BlogPage() {
       profiles:author_id (full_name)
     `)
     .eq("published", true)
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: false })
+    .range(from, to);
 
   if (error) {
     console.error("Error fetching blogs:", error);
@@ -150,6 +176,8 @@ export default async function BlogPage() {
               })}
             </div>
           )}
+
+          <BlogPagination currentPage={currentPage} totalPages={totalPages} />
         </div>
       </div>
     </Layout>
