@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { TrendingUp, ShieldCheck, Landmark, Umbrella, Wallet, LineChart, type LucideIcon } from 'lucide-react';
 
 type Stat = { value: string; label: string };
 
@@ -12,18 +13,78 @@ const stats: Stat[] = [
   { value: '100%', label: 'Digital Process' },
 ];
 
+type Chip = {
+  icon: LucideIcon;
+  label: string;
+  className: string;
+  rotate: number;
+  float: 'animate-float' | 'animate-float-slow';
+  delay: string;
+};
+
+const chips: Chip[] = [
+  {
+    icon: TrendingUp,
+    label: 'SIP from ₹500',
+    className: 'top-[18%] left-2 xl:left-8',
+    rotate: -6,
+    float: 'animate-float',
+    delay: '0s',
+  },
+  {
+    icon: ShieldCheck,
+    label: 'Free Risk Check',
+    className: 'top-[14%] right-2 xl:right-10',
+    rotate: 5,
+    float: 'animate-float-slow',
+    delay: '0.6s',
+  },
+  {
+    icon: Landmark,
+    label: 'FD up to 7.5% p.a.',
+    className: 'top-[46%] left-0 xl:left-4',
+    rotate: 4,
+    float: 'animate-float-slow',
+    delay: '1.4s',
+  },
+  {
+    icon: Umbrella,
+    label: 'Life & Health Cover',
+    className: 'top-[42%] right-0 xl:right-4',
+    rotate: -4,
+    float: 'animate-float',
+    delay: '0.9s',
+  },
+  {
+    icon: Wallet,
+    label: 'Quick Loan Approval',
+    className: 'bottom-[8%] left-6 xl:left-16',
+    rotate: 6,
+    float: 'animate-float',
+    delay: '1.8s',
+  },
+  {
+    icon: LineChart,
+    label: 'Zero AMC Demat',
+    className: 'bottom-[6%] right-6 xl:right-16',
+    rotate: -5,
+    float: 'animate-float-slow',
+    delay: '0.3s',
+  },
+];
+
 const ServiceHero: React.FC = () => {
   return (
     <section className="relative overflow-hidden px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-14 sm:pb-20">
       {/* Ambient 3D-ish background layers */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <span className="glow-blob top-[-120px] left-[-100px] h-[420px] w-[420px] opacity-30 animate-float" />
+        <span className="glow-blob top-[-140px] left-[-120px] h-[460px] w-[460px] lg:h-[560px] lg:w-[560px] opacity-30 animate-float" />
         <span
-          className="glow-blob bottom-[-140px] right-[-120px] h-[480px] w-[480px] opacity-25 animate-float-slow"
+          className="glow-blob bottom-[-160px] right-[-140px] h-[520px] w-[520px] lg:h-[620px] lg:w-[620px] opacity-25 animate-float-slow"
           style={{ background: 'rgba(0, 229, 153, 0.15)' }}
         />
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="grid-mesh absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage:
               'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
@@ -31,6 +92,31 @@ const ServiceHero: React.FC = () => {
             maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)',
           }}
         />
+      </div>
+
+      {/* Floating service chips — fill the wide gutters on laptop/desktop */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none" aria-hidden="true">
+        {chips.map((chip, i) => (
+          <motion.div
+            key={chip.label}
+            initial={{ opacity: 0, y: 24, rotate: chip.rotate }}
+            animate={{ opacity: 1, y: 0, rotate: chip.rotate }}
+            transition={{ duration: 0.7, delay: 0.3 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className={`absolute ${chip.className}`}
+          >
+            <div
+              className={`${chip.float} flex items-center gap-2.5 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl px-3.5 py-2.5 shadow-[0_8px_24px_rgba(0,0,0,0.35)]`}
+              style={{ animationDelay: chip.delay, transform: `rotate(${chip.rotate}deg)` }}
+            >
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-stockstrail-green-light/15 border border-stockstrail-green-light/25 text-stockstrail-green-light">
+                <chip.icon className="h-4 w-4" strokeWidth={2} />
+              </span>
+              <span className="text-xs font-work-sans font-medium text-white/80 whitespace-nowrap">
+                {chip.label}
+              </span>
+            </div>
+          </motion.div>
+        ))}
       </div>
 
       <div className="relative max-w-5xl mx-auto text-center">
