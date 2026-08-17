@@ -140,7 +140,7 @@ const CalculatorsSection = () => {
                         className="inline-flex items-center gap-4 px-8 py-4 bg-white border-2 border-[#012928] rounded-full text-[#012928] hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-work-sans font-semibold group"
                     >
                         <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full group-hover:scale-125 group-hover:animate-pulse transition-all duration-300"></div>
-                        View All Calculators
+                        View Calculators
                     </a>
                 </div>
             </div>
