@@ -126,8 +126,8 @@ const ServiceHero: React.FC = () => {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="inline-flex items-center gap-2 rounded-full border border-stockstrail-green-light/40 bg-stockstrail-green-light/10 px-4 py-1.5 text-[11px] font-semibold text-stockstrail-green-light tracking-wider uppercase backdrop-blur-md mb-6"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-stockstrail-green-light animate-pulse" />
-          Everything you need, one trusted partner
+          <span className="w-2 h-2 rounded-full bg-stockstrail-green-light animate-pulse" />
+          From Your First SIP to Your Next Big Move.
         </motion.div>
 
         <motion.h1
