@@ -146,9 +146,10 @@ const ServiceHero: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-white/70 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto mb-10"
         >
-          From your first SIP to your next home loan — mutual funds, insurance, fixed
-          deposits, loans, demat accounts and more. Unbiased, AMFI-registered guidance
-          tailored to your goals, delivered end-to-end online.
+          From mutual funds and insurance to fixed deposits, loans and demat accounts,
+          find the services you need in one place. We keep the process simple, explain your options clearly, 
+          and help you choose what makes sense for you.
+
         </motion.p>
 
         <motion.div
