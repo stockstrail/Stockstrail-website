@@ -204,38 +204,49 @@ export default function Insurance() {
               <li>Financial security for people who depend on your income</li>
             </ul>
 
-            <h4 className="text-white font-semibold mt-6 mb-2">How it works</h4>
+            <h4 className="text-white font-semibold mt-6 mb-2">How Term Insurance Works</h4>
             <ol className="list-decimal list-inside text-white/80 space-y-2">
-              <li>Choose coverage (e.g., ₹1 crore)</li>
-              <li>Select policy term (10 - 40 years)</li>
-              <li>Pay premiums regularly</li>
+              <li>Choose a sum assured based on your income, dependants, liabilities and financial goals.</li>
+              <li>Select a policy term that matches the period your family may depend on your income.</li>
+              <li>Declare your health, lifestyle and other relevant details honestly during the application and underwriting process.</li>
               <li>
-                If death occurs within term, nominee receives the sum assured
+                Pay premiums according to the selected payment schedule and keep the policy active
               </li>
+              <li>If the insured person dies during the policy term, the applicable death benefit is paid to the nominee according to the policy terms.</li>
             </ol>
 
             {/* Real case examples */}
             <div className="rounded-2xl p-6 bg-stockstrail-bg-light/30 border border-white/10 mt-6">
-              <h4 className="text-white font-semibold mb-3">Realistic Cases</h4>
+  <h4 className="text-white font-semibold mb-3">Real-Life Situations</h4>
 
-              <div className="space-y-4 text-white/80">
-                <div>
-                  <p className="font-semibold">Rahul - 35, family breadwinner</p>
-                  <p>
-                    Buys ₹1 crore cover at ~₹12,000/year. On claim, family clears
-                    home loan and funds children’s education.
-                  </p>
-                </div>
+  <div className="space-y-4 text-white/80">
+    <div>
+      <p className="font-semibold text-white">Young professional with a home loan</p>
+      <p>
+        A person with a new home loan and family responsibilities can use term insurance
+        to create financial protection for outstanding liabilities and the family&apos;s
+        future income needs.
+      </p>
+    </div>
 
-                <div>
-                  <p className="font-semibold">Pooja - 28, supporting parents</p>
-                  <p>
-                    Buys ₹50 lakh plan ensuring parents&apos; financial safety in case
-                    of loss.
-                  </p>
-                </div>
-              </div>
-            </div>
+    <div>
+      <p className="font-semibold text-white">Primary income earner with dependants</p>
+      <p>
+        When a family depends mainly on one person&apos;s income, term insurance can
+        provide financial support to the nominee if the insured person dies during the
+        policy term, subject to the policy terms.
+      </p>
+    </div>
+
+    <div>
+      <p className="font-semibold text-white">Parent planning for long-term responsibilities</p>
+      <p>
+        Parents may consider term insurance to help protect future commitments such as
+        children&apos;s education, household expenses and other long-term financial goals.
+      </p>
+    </div>
+  </div>
+</div>
 
             <div className="mt-6">
               <a
