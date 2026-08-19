@@ -307,6 +307,7 @@ export default function MutualFunds() {
               <div className="mt-6 p-4 bg-stockstrail-green-light/10 border border-stockstrail-green-light/20 rounded-lg">
                 <p className="text-sm text-white/80">
                   <strong className="text-white">Example:</strong> If you invest ₹5,000 every month through a SIP, you continue investing the same amount regardless of whether markets are up or down. Over time, this can help you build an investment habit and accumulate units at different market prices.
+                </p>
               </div>
             </div>
 
