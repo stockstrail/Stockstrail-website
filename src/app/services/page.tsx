@@ -143,7 +143,6 @@ const services: ServiceData[] = [
       'Tax filing support to help you file correctly and on time',
       'Traditional savings and guaranteed-return insurance plans',
       'ULIP options for insurance and market-linked investment needs',
-      'Traditional savings and guaranteed-return insurance plans',
       'Travel insurance for domestic and international trips',
       'Professional support with documentation, renewals and other service needs',
     ],
