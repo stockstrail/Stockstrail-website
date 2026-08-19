@@ -190,20 +190,18 @@ export default function Insurance() {
           {/* CONTENT */}
           <div>
             <h2 className="text-2xl sm:text-3xl text-stockstrail-green-light font-semibold mb-4">
-              Term Insurance - What & Why
+              Term Insurance: Protecting Your Family&apos;s Financial Future
             </h2>
             <p className="text-white/80 mb-4">
-              Term insurance gives a high life cover at a low cost. It ensures
-              your family can continue meeting goals and obligations if you are
-              not there to provide for them.
+             Term insurance is a pure protection plan that provides life cover for a chosen period. If the insured person dies during the policy term, the nominee receives the applicable death benefit according to the policy terms. It can help protect your family from loss of income, outstanding loans and long-term financial responsibilities.
             </p>
 
-            <h4 className="text-white font-semibold mb-2">Why buy term insurance?</h4>
+            <h4 className="text-white font-semibold mb-2">What Can Term Insurance Protect?</h4>
             <ul className="list-disc list-inside text-white/80 space-y-2">
-              <li>High coverage at low premiums (₹50L, ₹1Cr)</li>
-              <li>Protects family from income loss & loans</li>
-              <li>Simple structure - pay premium, nominee receives sum assured</li>
-              <li>Ideal for young professionals and families</li>
+              <li>Family income if you are no longer there to provide it</li>
+              <li>Outstanding home, education or other major loans</li>
+              <li>Long-term financial responsibilities and future goals</li>
+              <li>Financial security for people who depend on your income</li>
             </ul>
 
             <h4 className="text-white font-semibold mt-6 mb-2">How it works</h4>
