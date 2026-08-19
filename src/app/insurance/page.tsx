@@ -118,17 +118,37 @@ export default function Insurance() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <h4 className="text-white font-semibold mb-3">Quick Example</h4>
-            <p className="text-white/80 mb-2">
-              For ~₹500/month you could secure a ₹50 lakh term insurance cover - 
-              protecting education, mortgage and lifestyle goals for your family.
-            </p>
-            <a
-              href="https://insurance.assetplus.in/284122"
-              className="inline-block text-stockstrail-green-light underline focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-stockstrail-green-light"
-            >
-              Get personalised insurance advice
-            </a>
+            <h4 className="text-white font-semibold mb-3">Quick Guide</h4>
+
+<div className="space-y-4 text-white/80">
+  <div>
+    <p className="text-white font-semibold mb-1">Term Insurance</p>
+    <p className="text-sm">
+      Protects your family from loss of income and major financial responsibilities.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-white font-semibold mb-1">Health Insurance</p>
+    <p className="text-sm">
+      Helps protect your savings from eligible medical and hospitalisation expenses.
+    </p>
+  </div>
+
+  <div>
+    <p className="text-white font-semibold mb-1">Traditional &amp; Savings Insurance</p>
+    <p className="text-sm">
+      Combines life insurance with long-term savings and policy benefits, depending on the specific product and policy terms.
+    </p>
+  </div>
+</div>
+
+<a
+  href="https://insurance.assetplus.in/284122"
+  className="inline-block mt-5 text-stockstrail-green-light underline focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-stockstrail-green-light"
+>
+  Explore Insurance Options
+</a>
           </aside>
         </div>
       </section>
