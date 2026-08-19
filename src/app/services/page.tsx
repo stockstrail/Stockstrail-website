@@ -55,7 +55,7 @@ const services: ServiceData[] = [
   {
     id: 'fd',
     navLabel: 'Fixed Deposit',
-    eyebrow: 'Fixed Returns. Clear Expectations.',
+    eyebrow: 'Fixed Deposit',
     title: 'Fixed Returns. Clear Expectations.| FD',
     description:
       'Looking for predictable returns without market-linked fluctuations? We help you explore Fixed Deposit options based on your tenure, interest rate and income needs, so you can choose an option that fits your financial plan.',
