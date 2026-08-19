@@ -4,23 +4,23 @@ import Image from "next/image";
 import ImageCarousel from '@/components/ui/ImageCarousel';
 
 export const metadata: Metadata = {
-  title: 'Mutual Funds Investment Guide | Grow Your Wealth with Stockstrail',
+  title: 'Mutual Fund Investment | SIP & Lump Sum Investing | Stockstrail',
   description:
-    "Learn about mutual funds, how they work, and why they're ideal for wealth creation. Get professional fund management, diversification, and low entry barriers with Stockstrail.",
+    'Learn how mutual funds work, compare SIP and lump sum investing, understand fund categories and risk, and explore mutual fund options based on your goals with Stockstrail.',
   keywords:
-    'mutual funds, SIP, wealth creation, investment, equity funds, debt funds, hybrid funds',
+    'mutual fund investment, mutual funds, SIP, lump sum investment, equity funds, debt funds, hybrid funds, mutual fund distributor',
   openGraph: {
-    title: 'Mutual Funds Investment Guide | Grow Your Wealth with Stockstrail',
+    title: 'Mutual Fund Investment | SIP & Lump Sum Investing | Stockstrail',
     description:
-      "Learn about mutual funds, how they work, and why they're ideal for wealth creation.",
+     'Learn how mutual funds work, compare SIP and lump sum investing, understand fund categories and risk, and explore mutual fund options based on your goals.',
     url: 'https://www.stockstrail.in/mutual-funds',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mutual Funds Investment Guide | Grow Your Wealth with Stockstrail',
+    title: 'Mutual Fund Investment | SIP & Lump Sum Investing | Stockstrail',
     description:
-      "Learn about mutual funds, how they work, and why they're ideal for wealth creation.",
+      'Learn how mutual funds work, compare SIP and lump sum investing, understand fund categories and risk, and explore mutual fund options based on your goals.',,
   },
   alternates: {
     canonical: 'https://www.stockstrail.in/mutual-funds',
