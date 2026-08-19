@@ -74,17 +74,13 @@ export default function MutualFunds() {
                 What is a Mutual Fund?
               </h2>
               <p className="text-white/80 leading-relaxed mb-4">
-                A mutual fund is an investment vehicle that collects money from multiple investors and invests it in a
-                diversified portfolio such as stocks, bonds, government securities, and other financial instruments.
+               A mutual fund brings money from many investors together and invests it across assets such as stocks, bonds and government securities. Each fund has its own investment objective and is managed by a professional fund manager.
               </p>
               <p className="text-white/80 leading-relaxed mb-4">
-                These funds are managed by professional fund managers who make investment decisions on behalf of
-                investors. Mutual funds allow individuals to begin investing with small amounts while benefiting from
-                diversification and expert management.
+                Think of it as a simple way to invest in a basket of investments instead of choosing every stock or bond yourself. For example, an equity mutual fund can invest across companies and sectors, giving you diversification through a single fund.
               </p>
               <p className="text-white/80 leading-relaxed">
-                Instead of tracking markets daily or picking individual stocks, you can simply invest and let
-                professionals handle the portfolio management.
+                There are different types of mutual funds, including equity, debt and hybrid funds, with different levels of risk and objectives. The right fund depends on your goals, risk profile and investment horizon. You can invest through a SIP or a lump sum, depending on your situation.
               </p>
             </div>
           </div>
