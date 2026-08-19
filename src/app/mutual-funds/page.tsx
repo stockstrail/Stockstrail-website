@@ -428,9 +428,7 @@ export default function MutualFunds() {
 
           <div className="bg-stockstrail-green-light/10 border-l-4 border-stockstrail-green-light rounded-lg p-6">
             <p className="text-white/90">
-              <strong className="text-stockstrail-green-light">How to Manage Risk:</strong> These risks can be managed
-              through long-term investing, diversification across different fund types, and selecting well-performing
-              funds aligned with your risk profile.
+              <strong className="text-stockstrail-green-light">How to Manage Risk:</strong>These risks can be managed through a suitable investment horizon, diversification across different fund types, and selecting funds that align with your goals and risk profile.
             </p>
           </div>
         </div>
