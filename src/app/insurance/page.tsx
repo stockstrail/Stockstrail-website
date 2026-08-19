@@ -63,22 +63,20 @@ export default function Insurance() {
               {[
                 {
                   title: "Term Insurance",
-                  desc: "High life cover at affordable premiums - pays a lump-sum (Sum Assured) to the nominee if the policyholder passes away.",
+                  desc: "Term insurance provides life cover for a defined period and can help protect your family from loss of income, loans and other financial responsibilities.",
                   link: "https://insurance.assetplus.in/284122/term",
                 },
                 {
                   title: "Health Insurance",
-                  desc: "Covers medical expenses from illness, accidents, surgery or hospitalisation. Includes cashless treatment and family options.",
+                  desc: "Health insurance helps cover eligible hospitalisation and medical treatment expenses, subject to the policy's coverage, exclusions and other terms.",
                   link: "https://insurance.assetplus.in/284122/health",
                 },
                 {
-                  title: "Guidance & Support",
-                  desc: "We compare plans across insurers, assist with purchase & claims, and provide unbiased recommendations.",
+                  title: "Traditional & Savings Insurance",
+                  desc: "Life insurance plans designed for long-term savings and policy benefits, with guaranteed or non-guaranteed benefits depending on the specific product and its terms.",
+                  link: "https://www.pbpartners.com/v2/partner/vikrant-bhardwaj-una-1JFZ",
                 },
-                {
-                  title: "Claims Assistance",
-                  desc: "Hassle-free support and step-by-step help to simplify claims.",
-                },
+                
               ].map((item, i) => (
                 <div
                   key={i}
