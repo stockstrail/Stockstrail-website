@@ -387,12 +387,12 @@ export default function MutualFunds() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              'Individuals aiming to build long-term wealth',
-              'Salaried professionals with regular income',
-              "Parents planning for children's education",
-              'Investors seeking higher returns than fixed deposits',
-              'First-time investors who prefer professional management',
-              'Anyone looking to diversify their investment portfolio',
+              'First-time investors looking to start with a SIP',
+              'Salaried professionals investing regularly from their income',
+              'Individuals planning for long-term financial goals',
+              'Parents building a fund for their children&apos;s future',
+              'Investors looking to diversify beyond traditional savings',
+              'Investors with a lump sum they want to invest for the long term',
             ].map((item, index) => (
               <div
                 key={index}
@@ -414,10 +414,10 @@ export default function MutualFunds() {
 
           <div className="space-y-4 mb-8">
             {[
-              'Market volatility may cause fluctuations in value',
-              'Returns are not guaranteed',
-              'Short-term losses are possible',
-              'Choosing unsuitable funds may affect performance',
+              'Mutual fund values can rise or fall with market movements.',
+              'Short-term losses are possible, especially in market-linked funds.',
+              'Different mutual funds carry different levels of risk.',
+              'Choosing a fund that does not match your goals or risk profile can increase the chance of an unsuitable investment.',
             ].map((risk, index) => (
               <div key={index} className="flex gap-4 items-start bg-stockstrail-bg-light/50 backdrop-blur-sm rounded-lg p-4 border border-white/10">
                 <span className="text-red-400 font-bold">!</span>
