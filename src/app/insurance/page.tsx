@@ -37,12 +37,10 @@ export default function Insurance() {
 
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase gradient-text mb-6">
-            Secure Your Family&apos;s Future with Insurance
+            Insurance Isn&apos;t for Later. It&apos;s for What Matters Now.
           </h1>
           <p className="text-white/80 max-w-3xl mx-auto leading-relaxed text-lg">
-            Protection that gives you peace of mind - compare term and health
-            plans, understand how they work, and get personalised recommendations
-            from Stockstrail.
+            Explore term insurance, health insurance and traditional savings plans designed around your income, responsibilities and future goals. Understand your options, compare coverage and choose with confidence.
           </p>
         </div>
       </section>
