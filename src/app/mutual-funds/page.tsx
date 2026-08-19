@@ -516,6 +516,101 @@ export default function MutualFunds() {
           </div>
         </div>
       </section>
+            {/* Mutual Fund FAQs */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
+            Mutual Fund FAQs
+          </h2>
+
+          <div className="space-y-4">
+            <details className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl border border-white/10 p-6">
+              <summary className="cursor-pointer text-lg font-semibold text-white">
+                Can I stop or pause my SIP if I can&apos;t invest for a few months?
+              </summary>
+              <p className="mt-4 text-white/80 leading-relaxed">
+                Yes. You can generally cancel a SIP, while a temporary SIP pause
+                may also be available depending on the mutual fund scheme and
+                the platform through which the SIP is registered. Stopping
+                future SIP instalments does not automatically redeem the mutual
+                fund units you already hold. The exact pause and cancellation
+                rules can vary by scheme and platform.
+              </p>
+            </details>
+
+            <details className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl border border-white/10 p-6">
+              <summary className="cursor-pointer text-lg font-semibold text-white">
+                What happens if the market falls after I start my SIP?
+              </summary>
+              <p className="mt-4 text-white/80 leading-relaxed">
+                The value of your mutual fund investment can fall when markets
+                decline. A market correction does not automatically mean that
+                you should stop your SIP. Your decision should be based on your
+                goals, risk profile and investment horizon rather than
+                short-term market movements. A SIP continues according to its
+                schedule unless you stop or pause it.
+              </p>
+            </details>
+
+            <details className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl border border-white/10 p-6">
+              <summary className="cursor-pointer text-lg font-semibold text-white">
+                What is the difference between Direct and Regular Mutual Fund Plans?
+              </summary>
+              <p className="mt-4 text-white/80 leading-relaxed">
+                Both Direct and Regular Plans invest in the same underlying
+                mutual fund scheme and are managed by the same fund manager.
+                Direct Plans do not involve a distributor and generally have a
+                lower expense ratio, while Regular Plans include distribution
+                expenses and are purchased through a mutual fund distributor.
+                The choice should also consider the level of service and
+                support an investor wants.
+              </p>
+            </details>
+
+            <details className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl border border-white/10 p-6">
+              <summary className="cursor-pointer text-lg font-semibold text-white">
+                What is an exit load and when do I have to pay it?
+              </summary>
+              <p className="mt-4 text-white/80 leading-relaxed">
+                An exit load is a fee that may apply when you redeem mutual fund
+                units within a specified period. The amount and applicable
+                period depend on the particular scheme, so always check the
+                scheme&apos;s current exit-load terms before redeeming or
+                switching. Not every mutual fund has the same exit-load
+                structure.
+              </p>
+            </details>
+
+            <details className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl border border-white/10 p-6">
+              <summary className="cursor-pointer text-lg font-semibold text-white">
+                Should I switch my mutual fund if another fund is performing better?
+              </summary>
+              <p className="mt-4 text-white/80 leading-relaxed">
+                Not necessarily. Switching only because another fund has
+                recently delivered higher returns can lead to unnecessary
+                changes and may have tax or exit-load implications. Before
+                switching, consider whether your existing fund still fits your
+                goals, risk profile, investment horizon and the fund&apos;s
+                investment objective rather than focusing only on recent
+                performance.
+              </p>
+            </details>
+
+            <details className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl border border-white/10 p-6">
+              <summary className="cursor-pointer text-lg font-semibold text-white">
+                How many mutual funds should I have in my portfolio?
+              </summary>
+              <p className="mt-4 text-white/80 leading-relaxed">
+                There is no fixed number that is right for everyone. Adding more
+                mutual funds does not automatically mean better diversification,
+                especially when different funds have similar holdings or
+                investment strategies. The number of funds should depend on your
+                goals, risk profile, asset allocation and investment horizon.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 }
