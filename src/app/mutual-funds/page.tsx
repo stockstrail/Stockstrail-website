@@ -138,19 +138,19 @@ export default function MutualFunds() {
 
             <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 hover:shadow-[0_0_24px_rgba(0,255,151,0.12)] transition-all duration-300 group">
               <h3 className="text-xl font-semibold text-stockstrail-green-light mb-3 group-hover:text-white transition-colors">
-                Easy Access
+                Funds for Different Needs
               </h3>
               <p className="text-white/80">
-                Open-ended mutual funds generally allow investors to redeem their units on business days, subject to the scheme&apos;s terms, exit load and applicable rules.
+                With equity, debt, hybrid and other mutual fund categories available, investors can choose based on their goals, risk profile and investment horizon.
               </p>
             </div>
 
             <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 hover:shadow-[0_0_24px_rgba(0,255,151,0.12)] transition-all duration-300 group">
               <h3 className="text-xl font-semibold text-stockstrail-green-light mb-3 group-hover:text-white transition-colors">
-                Funds for Different Needs
+                Easy Access
               </h3>
               <p className="text-white/80">
-                    With equity, debt, hybrid and other mutual fund categories available, investors can choose based on their goals, risk profile and investment horizon.
+                    Open-ended mutual funds generally allow investors to redeem their units on business days, subject to the scheme&apos;s terms, exit load and applicable rules.
               </p>
             </div>
 
@@ -159,7 +159,7 @@ export default function MutualFunds() {
                 Wealth Growth
               </h3>
               <p className="text-white/80">
-               Mutual funds can help you build wealth over time through capital appreciation and, in some schemes, income distributions depending on the investment and market performance
+               Mutual funds can help you build wealth over time through capital appreciation and, in some schemes, income distributions, depending on the investment and market performance.
               </p>
             </div>
           </div>
