@@ -351,32 +351,28 @@ export default function MutualFunds() {
             <div className="bg-stockstrail-bg-light/50 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
               <p className="text-stockstrail-green-light font-semibold mb-2">Example 1:</p>
               <p className="text-white/80">
-                Investing ₹1,000 per month for 10 years may grow to approximately ₹2 - 2.5 lakh depending on market
-                conditions.
+                Suppose you start a SIP of ₹5,000 per month. Your total investment after 10 years would be ₹6,00,000. The value of your mutual fund investment may be higher or lower than this amount depending on market performance.
               </p>
             </div>
 
             <div className="bg-stockstrail-bg-light/50 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
               <p className="text-stockstrail-green-light font-semibold mb-2">Example 2:</p>
               <p className="text-white/80">
-                Investing ₹5,000 per month for 20 years may create a corpus of ₹50 - 60 lakh, assuming consistent market
-                performance.
+                Investing ₹5,000 every month through a SIP for 20 years would mean a total contribution of ₹12,00,000. The final value of the investment will depend on the mutual fund&apos;s performance and market conditions.
               </p>
             </div>
 
             <div className="bg-stockstrail-bg-light/50 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
               <p className="text-stockstrail-green-light font-semibold mb-2">Example 3:</p>
               <p className="text-white/80">
-                Investing ₹1,00,000 in a debt fund for one year may yield around ₹6,000 - 8,000 in returns, depending on
-                interest rate conditions.
+                Investing ₹1,00,000 in a mutual fund at one time is called a lump sum investment. The value of the investment can rise or fall with market conditions, so the outcome depends on the fund and the period you remain invested.
               </p>
             </div>
 
             <div className="bg-stockstrail-bg-light/50 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
-              <p className="text-white font-semibold mb-2 text-sm">⚠️ Disclaimer:</p>
+              <p className="text-white font-semibold mb-2 text-sm">Disclaimer:</p>
               <p className="text-white/70 text-sm">
-                These are illustrative examples only. Actual returns may vary based on market performance, fund
-                selection, and investment period. Past performance is not indicative of future results.
+                These examples are for educational purposes only and are intended to explain how SIP and lump sum investments work. Mutual fund investments are subject to market risks, and the value of your investment may go up or down depending on market conditions and the performance of the selected scheme.
               </p>
             </div>
           </div>
