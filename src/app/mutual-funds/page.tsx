@@ -471,24 +471,38 @@ export default function MutualFunds() {
           </h2>
 
           <div className="space-y-4">
-            {[
-              'Tell us about your goals, investment needs and basic details',
-              'Complete your KYC and risk-profile assessment',
-              'Choose between a SIP or lump sum based on your situation',
-              'Explore suitable mutual fund options based on your goals and risk profile',
-              'Complete the investment process online',
-              'Review your investments as your goals and needs change',
-            ].map((step, index) => (
-              <div
-                key={index}
-                className="flex gap-4 items-start bg-stockstrail-bg-light/50 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300"
-              >
-                <div className="shrink-0 w-10 h-10 bg-stockstrail-green-light rounded-full flex items-center justify-center text-black font-bold text-lg">
-                  {index + 1}
-                </div>
-                <p className="text-white/80 pt-1">{step}</p>
-              </div>
-            ))}
+           {[
+    'Tell us about your goals, investment needs and basic details',
+    'Complete your KYC and risk-profile assessment',
+    'Choose between a SIP or lump sum based on your situation',
+    'Explore suitable mutual fund options based on your goals and risk profile',
+    'Complete the investment process online',
+    'Review your investments as your goals and needs change',
+].map((step, index) => (
+    <div
+        key={index}
+        className="flex gap-4 items-start bg-stockstrail-bg-light/50 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300"
+    >
+        <div className="shrink-0 w-10 h-10 bg-stockstrail-green-light rounded-full flex items-center justify-center text-black font-bold text-lg">
+            {index + 1}
+        </div>
+        <p className="text-white/80 pt-1">
+            {index === 1 ? (
+                <>
+                    Complete your KYC and{' '}
+                    <a
+                        href="/risk-profile"
+                        className="text-stockstrail-green-light hover:underline"
+                    >
+                        risk-profile assessment
+                    </a>
+                </>
+            ) : (
+                step
+            )}
+        </p>
+    </div>
+))}
           </div>
 
           <div className="mt-12 text-center">
