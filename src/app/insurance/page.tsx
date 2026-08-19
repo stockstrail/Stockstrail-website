@@ -53,16 +53,13 @@ export default function Insurance() {
           {/* LEFT CONTENT */}
           <div className="lg:col-span-2">
             <h2 className="text-2xl sm:text-3xl font-product-sans text-white mb-4">
-              Insurance - Complete Service Overview
+              Insurance Options: Term, Health & Savings Plans
             </h2>
             <p className="text-white/80 mb-4 leading-relaxed">
-              Insurance provides financial protection against unexpected events
-              so your family, health, and finances remain secure. At Stockstrail
-              we help you choose the right plans based on your needs, income,
-              family size and long-term goals.
+              Different insurance products protect different parts of your financial life. Term insurance can protect your family&apos;s income, health insurance can help manage medical expenses, and traditional savings plans can combine life protection with long-term policy benefits.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
                 {
                   title: "Term Insurance",
