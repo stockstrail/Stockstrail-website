@@ -289,26 +289,24 @@ export default function MutualFunds() {
               <ul className="space-y-3 text-white/80">
                 <li className="flex gap-3">
                   <span className="text-stockstrail-green-light">✓</span>
-                  <span>Investing a fixed amount every month</span>
+                  <span>Investing a fixed amount at regular intervals, usually every month.</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-stockstrail-green-light">✓</span>
-                  <span>Ideal for salaried individuals or beginners</span>
+                  <span>Start with an amount that fits your income and investment budget.</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-stockstrail-green-light">✓</span>
-                  <span>Provides the benefit of rupee-cost averaging</span>
+                  <span>Regular investing can help build discipline and may benefit from rupee-cost averaging over time.</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-stockstrail-green-light">✓</span>
-                  <span>Builds discipline and habit of saving</span>
+                  <span>Useful when you want to invest gradually instead of putting a large amount in at once.</span>
                 </li>
               </ul>
               <div className="mt-6 p-4 bg-stockstrail-green-light/10 border border-stockstrail-green-light/20 rounded-lg">
                 <p className="text-sm text-white/80">
-                  <strong className="text-white">Example:</strong> A monthly SIP of ₹2,000 for 15 years may potentially
-                  grow into ₹10 - 12 lakh depending on the fund&apos;s performance.
-                </p>
+                  <strong className="text-white">Example:</strong> If you invest ₹5,000 every month through a SIP, you continue investing the same amount regardless of whether markets are up or down. Over time, this can help you build an investment habit and accumulate units at different market prices.
               </div>
             </div>
 
@@ -317,25 +315,24 @@ export default function MutualFunds() {
               <ul className="space-y-3 text-white/80">
                 <li className="flex gap-3">
                   <span className="text-stockstrail-green-light">✓</span>
-                  <span>Investing a large amount at once</span>
+                  <span>Investing a larger amount in a mutual fund at one time</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-stockstrail-green-light">✓</span>
-                  <span>Suitable for those with surplus funds available</span>
+                  <span>Useful when you have surplus money available for investment.</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-stockstrail-green-light">✓</span>
-                  <span>Can be a good option if market valuations are attractive</span>
+                  <span>Can be considered when you have a suitable time horizon and can handle market fluctuations.</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-stockstrail-green-light">✓</span>
-                  <span>Allows immediate capital deployment</span>
+                  <span>Works well for one-time amounts such as bonuses, savings or other available capital</span>
                 </li>
               </ul>
               <div className="mt-6 p-4 bg-stockstrail-green-light/10 border border-stockstrail-green-light/20 rounded-lg">
                 <p className="text-sm text-white/80">
-                  <strong className="text-white">Flexibility:</strong> You can combine both SIP and lump sum to optimize
-                  your investment strategy.
+                  <strong className="text-white">Example:</strong> If you receive a ₹1,00,000 bonus and decide to invest it in a suitable mutual fund, investing the full amount at once is a lump sum investment. The outcome will depend on the fund, market conditions and how long you stay invested.
                 </p>
               </div>
             </div>
