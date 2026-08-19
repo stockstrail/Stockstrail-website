@@ -97,7 +97,7 @@ export default function MutualFunds() {
             className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 transition-all duration-300 font-work-sans font-medium"
           >
             <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
-            Secure Your First SIP - Start Now
+            Explore Mutual Funds - Start Investing
           </a>
         </div>
       </section>
@@ -111,21 +111,19 @@ export default function MutualFunds() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 hover:shadow-[0_0_24px_rgba(0,255,151,0.12)] transition-all duration-300 group">
               <h3 className="text-xl font-semibold text-stockstrail-green-light mb-3 group-hover:text-white transition-colors">
-                Low Entry Barrier
+                Start Small, Invest Regularly
               </h3>
               <p className="text-white/80">
-                Investors can start with small contributions through SIPs. Many funds allow investments starting from as
-                low as ₹100.
+                SIPs make it possible to start with a manageable amount and invest regularly without needing a large amount of money at once.
               </p>
             </div>
 
             <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 hover:shadow-[0_0_24px_rgba(0,255,151,0.12)] transition-all duration-300 group">
               <h3 className="text-xl font-semibold text-stockstrail-green-light mb-3 group-hover:text-white transition-colors">
-                Professional Management
+                Professional Fund Management
               </h3>
               <p className="text-white/80">
-                Qualified fund managers analyse markets, financial data, and company performance to make informed
-                investment decisions.
+                Experienced fund managers research and monitor the portfolio according to the fund&apos;s investment objective, so you do not have to select every security yourself.
               </p>
             </div>
 
@@ -134,38 +132,34 @@ export default function MutualFunds() {
                 Diversification
               </h3>
               <p className="text-white/80">
-                A single mutual fund invests across various companies and sectors, helping reduce risk compared to
-                individual stocks.
+                A mutual fund can spread your money across multiple securities, companies, sectors and asset classes, reducing dependence on a single investment.
               </p>
             </div>
 
             <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 hover:shadow-[0_0_24px_rgba(0,255,151,0.12)] transition-all duration-300 group">
               <h3 className="text-xl font-semibold text-stockstrail-green-light mb-3 group-hover:text-white transition-colors">
-                Higher Returns Potential
+                Easy Access
               </h3>
               <p className="text-white/80">
-                Over the long term, mutual funds - especially equity-oriented funds - have historically delivered higher
-                returns compared to savings accounts.
+                Open-ended mutual funds generally allow investors to redeem their units on business days, subject to the scheme&apos;s terms, exit load and applicable rules.
               </p>
             </div>
 
             <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 hover:shadow-[0_0_24px_rgba(0,255,151,0.12)] transition-all duration-300 group">
               <h3 className="text-xl font-semibold text-stockstrail-green-light mb-3 group-hover:text-white transition-colors">
-                Liquidity
+                Funds for Different Needs
               </h3>
               <p className="text-white/80">
-                Investors can redeem their mutual fund units easily, except in schemes with lock-in periods such as
-                ELSS.
+                    With equity, debt, hybrid and other mutual fund categories available, investors can choose based on their goals, risk profile and investment horizon.
               </p>
             </div>
 
             <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 hover:shadow-[0_0_24px_rgba(0,255,151,0.12)] transition-all duration-300 group">
               <h3 className="text-xl font-semibold text-stockstrail-green-light mb-3 group-hover:text-white transition-colors">
-                Passive Investing
+                Wealth Growth
               </h3>
               <p className="text-white/80">
-                No need to monitor markets daily or make frequent trading decisions. Let professionals handle it for
-                you.
+               Mutual funds can help you build wealth over time through capital appreciation and, in some schemes, income distributions depending on the investment and market performance
               </p>
             </div>
           </div>
