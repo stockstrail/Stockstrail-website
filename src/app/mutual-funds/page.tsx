@@ -444,15 +444,15 @@ export default function MutualFunds() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: 'AMFI-Registered', desc: 'Licensed mutual fund distributor ensuring compliance and transparency.' },
-              { title: 'Transparent Guidance', desc: 'Recommendations based on your financial goals and risk tolerance.' },
+              { title: 'AMFI-Registered', desc: 'Registered with AMFI as a Mutual Fund Distributor, with a focus on clear and responsible distribution of mutual fund products.' },
+              { title: 'Transparent Guidance', desc: 'Clear recommendations based on your financial goals, risk profile and investment horizon, without relying on one-size-fits-all choices.' },
               {
-                title: 'Expert Selection',
-                desc: 'Assistance in choosing from 100+ mutual fund schemes across all categories.',
+                title: 'Fund Selection',
+                desc: 'Explore mutual fund options across equity, debt, hybrid and other categories based on your goals, risk profile and investment horizon.'
               },
-              { title: 'SIP Planning', desc: 'Customized SIP amounts tailored to your financial objectives and budget.' },
-              { title: 'Paperless Process', desc: 'Simple, quick, and entirely online investment process.' },
-              { title: 'Ongoing Support', desc: 'Portfolio reviews, rebalancing, and continuous support.' },
+              { title: 'SIP Planning', desc: 'Build a SIP around your income, budget, goals and investment horizon, with the flexibility to adjust as your needs change.' },
+              { title: 'Paperless Process', desc: 'Complete your mutual fund investment process online with simple KYC and digital onboarding, wherever available.' },
+              { title: 'Ongoing Support', desc: 'Get continued support with portfolio reviews, investment updates and changes as your goals or circumstances evolve.' },
             ].map((item, index) => (
               <div
                 key={index}
@@ -474,12 +474,12 @@ export default function MutualFunds() {
 
           <div className="space-y-4">
             {[
-              'Share your basic details and complete KYC verification',
-              'Discuss your financial goals with Stockstrail experts',
-              'Choose between SIP (monthly) or lump sum investment',
-              'Receive personalized fund recommendations',
-              'Complete a simple online investment process',
-              'Track and manage your portfolio anytime on the platform',
+              'Tell us about your goals, investment needs and basic details',
+              'Complete your KYC and risk-profile assessment',
+              'Choose between a SIP or lump sum based on your situation',
+              'Explore suitable mutual fund options based on your goals and risk profile',
+              'Complete the investment process online',
+              'Review your investments as your goals and needs change',
             ].map((step, index) => (
               <div
                 key={index}
