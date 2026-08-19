@@ -254,12 +254,12 @@ export default function MutualFunds() {
 
           <div className="space-y-4">
             {[
-              'An investor selects a mutual fund and invests either through SIP or lump sum.',
-              'The fund manager pools the money of all investors.',
-              'The pooled amount is invested in a diversified range of financial instruments.',
-              'The value of the investments grows or falls based on market performance.',
-              'Investors earn returns through capital appreciation, dividends, or interest.',
-              'Investors can redeem their units at the prevailing NAV (Net Asset Value) whenever they need to exit the investment.',
+              'You choose a mutual fund based on your investment goals, risk profile and time horizon.',
+              'You invest through a SIP or lump sum, and your money becomes part of the fund.',
+              'The fund pools money from many investors and invests it according to its investment objective.',
+              'A professional fund manager manages the portfolio and makes investment decisions within the fund strategy.',
+              'The value of your investment rises or falls based on the performance of the underlying securities and market conditions.',
+              'When you want to exit, you can redeem your units subject to the fund&apos;s terms, applicable charges and rules.',
             ].map((step, index) => (
               <div
                 key={index}
