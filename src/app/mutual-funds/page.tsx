@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Mutual Fund Investment | SIP & Lump Sum Investing | Stockstrail',
     description:
-      'Learn how mutual funds work, compare SIP and lump sum investing, understand fund categories and risk, and explore mutual fund options based on your goals.',,
+      'Learn how mutual funds work, compare SIP and lump sum investing, understand fund categories and risk, and explore mutual fund options based on your goals.',
   },
   alternates: {
     canonical: 'https://www.stockstrail.in/mutual-funds',
