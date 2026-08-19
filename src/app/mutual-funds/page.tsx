@@ -178,19 +178,18 @@ export default function MutualFunds() {
             <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
               <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-3">Equity Funds</h3>
               <p className="text-white/80 mb-4">
-                Equity funds invest primarily in the shares of companies. These funds aim for long-term capital growth.
+                 Equity funds invest mainly in the shares of companies and are generally suited to investors seeking long-term growth who can accept market ups and downs.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <p className="text-white font-semibold mb-2">Suitable for:</p>
                   <p className="text-white/70">
-                    Long-term investors, individuals looking to grow wealth, and those comfortable with market
-                    fluctuations.
+                    Investors with a longer time horizon who are comfortable with higher market fluctuations.
                   </p>
                 </div>
                 <div>
-                  <p className="text-white font-semibold mb-2">Expected return:</p>
-                  <p className="text-white/70">Typically higher, but dependent on market performance.</p>
+                  <p className="text-white font-semibold mb-2">Risk level:</p>
+                  <p className="text-white/70">Generally higher than debt-oriented funds, depending on the specific scheme.</p>
                 </div>
               </div>
             </div>
@@ -198,17 +197,16 @@ export default function MutualFunds() {
             <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
               <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-3">Debt Funds</h3>
               <p className="text-white/80 mb-4">
-                Debt funds invest in fixed-income instruments such as government bonds, corporate bonds, certificates
-                of deposit, and other debt securities.
+               Debt funds invest mainly in fixed-income securities such as government and corporate bonds, certificates of deposit and other debt instruments. They are generally considered for investors looking for relatively lower volatility than equity funds.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <p className="text-white font-semibold mb-2">Suitable for:</p>
-                  <p className="text-white/70">Conservative investors, short-term goals, and individuals seeking stability.</p>
+                  <p className="text-white/70">Investors with short to medium-term goals who prefer relatively lower market volatility.</p>
                 </div>
                 <div>
-                  <p className="text-white font-semibold mb-2">Expected return:</p>
-                  <p className="text-white/70">Moderate and relatively stable.</p>
+                  <p className="text-white font-semibold mb-2">Risk level:</p>
+                  <p className="text-white/70">Generally lower than equity funds, but returns and value can still fluctuate with interest rates and credit conditions.</p>
                 </div>
               </div>
             </div>
@@ -216,17 +214,16 @@ export default function MutualFunds() {
             <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
               <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-3">Hybrid Funds</h3>
               <p className="text-white/80 mb-4">
-                Hybrid funds invest in a mix of equity and debt instruments. The combination provides both growth
-                potential and stability.
+                Hybrid funds invest across a mix of equity and debt securities. By combining different asset classes, they can offer a middle ground between growth potential and the relatively lower volatility of debt-oriented investments.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <p className="text-white font-semibold mb-2">Suitable for:</p>
-                  <p className="text-white/70">New investors and those who want balanced risk and returns.</p>
+                  <p className="text-white/70">Investors looking for a diversified approach and a balance between equity exposure and debt investments.</p>
                 </div>
                 <div>
-                  <p className="text-white font-semibold mb-2">Expected return:</p>
-                  <p className="text-white/70">Balanced growth with moderate stability.</p>
+                  <p className="text-white font-semibold mb-2">Risk level:</p>
+                  <p className="text-white/70">Varies by the fund&apos;s asset allocation and can range from relatively moderate to higher risk.</p>
                 </div>
               </div>
             </div>
