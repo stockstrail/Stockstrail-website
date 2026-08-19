@@ -55,7 +55,7 @@ const services: ServiceData[] = [
   {
     id: 'fd',
     navLabel: 'Fixed Deposit',
-    eyebrow: 'Guaranteed Returns',
+    eyebrow: 'Fixed Returns. Clear Expectations.',
     title: 'Fixed Returns. Clear Expectations.| FD',
     description:
       'Looking for predictable returns without market-linked fluctuations? We help you explore Fixed Deposit options based on your tenure, interest rate and income needs, so you can choose an option that fits your financial plan.',
@@ -122,7 +122,7 @@ const services: ServiceData[] = [
       'Access stocks, ETFs and other market-linked investments',
       'Choose from multiple Demat account options',
       'Simple, paperless KYC and account opening',
-      'User-friendly mobile and desktop trading platforms',
+      'Easy access through digital trading platforms',
       'Get started with investing once your account is active',
     ],
     cta: 'OPEN DEMAT ACCOUNT',
@@ -143,7 +143,7 @@ const services: ServiceData[] = [
       'Tax filing support to help you file correctly and on time',
       'Traditional savings and guaranteed-return insurance plans',
       'ULIP options for insurance and market-linked investment needs',
-      'Guaranteed Plans for risk-free, assured returns',
+      'Traditional savings and guaranteed-return insurance plans',
       'Travel insurance for domestic and international trips',
       'Professional support with documentation, renewals and other service needs',
     ],
