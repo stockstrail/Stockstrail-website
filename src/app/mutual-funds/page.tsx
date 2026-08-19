@@ -38,11 +38,10 @@ export default function MutualFunds() {
 
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase gradient-text mb-6">
-            Invest Smarter with Mutual Funds
+            Your Money Has a Purpose. Your Mutual Funds Should Too.
           </h1>
           <p className="text-white/80 max-w-3xl mx-auto leading-relaxed text-lg">
-            Grow your wealth steadily with expert-managed portfolios. Start investing with as little as ₹100 through SIPs
-            and benefit from professional fund management.
+            Whether you're starting a SIP or investing a lump sum, we help you explore mutual funds based on your goals, risk profile and investment horizon.
           </p>
         </div>
       </section>
