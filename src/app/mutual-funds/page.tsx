@@ -27,10 +27,92 @@ export const metadata: Metadata = {
   },
 
 };
-
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': 'https://www.stockstrail.in/mutual-funds#webpage',
+      url: 'https://www.stockstrail.in/mutual-funds',
+      name: 'Mutual Fund Investment | SIP & Lump Sum Investing | Stockstrail',
+      description:
+        'Learn how mutual funds work, compare SIP and lump sum investing, understand fund categories and risk, and explore mutual fund options based on your goals with Stockstrail.',
+      inLanguage: 'en-IN',
+      mainEntity: {
+        '@id': 'https://www.stockstrail.in/mutual-funds#faq',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': 'https://www.stockstrail.in/mutual-funds#faq',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Can I stop or pause my SIP if I can\'t invest for a few months?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text:
+              'Yes. You can generally cancel a SIP, while a temporary SIP pause may also be available depending on the mutual fund scheme and the platform through which the SIP is registered. Stopping future SIP instalments does not automatically redeem the mutual fund units you already hold. The exact pause and cancellation rules can vary by scheme and platform.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What happens if the market falls after I start my SIP?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text:
+              'The value of your mutual fund investment can fall when markets decline. A market correction does not automatically mean that you should stop your SIP. Your decision should be based on your goals, risk profile and investment horizon rather than short-term market movements. A SIP continues according to its schedule unless you stop or pause it.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What is the difference between Direct and Regular Mutual Fund Plans?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text:
+              'Both Direct and Regular Plans invest in the same underlying mutual fund scheme and are managed by the same fund manager. Direct Plans do not involve a distributor and generally have a lower expense ratio, while Regular Plans include distribution expenses and are purchased through a mutual fund distributor. The choice should also consider the level of service and support an investor wants.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What is an exit load and when do I have to pay it?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text:
+              'An exit load is a fee that may apply when you redeem mutual fund units within a specified period. The amount and applicable period depend on the particular scheme, so always check the scheme\'s current exit-load terms before redeeming or switching. Not every mutual fund has the same exit-load structure.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Should I switch my mutual fund if another fund is performing better?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text:
+              'Not necessarily. Switching only because another fund has recently delivered higher returns can lead to unnecessary changes and may have tax or exit-load implications. Before switching, consider whether your existing fund still fits your goals, risk profile, investment horizon and the fund\'s investment objective rather than focusing only on recent performance.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How many mutual funds should I have in my portfolio?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text:
+              'There is no fixed number that is right for everyone. Adding more mutual funds does not automatically mean better diversification, especially when different funds have similar holdings or investment strategies. The number of funds should depend on your goals, risk profile, asset allocation and investment horizon.',
+          },
+        },
+      ],
+    },
+  ],
+};
 export default function MutualFunds() {
   return (
     <Layout>
+      <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+  }}
+/>
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <div className="absolute inset-0 -z-10">
           <div className="w-full h-72 bg-stockstrail-bg-light blur-185 opacity-40" />
@@ -476,7 +558,7 @@ export default function MutualFunds() {
     'Complete your KYC and risk-profile assessment',
     'Choose between a SIP or lump sum based on your situation',
     'Explore suitable mutual fund options based on your goals and risk profile',
-    'Complete the investment process online',
+    'Complete the investment process online through Stockstrail',
     'Review your investments as your goals and needs change',
 ].map((step, index) => (
     <div
