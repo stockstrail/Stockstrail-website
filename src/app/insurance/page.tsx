@@ -528,7 +528,7 @@ export default function Insurance() {
                   ],
                   [
                     "What it protects",
-                    "Dependants from financial loss after the insured person&apos;s death",
+                    "Dependants from financial loss after the insured person's death",
                     "Savings from eligible healthcare expenses",
                     "Long-term financial planning and policy-based benefits",
                   ],
@@ -578,36 +578,63 @@ export default function Insurance() {
         </div>
       </section>
 
-      {/* ========================================================= */}
-      {/* WHO SHOULD BUY */}
+           {/* ========================================================= */}
+      {/* WHICH INSURANCE MAY FIT YOUR SITUATION */}
       {/* ========================================================= */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-semibold gradient-text mb-6 text-center">
-            Who should consider insurance?
+
+          <h2 className="text-2xl sm:text-3xl font-semibold text-stockstrail-green-light mb-4 text-center">
+            Which Insurance May Fit Your Situation?
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[
-              "Individuals with dependents",
-              "Salaried employees with loans",
-              "Single earning members",
-              "Parents planning long-term safety",
-              "Working individuals",
-              "Families with children",
-              "Senior citizens",
-              "People with medical history",
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="flex gap-4 items-start bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-lg p-5 border border-white/10"
-              >
-                <div className="text-stockstrail-green-light text-2xl font-bold">
-                  →
-                </div>
-                <p className="text-white/80">{item}</p>
-              </div>
-            ))}
+          <p className="text-white/70 max-w-3xl mx-auto text-center mb-8">
+            Different insurance products solve different financial risks. Start with
+            the risk you want to protect and then compare the policy features that
+            matter for your situation.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+              <h3 className="text-xl font-semibold text-stockstrail-green-light mb-3">
+                Consider Term Insurance If...
+              </h3>
+
+              <ul className="list-disc list-inside text-white/80 space-y-2">
+                <li>You have people who depend on your income.</li>
+                <li>You have a home loan or other major financial liabilities.</li>
+                <li>You want to protect your family&apos;s future financial goals.</li>
+                <li>Your family would face a significant income gap if you were no longer there.</li>
+              </ul>
+            </div>
+
+            <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+              <h3 className="text-xl font-semibold text-stockstrail-green-light mb-3">
+                Consider Health Insurance If...
+              </h3>
+
+              <ul className="list-disc list-inside text-white/80 space-y-2">
+                <li>You want protection against eligible hospitalisation and medical expenses.</li>
+                <li>You rely mainly on employer-provided health cover.</li>
+                <li>You want separate protection for yourself or your family.</li>
+                <li>You want to plan for healthcare costs without depending entirely on your savings.</li>
+              </ul>
+            </div>
+
+            <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+              <h3 className="text-xl font-semibold text-stockstrail-green-light mb-3">
+                Consider Traditional &amp; Savings Insurance If...
+              </h3>
+
+              <ul className="list-disc list-inside text-white/80 space-y-2">
+                <li>You are looking for long-term savings alongside life insurance protection.</li>
+                <li>You prefer structured premium and policy commitments.</li>
+                <li>You want to understand policy-based guaranteed or non-guaranteed benefits.</li>
+                <li>You have a long-term financial goal that may fit the product&apos;s benefit structure.</li>
+              </ul>
+            </div>
+
           </div>
         </div>
       </section>
