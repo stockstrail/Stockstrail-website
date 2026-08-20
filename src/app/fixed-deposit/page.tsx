@@ -540,94 +540,6 @@ periodic interest income instead of waiting until maturity.
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
-            Fixed Deposit FAQs
-          </h2>
-
-          <div className="space-y-4">
-            {[
-              {
-                q: "What is a fixed deposit?",
-                a: "A fixed deposit is a bank deposit where you place a lump sum for a chosen tenure and earn interest according to the deposit terms. The rate, payout method and maturity amount depend on the bank and FD type."
-              },
-              {
-                q: "How is FD interest calculated?",
-                a: "FD interest depends on the deposit amount, applicable interest rate, tenure, compounding frequency and payout structure. Actual maturity values should be checked against the bank's current terms or calculator."
-              },
-              {
-                q: "What is the difference between cumulative and non-cumulative FD?",
-                a: "A cumulative FD generally pays the accumulated interest at maturity, while a non-cumulative FD generally pays interest at a selected periodic frequency such as monthly, quarterly, half-yearly or yearly, subject to the bank's terms."
-              },
-              {
-                q: "Can I withdraw a fixed deposit before maturity?",
-                a: "Some FDs allow premature withdrawal, but conditions vary by bank and deposit type. The applicable interest rate may be revised and a penalty or other charge may apply, so check the provider's current terms before breaking the deposit."
-              },
-              {
-                q: "Is FD interest taxable?",
-                a: "FD interest is generally taxable according to the investor's applicable tax rules. Tax deducted at source may also apply when the relevant conditions are met. Consider your post-tax return rather than only the headline FD rate."
-              },
-              {
-                q: "Is money in a bank FD insured?",
-                a: "Eligible bank deposits are covered by deposit insurance under the applicable DICGC framework, subject to its rules and limits. Check the current DICGC rules and your bank's deposit coverage before investing."
-              },
-              {
-                q: "Can senior citizens get a higher FD rate?",
-                a: "Many banks offer additional interest rates or specific FD options for eligible senior citizens, but the benefit varies by bank, tenure and deposit terms. Always compare the current rate and conditions."
-              },
-              {
-                q: "How can I start an FD through Stockstrail?",
-                a: "You can contact Stockstrail to discuss the deposit requirement, tenure and available options. The final FD terms, rate and acceptance are subject to the relevant deposit provider."
-              },
-            ].map((item, index) => (
-              <details
-                key={index}
-                className="group rounded-xl border border-white/10 bg-stockstrail-bg-light/40 p-5"
-              >
-                <summary className="cursor-pointer list-none pr-8 text-lg font-semibold text-white group-open:text-stockstrail-green-light">
-                  {item.q}
-                </summary>
-                <p className="mt-3 text-white/70 leading-7">{item.a}</p>
-              </details>
-            ))}
-          </div>
-
-          <div className="mt-10 rounded-xl border border-white/10 bg-stockstrail-bg-light/30 p-6">
-            <h3 className="text-lg font-semibold text-stockstrail-green-light mb-3">Related Financial Guides</h3>
-            <div className="flex flex-wrap gap-x-5 gap-y-3">
-              <Link href="/mutual-funds" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Mutual Funds</Link>
-              <Link href="/calculators" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Financial Calculators</Link>
-              <Link href="/insurance" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Insurance</Link>
-              <Link href="/financial-protection" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Financial Protection</Link>
-              <Link href="/lets-talk" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Talk to Stockstrail</Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: [
-              {"@type":"Question","name":"What is a fixed deposit?","acceptedAnswer":{"@type":"Answer","text":"A fixed deposit is a bank deposit where you place a lump sum for a chosen tenure and earn interest according to the deposit terms."}},
-              {"@type":"Question","name":"How is FD interest calculated?","acceptedAnswer":{"@type":"Answer","text":"FD interest depends on the deposit amount, applicable interest rate, tenure, compounding frequency and payout structure."}},
-              {"@type":"Question","name":"What is the difference between cumulative and non-cumulative FD?","acceptedAnswer":{"@type":"Answer","text":"A cumulative FD generally pays accumulated interest at maturity, while a non-cumulative FD generally pays interest periodically, subject to the bank's terms."}},
-              {"@type":"Question","name":"Can I withdraw a fixed deposit before maturity?","acceptedAnswer":{"@type":"Answer","text":"Some FDs allow premature withdrawal, but conditions vary by bank and deposit type and a revised interest rate or penalty may apply."}},
-              {"@type":"Question","name":"Is FD interest taxable?","acceptedAnswer":{"@type":"Answer","text":"FD interest is generally taxable according to the investor's applicable tax rules."}},
-              {"@type":"Question","name":"Is money in a bank FD insured?","acceptedAnswer":{"@type":"Answer","text":"Eligible bank deposits are covered by deposit insurance under the applicable DICGC framework, subject to its rules and limits."}},
-              {"@type":"Question","name":"Can senior citizens get a higher FD rate?","acceptedAnswer":{"@type":"Answer","text":"Many banks offer additional interest rates or specific FD options for eligible senior citizens, but the benefit varies by bank and deposit terms."}},
-              {"@type":"Question","name":"How can I start an FD through Stockstrail?","acceptedAnswer":{"@type":"Answer","text":"You can contact Stockstrail to discuss the deposit requirement, tenure and available options. Final FD terms are subject to the relevant deposit provider."}}
-            ]
-          })
-        }}
-      />
-
       {/* How to start */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
         <div className="max-w-4xl mx-auto">
@@ -674,6 +586,89 @@ periodic interest income instead of waiting until maturity.
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-4 text-center">
+            Fixed Deposit FAQs
+          </h2>
+
+          <p className="text-white/70 max-w-2xl mx-auto text-center mb-10">
+            Practical answers to common FD questions about liquidity, tax, loan options, lock-in periods and choosing the right deposit.
+          </p>
+
+          <div className="space-y-4">
+            {[
+              {
+                q: "I need money before my FD matures. Should I break the FD or take a loan against it?",
+                a: "Do not automatically break the FD. Compare the premature-closure penalty and revised interest you may lose with the interest cost of a loan or overdraft against the FD. A loan against FD can be worth considering when you need short-term liquidity and want to keep the deposit running, but availability and pricing depend on the bank and FD type."
+              },
+              {
+                q: "What happens if I withdraw my FD before maturity?",
+                a: "Premature withdrawal is allowed for many callable FDs, but the bank may reduce the interest rate applicable to the period the deposit was actually held and may charge a penalty. Tax-saver and non-withdrawable FDs can have different restrictions, so check the specific deposit terms before closing it."
+              },
+              {
+                q: "How is TDS on FD interest calculated, and can I avoid TDS?",
+                a: "TDS depends on the interest earned across eligible deposits and the applicable tax rules for the financial year. If you qualify for an exemption, Form 15G or Form 15H may be relevant, subject to the conditions in force. TDS is only a tax deduction at source; your final tax liability depends on your total taxable income."
+              },
+              {
+                q: "Is a 5-year tax-saver FD really worth it if I may need the money earlier?",
+                a: "A tax-saver FD has a five-year lock-in and generally cannot be withdrawn early under normal circumstances. It may suit someone who has a genuine tax-planning need and can leave the money untouched, but it is not suitable for money that may be needed during the lock-in."
+              },
+              {
+                q: "How much of my bank FD is insured if the bank fails?",
+                a: "Eligible bank deposits are covered by DICGC deposit insurance subject to the applicable rules and limit. The current insurance limit is up to ₹5 lakh per depositor per bank, including principal and interest, across eligible deposits in that bank. Deposit insurance does not mean every type of deposit or every financial product is covered."
+              },
+              {
+                q: "Should I choose the highest FD interest rate or a shorter FD tenure?",
+                a: "Do not compare FD rates alone. Look at when you need the money, premature-withdrawal rules, payout frequency, tax impact, deposit insurance eligibility and the difference between the available tenures. A slightly lower rate can be more practical if it better matches your cash-flow needs."
+              },
+            ].map((item, index) => (
+              <details
+                key={index}
+                className="group rounded-xl border border-white/10 bg-stockstrail-bg-light/40 p-5"
+              >
+                <summary className="cursor-pointer list-none pr-8 text-lg font-semibold text-white group-open:text-stockstrail-green-light">
+                  {item.q}
+                </summary>
+                <p className="mt-3 text-white/70 leading-7">{item.a}</p>
+              </details>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-xl border border-white/10 bg-stockstrail-bg-light/30 p-6">
+            <h3 className="text-lg font-semibold text-stockstrail-green-light mb-3">Related Financial Guides</h3>
+            <div className="flex flex-wrap gap-x-5 gap-y-3">
+              <Link href="/mutual-funds" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Mutual Funds</Link>
+              <Link href="/calculators" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Financial Calculators</Link>
+              <Link href="/insurance" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Insurance</Link>
+              <Link href="/financial-protection" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Financial Protection</Link>
+              <Link href="/lets-talk" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Talk to Stockstrail</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {"@type":"Question","name":"I need money before my FD matures. Should I break the FD or take a loan against it?","acceptedAnswer":{"@type":"Answer","text":"Compare the premature-closure penalty and revised interest you may lose with the interest cost of a loan or overdraft against the FD. A loan against FD can be worth considering for short-term liquidity, subject to the bank and FD terms."}},
+              {"@type":"Question","name":"What happens if I withdraw my FD before maturity?","acceptedAnswer":{"@type":"Answer","text":"Many callable FDs allow premature withdrawal, but the bank may reduce the applicable interest rate and may charge a penalty. Tax-saver and non-withdrawable FDs can have different restrictions."}},
+              {"@type":"Question","name":"How is TDS on FD interest calculated, and can I avoid TDS?","acceptedAnswer":{"@type":"Answer","text":"TDS depends on the interest earned and the applicable tax rules for the financial year. Eligible investors may be able to submit Form 15G or Form 15H subject to the conditions in force."}},
+              {"@type":"Question","name":"Is a 5-year tax-saver FD really worth it if I may need the money earlier?","acceptedAnswer":{"@type":"Answer","text":"A tax-saver FD has a five-year lock-in and generally cannot be withdrawn early under normal circumstances, so it may not suit money that could be needed during the lock-in."}},
+              {"@type":"Question","name":"How much of my bank FD is insured if the bank fails?","acceptedAnswer":{"@type":"Answer","text":"Eligible bank deposits are covered by DICGC deposit insurance subject to its rules and limit. The current insurance limit is up to ₹5 lakh per depositor per bank, including principal and interest."}},
+              {"@type":"Question","name":"Should I choose the highest FD interest rate or a shorter FD tenure?","acceptedAnswer":{"@type":"Answer","text":"Compare the FD rate with your time horizon, liquidity needs, premature-withdrawal rules, payout frequency, tax impact and deposit insurance eligibility rather than choosing only by the highest rate."}}
+            ]
+          })
+        }}
+      />
+
     </Layout>
   );
 }
