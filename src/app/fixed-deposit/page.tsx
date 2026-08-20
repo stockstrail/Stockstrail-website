@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Layout from "@/components/layout/Layout";
 import ImageCarousel from '@/components/ui/ImageCarousel';
 
@@ -94,6 +95,18 @@ export default function FixedDeposit() {
   needs or conservative savings. They are not automatically the best choice
   for every goal, so the tenure, liquidity requirement, tax impact and
   alternatives should be considered before investing.
+</p>
+
+<p className="text-white/70 leading-relaxed mt-4">
+  If you are comparing FDs with market-linked options, explore our
+  <Link href="/mutual-funds" className="ml-1 text-stockstrail-green-light hover:underline font-medium">
+    Mutual Funds guide
+  </Link>
+  . You can also use our
+  <Link href="/calculators" className="ml-1 text-stockstrail-green-light hover:underline font-medium">
+    financial calculators
+  </Link>
+  to understand numbers before making a decision.
 </p>
             </div>
           </div>
@@ -202,6 +215,18 @@ export default function FixedDeposit() {
               </div>
             ))}
           </div>
+
+          <p className="mt-6 text-center text-white/70">
+            Looking at the wider picture? Compare this with our
+            <Link href="/mutual-funds" className="ml-1 text-stockstrail-green-light hover:underline font-medium">
+              Mutual Funds options
+            </Link>
+            and use our
+            <Link href="/calculators" className="ml-1 text-stockstrail-green-light hover:underline font-medium">
+              calculators
+            </Link>
+            before choosing where the money should go.
+          </p>
         </div>
       </section>
 
@@ -346,6 +371,16 @@ periodic interest income instead of waiting until maturity.
               </p>
             </div>
           </div>
+
+          <div className="mt-6 text-center">
+            <p className="text-white/70">
+              If you are deciding between predictable deposits and market-linked options, read our
+              <Link href="/mutual-funds" className="ml-1 text-stockstrail-green-light hover:underline font-medium">
+                Mutual Funds guide
+              </Link>
+              for a broader comparison.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -374,6 +409,14 @@ periodic interest income instead of waiting until maturity.
               </div>
             ))}
           </div>
+
+          <p className="mt-6 text-center text-white/70">
+            Before breaking an FD, estimate the impact on your overall plan with our
+            <Link href="/calculators" className="ml-1 text-stockstrail-green-light hover:underline font-medium">
+              calculators
+            </Link>
+            and review the deposit provider's current terms.
+          </p>
         </div>
       </section>
 
@@ -497,6 +540,94 @@ periodic interest income instead of waiting until maturity.
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
+            Fixed Deposit FAQs
+          </h2>
+
+          <div className="space-y-4">
+            {[
+              {
+                q: "What is a fixed deposit?",
+                a: "A fixed deposit is a bank deposit where you place a lump sum for a chosen tenure and earn interest according to the deposit terms. The rate, payout method and maturity amount depend on the bank and FD type."
+              },
+              {
+                q: "How is FD interest calculated?",
+                a: "FD interest depends on the deposit amount, applicable interest rate, tenure, compounding frequency and payout structure. Actual maturity values should be checked against the bank's current terms or calculator."
+              },
+              {
+                q: "What is the difference between cumulative and non-cumulative FD?",
+                a: "A cumulative FD generally pays the accumulated interest at maturity, while a non-cumulative FD generally pays interest at a selected periodic frequency such as monthly, quarterly, half-yearly or yearly, subject to the bank's terms."
+              },
+              {
+                q: "Can I withdraw a fixed deposit before maturity?",
+                a: "Some FDs allow premature withdrawal, but conditions vary by bank and deposit type. The applicable interest rate may be revised and a penalty or other charge may apply, so check the provider's current terms before breaking the deposit."
+              },
+              {
+                q: "Is FD interest taxable?",
+                a: "FD interest is generally taxable according to the investor's applicable tax rules. Tax deducted at source may also apply when the relevant conditions are met. Consider your post-tax return rather than only the headline FD rate."
+              },
+              {
+                q: "Is money in a bank FD insured?",
+                a: "Eligible bank deposits are covered by deposit insurance under the applicable DICGC framework, subject to its rules and limits. Check the current DICGC rules and your bank's deposit coverage before investing."
+              },
+              {
+                q: "Can senior citizens get a higher FD rate?",
+                a: "Many banks offer additional interest rates or specific FD options for eligible senior citizens, but the benefit varies by bank, tenure and deposit terms. Always compare the current rate and conditions."
+              },
+              {
+                q: "How can I start an FD through Stockstrail?",
+                a: "You can contact Stockstrail to discuss the deposit requirement, tenure and available options. The final FD terms, rate and acceptance are subject to the relevant deposit provider."
+              },
+            ].map((item, index) => (
+              <details
+                key={index}
+                className="group rounded-xl border border-white/10 bg-stockstrail-bg-light/40 p-5"
+              >
+                <summary className="cursor-pointer list-none pr-8 text-lg font-semibold text-white group-open:text-stockstrail-green-light">
+                  {item.q}
+                </summary>
+                <p className="mt-3 text-white/70 leading-7">{item.a}</p>
+              </details>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-xl border border-white/10 bg-stockstrail-bg-light/30 p-6">
+            <h3 className="text-lg font-semibold text-stockstrail-green-light mb-3">Related Financial Guides</h3>
+            <div className="flex flex-wrap gap-x-5 gap-y-3">
+              <Link href="/mutual-funds" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Mutual Funds</Link>
+              <Link href="/calculators" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Financial Calculators</Link>
+              <Link href="/insurance" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Insurance</Link>
+              <Link href="/financial-protection" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Financial Protection</Link>
+              <Link href="/lets-talk" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Talk to Stockstrail</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {"@type":"Question","name":"What is a fixed deposit?","acceptedAnswer":{"@type":"Answer","text":"A fixed deposit is a bank deposit where you place a lump sum for a chosen tenure and earn interest according to the deposit terms."}},
+              {"@type":"Question","name":"How is FD interest calculated?","acceptedAnswer":{"@type":"Answer","text":"FD interest depends on the deposit amount, applicable interest rate, tenure, compounding frequency and payout structure."}},
+              {"@type":"Question","name":"What is the difference between cumulative and non-cumulative FD?","acceptedAnswer":{"@type":"Answer","text":"A cumulative FD generally pays accumulated interest at maturity, while a non-cumulative FD generally pays interest periodically, subject to the bank's terms."}},
+              {"@type":"Question","name":"Can I withdraw a fixed deposit before maturity?","acceptedAnswer":{"@type":"Answer","text":"Some FDs allow premature withdrawal, but conditions vary by bank and deposit type and a revised interest rate or penalty may apply."}},
+              {"@type":"Question","name":"Is FD interest taxable?","acceptedAnswer":{"@type":"Answer","text":"FD interest is generally taxable according to the investor's applicable tax rules."}},
+              {"@type":"Question","name":"Is money in a bank FD insured?","acceptedAnswer":{"@type":"Answer","text":"Eligible bank deposits are covered by deposit insurance under the applicable DICGC framework, subject to its rules and limits."}},
+              {"@type":"Question","name":"Can senior citizens get a higher FD rate?","acceptedAnswer":{"@type":"Answer","text":"Many banks offer additional interest rates or specific FD options for eligible senior citizens, but the benefit varies by bank and deposit terms."}},
+              {"@type":"Question","name":"How can I start an FD through Stockstrail?","acceptedAnswer":{"@type":"Answer","text":"You can contact Stockstrail to discuss the deposit requirement, tenure and available options. Final FD terms are subject to the relevant deposit provider."}}
+            ]
+          })
+        }}
+      />
+
       {/* How to start */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
         <div className="max-w-4xl mx-auto">
@@ -532,6 +663,14 @@ periodic interest income instead of waiting until maturity.
               <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full group-hover:scale-125 transition-transform duration-300"></div>
               Start Your Fixed Deposit Today
             </a>
+          </div>
+
+          <div className="mt-8 text-center text-white/70">
+            Need help choosing the right financial product?
+            <Link href="/lets-talk" className="ml-1 text-stockstrail-green-light hover:underline font-medium">
+              Talk to Stockstrail
+            </Link>
+            .
           </div>
         </div>
       </section>
