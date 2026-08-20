@@ -372,6 +372,124 @@ export default function Insurance() {
         </div>
       </section>
 
+{/* ========================================================= */}
+      {/* TRADITIONAL & SAVINGS INSURANCE SECTION */}
+      {/* ========================================================= */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+          {/* CONTENT */}
+          <div>
+            <h2 className="text-2xl sm:text-3xl text-stockstrail-green-light font-semibold mb-4">
+              Traditional &amp; Savings Insurance: Protect, Save &amp; Plan
+            </h2>
+
+            <p className="text-white/80 mb-4">
+              Traditional and savings-oriented life insurance plans combine life
+              protection with long-term savings or other policy benefits. Depending
+              on the product, benefits may be guaranteed or non-guaranteed, so it is
+              important to understand the policy terms before you buy.
+            </p>
+
+            <h4 className="text-white font-semibold mb-2">
+              What Are These Plans Designed For?
+            </h4>
+
+            <ul className="list-disc list-inside text-white/80 space-y-2">
+              <li>Long-term financial planning alongside life insurance protection</li>
+              <li>Planned savings for future financial goals</li>
+              <li>Policy-based benefits that depend on the specific product</li>
+              <li>Options for people who prefer structured, long-term insurance plans</li>
+            </ul>
+
+            <h4 className="text-white font-semibold mt-6 mb-2">
+              What Should You Check Before Buying?
+            </h4>
+
+            <ul className="list-disc list-inside text-white/80 space-y-2">
+              <li>Which benefits are guaranteed and which are non-guaranteed</li>
+              <li>Premium-paying term and overall policy term</li>
+              <li>Maturity benefits, death benefits and applicable conditions</li>
+              <li>Paid-up and surrender terms if you stop paying premiums early</li>
+              <li>Charges, exclusions and other important policy conditions</li>
+            </ul>
+
+            <h4 className="text-white font-semibold mt-6 mb-2">
+              How These Plans Work
+            </h4>
+
+            <ol className="list-decimal list-inside text-white/80 space-y-2">
+              <li>Choose a product based on your financial goal, protection need and budget.</li>
+              <li>Understand the premium-paying term, policy term and benefit structure.</li>
+              <li>Review which benefits are guaranteed and which depend on the policy or declared bonuses.</li>
+              <li>Pay premiums according to the selected schedule and keep the policy active.</li>
+              <li>Receive applicable benefits according to the policy terms and conditions.</li>
+            </ol>
+          </div>
+
+          {/* QUICK GUIDE */}
+          <div className="rounded-2xl p-8 bg-stockstrail-bg-light/40 border border-white/10">
+            <h4 className="text-white font-semibold mb-4">
+              Before You Buy
+            </h4>
+
+            <div className="space-y-5 text-white/80">
+
+              <div>
+                <p className="text-white font-semibold mb-1">
+                  Guaranteed Benefits
+                </p>
+                <p className="text-sm">
+                  Check exactly which amounts or benefits are guaranteed under
+                  the policy and when they become payable.
+                </p>
+              </div>
+
+              <div>
+                <p className="text-white font-semibold mb-1">
+                  Non-Guaranteed Benefits
+                </p>
+                <p className="text-sm">
+                  Some products may include benefits such as bonuses that are
+                  not guaranteed and depend on the specific product terms.
+                </p>
+              </div>
+
+              <div>
+                <p className="text-white font-semibold mb-1">
+                  Long-Term Commitment
+                </p>
+                <p className="text-sm">
+                  Understand the premium commitment, policy duration and what
+                  happens if you stop paying before the planned term.
+                </p>
+              </div>
+
+              <div>
+                <p className="text-white font-semibold mb-1">
+                  Read the Policy Terms
+                </p>
+                <p className="text-sm">
+                  Compare the actual benefits, exclusions, surrender or
+                  paid-up conditions and other policy terms before buying.
+                </p>
+              </div>
+
+            </div>
+
+            <a
+              href="https://www.pbpartners.com/v2/partner/vikrant-bhardwaj-una-1JFZ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-6 text-stockstrail-green-light underline focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-stockstrail-green-light"
+            >
+              Explore Traditional &amp; Savings Plans
+            </a>
+          </div>
+
+        </div>
+      </section>
+      
       {/* ========================================================= */}
       {/* COMPARISON TABLE */}
       {/* ========================================================= */}
