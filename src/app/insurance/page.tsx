@@ -282,7 +282,7 @@ export default function Insurance() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* CONTENT */}
           <div className="rounded-2xl p-6 bg-stockstrail-bg-light/30">
-            <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
+            <h2 className="text-2xl sm:text-3xl text-stockstrail-green-light font-semibold mb-3">
               Health Insurance: Protect Your Savings From Medical Costs
             </h2>
             <p className="text-white/80 mb-4">
