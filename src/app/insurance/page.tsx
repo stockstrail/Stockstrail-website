@@ -648,16 +648,231 @@ export default function Insurance() {
             Ready to protect what matters?
           </h3>
           <p className="text-white/80 mb-6">
-            Share basic details and we’ll suggest the right term & health plans
-            for your needs.
+            Share a few details about your goals, responsibilities and protection needs,
+  and we&apos;ll help you explore suitable insurance options.
           </p>
 
           <a
             href="https://insurance.assetplus.in/284122"
             className="inline-flex items-center gap-3 px-8 py-4 bg-white border-2 border-[#012928] rounded-full text-[#012928] hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-work-sans font-semibold group"
           >
-            Get personalised insurance advice
+            Explore Your Insurance Options
           </a>
+        </div>
+      </section>
+            {/* ========================================================= */}
+      {/* INSURANCE FAQ SECTION */}
+      {/* ========================================================= */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">
+        <div className="max-w-4xl mx-auto">
+
+          <h2 className="text-2xl sm:text-3xl font-semibold text-stockstrail-green-light mb-4 text-center">
+            Insurance FAQs: Questions Buyers Ask Before Choosing a Plan
+          </h2>
+
+          <p className="text-white/70 max-w-3xl mx-auto text-center mb-8">
+            Still comparing insurance options? Here are answers to practical
+            questions about term insurance, health insurance and traditional
+            savings plans.
+          </p>
+
+          <div className="space-y-3">
+
+            <details className="group rounded-xl border border-white/10 bg-stockstrail-bg-light/30 p-5">
+              <summary className="cursor-pointer list-none text-white font-semibold flex items-center justify-between gap-4">
+                <span>
+                  Should I buy term insurance if I am young and have no dependants?
+                </span>
+                <span className="text-stockstrail-green-light text-xl group-open:rotate-45 transition-transform">
+                  +
+                </span>
+              </summary>
+              <p className="text-white/70 mt-4 leading-relaxed">
+                The need for term insurance depends on your financial
+                responsibilities rather than age alone. If nobody currently
+                depends on your income and you have limited liabilities, your
+                need may be different from someone supporting parents, carrying
+                loans or planning a family. The important question is whether
+                someone would face a significant financial loss if your income
+                stopped.
+              </p>
+            </details>
+
+            <details className="group rounded-xl border border-white/10 bg-stockstrail-bg-light/30 p-5">
+              <summary className="cursor-pointer list-none text-white font-semibold flex items-center justify-between gap-4">
+                <span>
+                  How much term insurance cover do I actually need?
+                </span>
+                <span className="text-stockstrail-green-light text-xl group-open:rotate-45 transition-transform">
+                  +
+                </span>
+              </summary>
+              <p className="text-white/70 mt-4 leading-relaxed">
+                There is no single cover amount that is right for everyone.
+                Consider your income, dependants, outstanding loans, future
+                financial responsibilities and the period for which your family
+                may depend on your income. A useful starting point is to work
+                backwards from the financial gap your family would face rather
+                than choosing a round figure simply because it is commonly
+                advertised.
+              </p>
+            </details>
+
+            <details className="group rounded-xl border border-white/10 bg-stockstrail-bg-light/30 p-5">
+              <summary className="cursor-pointer list-none text-white font-semibold flex items-center justify-between gap-4">
+                <span>
+                  Can my term insurance claim be rejected if I did not disclose a medical condition?
+                </span>
+                <span className="text-stockstrail-green-light text-xl group-open:rotate-45 transition-transform">
+                  +
+                </span>
+              </summary>
+              <p className="text-white/70 mt-4 leading-relaxed">
+                Non-disclosure or inaccurate disclosure of material information
+                can create problems during claim assessment. A medical test does
+                not replace your responsibility to provide complete and accurate
+                information during the application. Disclose your relevant
+                medical history, lifestyle details and previous treatment
+                honestly, and keep a copy of the information submitted with your
+                proposal.
+              </p>
+            </details>
+
+            <details className="group rounded-xl border border-white/10 bg-stockstrail-bg-light/30 p-5">
+              <summary className="cursor-pointer list-none text-white font-semibold flex items-center justify-between gap-4">
+                <span>
+                  Does taking a medical test guarantee that my term insurance claim will be paid?
+                </span>
+                <span className="text-stockstrail-green-light text-xl group-open:rotate-45 transition-transform">
+                  +
+                </span>
+              </summary>
+              <p className="text-white/70 mt-4 leading-relaxed">
+                No. A medical test is part of the insurer&apos;s underwriting
+                process, but it does not replace the information you provide in
+                the proposal. Your disclosures, policy terms, exclusions and
+                applicable law can all matter when a claim is assessed. Complete
+                and accurate disclosure is therefore important even when medical
+                tests are required.
+              </p>
+            </details>
+
+            <details className="group rounded-xl border border-white/10 bg-stockstrail-bg-light/30 p-5">
+              <summary className="cursor-pointer list-none text-white font-semibold flex items-center justify-between gap-4">
+                <span>
+                  Is employer health insurance enough, or should I buy a personal health insurance policy?
+                </span>
+                <span className="text-stockstrail-green-light text-xl group-open:rotate-45 transition-transform">
+                  +
+                </span>
+              </summary>
+              <p className="text-white/70 mt-4 leading-relaxed">
+                Employer health insurance can provide useful protection, but its
+                coverage depends on the employer&apos;s policy and your continued
+                eligibility. A personal or family health insurance policy can
+                provide additional protection that is not dependent entirely on
+                your employment, subject to its own waiting periods, exclusions
+                and coverage terms.
+              </p>
+            </details>
+
+            <details className="group rounded-xl border border-white/10 bg-stockstrail-bg-light/30 p-5">
+              <summary className="cursor-pointer list-none text-white font-semibold flex items-center justify-between gap-4">
+                <span>
+                  What happens if my health insurance has a waiting period for a pre-existing disease?
+                </span>
+                <span className="text-stockstrail-green-light text-xl group-open:rotate-45 transition-transform">
+                  +
+                </span>
+              </summary>
+              <p className="text-white/70 mt-4 leading-relaxed">
+                A disclosed pre-existing disease may be covered after the
+                waiting period specified in the policy, subject to the
+                product&apos;s terms. Waiting periods can vary by policy and
+                condition, so check the applicable waiting period before buying.
+                IRDAI currently states that the waiting period, including the
+                pre-existing-disease waiting period, can be up to 36 months from
+                commencement of the policy.
+              </p>
+            </details>
+
+            <details className="group rounded-xl border border-white/10 bg-stockstrail-bg-light/30 p-5">
+              <summary className="cursor-pointer list-none text-white font-semibold flex items-center justify-between gap-4">
+                <span>
+                  Can room-rent limits, co-payment or sub-limits reduce my health insurance claim?
+                </span>
+                <span className="text-stockstrail-green-light text-xl group-open:rotate-45 transition-transform">
+                  +
+                </span>
+              </summary>
+              <p className="text-white/70 mt-4 leading-relaxed">
+                Yes. Room-rent or ICU limits, disease-specific sub-limits,
+                co-payment and other policy restrictions can affect the amount
+                payable under a claim. This is why comparing only the premium or
+                sum insured can be misleading. Review the detailed policy terms
+                and understand what portion of eligible expenses you may still
+                have to pay.
+              </p>
+            </details>
+
+            <details className="group rounded-xl border border-white/10 bg-stockstrail-bg-light/30 p-5">
+              <summary className="cursor-pointer list-none text-white font-semibold flex items-center justify-between gap-4">
+                <span>
+                  Can I port my health insurance policy to another insurer without losing waiting-period credits?
+                </span>
+                <span className="text-stockstrail-green-light text-xl group-open:rotate-45 transition-transform">
+                  +
+                </span>
+              </summary>
+              <p className="text-white/70 mt-4 leading-relaxed">
+                Eligible health-insurance portability can allow certain credits,
+                including applicable waiting-period and pre-existing-disease
+                waiting-period credits, to transfer to the acquiring insurer,
+                subject to the applicable rules and the new policy terms. Porting
+                is generally handled around renewal, so check the prescribed
+                timelines before making a request.
+              </p>
+            </details>
+
+            <details className="group rounded-xl border border-white/10 bg-stockstrail-bg-light/30 p-5">
+              <summary className="cursor-pointer list-none text-white font-semibold flex items-center justify-between gap-4">
+                <span>
+                  Are traditional and savings insurance plans really guaranteed-return products?
+                </span>
+                <span className="text-stockstrail-green-light text-xl group-open:rotate-45 transition-transform">
+                  +
+                </span>
+              </summary>
+              <p className="text-white/70 mt-4 leading-relaxed">
+                Not every traditional or savings insurance plan works in the same
+                way. Some benefits may be guaranteed under the policy, while other
+                benefits, such as certain bonuses, may be non-guaranteed. Before
+                buying, check the policy schedule and benefit illustration and
+                understand exactly which benefits are guaranteed and which depend
+                on the product terms.
+              </p>
+            </details>
+
+            <details className="group rounded-xl border border-white/10 bg-stockstrail-bg-light/30 p-5">
+              <summary className="cursor-pointer list-none text-white font-semibold flex items-center justify-between gap-4">
+                <span>
+                  What happens if I stop paying premiums on a traditional or savings insurance policy?
+                </span>
+                <span className="text-stockstrail-green-light text-xl group-open:rotate-45 transition-transform">
+                  +
+                </span>
+              </summary>
+              <p className="text-white/70 mt-4 leading-relaxed">
+                The outcome depends on the product, how long the policy has been
+                active and its specific terms. Depending on the policy, stopping
+                premiums can lead to consequences involving paid-up status,
+                surrender value, lapse, revival or changes to future benefits.
+                Before stopping premiums, check the policy documents to understand
+                what benefits may continue, change or be lost.
+              </p>
+            </details>
+
+          </div>
         </div>
       </section>
     </Layout>
