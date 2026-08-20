@@ -299,26 +299,26 @@ periodic interest income instead of waiting until maturity.
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
-            Example Calculations
+            Fixed Deposit Interest &amp; Maturity Examples
           </h2>
 
           <div className="space-y-6">
             {[
-              {
-                title: "Example 1: Basic FD",
-                desc: "You invest ₹1,00,000 for 1 year at 7% interest. Maturity approx: ",
-                value: "₹1,07,000",
-              },
-              {
-                title: "Example 2: Long-Term FD with Compounding",
-                desc: "₹5,00,000 for 3 years at 7.5% cumulative. Maturity approx: ",
-                value: "₹6,24,000",
-              },
-              {
-                title: "Example 3: Senior Citizen FD with Regular Income",
-                desc: "₹2,00,000 at 8%. Annual interest: ",
-                value: "₹16,000 (₹1,333 monthly)",
-              },
+             {
+    title: "Example 1: Simple One-Year FD",
+    desc: "Illustration: ₹1,00,000 deposited for 1 year at a hypothetical 7% annual interest rate. If the deposit terms use annual interest for this example, the interest would be ₹7,000 and the maturity amount would be ₹1,07,000.",
+    value: "",
+  },
+  {
+    title: "Example 2: Cumulative FD",
+    desc: "Illustration: ₹5,00,000 deposited for 3 years at a hypothetical 7.5% annual rate with quarterly compounding. The maturity amount would be approximately ₹6.25 lakh, before considering any applicable tax.",
+    value: "",
+  },
+  {
+    title: "Example 3: Non-Cumulative FD",
+    desc: "Illustration: ₹2,00,000 at a hypothetical 8% annual rate. The annual interest would be ₹16,000, or about ₹1,333 per month if the bank's payout frequency and terms provide monthly interest.",
+    value: "",
+  },
             ].map((item, index) => (
               <div
                 key={index}
@@ -337,10 +337,12 @@ periodic interest income instead of waiting until maturity.
             ))}
 
             <div className="bg-stockstrail-bg-light/50 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-              <p className="text-white font-semibold mb-2 text-sm">⚠️ Note:</p>
+              <p className="text-white font-semibold mb-2 text-sm">Illustrative only</p>
               <p className="text-white/70 text-sm">
-                These are illustrative examples. Actual returns depend on the
-                bank&apos;s interest rates and compounding frequency.
+                These examples use hypothetical interest rates to explain how FD interest
+    and maturity values can work. Actual rates, compounding frequency, payout
+    method and maturity amount depend on the bank, deposit type and applicable
+    terms. Tax may also affect the post-tax return.
               </p>
             </div>
           </div>
