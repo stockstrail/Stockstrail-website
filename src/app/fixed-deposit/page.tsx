@@ -4,18 +4,18 @@ import Layout from "@/components/layout/Layout";
 import ImageCarousel from '@/components/ui/ImageCarousel';
 
 export const metadata: Metadata = {
-  title: "Fixed Deposits - Secure & Guaranteed Returns | Stockstrail",
+  title: "Fixed Deposits (FD): Rates, Types, Tax & Withdrawal | Stockstrail",
   description:
-    "Invest in Fixed Deposits with guaranteed returns, flexible tenure, and zero market risk. Compare FD rates and grow your savings safely with Stockstrail.",
+    "Understand fixed deposits, FD interest payouts, tenures, tax-saving FDs, premature withdrawal, deposit insurance and how to compare FD options before investing.",
   keywords:
-    "fixed deposit, FD investment, guaranteed returns, safe investment, savings account, interest rates",
+    "fixed deposit, FD, fixed deposit investment, FD interest rates, FD maturity, tax saving fixed deposit, senior citizen FD, cumulative FD, non cumulative FD, FD premature withdrawal",
   alternates: {
-    canonical: 'https://www.stockstrail.in/fixed-deposit',
+    canonical: "https://www.stockstrail.in/fixed-deposit",
   },
   openGraph: {
-    title: "Fixed Deposits - Secure & Guaranteed Returns",
+    title: "Fixed Deposits (FD): Rates, Types, Tax & Withdrawal | Stockstrail",
     description:
-      "Guaranteed returns, flexible tenure, zero market risk. Compare FD rates and grow your wealth safely.",
+      "Understand FD rates, payout options, tax-saving FDs, withdrawal rules, deposit insurance and how to compare fixed deposit options.",
     url: "https://www.stockstrail.in/fixed-deposit",
     siteName: "Stockstrail",
     type: "website",
@@ -35,11 +35,13 @@ export default function FixedDeposit() {
 
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase gradient-text mb-6">
-            Secure Your Savings with Fixed Deposits
+            Fixed Deposits: Know the Rate. Understand the Trade-Offs.
           </h1>
           <p className="text-white/80 max-w-3xl mx-auto leading-relaxed text-lg">
-            Guaranteed returns, flexible tenure, zero market risk. Build stable
-            wealth with assured interest rates.
+            Fixed deposits can offer predictable interest for a chosen tenure, making
+  them useful for planned goals, regular income and money you do not want
+  exposed to market fluctuations. Before you invest, understand the rate,
+  tenure, tax, liquidity and withdrawal conditions.
           </p>
         </div>
       </section>
@@ -74,20 +76,25 @@ export default function FixedDeposit() {
                 What is a Fixed Deposit?
               </h2>
               <p className="text-white/80 leading-relaxed mb-4">
-                A Fixed Deposit (FD) is a secure investment option where you
-                deposit a fixed amount of money with a bank or financial
-                institution for a specific period.
-              </p>
-              <p className="text-white/80 leading-relaxed mb-4">
-                In return, you receive a guaranteed interest rate. FDs are
-                considered one of the safest investment choices and are suitable
-                for individuals who want stability and predictable returns.
-              </p>
-              <p className="text-white/80 leading-relaxed">
-                Whether you&apos;re planning for short-term goals or simply want to
-                park surplus funds safely, Fixed Deposits offer peace of mind
-                with assured returns independent of market fluctuations.
-              </p>
+  A Fixed Deposit (FD) is a bank deposit in which you place a lump sum for a
+  chosen tenure at an interest rate specified when the deposit is opened.
+  The deposit is intended to be held until maturity, when the principal and
+  applicable interest are paid according to the deposit terms.
+</p>
+
+<p className="text-white/80 leading-relaxed mb-4">
+  Because the interest rate is fixed according to the FD terms, the maturity
+  value can be easier to plan for than market-linked investments. However,
+  the actual return you receive can be affected by factors such as premature
+  withdrawal, tax and the bank&apos;s deposit conditions.
+</p>
+
+<p className="text-white/80 leading-relaxed">
+  FDs can be useful for money assigned to a known time horizon, regular-income
+  needs or conservative savings. They are not automatically the best choice
+  for every goal, so the tenure, liquidity requirement, tax impact and
+  alternatives should be considered before investing.
+</p>
             </div>
           </div>
         </div>
@@ -118,29 +125,29 @@ export default function FixedDeposit() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: "Guaranteed Returns",
-                desc: "FDs offer assured returns that do not change with market conditions.",
-              },
-              {
-                title: "Low Risk",
-                desc: "FDs are not impacted by stock market fluctuations. Your capital remains protected.",
-              },
-              {
-                title: "Flexible Tenure",
-                desc: "Choose durations from a few days to several years.",
-              },
-              {
-                title: "Easy to Understand",
-                desc: "Simple structure: deposit → earn interest → receive maturity amount.",
-              },
-              {
-                title: "Multiple Use Cases",
-                desc: "Ideal for emergency funds, upcoming expenses, or idle money.",
-              },
-              {
-                title: "Deposit Insurance",
-                desc: "Bank FDs insured under DICGC up to ₹5 lakh.",
-              },
+    title: "Predictable Interest",
+    desc: "The interest rate is specified when the FD is opened, helping you estimate the maturity value according to the deposit terms.",
+  },
+  {
+    title: "Low Market Volatility",
+    desc: "Unlike market-linked investments, a standard fixed-rate FD does not change in value because stock or bond prices move.",
+  },
+  {
+    title: "Choose Your Tenure",
+    desc: "Banks offer different deposit tenures, allowing you to match the FD to a planned time horizon.",
+  },
+  {
+    title: "Regular or Maturity Income",
+    desc: "Depending on the deposit, interest may be paid periodically or accumulated and paid with the principal at maturity.",
+  },
+  {
+    title: "Useful for Planned Goals",
+    desc: "An FD can be considered for money earmarked for known expenses when capital stability and a defined time horizon are important.",
+  },
+  {
+    title: "DICGC Protection",
+    desc: "Eligible deposits with an insured bank are covered by DICGC up to ₹5 lakh per depositor per bank, including principal and interest, subject to the applicable rules.",
+  },
             ].map((item, index) => (
               <div
                 key={index}
