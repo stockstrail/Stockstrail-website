@@ -377,35 +377,75 @@ periodic interest income instead of waiting until maturity.
         </div>
       </section>
 
-      {/* Who Should Invest */}
+      {/* ========================================================= */}
+      {/* WHO SHOULD CONSIDER FIXED DEPOSITS */}
+      {/* ========================================================= */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
-            Who Should Consider Fixed Deposits?
+
+          <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-4 text-center">
+            Who May Consider a Fixed Deposit?
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <p className="text-white/70 max-w-3xl mx-auto text-center mb-12">
+            An FD can be useful when you know when the money may be needed and
+            want predictable interest. The right choice still depends on your
+            liquidity needs, tax situation, tenure and financial goal.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
             {[
-              "Individuals who prefer safe investments",
-              "Senior citizens looking for stable income",
-              "Parents saving for short-term goals",
-              "Low risk tolerance investors",
-              "Individuals wanting guaranteed returns",
-              "People parking surplus money safely",
-              "Saving for specific future expenses",
-              "Diversifying beyond volatile assets",
+              {
+                title: "Money Needed for a Known Goal",
+                desc: "An FD may suit money set aside for a planned expense with a reasonably clear time horizon, such as education, a vehicle purchase or another upcoming financial commitment.",
+              },
+              {
+                title: "People Who Prefer Predictable Interest",
+                desc: "If you do not want the value of this portion of your savings to move with market prices, an FD can offer a defined interest rate under the deposit terms.",
+              },
+              {
+                title: "Senior Citizens Seeking Regular Income",
+                desc: "Eligible senior citizens may consider FDs when predictable interest income is important, with the actual rate and payout options depending on the bank and deposit terms.",
+              },
+              {
+                title: "Investors Building a Fixed-Income Allocation",
+                desc: "An FD can be one component of a broader financial plan for people who want some money in deposits while keeping other investments aligned with different goals and risk levels.",
+              },
+              {
+                title: "People Parking Surplus Money Temporarily",
+                desc: "If you have surplus money that is not needed immediately but has a defined future purpose, an FD may provide a straightforward way to earn interest for the chosen period.",
+              },
+              {
+                title: "People Comfortable With a Fixed Tenure",
+                desc: "FDs may work better when you can reasonably commit the money for the selected tenure and understand the consequences of withdrawing before maturity.",
+              },
             ].map((item, index) => (
               <div
                 key={index}
-                className="flex gap-4 items-start bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-lg p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300"
+                className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 hover:shadow-[0_0_24px_rgba(0,255,151,0.12)] transition-all duration-300"
               >
-                <div className="text-stockstrail-green-light text-2xl font-bold">
-                  →
-                </div>
-                <p className="text-white/80">{item}</p>
+                <h3 className="text-xl font-semibold text-stockstrail-green-light mb-3">
+                  {item.title}
+                </h3>
+
+                <p className="text-white/80">
+                  {item.desc}
+                </p>
               </div>
             ))}
+
           </div>
+
+          <div className="mt-8 rounded-xl p-6 bg-stockstrail-bg-light/30 border border-white/10">
+            <p className="text-white/80">
+              <strong className="text-white">Important:</strong> An FD is not
+              automatically the right choice for every financial goal. If you
+              may need the money at short notice, compare liquidity options
+              before locking funds into a fixed tenure.
+            </p>
+          </div>
+
         </div>
       </section>
 
