@@ -283,11 +283,10 @@ export default function Insurance() {
           {/* CONTENT */}
           <div className="rounded-2xl p-6 bg-stockstrail-bg-light/30">
             <h2 className="text-2xl sm:text-3xl font-semibold mb-3">
-              Health Insurance - What & Why
+              Health Insurance: Protect Your Savings From Medical Costs
             </h2>
             <p className="text-white/80 mb-4">
-              Health insurance protects you from high medical bills and offers
-              cashless treatment at network hospitals, preserving your savings.
+              Health insurance helps cover eligible hospitalisation and medical treatment expenses, subject to the policy&apos;s coverage, waiting periods, exclusions and other terms. Whether you are buying your first health insurance policy, looking beyond employer cover, or protecting your family, understanding the coverage before you buy can help you avoid costly surprises later.
             </p>
 
             <h4 className="text-white font-semibold mb-2">Key benefits</h4>
