@@ -458,31 +458,31 @@ periodic interest income instead of waiting until maturity.
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              {
-                title: "Compare Rates",
-                desc: "Easy comparison of FD rates across banks.",
-              },
-              {
-                title: "Expert Guidance",
-                desc: "Personalized recommendations based on goals.",
-              },
-              {
-                title: "Best Rates",
-                desc: "Access to competitive FD returns up to 7.5%+.",
-              },
-              {
-                title: "Flexible Tenure",
-                desc: "Choose tenures from 7 days to 10+ years.",
-              },
-              {
-                title: "Paperless Process",
-                desc: "Simple online application with minimal documents.",
-              },
-              {
-                title: "Renewal Reminders",
-                desc: "Notifications for maturity & reinvestment.",
-              },
-            ].map((item, index) => (
+               {
+                title: "Compare Available FD Options",
+                desc: "We help you compare available FD options based on tenure, interest payout, maturity needs and other relevant deposit terms.",
+               },
+               {
+                title: "Goal-Based Guidance",
+                desc: "We help you think about the purpose and time horizon of the money before choosing an FD tenure or payout structure.",
+               },
+               {
+                title: "Clear Rate & Tenure Explanation",
+                desc: "We explain the applicable interest rate, tenure, payout method and key deposit conditions before you proceed.",
+               },
+               {
+                title: "Simple Digital Process",
+                desc: "Get help through the application and documentation process so you can complete your FD setup with less friction.",
+               },
+               {
+                title: "Maturity & Renewal Support",
+                desc: "We can help you review maturity dates and think through your next step when an FD comes due.",
+               },
+               {
+                title: "Practical, No-Pressure Guidance",
+                desc: "We focus on your goal, liquidity needs and time horizon rather than presenting one FD as the right choice for everyone.",
+               },
+              ].map((item, index) => (
               <div
                 key={index}
                 className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 hover:shadow-[0_0_24px_rgba(0,255,151,0.12)] transition-all duration-300"
