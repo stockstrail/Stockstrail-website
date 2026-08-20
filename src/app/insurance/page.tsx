@@ -24,9 +24,102 @@ export const metadata: Metadata = {
   },
 };
 
+const insuranceFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should I buy term insurance if I am young and have no dependants?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The need for term insurance depends on your financial responsibilities rather than age alone. If nobody currently depends on your income and you have limited liabilities, your need may be different from someone supporting parents, carrying loans or planning a family. The important question is whether someone would face a significant financial loss if your income stopped."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much term insurance cover do I actually need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no single cover amount that is right for everyone. Consider your income, dependants, outstanding loans, future financial responsibilities and the period for which your family may depend on your income. A useful starting point is to work backwards from the financial gap your family would face rather than choosing a round figure simply because it is commonly advertised."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can my term insurance claim be rejected if I did not disclose a medical condition?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non-disclosure or inaccurate disclosure of material information can create problems during claim assessment. A medical test does not replace your responsibility to provide complete and accurate information during the application. Disclose your relevant medical history, lifestyle details and previous treatment honestly, and keep a copy of the information submitted with your proposal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does taking a medical test guarantee that my term insurance claim will be paid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A medical test is part of the insurer's underwriting process, but it does not replace the information you provide in the proposal. Your disclosures, policy terms, exclusions and applicable law can all matter when a claim is assessed. Complete and accurate disclosure is therefore important even when medical tests are required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is employer health insurance enough, or should I buy a personal health insurance policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Employer health insurance can provide useful protection, but its coverage depends on the employer's policy and your continued eligibility. A personal or family health insurance policy can provide additional protection that is not dependent entirely on your employment, subject to its own waiting periods, exclusions and coverage terms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if my health insurance has a waiting period for a pre-existing disease?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A disclosed pre-existing disease may be covered after the waiting period specified in the policy, subject to the product's terms. Waiting periods can vary by policy and condition, so check the applicable waiting period before buying. IRDAI currently states that the waiting period, including the pre-existing-disease waiting period, can be up to 36 months from commencement of the policy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can room-rent limits, co-payment or sub-limits reduce my health insurance claim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Room-rent or ICU limits, disease-specific sub-limits, co-payment and other policy restrictions can affect the amount payable under a claim. This is why comparing only the premium or sum insured can be misleading. Review the detailed policy terms and understand what portion of eligible expenses you may still have to pay."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I port my health insurance policy to another insurer without losing waiting-period credits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eligible health-insurance portability can allow certain credits, including applicable waiting-period and pre-existing-disease waiting-period credits, to transfer to the acquiring insurer, subject to the applicable rules and the new policy terms. Porting is generally handled around renewal, so check the prescribed timelines before making a request."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are traditional and savings insurance plans really guaranteed-return products?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not every traditional or savings insurance plan works in the same way. Some benefits may be guaranteed under the policy, while other benefits, such as certain bonuses, may be non-guaranteed. Before buying, check the policy schedule and benefit illustration and understand exactly which benefits are guaranteed and which depend on the product terms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I stop paying premiums on a traditional or savings insurance policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The outcome depends on the product, how long the policy has been active and its specific terms. Depending on the policy, stopping premiums can lead to consequences involving paid-up status, surrender value, lapse, revival or changes to future benefits. Before stopping premiums, check the policy documents to understand what benefits may continue, change or be lost."
+      }
+    }
+  ]
+}
 export default function Insurance() {
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(insuranceFaqJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
       {/* ========================================================= */}
       {/* HERO SECTION */}
       {/* ========================================================= */}
