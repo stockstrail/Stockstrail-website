@@ -489,59 +489,91 @@ export default function Insurance() {
 
         </div>
       </section>
-      
-      {/* ========================================================= */}
-      {/* COMPARISON TABLE */}
+
+            {/* ========================================================= */}
+      {/* INSURANCE COMPARISON TABLE */}
       {/* ========================================================= */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-semibold gradient-text mb-6 text-center">
-            Health Insurance vs Term Insurance
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-stockstrail-green-light mb-6 text-center">
+            Term vs Health vs Traditional &amp; Savings Insurance
           </h2>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-center border-collapse">
+            <table className="w-full min-w-[900px] text-left border-collapse">
               <thead>
-                <tr>
-                  <th className="pb-3 text-white/80">Feature</th>
-                  <th className="pb-3 text-white/80">Term Insurance</th>
-                  <th className="pb-3 text-white/80">Health Insurance</th>
+                <tr className="border-b border-white/10">
+                  <th className="pb-4 px-4 text-white/80 font-semibold">
+                    Feature
+                  </th>
+                  <th className="pb-4 px-4 text-white/80 font-semibold">
+                    Term Insurance
+                  </th>
+                  <th className="pb-4 px-4 text-white/80 font-semibold">
+                    Health Insurance
+                  </th>
+                  <th className="pb-4 px-4 text-white/80 font-semibold">
+                    Traditional &amp; Savings Insurance
+                  </th>
                 </tr>
               </thead>
 
               <tbody>
                 {[
                   [
-                    "Purpose",
-                    "Protects family after death",
-                    "Covers medical expenses during life",
+                    "Primary purpose",
+                    "Protects family income and financial responsibilities",
+                    "Helps cover eligible medical and hospitalisation expenses",
+                    "Combines life protection with long-term savings and policy benefits",
                   ],
                   [
-                    "Payout",
-                    "Lump sum (Sum Assured)",
-                    "Hospital bills & treatment costs",
+                    "What it protects",
+                    "Dependants from financial loss after the insured person&apos;s death",
+                    "Savings from eligible healthcare expenses",
+                    "Long-term financial planning and policy-based benefits",
                   ],
                   [
-                    "Duration",
-                    "10 - 40 years long-term",
-                    "Annual or multi-year renewals",
+                    "When benefits apply",
+                    "Death benefit during the policy term, according to the policy terms",
+                    "Eligible claims arising from covered medical treatment, subject to policy terms",
+                    "Benefits payable according to the policy schedule and product terms",
                   ],
-                  ["Beneficiary", "Nominee / Family", "Policyholder"],
+                  [
+                    "Typical role",
+                    "Income and liability protection",
+                    "Healthcare cost protection",
+                    "Long-term savings and life-insurance planning",
+                  ],
+                  [
+                    "What to check",
+                    "Sum assured, policy term, premium, exclusions and disclosure requirements",
+                    "Waiting periods, exclusions, room/ICU limits, co-payment and cashless network",
+                    "Guaranteed and non-guaranteed benefits, premium-paying term, policy term and surrender/paid-up conditions",
+                  ],
                 ].map((row, i) => (
-                  <tr key={i} className="border-t border-white/6">
-                    <td className="py-4 text-white/80 font-semibold">{row[0]}</td>
-                    <td className="py-4 text-white/70">{row[1]}</td>
-                    <td className="py-4 text-white/70">{row[2]}</td>
+                  <tr key={i} className="border-t border-white/6 align-top">
+                    <td className="py-4 px-4 text-white font-semibold">
+                      {row[0]}
+                    </td>
+                    <td className="py-4 px-4 text-white/70">
+                      {row[1]}
+                    </td>
+                    <td className="py-4 px-4 text-white/70">
+                      {row[2]}
+                    </td>
+                    <td className="py-4 px-4 text-white/70">
+                      {row[3]}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <p className="text-white/70 mt-6 text-sm text-center">
-            Both play different roles - term insurance protects family income
-            after death while health insurance protects your savings during
-            medical emergencies. Most households benefit from having both.
+          <p className="text-white/70 mt-6 text-sm text-center max-w-4xl mx-auto">
+            These products solve different financial risks. The suitable choice
+            depends on your dependants, health needs, financial responsibilities,
+            goals and the specific policy terms.
           </p>
         </div>
       </section>
