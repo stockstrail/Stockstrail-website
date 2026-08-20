@@ -263,13 +263,14 @@ export default function FixedDeposit() {
                 Cumulative FD
               </h3>
               <p className="text-white/80 mb-4">
-                Interest is added to the principal and paid at the end of
-                tenure - benefits from compounding.
+               Interest is accumulated during the deposit tenure and paid along with the
+  principal at maturity, according to the bank&apos;s deposit and compounding
+  terms.
               </p>
               <div className="bg-stockstrail-green-light/10 border border-stockstrail-green-light/20 rounded-lg p-4">
                 <p className="text-sm text-white/80">
-                  <strong className="text-white">Best for:</strong> Long-term
-                  compounding.
+                  <strong className="text-white">Best for:</strong> People who do not need
+regular interest income and want to receive the accumulated amount at maturity.
                 </p>
               </div>
             </div>
@@ -279,14 +280,14 @@ export default function FixedDeposit() {
               <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-4">
                 Non-Cumulative FD
               </h3>
-              <p className="text-white/80 mb-4">
-                Interest is paid periodically: Monthly, Quarterly, Half-yearly,
-                or Annually.
-              </p>
+             <p className="text-white/80 mb-4">
+  Interest is paid periodically according to the payout frequency selected
+  under the deposit terms, such as monthly, quarterly, half-yearly or annually.
+</p>
               <div className="bg-stockstrail-green-light/10 border border-stockstrail-green-light/20 rounded-lg p-4">
                 <p className="text-sm text-white/80">
-                  <strong className="text-white">Best for:</strong> Retirees
-                  needing regular income.
+                  <strong className="text-white">Best for:</strong> People who prefer
+periodic interest income instead of waiting until maturity.
                 </p>
               </div>
             </div>
