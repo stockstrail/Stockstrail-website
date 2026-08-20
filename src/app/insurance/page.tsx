@@ -465,7 +465,7 @@ export default function Insurance() {
             <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 w-full max-w-md group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
               <Image
                 src="/services/insurance4.webp"
-                aalt="Family health insurance and hospitalisation protection"
+                alt="Family health insurance and hospitalisation protection"
                 width={520}
                 height={360}
                 loading="lazy"
