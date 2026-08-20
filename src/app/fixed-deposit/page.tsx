@@ -167,31 +167,26 @@ export default function FixedDeposit() {
       <section className="relative px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
-            Types of Fixed Deposits
+            Types of Fixed Deposits to Know
           </h2>
 
           <div className="space-y-8">
             {[
-              {
-                title: "Regular Fixed Deposit",
-                desc: "A standard FD where you invest a lump sum and receive interest at a fixed rate.",
-                sub: "Suitable for individuals wanting guaranteed stable returns.",
-              },
-              {
-                title: "Tax-Saving Fixed Deposit",
-                desc: "Comes with a 5-year lock-in and offers tax benefits under Section 80C.",
-                sub: "Ideal for individuals reducing tax liability.",
-              },
-              {
-                title: "Senior Citizen Fixed Deposit",
-                desc: "Higher interest rates (0.25% - 0.75% extra).",
-                sub: "Best for retirees seeking steady income.",
-              },
-              {
-                title: "Recurring Deposit (RD)",
-                desc: "Deposit a fixed amount monthly with FD-like interest.",
-                sub: "Ideal for salaried individuals saving regularly.",
-              },
+               {
+    title: "Regular Fixed Deposit",
+    desc: "A standard FD where you deposit a lump sum for a chosen tenure at an interest rate specified by the bank.",
+    sub: "Suitable when you want predictable interest and a defined maturity date.",
+  },
+  {
+    title: "Tax-Saving Fixed Deposit",
+    desc: "An FD with a five-year lock-in that may qualify for deduction under Section 80C, subject to applicable tax rules.",
+    sub: "Useful for eligible taxpayers who want a tax-saving investment with a fixed lock-in.",
+  },
+  {
+  title: "Senior Citizen Fixed Deposit",
+  desc: "Many banks offer an additional interest rate for eligible senior citizens, with the actual rate depending on the bank and deposit terms.",
+  sub: "May suit eligible senior citizens looking for predictable interest or regular income.",
+},
             ].map((item, index) => (
               <div
                 key={index}
