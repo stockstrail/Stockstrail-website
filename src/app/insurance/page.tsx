@@ -289,13 +289,24 @@ export default function Insurance() {
               Health insurance helps cover eligible hospitalisation and medical treatment expenses, subject to the policy&apos;s coverage, waiting periods, exclusions and other terms. Whether you are buying your first health insurance policy, looking beyond employer cover, or protecting your family, understanding the coverage before you buy can help you avoid costly surprises later.
             </p>
 
-            <h4 className="text-white font-semibold mb-2">Key benefits</h4>
+            <h4 className="text-white font-semibold mb-2"> What to Look For in Health Insurance</h4>
             <ul className="list-disc list-inside text-white/80 space-y-2">
-              <li>Cashless treatment at network hospitals</li>
-              <li>Family floater plans</li>
-              <li>Protection from rising healthcare costs</li>
-              <li>Cashless or reimbursement claims</li>
-            </ul>
+  <li>
+    Check waiting periods for pre-existing diseases and specific treatments.
+  </li>
+  <li>
+    Review room-rent and ICU limits, disease-specific sub-limits and other coverage restrictions.
+  </li>
+  <li>
+    Understand co-payment, exclusions and the share of eligible claim expenses you may have to pay.
+  </li>
+  <li>
+    Check the cashless hospital network in the cities where you are likely to need treatment.
+  </li>
+  <li>
+    Review restoration or recharge benefits and understand when they apply under the policy.
+  </li>
+</ul>
 
             <h4 className="text-white font-semibold mt-6 mb-2">How it works</h4>
             <ol className="list-decimal list-inside text-white/80 space-y-2">
