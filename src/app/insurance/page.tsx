@@ -308,12 +308,14 @@ export default function Insurance() {
   </li>
 </ul>
 
-            <h4 className="text-white font-semibold mt-6 mb-2">How it works</h4>
-            <ol className="list-decimal list-inside text-white/80 space-y-2">
-              <li>Select sum insured (₹3L - ₹10L+)</li>
-              <li>Pay annual premium</li>
-              <li>Use network hospitals or claim reimbursement</li>
-            </ol>
+            <h4 className="text-white font-semibold mt-6 mb-2">How Health Insurance Works</h4>
+           <ol className="list-decimal list-inside text-white/80 space-y-2">
+  <li>Choose a health insurance plan and sum insured based on your health needs, family members and budget.</li>
+  <li>Complete the application, disclose your medical history honestly, and provide any documents or medical tests required by the insurer.</li>
+  <li>Pay the premium after the insurer accepts the proposal and keep the policy active by renewing it on time.</li>
+  <li>When treatment is needed, use an eligible network hospital for cashless treatment where the policy and insurer&apos;s process allow it, or follow the reimbursement claim process as applicable.</li>
+  <li>The insurer assesses the claim according to the policy terms, coverage, exclusions and applicable limits before approving or settling the eligible amount.</li>
+</ol>
 
             {/* Real Case Examples */}
             <div className="mt-6 rounded-2xl p-6 bg-stockstrail-bg-light/30 border border-white/10">
