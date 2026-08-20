@@ -340,6 +340,17 @@ export default function Insurance() {
     </div>
   </div>
 </div>
+            <p className="text-white/70 mt-6 text-sm">
+              Want to understand the difference between pure protection and
+              savings-oriented life insurance? Read our{" "}
+              <a
+                href="/blog/term-insurance-vs-life-insurance-india-2026-which-one-truly-protects-your-family-stockstrail"
+                className="text-stockstrail-green-light underline hover:no-underline"
+              >
+                term insurance vs life insurance guide
+              </a>
+              .
+            </p>
 
             <div className="mt-6">
               <a
@@ -751,6 +762,16 @@ export default function Insurance() {
           >
             Explore Your Insurance Options
           </a>
+          <p className="text-white/60 text-sm mt-4">
+            Prefer to discuss your situation first?{" "}
+            <a
+              href="/lets-talk"
+              className="text-stockstrail-green-light underline hover:no-underline"
+            >
+              Talk to Stockstrail
+            </a>
+            .
+          </p>
         </div>
       </section>
             {/* ========================================================= */}
@@ -766,7 +787,14 @@ export default function Insurance() {
           <p className="text-white/70 max-w-3xl mx-auto text-center mb-8">
             Still comparing insurance options? Here are answers to practical
             questions about term insurance, health insurance and traditional
-            savings plans.
+            savings plans. Learn more about{" "}
+            <a
+              href="/about"
+              className="text-stockstrail-green-light underline hover:no-underline"
+            >
+              Stockstrail&apos;s approach to financial planning and insurance guidance
+            </a>
+            .
           </p>
 
           <div className="space-y-3">
