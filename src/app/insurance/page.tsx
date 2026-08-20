@@ -4,18 +4,18 @@ import Layout from "@/components/layout/Layout";
 import ImageCarousel from '@/components/ui/ImageCarousel';
 
 export const metadata: Metadata = {
-  title: "Insurance - Term & Health Plans | Stockstrail",
+  title: "Insurance Plans: Term, Health & Savings | Stockstrail",
   description:
-    "Compare term and health insurance plans, see real-life examples, and get tailored guidance to protect your family’s finances.",
+    "Explore term insurance, health insurance and traditional savings plans. Compare coverage, understand waiting periods, benefits and policy terms, and explore suitable options with Stockstrail.",
   keywords:
-    "term insurance, health insurance, life cover, family protection, Stockstrail insurance",
+    "term insurance, health insurance, traditional insurance, savings insurance, life insurance, health insurance plans, term insurance plans, traditional savings plans, insurance planning, Stockstrail",
   alternates: {
-    canonical: 'https://www.stockstrail.in/insurance',
+    canonical: "https://www.stockstrail.in/insurance",
   },
   openGraph: {
-    title: "Insurance - Term & Health Plans | Stockstrail",
+    title: "Insurance Plans: Term, Health & Savings | Stockstrail",
     description:
-      "Secure your family’s future with Term & Health Insurance. Compare plans and get guidance from Stockstrail.",
+      "Explore term insurance, health insurance and traditional savings plans. Compare coverage, understand policy terms and explore suitable insurance options with Stockstrail.",
     url: "https://www.stockstrail.in/insurance",
     siteName: "Stockstrail",
     locale: "en_IN",
