@@ -319,23 +319,29 @@ export default function Insurance() {
 
             {/* Real Case Examples */}
             <div className="mt-6 rounded-2xl p-6 bg-stockstrail-bg-light/30 border border-white/10">
-              <h4 className="text-white font-semibold mb-3">Health - Real Cases</h4>
+              <h4 className="text-white font-semibold mb-3">Real-World Situations</h4>
               <div className="space-y-4 text-white/80">
-                <div>
-                  <p className="font-semibold">Mr. Sharma - Dengue</p>
-                  <p>₹78,000 bill fully covered by cashless claim.</p>
-                </div>
+  <div>
+    <p className="font-semibold text-white">Young professional buying health insurance for the first time</p>
+    <p>
+      Even if you are healthy today, buying a personal health insurance policy early can help you secure coverage before new health conditions arise. The important part is understanding the waiting periods, exclusions, cashless network and other policy terms before choosing a plan.
+    </p>
+  </div>
 
-                <div>
-                  <p className="font-semibold">Mrs. Kavita - Surgery</p>
-                  <p>₹1.2 lakh gallbladder surgery covered.</p>
-                </div>
+  <div>
+    <p className="font-semibold text-white">Family looking beyond employer health cover</p>
+    <p>
+      Employer-provided health insurance can be useful, but its coverage may depend on your job and employer policy. A separate personal or family health insurance policy can provide additional protection, subject to its own terms, coverage and exclusions.
+    </p>
+  </div>
 
-                <div>
-                  <p className="font-semibold">Young Family</p>
-                  <p>₹58,000 treatment covered under family floater.</p>
-                </div>
-              </div>
+  <div>
+    <p className="font-semibold text-white">Family member with an existing health condition</p>
+    <p>
+      Pre-existing conditions can affect eligibility, waiting periods, premium or other policy terms depending on the insurer and product. Full and accurate disclosure during the application is important so the insurer can assess the risk correctly.
+    </p>
+  </div>
+</div>
             </div>
 
             <div className="mt-6">
