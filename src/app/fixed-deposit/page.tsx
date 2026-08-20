@@ -353,23 +353,27 @@ periodic interest income instead of waiting until maturity.
       <section className="relative px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
-            Premature Withdrawal Rules
+            Fixed Deposit Premature Withdrawal: What Happens If You Need Your Money Early
           </h2>
 
           <div className="space-y-4">
             {[
-              "Most banks allow premature withdrawal with a 0.5% - 1% penalty.",
-              "If withdrawn early, interest may be lower than promised.",
-              "Policies depend on the bank's specific terms.",
-              "Tax-saving FDs (5-year lock-in) cannot be withdrawn early without tax impact.",
+              "Premature withdrawal may be allowed, but the applicable conditions depend on the bank and the specific FD.",
+  "The interest payable on early withdrawal may be lower than the original contracted rate, depending on the bank's terms and the period the deposit remained with the bank.",
+  "A premature-withdrawal penalty may apply. Banks must have a Board-approved policy and disclose the applicable penalty components to depositors.",
+  "Before breaking an FD early, check the withdrawal rules, revised interest rate, penalty and tax implications so you know the actual amount you will receive.",
+]
             ].map((point, index) => (
               <div
-                key={index}
-                className="flex gap-4 items-start bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-lg p-4 border border-white/10"
-              >
-                <span className="text-yellow-500 font-bold">!</span>
-                <p className="text-white/80">{point}</p>
-              </div>
+  key={index}
+  className="flex gap-4 items-start bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-lg p-4 border border-white/10"
+>
+  <span className="shrink-0 inline-flex items-center px-3 py-1 rounded-full border border-stockstrail-green-light/30 bg-stockstrail-green-light/5 text-stockstrail-green-light text-xs font-semibold uppercase tracking-wide">
+    Important
+  </span>
+
+  <p className="text-white/80">{point}</p>
+</div>
             ))}
           </div>
         </div>
