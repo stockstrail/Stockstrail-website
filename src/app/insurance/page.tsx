@@ -271,11 +271,11 @@ export default function Insurance() {
             <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 w-full max-w-md group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
               <Image
                 src="/services/insurance3.webp"
-                alt="Term Insurance"
+                alt="Family financial protection with term insurance"
                 width={520}
                 height={360}
                 loading="lazy"
-                className="w-full object-contain max-h- sm:max80-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
+                className="w-full object-contain max-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
             />
             </div>
           </div>
@@ -465,11 +465,11 @@ export default function Insurance() {
             <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 w-full max-w-md group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
               <Image
                 src="/services/insurance4.webp"
-                alt="Health Insurance"
+                aalt="Family health insurance and hospitalisation protection"
                 width={520}
                 height={360}
                 loading="lazy"
-                className="w-full object-contain max-h- sm:max80-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
+                className="w-full object-contain max-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
             />
             </div>
           </div>
