@@ -595,34 +595,34 @@ export default function Others() {
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
-            Why Choose Stockstrail for These Services?
+            Why Choose Stockstrail for Your Financial Needs?
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: 'One-Stop Financial Solution',
-                desc: 'Motor insurance, travel insurance, ULIPs, guaranteed plans, mutual funds, FDs, loans, and Demat account opening - everything in one place with one trusted team.',
+                title: 'Advice Around Your Situation',
+                desc: 'We first understand your goals, income, existing financial commitments and priorities. This helps us suggest options that fit your situation instead of taking a one-size-fits-all approach.',
               },
               {
-                title: 'Multi-Provider Comparison',
-                desc: 'We compare plans from multiple insurance companies and financial institutions to ensure you get the best coverage and best value for your specific need.',
+                title: 'Compare Before You Decide',
+                desc: 'Different financial products can solve different needs. We help you understand the available options, compare important features and costs, and make a decision with greater clarity.',
               },
               {
-                title: 'Transparent, Jargon-Free Guidance',
-                desc: 'We break down every product in simple, clear language - explaining what you are buying, what it covers, and what it costs. No hidden charges, no pressure.',
+                title: 'Simple, Clear Explanations',
+                desc: 'Financial products often come with terms that are difficult to understand. We explain the important details in straightforward language, including what a product offers, what it costs and what to consider before choosing it.',
               },
               {
-                title: 'End-to-End Documentation Support',
-                desc: 'From filling out applications to submitting documents and tracking approvals - our team handles it all. We also guide you through the claims process.',
+                title: 'Support Beyond the Purchase',
+                desc: 'Our role does not have to end after you choose a product. We can help you understand the next steps, organise the process and address questions that may arise later.',
               },
               {
-                title: 'Ongoing Support',
-                desc: 'Our relationship does not end when your policy is issued. We provide support for renewals, policy reviews, fund switches, and claim settlements.',
+                title: 'Multiple Financial Needs, One Place',
+                desc: 'From mutual funds and insurance to fixed deposits, loans, tax-filing support and other financial services, you can discuss different financial needs with one team.',
               },
               {
-                title: 'Client-Focused Recommendations',
-                desc: 'Every recommendation is based on what genuinely serves your best interest - not which product pays the highest commission.',
+                title: 'Recommendations With Your Interests in Mind',
+                desc: 'We focus on whether a financial solution is appropriate for your needs, affordability and goals. The aim is to help you make a suitable decision, not simply sell you another product.',
               },
             ].map((item, idx) => (
               <div
@@ -632,7 +632,10 @@ export default function Others() {
                 <h3 className="text-lg font-semibold text-stockstrail-green-light mb-3 group-hover:text-white transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-white/80 text-sm group-hover:text-white/90 transition-colors">{item.desc}</p>
+
+                <p className="text-white/80 text-sm group-hover:text-white/90 transition-colors">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
