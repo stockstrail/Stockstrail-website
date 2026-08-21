@@ -527,7 +527,7 @@ export default function Others() {
                   href="/lets-talk"
                   className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-stockstrail-green-light rounded-full text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg transition-all font-work-sans font-medium"
                 >
-                  Talk to Stockstrail
+                  Talk to Us
                 </a>
               </div>
             </div>
@@ -536,16 +536,32 @@ export default function Others() {
         </div>
       </section>
 
-      {/* Mid-page CTA after 'Our Financial & Protection Services' */}
+      {/* Mid-page contact CTA */}
       <section className="px-4 sm:px-6 lg:px-8 py-10">
         <div className="max-w-6xl mx-auto text-center">
-          <a
-            href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-stockstrail-green-accent/5 border-2 border-stockstrail-green-accent/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-bg hover:bg-stockstrail-green-accent transition-all duration-300 font-work-sans font-medium"
-          >
-            <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
-            Get Help Choosing The Right Service
-          </a>
+          <p className="text-white/70 max-w-2xl mx-auto leading-relaxed mb-5">
+            Not sure which financial service or protection option fits your
+            situation? Talk to us first. We can understand your requirement and
+            help you decide what to explore next.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="/lets-talk"
+              className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-transparent border-2 border-stockstrail-green-light rounded-full text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg transition-all font-work-sans font-medium"
+            >
+              Talk to Us
+            </a>
+
+            <a
+              href="https://api.whatsapp.com/send/?phone=919736304663&text=Hi+Stockstrail%2C+I%27d+like+to+know+more+about+your+services%21&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-transparent border-2 border-stockstrail-green-light rounded-full text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg transition-all font-work-sans font-medium"
+            >
+              WhatsApp Us
+            </a>
+          </div>
         </div>
       </section>
 
