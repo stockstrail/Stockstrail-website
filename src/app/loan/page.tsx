@@ -67,82 +67,88 @@ export default function Loan() {
 
   return (
     <Layout>
-     <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+      <section className="relative px-4 sm:px-6 lg:px-8 pt-20 pb-16">
         <div className="absolute inset-0 -z-10">
-          <div className="w-full h-72 bg-stockstrail-bg-light blur-3xl opacity-40" />
+          <div className="w-full h-72 bg-stockstrail-bg-light blur-185 opacity-40" />
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center rounded-full border border-white/10 bg-stockstrail-bg-light/30 px-4 py-2 text-sm text-white/70 mb-6">
-              Personal Loans | Home Loans | Business Loans | Loan Against Mutual Funds
-            </div>
-
-            <h1 className="font-product-sans text-3xl sm:text-5xl lg:text-6xl font-normal leading-tight uppercase gradient-text mb-6">
-              Loan Options for Your Financial Needs
-            </h1>
-
-            <p className="text-white/80 max-w-3xl leading-relaxed text-lg sm:text-xl">
-              Compare borrowing options based on eligibility, cost, repayment
-              capacity and risk — including Loan Against Mutual Funds for eligible
-              investors who want to explore liquidity without immediately
-              redeeming their investments.
-            </p>
-
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <a
-                href="#loan-guidance"
-                className="inline-flex items-center justify-center rounded-lg bg-stockstrail-green-light px-6 py-3 font-semibold text-black hover:opacity-90 transition"
-              >
-                Explore Loan Options
-              </a>
-
-              <a
-                href="/lets-talk"
-                className="inline-flex items-center justify-center rounded-lg border border-white/15 px-6 py-3 font-semibold text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light transition"
-              >
-                Talk to Stockstrail
-              </a>
-            </div>
-
-            <p className="mt-5 text-sm text-white/50 max-w-2xl">
-              Loan approval, interest rates, eligibility and terms are determined
-              by the respective lending institution and applicable conditions.
-            </p>
+        <div className="max-w-6xl mx-auto text-center">
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 mb-8 text-sm text-white/70">
+            <a href="#loan-options" className="transition-colors hover:text-stockstrail-green-light">Personal Loans</a>
+            <span className="text-white/30">|</span>
+            <a href="#lamf" className="transition-colors hover:text-stockstrail-green-light">Loan Against Mutual Funds</a>
+            <span className="text-white/30">|</span>
+            <a href="#loan-options" className="transition-colors hover:text-stockstrail-green-light">Business Loans</a>
+            <span className="text-white/30">|</span>
+            <a href="#loan-options" className="transition-colors hover:text-stockstrail-green-light">Home Loans</a>
           </div>
+
+          <h1 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase gradient-text mb-6">
+            FIND THE RIGHT LOAN FOR YOUR FINANCIAL NEEDS
+          </h1>
+          <p className="text-white/80 max-w-3xl mx-auto leading-relaxed text-lg">
+           Whether you need funds for a personal expense, a home, your business, or a
+           short-term requirement, the right loan should fit your needs, repayment
+           capacity, and overall financial situation. Compare your options carefully,
+           understand the costs and terms, and if you hold eligible mutual funds,
+           consider a Loan Against Mutual Funds when accessing liquidity without
+           immediately redeeming your investments makes sense.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="#loan-options"
+              className="inline-flex items-center justify-center rounded-lg bg-stockstrail-green-accent px-6 py-3 font-medium text-black transition-all duration-200 hover:-translate-y-0.5 hover:bg-stockstrail-green-light hover:shadow-lg"
+            >
+              Explore Loan Options
+            </a>
+            <a
+              href="/lets-talk"
+              className="inline-flex items-center justify-center rounded-lg border border-white/15 px-6 py-3 font-medium text-white transition-all duration-200 hover:border-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg"
+            >
+              Talk to Stockstrail
+            </a>
+          </div>
+
+          <p className="mt-5 text-sm text-white/50">
+            Loan approval, interest rates, eligibility and terms are determined by the respective lending institution and applicable conditions.
+          </p>
         </div>
       </section>
 
       {/* INTRO + OVERVIEW */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-12">
+      <section id="loan-options" className="relative scroll-mt-24 px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           <div className="lg:col-span-2">
             <h2 className="text-2xl sm:text-3xl font-product-sans text-white mb-4">
-              Loans - Complete Service Overview
+              Loan Options for Different Financial Needs
             </h2>
 
             <p className="text-white/80 mb-4 leading-relaxed">
-              Financial needs can arise at any stage - whether you are
-              expanding a business, buying a home, or handling a short-term
-              cash requirement. Before selling investments or choosing a loan,
-              it helps to compare the cost, repayment period, collateral and
-              overall suitability of each option.
+              Different financial needs call for different borrowing options. Whether you
+              are planning a home purchase, managing a business requirement, covering a
+              personal expense, or looking for short-term liquidity, the right loan depends
+              on your purpose, repayment capacity, and eligibility.
             </p>
 
             <p className="text-white/80 mb-4 leading-relaxed">
-              Stockstrail provides practical loan guidance across selected
-              lending options. We help you understand the loan structure,
-              documentation, lender terms and repayment considerations before
-              you proceed. Approval, rates, tenure, loan amount and eligibility
-              are subject to the lender and applicant profile.
+              Stockstrail helps you understand the available loan options, key
+              documentation, repayment terms, and important considerations before you
+              apply. Loan approval, interest rates, tenure, loan amount, and eligibility
+              depend on the lender and your individual profile.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 {
+                  title: "Personal Loans",
+                  desc: "Explore personal borrowing for eligible short-term or planned needs, subject to lender eligibility, income and repayment capacity.",
+                  link: "/lets-talk",
+                },
+                {
                   title: "Loan Against Mutual Funds (LAMF)",
                   desc: "Pledge eligible mutual fund units to access liquidity without immediately redeeming those investments.",
-                  link: "/lets-talk",
+                  link: "#lamf",
                 },
                 {
                   title: "Business Loans",
@@ -154,15 +160,10 @@ export default function Loan() {
                   desc: "Explore financing for buying, constructing or renovating a home, subject to lender eligibility and property checks.",
                   link: "/lets-talk",
                 },
-                {
-                  title: "Loan Guidance & Support",
-                  desc: "Understand documentation, costs, repayment terms and available lender options before applying.",
-                  link: "/lets-talk",
-                },
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="rounded-xl p-5 bg-stockstrail-bg-light/30 border border-white/10"
+                  className="rounded-xl p-5 bg-stockstrail-bg-light/30 border border-white/10 transition-colors duration-200 hover:border-stockstrail-green-light/50"
                 >
                   <h3 className="text-lg font-semibold text-stockstrail-green-light mb-2">
                     {item.title}
@@ -171,7 +172,7 @@ export default function Loan() {
                   {item.link && (
                     <a
                       href={item.link}
-                      className="text-stockstrail-green-light hover:underline text-sm"
+                      className="text-stockstrail-green-light transition-colors duration-200 hover:text-white hover:underline text-sm"
                     >
                       Explore {item.title}
                     </a>
@@ -220,19 +221,17 @@ export default function Loan() {
       <section className="px-4 sm:px-6 lg:px-8 py-8">
         <div className="max-w-6xl mx-auto text-center">
           <a
-            href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/lets-talk"
             className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 transition-all duration-300 font-work-sans font-medium"
           >
             <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
-            Apply For A Loan - Quick Start
+            Talk to Stockstrail About Your Loan
           </a>
         </div>
       </section>
 
       {/* LAMF SECTION */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">
+      <section id="lamf" className="relative scroll-mt-24 px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* IMAGE */}
           <div className="flex items-center justify-center">
@@ -279,6 +278,15 @@ export default function Loan() {
                 terms
               </li>
             </ul>
+
+            <a
+              href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-3 rounded-lg bg-stockstrail-green-accent px-6 py-3 font-medium text-black transition-all duration-200 hover:-translate-y-0.5 hover:bg-stockstrail-green-light hover:shadow-lg"
+            >
+              Explore LAMF Options
+            </a>
 
             <h4 className="text-white font-semibold mt-6 mb-2">
               How LAMF Works
