@@ -2,6 +2,7 @@
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Link from 'next/link';
+import { MapPin } from 'lucide-react';
 
 type ServiceGEOSectionProps = {
   serviceName: string; // e.g., "Mutual Fund SIP & Investment Advisory"
@@ -76,7 +77,8 @@ const ServiceGEOSection: React.FC<ServiceGEOSectionProps> = ({
                     <div key={loc} className="bg-white/5 border border-white/10 rounded-xl p-5 hover:border-stockstrail-green-light/30 transition-colors flex flex-col justify-between">
                       <div>
                         <h4 className="text-white font-semibold text-xl mb-2 flex items-center gap-2">
-                          <span className="text-stockstrail-green-light">📍</span> {loc}
+                          <MapPin className="w-5 h-5 text-stockstrail-green-light shrink-0" />
+                          <span>{loc}</span>
                         </h4>
                         <p className="text-white/70 leading-relaxed text-sm mb-4">
                           If you are in {loc} looking for {serviceName} — Stockstrail is your certified advisor.

@@ -5,6 +5,7 @@ import Layout from '@/components/layout/Layout';
 import Image from "next/image";
 import ServiceFAQSection from '@/components/services/ServiceFAQSection';
 import HeroCarousel from '@/components/ui/HeroCarousel';
+import { MapPin } from 'lucide-react';
 
 
 export default function About() {
@@ -440,7 +441,10 @@ export default function About() {
                   <div key={loc.title} className="bg-white/5 border border-white/10 rounded-xl p-5 hover:border-stockstrail-green-light/50 transition-colors">
                     <h4 className="text-lg font-product-sans text-stockstrail-green-light mb-1">{loc.title}</h4>
                     <p className="text-white/80 text-sm mb-3">{loc.text}</p>
-                    <p className="text-white/60 text-xs">📍 If you are in {loc.title} and looking for a trusted financial advisor...</p>
+                    <p className="text-white/60 text-xs flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-stockstrail-green-light shrink-0" />
+                      <span>If you are in {loc.title} and looking for a trusted financial advisor...</span>
+                    </p>
                     <div className="mt-3 text-xs text-white/50 border-t border-white/10 pt-3">
                       Services: Mutual Funds | FD | Insurance | Loans | Demat | Risk Profile
                     </div>

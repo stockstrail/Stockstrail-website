@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { MapPin } from 'lucide-react';
 
 const geoData = [
   {
@@ -109,7 +110,10 @@ const HomeGEOSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {data.locations.map((loc) => (
                     <div key={loc.name} className="bg-white/5 border border-white/10 rounded-xl p-5 hover:border-stockstrail-green-light/30 transition-colors">
-                      <h4 className="text-white font-semibold text-xl mb-2">{loc.name}</h4>
+                      <h4 className="text-white font-semibold text-xl mb-2 flex items-center gap-2">
+                        <MapPin className="w-5 h-5 text-stockstrail-green-light shrink-0" />
+                        <span>{loc.name}</span>
+                      </h4>
                       <p className="text-white/70 leading-relaxed text-sm">
                         {loc.desc}
                       </p>

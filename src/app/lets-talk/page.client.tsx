@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Layout from '@/components/layout/Layout';
+import { Phone, Mail } from 'lucide-react';
 
 export default function LetsTalkPage() {
   return (
@@ -131,10 +132,12 @@ export default function LetsTalkPage() {
             <div className="text-center space-y-4 pt-4">
               <div className="flex flex-col md:flex-row gap-6 justify-center items-center text-white/80">
                 <div className="flex items-center gap-2 font-medium">
-                  <span className="text-stockstrail-green-light">📞</span> +91 97363-04663
+                  <Phone className="w-4 h-4 text-stockstrail-green-light shrink-0" />
+                  <span>+91 97363-04663</span>
                 </div>
                 <div className="flex items-center gap-2 font-medium">
-                  <span className="text-stockstrail-green-light">✉️</span> connect@stockstrail.in
+                  <Mail className="w-4 h-4 text-stockstrail-green-light shrink-0" />
+                  <span>connect@stockstrail.in</span>
                 </div>
               </div>
               <div className="text-sm text-white/50 pt-2 max-w-lg mx-auto">
