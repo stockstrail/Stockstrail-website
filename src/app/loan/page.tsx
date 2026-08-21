@@ -214,6 +214,7 @@ export default function Loan() {
             >
               Get Personalised Loan Guidance
             </a>
+
           </aside>
         </div>
       </section>
@@ -469,7 +470,7 @@ export default function Loan() {
       </section>
 
       {/* WHO SHOULD CONSIDER LOANS */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">
+      <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-12 bg-stockstrail-bg-light/20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-semibold gradient-text mb-6 text-center">
             Who Should Consider Loans?
@@ -599,16 +600,38 @@ export default function Loan() {
         </div>
       </section>
 
-      {/* REAL-WORLD FAQ */}
+      
+
+      {/* FINAL CTA */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">
+        <div className="max-w-6xl mx-auto text-center">
+          <h3 className="text-xl font-semibold text-white mb-3">
+            Need help comparing your loan options?
+          </h3>
+          <p className="text-white/80 mb-6">
+            Share your requirement and we can help you understand the relevant
+            loan options, costs and next steps before you proceed.
+          </p>
+
+          <a
+            href="/lets-talk"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-white border-2 border-[#012928] rounded-full text-[#012928] hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-work-sans font-semibold group"
+          >
+            Get personalised loan guidance
+          </a>
+        </div>
+      </section>
+
+{/* LOAN FAQ */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-semibold gradient-text mb-4 text-center">
-            Loan Questions People Actually Ask
+            Frequently Asked Questions About Loans
           </h2>
 
           <p className="text-white/70 max-w-3xl mx-auto text-center mb-8">
-            Practical answers to common borrowing decisions around Loan Against
-            Mutual Funds, repayment, collateral risk and comparing loan offers.
+            Clear answers to common questions about Loan Against Mutual Funds,
+            business loans, home loans, repayment, eligibility and borrowing costs.
           </p>
 
           <div className="space-y-4">
@@ -631,27 +654,6 @@ export default function Loan() {
           </div>
         </div>
       </section>
-
-      {/* FINAL CTA */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">
-        <div className="max-w-6xl mx-auto text-center">
-          <h3 className="text-xl font-semibold text-white mb-3">
-            Need help comparing your loan options?
-          </h3>
-          <p className="text-white/80 mb-6">
-            Share your requirement and we can help you understand the relevant
-            loan options, costs and next steps before you proceed.
-          </p>
-
-          <a
-            href="/lets-talk"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-white border-2 border-[#012928] rounded-full text-[#012928] hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-work-sans font-semibold group"
-          >
-            Get personalised loan guidance
-          </a>
-        </div>
-      </section>
-
       {/* FAQ structured data */}
       <script
         type="application/ld+json"
