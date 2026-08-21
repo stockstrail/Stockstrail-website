@@ -726,30 +726,119 @@ export default function Others() {
         </div>
       </section>
 
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
-            How to Get Started
-          </h2>
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#00E88F]">
+              Not Sure What You Need? Start With a Conversation.
+            </h2>
+
+            <p className="mt-5 text-base md:text-lg text-white/75 leading-relaxed max-w-3xl mx-auto">
+              You don&apos;t have to figure out the right financial product before you
+              contact us. Tell us what&apos;s going on — your goals, responsibilities,
+              existing investments or insurance, or simply what you&apos;re unsure about.
+              We&apos;ll help you understand what needs attention and what you can
+              consider next.
+            </p>
+          </div>
 
           <div className="space-y-4">
-            {[
-              'Identify Your Need: Which service fits your current situation - motor insurance renewal, travel insurance, a ULIP, guaranteed plan, or tax filing?',
-              'Discuss with Our Specialists: Connect with our advisors. Share your requirements, budget, and timeline.',
-              'Receive Personalised Recommendations: We compare multiple providers and give you a clear comparison of options.',
-              'Submit Documentation: Our team guides you through the documentation process for your chosen service.',
-              'Ongoing Support: After enrolment, we continue to support you with renewals, fund switches, claims assistance, and more.',
-            ].map((step, index) => (
-              <div
-                key={index}
-                className="flex gap-4 items-start bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300"
-              >
-                <div className="shrink-0 w-8 h-8 bg-stockstrail-green-light rounded-full flex items-center justify-center text-black font-semibold">
-                  {index + 1}
+            <div className="rounded-xl border border-white/10 bg-[#003B37]/40 p-6">
+              <div className="flex gap-5 items-start">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#00E88F] text-[#003B37] flex items-center justify-center font-bold">
+                  01
                 </div>
-                <p className="text-white/80 pt-1">{step}</p>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    Tell Us What&apos;s Going On
+                  </h3>
+                  <p className="text-white/70 leading-relaxed">
+                    Share what you&apos;re trying to plan, protect or improve — even if
+                    you&apos;re not sure where to begin.
+                  </p>
+                </div>
               </div>
-            ))}
+            </div>
+
+            <div className="rounded-xl border border-white/10 bg-[#003B37]/40 p-6">
+              <div className="flex gap-5 items-start">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#00E88F] text-[#003B37] flex items-center justify-center font-bold">
+                  02
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    We Understand Your Situation
+                  </h3>
+                  <p className="text-white/70 leading-relaxed">
+                    We look at your goals, income, responsibilities, existing
+                    investments or insurance and what you&apos;re actually trying to
+                    achieve.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-white/10 bg-[#003B37]/40 p-6">
+              <div className="flex gap-5 items-start">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#00E88F] text-[#003B37] flex items-center justify-center font-bold">
+                  03
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    Explore What Makes Sense
+                  </h3>
+                  <p className="text-white/70 leading-relaxed">
+                    We explain the relevant options, what they do, what they cost
+                    and where they may or may not fit your situation.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-white/10 bg-[#003B37]/40 p-6">
+              <div className="flex gap-5 items-start">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#00E88F] text-[#003B37] flex items-center justify-center font-bold">
+                  04
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    Decide What You Want to Do
+                  </h3>
+                  <p className="text-white/70 leading-relaxed">
+                    You decide the next step. If you choose to proceed, we help you
+                    through the process and remain available afterwards.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-10">
+            <p className="text-white/70 mb-5">
+              Not sure where to start? That&apos;s okay. Talk to us first.
+            </p>
+
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <a
+                href="/lets-talk"
+                className="inline-flex items-center justify-center rounded-full border border-[#00E88F] px-7 py-3 text-[#00E88F] font-semibold transition hover:bg-[#00E88F] hover:text-[#003B37]"
+              >
+                Talk to Us
+              </a>
+
+              <a
+                href="https://api.whatsapp.com/send/?phone=919736304663&text=Hi+Stockstrail%2C+I%27d+like+to+know+more+about+your+services%21&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-[#00E88F] px-7 py-3 text-[#003B37] font-semibold transition hover:opacity-90"
+              >
+                WhatsApp Us
+              </a>
+            </div>
           </div>
         </div>
       </section>
