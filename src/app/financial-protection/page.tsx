@@ -102,14 +102,14 @@ export default function Others() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
               href="/lets-talk"
-              className="inline-flex items-center justify-center rounded-lg bg-stockstrail-green-accent px-6 py-3 font-medium text-black transition-all duration-200 hover:-translate-y-0.5 hover:bg-stockstrail-green-light hover:shadow-lg"
+              className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-transparent border-2 border-stockstrail-green-light rounded-full text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg transition-all font-work-sans font-medium"
             >
               Talk to Stockstrail
             </a>
 
             <a
               href="#financial-protection-services"
-              className="inline-flex items-center justify-center rounded-lg border border-white/15 px-6 py-3 font-medium text-white transition-all duration-200 hover:border-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg"
+              className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-transparent border-2 border-stockstrail-green-light rounded-full text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg transition-all font-work-sans font-medium"
             >
               Explore Financial Protection
             </a>
