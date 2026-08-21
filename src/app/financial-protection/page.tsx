@@ -408,75 +408,102 @@ export default function Others() {
             {/* TAX FILING */}
             <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
               <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-4">
-                Tax Filing and Investment-Related Tax Support
+                Income Tax Filing & Investment Tax Support
               </h3>
 
               <p className="text-white/80 leading-relaxed mb-5">
-                Tax filing becomes more important when your finances include
-                salary income, investments, capital gains, interest income or
-                income from more than one source. Keeping your records
-                organised and reporting the relevant information correctly can
-                make the filing process easier and help you maintain a clear
-                financial record.
+                Income tax filing can become more complicated once your finances include
+                salary income, mutual funds, shares, dividends, bank or FD interest,
+                capital gains, or income from more than one source. A return that looks
+                simple at first can require you to bring together information from several
+                statements and check that the details reported in your tax return are
+                complete and consistent.
+              </p>
+
+              <p className="text-white/70 leading-relaxed mb-6">
+                Stockstrail provides a digital tax-filing route for individuals and
+                investors who want to organise their information and complete their ITR
+                filing process online. This can be particularly useful if your financial
+                year includes mutual fund redemptions, share-market transactions, capital
+                gains, TDS, interest income or other investment-related information.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <h4 className="text-white font-semibold mb-3">
-                    Investment Information You May Need
+                    Information to Keep Ready
                   </h4>
 
-                  <ul className="space-y-2 text-white/70">
-                    <li>
-                      • Mutual fund capital gains and transaction details
-                    </li>
-                    <li>
-                      • Share market transactions and capital gains
-                    </li>
-                    <li>
-                      • Interest income from eligible deposits
-                    </li>
-                    <li>
-                      • TDS and other tax-related information
-                    </li>
-                    <li>
-                      • Relevant deductions and supporting documents
-                    </li>
+                  <ul className="space-y-2 text-white/70 leading-relaxed">
+                    <li>• Form 16 and salary-related income details</li>
+                    <li>• Form 26AS and Annual Information Statement (AIS)</li>
+                    <li>• Mutual fund capital gains and transaction statements</li>
+                    <li>• Share-market or securities capital-gains statements</li>
+                    <li>• Bank and fixed-deposit interest information</li>
+                    <li>• Dividend, TDS and other income details</li>
+                    <li>• Relevant deductions and supporting documents</li>
                   </ul>
                 </div>
 
                 <div>
                   <h4 className="text-white font-semibold mb-3">
-                    Why Accurate Records Matter
+                    What You Should Check Before Filing
                   </h4>
 
-                  <p className="text-white/70 leading-relaxed">
-                    Your investments and other sources of income can create
-                    additional information to report in an income tax return.
-                    Keeping statements, capital-gains reports, interest
-                    certificates and other relevant documents together can make
-                    it easier to check the information before filing.
-                  </p>
+                  <ul className="space-y-2 text-white/70 leading-relaxed">
+                    <li>• Whether your income sources are completely reported</li>
+                    <li>• Whether TDS details match your available records</li>
+                    <li>• Whether capital gains and investment transactions are accounted for</li>
+                    <li>• Whether AIS and other statements have been reviewed carefully</li>
+                    <li>• Whether the applicable ITR form matches your income profile</li>
+                    <li>• Whether supporting documents are available for the information reported</li>
+                  </ul>
                 </div>
               </div>
 
-              <p className="text-white/70 leading-relaxed mb-5">
-                Stockstrail provides access to a digital tax-filing process
-                through its existing KFintech partnership. The applicable tax
-                treatment depends on your income, transactions and the tax
-                rules in force for the relevant financial year. For situations
-                requiring individual tax advice, consult a qualified tax
-                professional.
+              <div className="bg-white/5 rounded-xl p-5 border border-white/10 mb-6">
+                <h4 className="text-white font-semibold mb-3">
+                  Especially Useful for Investors
+                </h4>
+
+                <p className="text-white/70 leading-relaxed">
+                  If you invest in mutual funds or the stock market, tax filing may involve
+                  more than simply entering your salary and TDS. Capital gains, dividend
+                  income, investment statements and transaction records may all need to be
+                  considered. The correct treatment also depends on your income, transactions
+                  and the ITR form applicable to your situation.
+                </p>
+              </div>
+
+              <p className="text-white/70 leading-relaxed mb-6">
+                Stockstrail keeps the process digital so you can access the tax-filing
+                facility online and work through your return with your financial information
+                organised in one place. Tax rules and filing requirements can change from
+                one assessment year to another, so the information applicable to your
+                financial year should always be checked before submission. For situations
+                requiring individual tax advice or complex tax interpretation, consult a
+                qualified tax professional.
               </p>
 
-              <a
-                href="https://gi9.in/KFINTH/v8qS3L"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-stockstrail-green-light rounded-full text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg transition-all font-work-sans font-medium"
-              >
-                Start Tax Filing
-              </a>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="https://gi9.in/KFINTH/v8qS3L"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Start income tax filing online"
+                  className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-stockstrail-green-light rounded-full text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg transition-all font-work-sans font-medium"
+                >
+                  Start Tax Filing
+                </a>
+
+                <a
+                  href="/lets-talk"
+                  aria-label="Talk to Stockstrail about tax filing"
+                  className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-stockstrail-green-light rounded-full text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg transition-all font-work-sans font-medium"
+                >
+                  Talk to Stockstrail
+                </a>
+              </div>
             </div>
 
             {/* INSURANCE PLANNING */}
