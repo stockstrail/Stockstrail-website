@@ -71,6 +71,59 @@ const faqs = [
   },
 ];
 
+const financialProtectionSituations = [
+  {
+    title: "Just Started Earning",
+    description:
+      "You have started earning and want to do things right, but you are not sure whether you should start with insurance, savings or investments.",
+  },
+  {
+    title: "Got Married. Things Changed.",
+    description:
+      "Your financial responsibilities are no longer just your own. Rent, family expenses, future plans and your partner's needs can change the protection you need.",
+  },
+  {
+    title: "Your Health Cover Comes From Work",
+    description:
+      "Employer health insurance is useful, but it may not stay with you if you change jobs. It is worth knowing what you are actually covered for.",
+  },
+  {
+    title: "You Already Have Insurance",
+    description:
+      "You bought a policy a few years ago, but you are not sure whether the cover is still enough. Your income, family and responsibilities may have changed since then.",
+  },
+  {
+    title: "You Are Building Your Savings",
+    description:
+      "You have started investing and building wealth. The question is what happens to those savings if a major medical expense, loss of income or other unexpected event comes along.",
+  },
+  {
+    title: "You Have Children Now",
+    description:
+      "School, higher education and other expenses are still years away, but the money has to be there when you need it. Your protection should support that plan.",
+  },
+  {
+    title: "You Have a Big Loan",
+    description:
+      "A home loan, business loan or other large commitment means your family may have to carry the burden if something happens to your income.",
+  },
+  {
+    title: "Retirement Is Getting Closer",
+    description:
+      "At this stage, it is not only about growing your money. You also need to think about healthcare, regular income and protecting what you have already built.",
+  },
+  {
+    title: "You Work for Yourself",
+    description:
+      "When your income depends on your own work or business, an unexpected interruption can affect both your family expenses and your business commitments.",
+  },
+  {
+    title: "You Simply Don't Know Where to Start",
+    description:
+      "You do not need to pick an insurance or investment product first. Start by looking at your income, family, loans, existing cover and future plans.",
+  },
+];
+
 export default function Others() {
   return (
     <Layout>
@@ -644,29 +697,29 @@ export default function Others() {
 
       <section className="relative px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
-            Who Should Consider Stockstrail's Financial Protection Services?
+          <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-5 text-center">
+            You Plan for the Future. But What Protects You When Life Changes?
           </h2>
 
+          <p className="max-w-3xl mx-auto text-center text-white/80 text-base sm:text-lg leading-relaxed mb-12">
+            Your financial priorities change as life changes. A first salary, marriage,
+            children, a home loan, ageing parents, a new business or retirement can all
+            change what you need to protect. Stockstrail helps you look at your financial
+            situation as a whole — so you can understand where you may have a gap and
+            what deserves attention first.
+          </p>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[
-              'Vehicle owners across India who need mandatory and comprehensive motor insurance',
-              'Frequent travellers - domestic and international - who want complete travel protection',
-              'Adventure tourists in Himachal Pradesh and Uttarakhand needing specialised travel cover',
-              'Long-term wealth builders who want market-linked returns through ULIPs with life cover',
-              'Conservative investors who want guaranteed, predictable returns with zero market risk',
-              'Parents planning for children\'s education, marriage, or other future milestones',
-              'Individuals approaching retirement who want risk-free wealth accumulation',
-              'Business owners wanting to protect personal and business assets comprehensively',
-              'Taxpayers and investors who need error-free, secure tax filing for their capital gains and assets',
-              'Anyone wanting a single financial partner for all investment and protection needs',
-            ].map((item, idx) => (
+            {financialProtectionSituations.map((item, index) => (
               <div
-                key={idx}
+                key={index}
                 className="flex gap-4 items-start bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-lg p-5 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300"
               >
-                <div className="text-stockstrail-green-light text-2xl font-bold">→</div>
-                <p className="text-white/80">{item}</p>
+                <span className="text-stockstrail-green-light text-2xl font-bold">→</span>
+                <div>
+                  <h3 className="text-white font-semibold text-base mb-1">{item.title}</h3>
+                  <p className="text-white/80 text-sm leading-relaxed">{item.description}</p>
+                </div>
               </div>
             ))}
           </div>
