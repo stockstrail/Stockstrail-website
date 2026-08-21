@@ -67,20 +67,49 @@ export default function Loan() {
 
   return (
     <Layout>
-      <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+     <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <div className="absolute inset-0 -z-10">
-          <div className="w-full h-72 bg-stockstrail-bg-light blur-185 opacity-40" />
+          <div className="w-full h-72 bg-stockstrail-bg-light blur-3xl opacity-40" />
         </div>
 
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase gradient-text mb-6">
-            Smart Loans for Your Financial Goals
-          </h1>
-          <p className="text-white/80 max-w-3xl mx-auto leading-relaxed text-lg">
-            Access funds without unnecessarily disrupting your investments.
-            Explore Loan Against Mutual Funds, business loans, and home loans
-            with practical guidance and support through the application process.
-          </p>
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center rounded-full border border-white/10 bg-stockstrail-bg-light/30 px-4 py-2 text-sm text-white/70 mb-6">
+              Personal Loans | Home Loans | Business Loans | Loan Against Mutual Funds
+            </div>
+
+            <h1 className="font-product-sans text-3xl sm:text-5xl lg:text-6xl font-normal leading-tight uppercase gradient-text mb-6">
+              Loan Options for Your Financial Needs
+            </h1>
+
+            <p className="text-white/80 max-w-3xl leading-relaxed text-lg sm:text-xl">
+              Compare borrowing options based on eligibility, cost, repayment
+              capacity and risk — including Loan Against Mutual Funds for eligible
+              investors who want to explore liquidity without immediately
+              redeeming their investments.
+            </p>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <a
+                href="#loan-guidance"
+                className="inline-flex items-center justify-center rounded-lg bg-stockstrail-green-light px-6 py-3 font-semibold text-black hover:opacity-90 transition"
+              >
+                Explore Loan Options
+              </a>
+
+              <a
+                href="/lets-talk"
+                className="inline-flex items-center justify-center rounded-lg border border-white/15 px-6 py-3 font-semibold text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light transition"
+              >
+                Talk to Stockstrail
+              </a>
+            </div>
+
+            <p className="mt-5 text-sm text-white/50 max-w-2xl">
+              Loan approval, interest rates, eligibility and terms are determined
+              by the respective lending institution and applicable conditions.
+            </p>
+          </div>
         </div>
       </section>
 
