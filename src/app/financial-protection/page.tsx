@@ -74,214 +74,464 @@ const faqs = [
 export default function Others() {
   return (
     <Layout>
+      {/* HERO */}
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <div className="absolute inset-0 -z-10">
           <div className="w-full h-96 bg-stockstrail-bg-light blur-185 opacity-40" />
         </div>
+
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase gradient-text mb-6">
-            Complete Financial Protection Services
+            Financial Protection for the Things That Matter Most
           </h1>
+
           <p className="text-white/80 max-w-3xl mx-auto leading-relaxed text-lg">
-            Complete Financial Protection Services by Stockstrail go far beyond investments and loans. Whether you need to protect your vehicle, secure your travel plans, build long-term wealth through market-linked insurance products, file your taxes easily, or create guaranteed returns for your future - Stockstrail brings all of these solutions under one trusted platform.
+            Financial protection is about preparing for the financial risks that
+            can affect your family, income, assets and long-term goals.
+            Stockstrail helps you understand relevant protection and financial
+            solutions, compare your options and make informed decisions based
+            on your needs and financial situation.
           </p>
+
+          <p className="text-white/70 max-w-2xl mx-auto leading-relaxed text-base mt-5">
+            From insurance and tax filing to investments and other financial
+            solutions, build a more resilient financial foundation with
+            Stockstrail.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="/lets-talk"
+              className="inline-flex items-center justify-center rounded-lg bg-stockstrail-green-accent px-6 py-3 font-medium text-black transition-all duration-200 hover:-translate-y-0.5 hover:bg-stockstrail-green-light hover:shadow-lg"
+            >
+              Talk to Stockstrail
+            </a>
+
+            <a
+              href="#financial-protection-services"
+              className="inline-flex items-center justify-center rounded-lg border border-white/15 px-6 py-3 font-medium text-white transition-all duration-200 hover:border-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg"
+            >
+              Explore Financial Protection
+            </a>
+          </div>
         </div>
       </section>
 
+      {/* FINANCIAL PROTECTION OVERVIEW */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
               <Image
                 src="/financial-protection2.webp"
-                alt="Financial Protection Services"
+                alt="Financial protection planning for family, income, assets and financial goals"
                 width={720}
                 height={420}
                 loading="lazy"
                 className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
-            />
+              />
             </div>
 
             <div>
               <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold text-stockstrail-green-light mb-6">
-                Complete Financial Protection Services by Stockstrail
+                What Does Financial Protection Mean?
               </h2>
+
               <p className="text-white/80 leading-relaxed mb-4">
-                Most people think of insurance only when something goes wrong. But real financial planning means protecting your assets, health, vehicles, and life goals before emergencies arise. That is exactly why Complete Financial Protection Services by Stockstrail are designed - to ensure you, your family, and your assets are always covered.
+                Financial protection is about being prepared for the situations
+                that can put pressure on your finances. An unexpected accident,
+                damage to your vehicle, a medical emergency while travelling,
+                loss of income or a major financial commitment can affect more
+                than your savings. The right protection can help you manage
+                these risks without losing sight of your long-term goals.
               </p>
+
               <p className="text-white/80 leading-relaxed mb-4">
-                At Stockstrail, we offer a full financial ecosystem. In addition to <strong>Motor Insurance</strong>, <strong>Travel Insurance</strong>, <strong>ULIPs</strong>, <strong>Guaranteed Return Plans</strong>, and <strong>Tax Filing</strong>, we also help you invest in <strong>Mutual Funds</strong>, open a <strong>Demat Account</strong>, access <strong>Loans</strong>, explore <strong>Fixed Deposits (FD)</strong>, and check your <strong>Risk Profile</strong>. We are your one-stop financial partner.
+                For some people, that may mean having suitable{' '}
+                <strong>motor insurance</strong> or{' '}
+                <strong>travel insurance</strong>. For a family, life insurance
+                may be an important part of protecting dependants and future
+                financial goals. For an investor, it can also mean keeping
+                enough emergency savings and understanding the risks attached
+                to different investments.
               </p>
-              <p className="text-white/80 leading-relaxed">
-                We serve clients across all stages of life and across pan India, with a special focus on Himachal Pradesh, Chandigarh Tricity, Delhi, Haryana, Uttar Pradesh, and Uttarakhand.
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Life insurance itself is not one-size-fits-all.{' '}
+                <strong>Term insurance</strong> is primarily designed to provide
+                life cover, while traditional and savings-oriented insurance
+                plans may combine protection with other policy features. We
+                cover these options in more detail on our{' '}
+                <a
+                  href="/insurance"
+                  className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+                >
+                  Insurance page
+                </a>
+                , where you can compare the important differences before
+                making a decision.
               </p>
+
+              <p className="text-white/80 leading-relaxed mb-4">
+                Financial protection also needs to fit into the rest of your
+                financial plan. Your{' '}
+                <a
+                  href="/mutual-funds"
+                  className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+                >
+                  mutual fund investments
+                </a>
+                , emergency savings,{' '}
+                <a
+                  href="/loan"
+                  className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+                >
+                  borrowing
+                </a>
+                , insurance and financial goals should make sense together,
+                rather than being treated as separate decisions.
+              </p>
+
+              <p className="text-white/70 leading-relaxed">
+                If you already know what you are looking for, you can explore
+                the relevant options. If you are unsure which type of insurance
+                or financial protection is appropriate for your situation,{' '}
+                <a
+                  href="/lets-talk"
+                  className="text-stockstrail-green-light hover:text-white hover:underline transition-colors font-medium"
+                >
+                  Talk to Stockstrail
+                </a>
+                . We can first understand your requirement, then help you
+                evaluate the relevant options.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-x-5 gap-y-3 text-sm">
+                <a
+                  href="/insurance"
+                  className="text-white/80 hover:text-stockstrail-green-light hover:underline transition-colors"
+                >
+                  Explore Insurance
+                </a>
+
+                <a
+                  href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-stockstrail-green-light hover:underline transition-colors"
+                >
+                  Explore Insurance Options
+                </a>
+
+                <a
+                  href="/lets-talk"
+                  className="text-white/80 hover:text-stockstrail-green-light hover:underline transition-colors"
+                >
+                  Talk to Stockstrail
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA after intro */}
-      <section className="px-4 sm:px-6 lg:px-8 py-8">
-        <div className="max-w-6xl mx-auto text-center">
-          <a
-            href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 transition-all duration-300 font-work-sans font-medium"
-          >
-            <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
-            Explore Additional Services - Get Help
-          </a>
-        </div>
-      </section>
-
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
+      {/* FINANCIAL & PROTECTION SERVICES */}
+      <section id="financial-protection-services" className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
-            Our Financial & Protection Services
+          <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-4 text-center">
+            Financial Protection Services That Fit Real-Life Needs
           </h2>
 
+          <p className="text-white/70 max-w-3xl mx-auto text-center leading-relaxed mb-12">
+            Financial protection is different for everyone. A vehicle owner,
+            a family planning a holiday, and an investor preparing their tax
+            return may face very different risks. We focus on the areas where
+            the right protection, documentation or guidance can make a
+            practical difference.
+          </p>
+
           <div className="space-y-8">
-            <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
-              <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-3">Motor Insurance by Stockstrail - Protect Your Vehicle Across India</h3>
-              <p className="text-white/80 mb-4">
-                <strong>Motor insurance</strong> is a financial protection policy that covers your vehicle against accidents, theft, fire, natural disasters, and damage caused by or to third parties. In India, having at least third-party motor insurance is a legal mandate under the Motor Vehicles Act, 1988. But beyond legal compliance, motor insurance is essential financial protection against massive repair bills.
+
+            {/* MOTOR INSURANCE */}
+            <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
+              <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-4">
+                Motor Insurance: Protect Your Vehicle and Your Finances
+              </h3>
+
+              <p className="text-white/80 leading-relaxed mb-5">
+                Motor insurance is not only about meeting the legal requirement
+                for third-party cover. The right policy can also help manage
+                the financial impact of an accident, theft, fire or other
+                covered damage to your vehicle. The type of cover you need
+                depends on your vehicle, usage, age, value and the risks you
+                are comfortable taking yourself.
               </p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <p className="text-white font-semibold mb-2">Coverage Types:</p>
+                  <h4 className="text-white font-semibold mb-3">
+                    What to Understand Before Choosing a Policy
+                  </h4>
+
                   <ul className="space-y-2 text-white/70">
-                    <li><strong>• Third-Party Liability:</strong> Minimum legal requirement covering damage or injury to a third party.</li>
-                    <li><strong>• Comprehensive Motor Insurance:</strong> Complete protection for your own vehicle and third-party liability against accidents, theft, fire, natural and man-made disasters.</li>
+                    <li>
+                      • Third-party liability and the protection it provides
+                    </li>
+                    <li>
+                      • Own-damage cover under a comprehensive policy
+                    </li>
+                    <li>
+                      • Insured Declared Value and how it affects a claim
+                    </li>
+                    <li>
+                      • Deductibles, exclusions and policy conditions
+                    </li>
+                    <li>
+                      • Add-ons such as zero depreciation, roadside assistance
+                      or return-to-invoice, where relevant
+                    </li>
+                    <li>
+                      • No Claim Bonus and its effect on renewal
+                    </li>
                   </ul>
                 </div>
+
                 <div>
-                  <p className="text-white font-semibold mb-2">Key Add-On Covers:</p>
-                  <ul className="space-y-2 text-white/70 text-sm">
-                    <li>• <strong>Zero Depreciation:</strong> Claims settled at full repair cost without deducting vehicle depreciation.</li>
-                    <li>• <strong>Roadside Assistance:</strong> 24/7 help for breakdowns and emergency towing.</li>
-                    <li>• <strong>Engine Protection:</strong> Covers engine damage due to flooding or oil leaks.</li>
-                    <li>• <strong>Return to Invoice:</strong> Receive original invoice value if stolen or total loss.</li>
-                    <li>• <strong>NCB Protection & Personal Accident Cover</strong></li>
-                  </ul>
+                  <h4 className="text-white font-semibold mb-3">
+                    When Your Requirements May Be Different
+                  </h4>
+
+                  <p className="text-white/70 leading-relaxed">
+                    A new car, an older vehicle, a frequently used commercial
+                    vehicle and a vehicle driven occasionally do not necessarily
+                    need the same combination of cover. If you drive in areas
+                    where difficult terrain, heavy rain or other local
+                    conditions are part of everyday travel, those practical
+                    circumstances can also be worth considering when reviewing
+                    your policy.
+                  </p>
                 </div>
               </div>
-              <div className="bg-white/5 rounded-lg p-4 border border-white/10 text-sm text-white/80">
-                <strong>Why It Matters More in Hilly Terrain:</strong> For residents of Himachal Pradesh and Uttarakhand, motor insurance is an essential safety net. Mountain roads, hairpin bends, landslide-prone areas, and extreme weather conditions make vehicle damage or accidents significantly more likely. Stockstrail helps hill region vehicle owners get the right coverage with add-ons suited to high-altitude driving conditions.
-              </div>
+
+              <p className="text-white/70 leading-relaxed mb-5">
+                Stockstrail can help you understand the difference between
+                available motor insurance options and the conditions that
+                matter before you choose a policy. Coverage, exclusions,
+                premiums and add-ons depend on the insurer and the policy
+                selected.
+              </p>
+
+              <a
+                href="/lets-talk"
+                className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-stockstrail-green-light rounded-full text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg transition-all font-work-sans font-medium"
+              >
+                Discuss Your Motor Insurance Requirement
+              </a>
             </div>
 
-            <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
-              <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-3">Travel Insurance by Stockstrail - Financial Safety for Every Journey</h3>
-              <p className="text-white/80 mb-4">
-                <strong>Travel insurance</strong> is a short-term financial protection plan that covers unexpected expenses and losses during domestic or international travel. Holidays are meant to be enjoyable - but medical emergencies abroad, lost baggage, or cancelled flights can turn a trip into a financial nightmare.
+            {/* TRAVEL INSURANCE */}
+            <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
+              <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-4">
+                Travel Insurance: Prepare for the Unexpected
+              </h3>
+
+              <p className="text-white/80 leading-relaxed mb-5">
+                Travel insurance is designed to help with certain unexpected
+                costs that can arise during a trip. Depending on the policy,
+                this may include eligible medical expenses, emergency
+                assistance, baggage-related losses, trip interruptions or other
+                covered events. The exact protection varies by policy, so the
+                exclusions and conditions matter as much as the headline
+                coverage.
               </p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <p className="text-white font-semibold mb-2">Coverage Includes:</p>
-                  <ul className="space-y-2 text-white/70 text-sm">
-                    <li><strong>• Medical Emergency:</strong> Hospitalisation, treatment, and medical evacuation abroad.</li>
-                    <li><strong>• Baggage Loss/Delay:</strong> Compensation for lost or delayed luggage.</li>
-                    <li><strong>• Trip Cancellation:</strong> Refunds for non-recoverable booking costs due to emergencies.</li>
-                    <li><strong>• Passport Loss Assistance:</strong> Cost of obtaining emergency travel documents.</li>
-                    <li><strong>• Personal Accident Protection:</strong> Lump-sum compensation for accidental death or disability.</li>
+                  <h4 className="text-white font-semibold mb-3">
+                    Situations Worth Considering
+                  </h4>
+
+                  <ul className="space-y-2 text-white/70">
+                    <li>
+                      • International travel where medical treatment can be
+                      expensive
+                    </li>
+                    <li>
+                      • Family holidays where several travellers are covered
+                      under one plan
+                    </li>
+                    <li>
+                      • Business trips with tight schedules and non-refundable
+                      arrangements
+                    </li>
+                    <li>
+                      • Student travel or longer stays abroad
+                    </li>
+                    <li>
+                      • Trips involving activities that may require specific
+                      adventure-sport cover
+                    </li>
                   </ul>
                 </div>
+
                 <div>
-                  <p className="text-white font-semibold mb-2">Who Should Buy?</p>
-                  <ul className="space-y-2 text-white/70 text-sm">
-                    <li>• Families on domestic or international vacation</li>
-                    <li>• Students going abroad for education</li>
-                    <li>• Frequent business travellers</li>
-                    <li>• Senior citizens travelling</li>
-                    <li>• Adventure travellers (trekking, skiing)</li>
-                    <li>• Anyone travelling internationally</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="bg-white/5 rounded-lg p-4 border border-white/10 text-sm text-white/80">
-                <strong>Adventure Travel in HP & Uttarakhand:</strong> These regions are famous for trekking, skiing, and rafting. Standard policies may not cover high-risk sports. Stockstrail helps adventure travellers get policies that specifically cover trekking accidents, mountain rescue operations, altitude sickness treatment, and emergency evacuation.
-              </div>
-            </div>
+                  <h4 className="text-white font-semibold mb-3">
+                    Check the Policy Before You Travel
+                  </h4>
 
-            <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
-              <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-3">Traditional Life Insurance Plans - ULIPs & Guaranteed Return Plans</h3>
-              <p className="text-white/80 mb-6">
-                Traditional life insurance plans combine the dual benefits of life insurance protection and long-term wealth creation in a single product. These are ideal for individuals who want a disciplined financial plan that protects their family while building wealth for future goals.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-stockstrail-bg-light/50 rounded-lg p-6 border border-white/5">
-                  <h4 className="text-white font-semibold text-lg mb-3">ULIPs (Unit Linked Insurance Plans)</h4>
-                  <p className="text-white/80 text-sm mb-4">A portion of your premium goes towards life coverage and the remaining is invested in market-linked funds (equity, debt, or hybrid).</p>
-                  <ul className="space-y-2 text-white/70 text-sm">
-                    <li><strong>• Dual benefit:</strong> Life cover + market-linked investment</li>
-                    <li><strong>• Fund flexibility & switching:</strong> Choose from and switch between equity, debt, or hybrid</li>
-                    <li><strong>• Tax benefits:</strong> Section 80C deduction & Section 10(10D) exemption</li>
-                    <li><strong>• Long-term wealth:</strong> Great for a 10 - 15+ year horizon</li>
-                  </ul>
-                  <p className="text-white/60 text-xs mt-4">
-                    <strong>Ideal for:</strong> Long-term investors comfortable with market risk, seeking tax benefits and market-linked returns.
-                  </p>
-                </div>
-
-                <div className="bg-stockstrail-bg-light/50 rounded-lg p-6 border border-white/5">
-                  <h4 className="text-white font-semibold text-lg mb-3">Guaranteed Return Plans</h4>
-                  <p className="text-white/80 text-sm mb-4">Life insurance products that promise a fixed, pre-determined maturity amount regardless of market conditions.</p>
-                  <ul className="space-y-2 text-white/70 text-sm">
-                    <li><strong>• Guaranteed maturity:</strong> Fixed, assured amount with zero market risk</li>
-                    <li><strong>• Life cover:</strong> Protection included throughout policy term</li>
-                    <li><strong>• Tax benefits:</strong> Section 80C deduction & Section 10(10D) exemption</li>
-                    <li><strong>• Goal-based planning:</strong> Ideal for children's education, marriage, or retirement</li>
-                  </ul>
-                  <p className="text-white/60 text-xs mt-4">
-                    <strong>Ideal for:</strong> Conservative investors seeking certainty, stable returns, and risk-free wealth accumulation.
+                  <p className="text-white/70 leading-relaxed">
+                    Before buying travel insurance, check the geographical
+                    coverage, medical limits, exclusions, pre-existing
+                    conditions, adventure activities, baggage conditions,
+                    deductibles and claim requirements. A policy that looks
+                    inexpensive may not provide the protection you actually
+                    need for your particular trip.
                   </p>
                 </div>
               </div>
+
+              <p className="text-white/70 leading-relaxed mb-5">
+                This is especially relevant for travel involving trekking,
+                skiing or other higher-risk activities in places such as
+                Himachal Pradesh and Uttarakhand, where standard travel
+                policies may have specific exclusions or conditions.
+              </p>
+
+              <a
+                href="/lets-talk"
+                className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-stockstrail-green-light rounded-full text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg transition-all font-work-sans font-medium"
+              >
+                Discuss Your Travel Insurance Requirement
+              </a>
             </div>
 
-            <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
-              <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-3">Tax Filing Services by Stockstrail - Partnered with KFintech</h3>
-              <p className="text-white/80 mb-4">
-                Filing your taxes correctly is vital to maintaining a clean financial profile and avoiding legal notices. Stockstrail has partnered with <strong>KFintech</strong> to provide a simplified, swift, and highly secure online tax filing experience. You can report your income, capital gains, investments, and claim appropriate deductions effortlessly.
+            {/* TAX FILING */}
+            <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
+              <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-4">
+                Tax Filing and Investment-Related Tax Support
+              </h3>
+
+              <p className="text-white/80 leading-relaxed mb-5">
+                Tax filing becomes more important when your finances include
+                salary income, investments, capital gains, interest income or
+                income from more than one source. Keeping your records
+                organised and reporting the relevant information correctly can
+                make the filing process easier and help you maintain a clear
+                financial record.
               </p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <p className="text-white font-semibold mb-2">Key Features:</p>
-                  <ul className="space-y-2 text-white/70 text-sm">
-                    <li><strong>• Direct Integration:</strong> Access the tax filing module securely through KFintech's official portal.</li>
-                    <li><strong>• Investment Reporting:</strong> Seamlessly declare mutual funds, stock market trades, and capital gains.</li>
-                    <li><strong>• Guided Digital Process:</strong> 100% paperless filing with clear step-by-step assistance.</li>
+                  <h4 className="text-white font-semibold mb-3">
+                    Investment Information You May Need
+                  </h4>
+
+                  <ul className="space-y-2 text-white/70">
+                    <li>
+                      • Mutual fund capital gains and transaction details
+                    </li>
+                    <li>
+                      • Share market transactions and capital gains
+                    </li>
+                    <li>
+                      • Interest income from eligible deposits
+                    </li>
+                    <li>
+                      • TDS and other tax-related information
+                    </li>
+                    <li>
+                      • Relevant deductions and supporting documents
+                    </li>
                   </ul>
                 </div>
+
                 <div>
-                  <p className="text-white font-semibold mb-2">Why It Matters for Investors:</p>
-                  <p className="text-white/70 text-sm leading-relaxed">
-                    Underreporting capital gains from stock market and mutual fund investments is one of the most common reasons for getting income tax notices. The integrated KFintech portal ensures that your investment transactions are captured accurately, helping you remain compliant while optimizing your tax benefits.
+                  <h4 className="text-white font-semibold mb-3">
+                    Why Accurate Records Matter
+                  </h4>
+
+                  <p className="text-white/70 leading-relaxed">
+                    Your investments and other sources of income can create
+                    additional information to report in an income tax return.
+                    Keeping statements, capital-gains reports, interest
+                    certificates and other relevant documents together can make
+                    it easier to check the information before filing.
                   </p>
                 </div>
               </div>
-              <div className="bg-white/5 rounded-lg p-4 border border-white/10 text-sm text-white/80 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div>
-                  <strong>Get Started with Tax Filing:</strong> You can access your personalized tax filing link now. Share this link with your investors and start your process.
-                </div>
+
+              <p className="text-white/70 leading-relaxed mb-5">
+                Stockstrail provides access to a digital tax-filing process
+                through its existing KFintech partnership. The applicable tax
+                treatment depends on your income, transactions and the tax
+                rules in force for the relevant financial year. For situations
+                requiring individual tax advice, consult a qualified tax
+                professional.
+              </p>
+
+              <a
+                href="https://gi9.in/KFINTH/v8qS3L"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-stockstrail-green-light rounded-full text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg transition-all font-work-sans font-medium"
+              >
+                Start Tax Filing
+              </a>
+            </div>
+
+            {/* INSURANCE PLANNING */}
+            <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
+              <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-4">
+                Insurance Planning: Choose Protection Around Your Needs
+              </h3>
+
+              <p className="text-white/80 leading-relaxed mb-5">
+                Life and health insurance decisions are closely connected to
+                your income, dependants, existing liabilities and future
+                responsibilities. The right type and amount of cover can be
+                different for someone starting their career, a family with
+                children, someone approaching retirement or a person already
+                managing substantial financial commitments.
+              </p>
+
+              <p className="text-white/70 leading-relaxed mb-5">
+                Stockstrail&apos;s dedicated{' '}
                 <a
-                  href="https://gi9.in/KFINTH/v8qS3L"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 inline-flex items-center gap-2 px-6 py-2.5 bg-stockstrail-green-accent text-[#012928] hover:bg-stockstrail-green-light rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105"
+                  href="/insurance"
+                  className="text-stockstrail-green-light hover:underline"
                 >
-                  File Taxes via KFintech
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                  </svg>
+                  Insurance page
+                </a>{' '}
+                covers term insurance, health insurance and traditional and
+                savings-oriented insurance in greater detail. We keep the
+                detailed product comparisons there rather than repeating the
+                same information on this page.
+              </p>
+
+              <p className="text-white/70 leading-relaxed mb-5">
+                If you are unsure which type of insurance you need, you can
+                first discuss your situation with Stockstrail. We can understand
+                your requirement, existing cover and financial responsibilities
+                before you explore the relevant policy options.
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="/insurance"
+                  className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-stockstrail-green-light rounded-full text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg transition-all font-work-sans font-medium"
+                >
+                  Explore Insurance
+                </a>
+
+                <a
+                  href="/lets-talk"
+                  className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-stockstrail-green-light rounded-full text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg transition-all font-work-sans font-medium"
+                >
+                  Talk to Stockstrail
                 </a>
               </div>
             </div>
+
           </div>
         </div>
       </section>
