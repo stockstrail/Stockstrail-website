@@ -871,7 +871,11 @@ export default function Others() {
         </div>
       </section>
 
-      <ServiceFAQSection faqs={faqs} />
+      <ServiceFAQSection
+        faqs={faqs}
+        title="Got Questions About Insurance, Tax or Your Financial Protection?"
+        subtitle="From renewing your car insurance to understanding capital gains, choosing the right cover or planning for the future, these are the questions people often have before making a financial decision."
+      />
       <ServiceGEOSection serviceName="Complete Financial Protection Services" />
 
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/10">
