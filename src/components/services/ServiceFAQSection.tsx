@@ -15,6 +15,8 @@ type ServiceFAQSectionProps = {
   faqs: FAQ[];
   title?: string;
   subtitle?: string;
+  titleStyle?: React.CSSProperties;
+  titleClassName?: string;
 };
 
 import JsonLd from '@/components/common/JsonLd';
@@ -22,7 +24,9 @@ import JsonLd from '@/components/common/JsonLd';
 const ServiceFAQSection: React.FC<ServiceFAQSectionProps> = ({ 
   faqs, 
   title = "FAQ",
-  subtitle = "Everything you need to know."
+  subtitle = "Everything you need to know.",
+  titleStyle,
+  titleClassName
 }) => {
   if (!faqs || faqs.length === 0) return null;
 
@@ -47,7 +51,10 @@ const ServiceFAQSection: React.FC<ServiceFAQSectionProps> = ({
       </div>
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-12">
-          <h2 className="font-product-sans text-3xl sm:text-4xl lg:text-5xl font-normal uppercase mb-4 text-white">
+          <h2
+            style={titleStyle}
+            className={titleClassName || "font-product-sans text-3xl sm:text-4xl lg:text-5xl font-normal uppercase mb-4 text-white"}
+          >
             {title}
           </h2>
           <p className="text-white/70 text-lg">

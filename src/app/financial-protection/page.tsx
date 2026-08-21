@@ -874,6 +874,15 @@ export default function Others() {
       <ServiceFAQSection
         faqs={faqs}
         title="Got Questions About Insurance, Tax or Your Financial Protection?"
+        titleStyle={{
+          color: '#00E5A8',
+          fontSize: 'clamp(2rem, 3vw, 2.75rem)',
+          lineHeight: '1.2',
+          fontWeight: 700,
+          textTransform: 'none',
+          marginBottom: '1rem',
+        }}
+        titleClassName="font-product-sans"
         subtitle="From renewing your car insurance to understanding capital gains, choosing the right cover or planning for the future, these are the questions people often have before making a financial decision."
       />
       <ServiceGEOSection serviceName="Complete Financial Protection Services" />
