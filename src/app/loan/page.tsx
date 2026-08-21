@@ -202,42 +202,62 @@ export default function Loan() {
 
             <h4 className="text-white font-semibold mb-3">Before You Borrow</h4>
             <p className="text-white/80 mb-2">
-              The amount you can borrow, interest rate, fees, tenure and
-              collateral requirements vary by lender and applicant. Compare the
-              complete cost rather than looking only at the advertised rate.
+              Before applying, look beyond the loan amount. Consider the interest rate,
+              processing fees, repayment period, eligibility and any collateral required.
+              Comparing the overall cost can help you choose a loan that fits your
+              financial situation.
             </p>
 
             <a
               href="/lets-talk"
               className="text-stockstrail-green-light underline focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-stockstrail-green-light"
             >
-              Get personalised loan guidance
+              Get Personalised Loan Guidance
             </a>
           </aside>
         </div>
       </section>
 
       {/* CTA after intro overview */}
-      <section className="px-4 sm:px-6 lg:px-8 py-8">
-        <div className="max-w-6xl mx-auto text-center">
-          <a
-            href="/lets-talk"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 transition-all duration-300 font-work-sans font-medium"
-          >
-            <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
-            Talk to Stockstrail About Your Loan
-          </a>
-        </div>
-      </section>
+      {/* CTA after intro overview */}
+<section className="px-4 sm:px-6 lg:px-8 py-8">
+  <div className="max-w-4xl mx-auto text-center">
+    <h3 className="text-white font-semibold text-xl mb-3">
+      Need help choosing the right loan?
+    </h3>
+
+    <p className="text-white/70 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-5">
+      Share your requirement and we’ll help you understand the available loan
+      options, key terms and what to consider before you proceed.
+    </p>
+
+    <a
+      href="/lets-talk"
+      className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-stockstrail-green-accent rounded-full text-stockstrail-green-accent font-semibold hover:bg-stockstrail-green-accent hover:text-black transition-colors"
+   >
+      Get Personalised Loan Guidance
+    </a>
+
+    <p className="text-white/50 text-sm mt-4">
+      Prefer to discuss your situation first?{" "}
+      <a
+        href="/lets-talk"
+        className="text-stockstrail-green-light hover:underline"
+      >
+        Talk to Stockstrail.
+      </a>
+    </p>
+  </div>
+</section>
 
       {/* LAMF SECTION */}
-      <section id="lamf" className="relative scroll-mt-24 px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section id="lamf" className="relative scroll-mt-24 px-4 sm:px-6 lg:px-8 py-10 bg-stockstrail-bg-light/20">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* IMAGE */}
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center lg:order-2">
             <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 w-full max-w-md group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
               <Image
-                src="/loan4.webp"
+                src="/services/loan4.webp"
                 alt="Loan Against Mutual Funds"
                 width={520}
                 height={360}
@@ -248,7 +268,7 @@ export default function Loan() {
           </div>
 
           {/* CONTENT */}
-          <div>
+          <div className="lg:order-1">
             <h2 className="text-2xl sm:text-3xl text-stockstrail-green-light font-semibold mb-4">
               Loan Against Mutual Funds - What & Why
             </h2>
@@ -421,7 +441,7 @@ export default function Loan() {
           <div className="flex items-center justify-center">
             <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 w-full max-w-md group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all">
               <Image
-                src="/loan3.webp"
+                src="/services/loan3.webp"
                 alt="Business and Home Loans"
                 width={520}
                 height={360}
