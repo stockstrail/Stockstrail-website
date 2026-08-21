@@ -561,48 +561,58 @@ export default function Loan() {
         </div>
       </section>
 
-      {/* WHY STOCKSTRAIL */}
+       {/* WHY STOCKSTRAIL */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-semibold gradient-text mb-6 text-center">
-            Why Choose Stockstrail for Loan Assistance?
+          <h2 className="text-2xl sm:text-3xl font-semibold gradient-text mb-4 text-center">
+            Understand and Compare Loan Options with Stockstrail
           </h2>
+
+          <p className="text-white/70 max-w-3xl mx-auto text-center mb-10 leading-relaxed">
+            Choosing a loan is not only about getting funds. Stockstrail helps
+            you understand relevant loan options, compare important terms and
+            costs, and make a more informed borrowing decision before you
+            proceed with the lender.
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                title: "Practical Guidance",
-                desc: "We help you compare loan options against your requirement, repayment capacity and timeline.",
+                title: "Requirement-Based Guidance",
+                desc: "We help you look at loan options in the context of your purpose, funding requirement, repayment capacity and expected timeline rather than treating every borrowing need the same.",
               },
               {
-                title: "Offer Comparison",
-                desc: "We help you look beyond the headline rate and understand the overall loan cost and terms.",
+                title: "Loan Offer Comparison",
+                desc: "We help you look beyond the headline interest rate and understand the sanctioned amount, overall borrowing cost, tenure, repayment structure and other applicable loan terms.",
               },
               {
-                title: "Documentation Support",
-                desc: "We help you understand the documents generally required for the selected loan process.",
+                title: "Clear Loan Cost & Terms",
+                desc: "We explain important borrowing considerations such as processing charges, repayment obligations, collateral conditions, prepayment or foreclosure terms and other applicable costs.",
               },
               {
-                title: "Clear Explanations",
-                desc: "We explain charges, repayment structures, collateral conditions and other important terms.",
+                title: "Profile-Based Discussion",
+                desc: "Your financial requirement, income or business profile, existing obligations, available assets and objectives can affect which loan options are worth comparing.",
               },
               {
-                title: "Profile-Based Guidance",
-                desc: "The discussion considers your requirement, income profile, existing obligations and objectives.",
+                title: "Documentation & Eligibility Guidance",
+                desc: "We help you understand the documents and eligibility factors generally relevant to the selected loan process, while the lender remains responsible for its final assessment and approval.",
               },
               {
-                title: "Application Support",
-                desc: "We can assist with the process and help you understand the next steps communicated by the lender.",
+                title: "Support Through the Next Steps",
+                desc: "Once you have understood the relevant options, we can help you navigate the next steps communicated by the lender without representing ourselves as the lender or promising loan approval.",
               },
             ].map((item, i) => (
               <div
                 key={i}
-                className="rounded-2xl p-6 bg-stockstrail-bg-light/30 border border-white/10 text-center"
+                className="rounded-2xl p-6 bg-stockstrail-bg-light/30 border border-white/10 text-center transition-colors duration-200 hover:border-stockstrail-green-light/40"
               >
-                <h3 className="text-white font-semibold mb-2 text-lg">
+                <h3 className="text-white font-semibold mb-3 text-lg">
                   {item.title}
                 </h3>
-                <p className="text-white/80 text-sm">{item.desc}</p>
+
+                <p className="text-white/80 text-sm leading-6">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
