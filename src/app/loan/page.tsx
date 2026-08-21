@@ -472,29 +472,89 @@ export default function Loan() {
       {/* WHO SHOULD CONSIDER LOANS */}
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-12 bg-stockstrail-bg-light/20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-semibold gradient-text mb-6 text-center">
+          <h2 className="text-2xl sm:text-3xl font-semibold gradient-text mb-4 text-center">
             Who Should Consider Loans?
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <p className="text-white/70 max-w-3xl mx-auto text-center mb-10 leading-relaxed">
+            Borrowing can make sense for different financial situations, but a
+            suitable loan should match the purpose, repayment capacity, eligibility
+            and overall cost. Before applying, compare the available loan options
+            and understand what you are committing to repay.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {[
-              "Mutual fund investors comparing liquidity options",
-              "Business owners needing working capital",
-              "Entrepreneurs comparing loan offers",
-              "Property buyers seeking long-term financing",
-              "Professionals facing a temporary cash requirement",
-              "Borrowers comparing secured and unsecured options",
-              "Businesses with seasonal cash-flow needs",
-              "Borrowers who want to understand total borrowing costs before applying",
+              {
+                title: "Short-Term Cash or Liquidity Needs",
+                desc: "If you need funds for a temporary requirement, compare the cost of borrowing with other ways of arranging liquidity. If you hold eligible mutual funds, a Loan Against Mutual Funds (LAMF) may be worth evaluating before redeeming investments, depending on the loan cost, collateral risk and your repayment ability.",
+                link: "#lamf",
+                linkText: "Understand Loan Against Mutual Funds",
+              },
+              {
+                title: "Personal Expenses and Planned Financial Needs",
+                desc: "A personal loan may be considered for an eligible personal expense or planned financial requirement when other sources of funds are not suitable. Compare the loan amount, EMI, interest cost, tenure, processing charges and your ability to repay comfortably before taking on the obligation.",
+                link: "#loan-options",
+                linkText: "Explore Personal Loan Options",
+              },
+              {
+                title: "Professionals Managing Temporary Financial Requirements",
+                desc: "Professionals may face temporary cash requirements because of planned expenses, uneven cash flows or other financial commitments. Before borrowing, consider whether the need is temporary, how quickly the loan can be repaid and whether the total borrowing cost fits within your regular cash flow.",
+                link: "#loan-options",
+                linkText: "Compare Loan Options",
+              },
+              {
+                title: "Business Owners Needing Working Capital or Growth Funding",
+                desc: "Business owners may consider a business loan for working capital, inventory, equipment, expansion or other eligible business requirements. The right borrowing option depends on the business profile, turnover, financial stability, loan purpose, security requirements and repayment capacity.",
+                link: "#loan-options",
+                linkText: "Explore Business Loan Options",
+              },
+              {
+                title: "Property Buyers Planning a Home Purchase or Renovation",
+                desc: "People planning to buy, construct or renovate a home may explore home loan options subject to lender and property requirements. Compare the loan amount, EMI, tenure, total interest, property conditions and other applicable costs before accepting a home loan offer.",
+                link: "#loan-options",
+                linkText: "Explore Home Loan Options",
+              },
+              {
+                title: "Borrowers Comparing Secured and Unsecured Loans",
+                desc: "If you have access to eligible assets or investments, you may compare secured and unsecured borrowing options. A lower interest rate is not the only consideration; also review collateral requirements, fees, repayment obligations, risks and the consequences of default.",
+                link: "#loan-options",
+                linkText: "Compare Borrowing Options",
+              },
+              {
+                title: "Borrowers Comparing Loan Offers",
+                desc: "When comparing personal, business, home or other loan offers, look beyond the advertised interest rate. Review the sanctioned amount, interest calculation, processing and other charges, tenure, repayment schedule, prepayment or foreclosure conditions and the final loan documents.",
+                link: "#loan-options",
+                linkText: "Review Available Loan Options",
+              },
+              {
+                title: "Anyone Checking Loan Affordability Before Applying",
+                desc: "A loan should fit your financial situation rather than simply solve an immediate funding requirement. Before applying, consider your existing EMIs or obligations, expected repayment period, income or cash flow, total borrowing cost and whether the repayment remains manageable if your circumstances change.",
+                link: "/lets-talk",
+                linkText: "Discuss Your Requirement",
+              },
             ].map((item, i) => (
               <div
                 key={i}
-                className="flex gap-4 items-start bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-lg p-5 border border-white/10"
+                className="rounded-xl p-6 bg-stockstrail-bg-light/40 backdrop-blur-sm border border-white/10 transition-colors duration-200 hover:border-stockstrail-green-light/40"
               >
-                <div className="text-stockstrail-green-light text-2xl font-bold">
-                  →
-                </div>
-                <p className="text-white/80">{item}</p>
+                <h3 className="text-white font-semibold text-lg mb-3">
+                  {item.title}
+                </h3>
+
+                <p className="text-white/75 text-sm leading-6 mb-4">
+                  {item.desc}
+                </p>
+
+                <a
+                  href={item.link}
+                  className="inline-flex items-center text-stockstrail-green-light text-sm font-medium transition-colors duration-200 hover:text-white hover:underline"
+                >
+                  {item.linkText}
+                  <span className="ml-2" aria-hidden="true">
+                    →
+                  </span>
+                </a>
               </div>
             ))}
           </div>
