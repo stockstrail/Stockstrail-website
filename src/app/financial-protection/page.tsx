@@ -204,7 +204,7 @@ export default function Others() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white/5 group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
               <Image
-                src="/financial-protection2.webp"
+                src="/hero/stockstrail-trusted-financial-advisors.webp"
                 alt="Financial protection planning for family, income, assets and financial goals"
                 width={720}
                 height={420}
