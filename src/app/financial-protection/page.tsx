@@ -30,44 +30,72 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    question: 'Is motor insurance mandatory for all vehicles in India?',
+    question:
+      'My car insurance is due for renewal. What should I check before renewing it?',
     answer:
-      'Yes. Under the Motor Vehicles Act, 1988, third-party motor insurance is legally mandatory for all vehicles operating on Indian roads. Driving without valid insurance can result in fines and legal liability. Stockstrail helps you get the right motor insurance - third-party or comprehensive - based on your vehicle and usage.',
+      'Before renewing, check more than just the premium. Look at the IDV, no-claim bonus, deductibles, coverage, exclusions and the add-ons you actually need. Features such as zero depreciation, roadside assistance, engine protection or return-to-invoice cover may be useful depending on your car, its age and how you use it. Stockstrail can help you compare the important parts of the policy before you renew.',
   },
+
   {
-    question: 'Does travel insurance cover adventure activities like trekking in Himachal Pradesh?',
+    question: 'Is zero depreciation cover worth paying extra for?',
     answer:
-      'Standard travel insurance policies may not automatically cover high-risk adventure activities. Stockstrail helps adventure travellers - including those visiting Himachal Pradesh and Uttarakhand for trekking, skiing, or mountaineering - find specialised travel insurance plans that explicitly include adventure sport cover, mountain rescue, and emergency evacuation.',
+      'It can be useful, especially for newer cars, because standard motor insurance may deduct depreciation when certain parts are replaced after a claim. Zero depreciation cover can reduce that deduction, subject to the policy terms, limits and exclusions. Whether the additional premium is worth paying depends on your car, its age, usage and the kind of protection you want.',
   },
+
   {
-    question: 'What is the difference between a ULIP and a Guaranteed Return Plan?',
+    question:
+      'How do I choose the right IDV and add-ons for my car insurance?',
     answer:
-      'A ULIP (Unit Linked Insurance Plan) invests your premium in market-linked funds - equity, debt, or hybrid - offering the potential for higher returns over the long term, but with market risk. A Guaranteed Return Plan offers a fixed, pre-determined maturity amount with zero market risk. The right choice depends on your risk appetite and financial goals.',
+      'IDV is the insured value of your car and can affect both the premium and the amount payable in certain total-loss or theft situations. Add-ons should be chosen based on your actual needs rather than adding everything available. Depending on the vehicle and usage, options such as zero depreciation, engine protection, roadside assistance or return-to-invoice cover may be worth considering. Stockstrail can help you understand which ones are relevant before you choose.',
   },
+
   {
-    question: 'Can I manage all my financial services - insurance, mutual funds, loans, FD - through Stockstrail?',
+    question:
+      'Should I claim for a small accident or pay for the repair myself?',
     answer:
-      'Yes. Stockstrail is a one-stop financial services platform. In addition to motor insurance, travel insurance, ULIPs, and guaranteed plans, we also offer mutual fund investments, FD advisory, risk profile assessment, loan facilitation (LAMF, business loans, home loans), and demat account opening - all under one roof.',
+      'It depends on the repair cost, your policy terms, your deductible and the no-claim bonus you may lose after making a claim. For a small repair, paying from your own pocket may sometimes make more sense, while a larger repair may justify using the insurance. Before deciding, compare the likely out-of-pocket cost with the effect of making a claim.',
   },
+
   {
-    question: 'Does Stockstrail serve clients in remote areas of Himachal Pradesh?',
+    question:
+      'I sold shares or mutual funds. How do I calculate and report the capital gains in my ITR?',
     answer:
-      "Yes. Stockstrail's 100% digital process means we can serve clients in all 12 districts of Himachal Pradesh - including remote areas like Lahaul & Spiti and Kinnaur. As long as you have a smartphone and internet access, you can access our complete range of financial services.",
+      'If you sold shares or mutual funds, the capital gain or loss generally needs to be calculated from the purchase and sale details and reported under the applicable capital-gains provisions in your ITR. The treatment can differ depending on the investment and holding period. Your broker, mutual fund and tax statements can help with the calculation, but the figures should be checked before filing.',
   },
+
   {
-    question: 'What documents are needed to buy motor insurance through Stockstrail?',
+    question:
+      'My AIS, broker statement and mutual fund statement show different figures. Which one should I use for my ITR?',
     answer:
-      'For motor insurance renewal or a new policy, you typically need your vehicle registration certificate (RC), previous insurance policy (if renewing), PAN or Aadhaar, and odometer reading for used vehicles. Stockstrail guides you through the exact documents required for your specific vehicle type and policy.',
+      'Do not simply pick one figure and file. AIS, Form 26AS, broker statements and mutual fund transaction or capital-gains statements can contain different information or may be updated at different times. The figures should be reconciled with your actual transactions and the applicable tax rules. If there is a genuine mismatch, it is better to understand the reason before submitting your return.',
   },
+
   {
-    question: 'What tax benefits do ULIPs and Guaranteed Return Plans offer?',
+    question:
+      'How do I know which ITR form I should file when I have salary, investments, capital gains or other income?',
     answer:
-      'Premiums paid for ULIPs and most traditional life insurance plans qualify for deduction under Section 80C of the Income Tax Act (up to ₹1.5 lakh per year). Maturity proceeds are generally exempt under Section 10(10D), subject to applicable conditions. Consult a tax advisor for personalised guidance.',
+      'The correct ITR form depends on your income sources and financial transactions, not simply on whether you are salaried. Salary income, interest, dividends, capital gains, business or professional income and other sources can affect which form applies. If you have investments or multiple income sources, check the current income-tax rules and your actual transactions before selecting the form.',
   },
+
   {
-    question: 'How does Stockstrail facilitate tax filing?',
+    question:
+      'What should I check before submitting my ITR to avoid errors or an income-tax notice?',
     answer:
-      'Stockstrail has partnered with KFintech to offer a secure, digital tax filing solution. Through this partnership, you can access KFintech\'s user-friendly tax filing platform directly, allowing you to file your Income Tax Returns (ITR), report capital gains, and manage tax documentation seamlessly.',
+      'Before submitting your return, check your income from all sources, Form 26AS and AIS, bank interest, dividends, capital gains, deductions and the supporting statements for your investments. Make sure the information reported in the ITR is consistent with the records available to the Income Tax Department. A final review can help catch missing income, incorrect figures or other avoidable mistakes before filing.',
+  },
+
+  {
+    question:
+      'Does travel insurance cover trekking, adventure activities or medical emergencies during a trip?',
+    answer:
+      'It depends on the policy. Standard travel insurance does not automatically cover every adventure activity, and activities such as trekking, skiing or other higher-risk sports may have specific exclusions or conditions. Before travelling, check whether your planned activities, medical treatment, emergency evacuation and other important risks are actually covered by the policy you are considering.',
+  },
+
+  {
+    question:
+      'Are guaranteed return plans a good option if I want both savings and insurance?',
+    answer:
+      'A guaranteed return plan can provide defined benefits under the policy terms while also offering life insurance, but it should not be judged only by the word “guaranteed”. Look at the premium, policy term, guaranteed benefits, liquidity, life cover, exclusions and the overall return before deciding. Whether it suits you depends on your financial goal, time horizon and how much of your money you want committed to the policy.',
   },
 ];
 
