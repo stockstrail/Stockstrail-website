@@ -5,26 +5,31 @@ import ServiceFAQSection from '@/components/services/ServiceFAQSection';
 import ServiceGEOSection from '@/components/services/ServiceGEOSection';
 
 export const metadata: Metadata = {
-  title: 'Complete Financial Protection & Tax Filing Services by Stockstrail - Motor Insurance, Travel Insurance, ULIPs & More',
+  title: 'Financial Protection & Planning | Insurance, Savings & More | Stockstrail',
+
   description:
-    'Comprehensive financial and protection services including Motor Insurance, Travel Insurance, ULIPs, Guaranteed Plans, and Tax Filing. Expert guidance for complete financial coverage.',
+    'Understand and plan your financial protection with Stockstrail. Explore insurance, emergency savings, motor and travel insurance, tax filing support and financial solutions based on your needs.',
+
   keywords:
-    'motor insurance, travel insurance, ULIPs, guaranteed return plans, mutual funds, loans, FD, risk profile, demat account, tax filing, KFintech, Stockstrail',
+    'financial protection, financial protection planning, financial planning, insurance planning, financial security, motor insurance, travel insurance, term insurance, health insurance, tax filing, emergency savings, Stockstrail',
+
   alternates: {
     canonical: 'https://www.stockstrail.in/financial-protection',
   },
+
   openGraph: {
-    title: 'Complete Financial Protection & Tax Filing Services by Stockstrail - Motor Insurance, Travel Insurance, ULIPs & More',
+    title: 'Financial Protection & Planning | Stockstrail',
     description:
-      'Comprehensive financial and protection services including Motor Insurance, Travel Insurance, ULIPs, Guaranteed Plans, and Tax Filing.',
+      'Plan for the financial risks that can affect your family, income, assets and goals. Explore insurance, savings and other financial solutions with Stockstrail.',
     url: 'https://www.stockstrail.in/financial-protection',
     type: 'website',
   },
+
   twitter: {
     card: 'summary_large_image',
-    title: 'Complete Financial Protection & Tax Filing Services by Stockstrail - Motor Insurance, Travel Insurance, ULIPs & More',
+    title: 'Financial Protection & Planning | Stockstrail',
     description:
-      'Comprehensive financial and protection services including Motor Insurance, Travel Insurance, ULIPs, Guaranteed Plans, and Tax Filing.',
+      'Explore financial protection, insurance, savings and other financial solutions based on your needs with Stockstrail.',
   },
 };
 
