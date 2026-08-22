@@ -566,50 +566,114 @@ export default function MutualFunds() {
       </section>
 
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
-            Understanding Risks
-          </h2>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-4">
+              Before You Choose a Mutual Fund, Check These
+            </h2>
 
-          <div className="space-y-4 mb-8">
-            {[
-              'Mutual fund values can rise or fall with market movements.',
-              'Short-term losses are possible, especially in market-linked funds.',
-              'Different mutual funds carry different levels of risk.',
-              'Choosing a fund that does not match your goals or risk profile can increase the chance of an unsuitable investment.',
-            ].map((risk, index) => (
-              <div key={index} className="flex gap-4 items-start bg-stockstrail-bg-light/50 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-                <span className="text-red-400 font-bold">!</span>
-                <p className="text-white/80">{risk}</p>
-              </div>
-            ))}
+            <p className="text-white/70 max-w-3xl mx-auto leading-relaxed">
+              A mutual fund can look attractive because of its recent return, but
+              that is only one part of the picture. Look at what the fund owns, how
+              much risk it takes, what the money is meant for and whether the fund
+              actually fits your plan.
+            </p>
           </div>
 
-          <div className="bg-stockstrail-green-light/10 border-l-4 border-stockstrail-green-light rounded-lg p-6">
-            <p className="text-white/90">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
+              <h3 className="text-lg font-semibold text-stockstrail-green-light mb-3">
+                What is the fund actually investing in?
+              </h3>
+              <p className="text-white/80 leading-relaxed">
+                Two mutual funds can look similar from the outside but hold very
+                different investments. Check whether the fund is mainly investing in
+                large companies, mid and small companies, bonds, government
+                securities or a mix of assets.
+              </p>
+            </div>
+
+            <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
+              <h3 className="text-lg font-semibold text-stockstrail-green-light mb-3">
+                How much can the value move?
+              </h3>
+              <p className="text-white/80 leading-relaxed">
+                A mutual fund can lose value, and some funds can move much more than
+                others. The Riskometer gives you a starting point, but you should
+                also understand the type of assets and strategy behind the fund.
+              </p>
+            </div>
+
+            <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
+              <h3 className="text-lg font-semibold text-stockstrail-green-light mb-3">
+                What happens if the fund owns too much of one area?
+              </h3>
+              <p className="text-white/80 leading-relaxed">
+                A fund may have a large exposure to one sector, a small group of
+                companies or a particular type of security. Higher concentration can
+                make the portfolio more dependent on how that part of the market
+                performs.
+              </p>
+            </div>
+
+            <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
+              <h3 className="text-lg font-semibold text-stockstrail-green-light mb-3">
+                What risks come with debt mutual funds?
+              </h3>
+              <p className="text-white/80 leading-relaxed">
+                Debt funds are not the same as fixed deposits. Their value can be
+                affected by interest rate changes, the credit quality of the
+                securities they hold and liquidity in the market. A lower volatility
+                fund is not the same thing as a guaranteed-return product.
+              </p>
+            </div>
+
+            <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
+              <h3 className="text-lg font-semibold text-stockstrail-green-light mb-3">
+                Are you choosing the fund because it recently did well?
+              </h3>
+              <p className="text-white/80 leading-relaxed">
+                A strong one-year or three-year return can attract attention, but
+                past performance does not tell you what the fund will earn in the
+                future. Look at the fund&apos;s objective, portfolio, risk and how it fits
+                your investment plan.
+              </p>
+            </div>
+
+            <div className="bg-stockstrail-bg-light/40 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
+              <h3 className="text-lg font-semibold text-stockstrail-green-light mb-3">
+                Does this fund fit the money you are investing?
+              </h3>
+              <p className="text-white/80 leading-relaxed">
+                Money meant for an expense next year and money being invested for a
+                long-term goal should not automatically be treated the same way.
+                Match the fund with the purpose of the money and the time you can
+                remain invested.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-xl border border-stockstrail-green-light/20 bg-stockstrail-green-light/5 p-6">
+            <p className="text-white/85 leading-relaxed">
               <strong className="text-stockstrail-green-light">
-                How to Manage Risk:{' '}
-              </strong>
-              Start with a realistic investment horizon, diversify where appropriate
-              and choose investments that match your{' '}
+                A simple way to start:
+              </strong>{' '}
+              Check the fund&apos;s objective, portfolio, Riskometer, investment horizon
+              and major risk factors before investing. You can also take our{' '}
               <a
                 href="/risk-profile"
                 className="text-stockstrail-green-light hover:underline font-medium"
               >
-                risk profile
-              </a>
-              . It is also worth looking at the bigger picture. Your investments,
-              emergency savings and insurance should work together as part of your
-              overall{' '}
-              <a
-                href="/financial-protection"
-                className="text-stockstrail-green-light hover:underline font-medium"
-              >
-                financial protection plan
-              </a>
-              .
+                risk profile assessment
+              </a>{' '}
+              before comparing funds.
             </p>
           </div>
+
+          <p className="mt-6 text-center text-white/50 text-xs leading-relaxed">
+            Mutual Fund investments are subject to market risks. Read all scheme
+            related documents carefully before investing.
+          </p>
         </div>
       </section>
 
