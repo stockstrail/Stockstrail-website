@@ -649,7 +649,7 @@ export default function Others() {
         </div>
       </section>
 
-      {/* Mid-page contact CTA */}
+      {/* Mid-page CTA after 'Our Financial & Protection Services' */}
       <section className="px-4 sm:px-6 lg:px-8 py-10">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-white/70 max-w-2xl mx-auto leading-relaxed mb-5">
