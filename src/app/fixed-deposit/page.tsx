@@ -36,13 +36,14 @@ export default function FixedDeposit() {
 
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase gradient-text mb-6">
-            Fixed Deposits: Know the Rate. Understand the Trade-Offs.
+            Fixed Deposits Are Stable. But Are They Right for You?
           </h1>
+
           <p className="text-white/80 max-w-3xl mx-auto leading-relaxed text-lg">
-            Fixed deposits can offer predictable interest for a chosen tenure, making
-  them useful for planned goals, regular income and money you do not want
-  exposed to market fluctuations. Before you invest, understand the rate,
-  tenure, tax, liquidity and withdrawal conditions.
+            A fixed deposit can be a good place for money you want to keep away from
+            market swings. But the interest rate is not the only thing to look at.
+            Tenure, tax, interest payout, early withdrawal and access to your money can
+            all change whether an FD actually fits your plan.
           </p>
         </div>
       </section>
