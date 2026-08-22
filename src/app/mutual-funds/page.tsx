@@ -152,13 +152,45 @@ export default function MutualFunds() {
                 What is a Mutual Fund?
               </h2>
               <p className="text-white/80 leading-relaxed mb-4">
-               A mutual fund brings money from many investors together and invests it across assets such as stocks, bonds and government securities. Each fund has its own investment objective and is managed by a professional fund manager.
+                A mutual fund collects money from many investors and invests it in assets
+                such as shares, bonds and other securities. The fund is managed according
+                to a defined investment objective, so you do not have to choose every
+                security yourself.
               </p>
+
               <p className="text-white/80 leading-relaxed mb-4">
-                Think of it as a simple way to invest in a basket of investments instead of choosing every stock or bond yourself. For example, an equity mutual fund can invest across companies and sectors, giving you diversification through a single fund.
+                The important part is choosing a fund that fits what you are trying to do
+                with the money. Your goal, investment period and comfort with market
+                fluctuations all matter. Our{' '}
+                <a
+                  href="/risk-profile"
+                  className="text-stockstrail-green-light hover:underline font-medium"
+                >
+                  risk profile assessment
+                </a>{' '}
+                can help you understand how comfortable you are with investment risk before
+                you start comparing funds.
               </p>
+
               <p className="text-white/80 leading-relaxed">
-                There are different types of mutual funds, including equity, debt and hybrid funds, with different levels of risk and objectives. The right fund depends on your goals, risk profile and investment horizon. You can invest through a SIP or a lump sum, depending on your situation.
+                You can invest through a SIP when you want to invest regularly, or use a
+                lump sum when you already have money available. The right approach depends
+                on your income, available savings, goal and time horizon. Before choosing
+                where the money should go, you can also compare mutual funds with{' '}
+                <a
+                  href="/fixed-deposit"
+                  className="text-stockstrail-green-light hover:underline font-medium"
+                >
+                  fixed deposits
+                </a>{' '}
+                or speak with{' '}
+                <a
+                  href="/lets-talk"
+                  className="text-stockstrail-green-light hover:underline font-medium"
+                >
+                  Stockstrail
+                </a>{' '}
+                about your situation.
               </p>
             </div>
           </div>
@@ -219,7 +251,17 @@ export default function MutualFunds() {
                 Funds for Different Needs
               </h3>
               <p className="text-white/80">
-                With equity, debt, hybrid and other mutual fund categories available, investors can choose based on their goals, risk profile and investment horizon.
+                With equity, debt, hybrid and other mutual fund categories available,
+                investors can choose based on their goals, risk profile and investment
+                horizon. If you are comparing mutual funds with a more predictable
+                deposit-based option, see our{' '}
+                <a
+                  href="/fixed-deposit"
+                  className="text-stockstrail-green-light hover:underline font-medium"
+                >
+                  Fixed Deposit guide
+                </a>
+                .
               </p>
             </div>
 
@@ -292,7 +334,17 @@ export default function MutualFunds() {
             <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
               <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-3">Hybrid Funds</h3>
               <p className="text-white/80 mb-4">
-                Hybrid funds invest across a mix of equity and debt securities. By combining different asset classes, they can offer a middle ground between growth potential and the relatively lower volatility of debt-oriented investments.
+                Hybrid funds invest across a mix of equity and debt securities. By combining
+                different asset classes, they can provide a balance between growth potential
+                and the relatively lower volatility of debt-oriented investments. The right
+                mix depends on your{' '}
+                <a
+                  href="/risk-profile"
+                  className="text-stockstrail-green-light hover:underline font-medium"
+                >
+                  risk profile
+                </a>{' '}
+                and investment horizon.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -349,6 +401,21 @@ export default function MutualFunds() {
                 <p className="text-white/80 pt-1">{step}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-white/70">
+              Want to understand mutual funds before you invest? Explore the free{' '}
+              <a
+                href="https://www.learning.stockstrail.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-stockstrail-green-light hover:underline font-medium"
+              >
+                Stockstrail Learning
+              </a>{' '}
+              courses on mutual funds and SIPs.
+            </p>
           </div>
         </div>
       </section>
@@ -415,6 +482,20 @@ export default function MutualFunds() {
                 </p>
               </div>
             </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-white/70">
+              Want to see how different SIP amounts or investment periods could affect
+              your numbers? Try our{' '}
+              <a
+                href="/calculators"
+                className="text-stockstrail-green-light hover:underline font-medium"
+              >
+                financial calculators
+              </a>
+              .
+            </p>
           </div>
         </div>
       </section>
@@ -506,7 +587,27 @@ export default function MutualFunds() {
 
           <div className="bg-stockstrail-green-light/10 border-l-4 border-stockstrail-green-light rounded-lg p-6">
             <p className="text-white/90">
-              <strong className="text-stockstrail-green-light">How to Manage Risk: </strong> These risks can be managed through a suitable investment horizon, diversification across different fund types, and selecting funds that align with your goals and risk profile.
+              <strong className="text-stockstrail-green-light">
+                How to Manage Risk:{' '}
+              </strong>
+              Start with a realistic investment horizon, diversify where appropriate
+              and choose investments that match your{' '}
+              <a
+                href="/risk-profile"
+                className="text-stockstrail-green-light hover:underline font-medium"
+              >
+                risk profile
+              </a>
+              . It is also worth looking at the bigger picture. Your investments,
+              emergency savings and insurance should work together as part of your
+              overall{' '}
+              <a
+                href="/financial-protection"
+                className="text-stockstrail-green-light hover:underline font-medium"
+              >
+                financial protection plan
+              </a>
+              .
             </p>
           </div>
         </div>
@@ -528,7 +629,20 @@ export default function MutualFunds() {
               },
               { title: 'SIP Planning', desc: 'Build a SIP around your income, budget, goals and investment horizon, with the flexibility to adjust as your needs change.' },
               { title: 'Paperless Process', desc: 'Complete your mutual fund investment process online with simple KYC and digital onboarding, wherever available.' },
-              { title: 'Ongoing Support', desc: 'Get continued support with portfolio reviews, investment updates and changes as your goals or circumstances evolve.' },
+              { title: 'Ongoing Support', desc: (
+                <>
+                  Get continued support as your goals or circumstances change. When you
+                  need to review your investments or discuss a new financial decision,
+                  you can{' '}
+                  <a
+                    href="/lets-talk"
+                    className="text-stockstrail-green-light hover:underline font-medium"
+                  >
+                    talk to Stockstrail
+                  </a>{' '}
+                  and discuss what has changed.
+                </>
+              ) },
             ].map((item, index) => (
               <div
                 key={index}
@@ -594,7 +708,103 @@ export default function MutualFunds() {
           </div>
         </div>
       </section>
-            {/* Mutual Fund FAQs */}
+
+      <section className="relative px-4 sm:px-6 lg:px-8 py-12">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-product-sans font-semibold gradient-text mb-3">
+              Looking at the Bigger Picture?
+            </h2>
+
+            <p className="text-white/70 max-w-2xl mx-auto leading-relaxed">
+              Mutual funds are only one part of a financial plan. These guides can
+              help you understand the other decisions that may sit alongside your
+              investments.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a
+              href="/risk-profile"
+              className="bg-stockstrail-bg-light/40 rounded-xl p-5 border border-white/10 hover:border-stockstrail-green-light/40 transition-all duration-300"
+            >
+              <h3 className="text-stockstrail-green-light font-semibold mb-2">
+                Check Your Risk Profile
+              </h3>
+              <p className="text-white/70 text-sm">
+                Understand how much market risk you are comfortable taking before
+                choosing a fund.
+              </p>
+            </a>
+
+            <a
+              href="/calculators"
+              className="bg-stockstrail-bg-light/40 rounded-xl p-5 border border-white/10 hover:border-stockstrail-green-light/40 transition-all duration-300"
+            >
+              <h3 className="text-stockstrail-green-light font-semibold mb-2">
+                Financial Calculators
+              </h3>
+              <p className="text-white/70 text-sm">
+                Work through SIP, investment and other numbers before making a
+                decision.
+              </p>
+            </a>
+
+            <a
+              href="/fixed-deposit"
+              className="bg-stockstrail-bg-light/40 rounded-xl p-5 border border-white/10 hover:border-stockstrail-green-light/40 transition-all duration-300"
+            >
+              <h3 className="text-stockstrail-green-light font-semibold mb-2">
+                Fixed Deposits
+              </h3>
+              <p className="text-white/70 text-sm">
+                Compare a predictable deposit option when market-linked investments
+                are not what you are looking for.
+              </p>
+            </a>
+
+            <a
+              href="/insurance"
+              className="bg-stockstrail-bg-light/40 rounded-xl p-5 border border-white/10 hover:border-stockstrail-green-light/40 transition-all duration-300"
+            >
+              <h3 className="text-stockstrail-green-light font-semibold mb-2">
+                Insurance
+              </h3>
+              <p className="text-white/70 text-sm">
+                Protect your income, family and health alongside your investments.
+              </p>
+            </a>
+
+            <a
+              href="/loan"
+              className="bg-stockstrail-bg-light/40 rounded-xl p-5 border border-white/10 hover:border-stockstrail-green-light/40 transition-all duration-300"
+            >
+              <h3 className="text-stockstrail-green-light font-semibold mb-2">
+                Loans
+              </h3>
+              <p className="text-white/70 text-sm">
+                Explore borrowing options when you need funds without disrupting
+                your financial plan unnecessarily.
+              </p>
+            </a>
+
+            <a
+              href="/financial-protection"
+              className="bg-stockstrail-bg-light/40 rounded-xl p-5 border border-white/10 hover:border-stockstrail-green-light/40 transition-all duration-300"
+            >
+              <h3 className="text-stockstrail-green-light font-semibold mb-2">
+                Financial Protection
+              </h3>
+              <p className="text-white/70 text-sm">
+                See how investments, insurance, savings and financial commitments
+                fit together.
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Mutual Fund FAQs */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-stockstrail-bg-light/20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold gradient-text mb-12 text-center">
