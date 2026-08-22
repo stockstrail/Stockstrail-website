@@ -106,7 +106,7 @@ export default function LetsTalk() {
     setSuccess('');
 
     if (!form.name || !form.phone || !form.email || !form.service || !form.message) {
-      setError('Please fill all fields.');
+      setError('Please fill all required fields.');
       return;
     }
 
@@ -213,13 +213,41 @@ export default function LetsTalk() {
             <div className="space-y-6">
               <div>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight">
-                  Let&apos;s plan your
-                  <br className="hidden sm:block" /> next financial move together
+                  Let&apos;s talk about your
+                  <br className="hidden sm:block" /> financial goals
                 </h1>
-                <p className="mt-8 mb-8 text-white/70 max-w-xl text- center">
-                  Whether you are looking for mutual funds, FDs, insurance, or loans,
-                  we help you understand your options and choose what fits your risk profile and goals.
-                  Share a bit about your needs and we usually respond the same day.
+
+                <p className="mt-8 mb-8 text-white/70 max-w-xl">
+                  Looking for help with{' '}
+                  <a
+                    href="/mutual-funds"
+                    className="text-stockstrail-green-light hover:underline"
+                  >
+                    mutual funds
+                  </a>
+                  ,{' '}
+                  <a
+                    href="/fixed-deposit"
+                    className="text-stockstrail-green-light hover:underline"
+                  >
+                    fixed deposits
+                  </a>
+                  ,{' '}
+                  <a
+                    href="/insurance"
+                    className="text-stockstrail-green-light hover:underline"
+                  >
+                    insurance
+                  </a>{' '}
+                  or{' '}
+                  <a
+                    href="/loan"
+                    className="text-stockstrail-green-light hover:underline"
+                  >
+                    loans
+                  </a>
+                  ? Tell us what you are considering, and we&apos;ll help you understand
+                  your options before you decide.
                 </p>
               </div>
 
@@ -368,11 +396,11 @@ export default function LetsTalk() {
                 Query Intake
               </p>
               <h2 className="text-2xl sm:text-3xl font-product-sans text-white mb-2 text-center">
-                Tell us about your requirement
+                Tell us what you need help with
               </h2>
               <p className="text-white/60 mb-6 text-sm text-center">
-                Share a bit about your goals, risk appetite, and the service you are interested in.
-                We read everything carefully and respond with clear next steps.
+                Tell us what you are looking for and what you are trying to solve. We&apos;ll
+                review your enquiry and get back to you with the next step.
               </p>
 
               <form className="space-y-4" onSubmit={onSubmit}>
@@ -430,18 +458,35 @@ export default function LetsTalk() {
                     <option value="" className="bg-[#0b1c1b]">
                       Select a service
                     </option>
+
                     <option value="Mutual Funds" className="bg-[#0b1c1b]">
                       Mutual Funds
                     </option>
+
                     <option value="Fixed Deposit" className="bg-[#0b1c1b]">
                       Fixed Deposit
                     </option>
+
                     <option value="Insurance" className="bg-[#0b1c1b]">
                       Insurance
                     </option>
+
+                    <option value="Motor Insurance" className="bg-[#0b1c1b]">
+                      Motor Insurance
+                    </option>
+
+                    <option value="Tax Filing" className="bg-[#0b1c1b]">
+                      Tax Filing
+                    </option>
+
                     <option value="Loan" className="bg-[#0b1c1b]">
                       Loan
                     </option>
+
+                    <option value="Financial Planning" className="bg-[#0b1c1b]">
+                      Financial Planning
+                    </option>
+
                     <option value="Others" className="bg-[#0b1c1b]">
                       Others
                     </option>
@@ -449,7 +494,7 @@ export default function LetsTalk() {
                 </div>
                 <div>
                   <label className="block text-white/80 mb-2">
-                    Message<span className="text-red-500">*</span>
+                    Tell us about your requirement<span className="text-red-500">*</span>
                   </label>
                   <textarea
                     name="message"
@@ -458,6 +503,7 @@ export default function LetsTalk() {
                     rows={4}
                     required
                     minLength={20}
+                    placeholder="For example: I want to start a SIP, renew my car insurance, or file my income tax return."
                     className="w-full px-3 py-2 rounded-lg bg-white/10 text-white border border-white/20 focus:outline-none focus:border-stockstrail-green-light"
                   />
                 </div>
@@ -470,8 +516,12 @@ export default function LetsTalk() {
                   disabled={submitting}
                   className="mt-2 px-6 py-3 bg-white/5 border border-white/30 rounded-full text-white text-sm font-medium hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {submitting ? 'Submitting…' : 'Submit query'}
+                  {submitting ? 'Sending…' : 'Send my enquiry'}
                 </button>
+
+                <p className="mt-3 text-xs text-white/40 text-center">
+                  Your details are used only to respond to your enquiry.
+                </p>
               </form>
             </div>
           </div>
