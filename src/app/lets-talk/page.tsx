@@ -320,7 +320,7 @@ export default function LetsTalk() {
                     Office
                   </p>
                   <a
-                    href="https://maps.google.com/maps?q=Mata+Chintapurni+Rd,+near+Punjab+%26+Sind+Bank,+Moien,+Chintpurni,+Himachal+Pradesh+177110"
+                    href="https://maps.app.goo.gl/Kfh7L2rztQ5osC8u8"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white text-sm leading-snug flex items-start"
@@ -333,21 +333,20 @@ export default function LetsTalk() {
                     <br /> Himachal Pradesh 177110
                   </a>
 
-                  {/* Map embed */}
-                  <div className="mt-3 rounded-lg overflow-hidden border border-white/10 shadow-[0_0_15px_rgba(0,255,151,0.08)]">
+                  <div className="mt-3 h-48 sm:h-52 rounded-lg overflow-hidden border border-white/10 shadow-[0_0_15px_rgba(0,255,151,0.08)]">
                     <iframe
-                      title="Stockstrail Office Location"
-                      src="https://maps.google.com/maps?q=Mata+Chintapurni+Rd,+near+Punjab+%26+Sind+Bank,+Moien,+Chintpurni,+Himachal+Pradesh+177110&output=embed"
+                      src="https://www.google.com/maps?q=31.803886,76.1098365&z=17&output=embed"
                       width="100%"
-                      height="200"
-                      style={{ border: 0, display: 'block' }}
-                      allowFullScreen
+                      height="100%"
+                      style={{ border: 0 }}
                       loading="lazy"
+                      allowFullScreen
                       referrerPolicy="no-referrer-when-downgrade"
+                      title="Stockstrail location"
                     />
                   </div>
                   <a
-                    href="https://maps.google.com/maps?q=Mata+Chintapurni+Rd,+near+Punjab+%26+Sind+Bank,+Moien,+Chintpurni,+Himachal+Pradesh+177110"
+                    href="https://maps.app.goo.gl/Kfh7L2rztQ5osC8u8"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-2 inline-flex items-center gap-1.5 text-xs text-stockstrail-green-light hover:text-stockstrail-green-accent transition-colors"
