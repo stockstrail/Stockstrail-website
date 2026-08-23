@@ -35,11 +35,11 @@ const HeroSection = () => {
             {/* TOP BADGE PILL */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-brand-green)]/40 bg-[color:var(--color-brand-green)]/10 px-3.5 py-1 text-[11px] font-semibold text-[color:var(--color-brand-green)] tracking-wider uppercase backdrop-blur-md shadow-[0_0_12px_rgba(0,229,153,0.2)]">
               <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--color-brand-green)] animate-pulse" />
-              <span>AMFI Registered</span>
-              <span className="text-white/40">•</span>
-              <span>Goal-Based</span>
-              <span className="text-white/40">•</span>
-              <span>Zero Bias</span>
+              <span>AMFI REGISTERED</span>
+              <span className="text-white/40">·</span>
+              <span>YOUR GOALS FIRST</span>
+              <span className="text-white/40">·</span>
+              <span>YOUR PLAN NEXT</span>
             </div>
 
             {/* HEADLINE */}
