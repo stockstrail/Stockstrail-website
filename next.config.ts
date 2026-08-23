@@ -119,12 +119,22 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  // Permanent 301 redirect: /contact → /lets-talk
+  // Permanent 301 redirects
   async redirects() {
     return [
       {
         source: '/contact',
         destination: '/lets-talk',
+        permanent: true,
+      },
+      {
+        source: '/demat',
+        destination: '/open-demat',
+        permanent: true,
+      },
+      {
+        source: '/financial-planning',
+        destination: '/services',
         permanent: true,
       },
     ];

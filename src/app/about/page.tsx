@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import Layout from '@/components/layout/Layout';
-import Image from "next/image";
+import Image from 'next/image';
 import ServiceFAQSection from '@/components/services/ServiceFAQSection';
 import HeroCarousel from '@/components/ui/HeroCarousel';
 import { MapPin } from 'lucide-react';
@@ -112,7 +113,52 @@ export default function About() {
             At its heart, <em>Stockstrail&apos;s approach to financial planning & investment guidance</em> is rooted in a single belief: when people understand their money, they make better decisions - not just financially, but in every area of their lives. Financial confidence is not a privilege for the wealthy. It is a right that every working individual in India deserves, and Stockstrail is committed to making it accessible - from the mountains of Himachal Pradesh to the busy streets of DelhiNCR, from Chandigarh&apos;s IT corridors to the towns of Uttar Pradesh and Uttarakhand.
           </p>
           <p className="text-[#e0e0e0] text-base sm:text-lg max-w-[90%] mx-auto mb-8 leading-relaxed drop-shadow-md bg-black/20 p-4 rounded-xl backdrop-blur-sm">
-            Led by AMFI-Registered Mutual Fund Distributor and SEBI-Certified Advisor Vikrant Bhardwaj, Stockstrail has served over 200 clients across North India with a zero-pressure, jargon-free, deeply personalised advisory experience. Our services span <strong>Mutual Funds</strong>, <strong>Fixed Deposits (FD)</strong>, <strong>Insurance</strong>, <strong>Loans</strong>, <strong>Demat Account opening</strong>, and <strong>Risk Profile Assessment</strong> - everything you need to build, protect, and grow your financial future under one trusted roof.
+            Led by an AMFI-Registered Mutual Fund Distributor, Stockstrail has
+            served over 200 clients across North India with a zero-pressure,
+            jargon-free, deeply personalised advisory experience. Our services span{' '}
+            <Link
+              href="/mutual-funds"
+              className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+            >
+              Mutual Funds
+            </Link>
+            ,{' '}
+            <Link
+              href="/fixed-deposit"
+              className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+            >
+              Fixed Deposits (FD)
+            </Link>
+            ,{' '}
+            <Link
+              href="/insurance"
+              className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+            >
+              Insurance
+            </Link>
+            ,{' '}
+            <Link
+              href="/loan"
+              className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+            >
+              Loans
+            </Link>
+            ,{' '}
+            <Link
+              href="/open-demat"
+              className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+            >
+              Demat Account
+            </Link>
+            , and{' '}
+            <Link
+              href="/risk-profile"
+              className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+            >
+              Risk Profile Assessment
+            </Link>
+            {' '}— everything you need to build, protect, and grow your financial
+            future under one trusted roof.
           </p>
           <div className="inline-block px-6 py-3 bg-stockstrail-green-light/20 border border-stockstrail-green-light/30 rounded-full backdrop-blur-sm drop-shadow-md">
             <p className="text-stockstrail-green-light font-product-sans text-lg sm:text-xl font-medium">
@@ -141,8 +187,39 @@ export default function About() {
             <p className="text-white/80 text-lg leading-relaxed mb-6">
               Stockstrail&apos;s purpose is to close this gap - not through aggressive sales, not through complicated products, and not through intimidation. But through education, clarity, and genuine partnership. When Vikrant Bhardwaj sits down with a client - whether they are a government teacher in Shimla, an IT professional in Mohali, a farmer in Kinnaur, or a business owner in Gurugram - the first thing he does is listen. Not pitch. Listen.
             </p>
-            <p className="text-white/80 text-lg leading-relaxed mb-8">
+            <p className="text-white/80 text-lg leading-relaxed mb-6">
               Because every person&apos;s financial situation is different. Every goal is unique. And every plan must be built from scratch - around your income, your responsibilities, your timeline, and your dreams. That is the Stockstrail purpose: to be the financial advisor that every Indian deserves but rarely finds.
+            </p>
+            <p className="text-white/80 text-lg leading-relaxed mb-6">
+              Stockstrail exists to make financial decisions easier to understand and
+              easier to act on. Whether someone is beginning their investment journey,
+              reviewing existing investments, protecting their family, or planning for
+              future goals, the focus is always on understanding the situation before
+              choosing a financial product.
+            </p>
+            <p className="text-white/80 text-lg leading-relaxed mb-8">
+              This approach connects naturally with our{' '}
+              <Link
+                href="/financial-planning"
+                className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+              >
+                financial planning
+              </Link>
+              ,{' '}
+              <Link
+                href="/mutual-funds"
+                className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+              >
+                mutual fund
+              </Link>
+              ,{' '}
+              <Link
+                href="/insurance"
+                className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+              >
+                insurance
+              </Link>
+              , and other financial solutions available through Stockstrail.
             </p>
 
             <h3 className="text-2xl font-product-sans mb-6 text-stockstrail-green-light">Stockstrail Helps These People Build Financial Confidence</h3>
@@ -215,7 +292,34 @@ export default function About() {
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-stockstrail-green-light/50 transition-colors duration-300">
               <h3 className="text-2xl font-product-sans text-stockstrail-green-light mb-4">Principle 1 – Clear Communication in Every Financial Conversation</h3>
               <p className="text-white/80 text-lg leading-relaxed">
-                Financial complexity is often manufactured, not inherent. At Stockstrail, we believe that any concept - whether it is how <strong>Mutual Fund NAV</strong> works, what <strong>insurance surrender value</strong> means, or how <strong>compound interest</strong> builds wealth - can be explained simply if the advisor genuinely wants to help. We explain everything. Every term. Every trade-off. Every reason behind every recommendation. No black boxes. No trust me, just invest. Full clarity, always.
+                Financial complexity is often manufactured, not inherent. At Stockstrail,
+                we believe that financial concepts should be explained simply and clearly.{' '}
+                Whether it is understanding how{' '}
+                <Link
+                  href="/mutual-funds"
+                  className="text-stockstrail-green-light hover:text-white hover:underline"
+                >
+                  Mutual Fund NAV
+                </Link>{' '}
+                works, understanding what{' '}
+                <Link
+                  href="/insurance"
+                  className="text-stockstrail-green-light hover:text-white hover:underline"
+                >
+                  insurance
+                </Link>{' '}
+                covers, or understanding how{' '}
+                <Link
+                  href="/calculators"
+                  className="text-stockstrail-green-light hover:text-white hover:underline"
+                >
+                  compound interest
+                </Link>{' '}
+                can affect long-term wealth, we believe the explanation should be
+                straightforward.{' '}
+                We explain the important terms, trade-offs and reasoning behind a
+                recommendation. No black boxes. No &quot;trust me, just invest.&quot; Full clarity,
+                always.
               </p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-stockstrail-green-light/50 transition-colors duration-300">
@@ -272,7 +376,37 @@ export default function About() {
               Vikrant built Stockstrail after observing a pattern that troubled him deeply: intelligent, hardworking people making poor financial decisions - not out of ignorance, but out of misguidance. Families paying high premiums for the wrong insurance products. Young professionals leaving their savings idle in bank accounts for years. First-time investors getting burned by unregulated tips and momentum-driven product recommendations.
             </p>
             <p className="text-white/80 text-lg leading-relaxed mb-6">
-              He decided to build something different. A practice rooted in education first, advice second - where every client conversation begins with understanding before any recommendation is made. Where <strong>Mutual Funds</strong> are explained before they are recommended. Where the difference between <strong>term insurance and ULIP</strong> is explained honestly. Where <strong>FD laddering</strong> is shown as a strategy, not just a product. Where clients <strong>check their risk profile</strong> before a single rupee is invested.
+              He decided to build something different. A practice rooted in education
+              first, advice second, where every client conversation begins with
+              understanding before any recommendation is made. Where{" "}
+              <Link
+                href="/mutual-funds"
+                className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+              >
+                Mutual Funds
+              </Link>{" "}
+              are explained before they are recommended. Where the difference between{" "}
+              <Link
+                href="/insurance"
+                className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+              >
+                term insurance and other insurance options
+              </Link>{" "}
+              is explained honestly. Where{" "}
+              <Link
+                href="/fixed-deposit"
+                className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+              >
+                FD planning
+              </Link>{" "}
+              is shown as a strategy, not just a product. Where clients{" "}
+              <Link
+                href="/risk-profile"
+                className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+              >
+                check their risk profile
+              </Link>{" "}
+              before a single rupee is invested.
             </p>
 
             <div className="mb-8">
@@ -334,7 +468,37 @@ export default function About() {
                 &quot;When money is explained with clarity and honesty, people make better decisions - not just for their finances, but for their lives.&quot;
               </p>
               <p className="text-white/70 text-base">
-                Beyond one-on-one advisory, Vikrant also creates financial education content - breaking down concepts like <strong>SIP compounding</strong>, <strong>insurance planning</strong>, <strong>loan against mutual funds</strong>, and <strong>opening a Demat Account</strong> - into simple, digestible explanations that help individuals build financial confidence even before they invest their first rupee. This commitment to education reflects Stockstrail&apos;s belief that an informed client is the best client.
+                Beyond one-on-one advisory, Vikrant also creates financial education
+                content, breaking down concepts such as{" "}
+                <Link
+                  href="/mutual-funds"
+                  className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+                >
+                  SIP investing and mutual funds
+                </Link>
+                ,{" "}
+                <Link
+                  href="/insurance"
+                  className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+                >
+                  insurance planning
+                </Link>
+                ,{" "}
+                <Link
+                  href="/loan"
+                  className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+                >
+                  loans against mutual funds
+                </Link>
+                , and{" "}
+                <Link
+                  href="/open-demat"
+                  className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
+                >
+                  opening a Demat account
+                </Link>{" "}
+                into simple, digestible explanations that help individuals build
+                financial confidence even before they invest their first rupee.
               </p>
             </div>
           </div>
@@ -342,14 +506,20 @@ export default function About() {
       </section>
 
       {/* Services Overview */}
-      <section className="px-4 sm:px-6 lg:px-8 py-12">
+      <section
+        id="services"
+        className="px-4 sm:px-6 lg:px-8 py-12 scroll-mt-24"
+      >
         <div className="max-w-[90%] mx-auto text-center mb-10">
           <h2 className="font-product-sans text-4xl sm:text-5xl font-normal uppercase">
             <span className="text-white">Stockstrail&apos;s </span>
             <span className="gradient-text">Services</span>
           </h2>
+
           <p className="text-white/70 mt-4 max-w-[90%] mx-auto">
-            Honest Financial Planning & Investment Guidance Under One Roof. Every service we offer is connected by the same thread: your goals, your comfort, your future.
+            Honest financial planning and investment guidance under one roof.
+            Explore the service that matches what you are trying to achieve,
+            protect or plan for.
           </p>
         </div>
 
@@ -357,44 +527,93 @@ export default function About() {
           {[
             {
               title: "Mutual Funds Advisory",
-              desc: "SIP planning, goal-based investing, ELSS tax saving, lump sum allocation, and regular portfolio reviews - all delivered with complete fund transparency and personalised recommendations across 25+ AMCs.",
+              desc: "SIP planning, goal-based investing, lump sum allocation and portfolio reviews based on your goals, risk profile and investment horizon.",
               href: "/mutual-funds",
+              linkText: "Explore Mutual Funds",
             },
             {
               title: "Fixed Deposit (FD) Planning",
-              desc: "Competitive FD rates up to 7.5% p.a. through partner banks and NBFCs. Tenure planning, taxsaving FDs, senior citizen rates, and FD laddering strategies for optimal liquidity and returns.",
+              desc: "Compare FD options based on tenure, interest payout, maturity needs and liquidity before deciding where to place your money.",
               href: "/fixed-deposit",
+              linkText: "Explore Fixed Deposits",
             },
             {
               title: "Insurance Advisory",
-              desc: "Term life insurance, health insurance, ULIPs, guaranteed savings plans, motor insurance, and travel insurance - all evaluated objectively for your specific coverage needs and budget.",
+              desc: "Understand term insurance, health insurance and other insurance options based on your income, responsibilities, coverage needs and budget.",
               href: "/insurance",
+              linkText: "Explore Insurance",
             },
             {
               title: "Loan Advisory",
-              desc: "Home loans, business loans, personal loans, and loans against mutual funds - with honest rate comparisons and repayment planning that fits your monthly cash flow without unnecessary stress.",
+              desc: "Compare borrowing options such as home loans, business loans and loans against mutual funds with attention to cost, repayment and eligibility.",
               href: "/loan",
+              linkText: "Explore Loan Options",
             },
             {
               title: "Open Demat Account",
-              desc: "100% digital Demat and Trading account opening through partner brokers including AngelOne, Zerodha, Alice Blue, and HDFC Sky - with ongoing equity investment guidance after your account is live.",
-              href: "#",
+              desc: "Open a Demat account through our partner platform and get started with digital investing and equity-market access.",
+              href: "/open-demat",
+              linkText: "Open a Demat Account",
             },
             {
-              title: "Check Risk Profile",
-              desc: "A free, 11-question risk assessment tool available at stockstrail.in that identifies your risk category and recommends a personalised asset allocation - in under 5 minutes, with no login required.",
+              title: "Check Your Risk Profile",
+              desc: "Understand your investment risk category before choosing products or building an investment plan.",
               href: "/risk-profile",
-            }
-          ].map((s) => (
-            <a
-              key={s.title}
-              href={s.href}
-              className="block bg-white/5 border border-white/10 rounded-2xl p-6 text-left hover:border-stockstrail-green-light hover:shadow-[0_0_20px_rgba(0,255,151,0.15)] transition-all duration-300"
+              linkText: "Check Risk Profile",
+            },
+          ].map((service) => (
+            <Link
+              key={service.title}
+              href={service.href}
+              className="group block bg-white/5 border border-white/10 rounded-2xl p-6 text-left hover:border-stockstrail-green-light hover:shadow-[0_0_20px_rgba(0,255,151,0.15)] transition-all duration-300"
             >
-              <div className="text-stockstrail-green-light text-xl font-product-sans mb-3">{s.title}</div>
-              <div className="text-white/80 text-base leading-relaxed">{s.desc}</div>
-            </a>
+              <h3 className="text-xl font-product-sans text-stockstrail-green-light mb-3 group-hover:text-white transition-colors">
+                {service.title}
+              </h3>
+
+              <p className="text-white/80 text-base leading-relaxed mb-5">
+                {service.desc}
+              </p>
+
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-stockstrail-green-light group-hover:text-white transition-colors">
+                {service.linkText}
+                <span aria-hidden="true">→</span>
+              </span>
+            </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Internal Link / Not Sure Block */}
+      <section className="px-4 sm:px-6 lg:px-8 py-10">
+        <div className="max-w-5xl mx-auto">
+          <div className="rounded-2xl border border-stockstrail-green-light/20 bg-stockstrail-bg-light/30 p-6 sm:p-8 text-center">
+            <h2 className="text-2xl sm:text-3xl font-product-sans font-semibold text-white mb-3">
+              Not Sure Which Financial Service You Need?
+            </h2>
+
+            <p className="text-white/70 max-w-2xl mx-auto leading-relaxed mb-6">
+              Start with your goals and risk comfort. You can check your risk
+              profile first or talk to Stockstrail if you are still deciding
+              between different financial options.
+            </p>
+
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link
+                href="/risk-profile"
+                className="inline-flex items-center justify-center rounded-full bg-stockstrail-green-light px-6 py-3 text-[#003B37] font-semibold transition hover:opacity-90"
+              >
+                Check Your Risk Profile
+              </Link>
+
+              <Link
+                href="/lets-talk"
+                className="inline-flex items-center justify-center rounded-full border border-stockstrail-green-light px-6 py-3 text-stockstrail-green-light font-semibold transition hover:bg-stockstrail-green-light hover:text-[#003B37]"
+              >
+                Talk to Stockstrail
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -445,8 +664,46 @@ export default function About() {
                       <MapPin className="w-3.5 h-3.5 text-stockstrail-green-light shrink-0" />
                       <span>If you are in {loc.title} and looking for a trusted financial advisor...</span>
                     </p>
-                    <div className="mt-3 text-xs text-white/50 border-t border-white/10 pt-3">
-                      Services: Mutual Funds | FD | Insurance | Loans | Demat | Risk Profile
+                    <div className="mt-4 text-xs text-white/50 border-t border-white/10 pt-4">
+                      <span className="block mb-2">Services:</span>
+                      <div className="flex flex-wrap gap-x-3 gap-y-2">
+                        <Link
+                          href="/mutual-funds"
+                          className="hover:text-stockstrail-green-light transition-colors"
+                        >
+                          Mutual Funds
+                        </Link>
+                        <Link
+                          href="/fixed-deposit"
+                          className="hover:text-stockstrail-green-light transition-colors"
+                        >
+                          FD
+                        </Link>
+                        <Link
+                          href="/insurance"
+                          className="hover:text-stockstrail-green-light transition-colors"
+                        >
+                          Insurance
+                        </Link>
+                        <Link
+                          href="/loan"
+                          className="hover:text-stockstrail-green-light transition-colors"
+                        >
+                          Loans
+                        </Link>
+                        <Link
+                          href="/open-demat"
+                          className="hover:text-stockstrail-green-light transition-colors"
+                        >
+                          Demat
+                        </Link>
+                        <Link
+                          href="/risk-profile"
+                          className="hover:text-stockstrail-green-light transition-colors"
+                        >
+                          Risk Profile
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -461,7 +718,45 @@ export default function About() {
                   The Chandigarh Tricity is one of North India&apos;s most economically vibrant regions. Stockstrail serves all three cities (Chandigarh, Mohali, Panchkula) with equal dedication.
                 </p>
                 <div className="mt-4 text-xs text-white/50 border-t border-white/10 pt-4">
-                  Services: Mutual Funds | FD | Insurance | Loans | Demat | Risk Profile
+                  <span className="block mb-2">Services:</span>
+                  <div className="flex flex-wrap gap-x-3 gap-y-2">
+                    <Link
+                      href="/mutual-funds"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Mutual Funds
+                    </Link>
+                    <Link
+                      href="/fixed-deposit"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      FD
+                    </Link>
+                    <Link
+                      href="/insurance"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Insurance
+                    </Link>
+                    <Link
+                      href="/loan"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Loans
+                    </Link>
+                    <Link
+                      href="/open-demat"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Demat
+                    </Link>
+                    <Link
+                      href="/risk-profile"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Risk Profile
+                    </Link>
+                  </div>
                 </div>
               </div>
 
@@ -471,7 +766,45 @@ export default function About() {
                   Delhi&apos;s diverse and financially active population deserves advisory that is equally flexible and personalised. Stockstrail serves clients across South Delhi, Dwarka, Rohini, East Delhi, and beyond.
                 </p>
                 <div className="mt-4 text-xs text-white/50 border-t border-white/10 pt-4">
-                  Services: Mutual Funds | FD | Insurance | Loans | Demat | Risk Profile
+                  <span className="block mb-2">Services:</span>
+                  <div className="flex flex-wrap gap-x-3 gap-y-2">
+                    <Link
+                      href="/mutual-funds"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Mutual Funds
+                    </Link>
+                    <Link
+                      href="/fixed-deposit"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      FD
+                    </Link>
+                    <Link
+                      href="/insurance"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Insurance
+                    </Link>
+                    <Link
+                      href="/loan"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Loans
+                    </Link>
+                    <Link
+                      href="/open-demat"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Demat
+                    </Link>
+                    <Link
+                      href="/risk-profile"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Risk Profile
+                    </Link>
+                  </div>
                 </div>
               </div>
 
@@ -481,7 +814,45 @@ export default function About() {
                   From Gurugram&apos;s corporate towers to Ambala&apos;s trade markets, Stockstrail serves clients across Gurugram, Faridabad, Ambala, Hisar, Rohtak, Karnal, Panipat, and Sonipat.
                 </p>
                 <div className="mt-4 text-xs text-white/50 border-t border-white/10 pt-4">
-                  Services: Mutual Funds | FD | Insurance | Loans | Demat | Risk Profile
+                  <span className="block mb-2">Services:</span>
+                  <div className="flex flex-wrap gap-x-3 gap-y-2">
+                    <Link
+                      href="/mutual-funds"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Mutual Funds
+                    </Link>
+                    <Link
+                      href="/fixed-deposit"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      FD
+                    </Link>
+                    <Link
+                      href="/insurance"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Insurance
+                    </Link>
+                    <Link
+                      href="/loan"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Loans
+                    </Link>
+                    <Link
+                      href="/open-demat"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Demat
+                    </Link>
+                    <Link
+                      href="/risk-profile"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Risk Profile
+                    </Link>
+                  </div>
                 </div>
               </div>
 
@@ -491,7 +862,45 @@ export default function About() {
                   Stockstrail brings certified financial planning to clients across UP (Lucknow, Noida, Agra, Kanpur, Varanasi, Meerut, Prayagraj, Gorakhpur) through a fully digital advisory model.
                 </p>
                 <div className="mt-4 text-xs text-white/50 border-t border-white/10 pt-4">
-                  Services: Mutual Funds | FD | Insurance | Loans | Demat | Risk Profile
+                  <span className="block mb-2">Services:</span>
+                  <div className="flex flex-wrap gap-x-3 gap-y-2">
+                    <Link
+                      href="/mutual-funds"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Mutual Funds
+                    </Link>
+                    <Link
+                      href="/fixed-deposit"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      FD
+                    </Link>
+                    <Link
+                      href="/insurance"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Insurance
+                    </Link>
+                    <Link
+                      href="/loan"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Loans
+                    </Link>
+                    <Link
+                      href="/open-demat"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Demat
+                    </Link>
+                    <Link
+                      href="/risk-profile"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Risk Profile
+                    </Link>
+                  </div>
                 </div>
               </div>
 
@@ -501,7 +910,45 @@ export default function About() {
                   Uttarakhand&apos;s mix of government workforce and growing IT presence creates wide financial planning needs. We serve clients across Dehradun, Haridwar, Rishikesh, Nainital, Haldwani, and Roorkee.
                 </p>
                 <div className="mt-4 text-xs text-white/50 border-t border-white/10 pt-4">
-                  Services: Mutual Funds | FD | Insurance | Loans | Demat | Risk Profile
+                  <span className="block mb-2">Services:</span>
+                  <div className="flex flex-wrap gap-x-3 gap-y-2">
+                    <Link
+                      href="/mutual-funds"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Mutual Funds
+                    </Link>
+                    <Link
+                      href="/fixed-deposit"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      FD
+                    </Link>
+                    <Link
+                      href="/insurance"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Insurance
+                    </Link>
+                    <Link
+                      href="/loan"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Loans
+                    </Link>
+                    <Link
+                      href="/open-demat"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Demat
+                    </Link>
+                    <Link
+                      href="/risk-profile"
+                      className="hover:text-stockstrail-green-light transition-colors"
+                    >
+                      Risk Profile
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -548,27 +995,176 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* RELATED FINANCIAL SERVICES & RESOURCES */}
+      <section className="px-4 sm:px-6 lg:px-8 py-14">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="font-product-sans text-3xl sm:text-4xl font-normal uppercase mb-4">
+              <span className="text-white">Explore </span>
+              <span className="gradient-text">Stockstrail</span>
+            </h2>
+
+            <p className="text-white/70 text-lg max-w-3xl mx-auto">
+              Explore our financial services, educational resources and tools before
+              deciding what fits your situation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            <Link
+              href="/mutual-funds"
+              className="group bg-white/5 border border-white/10 rounded-xl p-6 hover:border-stockstrail-green-light/50 hover:bg-stockstrail-green-light/5 transition-all duration-300"
+            >
+              <h3 className="text-xl font-product-sans text-stockstrail-green-light mb-2 group-hover:text-white transition-colors">
+                Mutual Funds
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Explore SIPs, lump-sum investing, mutual fund concepts and
+                goal-based investment approaches.
+              </p>
+            </Link>
+
+            <Link
+              href="/fixed-deposit"
+              className="group bg-white/5 border border-white/10 rounded-xl p-6 hover:border-stockstrail-green-light/50 hover:bg-stockstrail-green-light/5 transition-all duration-300"
+            >
+              <h3 className="text-xl font-product-sans text-stockstrail-green-light mb-2 group-hover:text-white transition-colors">
+                Fixed Deposits
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Understand FD rates, tenure, interest payouts, taxation and
+                premature withdrawal.
+              </p>
+            </Link>
+
+            <Link
+              href="/insurance"
+              className="group bg-white/5 border border-white/10 rounded-xl p-6 hover:border-stockstrail-green-light/50 hover:bg-stockstrail-green-light/5 transition-all duration-300"
+            >
+              <h3 className="text-xl font-product-sans text-stockstrail-green-light mb-2 group-hover:text-white transition-colors">
+                Insurance
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Explore life, health, motor, travel and other protection options
+                around your financial responsibilities.
+              </p>
+            </Link>
+
+            <Link
+              href="/loan"
+              className="group bg-white/5 border border-white/10 rounded-xl p-6 hover:border-stockstrail-green-light/50 hover:bg-stockstrail-green-light/5 transition-all duration-300"
+            >
+              <h3 className="text-xl font-product-sans text-stockstrail-green-light mb-2 group-hover:text-white transition-colors">
+                Loans
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Compare borrowing options including Loan Against Mutual Funds and
+                other financing solutions.
+              </p>
+            </Link>
+
+            <Link
+              href="/financial-protection"
+              className="group bg-white/5 border border-white/10 rounded-xl p-6 hover:border-stockstrail-green-light/50 hover:bg-stockstrail-green-light/5 transition-all duration-300"
+            >
+              <h3 className="text-xl font-product-sans text-stockstrail-green-light mb-2 group-hover:text-white transition-colors">
+                Financial Protection
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Understand how insurance, emergency planning and other protection
+                decisions fit into your wider financial plan.
+              </p>
+            </Link>
+
+            <Link
+              href="/risk-profile"
+              className="group bg-white/5 border border-white/10 rounded-xl p-6 hover:border-stockstrail-green-light/50 hover:bg-stockstrail-green-light/5 transition-all duration-300"
+            >
+              <h3 className="text-xl font-product-sans text-stockstrail-green-light mb-2 group-hover:text-white transition-colors">
+                Risk Profile Assessment
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Understand your investment risk profile before choosing
+                market-linked financial products.
+              </p>
+            </Link>
+
+            <Link
+              href="/calculators"
+              className="group bg-white/5 border border-white/10 rounded-xl p-6 hover:border-stockstrail-green-light/50 hover:bg-stockstrail-green-light/5 transition-all duration-300"
+            >
+              <h3 className="text-xl font-product-sans text-stockstrail-green-light mb-2 group-hover:text-white transition-colors">
+                Financial Calculators
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Use financial tools to understand SIPs, returns, retirement goals
+                and other planning scenarios.
+              </p>
+            </Link>
+
+            <Link
+              href="/blog"
+              className="group bg-white/5 border border-white/10 rounded-xl p-6 hover:border-stockstrail-green-light/50 hover:bg-stockstrail-green-light/5 transition-all duration-300"
+            >
+              <h3 className="text-xl font-product-sans text-stockstrail-green-light mb-2 group-hover:text-white transition-colors">
+                Financial Guides & Insights
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Learn about investing, personal finance, insurance and financial
+                decisions through practical educational content.
+              </p>
+            </Link>
+
+            <Link
+              href="/lets-talk"
+              className="group bg-stockstrail-green-light/10 border border-stockstrail-green-light/30 rounded-xl p-6 hover:bg-stockstrail-green-light/15 hover:border-stockstrail-green-light transition-all duration-300"
+            >
+              <h3 className="text-xl font-product-sans text-stockstrail-green-light mb-2 group-hover:text-white transition-colors">
+                Talk to Stockstrail
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Not sure where to start? Tell us about your requirement and discuss
+                your options with Stockstrail.
+              </p>
+            </Link>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
       <section className="px-4 sm:px-6 lg:px-8 py-16 text-center relative">
         <div className="absolute inset-0 -z-10">
           <div className="w-full h-[300px] bg-stockstrail-bg-light blur-185 opacity-30" />
         </div>
-        <div className="max-w-[90%] mx-auto bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
-          <h3 className="text-3xl font-product-sans mb-4">
-            <span className="text-white">Connect with Stockstrail – Start Your </span>
-            <span className="gradient-text">Financial Planning Journey Today</span>
-          </h3>
-          <p className="text-white/70 text-lg mb-8 leading-relaxed">
-            Whether you are in Shimla or Lucknow, Chandigarh or Chamba, Delhi or Dehradun - Stockstrail is ready to listen, ready to explain, and ready to build a financial plan that genuinely works for your life. No jargon. No pressure. No one-size-fits-all templates. Just honest <strong>financial planning & investment guidance</strong> from a certified advisor who actually cares about your financial future.
+
+        <div className="max-w-[90%] mx-auto bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.12)] transition-all duration-300">
+          <h2 className="text-3xl sm:text-4xl font-product-sans font-semibold text-white mb-4">
+            Your Financial Journey Begins With Understanding
+          </h2>
+
+          <p className="text-white/70 max-w-2xl mx-auto mb-8 leading-relaxed">
+            Whether you are starting a SIP, reviewing your insurance, considering
+            an FD or loan, or simply trying to understand where you stand, you can
+            start with a conversation.
           </p>
+
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a href="/lets-talk" className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,255,151,0.3)] transition-all duration-300 font-work-sans font-medium group">
-              <div className="w-2 h-2 bg-stockstrail-green-accent rounded-full group-hover:scale-125 group-hover:animate-pulse transition-all duration-300"></div>
+            <Link
+              href="/lets-talk"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,255,151,0.3)] transition-all duration-300 font-work-sans font-medium group"
+            >
+              <div className="w-2 h-2 bg-stockstrail-green-accent rounded-full group-hover:scale-125 group-hover:animate-pulse transition-all duration-300" />
               Let&apos;s Talk
-            </a>
-            <a href="/risk-profile" className="inline-flex items-center gap-3 px-6 py-3 bg-stockstrail-green-light text-stockstrail-bg rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,151,0.4)] transition-all duration-300 font-work-sans font-bold">
+            </Link>
+
+            <Link
+              href="/risk-profile"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-stockstrail-green-light text-stockstrail-bg rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,151,0.4)] transition-all duration-300 font-work-sans font-bold"
+            >
               Check Your Risk Profile
-            </a>
+            </Link>
           </div>
         </div>
       </section>
