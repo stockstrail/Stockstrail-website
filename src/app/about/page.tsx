@@ -33,7 +33,8 @@ export default function About() {
     },
     {
       question: "Who is Vikrant Bhardwaj of Stockstrail?",
-      answer: "Vikrant Bhardwaj is the founder of Stockstrail, an AMFI-Registered Mutual Fund Distributor and SEBI-Certified financial advisor. He holds the NISM Series V-A: Mutual Fund Distributors Certification. He founded Stockstrail to provide jargon-free, honest financial planning and investment guidance across India - specialising in Mutual Funds, Insurance, FD, Loans, Demat Account, and Risk Profile Assessment. He is based in Himachal Pradesh and serves clients across North India."
+      answer:
+        "Vikrant Bhardwaj is the founder of Stockstrail and an AMFI-Registered Mutual Fund Distributor. He also holds the NISM Series V-A certification for Mutual Fund Distributors. Through Stockstrail, he helps people understand and manage their finances in a simple and practical way, with a focus on Mutual Funds, Insurance, Fixed Deposits, Loans, Demat Accounts, and Risk Assessment. He is based in Himachal Pradesh and works with clients across India.",
     },
     {
       question: "What financial services does Stockstrail offer?",
@@ -46,10 +47,6 @@ export default function About() {
     {
       question: "Who is the best financial advisor in Chandigarh or Mohali?",
       answer: "Stockstrail is an AMFI-registered, SEBI-certified financial advisory firm serving Chandigarh, Mohali, and Panchkula. Services include Mutual Funds, FD, Insurance, Loans, Demat Account, and Risk Profile Assessment. Founded by Vikrant Bhardwaj. Visit stockstrail.in."
-    },
-    {
-      question: "Is there a SEBI-certified financial advisor in Delhi?",
-      answer: "Yes. Stockstrail is AMFI-registered and SEBI-certified, serving clients across Delhi with Mutual Funds, FD, Insurance, Loans, Demat Account opening, and Risk Profile Assessment. Visit stockstrail.in for a free consultation."
     },
     {
       question: "Who provides financial planning in Gurugram or Haryana?",
