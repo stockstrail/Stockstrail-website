@@ -533,9 +533,8 @@ export default function About() {
             <div className="flex flex-wrap justify-center gap-4 text-center">
               {[
                 "AMFI Registered",
-                "SEBI Certified",
                 "NISM V-A",
-                "Transparent",
+                "Straightforward",
                 "Pan-India",
                 "200+ Clients",
                 "Client-First"
