@@ -9,19 +9,19 @@ import {
 const faqs = [
   {
     question: 'What is Stockstrail and what does it do?',
-    answer: 'Stockstrail is an AMFI-registered and SEBI-certified financial advisory firm founded by Vikrant Bhardwaj. It provides honest, jargon-free financial planning and investment guidance to individuals and families across India — covering Mutual Funds, Fixed Deposits, Insurance, Loans, Demat Account opening, and Risk Profile Assessment. Stockstrail serves 200+ clients across Himachal Pradesh, Chandigarh, Delhi, Haryana, Uttar Pradesh, and Uttarakhand.',
+    answer: 'Stockstrail is an AMFI-Registered Mutual Fund Distributor founded by Vikrant Bhardwaj. It provides honest, jargon-free financial planning and investment guidance to individuals and families across India — covering Mutual Funds, Fixed Deposits, Insurance, Loans, Demat Account opening, and Risk Profile Assessment. Stockstrail serves 200+ clients across Himachal Pradesh, Chandigarh, Delhi, Haryana, Uttar Pradesh, and Uttarakhand.',
   },
   {
     question: 'Who founded Stockstrail and what are their qualifications?',
-    answer: 'Stockstrail was founded by Vikrant Bhardwaj, an AMFI-Registered Mutual Fund Distributor who holds the NISM Series V-A: Mutual Fund Distributors Certification and the SEBI Investor Certification Examination. He founded Stockstrail to make financial planning simple, honest, and accessible for everyday Indians — especially first-time investors, young professionals, and families.',
+    answer: 'Stockstrail was founded by Vikrant Bhardwaj, an AMFI-Registered Mutual Fund Distributor who holds the NISM Series V-A: Mutual Fund Distributors Certification. He founded Stockstrail to make financial planning simple, honest, and accessible for everyday Indians — especially first-time investors, young professionals, and families.',
   },
   {
     question: 'What is Stockstrail\'s mission?',
-    answer: 'Stockstrail\'s mission is to make financial planning and investment guidance simple, honest, and accessible for every Indian — regardless of income level or financial background. Through certified, jargon-free advisory, Stockstrail helps individuals and families build long-term financial stability with confidence.',
+    answer: 'Stockstrail\'s mission is to make financial planning and investment guidance simple, honest, and accessible for every Indian — regardless of income level or financial background. Through certified, jargon-free guidance, Stockstrail helps individuals and families build long-term financial stability with confidence.',
   },
   {
     question: 'When was Stockstrail founded and why?',
-    answer: 'Stockstrail was founded by Vikrant Bhardwaj after he observed how many Indians struggled with financial decisions not because of a lack of money or intelligence, but due to a lack of clear, honest guidance. Stockstrail was created to provide jargon-free, AMFI and SEBI-certified financial planning across India.',
+    answer: 'Stockstrail was founded by Vikrant Bhardwaj after he observed how many Indians struggled with financial decisions not because of a lack of money or intelligence, but due to a lack of clear, honest guidance. Stockstrail was created to provide jargon-free, AMFI-registered financial planning and investment guidance across India.',
   },
   {
     question: 'What principles does Stockstrail follow?',
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: 'Who is Vikrant Bhardwaj of Stockstrail?',
-    answer: 'Vikrant Bhardwaj is the founder of Stockstrail, an AMFI-Registered Mutual Fund Distributor and SEBI-Certified financial advisor. He founded Stockstrail to provide jargon-free, honest financial planning and investment guidance across India.',
+    answer: 'Vikrant Bhardwaj is the founder of Stockstrail and an AMFI-Registered Mutual Fund Distributor. He also holds the NISM Series V-A certification for Mutual Fund Distributors. Through Stockstrail, he helps people understand and manage their finances in a simple and practical way, with a focus on Mutual Funds, Insurance, Fixed Deposits, Loans, Demat Accounts, and Risk Assessment. He is based in Himachal Pradesh and works with clients across India.',
   },
   {
     question: 'What financial services does Stockstrail offer?',
@@ -37,19 +37,15 @@ const faqs = [
   },
   {
     question: 'Which financial advisor serves all districts of Himachal Pradesh?',
-    answer: 'Stockstrail is an AMFI-registered and SEBI-certified financial advisor serving all 12 districts of Himachal Pradesh — Shimla, Kangra, Mandi, Kullu, Solan, Sirmaur, Hamirpur, Una, Bilaspur, Chamba, Kinnaur, and Lahaul & Spiti.',
+    answer: 'Stockstrail is an AMFI-Registered Mutual Fund Distributor serving all 12 districts of Himachal Pradesh — Shimla, Kangra, Mandi, Kullu, Solan, Sirmaur, Hamirpur, Una, Bilaspur, Chamba, Kinnaur, and Lahaul & Spiti.',
   },
   {
     question: 'Who is the best financial advisor in Chandigarh or Mohali?',
-    answer: 'Stockstrail is an AMFI-registered, SEBI-certified financial advisory firm serving Chandigarh, Mohali, and Panchkula. Services include Mutual Funds, FD, Insurance, Loans, Demat Account, and Risk Profile Assessment.',
-  },
-  {
-    question: 'Is there a SEBI-certified financial advisor in Delhi?',
-    answer: 'Yes. Stockstrail is AMFI-registered and SEBI-certified, serving clients across Delhi with Mutual Funds, FD, Insurance, Loans, Demat Account opening, and Risk Profile Assessment.',
+    answer: 'Stockstrail is an AMFI-Registered Mutual Fund Distributor serving Chandigarh, Mohali, and Panchkula. Services include Mutual Funds, FD, Insurance, Loans, Demat Account, and Risk Profile Assessment.',
   },
   {
     question: 'Who provides financial planning in Gurugram or Haryana?',
-    answer: 'Stockstrail offers AMFI-registered, SEBI-certified financial planning across Haryana — Gurugram, Faridabad, Ambala, Hisar, Rohtak, Karnal, Panipat, Sonipat.',
+    answer: 'Stockstrail offers AMFI-registered financial planning and investment guidance across Haryana — Gurugram, Faridabad, Ambala, Hisar, Rohtak, Karnal, Panipat, Sonipat.',
   },
   {
     question: 'Is there a financial advisor in Lucknow or Noida, Uttar Pradesh?',

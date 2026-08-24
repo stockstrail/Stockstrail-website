@@ -314,7 +314,7 @@ export default async function HomePage() {
             More importantly, our courses are structured — not scattered. A beginner does not need 50 blog posts about different funds. They need a clear path: understand what a mutual fund is → learn how SIPs reduce timing risk → pick the right fund category for the goal → understand the tax implications → automate and let compounding do its work. That complete pathway exists here, free of charge, without registration.
           </p>
           <p>
-            This is financial education designed to be used, not just read. Each module ends with a <strong>Knowledge Check</strong> quiz, a set of <strong>Key Takeaways</strong> you can reference later, and a curated list of related courses to follow. For personalised guidance beyond self-learning, the main Stockstrail platform connects you with an <strong>AMFI-registered, SEBI-certified advisor</strong> who can turn your knowledge into an actual portfolio.
+            This is financial education designed to be used, not just read. Each module ends with a <strong>Knowledge Check</strong> quiz, a set of <strong>Key Takeaways</strong> you can reference later, and a curated list of related courses to follow. For personalised guidance beyond self-learning, the main Stockstrail platform connects you with an <strong>AMFI-Registered Mutual Fund Distributor</strong> who can turn your knowledge into an actual portfolio.
           </p>
         </div>
       </section>
@@ -378,7 +378,7 @@ export default async function HomePage() {
             },
             {
               q: "How does Stockstrail Learning connect to the main Stockstrail website?",
-              a: "Stockstrail Learning serves as the educational subdomain of stockstrail.in. Once you build your knowledge foundation here, you can use the main website's tools — such as the free online Risk Profile Assessment, consultation booking, or direct advisory from an AMFI-registered, SEBI-certified advisor for personalised investment guidance."
+              a: "Stockstrail Learning serves as the educational subdomain of stockstrail.in. Once you build your knowledge foundation here, you can use the main website's tools — such as the free online Risk Profile Assessment, consultation booking, or direct advisory from an AMFI-Registered Mutual Fund Distributor for personalised investment guidance."
             },
             {
               q: "Can I learn about insurance on this platform?",

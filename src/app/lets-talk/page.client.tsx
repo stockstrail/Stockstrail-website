@@ -67,7 +67,7 @@ export default function LetsTalkPage() {
               <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6 hover:border-white/20 transition-colors">
                 <h3 className="text-xl font-bold text-white mb-4">Why Trust Us?</h3>
                 <ul className="space-y-4 text-white/70">
-                  <li className="flex gap-3"><span className="text-stockstrail-green-light">✓</span> <div><strong>Certified Advisor:</strong> NISM Series V-A Certified & SEBI compliant.</div></li>
+                  <li className="flex gap-3"><span className="text-stockstrail-green-light">✓</span> <div><strong>Certified:</strong> NISM Series V-A Certified Mutual Fund Distributor.</div></li>
                   <li className="flex gap-3"><span className="text-stockstrail-green-light">✓</span> <div><strong>AMFI Registered:</strong> ARN-284122 Official Mutual Fund Distributor.</div></li>
                   <li className="flex gap-3"><span className="text-stockstrail-green-light">✓</span> <div><strong>Transparent:</strong> Full commission disclosures publicly available.</div></li>
                   <li className="flex gap-3"><span className="text-stockstrail-green-light">✓</span> <div><strong>Experienced:</strong> Serving clients across the region with a focus on trust.</div></li>
@@ -141,7 +141,7 @@ export default function LetsTalkPage() {
                 </div>
               </div>
               <div className="text-sm text-white/50 pt-2 max-w-lg mx-auto">
-                Operating under SEBI guidelines • AMFI Registered ARN-284122
+                AMFI-Registered Mutual Fund Distributor • ARN-284122
               </div>
             </div>
           </div>

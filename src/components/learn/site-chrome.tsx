@@ -265,7 +265,7 @@ export function SiteFooter() {
         {/* Trust badges */}
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 pb-8">
           <div className="flex flex-wrap items-center justify-center gap-3">
-            {["AMFI Registered", "SEBI Certified", "NISM V-A", "200+ Clients"].map((badge) => (
+            {["AMFI Registered", "NISM V-A Certified", "Goal-Based", "200+ Clients"].map((badge) => (
               <span key={badge} className="px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-wider text-[#00D873]/70 border border-[#00D873]/15 rounded-full bg-[#00D873]/[0.04]">
                 {badge}
               </span>

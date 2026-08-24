@@ -104,7 +104,7 @@ export default function AboutPage() {
             "name": "How does Stockstrail Learning connect to Stockstrail's main advisory services?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Stockstrail Learning provides self-paced education. When you are ready to execute your financial plan, the main Stockstrail platform connects you with AMFI-registered and SEBI-certified advisor Vikrant Bhardwaj for objective, goal-based portfolio construction."
+              "text": "Stockstrail Learning provides self-paced education. When you are ready to execute your financial plan, the main Stockstrail platform connects you with AMFI-registered Mutual Fund Distributor Vikrant Bhardwaj for objective, goal-based portfolio construction."
             }
           }
         ]
@@ -379,7 +379,7 @@ export default function AboutPage() {
                 From Financial Education to <span className="gradient-text font-bold">Personalized Execution</span>
               </h2>
               <p className="text-base text-white/80 leading-relaxed">
-                Stockstrail Learning is the educational wing of <strong>Stockstrail</strong> — an AMFI-registered and SEBI-certified financial advisory firm founded by <strong>Vikrant Bhardwaj</strong> (NISM Series V-A & SEBI Investor Exam certified).
+                Stockstrail Learning is the educational wing of <strong>Stockstrail</strong> — an AMFI-Registered Mutual Fund Distributor founded by <strong>Vikrant Bhardwaj</strong> (NISM Series V-A certified).
               </p>
               <p className="text-sm text-white/70 leading-relaxed">
                 While Stockstrail Learning gives you the knowledge to understand your money, the main Stockstrail advisory platform helps you construct, review, and manage a goal-based portfolio tailored to your unique life circumstances.
@@ -448,7 +448,7 @@ export default function AboutPage() {
                 },
                 {
                   q: "Can I get personalized financial planning after reading the courses?",
-                  a: "Yes! If you want personalized advice, you can visit the main Stockstrail platform (stockstrail.in) to check your risk profile or book a consultation with AMFI-registered and SEBI-certified advisor Vikrant Bhardwaj."
+                  a: "Yes! If you want personalized advice, you can visit the main Stockstrail platform (stockstrail.in) to check your risk profile or book a consultation with AMFI-registered Mutual Fund Distributor Vikrant Bhardwaj."
                 }
               ].map((faq, idx) => (
                 <div key={idx} className="card-surface rounded-2xl p-6 border border-white/10 space-y-2">
