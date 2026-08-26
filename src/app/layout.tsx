@@ -4,6 +4,7 @@ import { Inter, Work_Sans, Montserrat } from "next/font/google";
 import Script from "next/script";
 import JsonLd from '@/components/common/JsonLd';
 import FloatingWhatsAppButton from "@/components/common/FloatingWhatsAppButton";
+import WebMCPRegistry from "@/components/common/WebMCPRegistry";
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -221,6 +222,7 @@ export default function RootLayout({
       <body className="antialiased">
         <JsonLd data={webSiteSchema} />
         <JsonLd data={localBusinessSchema} />
+        <WebMCPRegistry />
 
         <main className="relative min-h-screen">
           {children}

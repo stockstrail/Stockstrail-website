@@ -28,10 +28,13 @@ export default function HeroShowcaseCard({ cards }: HeroShowcaseCardProps) {
   return (
     <div className="space-y-4 animate-fade-up">
       {/* Interactive Tab Switcher Bar */}
-      <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-[#021817]/90 border border-white/15 backdrop-blur-xl shadow-lg">
+      <div role="tablist" aria-label="Hero feature showcase tabs" className="flex items-center gap-2 p-1.5 rounded-2xl bg-[#021817]/90 border border-white/15 backdrop-blur-xl shadow-lg">
         {cards.map((item, idx) => (
           <button
             key={item.id}
+            role="tab"
+            aria-selected={activeCard === idx}
+            aria-label={`View ${item.title}`}
             onClick={() => setActiveCard(idx)}
             className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all duration-300 ${
               activeCard === idx

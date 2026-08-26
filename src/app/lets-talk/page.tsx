@@ -403,24 +403,47 @@ export default function LetsTalk() {
                 review your enquiry and get back to you with the next step.
               </p>
 
-              <form className="space-y-4" onSubmit={onSubmit}>
+              <form
+                className="space-y-4"
+                onSubmit={onSubmit}
+                data-toolname="book_consultation"
+                data-tooldescription="Submit enquiry to book a free 1-on-1 financial advisory call with Stockstrail"
+              >
                 <div>
-                  <label className="block text-white/80 mb-2">
+                  <label htmlFor="contact-name" className="block text-white/80 mb-2">
                     Name<span className="text-red-500">*</span>
                   </label>
                   <input
+                    id="contact-name"
                     name="name"
                     value={form.name}
                     onChange={onChange}
                     required
+                    aria-label="Your full name"
                     className="w-full px-3 py-2 rounded-lg bg-white/10 text-white border border-white/20 focus:outline-none focus:border-stockstrail-green-light"
                   />
                 </div>
                 <div>
-                  <label className="block text-white/80 mb-2">
-                    Phone Number<span className="text-red-500">*</span>
+                  <label htmlFor="contact-email" className="block text-white/80 mb-2">
+                    Email<span className="text-red-500">*</span>
                   </label>
                   <input
+                    id="contact-email"
+                    type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={onChange}
+                    required
+                    aria-label="Your email address"
+                    className="w-full px-3 py-2 rounded-lg bg-white/10 text-white border border-white/20 focus:outline-none focus:border-stockstrail-green-light"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="contact-phone" className="block text-white/80 mb-2">
+                    Phone<span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="contact-phone"
                     type="tel"
                     name="phone"
                     value={form.phone}
@@ -428,19 +451,7 @@ export default function LetsTalk() {
                     required
                     inputMode="numeric"
                     maxLength={10}
-                    className="w-full px-3 py-2 rounded-lg bg-white/10 text-white border border-white/20 focus:outline-none focus:border-stockstrail-green-light"
-                  />
-                </div>
-                <div>
-                  <label className="block text-white/80 mb-2">
-                    Email<span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={onChange}
-                    required
+                    aria-label="Your 10-digit phone number"
                     className="w-full px-3 py-2 rounded-lg bg-white/10 text-white border border-white/20 focus:outline-none focus:border-stockstrail-green-light"
                   />
                 </div>

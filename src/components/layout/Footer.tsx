@@ -95,14 +95,14 @@ const Footer = () => {
                 Financial advice Monday to Friday, 8 a.m. to 6 p.m.
               </p>
               <div className="flex flex-col gap-2">
-                <a href="tel:+919736304663" className="text-white font-montserrat text-base hover:text-stockstrail-green-light transition-colors duration-300 underline">
+                <a href="tel:+919736304663" aria-label="Call Stockstrail at +91 97363-04663" className="text-white font-montserrat text-base hover:text-stockstrail-green-light transition-colors duration-300 underline">
                   +91 97363-04663
                 </a>
-                <a href="mailto:connect@stockstrail.in" className="text-white font-montserrat text-base hover:text-stockstrail-green-light transition-colors duration-300 underline">
+                <a href="mailto:connect@stockstrail.in" aria-label="Email Stockstrail at connect@stockstrail.in" className="text-white font-montserrat text-base hover:text-stockstrail-green-light transition-colors duration-300 underline">
                   connect@stockstrail.in
                 </a>
               </div>
-              <Link href="/lets-talk" className="flex items-center gap-4 cursor-pointer group hover:text-stockstrail-green-light transition-colors duration-300">
+              <Link href="/lets-talk" aria-label="Get in touch with Stockstrail advisors" className="flex items-center gap-4 cursor-pointer group hover:text-stockstrail-green-light transition-colors duration-300">
                 <span className="text-white font-montserrat text-base group-hover:text-stockstrail-green-light transition-colors duration-300">
                   Get in touch with us
                 </span>
@@ -114,19 +114,19 @@ const Footer = () => {
           {/* Important Link */}
           <FooterSection title="Important Link">
             <div className="space-y-4">
-              <Link href="/services" className="block text-white font-work-sans text-base hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300">
+              <Link href="/services" aria-label="View all financial services" className="block text-white font-work-sans text-base hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300">
                 Services
               </Link>
-              <Link href="/about" className="block text-white font-work-sans text-base hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300">
+              <Link href="/about" aria-label="Learn about Stockstrail" className="block text-white font-work-sans text-base hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300">
                 About Us
               </Link>
-              <Link href="/blog" className="block text-white font-work-sans text-base hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300">
+              <Link href="/blog" aria-label="Read Stockstrail financial blog" className="block text-white font-work-sans text-base hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300">
                 Blog
               </Link>
-              <Link href="/calculators" className="block text-white font-work-sans text-base hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300">
+              <Link href="/calculators" aria-label="Use financial calculators" className="block text-white font-work-sans text-base hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300">
                 Calculators
               </Link>
-              <Link href="/commission-disclosure" className="block text-white font-work-sans text-base hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300">
+              <Link href="/commission-disclosure" aria-label="View commission disclosure details" className="block text-white font-work-sans text-base hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300">
                 Commission Disclosure
               </Link>
             </div>
@@ -135,7 +135,7 @@ const Footer = () => {
           {/* Download */}
           <FooterSection title="Download">
             <div className="space-y-4">
-              <a href="/CoC/revisedcoc.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 cursor-pointer group hover:text-stockstrail-green-light transition-colors duration-300">
+              <a href="/CoC/revisedcoc.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download Code of Conduct PDF document" className="flex items-center gap-4 cursor-pointer group hover:text-stockstrail-green-light transition-colors duration-300">
                 <span className="text-white font-montserrat text-base group-hover:text-stockstrail-green-light transition-colors duration-300">
                   Code of Conduct
                 </span>
@@ -147,7 +147,7 @@ const Footer = () => {
           {/* Holidays Calendar */}
           <FooterSection title="Holidays Calendar">
             <div className="space-y-4">
-              <Link href="/nse-holidays" className="block text-white hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300 group cursor-pointer">
+              <Link href="/nse-holidays" aria-label="View NSE Holiday List 2026" className="block text-white hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300 group cursor-pointer">
                 <div className="flex items-center justify-between gap-4 p-3 rounded-md hover:bg-white/5 transition-colors duration-200">
                   <div>
                     <div className="text-white font-montserrat text-base group-hover:text-stockstrail-green-light">
@@ -161,7 +161,7 @@ const Footer = () => {
                 </div>
               </Link>
 
-              <Link href="/bse-holidays" className="block text-white hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300 group cursor-pointer">
+              <Link href="/bse-holidays" aria-label="View BSE Holiday List 2026" className="block text-white hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300 group cursor-pointer">
                 <div className="flex items-center justify-between gap-4 p-3 rounded-md hover:bg-white/5 transition-colors duration-200">
                   <div>
                     <div className="text-white font-montserrat text-base group-hover:text-stockstrail-green-light">
@@ -183,16 +183,16 @@ const Footer = () => {
 
         {/* Social Media Links */}
         <div className="flex justify-center gap-8 mb-12 mt-20">
-          <a href="https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
+          <a href="https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/" target="_blank" rel="noopener noreferrer" aria-label="Visit Stockstrail on Facebook" className="text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
             <Facebook className="w-6 h-6" />
           </a>
-          <a href="https://www.linkedin.com/company/stockstrail/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
+          <a href="https://www.linkedin.com/company/stockstrail/" target="_blank" rel="noopener noreferrer" aria-label="Visit Stockstrail on LinkedIn" className="text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
             <Linkedin className="w-6 h-6" />
           </a>
-          <a href="https://www.instagram.com/stockstrail/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
+          <a href="https://www.instagram.com/stockstrail/" target="_blank" rel="noopener noreferrer" aria-label="Visit Stockstrail on Instagram" className="text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
             <Instagram className="w-6 h-6" />
           </a>
-          <a href="https://t.me/stockstrail" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="group text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
+          <a href="https://t.me/stockstrail" target="_blank" rel="noopener noreferrer" aria-label="Join Stockstrail on Telegram" className="group text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
             <Send className="w-6 h-6" />
           </a>
         </div>

@@ -502,7 +502,12 @@ const TestimonialsSectionComponent = () => {
                                     <p className="text-white/70 text-sm">Your feedback has been received and added to our review wall.</p>
                                 </div>
                             ) : (
-                                <form onSubmit={handleFormSubmit} className="space-y-4">
+                                <form
+                                    onSubmit={handleFormSubmit}
+                                    className="space-y-4"
+                                    data-toolname="submit_review"
+                                    data-tooldescription="Submit a verified client review or feedback for Stockstrail"
+                                >
                                     {formError && (
                                         <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-xs">
                                             {formError}
@@ -510,12 +515,14 @@ const TestimonialsSectionComponent = () => {
                                     )}
 
                                     <div>
-                                        <label className="block text-white/80 text-xs font-medium mb-1">Your Full Name *</label>
+                                        <label htmlFor="review-name" className="block text-white/80 text-xs font-medium mb-1">Your Full Name *</label>
                                         <input
+                                            id="review-name"
                                             type="text"
                                             value={form.name}
                                             onChange={(e) => setForm({ ...form, name: e.target.value })}
                                             placeholder="e.g. Rahul Sharma"
+                                            aria-label="Your full name"
                                             className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/15 text-white text-sm focus:outline-none focus:border-stockstrail-green-light transition-colors"
                                             required
                                         />
@@ -523,23 +530,27 @@ const TestimonialsSectionComponent = () => {
 
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
-                                            <label className="block text-white/80 text-xs font-medium mb-1">Profession / Role *</label>
+                                            <label htmlFor="review-position" className="block text-white/80 text-xs font-medium mb-1">Profession / Role *</label>
                                             <input
+                                                id="review-position"
                                                 type="text"
                                                 value={form.position}
                                                 onChange={(e) => setForm({ ...form, position: e.target.value })}
                                                 placeholder="e.g. IT Professional"
+                                                aria-label="Your profession or role"
                                                 className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/15 text-white text-sm focus:outline-none focus:border-stockstrail-green-light transition-colors"
                                                 required
                                             />
                                         </div>
                                         <div>
-                                            <label className="block text-white/80 text-xs font-medium mb-1">City / Location</label>
+                                            <label htmlFor="review-location" className="block text-white/80 text-xs font-medium mb-1">City / Location</label>
                                             <input
+                                                id="review-location"
                                                 type="text"
-                                                value={form.company}
+                                                value={form.company || ''}
                                                 onChange={(e) => setForm({ ...form, company: e.target.value })}
-                                                placeholder="e.g. Shimla / Delhi"
+                                                placeholder="e.g. Chandigarh / Shimla"
+                                                aria-label="Your city or location"
                                                 className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/15 text-white text-sm focus:outline-none focus:border-stockstrail-green-light transition-colors"
                                             />
                                         </div>
