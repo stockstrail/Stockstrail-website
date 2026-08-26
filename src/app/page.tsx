@@ -1,10 +1,14 @@
 import React, { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import Layout from '@/components/layout/Layout';
-import HeroSection from '@/components/home/HeroSection'; // Static import for LCP optimization
+import HeroSection from '@/components/home/HeroSection';
 import BelowFoldSections from '@/components/home/BelowFoldSections';
-import { WelcomeModal } from '@/components/home/WelcomeModal';
 import { AuthCallbackHandler } from '@/components/home/AuthCallbackHandler';
 import type { Metadata } from 'next';
+
+const WelcomeModal = dynamic(
+  () => import('@/components/home/WelcomeModal').then((mod) => mod.WelcomeModal)
+);
 
 export const metadata: Metadata = {
   title: 'Personalized Financial Planning & Investment Guidance | Stockstrail',

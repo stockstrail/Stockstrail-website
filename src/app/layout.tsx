@@ -3,7 +3,6 @@ import "./globals.css";
 import { Inter, Work_Sans, Montserrat } from "next/font/google";
 import Script from "next/script";
 import JsonLd from '@/components/common/JsonLd';
-
 import FloatingWhatsAppButton from "@/components/common/FloatingWhatsAppButton";
 const inter = Inter({
   subsets: ["latin"],

@@ -1,7 +1,3 @@
-// Force white filter 8b71a5f9
-// Cache bust d4dcd73f
-'use client';
-
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';

@@ -164,12 +164,12 @@ const Header = () => {
       href: '/calculators',
       hasDropdown: true,
       dropdownItems: [
-        { name: 'SIP Calculator', href: '/calculators?tab=SIP' },
-        { name: 'Lumpsum Calculator', href: '/calculators?tab=LUMPSUM' },
-        { name: 'FD Calculator', href: '/calculators?tab=FD' },
-        { name: 'RD Calculator', href: '/calculators?tab=RD' },
-        { name: 'EMI Calculator', href: '/calculators?tab=EMI' },
-        { name: 'Tax Calculator', href: '/calculators?tab=TAX' },
+        { name: 'SIP Calculator', href: '/calculators/sip' },
+        { name: 'Lumpsum Calculator', href: '/calculators/lumpsum' },
+        { name: 'FD Calculator', href: '/calculators/fd' },
+        { name: 'RD Calculator', href: '/calculators/rd' },
+        { name: 'EMI Calculator', href: '/calculators/emi' },
+        { name: 'Tax Calculator', href: '/calculators/tax' },
       ],
     },
   ];
