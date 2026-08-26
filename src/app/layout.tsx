@@ -197,15 +197,19 @@ export default function RootLayout({
               window.addEventListener('keydown', load, opts);
               window.addEventListener('scroll', load, opts);
               window.addEventListener('touchstart', load, opts);
-
-              // Safety fallback: load after 15s in case user never interacts.
-              setTimeout(load, 15000);
             } catch (_) {}
           })();`}
         </Script>
-        <link rel="preconnect" href="https://luwzjngwignnmpdakxkw.supabase.co" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preload Hero LCP image for 0ms Discovery Latency on Mobile */}
+        <link
+          rel="preload"
+          as="image"
+          href="/assets/hero/calculator-card.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
         {/* Google Analytics 4 (Deferred for Performance) */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-NS7B14241Y" strategy="lazyOnload" />
         <Script id="google-analytics" strategy="lazyOnload">

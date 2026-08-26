@@ -183,7 +183,7 @@ const TestimonialsSectionComponent = () => {
 
     const renderStars = (rating: number) => {
         return (
-            <div className="flex items-center gap-1" aria-label={`${rating} out of 5 stars`}>
+            <div className="flex items-center gap-1" role="img" aria-label={`${rating} out of 5 stars`}>
                 {[1, 2, 3, 4, 5].map((star) => {
                     const isFull = star <= Math.floor(rating);
                     const isHalf = !isFull && star - 0.5 <= rating;
@@ -409,9 +409,10 @@ const TestimonialsSectionComponent = () => {
                 {totalPages > 1 && (
                     <div className="flex items-center justify-center gap-3 mt-10">
                         <button
+                            type="button"
                             onClick={() => setCurrentPage(prev => Math.max(0, prev - 1))}
                             disabled={currentPage === 0}
-                            className="p-2.5 rounded-full bg-white/5 border border-white/10 text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/10 hover:border-stockstrail-green-light/40 transition-colors"
+                            className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/10 hover:border-stockstrail-green-light/40 transition-colors"
                             aria-label="Previous testimonials"
                         >
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -419,24 +420,29 @@ const TestimonialsSectionComponent = () => {
                             </svg>
                         </button>
 
-                        <div className="flex items-center gap-1.5">
+                        <div className="flex items-center gap-1">
                             {Array.from({ length: totalPages }).map((_, idx) => (
                                 <button
                                     key={idx}
+                                    type="button"
                                     onClick={() => setCurrentPage(idx)}
-                                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${idx === currentPage
-                                            ? 'w-7 bg-stockstrail-green-light'
-                                            : 'bg-white/30 hover:bg-white/60'
-                                        }`}
+                                    className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-full focus:outline-none"
                                     aria-label={`Page ${idx + 1}`}
-                                />
+                                >
+                                    <span className={`block h-2.5 rounded-full transition-all duration-300 ${
+                                        idx === currentPage
+                                            ? 'w-7 bg-stockstrail-green-light'
+                                            : 'w-2.5 bg-white/30 hover:bg-white/60'
+                                    }`} />
+                                </button>
                             ))}
                         </div>
 
                         <button
+                            type="button"
                             onClick={() => setCurrentPage(prev => Math.min(totalPages - 1, prev + 1))}
                             disabled={currentPage === totalPages - 1}
-                            className="p-2.5 rounded-full bg-white/5 border border-white/10 text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/10 hover:border-stockstrail-green-light/40 transition-colors"
+                            className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/10 hover:border-stockstrail-green-light/40 transition-colors"
                             aria-label="Next testimonials"
                         >
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -449,8 +455,9 @@ const TestimonialsSectionComponent = () => {
                 {/* Bottom Action CTAs */}
                 <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
                     <button
+                        type="button"
                         onClick={() => setShowForm(true)}
-                        className="inline-flex items-center gap-3 px-8 py-3.5 bg-white text-[#012928] rounded-full hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-work-sans font-semibold text-sm sm:text-base group"
+                        className="inline-flex items-center gap-3 px-8 py-3.5 min-h-[48px] bg-white text-[#012928] rounded-full hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-work-sans font-semibold text-sm sm:text-base group"
                     >
                         <svg className="w-4 h-4 text-emerald-700 group-hover:scale-125 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -460,7 +467,7 @@ const TestimonialsSectionComponent = () => {
 
                     <Link
                         href="/lets-talk"
-                        className="inline-flex items-center gap-3 px-8 py-3.5 bg-transparent border-2 border-white/30 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:-translate-y-1 transition-all duration-300 font-work-sans font-semibold text-sm sm:text-base group"
+                        className="inline-flex items-center gap-3 px-8 py-3.5 min-h-[48px] bg-transparent border-2 border-white/30 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:-translate-y-1 transition-all duration-300 font-work-sans font-semibold text-sm sm:text-base group"
                     >
                         <div className="w-2.5 h-2.5 bg-stockstrail-green-accent rounded-full group-hover:scale-125 group-hover:animate-pulse transition-all duration-300" />
                         Start Your Financial Journey
@@ -473,8 +480,9 @@ const TestimonialsSectionComponent = () => {
                         <div className="relative w-full max-w-lg bg-[#072923] border border-white/20 rounded-3xl p-6 sm:p-8 shadow-2xl">
                             {/* Close Button */}
                             <button
+                                type="button"
                                 onClick={() => setShowForm(false)}
-                                className="absolute top-4 right-4 text-white/60 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors"
+                                className="absolute top-4 right-4 text-white/60 hover:text-white p-3 min-w-[44px] min-h-[44px] rounded-full hover:bg-white/10 transition-colors flex items-center justify-center"
                                 aria-label="Close modal"
                             >
                                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -496,7 +504,7 @@ const TestimonialsSectionComponent = () => {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
                                         </svg>
                                     </div>
-                                    <h4 className="text-lg font-semibold text-white">Thank You!</h4>
+                                    <h3 className="text-lg font-semibold text-white">Thank You!</h3>
                                     <p className="text-white/70 text-sm">Your feedback has been received and added to our review wall.</p>
                                 </div>
                             ) : (

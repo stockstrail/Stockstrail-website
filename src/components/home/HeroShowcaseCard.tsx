@@ -28,18 +28,18 @@ export default function HeroShowcaseCard({ cards }: HeroShowcaseCardProps) {
   return (
     <div className="space-y-4 animate-fade-up">
       {/* Interactive Tab Switcher Bar */}
-      <div role="tablist" aria-label="Hero feature showcase tabs" className="flex items-center gap-2 p-1.5 rounded-2xl bg-[#021817]/90 border border-white/15 backdrop-blur-xl shadow-lg">
+      <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-[#021817]/90 border border-white/15 backdrop-blur-xl shadow-lg">
         {cards.map((item, idx) => (
           <button
             key={item.id}
-            role="tab"
-            aria-selected={activeCard === idx}
-            aria-label={`View ${item.title}`}
+            type="button"
+            aria-label={`Show ${item.title}`}
             onClick={() => setActiveCard(idx)}
-            className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all duration-300 ${activeCard === idx
+            className={`flex-1 flex items-center justify-center gap-2 py-3 px-3 min-h-[44px] rounded-xl text-xs font-semibold transition-all duration-300 ${
+              activeCard === idx
                 ? 'bg-stockstrail-green-light text-black shadow-[0_0_20px_rgba(0,255,151,0.35)] scale-[1.02]'
                 : 'text-white/70 hover:text-white hover:bg-white/5'
-              }`}
+            }`}
           >
             <span>{item.icon}</span>
             <span className="truncate" style={{ fontFamily: "var(--font-product-sans)" }}>
@@ -73,7 +73,8 @@ export default function HeroShowcaseCard({ cards }: HeroShowcaseCardProps) {
             alt={card.title}
             fill
             priority
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+            unoptimized
+            loading="eager"
             className="object-contain object-center group-hover:scale-[1.02] transition-transform duration-500 filter brightness-105 contrast-105"
           />
         </div>
@@ -82,19 +83,20 @@ export default function HeroShowcaseCard({ cards }: HeroShowcaseCardProps) {
         <div className="p-5 sm:p-6 relative z-20 space-y-3 bg-[#021716] border-t border-white/10">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <h3
+              <p
                 className="text-xl sm:text-2xl font-bold text-white group-hover:text-stockstrail-green-light transition-colors drop-shadow-md"
                 style={{ fontFamily: "var(--font-product-sans)" }}
               >
                 {card.title}
-              </h3>
+              </p>
               <p className="text-xs sm:text-sm text-white/75 mt-1 max-w-lg leading-relaxed font-normal">
                 {card.description}
               </p>
             </div>
             <Link
               href={card.href}
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-stockstrail-green-light text-black text-xs font-bold uppercase tracking-wider shadow-[0_0_25px_rgba(0,255,151,0.4)] hover:shadow-[0_0_35px_rgba(0,255,151,0.6)] hover:scale-105 transition-all shrink-0"
+              aria-label={`${card.cta} - ${card.title}`}
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] rounded-full bg-stockstrail-green-light text-black text-xs font-bold uppercase tracking-wider shadow-[0_0_25px_rgba(0,255,151,0.4)] hover:shadow-[0_0_35px_rgba(0,255,151,0.6)] hover:scale-105 transition-all shrink-0"
               style={{ fontFamily: "var(--font-product-sans)" }}
             >
               <span>{card.cta}</span>
