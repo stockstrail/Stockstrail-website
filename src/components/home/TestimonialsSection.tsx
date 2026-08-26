@@ -322,11 +322,10 @@ const TestimonialsSectionComponent = () => {
                         <button
                             key={tab.id}
                             onClick={() => handleCategoryChange(tab.id)}
-                            className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
-                                activeCategory === tab.id
+                            className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${activeCategory === tab.id
                                     ? 'bg-stockstrail-green-light text-black shadow-[0_0_15px_rgba(0,229,153,0.3)] font-semibold'
                                     : 'bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10'
-                            }`}
+                                }`}
                         >
                             {tab.label}
                         </button>
@@ -425,11 +424,10 @@ const TestimonialsSectionComponent = () => {
                                 <button
                                     key={idx}
                                     onClick={() => setCurrentPage(idx)}
-                                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                                        idx === currentPage
+                                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${idx === currentPage
                                             ? 'w-7 bg-stockstrail-green-light'
                                             : 'bg-white/30 hover:bg-white/60'
-                                    }`}
+                                        }`}
                                     aria-label={`Page ${idx + 1}`}
                                 />
                             ))}

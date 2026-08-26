@@ -31,7 +31,7 @@ export function WelcomeModal() {
   const checkAuthAndShowModal = async () => {
     try {
       const user = await getCurrentUser();
-      
+
       // Only show modal if user is not authenticated
       if (!user) {
         // Check if modal was already shown (using sessionStorage)
@@ -46,7 +46,7 @@ export function WelcomeModal() {
       // Only show modal if no code is in URL (meaning not in OAuth flow)
       const urlParams = new URLSearchParams(window.location.search);
       const hasCode = urlParams.has("code");
-      
+
       if (!hasCode) {
         const hasSeenModal = sessionStorage.getItem("hasSeenWelcomeModal");
         if (!hasSeenModal) {
@@ -76,20 +76,20 @@ export function WelcomeModal() {
           <div className="flex items-center justify-center w-12 h-12 rounded-full bg-stockstrail-green-light/10 border border-stockstrail-green-light/30 mx-auto">
             <ArrowRight className="w-5 h-5 text-stockstrail-green-light" />
           </div>
-  
+
           {/* Title */}
           <DialogTitle className="text-center text-2xl font-product-sans text-white leading-tight">
             Discover Your{" "}
             <span className="gradient-text">Risk Tolerance</span>
           </DialogTitle>
-  
+
           {/* Subtitle */}
           <DialogDescription className="text-center text-white/70 text-sm px-2">
             Answer a few quick questions to understand how much investment risk
             fits you best.
           </DialogDescription>
         </DialogHeader>
-  
+
         {/* Value Points */}
         <div className="mt-6 space-y-3 text-sm text-white/80">
           <div className="flex items-start gap-3">
@@ -105,7 +105,7 @@ export function WelcomeModal() {
             <p>Takes less than 3 minutes to complete</p>
           </div>
         </div>
-  
+
         {/* CTA Buttons */}
         <div className="flex flex-col gap-3 pt-6">
           <button
@@ -119,5 +119,5 @@ export function WelcomeModal() {
       </DialogContent>
     </Dialog>
   );
-  
+
 }

@@ -36,11 +36,10 @@ export default function HeroShowcaseCard({ cards }: HeroShowcaseCardProps) {
             aria-selected={activeCard === idx}
             aria-label={`View ${item.title}`}
             onClick={() => setActiveCard(idx)}
-            className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all duration-300 ${
-              activeCard === idx
+            className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all duration-300 ${activeCard === idx
                 ? 'bg-stockstrail-green-light text-black shadow-[0_0_20px_rgba(0,255,151,0.35)] scale-[1.02]'
                 : 'text-white/70 hover:text-white hover:bg-white/5'
-            }`}
+              }`}
           >
             <span>{item.icon}</span>
             <span className="truncate" style={{ fontFamily: "var(--font-product-sans)" }}>

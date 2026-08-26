@@ -200,9 +200,8 @@ const Header = () => {
                       <Link href={item.href} className="flex items-center gap-2 text-white hover:text-stockstrail-green-light transition-all duration-300 font-work-sans font-medium">
                         {item.name}
                         <IconChevronDown
-                          className={`w-4 h-4 transition-transform duration-300 ${
-                            openDropdown === item.name ? 'rotate-180' : ''
-                          }`}
+                          className={`w-4 h-4 transition-transform duration-300 ${openDropdown === item.name ? 'rotate-180' : ''
+                            }`}
                         />
                       </Link>
 
@@ -284,9 +283,8 @@ const Header = () => {
                           aria-label={`Toggle ${item.name} submenu`}
                         >
                           <IconChevronDown
-                            className={`w-4 h-4 transition-transform ${
-                              openMobileDropdown === item.name ? 'rotate-180' : ''
-                            }`}
+                            className={`w-4 h-4 transition-transform ${openMobileDropdown === item.name ? 'rotate-180' : ''
+                              }`}
                           />
                         </button>
                       </div>
