@@ -1,29 +1,27 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  poweredByHeader: false,
   typescript: {
-    ignoreBuildErrors: false, // Enforce type checking
+    ignoreBuildErrors: false,
   },
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**', // Allow all external images
+        hostname: '**',
       },
       {
         protocol: 'http',
         hostname: '**',
       },
     ],
-    // Optimize image sizes for mobile-first approach
-    deviceSizes: [320, 420, 640, 768, 1024, 1280, 1536],
-    imageSizes: [16, 32, 48, 64, 96, 128, 160, 256],
-    // Use modern formats
-    formats: ['image/webp', 'image/avif'],
-    // Quality presets
-    qualities: [60, 75],
+    deviceSizes: [360, 640, 768, 1024, 1280, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ['image/avif', 'image/webp'],
+    qualities: [65, 75, 80],
+    minimumCacheTTL: 31536000,
   },
-  // Enable experimental features and optimize for modern browsers
   experimental: {
     optimizePackageImports: [
       "@radix-ui/react-accordion",
@@ -44,18 +42,14 @@ const nextConfig: NextConfig = {
       "clsx",
       "tailwind-merge",
     ],
-    optimizeCss: true, // Inlines critical CSS to fix render blocking
-    inlineCss: true, // Inline critical CSS directly into HTML
+    optimizeCss: true,
+    inlineCss: true,
   },
-  // Optimize compression
   compress: true,
-  // Compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Use modern JavaScript output to eliminate polyfills
   transpilePackages: [],
-  // Cache headers for static assets
   async headers() {
     return [
       {

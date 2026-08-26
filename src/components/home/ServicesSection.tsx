@@ -64,10 +64,11 @@ const ServicesSection = () => {
             {/* DEDICATED SECTION 3D BACKGROUND */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
                 <Image
-                    src="/assets/sections/about-bg.jpg"
-                    alt="Services Section Executive Architecture"
+                    src="/assets/sections/services-bg.webp"
+                    alt="Services Section Architecture"
                     fill
-                    unoptimized
+                    loading="lazy"
+                    sizes="100vw"
                     className="object-cover object-center opacity-35 scale-105 filter brightness-105 contrast-115"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/80 via-[#011d1c]/50 to-[#011d1c]/85" />
@@ -111,7 +112,6 @@ const ServicesSection = () => {
                                 <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/[0.06] border border-white/15 rounded-2xl flex items-center justify-center mb-4 sm:mb-0 sm:mr-8 shrink-0 group-hover:scale-110 group-hover:bg-stockstrail-green-light/20 group-hover:border-stockstrail-green-light/50 transition-all duration-300 shadow-md">
                                     {service.isImage ? (
                                         <Image
-                                            unoptimized={true}
                                             src={service.icon}
                                             alt={service.title}
                                             className="w-10 h-10 sm:w-14 sm:h-14 object-contain group-hover:scale-110 transition-transform duration-300"

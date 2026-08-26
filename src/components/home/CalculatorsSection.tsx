@@ -12,7 +12,7 @@ const CalculatorsSection = () => {
             description:
                 'Estimate how your monthly SIP could grow over time based on your investment amount, expected return and time period.',
             icon: '/services/mf.webp',
-            href: '/calculators?tab=SIP',
+            href: '/calculators/sip',
         },
         {
             title: 'Lumpsum Calculator',
@@ -20,7 +20,7 @@ const CalculatorsSection = () => {
             description:
                 'See how a one-time investment could grow over time based on your investment amount, expected return and investment period.',
             icon: '/services/mf.webp',
-            href: '/calculators?tab=LUMPSUM',
+            href: '/calculators/lumpsum',
         },
         {
             title: 'FD Calculator',
@@ -28,7 +28,7 @@ const CalculatorsSection = () => {
             description:
                 'Calculate the interest and maturity amount for your Fixed Deposit based on the deposit amount, interest rate and tenure.',
             icon: '/services/fd.webp',
-            href: '/calculators?tab=FD',
+            href: '/calculators/fd',
         },
         {
             title: 'RD Calculator',
@@ -36,7 +36,7 @@ const CalculatorsSection = () => {
             description:
                 'Estimate the maturity amount of your Recurring Deposit based on your monthly deposit, interest rate and tenure.',
             icon: '/services/fd.webp',
-            href: '/calculators?tab=RD',
+            href: '/calculators/rd',
         },
         {
             title: 'EMI Calculator',
@@ -44,7 +44,7 @@ const CalculatorsSection = () => {
             description:
                 'Calculate your monthly loan EMI and see how much you may pay in interest over the repayment period.',
             icon: '/services/loan.webp',
-            href: '/calculators?tab=EMI',
+            href: '/calculators/emi',
         },
         {
             title: 'Tax Calculator',
@@ -52,7 +52,7 @@ const CalculatorsSection = () => {
             description:
                 'Plan your investments smartly to optimize tax liability under Old and New tax regimes.',
             icon: '/services/others.webp',
-            href: '/calculators?tab=TAX',
+            href: '/calculators/tax',
         },
     ];
 
@@ -61,10 +61,11 @@ const CalculatorsSection = () => {
             {/* DEDICATED SECTION 3D BACKGROUND */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
                 <Image
-                    src="/assets/sections/about-bg.jpg"
-                    alt="Calculators Section Executive Architecture"
+                    src="/assets/sections/calculators-bg.webp"
+                    alt="Calculators Section Architecture"
                     fill
-                    unoptimized
+                    loading="lazy"
+                    sizes="100vw"
                     className="object-cover object-center opacity-35 scale-105 filter brightness-105 contrast-115"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/80 via-[#011d1c]/50 to-[#011d1c]/85" />

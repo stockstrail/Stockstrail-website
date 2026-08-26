@@ -112,22 +112,6 @@ const StockstrailLogo = () => (
   </div>
 );
 
-// const StockstrailLogo = () => (
-//   <div className="flex items-center">
-//     {/* Using native img to avoid Next.js Image hydration mismatches */}
-//     {/* eslint-disable-next-line @next/next/no-img-element */}
-//     <img
-//       src="/Stockstrailchristmas.webp"
-//       alt="Stockstrail Christmas Logo"
-//       width={280}
-//       height={84}
-//       className="w-[140px] sm:w-[280px] h-auto object-contain"
-//       loading="eager"
-//       decoding="async"
-//     />
-//   </div>
-// );
-
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);

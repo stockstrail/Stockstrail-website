@@ -10,10 +10,11 @@ const AboutSection = () => {
             {/* DEDICATED SECTION 3D BACKGROUND */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
                 <Image
-                    src="/assets/sections/about-bg.jpg"
+                    src="/assets/sections/about-bg.webp"
                     alt="About Section Architectural Backdrop"
                     fill
-                    unoptimized
+                    loading="lazy"
+                    sizes="100vw"
                     className="object-cover object-center opacity-50 scale-105 filter brightness-110 contrast-125"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/70 via-[#011d1c]/40 to-[#011d1c]/80" />

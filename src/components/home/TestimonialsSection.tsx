@@ -257,10 +257,11 @@ const TestimonialsSectionComponent = () => {
             {/* DEDICATED SECTION 3D BACKGROUND */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
                 <Image
-                    src="/assets/sections/about-bg.jpg"
-                    alt="Testimonials Section Executive Architecture"
+                    src="/assets/sections/testimonials-bg.webp"
+                    alt="Testimonials Section Architecture"
                     fill
-                    unoptimized
+                    loading="lazy"
+                    sizes="100vw"
                     className="object-cover object-center opacity-35 scale-105 filter brightness-105 contrast-115"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/80 via-[#011d1c]/50 to-[#011d1c]/85" />

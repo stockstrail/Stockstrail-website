@@ -43,10 +43,11 @@ const WhyChooseSectionComponent = () => {
             {/* DEDICATED SECTION 3D BACKGROUND */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
                 <Image
-                    src="/assets/sections/about-bg.jpg"
-                    alt="Why Choose Stockstrail Executive Architecture"
+                    src="/assets/sections/whychoose-bg.webp"
+                    alt="Why Choose Stockstrail Architecture"
                     fill
-                    unoptimized
+                    loading="lazy"
+                    sizes="100vw"
                     className="object-cover object-center opacity-35 scale-105 filter brightness-105 contrast-115"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/80 via-[#011d1c]/50 to-[#011d1c]/85" />
@@ -87,12 +88,13 @@ const WhyChooseSectionComponent = () => {
 
                             <div className="w-16 h-16 bg-white/[0.06] border border-white/15 rounded-2xl flex items-center justify-center mb-5 shrink-0 group-hover:scale-110 group-hover:bg-stockstrail-green-light/20 group-hover:border-stockstrail-green-light/50 transition-all duration-300 shadow-md">
                                 <Image
-                                    unoptimized={true}
                                     className="w-9 h-9 transition-all duration-300 group-hover:scale-110"
                                     alt={feature.title}
                                     src={feature.icon}
                                     width={36}
                                     height={36}
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
 

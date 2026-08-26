@@ -16,7 +16,7 @@ const HeroSection = () => {
       description: "Compounding growth visualizers, SIP vs FD return comparisons, and loan calculators with live projection charts.",
       highlight: "₹10K/mo → ₹23.2L Growth",
       href: "/calculators",
-      image: "/assets/hero/calculator-card.jpg",
+      image: "/assets/hero/calculator-card.webp",
       icon: "🧮",
       cta: "Launch Calculators",
     },
@@ -28,7 +28,7 @@ const HeroSection = () => {
       description: "Direct advisory discussion with Vikrant Bhardwaj. 100% unbiased, goal-aligned financial roadmaps tailored to you.",
       highlight: "● Advisors Available Online",
       href: "/lets-talk",
-      image: "/assets/hero/letstalk-card.jpg",
+      image: "/assets/hero/letstalk-card.webp",
       icon: "📞",
       cta: "Book Free Session",
     },
@@ -40,7 +40,7 @@ const HeroSection = () => {
       description: "Mutual Funds, Fixed Deposits, Life & Health Insurance, Loans Against Mutual Funds, and Demat accounts.",
       highlight: "Zero Hidden Fees · Goal-First",
       href: "/services",
-      image: "/assets/hero/services-card.jpg",
+      image: "/assets/hero/services-card.webp",
       icon: "💼",
       cta: "Explore All 5 Services",
     },
@@ -52,10 +52,11 @@ const HeroSection = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10" aria-hidden="true">
         <div className="absolute inset-0 opacity-25 mix-blend-screen scale-105">
           <Image
-            src="/assets/hero/aurora-bg.jpg"
+            src="/assets/hero/aurora-bg.webp"
             alt="Fintech Aurora Glow"
             fill
             priority
+            sizes="100vw"
             className="object-cover object-center filter saturate-150 brightness-110"
           />
         </div>
@@ -241,6 +242,7 @@ const HeroSection = () => {
                   alt={cards[activeCard].title}
                   fill
                   priority
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                   className="object-contain object-center group-hover:scale-[1.02] transition-transform duration-500 filter brightness-105 contrast-105"
                 />
               </div>
