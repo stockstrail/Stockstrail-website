@@ -56,18 +56,20 @@ const ServicesSection = () => {
     };
 
     return (
-        <section id="services" className="py-16 sm:py-24 relative overflow-hidden isolate">
-            {/* DEDICATED SECTION 3D BACKGROUND */}
+        <section id="services" className="py-16 sm:py-24 relative overflow-hidden isolate defer-render">
+            {/* PURE HIGH-PERFORMANCE CSS BACKDROP (0KB HTTP Overheads) */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-                <Image
-                    src="/assets/sections/services-bg.webp"
-                    alt="Services Section Architecture"
-                    fill
-                    loading="lazy"
-                    sizes="100vw"
-                    className="object-cover object-center opacity-35 scale-105 filter brightness-105 contrast-115"
+                <div className="absolute inset-0 bg-[#011d1c]" />
+                <div
+                    className="absolute inset-0 opacity-40 mix-blend-screen"
+                    style={{
+                        background: `
+                            radial-gradient(ellipse 60% 50% at 80% 20%, rgba(0, 255, 151, 0.15), transparent 70%),
+                            radial-gradient(ellipse 50% 60% at 20% 80%, rgba(20, 184, 166, 0.15), transparent 70%)
+                        `,
+                    }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/80 via-[#011d1c]/50 to-[#011d1c]/85" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/90 via-[#011d1c]/50 to-[#011d1c]/90" />
                 <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-emerald-500/15 rounded-full blur-[150px]" />
             </div>
 

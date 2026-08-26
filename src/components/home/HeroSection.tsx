@@ -67,7 +67,7 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
           {/* LEFT COLUMN: CRISP 3D TYPOGRAPHY (5 cols) */}
-          <div className="lg:col-span-5 space-y-6 text-left animate-fade-up">
+          <div className="lg:col-span-5 space-y-6 text-left">
 
             {/* Top Pill Badge */}
             <div className="inline-flex items-center gap-2.5 rounded-full border border-stockstrail-green-light/30 bg-stockstrail-green-light/10 px-4 py-1.5 text-xs font-semibold text-stockstrail-green-light tracking-wider uppercase backdrop-blur-md shadow-[0_0_20px_rgba(0,255,151,0.15)]">

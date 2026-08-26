@@ -200,8 +200,6 @@ export default function RootLayout({
             } catch (_) {}
           })();`}
         </Script>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Preload Hero LCP image for 0ms Discovery Latency on Mobile */}
         <link
           rel="preload"

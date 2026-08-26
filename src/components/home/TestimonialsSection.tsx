@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Review } from '@/lib/supabase';
 import { addReview, getRandomReviews } from '@/lib/database/reviews';
 
@@ -29,9 +28,90 @@ const getInitials = (name: string) => {
     return name.slice(0, 2).toUpperCase();
 };
 
+const DEFAULT_TESTIMONIALS: TestimonialItem[] = [
+    {
+        id: 1,
+        name: "Rajesh Sharma",
+        position: "Senior IT Manager",
+        company: "Tech Solutions",
+        location: "Chandigarh",
+        tag: "Mutual Fund SIP",
+        category: "mutual-funds",
+        comment: "Stockstrail took the time to understand my risk appetite and family goals before suggesting any scheme. Their goal-based SIP strategy gave me complete clarity on retirement and child education planning. Honest advice with zero hidden fees.",
+        rating: 5,
+        initials: "RS",
+        created_at: "2024-02-15",
+    },
+    {
+        id: 2,
+        name: "Priya Mahajan",
+        position: "Government Officer",
+        company: "Public Administration",
+        location: "Shimla, HP",
+        tag: "Tax Planning & FDs",
+        category: "fixed-deposit",
+        comment: "Finding a trustworthy AMFI-registered distributor in Himachal who explains things transparently is rare. Vikrant helped me streamline my existing FDs and start disciplined SIPs. The regular review support is exceptional.",
+        rating: 5,
+        initials: "PM",
+        created_at: "2024-01-28",
+    },
+    {
+        id: 3,
+        name: "Ankit Verma",
+        position: "Business Owner",
+        company: "Manufacturing",
+        location: "Delhi NCR",
+        tag: "Loan Against Mutual Funds",
+        category: "insurance-loans",
+        comment: "When I needed urgent business liquidity, Stockstrail arranged a Loan Against Mutual Funds within 24 hours at a very low interest rate without having to sell my investments. Saved me from capital gains tax and exit loads!",
+        rating: 5,
+        initials: "AV",
+        created_at: "2024-03-10",
+    },
+    {
+        id: 4,
+        name: "Dr. Sunita Negi",
+        position: "Healthcare Professional",
+        company: "Medical Institute",
+        location: "Kangra, HP",
+        tag: "Health & Term Insurance",
+        category: "insurance-loans",
+        comment: "Insurance terms can be overwhelming with hidden clauses. Stockstrail patiently compared multiple insurers, explained room rent limits and restore benefits, and helped me pick the right high-cover policy for my family.",
+        rating: 5,
+        initials: "SN",
+        created_at: "2024-02-04",
+    },
+    {
+        id: 5,
+        name: "Vikramaditya Chauhan",
+        position: "Corporate Executive",
+        company: "Multinational",
+        location: "Bangalore",
+        tag: "Portfolio Rebalancing",
+        category: "mutual-funds",
+        comment: "Even though I live in Bangalore, the digital consultation with Stockstrail was seamless. Their 11-question risk profiling and disciplined asset allocation approach turned my cluttered portfolio into a structured plan.",
+        rating: 5,
+        initials: "VC",
+        created_at: "2024-01-12",
+    },
+    {
+        id: 6,
+        name: "Meenakshi Sood",
+        position: "Educator & Investor",
+        company: "Education Dept",
+        location: "Solan, HP",
+        tag: "Senior Citizen FDs",
+        category: "fixed-deposit",
+        comment: "Transparent communication with zero pressure. They helped my parents invest in high-rated fixed deposits with monthly interest payouts that arrive like clockwork. Extremely dependable.",
+        rating: 5,
+        initials: "MS",
+        created_at: "2024-03-01",
+    },
+];
+
 const TestimonialsSectionComponent = () => {
-    const [testimonials, setTestimonials] = useState<TestimonialItem[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [testimonials, setTestimonials] = useState<TestimonialItem[]>(DEFAULT_TESTIMONIALS);
+    const [loading, setLoading] = useState(false);
     const [activeCategory, setActiveCategory] = useState<string>('all');
     const [currentPage, setCurrentPage] = useState(0);
     const [showForm, setShowForm] = useState(false);
@@ -46,97 +126,14 @@ const TestimonialsSectionComponent = () => {
         rating: 5,
     });
 
-    const defaultTestimonials: TestimonialItem[] = useMemo(() => [
-        {
-            id: 1,
-            name: "Rajesh Sharma",
-            position: "Senior IT Manager",
-            company: "Tech Solutions",
-            location: "Chandigarh",
-            tag: "Mutual Fund SIP",
-            category: "mutual-funds",
-            comment: "Stockstrail took the time to understand my risk appetite and family goals before suggesting any scheme. Their goal-based SIP strategy gave me complete clarity on retirement and child education planning. Honest advice with zero hidden fees.",
-            rating: 5,
-            initials: "RS",
-            created_at: "2024-02-15",
-        },
-        {
-            id: 2,
-            name: "Priya Mahajan",
-            position: "Government Officer",
-            company: "Public Administration",
-            location: "Shimla, HP",
-            tag: "Tax Planning & FDs",
-            category: "fixed-deposit",
-            comment: "Finding a trustworthy AMFI-registered distributor in Himachal who explains things transparently is rare. Vikrant helped me streamline my existing FDs and start disciplined SIPs. The regular review support is exceptional.",
-            rating: 5,
-            initials: "PM",
-            created_at: "2024-01-28",
-        },
-        {
-            id: 3,
-            name: "Ankit Verma",
-            position: "Business Owner",
-            company: "Manufacturing",
-            location: "Delhi NCR",
-            tag: "Loan Against Mutual Funds",
-            category: "insurance-loans",
-            comment: "When I needed urgent business liquidity, Stockstrail arranged a Loan Against Mutual Funds within 24 hours at a very low interest rate without having to sell my investments. Saved me from capital gains tax and exit loads!",
-            rating: 5,
-            initials: "AV",
-            created_at: "2024-03-10",
-        },
-        {
-            id: 4,
-            name: "Dr. Sunita Negi",
-            position: "Healthcare Professional",
-            company: "Medical Institute",
-            location: "Kangra, HP",
-            tag: "Health & Term Insurance",
-            category: "insurance-loans",
-            comment: "Insurance terms can be overwhelming with hidden clauses. Stockstrail patiently compared multiple insurers, explained room rent limits and restore benefits, and helped me pick the right high-cover policy for my family.",
-            rating: 5,
-            initials: "SN",
-            created_at: "2024-02-04",
-        },
-        {
-            id: 5,
-            name: "Vikramaditya Chauhan",
-            position: "Corporate Executive",
-            company: "Multinational",
-            location: "Bangalore",
-            tag: "Portfolio Rebalancing",
-            category: "mutual-funds",
-            comment: "Even though I live in Bangalore, the digital consultation with Stockstrail was seamless. Their 11-question risk profiling and disciplined asset allocation approach turned my cluttered portfolio into a structured plan.",
-            rating: 5,
-            initials: "VC",
-            created_at: "2024-01-12",
-        },
-        {
-            id: 6,
-            name: "Meenakshi Sood",
-            position: "Educator & Investor",
-            company: "Education Dept",
-            location: "Solan, HP",
-            tag: "Senior Citizen FDs",
-            category: "fixed-deposit",
-            comment: "Transparent communication with zero pressure. They helped my parents invest in high-rated fixed deposits with monthly interest payouts that arrive like clockwork. Extremely dependable.",
-            rating: 5,
-            initials: "MS",
-            created_at: "2024-03-01",
-        },
-    ], []);
-
     useEffect(() => {
-        const loadReviews = async () => {
+        // Defer database review enrichment until after main thread is completely idle
+        const timer = setTimeout(async () => {
             try {
-                setLoading(true);
                 const { data, error } = await getRandomReviews(8);
-                if (error || !data || data.length === 0) {
-                    setTestimonials(defaultTestimonials);
-                } else {
+                if (data && data.length > 0 && !error) {
                     const formatted: TestimonialItem[] = data.map((item: Review, idx: number) => {
-                        const def = defaultTestimonials[idx % defaultTestimonials.length];
+                        const def = DEFAULT_TESTIMONIALS[idx % DEFAULT_TESTIMONIALS.length];
                         return {
                             id: item.id || idx + 1,
                             name: item.name || def.name,
@@ -153,16 +150,13 @@ const TestimonialsSectionComponent = () => {
                     });
                     setTestimonials(formatted);
                 }
-            } catch (err) {
-                console.error('Error loading reviews:', err);
-                setTestimonials(defaultTestimonials);
-            } finally {
-                setLoading(false);
+            } catch {
+                // Graceful fallback to default testimonials
             }
-        };
+        }, 5000);
 
-        loadReviews();
-    }, [defaultTestimonials]);
+        return () => clearTimeout(timer);
+    }, []);
 
     const filteredReviews = useMemo(() => {
         if (activeCategory === 'all') return testimonials;
@@ -253,18 +247,20 @@ const TestimonialsSectionComponent = () => {
     };
 
     return (
-        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden isolate">
-            {/* DEDICATED SECTION 3D BACKGROUND */}
+        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden isolate defer-render">
+            {/* PURE HIGH-PERFORMANCE CSS BACKDROP (0KB HTTP Overheads) */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-                <Image
-                    src="/assets/sections/testimonials-bg.webp"
-                    alt="Testimonials Section Architecture"
-                    fill
-                    loading="lazy"
-                    sizes="100vw"
-                    className="object-cover object-center opacity-35 scale-105 filter brightness-105 contrast-115"
+                <div className="absolute inset-0 bg-[#011d1c]" />
+                <div
+                    className="absolute inset-0 opacity-40 mix-blend-screen"
+                    style={{
+                        background: `
+                            radial-gradient(ellipse 60% 50% at 20% 20%, rgba(0, 255, 151, 0.15), transparent 70%),
+                            radial-gradient(ellipse 50% 60% at 80% 80%, rgba(20, 184, 166, 0.15), transparent 70%)
+                        `,
+                    }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/80 via-[#011d1c]/50 to-[#011d1c]/85" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/90 via-[#011d1c]/50 to-[#011d1c]/90" />
                 <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-emerald-500/15 rounded-full blur-[150px]" />
             </div>
 

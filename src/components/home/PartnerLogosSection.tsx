@@ -33,7 +33,7 @@ const PartnerLogosSection = () => {
     ];
 
     return (
-        <section className="py-12 sm:py-16 relative overflow-hidden bg-[#011d1c]">
+        <section className="py-12 sm:py-16 relative overflow-hidden bg-[#011d1c] defer-render">
             <div className="relative z-10">
                 <div className="text-center mb-8 space-y-2">
                     <div className="inline-flex items-center gap-2 rounded-full border border-stockstrail-green-light/30 bg-stockstrail-green-light/10 px-4 py-1 text-xs font-semibold text-stockstrail-green-light uppercase tracking-wider backdrop-blur-md shadow-[0_0_15px_rgba(0,255,151,0.15)]">

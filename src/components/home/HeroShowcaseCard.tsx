@@ -26,7 +26,7 @@ export default function HeroShowcaseCard({ cards }: HeroShowcaseCardProps) {
   const card = cards[activeCard] || cards[0];
 
   return (
-    <div className="space-y-4 animate-fade-up">
+    <div className="space-y-4">
       {/* Interactive Tab Switcher Bar */}
       <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-[#021817]/90 border border-white/15 backdrop-blur-xl shadow-lg">
         {cards.map((item, idx) => (
@@ -73,8 +73,8 @@ export default function HeroShowcaseCard({ cards }: HeroShowcaseCardProps) {
             alt={card.title}
             fill
             priority
-            unoptimized
-            loading="eager"
+            sizes="(max-width: 640px) 92vw, (max-width: 1024px) 50vw, 550px"
+            quality={75}
             className="object-contain object-center group-hover:scale-[1.02] transition-transform duration-500 filter brightness-105 contrast-105"
           />
         </div>
