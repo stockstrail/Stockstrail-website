@@ -22,7 +22,14 @@ export const metadata: Metadata = {
     siteName: "Stockstrail",
     type: "website",
     locale: "en_IN",
-    images: ["/stockstrail.png"],
+    images: ["/og-stockstrail.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fixed Deposits (FD): Rates, Types, Tax & Withdrawal | Stockstrail",
+    description:
+      "Understand FD rates, payout options, tax-saving FDs, withdrawal rules, deposit insurance and how to compare fixed deposit options.",
+    images: ["/og-stockstrail.png"],
   },
 };
 
@@ -671,7 +678,8 @@ periodic interest income instead of waiting until maturity.
             <h3 className="text-lg font-semibold text-stockstrail-green-light mb-3">Related Financial Guides</h3>
             <div className="flex flex-wrap gap-x-5 gap-y-3">
               <Link href="/mutual-funds" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Mutual Funds</Link>
-              <Link href="/calculators" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Financial Calculators</Link>
+              <Link href="/calculators/fd" className="text-white/80 hover:text-stockstrail-green-light hover:underline">FD Calculator</Link>
+              <Link href="/calculators" className="text-white/80 hover:text-stockstrail-green-light hover:underline">All Calculators</Link>
               <Link href="/insurance" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Insurance</Link>
               <Link href="/financial-protection" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Financial Protection</Link>
               <Link href="/lets-talk" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Talk to Stockstrail</Link>

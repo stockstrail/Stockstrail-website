@@ -7,7 +7,7 @@ import ServiceGEOSection from "@/components/services/ServiceGEOSection";
 const faqs = [
   {
     question: "How do I open a Demat Account through Stockstrail?",
-    answer: "Visit stockstrail.in/open-demat and select your preferred broker partner (AngelOne, Zerodha, Alice Blue, HDFC Sky, or Groww). Complete the online KYC — PAN, Aadhaar, bank details, selfie — in under 15 minutes. Stockstrail's advisor will help you choose the right broker and guide you on your first investments after account activation."
+    answer: "Visit stockstrail.in/open-demat and select your preferred partner broker (Dhan, Angel One, Alice Blue, or Zerodha). Complete the online KYC — PAN, Aadhaar, bank details, selfie — in under 15 minutes. Stockstrail's team will guide you through account setup and help you on your investment journey."
   },
   {
     question: "What documents are required to open a Demat account?",
@@ -43,13 +43,14 @@ export const metadata: Metadata = {
     url: "https://www.stockstrail.in/open-demat",
     type: "website",
     locale: "en_IN",
-    images: ["/stockstrail.png"],
+    images: ["/og-stockstrail.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Open Demat Account - Start Stock Market Investing | Stockstrail",
     description:
       "Open a free Demat account and start investing in stocks, IPOs, and mutual funds. Zero charges, quick KYC, expert support.",
+    images: ["/og-stockstrail.png"],
   },
 };
 

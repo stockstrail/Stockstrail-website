@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Layout from "@/components/layout/Layout";
+import ServiceFAQSection from "@/components/services/ServiceFAQSection";
 
 export const metadata: Metadata = {
   title: 'Stockstrail Commission Disclosure',
@@ -70,25 +71,24 @@ export default function CommissionDisclosure() {
               </div>
             </div>
 
-            <div className="bg-white/5 p-6 md:p-8 rounded-2xl border border-white/10 mb-6">
-              <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
-              <div className="space-y-4">
-                <div className="bg-white/5 rounded-lg p-5 border border-white/10">
-                  <h3 className="font-bold text-white mb-2">How does Stockstrail earn its income?</h3>
-                  <p className="text-white/70 text-sm">Stockstrail is an AMFI-registered Mutual Funds Distributor and earns commissions solely through product distribution across Equity, Debt, Commodity, and Hybrid categories.</p>
-                </div>
-                
-                <div className="bg-white/5 rounded-lg p-5 border border-white/10">
-                  <h3 className="font-bold text-white mb-2">Are there any hidden fees?</h3>
-                  <p className="text-white/70 text-sm">No. Our income comes from disclosed commissions on distribution, not from hidden charges to clients.</p>
-                </div>
-
-                <div className="bg-white/5 rounded-lg p-5 border border-white/10">
-                  <h3 className="font-bold text-white mb-2">How can I check specific commission rates?</h3>
-                  <p className="text-white/70 text-sm">Contact us directly, and our team will share the complete commission rate breakdown for any specific product.</p>
-                </div>
-              </div>
-            </div>
+            <ServiceFAQSection
+              title="Frequently Asked Questions"
+              subtitle="Transparency and regulatory compliance in our earnings model."
+              faqs={[
+                {
+                  question: "How does Stockstrail earn its income?",
+                  answer: "Stockstrail is an AMFI-registered Mutual Funds Distributor and earns commissions solely through product distribution across Equity, Debt, Commodity, and Hybrid categories."
+                },
+                {
+                  question: "Are there any hidden fees?",
+                  answer: "No. Our income comes from disclosed commissions on distribution, not from hidden charges to clients."
+                },
+                {
+                  question: "How can I check specific commission rates?",
+                  answer: "Contact us directly at connect@stockstrail.in or via our consultation line, and our team will share the complete commission rate breakdown for any specific product."
+                }
+              ]}
+            />
 
             <div className="bg-white/5 p-6 md:p-8 rounded-2xl border border-white/10 mb-6">
               <div className="flex flex-col sm:flex-row gap-4 mb-6">

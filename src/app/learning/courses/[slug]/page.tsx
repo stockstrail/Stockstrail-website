@@ -99,6 +99,42 @@ export default async function CourseDetailPage({ params }: Props) {
     }))
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Learning Home",
+        item: "https://www.learning.stockstrail.in",
+      },
+      ...(category
+        ? [
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: category.name,
+              item: `https://www.learning.stockstrail.in/categories/${category.slug}`,
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: course.title,
+              item: `https://www.learning.stockstrail.in/courses/${slug}`,
+            },
+          ]
+        : [
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: course.title,
+              item: `https://www.learning.stockstrail.in/courses/${slug}`,
+            },
+          ]),
+    ],
+  };
+
   return (
     <>
       <script
@@ -108,6 +144,10 @@ export default async function CourseDetailPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <CoursePageClient course={course} category={category} related={related} />
     </>

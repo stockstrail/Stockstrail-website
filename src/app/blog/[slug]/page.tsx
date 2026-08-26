@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { format } from 'date-fns';
 import type { Metadata } from 'next';
 import { ChevronLeft, Send, Facebook, Linkedin, Instagram } from 'lucide-react';
@@ -46,7 +47,7 @@ const ContactCard = () => {
         <div className="flex items-center gap-5">
           <a href="https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white hover:scale-110 transition-transform duration-300"><Facebook className="w-6 h-6"/></a>
           <a href="https://www.linkedin.com/company/stockstrail/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white hover:scale-110 transition-transform duration-300"><Linkedin className="w-6 h-6"/></a>
-          <a href="http://instagram.com/stockstrail/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white hover:scale-110 transition-transform duration-300"><Instagram className="w-6 h-6"/></a>
+          <a href="https://www.instagram.com/stockstrail/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white hover:scale-110 transition-transform duration-300"><Instagram className="w-6 h-6"/></a>
           <a href="https://t.me/stockstrail" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white hover:scale-110 transition-transform duration-300"><Send className="w-6 h-6"/></a>
         </div>
       </div>
@@ -80,11 +81,17 @@ export async function generateMetadata(
   const title = post.meta_title || post.title;
   const description = post.meta_description || post.excerpt || "Stockstrail blog post";
   const authorName = "Vikrant Bhardwaj";
+  const ogImages = post.image_url
+    ? [{ url: post.image_url }]
+    : [{ url: "/og-stockstrail.png", width: 1100, height: 630, alt: title }];
 
   return {
     title: `${title} | Stockstrail`,
     description: description,
     keywords: post.meta_keywords,
+    alternates: {
+      canonical: postUrl,
+    },
     openGraph: {
       type: "article",
       title: title,
@@ -93,13 +100,13 @@ export async function generateMetadata(
       siteName: "Stockstrail",
       publishedTime: post.created_at,
       authors: [authorName],
-      images: post.image_url ? [{ url: post.image_url }] : [],
+      images: ogImages,
     },
     twitter: {
       card: "summary_large_image",
       title: title,
       description: description,
-      images: post.image_url ? [post.image_url] : [],
+      images: ogImages.map((img) => img.url),
     },
   };
 }
@@ -116,20 +123,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     .single();
 
   if (error || !post) {
-    return (
-      <Layout>
-        <div className="pt-20 pb-24 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto text-center">
-            <h1 className="text-3xl sm:text-4xl font-normal mb-6 gradient-text font-product-sans uppercase">Post Not Found</h1>
-            <p className="text-red-500 mb-10 text-lg">This blog post could not be found or has been removed.</p>
-            <Link href="/blog" className="inline-flex items-center text-stockstrail-green-light hover:text-white transition-colors duration-300 text-lg">
-              <ChevronLeft className="w-5 h-5 mr-2" />
-              Back to Blog
-            </Link>
-          </div>
-        </div>
-      </Layout>
-    );
+    notFound();
   }
 
   // Get and filter published FAQs from the inline jsonb column

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Layout from "@/components/layout/Layout";
 
 export const metadata: Metadata = {
@@ -16,6 +17,20 @@ export const metadata: Metadata = {
     siteName: 'Stockstrail',
     locale: 'en_IN',
     type: 'website',
+    images: [
+      {
+        url: '/og-stockstrail.png',
+        width: 1100,
+        height: 630,
+        alt: 'BSE Holidays 2026 Stockstrail',
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BSE Holiday List 2026 | Stockstrail",
+    description: "Complete list of official BSE trading holidays for 2026 across all segments.",
+    images: ["/og-stockstrail.png"],
   },
 };
 
@@ -26,16 +41,16 @@ export default function BseHolidays() {
         <div className="max-w-5xl mx-auto text-white font-work-sans">
           
           <h1 className="text-4xl sm:text-5xl font-normal text-center mb-8 gradient-text font-product-sans uppercase">
-            BSE Holiday List 2026 | Stockstrail - India&apos;s Smart Investment Guide
+            BSE Holiday List 2026
           </h1>
           <p className="text-white/80 mb-5 leading-relaxed">
-            <strong>BSE Holiday List 2026 on Stockstrail</strong> is your complete, authoritative reference for every trading holiday observed by the Bombay Stock Exchange (BSE) this year. Whether you are tracking <strong>Mutual Funds</strong>, managing a <strong>Demat Account</strong>, checking <strong>Fixed Deposits (FD)</strong>, reviewing your <strong>Risk Profile</strong>, planning <strong>Loans</strong>, or renewing <strong>Insurance</strong>, knowing BSE market holidays helps you plan your financial moves with precision.
+            <strong>BSE Holiday List 2026 on Stockstrail</strong> is your complete, authoritative reference for every trading holiday observed by the Bombay Stock Exchange (BSE) this year. Whether you are tracking <Link href="/mutual-funds" className="text-stockstrail-green-light hover:underline font-semibold">Mutual Funds</Link>, managing a <Link href="/open-demat" className="text-stockstrail-green-light hover:underline font-semibold">Demat Account</Link>, checking <Link href="/fixed-deposit" className="text-stockstrail-green-light hover:underline font-semibold">Fixed Deposits (FD)</Link>, reviewing your <Link href="/check-risk-profile" className="text-stockstrail-green-light hover:underline font-semibold">Risk Profile</Link>, planning <Link href="/loan" className="text-stockstrail-green-light hover:underline font-semibold">Loans</Link>, or renewing <Link href="/insurance" className="text-stockstrail-green-light hover:underline font-semibold">Insurance</Link>, knowing BSE market holidays helps you plan your financial moves with precision.
           </p>
           <p className="text-white/80 mb-5 leading-relaxed">
             The <em>BSE Holiday List 2026 powered by Stockstrail</em> covers all segments - Equity, Equity Derivatives, SLB, Commodity Derivatives, and Electronic Gold Receipts (EGR) - so investors and traders across India never miss a critical market date.
           </p>
           <p className="text-white/80 mb-5 leading-relaxed">
-            Bookmark BSE Holiday List 2026 | Stockstrail today and share it with your investment circle. Stockstrail is your trusted financial partner - offering guidance on <strong>Mutual Fund investments</strong>, <strong>Loan comparisons</strong>, <strong>FD rates</strong>, <strong>Risk Profile assessments</strong>, <strong>Insurance plans</strong>, and helping you <strong>open a Demat Account</strong> seamlessly - all in one place, serving investors pan India.
+            Bookmark BSE Holiday List 2026 | Stockstrail today and share it with your investment circle. Stockstrail is your trusted financial partner - offering guidance on <Link href="/mutual-funds" className="text-stockstrail-green-light hover:underline font-semibold">Mutual Fund investments</Link>, <Link href="/loan" className="text-stockstrail-green-light hover:underline font-semibold">Loan comparisons</Link>, <Link href="/calculators/fd" className="text-stockstrail-green-light hover:underline font-semibold">FD rates & calculator</Link>, <Link href="/check-risk-profile" className="text-stockstrail-green-light hover:underline font-semibold">Risk Profile assessments</Link>, <Link href="/insurance" className="text-stockstrail-green-light hover:underline font-semibold">Insurance plans</Link>, and helping you <Link href="/open-demat" className="text-stockstrail-green-light hover:underline font-semibold">open a Demat Account</Link> seamlessly - all in one place, serving investors pan India.
           </p>
 
           <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">

@@ -46,11 +46,38 @@ export const metadata: Metadata = {
   },
 };
 
+const founderSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Vikrant Bhardwaj',
+  jobTitle: 'Founder & AMFI-Registered Mutual Funds Distributor',
+  identifier: 'ARN-284122',
+  worksFor: {
+    '@type': 'FinancialService',
+    name: 'Stockstrail',
+    url: 'https://www.stockstrail.in',
+  },
+  sameAs: [
+    'https://www.linkedin.com/in/vikrantbhardwaj/',
+    'https://www.instagram.com/stockstrail',
+  ],
+};
+
 export default function AboutLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(founderSchema).replace(/</g, '\\u003c'),
+        }}
+      />
+      {children}
+    </>
+  );
 }
 

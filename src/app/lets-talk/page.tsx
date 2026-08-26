@@ -323,7 +323,7 @@ export default function LetsTalk() {
                       <Linkedin className="w-5 h-5" />
                     </a>
                     <a
-                      href="http://instagram.com/stockstrail/"
+                      href="https://www.instagram.com/stockstrail/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-white hover:text-stockstrail-green-light hover:scale-110 transition-transform"

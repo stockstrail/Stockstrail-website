@@ -72,10 +72,44 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${mainBaseUrl}/calculators`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/calculators/sip`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/calculators/fd`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/calculators/lumpsum`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/calculators/rd`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
       priority: 0.7,
     },
-
-
+    {
+      url: `${mainBaseUrl}/calculators/emi`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/calculators/tax`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
     {
       url: `${mainBaseUrl}/lets-talk`,
       lastModified: new Date(),

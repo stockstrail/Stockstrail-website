@@ -60,46 +60,77 @@ export default async function CategoryDetailPage({ params }: Props) {
 
   const list = await getCoursesByCategory(category.slug);
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Learning Home",
+        item: "https://www.learning.stockstrail.in",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Categories",
+        item: "https://www.learning.stockstrail.in/categories",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: category.name,
+        item: `https://www.learning.stockstrail.in/categories/${slug}`,
+      },
+    ],
+  };
+
   return (
-    <section className="relative overflow-hidden">
-      <span className="glow-blob top-[-100px] left-[-100px] h-[420px] w-[420px]" />
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 py-14 animate-fade-up">
-        <nav aria-label="Breadcrumb" className="text-xs text-white/50">
-          <Link href="/learning" className="hover:text-white">Home</Link>
-          <span className="mx-1">/</span>
-          <Link href="/learning/categories" className="hover:text-white">Categories</Link>
-          <span className="mx-1">/</span>
-          <span className="text-white/80">{category.name}</span>
-        </nav>
-        <div className="mt-6 flex items-start gap-5">
-          <div className="shrink-0 w-16 h-16 rounded-2xl bg-white/5 border border-[color:var(--color-brand-border)] text-[color:var(--color-brand-green)] font-display font-semibold flex items-center justify-center text-base shadow-inner overflow-hidden">
-            {category.thumbnail ? (
-              <img src={category.thumbnail} alt={category.name} className="w-full h-full object-cover" />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <section className="relative overflow-hidden">
+        <span className="glow-blob top-[-100px] left-[-100px] h-[420px] w-[420px]" />
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 py-14 animate-fade-up">
+          <nav aria-label="Breadcrumb" className="text-xs text-white/50">
+            <Link href="/learning" className="hover:text-white">Home</Link>
+            <span className="mx-1">/</span>
+            <Link href="/learning/categories" className="hover:text-white">Categories</Link>
+            <span className="mx-1">/</span>
+            <span className="text-white/80">{category.name}</span>
+          </nav>
+          <div className="mt-6 flex items-start gap-5">
+            <div className="shrink-0 w-16 h-16 rounded-2xl bg-white/5 border border-[color:var(--color-brand-border)] text-[color:var(--color-brand-green)] font-display font-semibold flex items-center justify-center text-base shadow-inner overflow-hidden">
+              {category.thumbnail ? (
+                <img src={category.thumbnail} alt={category.name} className="w-full h-full object-cover" />
+              ) : (
+                category.icon || (() => {
+                  const words = category.name.trim().split(/\s+/).filter(Boolean);
+                  if (words.length === 0) return "";
+                  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+                  return (words[0][0] + words[1][0]).toUpperCase();
+                })()
+              )}
+            </div>
+            <div>
+              <h1 className="text-4xl sm:text-5xl text-white font-normal" style={{ fontFamily: "var(--font-product-sans)" }}>{category.name}</h1>
+              <p className="mt-2 text-white/65 max-w-2xl">{category.description}</p>
+            </div>
+          </div>
+
+          <div className="mt-10 animate-fade-up" style={{ animationDelay: '100ms' }}>
+            {list.length === 0 ? (
+              <div className="rounded-2xl border border-dashed border-[color:var(--color-brand-border)] p-10 text-center text-white/60">
+                We&apos;re preparing courses in this category. Check back soon.
+              </div>
             ) : (
-              category.icon || (() => {
-                const words = category.name.trim().split(/\s+/).filter(Boolean);
-                if (words.length === 0) return "";
-                if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
-                return (words[0][0] + words[1][0]).toUpperCase();
-              })()
+              <CourseCardsGrid courses={list} />
             )}
           </div>
-          <div>
-            <h1 className="text-4xl sm:text-5xl text-white font-normal" style={{ fontFamily: "var(--font-product-sans)" }}>{category.name}</h1>
-            <p className="mt-2 text-white/65 max-w-2xl">{category.description}</p>
-          </div>
         </div>
-
-        <div className="mt-10 animate-fade-up" style={{ animationDelay: '100ms' }}>
-          {list.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-[color:var(--color-brand-border)] p-10 text-center text-white/60">
-              We're preparing courses in this category. Check back soon.
-            </div>
-          ) : (
-            <CourseCardsGrid courses={list} />
-          )}
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

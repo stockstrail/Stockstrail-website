@@ -189,7 +189,7 @@ const Footer = () => {
           <a href="https://www.linkedin.com/company/stockstrail/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
             <Linkedin className="w-6 h-6" />
           </a>
-          <a href="http://instagram.com/stockstrail/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
+          <a href="https://www.instagram.com/stockstrail/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">
             <Instagram className="w-6 h-6" />
           </a>
           <a href="https://t.me/stockstrail" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="group text-white hover:text-stockstrail-green-light hover:scale-125 hover:rotate-12 transition-all duration-300">

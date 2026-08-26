@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Layout from "@/components/layout/Layout";
 
 export const metadata: Metadata = {
@@ -16,6 +17,20 @@ export const metadata: Metadata = {
     siteName: 'Stockstrail',
     locale: 'en_IN',
     type: 'website',
+    images: [
+      {
+        url: '/og-stockstrail.png',
+        width: 1100,
+        height: 630,
+        alt: 'NSE Holidays 2026 Stockstrail',
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NSE Holiday List 2026 | Stockstrail",
+    description: "Official NSE trading holidays for the year 2026 including national, regional holidays and weekends.",
+    images: ["/og-stockstrail.png"],
   },
 };
 
@@ -26,16 +41,16 @@ export default function NseHolidays() {
         <div className="max-w-5xl mx-auto text-white font-work-sans">
           
           <h1 className="text-4xl sm:text-5xl font-normal text-center mb-8 gradient-text font-product-sans uppercase">
-            NSE Holiday List 2026 | Stockstrail - India&apos;s Trusted Investment Platform
+            NSE Holiday List 2026
           </h1>
           <p className="text-white/80 mb-5 leading-relaxed">
-            <strong>NSE Holiday List 2026 on Stockstrail</strong> is your definitive, up-to-date reference for every trading holiday observed by the National Stock Exchange (NSE) this year. Whether you are managing <strong>Mutual Funds</strong>, exploring <strong>Loans</strong>, booking a <strong>Fixed Deposit (FD)</strong>, assessing your <strong>Risk Profile</strong>, renewing <strong>Insurance</strong>, or ready to <strong>open a Demat Account</strong>, understanding NSE market closures is essential for smart financial planning throughout 2026.
+            <strong>NSE Holiday List 2026 on Stockstrail</strong> is your definitive, up-to-date reference for every trading holiday observed by the National Stock Exchange (NSE) this year. Whether you are managing <Link href="/mutual-funds" className="text-stockstrail-green-light hover:underline font-semibold">Mutual Funds</Link>, exploring <Link href="/loan" className="text-stockstrail-green-light hover:underline font-semibold">Loans</Link>, booking a <Link href="/fixed-deposit" className="text-stockstrail-green-light hover:underline font-semibold">Fixed Deposit (FD)</Link>, assessing your <Link href="/check-risk-profile" className="text-stockstrail-green-light hover:underline font-semibold">Risk Profile</Link>, renewing <Link href="/insurance" className="text-stockstrail-green-light hover:underline font-semibold">Insurance</Link>, or ready to <Link href="/open-demat" className="text-stockstrail-green-light hover:underline font-semibold">open a Demat Account</Link>, understanding NSE market closures is essential for smart financial planning throughout 2026.
           </p>
           <p className="text-white/80 mb-5 leading-relaxed">
             The <em>NSE Holiday List 2026 curated by Stockstrail</em> covers all key market segments - Equity, Equity Derivatives, SLB, and Commodity Derivatives - so investors and traders across India, especially in <strong>Himachal Pradesh, Chandigarh Tricity, Delhi, Haryana, Uttar Pradesh</strong>, and <strong>Uttarakhand</strong>, can plan every investment move with confidence and accuracy.
           </p>
           <p className="text-white/80 mb-5 leading-relaxed">
-            Save this page - NSE Holiday List 2026 | Stockstrail - and share it with your fellow investors. At Stockstrail, we bring you not just market holiday calendars but a complete financial ecosystem covering <strong>Mutual Fund advisory</strong>, <strong>Loan comparisons</strong>, <strong>FD rate tracking</strong>, <strong>Risk Profile assessment</strong>, <strong>Insurance plans</strong>, and seamless <strong>Demat Account opening</strong> - all in one place, serving investors pan India.
+            Save this page - NSE Holiday List 2026 | Stockstrail - and share it with your fellow investors. At Stockstrail, we bring you not just market holiday calendars but a complete financial ecosystem covering <Link href="/mutual-funds" className="text-stockstrail-green-light hover:underline font-semibold">Mutual Fund advisory</Link>, <Link href="/loan" className="text-stockstrail-green-light hover:underline font-semibold">Loan comparisons</Link>, <Link href="/calculators/fd" className="text-stockstrail-green-light hover:underline font-semibold">FD calculator</Link>, <Link href="/check-risk-profile" className="text-stockstrail-green-light hover:underline font-semibold">Risk Profile assessment</Link>, <Link href="/insurance" className="text-stockstrail-green-light hover:underline font-semibold">Insurance plans</Link>, and seamless <Link href="/open-demat" className="text-stockstrail-green-light hover:underline font-semibold">Demat Account opening</Link> - all in one place, serving investors pan India.
           </p>
 
           <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">

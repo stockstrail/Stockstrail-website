@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.stockstrail.in/risk-profile",
   },
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default async function RiskProfilePage() {

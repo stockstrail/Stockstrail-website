@@ -11,9 +11,10 @@ interface Props {
   course: Course;
   category: Category | null;
   related: Course[];
+  initialLessonSlug?: string | null;
 }
 
-export function CoursePageClient({ course, category, related }: Props) {
+export function CoursePageClient({ course, category, related, initialLessonSlug }: Props) {
   const cat = category;
   const searchParams = useSearchParams();
 
@@ -26,7 +27,9 @@ export function CoursePageClient({ course, category, related }: Props) {
   const enrollParam = searchParams.get("enroll") === "1";
   const firstLessonSlug = allLessons[0]?.lessonSlug ?? null;
 
-  const [activeSlug, setActiveSlug] = useState<string | null>(enrollParam ? firstLessonSlug : null);
+  const [activeSlug, setActiveSlug] = useState<string | null>(
+    initialLessonSlug || (enrollParam ? firstLessonSlug : null)
+  );
   const [drawer, setDrawer] = useState(false);
   const [completedLessons, setCompletedLessons] = useState<string[]>([]);
 

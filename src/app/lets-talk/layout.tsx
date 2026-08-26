@@ -31,6 +31,36 @@ export const metadata: Metadata = {
   },
 };
 
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: "Let's Talk - Stockstrail Advisory Consultation",
+  description: 'Connect directly with Stockstrail founder and financial advisors.',
+  url: 'https://www.stockstrail.in/lets-talk',
+  mainEntity: {
+    '@type': 'FinancialService',
+    name: 'Stockstrail',
+    telephone: '+91-9816041000',
+    email: 'connect@stockstrail.in',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Shimla',
+      addressRegion: 'Himachal Pradesh',
+      addressCountry: 'IN',
+    },
+  },
+};
+
 export default function LetsTalkLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(contactSchema).replace(/</g, '\\u003c'),
+        }}
+      />
+      {children}
+    </>
+  );
 }

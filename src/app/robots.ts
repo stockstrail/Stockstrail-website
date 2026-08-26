@@ -15,7 +15,8 @@ export default function robots(): MetadataRoute.Robots {
           '/auth/*',
           '/sign-in',
           '/complete-profile',
-          '/contact'
+          '/risk-profile',
+          '/check-risk-profile',
         ],
       },
       // AI bots — allow full access

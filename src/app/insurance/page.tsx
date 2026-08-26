@@ -21,7 +21,14 @@ export const metadata: Metadata = {
     siteName: "Stockstrail",
     locale: "en_IN",
     type: "website",
-    images: ["/stockstrail.png"],
+    images: ["/og-stockstrail.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Insurance Plans: Term, Health & Savings | Stockstrail",
+    description:
+      "Explore term insurance, health insurance and traditional savings plans with comprehensive comparison and guidance.",
+    images: ["/og-stockstrail.png"],
   },
 };
 

@@ -5,23 +5,30 @@ import ImageCarousel from "@/components/ui/ImageCarousel";
 import JsonLd from "@/components/common/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Loans - LAMF, Business & Home Loans | Stockstrail",
+  title: "Loan Against Mutual Funds (LAMF), Business & Home Loans | Stockstrail",
   description:
-    "Explore Loan Against Mutual Funds, business loans, and home loans with expert guidance, clear terms, and support through the application process.",
+    "Explore Loan Against Mutual Funds (LAMF), business loans, and home loans with expert guidance, clear terms, and support through the application process.",
   keywords:
     "loan against mutual funds, LAMF, loan against mutual funds India, business loan, home loan, personal loan, Stockstrail loans",
   alternates: {
     canonical: "https://www.stockstrail.in/loan",
   },
   openGraph: {
-    title: "Loans - LAMF, Business & Home Loans | Stockstrail",
+    title: "Loan Against Mutual Funds (LAMF), Business & Home Loans | Stockstrail",
     description:
       "Access funds without unnecessarily selling investments. Explore LAMF, business loans and home loans with clear, practical guidance.",
     url: "https://www.stockstrail.in/loan",
     siteName: "Stockstrail",
     locale: "en_IN",
     type: "website",
-    images: ["/stockstrail.png"],
+    images: ["/og-stockstrail.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Loan Against Mutual Funds (LAMF), Business & Home Loans | Stockstrail",
+    description:
+      "Access funds without unnecessarily selling investments. Explore LAMF, business loans and home loans with clear, practical guidance.",
+    images: ["/og-stockstrail.png"],
   },
 };
 
@@ -754,13 +761,6 @@ export default function Loan() {
           </div>
         </div>
       </section>
-      {/* FAQ structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema),
-        }}
-      />
     </Layout>
   );
 }

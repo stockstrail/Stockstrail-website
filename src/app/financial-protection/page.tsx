@@ -5,7 +5,7 @@ import ServiceFAQSection from '@/components/services/ServiceFAQSection';
 import ServiceGEOSection from '@/components/services/ServiceGEOSection';
 
 export const metadata: Metadata = {
-  title: 'Financial Protection & Planning | Insurance, Savings & More | Stockstrail',
+  title: 'Financial Protection & Insurance Planning | Stockstrail',
 
   description:
     'Understand and plan your financial protection with Stockstrail. Explore insurance, emergency savings, motor and travel insurance, tax filing support and financial solutions based on your needs.',
