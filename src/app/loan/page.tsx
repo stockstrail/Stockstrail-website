@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Layout from "@/components/layout/Layout";
 import ImageCarousel from "@/components/ui/ImageCarousel";
+import JsonLd from "@/components/common/JsonLd";
 
 export const metadata: Metadata = {
   title: "Loans - LAMF, Business & Home Loans | Stockstrail",
@@ -22,6 +23,32 @@ export const metadata: Metadata = {
     type: "website",
     images: ["/stockstrail.png"],
   },
+};
+
+const loanWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': 'https://www.stockstrail.in/loan#webpage',
+  url: 'https://www.stockstrail.in/loan',
+  name: 'Loans - LAMF, Business & Home Loans | Stockstrail',
+  description:
+    'Explore Loan Against Mutual Funds, business loans, and home loans with expert guidance, clear terms, and support.',
+  inLanguage: 'en-IN',
+};
+
+const loanServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FinancialService',
+  '@id': 'https://www.stockstrail.in/loan#service',
+  name: 'Stockstrail Loan Advisory',
+  description: 'Expert assistance on Loan Against Mutual Funds (LAMF), Personal Loans, Business Loans, and Home Loans.',
+  url: 'https://www.stockstrail.in/loan',
+  provider: {
+    '@type': 'FinancialService',
+    name: 'Stockstrail',
+    url: 'https://www.stockstrail.in',
+  },
+  areaServed: 'IN',
 };
 
 const loanFaqs = [
@@ -67,6 +94,9 @@ export default function Loan() {
 
   return (
     <Layout>
+      <JsonLd data={loanWebPageSchema} />
+      <JsonLd data={loanServiceSchema} />
+      <JsonLd data={faqSchema} />
       <section className="relative px-4 sm:px-6 lg:px-8 pt-20 pb-16">
         <div className="absolute inset-0 -z-10">
           <div className="w-full h-72 bg-stockstrail-bg-light blur-185 opacity-40" />

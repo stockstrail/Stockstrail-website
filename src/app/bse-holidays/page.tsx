@@ -1,17 +1,27 @@
-"use client";
-// trigger hmr
-
+import type { Metadata } from 'next';
 import Layout from "@/components/layout/Layout";
-import SEO from "@/components/common/SEO";
 
-const BseHolidays = () => {
+export const metadata: Metadata = {
+  title: 'BSE Holiday List 2026 | Stockstrail',
+  description:
+    'Complete list of official BSE trading holidays for 2026 including national, festival, and weekend holidays across Equity, Equity Derivatives, SLB, Commodity Derivatives, and EGR segments.',
+  alternates: {
+    canonical: 'https://www.stockstrail.in/bse-holidays',
+  },
+  openGraph: {
+    title: 'BSE Holiday List 2026 | Stockstrail',
+    description:
+      'Complete list of official BSE trading holidays for 2026 including national, festival, and weekend holidays.',
+    url: 'https://www.stockstrail.in/bse-holidays',
+    siteName: 'Stockstrail',
+    locale: 'en_IN',
+    type: 'website',
+  },
+};
+
+export default function BseHolidays() {
   return (
     <Layout>
-      <SEO
-        title="BSE Holiday List 2026 | Stockstrail"
-        description="Complete list of official BSE trading holidays for 2026 including national, festival, and weekend holidays across Equity, Equity Derivatives, SLB, Commodity Derivatives, and EGR segments."
-        url="/bse-holidays"
-      />
       <div className="pt-20 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-white font-work-sans">
           
@@ -120,16 +130,16 @@ const BseHolidays = () => {
             Knowing <strong>BSE market timings</strong> is as important as knowing holidays. Whether you're placing a <strong>Mutual Fund order</strong>, checking your <strong>Demat Account</strong> portfolio, or tracking <strong>Loan disbursals tied to market rates</strong>, Stockstrail keeps you informed about every session.
           </p>
 
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Pre-Open Session</h2>
+          <h3 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Pre-Open Session</h3>
           <p className="text-white/80 mb-5 leading-relaxed">Order entry and modification: <strong>09:00 AM to 09:15 AM</strong></p>
 
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Regular Trading Session</h2>
+          <h3 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Regular Trading Session</h3>
           <p className="text-white/80 mb-5 leading-relaxed"><strong>Market Open: 09:15 AM</strong> | <strong>Market Close: 03:30 PM</strong></p>
 
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Block Deal Sessions</h2>
+          <h3 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Block Deal Sessions</h3>
           <p className="text-white/80 mb-5 leading-relaxed"><strong>Morning Window:</strong> 08:45 AM to 09:00 AM<br /><strong>Afternoon Window:</strong> 02:05 PM to 02:20 PM</p>
 
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Closing Session</h2>
+          <h3 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Closing Session</h3>
           <p className="text-white/80 mb-5 leading-relaxed"><strong>03:40 PM to 04:00 PM</strong></p>
 
           <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">
@@ -227,12 +237,12 @@ const BseHolidays = () => {
             Frequently Asked Questions - BSE Holiday 2026 & Stockstrail Services
           </h2>
           
-          <h2 className="text-xl font-semibold text-white mt-8 mb-4">Q1. When is the BSE closed in 2026?</h2>
+          <h3 className="text-xl font-semibold text-white mt-8 mb-4">Q1. When is the BSE closed in 2026?</h3>
           <p className="text-white/80 mb-5 leading-relaxed">
             The BSE observes <strong>15 official trading holidays</strong> in 2026, starting with <strong>Republic Day on January 26</strong> and ending with <strong>Christmas on December 25</strong>. Refer to the complete Stockstrail BSE Holiday List 2026 table above for all dates.
           </p>
 
-          <h2 className="text-xl font-semibold text-white mt-8 mb-4">Q2. Is BSE open on Diwali 2026?</h2>
+          <h3 className="text-xl font-semibold text-white mt-8 mb-4">Q2. Is BSE open on Diwali 2026?</h3>
           <p className="text-white/80 mb-5 leading-relaxed">
             The BSE will be closed on <strong>November 10, 2026 (Diwali - Balipratipada)</strong>. However, <strong>Muhurat Trading</strong> is scheduled on <strong>Sunday, November 08, 2026 (Diwali Laxmi Pujan)</strong>. Timings will be announced by BSE closer to the date. Stockstrail will update you immediately.
           </p>
@@ -256,6 +266,4 @@ const BseHolidays = () => {
       </div>
     </Layout>
   );
-};
-
-export default BseHolidays;
+}

@@ -13,7 +13,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import SimpleLayout from "@/components/layout/SimpleLayout";
-import SEO from "@/components/common/SEO";
 import { Loader2 } from "lucide-react";
 
 export default function CompleteProfilePage() {
@@ -192,11 +191,6 @@ export default function CompleteProfilePage() {
 
   return (
     <SimpleLayout>
-      <SEO
-        title="Complete Your Profile | Stockstrail"
-        description="Add your phone number to complete your profile"
-        url="/complete-profile"
-      />
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 min-h-screen flex items-center">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#072923] via-[#031815] to-[#010d0c] opacity-90" />
         <div className="max-w-md w-full mx-auto">

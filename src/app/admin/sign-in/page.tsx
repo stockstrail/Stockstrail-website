@@ -13,7 +13,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import SimpleLayout from "@/components/layout/SimpleLayout";
-import SEO from "@/components/common/SEO";
 
 function AdminSignInContent() {
   const router = useRouter();
@@ -100,11 +99,6 @@ function AdminSignInContent() {
 export default function AdminSignInPage() {
   return (
     <SimpleLayout>
-      <SEO
-        title="Admin Sign In | Stockstrail"
-        description="Sign in to access the admin dashboard"
-        url="/admin/sign-in"
-      />
       <Suspense fallback={
         <section className="relative px-4 sm:px-6 lg:px-8 py-16 min-h-screen flex items-center">
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#072923] via-[#031815] to-[#010d0c] opacity-90" />

@@ -1,16 +1,18 @@
-"use client";
-
+import type { Metadata } from 'next';
 import Layout from "@/components/layout/Layout";
-import SEO from "@/components/common/SEO";
 
-const CommissionDisclosure = () => {
+export const metadata: Metadata = {
+  title: 'Stockstrail Commission Disclosure',
+  description:
+    "Transparent disclosure of Stockstrail's Mutual Funds distribution and brokerage earnings. We believe in complete transparency with zero hidden fees.",
+  alternates: {
+    canonical: 'https://www.stockstrail.in/commission-disclosure',
+  },
+};
+
+export default function CommissionDisclosure() {
   return (
     <Layout>
-      <SEO
-        title="Stockstrail Commission Disclosure"
-        description="Transparent disclosure of Stockstrail's Mutual Funds distribution and brokerage earnings. We believe in complete transparency with zero hidden fees."
-        url="/commission-disclosure"
-      />
 
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-stockstrail-bg-dark min-h-screen">
         <div className="max-w-4xl mx-auto space-y-12">
@@ -106,7 +108,4 @@ const CommissionDisclosure = () => {
       </section>
     </Layout>
   );
-};
-
-export default CommissionDisclosure;
-
+}

@@ -14,7 +14,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import SimpleLayout from "@/components/layout/SimpleLayout";
-import SEO from "@/components/common/SEO";
 
 function SignInContent() {
   const router = useRouter();
@@ -121,11 +120,6 @@ function SignInContent() {
 export default function SignInPage() {
   return (
     <SimpleLayout>
-      <SEO
-        title="Sign In | Stockstrail"
-        description="Sign in with Google to access your risk profile and investment dashboard"
-        url="/sign-in"
-      />
       <Suspense fallback={
         <section className="relative px-4 sm:px-6 lg:px-8 py-16 min-h-screen flex items-center">
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#072923] via-[#031815] to-[#010d0c] opacity-90" />

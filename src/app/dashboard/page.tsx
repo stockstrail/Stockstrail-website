@@ -1,7 +1,6 @@
 import { redirect } from "next/navigation";
 import { createClient, getServerUser, getServerProfile } from "@/lib/supabase/server";
 import SimpleLayout from "@/components/layout/SimpleLayout";
-import SEO from "@/components/common/SEO";
 import { DashboardContent } from "@/components/features/risk-assessment/dashboard/DashboardContent";
 import type { RiskAttempt } from "@/lib/supabase/types";
 
@@ -45,11 +44,6 @@ export default async function DashboardPage() {
 
   return (
     <SimpleLayout>
-      <SEO
-        title="Dashboard | Stockstrail"
-        description="View your risk profile and investment history"
-        url="/dashboard"
-      />
       <DashboardContent
         user={user}
         profile={profile}

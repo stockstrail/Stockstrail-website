@@ -4,82 +4,113 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const WhyChooseSectionComponent = () => {
     const features = [
         {
             icon: "/assets/icons/frame-3.svg",
-            title: "Goal Planning",
-            description: "Build investments around your financial goals.",
-            delay: "0ms",
+            title: "Goal-First Planning",
+            badge: "Tailored Strategy",
+            description: "Custom investments built specifically around your family milestones and goals.",
+            href: "/services",
         },
         {
             icon: "/assets/icons/frame-4.svg",
-            title: "Personalised\nGuidance",
-            description: "Advice based on your goals and risk profile.",
-            delay: "200ms",
+            title: "Personalized Guidance",
+            badge: "Risk-Aligned",
+            description: "Asset allocation calculated directly from your personal risk appetite and horizon.",
+            href: "/check-risk-profile",
         },
         {
             icon: "/assets/icons/frame-2.svg",
-            title: "AMFI\nRegistered",
-            description: "Professional mutual fund distribution you can trust.",
-            delay: "400ms",
+            title: "AMFI Registered",
+            badge: "ARN-284122",
+            description: "Certified and compliant mutual fund distribution and advisory you can trust.",
+            href: "/commission-disclosure",
         },
         {
             icon: "/assets/icons/frame-1.svg",
-            title: "Trusted\nGuidance",
-            description: "Honest recommendations with complete transparency.",
-            delay: "600ms",
+            title: "100% Transparency",
+            badge: "Zero Bias",
+            description: "Fiduciary guidance with zero hidden commissions and complete clarity.",
+            href: "/about",
         },
     ];
 
     return (
-        <section className="w-full py-12 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
-            {/* Background elements */}
-            <div className="absolute inset-0">
-                <div className="w-full h-96 bg-stockstrail-bg-light blur-185 opacity-40"></div>
-                {/* Pulsing ring (hero-style) behind Why Choose header */}
-                <div className="absolute left-1/2 top-8 -translate-x-1/2 w-[640px] h-[640px] bg-stockstrail-bg-light rounded-full blur-100 opacity-55 pointer-events-none" />
+        <section className="w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden isolate">
+            {/* DEDICATED SECTION 3D BACKGROUND */}
+            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+                <Image
+                    src="/assets/sections/about-bg.jpg"
+                    alt="Why Choose Stockstrail Executive Architecture"
+                    fill
+                    unoptimized
+                    className="object-cover object-center opacity-35 scale-105 filter brightness-105 contrast-115"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/80 via-[#011d1c]/50 to-[#011d1c]/85" />
+                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-emerald-500/15 rounded-full blur-[150px]" />
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase">
+                {/* 3D Section Header */}
+                <div className="text-center mb-16 space-y-4">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-stockstrail-green-light/30 bg-stockstrail-green-light/10 px-4 py-1 text-xs font-semibold text-stockstrail-green-light uppercase tracking-wider backdrop-blur-md shadow-[0_0_15px_rgba(0,255,151,0.15)]">
+                        <span className="w-2 h-2 rounded-full bg-stockstrail-green-light animate-pulse" />
+                        <span>The Stockstrail Advantage</span>
+                    </div>
+
+                    <h2
+                        className="text-2xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.8)] [text-shadow:0_2px_12px_rgba(0,255,151,0.25)]"
+                        style={{ fontFamily: "var(--font-product-sans)" }}
+                    >
                         <span className="text-white">Why Choose </span>
-                        <span className="gradient-text">Stockstrail</span>
+                        <span className="gradient-text drop-shadow-[0_0_30px_rgba(0,255,151,0.35)]">Stockstrail</span>
                     </h2>
-                    <p className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto mt-5 leading-relaxed">
-                        Helping you achieve your financial goals with trusted, transparent and personalised guidance.
-                    </p>    
+
+                    <p className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed [text-shadow:0_1px_2px_rgba(0,0,0,0.9)]">
+                        <strong>Trusted financial planning partner</strong> in India helping you build long-term wealth through transparent advice, AMFI-registered distributor support, and personalized guidance.
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
+                {/* 3D Elevated Feature Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
                     {features.map((feature, index) => (
-                        <div
+                        <Link
                             key={index}
-                            className="-translate-y-4 animate-fade-in opacity-0 bg-stockstrail-bg border-2 border-[#ffffff21] backdrop-blur-[50px] backdrop-brightness-100 [-webkit-backdrop-filter:blur(50px)_brightness(100%)] rounded-[100px] md:rounded-[200px] h-[250px] md:h-[307px] w-full max-w-[250px] mx-auto transition-all duration-300 hover:border-white hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:shadow-white/20 hover:scale-105 group cursor-pointer"
-                            style={
-                                { "--animation-delay": feature.delay } as React.CSSProperties
-                            }
+                            href={feature.href}
+                            className="group relative bg-[#021716]/85 border border-white/12 hover:border-stockstrail-green-light/70 rounded-3xl p-6 sm:p-7 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(0,255,151,0.25)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer block overflow-hidden"
                         >
-                            <div className="flex flex-col items-center justify-center gap-3 md:gap-4 h-full p-6 md:p-8">
-                                <Image unoptimized={true}
-                                    className="w-12 h-12 md:w-16 md:h-16 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(0,255,151,0.5)] brightness-0 invert"
-                                    alt="Feature icon"
-                                    src={feature.icon}
-                                    width={48}
-                                    height={48} />
-                               <div className="text-center">
-                                   <h3 className="font-medium text-white text-lg md:text-xl leading-7 transition-all duration-300 group-hover:text-[#00FF97]">
-                                       {feature.title}
-                                   </h3>
+                            {/* Subtle internal glow */}
+                            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-stockstrail-green-light/10 to-transparent rounded-full blur-2xl pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity" />
 
-                                   <p className="text-white/80 text-sm leading-6 mt-3 max-w-[170px] mx-auto">
-                                       {feature.description}
-                                   </p>
-                               </div>
+                            <div className="w-16 h-16 bg-white/[0.06] border border-white/15 rounded-2xl flex items-center justify-center mb-5 shrink-0 group-hover:scale-110 group-hover:bg-stockstrail-green-light/20 group-hover:border-stockstrail-green-light/50 transition-all duration-300 shadow-md">
+                                <Image
+                                    unoptimized={true}
+                                    className="w-9 h-9 transition-all duration-300 group-hover:scale-110"
+                                    alt={feature.title}
+                                    src={feature.icon}
+                                    width={36}
+                                    height={36}
+                                />
                             </div>
-                        </div>
+
+                            <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-stockstrail-green-light/15 border border-stockstrail-green-light/30 text-stockstrail-green-light mb-2.5">
+                                {feature.badge}
+                            </span>
+
+                            <h3
+                                className="font-bold text-white text-lg mb-2 transition-all duration-300 group-hover:text-stockstrail-green-light drop-shadow-md"
+                                style={{ fontFamily: "var(--font-product-sans)" }}
+                            >
+                                {feature.title}
+                            </h3>
+
+                            <p className="text-white/75 text-xs sm:text-sm leading-relaxed font-normal">
+                                {feature.description}
+                            </p>
+                        </Link>
                     ))}
                 </div>
             </div>

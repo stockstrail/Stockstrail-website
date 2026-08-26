@@ -1,18 +1,21 @@
-"use client";
-
+import type { Metadata } from 'next';
 import Layout from "@/components/layout/Layout";
-import SEO from "@/components/common/SEO";
 import Link from "next/link";
 
-const TermsAndConditions = () => {
+export const metadata: Metadata = {
+  title: 'Terms and Conditions & Cancellation Policy | Stockstrail',
+  description:
+    "Read Stockstrail's Terms and Conditions and Cancellation Policy for all financial services including mutual funds, fixed deposits, insurance, loans, and demat accounts.",
+  keywords:
+    'terms and conditions, cancellation policy, stockstrail, financial services',
+  alternates: {
+    canonical: 'https://www.stockstrail.in/terms-and-conditions',
+  },
+};
+
+export default function TermsAndConditions() {
   return (
     <Layout>
-      <SEO
-        title="Terms and Conditions & Cancellation Policy | Stockstrail"
-        description="Read Stockstrail's Terms and Conditions and Cancellation Policy for all financial services including mutual funds, fixed deposits, insurance, loans, and demat accounts."
-        keywords="terms and conditions, cancellation policy, stockstrail, financial services"
-        url="/terms-and-conditions"
-      />
 
       <div className="pt-20 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
@@ -228,6 +231,4 @@ const TermsAndConditions = () => {
       </div>
     </Layout>
   );
-};
-
-export default TermsAndConditions;
+}

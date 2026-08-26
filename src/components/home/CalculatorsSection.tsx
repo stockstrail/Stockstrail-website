@@ -2,145 +2,172 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const CalculatorsSection = () => {
     const calculators = [
         {
             title: 'SIP Calculator',
+            badge: 'Compounding',
             description:
                 'Estimate how your monthly SIP could grow over time based on your investment amount, expected return and time period.',
-            icon: '/logos/sip-white.webp',
+            icon: '/services/mf.webp',
             href: '/calculators?tab=SIP',
         },
         {
             title: 'Lumpsum Calculator',
+            badge: 'One-Time Growth',
             description:
                 'See how a one-time investment could grow over time based on your investment amount, expected return and investment period.',
-            icon: '/logos/lumpsum-white.webp',
+            icon: '/services/mf.webp',
             href: '/calculators?tab=LUMPSUM',
         },
         {
             title: 'FD Calculator',
+            badge: 'Guaranteed Interest',
             description:
                 'Calculate the interest and maturity amount for your Fixed Deposit based on the deposit amount, interest rate and tenure.',
-            icon: '/logos/fd-white.webp',
+            icon: '/services/fd.webp',
             href: '/calculators?tab=FD',
         },
         {
             title: 'RD Calculator',
+            badge: 'Recurring Savings',
             description:
                 'Estimate the maturity amount of your Recurring Deposit based on your monthly deposit, interest rate and tenure.',
-            icon: '/logos/rd-white.webp',
+            icon: '/services/fd.webp',
             href: '/calculators?tab=RD',
         },
         {
             title: 'EMI Calculator',
+            badge: 'Loan Schedule',
             description:
                 'Calculate your monthly loan EMI and see how much you may pay in interest over the repayment period.',
-            icon: '/logos/emi-white.webp',
+            icon: '/services/loan.webp',
             href: '/calculators?tab=EMI',
         },
         {
             title: 'Tax Calculator',
+            badge: 'Tax Optimization',
             description:
-                'Get an estimate of your tax liability based on your income and applicable tax details.',
-            icon: '/logos/tax-white.webp',
+                'Plan your investments smartly to optimize tax liability under Old and New tax regimes.',
+            icon: '/services/others.webp',
             href: '/calculators?tab=TAX',
         },
     ];
 
     return (
-        <section className="py-12 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
-            {/* Background elements */}
-            <div className="absolute inset-0">
-                <div className="w-full h-96 bg-stockstrail-bg-light blur-185 opacity-40"></div>
-
-                {/* Pulsing ring (hero-style) behind Calculators header */}
-                <div className="absolute left-1/2 top-6 -translate-x-1/2 w-[620px] h-[620px] bg-stockstrail-bg-light rounded-full blur-100 opacity-50 pointer-events-none" />
+        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden isolate">
+            {/* DEDICATED SECTION 3D BACKGROUND */}
+            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+                <Image
+                    src="/assets/sections/about-bg.jpg"
+                    alt="Calculators Section Executive Architecture"
+                    fill
+                    unoptimized
+                    className="object-cover object-center opacity-35 scale-105 filter brightness-105 contrast-115"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/80 via-[#011d1c]/50 to-[#011d1c]/85" />
+                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-teal-500/15 rounded-full blur-[150px]" />
             </div>
 
             <div className="relative z-10 max-w-6xl mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase mb-6">
+                {/* 3D Section Header */}
+                <div className="text-center mb-16 space-y-4">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-stockstrail-green-light/30 bg-stockstrail-green-light/10 px-4 py-1 text-xs font-semibold text-stockstrail-green-light uppercase tracking-wider backdrop-blur-md shadow-[0_0_15px_rgba(0,255,151,0.15)]">
+                        <span className="w-2 h-2 rounded-full bg-stockstrail-green-light animate-pulse" />
+                        <span>Smart Wealth Tools</span>
+                    </div>
+
+                    <h2
+                        className="text-2xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.8)] [text-shadow:0_2px_12px_rgba(0,255,151,0.25)]"
+                        style={{ fontFamily: "var(--font-product-sans)" }}
+                    >
                         <span className="text-white">Financial </span>
-                        <span className="gradient-text">Calculators</span>
+                        <span className="gradient-text drop-shadow-[0_0_30px_rgba(0,255,151,0.35)]">Calculators</span>
                     </h2>
 
-                    <p className="text-white/70 text-sm sm:text-base lg:text-lg font-work-sans max-w-2xl mx-auto">
-                        Use our free calculators to estimate returns, plan investments,
-                        compare loan costs and understand your savings over time.
+                    <p className="text-white/80 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed [text-shadow:0_1px_2px_rgba(0,0,0,0.9)]">
+                        <strong>Free online financial calculators</strong> to estimate your investment returns, forecast <strong>mutual fund SIP growth</strong>, compute <strong>FD and RD maturity values</strong>, and calculate <strong>loan EMIs</strong> with precision.
                     </p>
                 </div>
 
+                {/* 3D Grid of Calculators */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {calculators.map((calculator, index) => (
                         <Link
                             key={index}
                             href={calculator.href}
-                            className="group relative bg-stockstrail-bg border border-white/10 rounded-2xl p-8 hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300 flex flex-col h-full"
+                            className="group relative bg-[#021716]/85 border border-white/12 hover:border-stockstrail-green-light/70 rounded-3xl p-6 sm:p-7 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(0,255,151,0.25)] hover:-translate-y-2 transition-all duration-300 flex flex-col h-full overflow-hidden"
                         >
-                            {/* Background glow on hover */}
-                            <div className="absolute inset-0 bg-stockstrail-green-light/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            {/* Subtle internal glow */}
+                            <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-stockstrail-green-light/10 to-transparent rounded-full blur-2xl pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity" />
 
                             <div className="relative z-10 flex flex-col h-full">
-                                {/* Icon */}
-                                <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
-                                        src={calculator.icon}
-                                        alt={`${calculator.title} icon`}
-                                        className="w-16 h-16 sm:w-20 sm:h-20 object-contain brightness-0 invert"
-                                        width={80}
-                                        height={80}
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
+                                {/* Top Badge & Icon Row */}
+                                <div className="flex items-center justify-between mb-4">
+                                    <div className="w-14 h-14 bg-white/[0.06] border border-white/15 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-stockstrail-green-light/20 group-hover:border-stockstrail-green-light/50 transition-all duration-300 shadow-md">
+                                        <Image
+                                            src={calculator.icon}
+                                            alt={`${calculator.title} icon`}
+                                            className="w-9 h-9 object-contain group-hover:scale-110 transition-transform duration-300"
+                                            width={36}
+                                            height={36}
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                    <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-stockstrail-green-light/15 border border-stockstrail-green-light/30 text-stockstrail-green-light">
+                                        {calculator.badge}
+                                    </span>
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="font-product-sans text-lg sm:text-xl lg:text-2xl font-semibold text-white mb-3 group-hover:text-stockstrail-green-light transition-colors duration-300">
+                                <h3
+                                    className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-stockstrail-green-light transition-colors duration-300 drop-shadow-md"
+                                    style={{ fontFamily: "var(--font-product-sans)" }}
+                                >
                                     {calculator.title}
                                 </h3>
 
                                 {/* Description */}
-                                <p className="text-white/60 text-xs sm:text-sm lg:text-base font-work-sans leading-relaxed mb-6 grow group-hover:text-white/80 transition-colors duration-300">
+                                <p className="text-white/75 text-xs sm:text-sm leading-relaxed mb-6 grow font-normal">
                                     {calculator.description}
                                 </p>
 
-                                {/* Button */}
-                                <div className="inline-flex items-center gap-2 text-stockstrail-green-light font-work-sans font-semibold text-sm sm:text-base group-hover:gap-4 transition-all duration-300">
-                                    <span>Open Calculator</span>
-
-                                    <svg
-                                        width="20"
-                                        height="20"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="group-hover:translate-x-2 transition-transform duration-300"
-                                    >
-                                        <path
-                                            d="M5 12H19M19 12L12 5M19 12L12 19"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        />
-                                    </svg>
+                                {/* Bottom Link CTA */}
+                                <div className="flex items-center justify-between text-xs font-bold text-stockstrail-green-light uppercase tracking-wider group-hover:translate-x-1 transition-transform border-t border-white/10 pt-3 mt-auto">
+                                    <span>Calculate Now</span>
+                                    <div className="w-7 h-7 rounded-full bg-white/10 group-hover:bg-stockstrail-green-light group-hover:text-black flex items-center justify-center text-white transition-colors">
+                                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </div>
                                 </div>
                             </div>
                         </Link>
                     ))}
                 </div>
 
-                {/* CTA Button */}
-                <div className="text-center mt-16">
+                {/* 3D Bottom CTA Buttons */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
                     <Link
                         href="/calculators"
-                        className="inline-flex items-center gap-4 px-8 py-4 bg-white border-2 border-[#012928] rounded-full text-[#012928] hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-work-sans font-semibold group"
+                        className="inline-flex items-center gap-3 px-8 py-3.5 bg-stockstrail-green-light rounded-full text-black font-bold text-sm hover:bg-white hover:scale-105 transition-all shadow-[0_0_25px_rgba(0,255,151,0.35)]"
                     >
-                        <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full group-hover:scale-125 group-hover:animate-pulse transition-all duration-300"></div>
-                        View Calculators
+                        <span>Explore All 6 Calculators</span>
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </Link>
+
+                    <Link
+                        href="/mutual-funds"
+                        className="inline-flex items-center gap-3 px-8 py-3.5 bg-white/[0.04] border border-white/20 rounded-full text-white font-semibold text-sm hover:bg-white/10 hover:border-stockstrail-green-light hover:scale-105 transition-all backdrop-blur-md"
+                    >
+                        <span>Start Mutual Fund SIP</span>
+                        <svg className="w-4 h-4 text-stockstrail-green-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
                     </Link>
                 </div>
             </div>

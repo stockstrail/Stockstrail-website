@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Layout from "@/components/layout/Layout";
 import ImageCarousel from '@/components/ui/ImageCarousel';
+import JsonLd from '@/components/common/JsonLd';
 
 export const metadata: Metadata = {
   title: "Insurance Plans: Term, Health & Savings | Stockstrail",
@@ -22,6 +23,32 @@ export const metadata: Metadata = {
     type: "website",
     images: ["/stockstrail.png"],
   },
+};
+
+const insuranceWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': 'https://www.stockstrail.in/insurance#webpage',
+  url: 'https://www.stockstrail.in/insurance',
+  name: 'Insurance Plans: Term, Health & Savings | Stockstrail',
+  description:
+    'Explore term insurance, health insurance and traditional savings plans. Compare coverage, understand waiting periods, benefits and policy terms with Stockstrail.',
+  inLanguage: 'en-IN',
+};
+
+const insuranceServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FinancialService',
+  '@id': 'https://www.stockstrail.in/insurance#service',
+  name: 'Stockstrail Insurance Advisory',
+  description: 'Expert advice on Term Life Insurance, Health Insurance (Mediclaim), Motor, and Traditional Savings Plans.',
+  url: 'https://www.stockstrail.in/insurance',
+  provider: {
+    '@type': 'FinancialService',
+    name: 'Stockstrail',
+    url: 'https://www.stockstrail.in',
+  },
+  areaServed: 'IN',
 };
 
 const insuranceFaqJsonLd = {
@@ -113,6 +140,8 @@ const insuranceFaqJsonLd = {
 export default function Insurance() {
   return (
     <Layout>
+      <JsonLd data={insuranceWebPageSchema} />
+      <JsonLd data={insuranceServiceSchema} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

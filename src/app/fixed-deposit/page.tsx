@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/layout/Layout";
 import ImageCarousel from '@/components/ui/ImageCarousel';
+import JsonLd from '@/components/common/JsonLd';
 
 export const metadata: Metadata = {
   title: "Fixed Deposits (FD): Rates, Types, Tax & Withdrawal | Stockstrail",
@@ -25,9 +26,37 @@ export const metadata: Metadata = {
   },
 };
 
+const fixedDepositWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': 'https://www.stockstrail.in/fixed-deposit#webpage',
+  url: 'https://www.stockstrail.in/fixed-deposit',
+  name: 'Fixed Deposits (FD): Rates, Types, Tax & Withdrawal | Stockstrail',
+  description:
+    'Understand fixed deposits, FD interest payouts, tenures, tax-saving FDs, premature withdrawal, deposit insurance and how to compare FD options before investing.',
+  inLanguage: 'en-IN',
+};
+
+const fixedDepositServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FinancialService',
+  '@id': 'https://www.stockstrail.in/fixed-deposit#service',
+  name: 'Stockstrail Fixed Deposit Advisory',
+  description: 'Guidance on Fixed Deposits, interest payouts, tenures, tax-saving FDs, and partner comparisons.',
+  url: 'https://www.stockstrail.in/fixed-deposit',
+  provider: {
+    '@type': 'FinancialService',
+    name: 'Stockstrail',
+    url: 'https://www.stockstrail.in',
+  },
+  areaServed: 'IN',
+};
+
 export default function FixedDeposit() {
   return (
     <Layout>
+      <JsonLd data={fixedDepositWebPageSchema} />
+      <JsonLd data={fixedDepositServiceSchema} />
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <div className="absolute inset-0 -z-10">

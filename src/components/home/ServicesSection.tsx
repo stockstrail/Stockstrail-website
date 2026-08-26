@@ -4,42 +4,48 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ServicesSection = () => {
     const services = [
         {
             title: "MUTUAL FUNDS",
+            badge: "Goal-Based Wealth",
             description:
-                "Stockstrail helps you select top-performing mutual funds tailored to your risk profile and goals. Whether you want to start a monthly SIP or invest a lump sum, we guide you through equity, debt, and hybrid funds from leading AMCs.",
-            icon: "/piggybank-white.webp",
+                "Goal-based mutual fund investments tailored to your risk appetite and financial milestones. Whether starting a monthly SIP or investing a lump sum, explore top equity, debt, and hybrid funds from leading AMCs in India.",
+            icon: "/services/mf.webp",
             isImage: true,
         },
         {
             title: "FIXED DEPOSIT",
+            badge: "Guaranteed Returns",
             description:
-                "Looking for guaranteed returns without stock market risks? We assist in booking high-interest Fixed Deposits with trusted bank and NBFC partners, ensuring capital protection and predictable income.",
-            icon: "/fd-white.webp",
+                "High-return fixed deposits (FD) with guaranteed interest and zero market risk. Compare and book secure bank and NBFC fixed deposits with competitive interest rates and flexible payout options.",
+            icon: "/services/fd.webp",
             isImage: true,
         },
         {
             title: "INSURANCE",
+            badge: "Family Protection",
             description:
-                "Protect your family's future with the right coverage. Stockstrail offers unbiased advice on Term Life Insurance, Health Insurance (Mediclaim), Motor Insurance, Travel Insurance, and ULIPs to secure your financial dependents.",
-            icon: "/insurance-white.webp",
+                "Comprehensive term and health insurance plans to protect your family's future. Get unbiased guidance on Term Life Insurance, Mediclaim, Critical Illness, and Motor Insurance tailored to your budget.",
+            icon: "/services/insurance.webp",
             isImage: true,
         },
         {
             title: "LOAN",
+            badge: "Instant Liquidity",
             description:
-                "We facilitate quick and hassle-free loans to meet your capital needs. This includes Home Loans, Business Loans, Personal Loans, and Loans Against Mutual Funds (LAMF) at competitive interest rates.",
-            icon: "/loan-white.webp",
+                "Low-interest loan against mutual funds (LAMF), Home Loans, and Business Loans. Access quick liquidity without selling your investments, supported by transparent terms and fast processing.",
+            icon: "/services/loan.webp",
             isImage: true,
         },
         {
             title: "OTHERS",
+            badge: "Demat & Tax Planning",
             description:
-                "In addition to our core financial services, we offer Demat Account opening and a free online Risk Profile Assessment tool to give you a personalised asset allocation strategy.",
-            icon: "/others-white.webp",
+                "Free online Demat and trading account opening, tax planning guidance, and a comprehensive Risk Profile assessment to build a personalized long-term asset allocation strategy.",
+            icon: "/services/others.webp",
             isImage: true,
         },
     ];
@@ -54,44 +60,66 @@ const ServicesSection = () => {
     };
 
     return (
-        <section id="services" className="py-12 sm:py-24 px-4 sm:px-6 lg:px-8 relative">
-            {/* Background elements */}
-            <div className="absolute inset-0">
-                <div className="w-full h-96 bg-stockstrail-bg-light blur-185 opacity-40"></div>
-                {/* Pulsing ring (hero-style) */}
-                <div className="absolute left-1/2 top-10 -translate-x-1/2 w-[700px] h-[700px] bg-stockstrail-bg-light rounded-full blur-100 opacity-60 pointer-events-none" />
+        <section id="services" className="py-16 sm:py-24 relative overflow-hidden isolate">
+            {/* DEDICATED SECTION 3D BACKGROUND */}
+            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+                <Image
+                    src="/assets/sections/about-bg.jpg"
+                    alt="Services Section Executive Architecture"
+                    fill
+                    unoptimized
+                    className="object-cover object-center opacity-35 scale-105 filter brightness-105 contrast-115"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/80 via-[#011d1c]/50 to-[#011d1c]/85" />
+                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-emerald-500/15 rounded-full blur-[150px]" />
             </div>
 
-            <div className="relative z-10 max-w-[90%] mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="font-product-sans text-2xl sm:text-4xl lg:text-6xl font-normal uppercase mb-5">
-                        <span className="text-white">Build, </span>
-                        <span className="gradient-text">Protect</span>
-                        <span className="text-white"> &amp; Grow Your Wealth</span>
+            <div className="relative z-10 max-w-[90%] lg:max-w-7xl mx-auto">
+                {/* 3D Section Header */}
+                <div className="text-center mb-16 space-y-4">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-stockstrail-green-light/30 bg-stockstrail-green-light/10 px-4 py-1 text-xs font-semibold text-stockstrail-green-light uppercase tracking-wider backdrop-blur-md shadow-[0_0_15px_rgba(0,255,151,0.15)]">
+                        <span className="w-2 h-2 rounded-full bg-stockstrail-green-light animate-pulse" />
+                        <span>Comprehensive Financial Ecosystem</span>
+                    </div>
+
+                    <h2
+                        className="text-2xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.8)] [text-shadow:0_2px_12px_rgba(0,255,151,0.25)]"
+                        style={{ fontFamily: "var(--font-product-sans)" }}
+                    >
+                        <span className="text-white">Personalized Financial Planning &amp; </span>
+                        <span className="gradient-text drop-shadow-[0_0_30px_rgba(0,255,151,0.35)]">Investment Services</span>
                     </h2>
-                    <p className="text-white/70 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
-                        From your first SIP or lump sum investment to insurance, fixed deposits,
-                        loans and long-term financial planning, Stockstrail helps you make
-                        smarter money decisions with personalised guidance tailored to your goals.
+
+                    <p className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed [text-shadow:0_1px_2px_rgba(0,0,0,0.9)]">
+                        Discover end-to-end wealth solutions curated to match your family goals, time horizon, and risk profile.
                     </p>
                 </div>
 
-                <div className="space-y-16">
+                {/* 3D Elevated Service Cards */}
+                <div className="space-y-6">
                     {services.map((service, index) => (
-                        <div key={index} className="relative">
-                            <div className="bg-stockstrail-bg border-2 border-white/13 rounded-[105px] p-4 sm:p-8 flex flex-col sm:flex-row items-center group hover:border-stockstrail-green-light hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-300">
+                        <Link
+                            key={index}
+                            href={getHref(service.title)}
+                            className="group relative bg-[#021716]/85 border border-white/12 hover:border-stockstrail-green-light/70 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(0,255,151,0.25)] hover:-translate-y-1.5 transition-all duration-300 block overflow-hidden"
+                        >
+                            {/* Ambient internal card glow */}
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-stockstrail-green-light/10 to-transparent rounded-full blur-3xl pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity" />
 
-                                {/* Icon / Image */}
-                                <div className="w-16 h-16 sm:w-24 sm:h-24 bg-white/10 rounded-full flex items-center justify-center mb-4 sm:mb-0 sm:mr-8 shrink-0 group-hover:scale-110 group-hover:bg-stockstrail-green-light/20 transition-all duration-300">
+                            <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between relative z-10 gap-4 sm:gap-0">
+                                {/* Icon Frame */}
+                                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/[0.06] border border-white/15 rounded-2xl flex items-center justify-center mb-4 sm:mb-0 sm:mr-8 shrink-0 group-hover:scale-110 group-hover:bg-stockstrail-green-light/20 group-hover:border-stockstrail-green-light/50 transition-all duration-300 shadow-md">
                                     {service.isImage ? (
-                                        <Image unoptimized={true}
+                                        <Image
+                                            unoptimized={true}
                                             src={service.icon}
                                             alt={service.title}
-                                            className="w-8 h-8 sm:w-16 sm:h-16 object-contain group-hover:scale-110 transition-transform duration-300 brightness-0 invert"
-                                            width={48}
-                                            height={48}
+                                            className="w-10 h-10 sm:w-14 sm:h-14 object-contain group-hover:scale-110 transition-transform duration-300"
+                                            width={56}
+                                            height={56}
                                             loading="lazy"
-                                            decoding="async" />
+                                            decoding="async"
+                                        />
                                     ) : (
                                         <span className="text-2xl sm:text-4xl group-hover:scale-110 transition-transform duration-300">
                                             {service.icon}
@@ -99,41 +127,36 @@ const ServicesSection = () => {
                                     )}
                                 </div>
 
-                                {/* Text */}
-                                <div className="grow text-center">
-                                    <h3 className="font-product-sans text-lg sm:text-xl lg:text-2xl font-normal uppercase text-white mb-4 group-hover:text-stockstrail-green-light transition-colors duration-300">
-                                        {service.title}
-                                    </h3>
-                                    <p className="text-white/50 font-work-sans text-xs sm:text-sm lg:text-base leading-relaxed max-w-[662px] mx-auto group-hover:text-white/70 transition-colors duration-300">
+                                {/* Content */}
+                                <div className="flex-1 text-center sm:text-left min-w-0">
+                                    <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1.5">
+                                        <h3
+                                            className="text-lg sm:text-2xl font-bold text-white group-hover:text-stockstrail-green-light transition-colors drop-shadow-md tracking-tight"
+                                            style={{ fontFamily: "var(--font-product-sans)" }}
+                                        >
+                                            {service.title}
+                                        </h3>
+                                        <span className="text-[10px] sm:text-xs font-semibold px-2.5 py-0.5 rounded-full bg-stockstrail-green-light/15 border border-stockstrail-green-light/30 text-stockstrail-green-light">
+                                            {service.badge}
+                                        </span>
+                                    </div>
+
+                                    <p className="text-white/75 text-xs sm:text-sm leading-relaxed font-normal">
                                         {service.description}
                                     </p>
                                 </div>
 
-                                {/* Arrow Link */}
-                                <a
-                                    href={getHref(service.title)}
-                                    className="w-16 h-16 sm:w-24 sm:h-24 bg-white/20 rounded-full flex items-center justify-center mt-4 sm:mt-0 sm:ml-8 shrink-0 group-hover:bg-stockstrail-gradient group-hover:scale-110 transition-all duration-300 cursor-pointer"
-                                    aria-label={`${service.title} link`}
-                                >
-                                    <svg
-                                        width="24"
-                                        height="24"
-                                        className="sm:w-[35px] sm:h-[35px] group-hover:scale-110 transition-transform duration-300"
-                                        viewBox="0 0 36 36"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M7.44141 28.6037L29.0414 7.00366M29.0414 7.00366H12.8414M29.0414 7.00366V23.2037"
-                                            stroke="white"
-                                            strokeWidth="2.16"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        />
-                                    </svg>
-                                </a>
+                                {/* Arrow Action Button */}
+                                <div className="mt-4 sm:mt-0 sm:ml-6 flex items-center gap-2 text-stockstrail-green-light text-xs font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform shrink-0">
+                                    <span className="hidden sm:inline">Explore</span>
+                                    <div className="w-10 h-10 rounded-full bg-white/10 group-hover:bg-stockstrail-green-light group-hover:text-black flex items-center justify-center text-white transition-colors shadow-md">
+                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>

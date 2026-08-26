@@ -2,7 +2,6 @@
 import { redirect } from "next/navigation";
 import { createClient, getServerUser, getServerProfile } from "@/lib/supabase/server";
 import SimpleLayout from "@/components/layout/SimpleLayout";
-import SEO from "@/components/common/SEO";
 import { AdminDashboardContent } from "@/components/features/risk-assessment/admin/AdminDashboardContent";
 import { AdminReviewsContent } from "@/components/features/risk-assessment/admin/AdminReviewsContent";
 import { AdminQueriesContent } from "@/components/features/risk-assessment/admin/AdminQueriesContent";
@@ -169,11 +168,6 @@ export default async function AdminDashboardPage({
 
   return (
     <SimpleLayout>
-      <SEO
-        title="Admin Dashboard | Stockstrail"
-        description="Admin panel for managing risk profiles"
-        url="/admin"
-      />
       <AdminDashboardContent
         attempts={(attempts as RiskAttemptWithProfile[]) || []}
         currentPage={page}

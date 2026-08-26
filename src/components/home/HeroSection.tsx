@@ -1,119 +1,165 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const HeroSection = () => {
+  const [activeCard, setActiveCard] = useState<number>(0);
+
+  const cards = [
+    {
+      id: 0,
+      title: "Smart Financial Calculators",
+      category: "Interactive Tools",
+      tag: "SIP · FD · EMI · Taxes",
+      description: "Compounding growth visualizers, SIP vs FD return comparisons, and loan calculators with live projection charts.",
+      highlight: "₹10K/mo → ₹23.2L Growth",
+      href: "/calculators",
+      image: "/assets/hero/calculator-card.jpg",
+      icon: "🧮",
+      cta: "Launch Calculators",
+    },
+    {
+      id: 1,
+      title: "Let's Talk — 1-on-1 Advisory",
+      category: "Free Strategy Call",
+      tag: "AMFI Registered ARN-284122",
+      description: "Direct advisory discussion with Vikrant Bhardwaj. 100% unbiased, goal-aligned financial roadmaps tailored to you.",
+      highlight: "● Advisors Available Online",
+      href: "/lets-talk",
+      image: "/assets/hero/letstalk-card.jpg",
+      icon: "📞",
+      cta: "Book Free Session",
+    },
+    {
+      id: 2,
+      title: "Personalized Investment Services",
+      category: "Comprehensive Solutions",
+      tag: "5 Tailored Offerings",
+      description: "Mutual Funds, Fixed Deposits, Life & Health Insurance, Loans Against Mutual Funds, and Demat accounts.",
+      highlight: "Zero Hidden Fees · Goal-First",
+      href: "/services",
+      image: "/assets/hero/services-card.jpg",
+      icon: "💼",
+      cta: "Explore All 5 Services",
+    },
+  ];
+
   return (
-    <section className="relative z-20 overflow-hidden py-4 sm:py-6 md:min-h-[calc(100vh-76px)] md:flex md:items-center">
-      {/* BACKGROUND GLOW BLOBS & GRID */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <span className="glow-blob top-[-100px] left-[-100px] h-[480px] w-[480px] opacity-40 animate-float" />
-        <span
-          className="glow-blob bottom-[-100px] right-[-100px] h-[550px] w-[550px] opacity-35 animate-float-slow"
-          style={{ background: "rgba(0, 229, 153, 0.15)" }}
-        />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,229,153,0.05)_0,transparent_70%)]" />
+    <section className="relative z-20 overflow-hidden py-8 sm:py-14 md:min-h-[calc(100vh-76px)] md:flex md:items-center">
+      {/* VIBRANT GLOWING AURORA BACKDROP */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10" aria-hidden="true">
+        <div className="absolute inset-0 opacity-25 mix-blend-screen scale-105">
+          <Image
+            src="/assets/hero/aurora-bg.jpg"
+            alt="Fintech Aurora Glow"
+            fill
+            priority
+            className="object-cover object-center filter saturate-150 brightness-110"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#011413]/90 via-[#011716]/80 to-[#01100f]/95" />
+        <div className="absolute top-[-120px] left-[-60px] w-[520px] h-[520px] bg-[color:var(--color-brand-green)]/15 rounded-full blur-[140px]" />
+        <div className="absolute bottom-[-120px] right-[-60px] w-[580px] h-[580px] bg-teal-500/15 rounded-full blur-[160px]" />
       </div>
 
-      {/* Subtle grid lines */}
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-          maskImage: "radial-gradient(ellipse at center, black 40%, transparent 80%)",
-        }}
-      />
-
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
-          {/* LEFT COLUMN: CONTENT & CTAs (5 cols) */}
-          <div className="md:col-span-5 space-y-4 text-left animate-fade-up">
+          {/* LEFT COLUMN: CRISP 3D TYPOGRAPHY (5 cols) */}
+          <div className="lg:col-span-5 space-y-6 text-left animate-fade-up">
 
-            {/* TOP BADGE PILL */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-brand-green)]/40 bg-[color:var(--color-brand-green)]/10 px-3.5 py-1 text-[11px] font-semibold text-[color:var(--color-brand-green)] tracking-wider uppercase backdrop-blur-md shadow-[0_0_12px_rgba(0,229,153,0.2)]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--color-brand-green)] animate-pulse" />
-              <span>AMFI REGISTERED</span>
-              <span className="text-white/40">·</span>
-              <span>YOUR GOALS FIRST</span>
-              <span className="text-white/40">·</span>
-              <span>YOUR PLAN NEXT</span>
+            {/* Top Pill Badge */}
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-stockstrail-green-light/30 bg-stockstrail-green-light/10 px-4 py-1.5 text-xs font-semibold text-stockstrail-green-light tracking-wider uppercase backdrop-blur-md shadow-[0_0_20px_rgba(0,255,151,0.15)]">
+              <span className="w-2 h-2 rounded-full bg-stockstrail-green-light animate-pulse" />
+              <span>AMFI Registered ARN-284122</span>
+              <span className="text-white/30">•</span>
+              <span>Goal-First Advisory</span>
             </div>
 
-            {/* HEADLINE */}
-            <div className="space-y-2">
+            {/* 3D Single H1 Headline */}
+            <div className="space-y-4">
               <h1
-                className="text-3xl sm:text-4xl lg:text-[46px] font-bold tracking-tight text-white leading-[1.08]"
+                className="text-4xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-white leading-[1.08] drop-shadow-[0_8px_20px_rgba(0,0,0,0.8)] [text-shadow:0_2px_12px_rgba(0,255,151,0.25)]"
                 style={{ fontFamily: "var(--font-product-sans)" }}
               >
                 Personalized <br />
-                <span className="gradient-text">Financial Planning.</span>
+                <span className="gradient-text drop-shadow-[0_0_35px_rgba(0,255,151,0.45)]">
+                  Financial Planning.
+                </span>
               </h1>
-              <p className="text-xs sm:text-sm text-white/75 leading-relaxed max-w-xl">
-                Making the right financial decisions shouldn't be complicated. From your first SIP and lump sum investment to insurance, fixed deposits and loans, every recommendation is tailored to your goals, risk profile and the life you're building.
-              </p>
+
+              {/* 3D Elevated Description Card */}
+              <div className="bg-[#031d1b]/75 border border-white/15 rounded-2xl p-4 sm:p-5 backdrop-blur-md shadow-[0_15px_35px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)]">
+                <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-normal [text-shadow:0_1px_2px_rgba(0,0,0,0.9),0_2px_6px_rgba(0,0,0,0.7)] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  <strong className="text-white font-bold">Stockstrail</strong> helps you in making confident decisions with <strong className="font-semibold"><Link href="/services" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">personalized financial planning</Link></strong>. We provide a <strong className="font-semibold"><Link href="/lets-talk" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">free consultation call</Link></strong> and help you invest in your future with <strong className="font-semibold"><Link href="/mutual-funds" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">mutual funds</Link></strong>, <strong className="font-semibold"><Link href="/calculators" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">SIPs</Link></strong>, <strong className="font-semibold"><Link href="/fixed-deposit" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">fixed deposits</Link></strong>, comprehensive <strong className="font-semibold"><Link href="/insurance" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">insurance</Link></strong>, and <strong className="font-semibold"><Link href="/loan" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">loans against mutual funds</Link></strong>. We tailor every roadmap to your goals according to your <strong className="font-semibold"><Link href="/check-risk-profile" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">risk profile</Link></strong>.
+                </p>
+              </div>
             </div>
 
-            {/* 4 FEATURE STEPS */}
-            <div className="flex flex-row items-start justify-between w-full max-w-xl gap-2 pt-1">
+            {/* 4 Feature Steps */}
+            <div className="grid grid-cols-4 gap-2.5 pt-1">
               {[
                 {
                   icon: (
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
                       <circle cx="12" cy="12" r="9" />
                       <circle cx="12" cy="12" r="5" />
                       <circle cx="12" cy="12" r="1" fill="currentColor" />
                     </svg>
                   ),
-                  label: "Understand Your Goals",
+                  label: "Goals",
+                  href: "/about",
                 },
                 {
                   icon: (
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                       <path d="M9 12l2 2 4-4" />
                     </svg>
                   ),
-                  label: "Assess Your Risk",
+                  label: "Risk Profile",
+                  href: "/check-risk-profile",
                 },
                 {
                   icon: (
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
                       <rect x="3" y="4" width="18" height="16" rx="2" />
                       <path d="M7 8h10M7 12h7M7 16h4" />
                     </svg>
                   ),
-                  label: "Custom Financial Plan",
+                  label: "Strategy",
+                  href: "/services",
                 },
                 {
                   icon: (
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M3 17l6-6 4 4 8-8" />
                       <path d="M17 7h4v4" />
                     </svg>
                   ),
-                  label: "Build Long-Term Wealth",
+                  label: "Wealth",
+                  href: "/mutual-funds",
                 },
               ].map((step, idx) => (
-                <div key={idx} className="flex flex-col items-center text-center space-y-1.5 flex-1 min-w-0 group">
-                  <div className="w-10 h-10 rounded-full bg-black/40 border border-white/15 flex items-center justify-center text-white/80 group-hover:text-[color:var(--color-brand-green)] group-hover:border-[color:var(--color-brand-green)]/50 transition-colors shrink-0 shadow-sm">
+                <Link key={idx} href={step.href} className="flex flex-col items-center text-center space-y-1.5 group">
+                  <div className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/15 flex items-center justify-center text-white/80 group-hover:text-stockstrail-green-light group-hover:border-stockstrail-green-light/60 group-hover:bg-stockstrail-green-light/10 transition-all shrink-0 shadow-sm">
                     {step.icon}
                   </div>
-                  <span className="text-[11px] font-semibold text-white/85 leading-tight text-center w-full">
+                  <span className="text-[11px] font-medium text-white/80 group-hover:text-stockstrail-green-light transition-colors">
                     {step.label}
                   </span>
-                </div>
+                </Link>
               ))}
             </div>
 
-            {/* CTA BUTTONS */}
-            <div className="flex flex-wrap items-center gap-3 pt-1">
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-1">
               <Link
                 href="/services"
                 aria-label="Explore Our Financial Services"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--color-brand-green)] px-6 py-2.5 text-xs sm:text-sm font-bold text-[color:var(--color-brand-bg)] hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,229,153,0.35)]"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-stockstrail-green-light px-7 py-3.5 text-xs sm:text-sm font-bold text-black hover:bg-white hover:scale-105 transition-all shadow-[0_0_25px_rgba(0,255,151,0.4)]"
               >
                 <span>Explore Our Services</span>
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -124,9 +170,9 @@ const HeroSection = () => {
               <Link
                 href="/check-risk-profile"
                 aria-label="Check your risk profile"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-[color:var(--color-brand-green)]/50 bg-white/[0.03] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-[color:var(--color-brand-green)]/10 hover:border-[color:var(--color-brand-green)] hover:scale-105 transition-all shadow-md backdrop-blur-sm"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-6 py-3.5 text-xs sm:text-sm font-semibold text-white hover:bg-white/10 hover:border-stockstrail-green-light hover:scale-105 transition-all backdrop-blur-md"
               >
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" className="text-[color:var(--color-brand-green)]">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" className="text-stockstrail-green-light">
                   <circle cx="12" cy="12" r="9" />
                   <path d="M12 8v4l3 3" />
                 </svg>
@@ -134,217 +180,140 @@ const HeroSection = () => {
               </Link>
             </div>
 
-            {/* TRUST BADGES ROW */}
-            <div className="pt-3 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-2 text-[10px] text-white/60">
-              <div className="flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-[color:var(--color-brand-green)]" />
-                <span>AMFI Registered</span>
+            {/* Sleek 5-Star Trust Badge */}
+            <div className="pt-3 border-t border-white/10 flex items-center gap-3 text-xs text-white/80">
+              <div className="flex items-center gap-1.5 bg-amber-400/10 border border-amber-400/30 px-2.5 py-1 rounded-full text-amber-400 font-bold text-[11px] shadow-sm shrink-0">
+                <span>★★★★★</span>
+                <span className="text-white text-[10px] ml-0.5 font-semibold">5.0</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-[color:var(--color-brand-green)]" />
-                <span>200+ Families Guided</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-[color:var(--color-brand-green)]" />
-                <span>Goal-First</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-[color:var(--color-brand-green)]" />
-                <span>Research-Backed</span>
-              </div>
+              <p className="text-[11px] text-white/80 leading-tight">
+                <span className="font-semibold text-white">200+ Families Guided</span> across India with 100% Transparency
+              </p>
             </div>
 
           </div>
 
-          {/* RIGHT COLUMN: FINANCIAL DASHBOARD (7 cols) */}
-          <div className="md:col-span-7 relative animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          {/* RIGHT COLUMN: 3D INTERACTIVE CARD SHOWCASE (7 cols) */}
+          <div className="lg:col-span-7 space-y-4 animate-fade-up">
 
-            {/* Outer Glassmorphic Card Frame (Tilted) */}
-            <div className="relative bg-[#021716]/90 border border-emerald-500/25 backdrop-blur-xl rounded-2xl p-5 sm:p-6 pb-16 sm:pb-16 shadow-[0_0_45px_rgba(0,0,0,0.85)] rotate-[2.5deg] hover:rotate-1 transition-transform duration-500 origin-center">
-
-              {/* Ambient Glow */}
-              <div className="absolute -top-16 -right-16 w-56 h-56 bg-[color:var(--color-brand-green)]/15 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
-
-              {/* Dashboard Header Bar */}
-              <div className="flex items-center justify-between mb-3.5 relative z-10">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-red-400/70" />
-                  <div className="w-2 h-2 rounded-full bg-yellow-400/70" />
-                  <div className="w-2 h-2 rounded-full bg-emerald-400/70" />
-                </div>
-                <span className="text-[9px] text-white/30 font-mono tracking-widest uppercase">Financial Dashboard</span>
-                <span className="text-[9px] text-[color:var(--color-brand-green)]/60 font-semibold">● Live</span>
-              </div>
-
-              {/* 2×2 GRID OF WIDGETS */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 relative z-10">
-
-                {/* WIDGET 1: PORTFOLIO SNAPSHOT */}
-                <div className="bg-[#04201E]/90 border border-white/10 rounded-xl p-3.5 sm:p-4 shadow-md space-y-2.5 hover:border-emerald-500/30 transition-all">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-semibold text-white">Portfolio Overview</span>
-                    <span className="text-[10px] text-white/50 hover:text-[color:var(--color-brand-green)] cursor-pointer">View All ›</span>
-                  </div>
-
-                  <div>
-                    <div className="text-base font-bold text-white tracking-tight">₹ 12,80,000</div>
-                    <div className="text-[10px] font-medium text-[color:var(--color-brand-green)] flex items-center gap-1 mt-0.5">
-                      <span>▲ +18.4% CAGR</span>
-                      <span className="text-white/40">(3 Years)</span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    {[
-                      { label: "Mutual Funds", val: "₹7.2L", pct: 56 },
-                      { label: "Fixed Deposits", val: "₹2.8L", pct: 22 },
-                      { label: "Insurance Cover", val: "₹1.5L", pct: 12 },
-                      { label: "Gold / Others", val: "₹1.3L", pct: 10 },
-                    ].map((item, i) => (
-                      <div key={i} className="space-y-0.5">
-                        <div className="flex justify-between items-center text-[9px]">
-                          <span className="text-white/70">{item.label}</span>
-                          <span className="text-white font-semibold">{item.val}</span>
-                        </div>
-                        <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-gradient-to-r from-emerald-400 via-[color:var(--color-brand-green)] to-teal-300 rounded-full shadow-[0_0_6px_rgba(0,229,153,0.6)]"
-                            style={{ width: `${item.pct}%` }}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* WIDGET 2: GOAL TRACKER */}
-                <div className="bg-[#04201E]/90 border border-white/10 rounded-xl p-3.5 sm:p-4 shadow-md space-y-2.5 hover:border-emerald-500/30 transition-all">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-semibold text-white">Goal Tracker</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--color-brand-green)] animate-ping" />
-                  </div>
-
-                  <div className="space-y-2.5">
-                    {[
-                      { icon: "🌴", title: "Retirement", pct: 75 },
-                      { icon: "🎓", title: "Child Education", pct: 60 },
-                      { icon: "🏡", title: "Dream Home", pct: 40 },
-                      { icon: "🛡️", title: "Emergency Fund", pct: 85 },
-                    ].map((g, i) => (
-                      <div key={i} className="space-y-1">
-                        <div className="flex justify-between items-center text-[10px]">
-                          <span className="text-white/80 flex items-center gap-1">
-                            <span className="text-[10px]">{g.icon}</span> {g.title}
-                          </span>
-                          <span className="font-semibold text-white/90">{g.pct}%</span>
-                        </div>
-                        <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden border border-white/10">
-                          <div
-                            className="h-full bg-gradient-to-r from-emerald-400 via-[color:var(--color-brand-green)] to-teal-300 rounded-full shadow-[0_0_8px_rgba(0,229,153,0.7)]"
-                            style={{ width: `${g.pct}%` }}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* WIDGET 3: SIP GROWTH CHART */}
-                <div className="bg-[#04201E]/90 border border-white/10 rounded-xl p-3.5 sm:p-4 shadow-md space-y-2 hover:border-emerald-500/30 transition-all min-h-[165px]">
-                  <div className="flex items-center justify-between text-[10px]">
-                    <span className="font-semibold text-white">SIP Growth Tracker</span>
-                    <span className="px-1.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[8px] text-[color:var(--color-brand-green)]">
-                      ₹10K / Month
-                    </span>
-                  </div>
-
-                  <div>
-                    <div className="text-sm sm:text-base font-bold text-white tracking-tight">₹ 23,23,000</div>
-                    <div className="text-[9px] font-medium text-[color:var(--color-brand-green)] flex items-center gap-1">
-                      <span>▲ 10-Year Projection</span>
-                      <span className="text-white/40">at 12% p.a.</span>
-                    </div>
-                  </div>
-
-                  <div className="h-12 w-full pt-1">
-                    <svg viewBox="0 0 200 60" className="w-full h-full overflow-visible">
-                      <defs>
-                        <linearGradient id="sipGradMain" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#00E599" stopOpacity="0.4" />
-                          <stop offset="100%" stopColor="#00E599" stopOpacity="0.0" />
-                        </linearGradient>
-                      </defs>
-                      <path d="M 0 50 Q 40 45, 70 35 T 130 25 T 200 8 L 200 60 L 0 60 Z" fill="url(#sipGradMain)" />
-                      <path d="M 0 50 Q 40 45, 70 35 T 130 25 T 200 8" fill="none" stroke="#00E599" strokeWidth="2.5" strokeLinecap="round" />
-                      <circle cx="200" cy="8" r="3.5" fill="#00E599" />
-                      <circle cx="200" cy="8" r="7" fill="#00E599" className="animate-ping opacity-75" />
-                    </svg>
-                  </div>
-                </div>
-
-                {/* WIDGET 4: ASSET ALLOCATION DONUT */}
-                <div className="bg-[#04201E]/90 border border-white/10 rounded-xl p-3.5 sm:p-4 shadow-md flex flex-col justify-between hover:border-emerald-500/30 transition-all min-h-[165px]">
-                  <div className="flex items-center justify-between text-[10px]">
-                    <span className="font-semibold text-white">Asset Allocation</span>
-                    <span className="text-[9px] text-white/50">Ideal Mix ›</span>
-                  </div>
-
-                  <div className="flex items-center gap-2.5 my-1">
-                    <div className="w-14 h-14 shrink-0">
-                      <svg viewBox="0 0 36 36" className="w-full h-full transform -rotate-90">
-                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#3B82F6" strokeWidth="4.5" strokeDasharray="60 40" />
-                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#EAB308" strokeWidth="4.5" strokeDasharray="25 75" strokeDashoffset="-60" />
-                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#F59E0B" strokeWidth="4.5" strokeDasharray="10 90" strokeDashoffset="-85" />
-                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#8B5CF6" strokeWidth="4.5" strokeDasharray="5 95" strokeDashoffset="-95" />
-                      </svg>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-x-1.5 gap-y-0.5 text-[9px] flex-1">
-                      <div className="flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                        <span className="text-white/70">Equity</span>
-                        <span className="text-white font-semibold ml-auto">60%</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-yellow-500" />
-                        <span className="text-white/70">Debt</span>
-                        <span className="text-white font-semibold ml-auto">25%</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                        <span className="text-white/70">Gold</span>
-                        <span className="text-white font-semibold ml-auto">10%</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
-                        <span className="text-white/70">Others</span>
-                        <span className="text-white font-semibold ml-auto">5%</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* FLOATING OVERLAY BADGE */}
-              <div className="mt-4 sm:mt-0 sm:absolute sm:-bottom-4 sm:right-4 z-30 bg-[#06332F]/98 border border-emerald-400/50 backdrop-blur-2xl rounded-2xl p-3 shadow-2xl flex items-center gap-3 animate-float-slow">
-                <div className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-base text-[color:var(--color-brand-green)] shrink-0">
-                  👥
-                </div>
-                <div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-bold text-white">200+ Families Trusted</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--color-brand-green)] animate-pulse" />
-                    <span className="text-[9px] font-semibold text-[color:var(--color-brand-green)] uppercase">All India</span>
-                  </div>
-                  <div className="text-[11px] text-white/70 mt-0.5">
-                    HP & Pan India • <span className="text-white font-bold text-[11px]">AMFI Registered</span>
-                  </div>
-                </div>
-              </div>
-
+            {/* Interactive Tab Switcher Bar */}
+            <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-[#021817]/90 border border-white/15 backdrop-blur-xl shadow-lg">
+              {cards.map((card, idx) => (
+                <button
+                  key={card.id}
+                  onClick={() => setActiveCard(idx)}
+                  className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-semibold transition-all duration-300 ${
+                    activeCard === idx
+                      ? 'bg-stockstrail-green-light text-black shadow-[0_0_20px_rgba(0,255,151,0.35)] scale-[1.02]'
+                      : 'text-white/70 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  <span>{card.icon}</span>
+                  <span className="truncate" style={{ fontFamily: "var(--font-product-sans)" }}>
+                    {card.id === 0 ? 'Calculators' : card.id === 1 ? 'Let\'s Talk' : 'Services'}
+                  </span>
+                </button>
+              ))}
             </div>
+
+            {/* 3D FEATURED SHOWCASE CARD */}
+            <div className="relative rounded-3xl overflow-hidden border border-stockstrail-green-light/50 bg-[#021716]/95 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_40px_rgba(0,255,151,0.15)] group transition-all duration-500 hover:border-stockstrail-green-light hover:shadow-[0_25px_60px_rgba(0,0,0,0.9),0_0_60px_rgba(0,255,151,0.25)]">
+
+              {/* Top Banner Tag */}
+              <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
+                <span className="px-3 py-1 rounded-full bg-black/70 border border-stockstrail-green-light/40 text-[10px] sm:text-xs font-bold text-stockstrail-green-light backdrop-blur-md shadow-md uppercase tracking-wider">
+                  {cards[activeCard].category}
+                </span>
+                <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[10px] sm:text-xs font-medium text-white/90 backdrop-blur-md hidden sm:inline-block">
+                  {cards[activeCard].tag}
+                </span>
+              </div>
+
+              {/* Floating Highlight Badge */}
+              <div className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-[10px] font-semibold text-stockstrail-green-light backdrop-blur-md shadow-md">
+                {cards[activeCard].highlight}
+              </div>
+
+              {/* 3D Visual Mockup Image Display (Properly Fitted & Framed with Padding) */}
+              <div className="relative w-full h-[240px] sm:h-[300px] overflow-hidden bg-[#011413] p-3 sm:p-4">
+                <Image
+                  src={cards[activeCard].image}
+                  alt={cards[activeCard].title}
+                  fill
+                  priority
+                  className="object-contain object-center group-hover:scale-[1.02] transition-transform duration-500 filter brightness-105 contrast-105"
+                />
+              </div>
+
+              {/* Bottom Card Content & Direct Redirection Link */}
+              <div className="p-5 sm:p-6 relative z-20 space-y-3 bg-[#021716] border-t border-white/10">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <h3
+                      className="text-xl sm:text-2xl font-bold text-white group-hover:text-stockstrail-green-light transition-colors drop-shadow-md"
+                      style={{ fontFamily: "var(--font-product-sans)" }}
+                    >
+                      {cards[activeCard].title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-white/75 mt-1 max-w-lg leading-relaxed font-normal">
+                      {cards[activeCard].description}
+                    </p>
+                  </div>
+
+                  <Link
+                    href={cards[activeCard].href}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-stockstrail-green-light text-black font-bold text-xs sm:text-sm hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,255,151,0.4)] shrink-0 self-start sm:self-center"
+                  >
+                    <span>{cards[activeCard].cta}</span>
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* 3D PERSPECTIVE QUICK DOCK (Direct Links to Other 2 Cards) */}
+            <div className="grid grid-cols-2 gap-3.5">
+              {cards
+                .filter((_, idx) => idx !== activeCard)
+                .map((card) => (
+                  <Link
+                    key={card.id}
+                    href={card.href}
+                    className="group relative rounded-2xl overflow-hidden border border-white/15 hover:border-stockstrail-green-light/60 bg-[#021716]/80 p-3.5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(0,255,151,0.2)] flex items-center gap-3.5"
+                  >
+                    {/* Thumbnail Image */}
+                    <div className="relative w-16 h-14 rounded-xl overflow-hidden shrink-0 border border-white/10 bg-[#011413]">
+                      <Image
+                        src={card.image}
+                        alt={card.title}
+                        fill
+                        className="object-contain object-center group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+
+                    <div className="min-w-0 flex-1">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-stockstrail-green-light block truncate">
+                        {card.category}
+                      </span>
+                      <h4
+                        className="text-xs sm:text-sm font-bold text-white truncate group-hover:text-stockstrail-green-light transition-colors"
+                        style={{ fontFamily: "var(--font-product-sans)" }}
+                      >
+                        {card.title}
+                      </h4>
+                      <span className="text-[10px] text-white/50 flex items-center gap-1 mt-0.5">
+                        <span>Go to page</span>
+                        <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+            </div>
+
           </div>
 
         </div>
@@ -354,3 +323,6 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
+
+

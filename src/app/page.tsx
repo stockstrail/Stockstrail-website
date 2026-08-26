@@ -7,9 +7,9 @@ import { AuthCallbackHandler } from '@/components/home/AuthCallbackHandler';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Financial Planning & Investment Guidance | Stockstrail',
-  description: 'At Stockstrail, we provide honest, jargon-free financial planning and investment guidance. Explore Mutual Funds, FD, Insurance, and Loans across India.',
-  keywords: 'Financial Planning, Investment Guidance, Mutual Funds, Loans, FD, Insurance, Open Demat Account',
+  title: 'Personalized Financial Planning & Investment Guidance | Stockstrail',
+  description: 'Stockstrail provides honest, personalized financial planning and investment guidance in India. Explore goal-based Mutual Funds SIP, Fixed Deposits, Term Insurance, and Loans.',
+  keywords: 'Personalized Financial Planning, Investment Guidance in India, Mutual Funds SIP, Lumpsum Investment, Fixed Deposit Rates, Term Insurance Plans, Health Insurance, Loan Against Mutual Funds, LAMF, Open Demat Account, Stockstrail',
   alternates: {
     canonical: 'https://www.stockstrail.in',
   },

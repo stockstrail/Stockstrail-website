@@ -1,17 +1,27 @@
-"use client";
-// trigger hmr
-
+import type { Metadata } from 'next';
 import Layout from "@/components/layout/Layout";
-import SEO from "@/components/common/SEO";
 
-const NseHolidays = () => {
+export const metadata: Metadata = {
+  title: 'NSE Holiday List 2026 | Stockstrail',
+  description:
+    'Official NSE trading holidays for the year 2026 including national, regional holidays and weekends.',
+  alternates: {
+    canonical: 'https://www.stockstrail.in/nse-holidays',
+  },
+  openGraph: {
+    title: 'NSE Holiday List 2026 | Stockstrail',
+    description:
+      'Official NSE trading holidays for the year 2026 including national, regional holidays and weekends.',
+    url: 'https://www.stockstrail.in/nse-holidays',
+    siteName: 'Stockstrail',
+    locale: 'en_IN',
+    type: 'website',
+  },
+};
+
+export default function NseHolidays() {
   return (
     <Layout>
-      <SEO
-        title="NSE Holiday List 2026 | Stockstrail"
-        description="Official NSE trading holidays for the year 2026 including national, regional holidays and weekends."
-        url="/nse-holidays"
-      />
       <div className="pt-20 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-white font-work-sans">
           
@@ -120,19 +130,19 @@ const NseHolidays = () => {
             Understanding <strong>NSE market session timings</strong> helps you place orders correctly, execute <strong>Mutual Fund switches</strong>, check <strong>Demat Account statements</strong>, plan <strong>Loan disbursals linked to market rates</strong>, and time your <strong>FD bookings</strong> relative to market movements. Here is Stockstrail's complete NSE 2026 session guide.
           </p>
 
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Pre-Open Session</h2>
+          <h3 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Pre-Open Session</h3>
           <p className="text-white/80 mb-5 leading-relaxed"><strong>Order Entry & Modification:</strong> 09:00 AM to 09:08 AM (with random closure during the last minute).<br />Order Matching begins immediately after the Pre-Open session closes.</p>
 
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Regular Trading Session</h2>
+          <h3 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Regular Trading Session</h3>
           <p className="text-white/80 mb-5 leading-relaxed"><strong>Market Open: 09:15 AM</strong> | <strong>Market Close: 03:30 PM</strong></p>
 
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Closing Session</h2>
+          <h3 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Closing Session</h3>
           <p className="text-white/80 mb-5 leading-relaxed"><strong>03:40 PM to 04:00 PM</strong></p>
 
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Block Deal Sessions</h2>
+          <h3 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Block Deal Sessions</h3>
           <p className="text-white/80 mb-5 leading-relaxed"><strong>Morning Window:</strong> 08:45 AM to 09:00 AM<br /><strong>Afternoon Window:</strong> 02:05 PM to 02:20 PM</p>
 
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Commodity Derivatives Session</h2>
+          <h3 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Commodity Derivatives Session</h3>
           <p className="text-white/80 mb-5 leading-relaxed"><strong>Market Open: 09:00 AM</strong> | <strong>Market Close: 11:30 PM</strong></p>
 
           <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">
@@ -214,12 +224,12 @@ const NseHolidays = () => {
             Frequently Asked Questions - NSE Holiday 2026 & Stockstrail Services
           </h2>
           
-          <h2 className="text-xl font-semibold text-white mt-8 mb-4">Q1. How many NSE trading holidays are there in 2026?</h2>
+          <h3 className="text-xl font-semibold text-white mt-8 mb-4">Q1. How many NSE trading holidays are there in 2026?</h3>
           <p className="text-white/80 mb-5 leading-relaxed">
             There are <strong>15 official NSE trading holidays</strong> in 2026 for the Equity, Equity Derivatives, and SLB segments - from <strong>Republic Day on January 26</strong> to <strong>Christmas on December 25</strong>. Stockstrail provides the complete list above, updated from official NSE announcements.
           </p>
 
-          <h2 className="text-xl font-semibold text-white mt-8 mb-4">Q2. Is NSE open on Holi 2026?</h2>
+          <h3 className="text-xl font-semibold text-white mt-8 mb-4">Q2. Is NSE open on Holi 2026?</h3>
           <p className="text-white/80 mb-5 leading-relaxed">
             No. The NSE will be <strong>closed on Holi, March 03, 2026 (Tuesday)</strong>. This holiday applies to the Equity, Equity Derivatives, and SLB segments. For the Commodity Derivatives segment, the morning session is closed but the evening session remains open on Holi 2026.
           </p>
@@ -243,6 +253,5 @@ const NseHolidays = () => {
       </div>
     </Layout>
   );
-};
+}
 
-export default NseHolidays;

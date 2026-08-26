@@ -93,22 +93,44 @@ const faqJsonLd = {
     },
   ],
 };
+
+const mutualFundServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FinancialService',
+  '@id': 'https://www.stockstrail.in/mutual-funds#service',
+  name: 'Stockstrail Mutual Fund Advisory & Distribution',
+  description:
+    'AMFI-registered mutual fund distributor providing personalized portfolio guidance, SIP planning, and lump sum investing strategies.',
+  url: 'https://www.stockstrail.in/mutual-funds',
+  provider: {
+    '@type': 'FinancialService',
+    name: 'Stockstrail',
+    url: 'https://www.stockstrail.in',
+  },
+  areaServed: 'IN',
+};
+
 export default function MutualFunds() {
   return (
     <Layout>
       <script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
-  }}
-/>
-
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c'),
-  }}
-/>
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(mutualFundServiceSchema).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <div className="absolute inset-0 -z-10">
           <div className="w-full h-72 bg-stockstrail-bg-light blur-185 opacity-40" />

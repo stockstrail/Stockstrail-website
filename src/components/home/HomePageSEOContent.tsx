@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import ServiceFAQSection from '@/components/services/ServiceFAQSection';
 
 const faqs = [
@@ -47,54 +48,73 @@ const faqs = [
 
 export default function HomePageSEOContent() {
     return (
-        <section className="py-16 bg-stockstrail-bg">
-            <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <section className="py-16 sm:py-24 relative overflow-hidden isolate">
+            {/* DEDICATED SECTION 3D BACKGROUND */}
+            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+                <Image
+                    src="/assets/sections/about-bg.jpg"
+                    alt="Financial Knowledge Hub Executive Architecture"
+                    fill
+                    unoptimized
+                    className="object-cover object-center opacity-35 scale-105 filter brightness-105 contrast-115"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/80 via-[#011d1c]/50 to-[#011d1c]/85" />
+                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-teal-500/15 rounded-full blur-[150px]" />
+            </div>
 
-                {/* Introduction */}
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                        Financial Planning &amp; Investment Guidance
+            <div className="max-w-[90%] lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
+
+                {/* 3D Section Header */}
+                <div className="text-center space-y-4">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-stockstrail-green-light/30 bg-stockstrail-green-light/10 px-4 py-1 text-xs font-semibold text-stockstrail-green-light uppercase tracking-wider backdrop-blur-md shadow-[0_0_15px_rgba(0,255,151,0.15)]">
+                        <span className="w-2 h-2 rounded-full bg-stockstrail-green-light animate-pulse" />
+                        <span>Knowledge Hub &amp; FAQ Guide</span>
+                    </div>
+
+                    <h2
+                        className="text-2xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.8)] [text-shadow:0_2px_12px_rgba(0,255,151,0.25)]"
+                        style={{ fontFamily: "var(--font-product-sans)" }}
+                    >
+                        <span className="text-white">Personalized </span>
+                        <span className="gradient-text drop-shadow-[0_0_30px_rgba(0,255,151,0.35)]">Financial Planning</span>
+                        <span className="text-white"> &amp; Investment Guidance</span>
                     </h2>
 
-                    <p className="text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                        Managing money involves more than choosing an investment.
-                        Your goals, savings, insurance, loans and investment decisions
-                        all affect your financial future. Stockstrail helps you understand
-                        these choices and make decisions based on your own circumstances.
+                    <p className="text-white/80 max-w-3xl mx-auto leading-relaxed [text-shadow:0_1px_2px_rgba(0,0,0,0.9)]">
+                        <strong>Personalized financial planning</strong> and <strong>investment guidance in India</strong> involve more than just picking financial products. Your life goals, systematic savings, <strong>mutual fund portfolio</strong>, <strong>insurance coverage</strong>, <strong>fixed deposits</strong>, and <strong>loan management</strong> all shape your financial future. Stockstrail helps you make informed decisions based on your unique circumstances.
                     </p>
                 </div>
 
-                {/* How Stockstrail works */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8">
-                    <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-4">
+                {/* How Stockstrail works 3D Card */}
+                <div className="bg-[#021716]/85 border border-white/12 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)]">
+                    <h3
+                        className="text-xl sm:text-2xl font-bold text-stockstrail-green-light mb-4 drop-shadow-sm"
+                        style={{ fontFamily: "var(--font-product-sans)" }}
+                    >
                         How we approach your financial decisions
                     </h3>
 
-                    <p className="text-gray-300 leading-relaxed mb-4">
-                        We don&apos;t believe everyone needs the same investment or financial
-                        product. The right solution depends on what you are trying to
-                        achieve, when you need the money, how much risk you can take and
-                        what your existing financial commitments look like.
+                    <p className="text-white/85 leading-relaxed mb-4 text-sm sm:text-base font-normal [text-shadow:0_1px_2px_rgba(0,0,0,0.9)]">
+                        <strong>Goal-focused financial strategy:</strong> We don&apos;t believe everyone needs the same investment or financial product. The right solution depends on what you are trying to achieve, when you need the money, how much risk you can take and what your existing financial commitments look like.
                     </p>
 
-                    <p className="text-gray-300 leading-relaxed">
-                        That is why Stockstrail starts with your financial situation
-                        before discussing products. Depending on your needs, this may
-                        involve investments, insurance, Fixed Deposits, loans or a
-                        combination of different financial solutions.
+                    <p className="text-white/85 leading-relaxed text-sm sm:text-base font-normal [text-shadow:0_1px_2px_rgba(0,0,0,0.9)]">
+                        <strong>Holistic portfolio management:</strong> Stockstrail starts with your personal financial situation before recommending products. Depending on your needs, this may involve <strong>mutual funds</strong>, <strong>insurance</strong>, <strong>Fixed Deposits</strong>, <strong>loans</strong> or a balanced combination of financial solutions.
                     </p>
                 </div>
 
-                {/* Key areas */}
+                {/* Key Decision Cards */}
                 <div>
-                    <div className="text-center mb-8">
-                        <h3 className="text-2xl sm:text-3xl font-semibold text-stockstrail-green-light">
-                            Financial decisions we can help with
+                    <div className="text-center mb-10 space-y-2">
+                        <h3
+                            className="text-2xl sm:text-3xl font-bold text-white drop-shadow-md"
+                            style={{ fontFamily: "var(--font-product-sans)" }}
+                        >
+                            Financial Decisions We Can Help With
                         </h3>
 
-                        <p className="text-gray-400 max-w-2xl mx-auto mt-3">
-                            Explore the areas where Stockstrail can help you make more
-                            informed financial decisions.
+                        <p className="text-white/70 max-w-2xl mx-auto text-sm sm:text-base">
+                            Explore the areas where Stockstrail can help you make more informed, goal-aligned financial decisions.
                         </p>
                     </div>
 
@@ -102,194 +122,182 @@ export default function HomePageSEOContent() {
 
                         <Link
                             href="/mutual-funds"
-                            className="group bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-stockstrail-green-light/60 transition-all duration-300"
+                            className="group bg-[#021716]/85 border border-white/12 hover:border-stockstrail-green-light/70 rounded-3xl p-6 sm:p-7 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(0,255,151,0.25)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                         >
-                            <h4 className="text-xl font-medium text-white group-hover:text-stockstrail-green-light transition-colors">
-                                Mutual Funds
-                            </h4>
+                            <div>
+                                <h4
+                                    className="text-lg sm:text-xl font-bold text-white group-hover:text-stockstrail-green-light transition-colors drop-shadow-sm mb-2"
+                                    style={{ fontFamily: "var(--font-product-sans)" }}
+                                >
+                                    Mutual Funds
+                                </h4>
 
-                            <p className="text-sm text-gray-400 mt-2 leading-relaxed">
-                                Explore SIP and lumpsum investing, understand different
-                                types of mutual funds and learn how they can fit into
-                                long-term financial goals.
-                            </p>
+                                <p className="text-xs sm:text-sm text-white/75 leading-relaxed font-normal">
+                                    <strong>Goal-based SIP &amp; lumpsum investing:</strong> Explore top equity, debt, and hybrid mutual funds tailored to your financial goals and investment horizon.
+                                </p>
+                            </div>
 
-                            <span className="inline-block mt-4 text-sm text-stockstrail-green-light font-medium">
-                                Explore Mutual Funds →
-                            </span>
+                            <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-stockstrail-green-light uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                                <span>Explore Mutual Funds</span>
+                                <span>→</span>
+                            </div>
                         </Link>
 
                         <Link
                             href="/fixed-deposit"
-                            className="group bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-stockstrail-green-light/60 transition-all duration-300"
+                            className="group bg-[#021716]/85 border border-white/12 hover:border-stockstrail-green-light/70 rounded-3xl p-6 sm:p-7 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(0,255,151,0.25)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                         >
-                            <h4 className="text-xl font-medium text-white group-hover:text-stockstrail-green-light transition-colors">
-                                Fixed Deposits
-                            </h4>
+                            <div>
+                                <h4
+                                    className="text-lg sm:text-xl font-bold text-white group-hover:text-stockstrail-green-light transition-colors drop-shadow-sm mb-2"
+                                    style={{ fontFamily: "var(--font-product-sans)" }}
+                                >
+                                    Fixed Deposits
+                                </h4>
 
-                            <p className="text-sm text-gray-400 mt-2 leading-relaxed">
-                                Understand Fixed Deposit options, interest rates,
-                                tenures and how FDs can be used for stability and
-                                predictable returns.
-                            </p>
+                                <p className="text-xs sm:text-sm text-white/75 leading-relaxed font-normal">
+                                    <strong>High-return Fixed Deposits (FD):</strong> Compare bank and NBFC interest rates, tenure options, and tax-saving FDs for secure, predictable returns.
+                                </p>
+                            </div>
 
-                            <span className="inline-block mt-4 text-sm text-stockstrail-green-light font-medium">
-                                Explore Fixed Deposits →
-                            </span>
+                            <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-stockstrail-green-light uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                                <span>Explore Fixed Deposits</span>
+                                <span>→</span>
+                            </div>
                         </Link>
 
                         <Link
                             href="/insurance"
-                            className="group bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-stockstrail-green-light/60 transition-all duration-300"
+                            className="group bg-[#021716]/85 border border-white/12 hover:border-stockstrail-green-light/70 rounded-3xl p-6 sm:p-7 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(0,255,151,0.25)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                         >
-                            <h4 className="text-xl font-medium text-white group-hover:text-stockstrail-green-light transition-colors">
-                                Insurance
-                            </h4>
+                            <div>
+                                <h4
+                                    className="text-lg sm:text-xl font-bold text-white group-hover:text-stockstrail-green-light transition-colors drop-shadow-sm mb-2"
+                                    style={{ fontFamily: "var(--font-product-sans)" }}
+                                >
+                                    Insurance
+                                </h4>
 
-                            <p className="text-sm text-gray-400 mt-2 leading-relaxed">
-                                Understand Term Life Insurance, Health Insurance,
-                                Motor Insurance and other forms of financial protection.
-                            </p>
+                                <p className="text-xs sm:text-sm text-white/75 leading-relaxed font-normal">
+                                    <strong>Comprehensive term &amp; health insurance:</strong> Protect your family with Term Life Insurance, Mediclaim, Critical Illness, and Motor Insurance.
+                                </p>
+                            </div>
 
-                            <span className="inline-block mt-4 text-sm text-stockstrail-green-light font-medium">
-                                Explore Insurance →
-                            </span>
+                            <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-stockstrail-green-light uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                                <span>Explore Insurance</span>
+                                <span>→</span>
+                            </div>
                         </Link>
 
                         <Link
                             href="/loan"
-                            className="group bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-stockstrail-green-light/60 transition-all duration-300"
+                            className="group bg-[#021716]/85 border border-white/12 hover:border-stockstrail-green-light/70 rounded-3xl p-6 sm:p-7 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(0,255,151,0.25)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                         >
-                            <h4 className="text-xl font-medium text-white group-hover:text-stockstrail-green-light transition-colors">
-                                Loans
-                            </h4>
+                            <div>
+                                <h4
+                                    className="text-lg sm:text-xl font-bold text-white group-hover:text-stockstrail-green-light transition-colors drop-shadow-sm mb-2"
+                                    style={{ fontFamily: "var(--font-product-sans)" }}
+                                >
+                                    Loans
+                                </h4>
 
-                            <p className="text-sm text-gray-400 mt-2 leading-relaxed">
-                                Explore borrowing options including Home Loans,
-                                Personal Loans, Business Loans and Loans Against
-                                Mutual Funds.
-                            </p>
+                                <p className="text-xs sm:text-sm text-white/75 leading-relaxed font-normal">
+                                    <strong>Low-interest loan options &amp; LAMF:</strong> Unlock capital with Loans Against Mutual Funds, Home Loans, and Business Loans without selling assets.
+                                </p>
+                            </div>
 
-                            <span className="inline-block mt-4 text-sm text-stockstrail-green-light font-medium">
-                                Explore Loans →
-                            </span>
+                            <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-stockstrail-green-light uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                                <span>Explore Loans</span>
+                                <span>→</span>
+                            </div>
                         </Link>
 
                         <Link
-                            href="/financial-planning"
-                            className="group bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-stockstrail-green-light/60 transition-all duration-300"
+                            href="/financial-protection"
+                            className="group bg-[#021716]/85 border border-white/12 hover:border-stockstrail-green-light/70 rounded-3xl p-6 sm:p-7 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(0,255,151,0.25)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                         >
-                            <h4 className="text-xl font-medium text-white group-hover:text-stockstrail-green-light transition-colors">
-                                Financial Planning
-                            </h4>
+                            <div>
+                                <h4
+                                    className="text-lg sm:text-xl font-bold text-white group-hover:text-stockstrail-green-light transition-colors drop-shadow-sm mb-2"
+                                    style={{ fontFamily: "var(--font-product-sans)" }}
+                                >
+                                    Financial Protection
+                                </h4>
 
-                            <p className="text-sm text-gray-400 mt-2 leading-relaxed">
-                                Bring your investments, savings, protection and
-                                financial goals together through a structured plan.
-                            </p>
+                                <p className="text-xs sm:text-sm text-white/75 leading-relaxed font-normal">
+                                    <strong>Holistic wealth protection:</strong> Integrate investments, insurance, savings, and debt management into a resilient financial plan.
+                                </p>
+                            </div>
 
-                            <span className="inline-block mt-4 text-sm text-stockstrail-green-light font-medium">
-                                Explore Financial Planning →
-                            </span>
+                            <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-stockstrail-green-light uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                                <span>Explore Protection</span>
+                                <span>→</span>
+                            </div>
                         </Link>
 
                         <Link
-                            href="/risk-profile"
-                            className="group bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-stockstrail-green-light/60 transition-all duration-300"
+                            href="/check-risk-profile"
+                            className="group bg-[#021716]/85 border border-white/12 hover:border-stockstrail-green-light/70 rounded-3xl p-6 sm:p-7 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(0,255,151,0.25)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                         >
-                            <h4 className="text-xl font-medium text-white group-hover:text-stockstrail-green-light transition-colors">
-                                Risk Profile Assessment
-                            </h4>
+                            <div>
+                                <h4
+                                    className="text-lg sm:text-xl font-bold text-white group-hover:text-stockstrail-green-light transition-colors drop-shadow-sm mb-2"
+                                    style={{ fontFamily: "var(--font-product-sans)" }}
+                                >
+                                    Risk Profile Assessment
+                                </h4>
 
-                            <p className="text-sm text-gray-400 mt-2 leading-relaxed">
-                                Understand your investment risk preference before
-                                choosing investments for your financial goals.
-                            </p>
+                                <p className="text-xs sm:text-sm text-white/75 leading-relaxed font-normal">
+                                    <strong>Free online risk profiling tool:</strong> Gauge your risk tolerance through an 11-question assessment before finalizing your asset allocation.
+                                </p>
+                            </div>
 
-                            <span className="inline-block mt-4 text-sm text-stockstrail-green-light font-medium">
-                                Check Your Risk Profile →
-                            </span>
+                            <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-bold text-stockstrail-green-light uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                                <span>Check Risk Profile</span>
+                                <span>→</span>
+                            </div>
                         </Link>
 
                     </div>
                 </div>
 
-                {/* Why Stockstrail */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8">
-                    <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-4">
-                        Why people choose Stockstrail
+                {/* Location / service area 3D Card */}
+                <div className="bg-[#021716]/85 border border-white/12 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] space-y-6">
+                    <h3
+                        className="text-xl sm:text-2xl font-bold text-stockstrail-green-light mb-4 drop-shadow-sm"
+                        style={{ fontFamily: "var(--font-product-sans)" }}
+                    >
+                        Personalized Financial Services from Himachal Pradesh to Clients Across India
                     </h3>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 className="text-lg font-medium text-white mb-2">
-                                Clear explanations
-                            </h4>
-                            <p className="text-gray-400 leading-relaxed">
-                                Financial products can be difficult to understand.
-                                We aim to explain the important details in language
-                                that is easier to follow before you make a decision.
-                            </p>
-                        </div>
+                    <p className="text-white/85 leading-relaxed text-sm sm:text-base font-normal">
+                        <strong>Stockstrail</strong> is headquartered in Himachal Pradesh and proudly serves 200+ investors, salaried professionals, and families pan-India. Through our digital-first financial planning platform, you can plan, invest, and manage your complete wealth portfolio without location constraints.
+                    </p>
 
-                        <div>
-                            <h4 className="text-lg font-medium text-white mb-2">
-                                Goals before products
-                            </h4>
-                            <p className="text-gray-400 leading-relaxed">
-                                We start with what you are trying to achieve rather
-                                than assuming a particular investment or product is
-                                right for everyone.
-                            </p>
-                        </div>
+                    <p className="text-white/85 leading-relaxed text-sm sm:text-base font-normal">
+                        Whether starting a disciplined <Link href="/mutual-funds" className="text-stockstrail-green-light hover:underline font-semibold">Mutual Fund SIP</Link>, booking secure <Link href="/fixed-deposit" className="text-stockstrail-green-light hover:underline font-semibold">high-interest Fixed Deposits</Link>, comparing comprehensive <Link href="/insurance" className="text-stockstrail-green-light hover:underline font-semibold">Term &amp; Health Insurance policies</Link>, accessing liquidity via a <Link href="/loan" className="text-stockstrail-green-light hover:underline font-semibold">Loan Against Mutual Funds (LAMF)</Link>, or getting ready to <Link href="/open-demat" className="text-stockstrail-green-light hover:underline font-semibold">open a digital Demat Account</Link>, Stockstrail provides unbiased, transparent guidance every step of the way.
+                    </p>
 
-                        <div>
-                            <h4 className="text-lg font-medium text-white mb-2">
-                                Long-term perspective
-                            </h4>
-                            <p className="text-gray-400 leading-relaxed">
-                                Financial decisions are rarely about one transaction.
-                                We focus on choices that can make sense across your
-                                changing financial priorities.
-                            </p>
-                        </div>
-
-                        <div>
-                            <h4 className="text-lg font-medium text-white mb-2">
-                                Personalised guidance
-                            </h4>
-                            <p className="text-gray-400 leading-relaxed">
-                                Your income, responsibilities, goals and risk
-                                tolerance are different from someone else&apos;s. Your
-                                financial decisions should reflect that.
-                            </p>
+                    <div className="pt-4 border-t border-white/10">
+                        <h4 className="text-base font-bold text-white mb-3">Popular Financial Resources &amp; Planning Tools:</h4>
+                        <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm">
+                            <Link href="/mutual-funds" className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 hover:text-stockstrail-green-light hover:border-stockstrail-green-light/40 transition-colors">Mutual Funds Guide</Link>
+                            <Link href="/fixed-deposit" className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 hover:text-stockstrail-green-light hover:border-stockstrail-green-light/40 transition-colors">FD Rates 2026</Link>
+                            <Link href="/insurance" className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 hover:text-stockstrail-green-light hover:border-stockstrail-green-light/40 transition-colors">Term &amp; Health Insurance</Link>
+                            <Link href="/loan" className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 hover:text-stockstrail-green-light hover:border-stockstrail-green-light/40 transition-colors">Loans Against Mutual Funds</Link>
+                            <Link href="/check-risk-profile" className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 hover:text-stockstrail-green-light hover:border-stockstrail-green-light/40 transition-colors">Risk Assessment Tool</Link>
+                            <Link href="/calculators" className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 hover:text-stockstrail-green-light hover:border-stockstrail-green-light/40 transition-colors">SIP &amp; EMI Calculators</Link>
+                            <Link href="/learning" className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 hover:text-stockstrail-green-light hover:border-stockstrail-green-light/40 transition-colors">Learning Center</Link>
+                            <Link href="/blog" className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 hover:text-stockstrail-green-light hover:border-stockstrail-green-light/40 transition-colors">Financial Blog</Link>
+                            <Link href="/nse-holidays" className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 hover:text-stockstrail-green-light hover:border-stockstrail-green-light/40 transition-colors">NSE Holiday List 2026</Link>
+                            <Link href="/bse-holidays" className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 hover:text-stockstrail-green-light hover:border-stockstrail-green-light/40 transition-colors">BSE Holiday List 2026</Link>
+                            <Link href="/commission-disclosure" className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 hover:text-stockstrail-green-light hover:border-stockstrail-green-light/40 transition-colors">Commission Transparency</Link>
+                            <Link href="/lets-talk" className="px-3.5 py-1.5 rounded-full bg-stockstrail-green-light/10 border border-stockstrail-green-light/30 text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg transition-all font-semibold">Schedule Free Advisory Call →</Link>
                         </div>
                     </div>
                 </div>
 
-                {/* Location / service area */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8">
-                    <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-4">
-                        Financial guidance from Himachal Pradesh to clients across India
-                    </h3>
-
-                    <p className="text-gray-300 leading-relaxed">
-                        Stockstrail is based in Himachal Pradesh and works with
-                        investors and families across India. Much of the process can
-                        be handled digitally, making it possible to discuss your
-                        financial goals and investment requirements without being
-                        limited by location.
-                    </p>
-
-                    <p className="text-gray-400 leading-relaxed mt-4">
-                        Whether you are beginning your first SIP, reviewing existing
-                        investments, looking for insurance, considering a Fixed
-                        Deposit or planning for a long-term financial goal, you can
-                        start by discussing your situation with us.
-                    </p>
-                </div>
-
-                {/* FAQs */}
+                {/* 3D FAQs Accordion */}
                 <div className="mt-16">
                     <ServiceFAQSection faqs={faqs} />
                 </div>
