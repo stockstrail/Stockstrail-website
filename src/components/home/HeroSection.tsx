@@ -1,6 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
-import HeroShowcaseCard from './HeroShowcaseCard';
+import dynamic from 'next/dynamic';
+
+const HeroShowcaseCard = dynamic(() => import('./HeroShowcaseCard'), {
+  ssr: true,
+  loading: () => (
+    <div className="w-full max-w-xl mx-auto rounded-3xl border border-white/10 bg-[#021716]/60 p-6 min-h-[420px] animate-pulse" />
+  ),
+});
 
 export default function HeroSection() {
   return (

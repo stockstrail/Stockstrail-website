@@ -40,10 +40,7 @@ const nextConfig: NextConfig = {
       "cmdk",
       "@supabase/supabase-js",
       "clsx",
-      "tailwind-merge",
     ],
-    optimizeCss: true,
-    inlineCss: true,
   },
   compress: true,
   compiler: {

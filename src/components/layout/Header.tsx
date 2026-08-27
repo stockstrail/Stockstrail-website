@@ -175,7 +175,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-stockstrail-bg/80 backdrop-blur-none sm:backdrop-blur-[100px] border-b border-white/10">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-stockstrail-bg/90 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -188,7 +188,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <div className="flex items-center bg-white/5 backdrop-blur-[37.5px] px-14 py-4 rounded-[45px] space-x-16 hover:bg-white/10 transition-all duration-300">
+            <div className="flex items-center bg-white/5 backdrop-blur-md px-14 py-4 rounded-[45px] space-x-16 hover:bg-white/10 transition-all duration-300">
               {navItems.map((item) => (
                 <div key={item.name} className="relative">
                   {item.hasDropdown ? (
