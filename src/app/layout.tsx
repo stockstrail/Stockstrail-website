@@ -163,11 +163,12 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.svg?v=3" />
         <link rel="apple-touch-icon" href="/favicon.svg?v=3" />
 
-        {/* Microsoft Clarity - load only after first user interaction to avoid long tasks during initial render */}
-        <Script id="clarity-bootstrap" strategy="afterInteractive">
+        {/* Analytics Bootstrap (GA4 + Microsoft Clarity loaded after first interaction or idle for 0ms TBT) */}
+        <Script id="analytics-bootstrap" strategy="afterInteractive">
           {`(function(){
             try {
-              var id = ${JSON.stringify(clarityId)};
+              var clarityId = ${JSON.stringify(clarityId)};
+              var gaId = 'G-NS7B14241Y';
               var loaded = false;
               var opts = { passive: true };
 
@@ -183,41 +184,41 @@ export default function RootLayout({
                 loaded = true;
                 removeListeners();
 
+                // Load Clarity
                 if (typeof window.clarity !== 'function') {
                   window.clarity = function(){ (window.clarity.q = window.clarity.q || []).push(arguments); };
                 }
+                var sc = document.createElement('script');
+                sc.async = true;
+                sc.src = 'https://www.clarity.ms/tag/' + clarityId;
+                document.head.appendChild(sc);
 
-                var s = document.createElement('script');
-                s.async = true;
-                s.src = 'https://www.clarity.ms/tag/' + id;
-                document.head.appendChild(s);
+                // Load Google Analytics 4
+                var sga = document.createElement('script');
+                sga.async = true;
+                sga.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+                document.head.appendChild(sga);
+
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ window.dataLayer.push(arguments); }
+                window.gtag = gtag;
+                gtag('js', new Date());
+                gtag('config', gaId);
               }
 
               window.addEventListener('pointerdown', load, opts);
               window.addEventListener('keydown', load, opts);
               window.addEventListener('scroll', load, opts);
               window.addEventListener('touchstart', load, opts);
+
+              // Fallback idle load after 5 seconds
+              if ('requestIdleCallback' in window) {
+                requestIdleCallback(function(){ setTimeout(load, 4000); });
+              } else {
+                setTimeout(load, 5000);
+              }
             } catch (_) {}
           })();`}
-        </Script>
-        {/* Preload Hero LCP image for 0ms Discovery Latency on Mobile */}
-        <link
-          rel="preload"
-          as="image"
-          href="/assets/hero/calculator-card.webp"
-          type="image/webp"
-          fetchPriority="high"
-        />
-        {/* Google Analytics 4 (Deferred for Performance) */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-NS7B14241Y" strategy="lazyOnload" />
-        <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-NS7B14241Y');
-          `}
         </Script>
       </head>
 

@@ -8,20 +8,21 @@ import { useEffect } from 'react';
  */
 export default function WebMCPRegistry() {
   useEffect(() => {
-    try {
-      if (typeof window !== 'undefined' && 'modelContext' in navigator) {
-        const mc = (navigator as unknown as {
-          modelContext: {
-            registerTool: (tool: {
-              name: string;
-              description: string;
-              inputSchema: object;
-              execute?: (args: Record<string, unknown>) => Promise<unknown> | unknown;
-            }) => void;
-          };
-        }).modelContext;
+    const handleRegister = () => {
+      try {
+        if (typeof window !== 'undefined' && 'modelContext' in navigator) {
+          const mc = (navigator as unknown as {
+            modelContext: {
+              registerTool: (tool: {
+                name: string;
+                description: string;
+                inputSchema: object;
+                execute?: (args: Record<string, unknown>) => Promise<unknown> | unknown;
+              }) => void;
+            };
+          }).modelContext;
 
-        if (mc && typeof mc.registerTool === 'function') {
+          if (mc && typeof mc.registerTool === 'function') {
           // Tool 1: SIP Calculator
           mc.registerTool({
             name: 'calculate_sip',
@@ -140,7 +141,14 @@ export default function WebMCPRegistry() {
     } catch {
       // Graceful fallback if browser environment does not support modelContext
     }
-  }, []);
+  };
+
+  if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+    (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(handleRegister);
+  } else {
+    setTimeout(handleRegister, 3000);
+  }
+}, []);
 
   return null;
 }

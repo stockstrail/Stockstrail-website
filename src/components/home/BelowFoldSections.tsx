@@ -4,12 +4,20 @@ import PartnerLogosSection from '@/components/home/PartnerLogosSection';
 import ServicesSection from '@/components/home/ServicesSection';
 import WhyChooseSection from '@/components/home/WhyChooseSection';
 import AboutSection from '@/components/home/AboutSection';
-import HomePageSEOContent from '@/components/home/HomePageSEOContent';
 import CalculatorsSection from '@/components/home/CalculatorsSection';
-import DisclaimerSection from '@/components/home/DisclaimerSection';
 
 const TestimonialsSection = dynamic(
   () => import('@/components/home/TestimonialsSection'),
+  { ssr: true }
+);
+
+const HomePageSEOContent = dynamic(
+  () => import('@/components/home/HomePageSEOContent'),
+  { ssr: true }
+);
+
+const DisclaimerSection = dynamic(
+  () => import('@/components/home/DisclaimerSection'),
   { ssr: true }
 );
 
@@ -27,4 +35,3 @@ export default function BelowFoldSections() {
     </>
   );
 }
-
