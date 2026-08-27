@@ -1,75 +1,81 @@
 import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 
-const CalculatorsSection = () => {
+export default function CalculatorsSection() {
     const calculators = [
         {
             title: 'SIP Calculator',
-            badge: 'Compounding',
+            badge: 'Compounding Growth',
             description:
-                'Estimate how your monthly SIP could grow over time based on your investment amount, expected return and time period.',
-            icon: '/services/mf.webp',
+                'Estimate how your monthly SIP could grow over time based on your investment amount, expected return, and time period.',
             href: '/calculators/sip',
+            icon: '/piggybank-white.webp',
+            glowColor: 'border-emerald-500/40 bg-emerald-500/15 shadow-[0_0_15px_rgba(0,255,151,0.2)]',
         },
         {
             title: 'Lumpsum Calculator',
-            badge: 'One-Time Growth',
+            badge: 'One Time Wealth',
             description:
-                'See how a one-time investment could grow over time based on your investment amount, expected return and investment period.',
-            icon: '/services/mf.webp',
+                'See how a one time investment could grow over time based on your investment amount, expected return, and investment period.',
             href: '/calculators/lumpsum',
+            icon: '/others-white.webp',
+            glowColor: 'border-teal-500/40 bg-teal-500/15 shadow-[0_0_15px_rgba(20,184,166,0.2)]',
         },
         {
             title: 'FD Calculator',
             badge: 'Guaranteed Interest',
             description:
-                'Calculate the interest and maturity amount for your Fixed Deposit based on the deposit amount, interest rate and tenure.',
-            icon: '/services/fd.webp',
+                'Calculate the interest and maturity amount for your Fixed Deposit based on the deposit amount, interest rate, and tenure.',
             href: '/calculators/fd',
+            icon: '/fd-white.webp',
+            glowColor: 'border-amber-500/40 bg-amber-500/15 shadow-[0_0_15px_rgba(245,158,11,0.2)]',
         },
         {
             title: 'RD Calculator',
             badge: 'Recurring Savings',
             description:
-                'Estimate the maturity amount of your Recurring Deposit based on your monthly deposit, interest rate and tenure.',
-            icon: '/services/fd.webp',
+                'Estimate the maturity amount of your Recurring Deposit based on your monthly deposit, interest rate, and tenure.',
             href: '/calculators/rd',
+            icon: '/fd-white.webp',
+            glowColor: 'border-sky-500/40 bg-sky-500/15 shadow-[0_0_15px_rgba(56,189,248,0.2)]',
         },
         {
             title: 'EMI Calculator',
             badge: 'Loan Schedule',
             description:
                 'Calculate your monthly loan EMI and see how much you may pay in interest over the repayment period.',
-            icon: '/services/loan.webp',
             href: '/calculators/emi',
+            icon: '/loan-white.webp',
+            glowColor: 'border-purple-500/40 bg-purple-500/15 shadow-[0_0_15px_rgba(192,132,252,0.2)]',
         },
         {
             title: 'Tax Calculator',
-            badge: 'Tax Optimization',
+            badge: 'Tax Planning',
             description:
                 'Plan your investments smartly to optimize tax liability under Old and New tax regimes.',
-            icon: '/services/others.webp',
             href: '/calculators/tax',
+            icon: '/insurance-white.webp',
+            glowColor: 'border-rose-500/40 bg-rose-500/15 shadow-[0_0_15px_rgba(251,113,133,0.2)]',
         },
     ];
 
     return (
         <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden isolate defer-render">
-            {/* PURE HIGH-PERFORMANCE CSS BACKDROP (0KB HTTP Overheads) */}
+            {/* DEDICATED SECTION 3D FINANCIAL BACKGROUND */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-                <div className="absolute inset-0 bg-[#011d1c]" />
-                <div
-                    className="absolute inset-0 opacity-40 mix-blend-screen"
-                    style={{
-                        background: `
-                            radial-gradient(ellipse 60% 50% at 20% 20%, rgba(20, 184, 166, 0.15), transparent 70%),
-                            radial-gradient(ellipse 50% 60% at 80% 80%, rgba(0, 255, 151, 0.15), transparent 70%)
-                        `,
-                    }}
+                <Image
+                    src="/assets/sections/calculators-bg.webp"
+                    alt="Financial Calculators Architecture"
+                    fill
+                    loading="lazy"
+                    decoding="async"
+                    sizes="100vw"
+                    quality={60}
+                    className="object-cover object-center opacity-35 scale-105 filter brightness-105 contrast-115 pointer-events-none"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/90 via-[#011d1c]/50 to-[#011d1c]/90" />
-                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-teal-500/15 rounded-full blur-[150px]" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/80 via-[#011d1c]/40 to-[#011d1c]/85" />
+                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-teal-500/10 rounded-full blur-[150px]" />
             </div>
 
             <div className="relative z-10 max-w-6xl mx-auto">
@@ -99,7 +105,7 @@ const CalculatorsSection = () => {
                         <Link
                             key={index}
                             href={calculator.href}
-                            className="group relative bg-[#021716]/85 border border-white/12 hover:border-stockstrail-green-light/70 rounded-3xl p-6 sm:p-7 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(0,255,151,0.25)] hover:-translate-y-2 transition-all duration-300 flex flex-col h-full overflow-hidden"
+                            className="group relative bg-[#021716]/85 border border-white/15 hover:border-stockstrail-green-light/70 rounded-3xl p-6 sm:p-7 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(0,255,151,0.25)] hover:-translate-y-2 transition-all duration-300 flex flex-col h-full overflow-hidden"
                         >
                             {/* Subtle internal glow */}
                             <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-stockstrail-green-light/10 to-transparent rounded-full blur-2xl pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity" />
@@ -107,14 +113,15 @@ const CalculatorsSection = () => {
                             <div className="relative z-10 flex flex-col h-full">
                                 {/* Top Badge & Icon Row */}
                                 <div className="flex items-center justify-between mb-4">
-                                    <div className="w-14 h-14 bg-white/[0.06] border border-white/15 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-stockstrail-green-light/20 group-hover:border-stockstrail-green-light/50 transition-all duration-300 shadow-md">
+                                    <div className={`w-14 h-14 rounded-2xl border ${calculator.glowColor} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-md`}>
                                         <Image
                                             src={calculator.icon}
-                                            alt={`${calculator.title} icon`}
-                                            className="w-9 h-9 object-contain group-hover:scale-110 transition-transform duration-300"
+                                            alt={calculator.title}
                                             width={36}
                                             height={36}
+                                            className="w-9 h-9 object-contain filter drop-shadow brightness-125"
                                             loading="lazy"
+                                            decoding="async"
                                         />
                                     </div>
                                     <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-stockstrail-green-light/15 border border-stockstrail-green-light/30 text-stockstrail-green-light">
@@ -174,6 +181,4 @@ const CalculatorsSection = () => {
             </div>
         </section>
     );
-};
-
-export default CalculatorsSection;
+}

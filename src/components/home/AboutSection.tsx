@@ -1,23 +1,24 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
-const AboutSection = () => {
+export default function AboutSection() {
     return (
         <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden isolate defer-render">
-            {/* PURE HIGH-PERFORMANCE CSS BACKDROP (0KB HTTP Overheads) */}
+            {/* DEDICATED SECTION 3D FINANCIAL BACKGROUND */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-                <div className="absolute inset-0 bg-[#011d1c]" />
-                <div
-                    className="absolute inset-0 opacity-40 mix-blend-screen"
-                    style={{
-                        background: `
-                            radial-gradient(ellipse 60% 50% at 20% 20%, rgba(0, 255, 151, 0.15), transparent 70%),
-                            radial-gradient(ellipse 50% 60% at 80% 80%, rgba(20, 184, 166, 0.15), transparent 70%)
-                        `,
-                    }}
+                <Image
+                    src="/assets/sections/about-bg.webp"
+                    alt="About Stockstrail Architecture"
+                    fill
+                    loading="lazy"
+                    decoding="async"
+                    sizes="100vw"
+                    quality={60}
+                    className="object-cover object-center opacity-35 scale-105 filter brightness-105 contrast-115 pointer-events-none"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/90 via-[#011d1c]/50 to-[#011d1c]/90" />
-                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-emerald-500/15 rounded-full blur-[140px]" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/80 via-[#011d1c]/40 to-[#011d1c]/85" />
+                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[140px]" />
             </div>
 
             <div className="max-w-5xl mx-auto text-center relative z-10 space-y-10">
@@ -25,7 +26,7 @@ const AboutSection = () => {
                 <div className="space-y-4">
                     <div className="inline-flex items-center gap-2 rounded-full border border-stockstrail-green-light/30 bg-stockstrail-green-light/10 px-4 py-1 text-xs font-semibold text-stockstrail-green-light uppercase tracking-wider backdrop-blur-md shadow-[0_0_15px_rgba(0,255,151,0.15)]">
                         <span className="w-2 h-2 rounded-full bg-stockstrail-green-light animate-pulse" />
-                        <span>Our Philosophy &amp; Mission</span>
+                        <span>Our Philosophy and Mission</span>
                     </div>
 
                     <h2
@@ -45,10 +46,10 @@ const AboutSection = () => {
                             className="text-stockstrail-green-light text-lg sm:text-xl font-bold mb-3 tracking-tight drop-shadow-sm"
                             style={{ fontFamily: "var(--font-product-sans)" }}
                         >
-                            Financial planning shouldn&apos;t be complicated.
+                            Financial planning should not be complicated.
                         </h3>
                         <p className="text-white/85 text-sm sm:text-base lg:text-lg font-normal leading-relaxed [text-shadow:0_1px_2px_rgba(0,0,0,0.9)]">
-                            <strong className="text-white">Personalized financial planning in India</strong> shouldn&apos;t be complicated. Financial decisions can get confusing, especially when you&apos;re trying to figure out where to invest, how much to save in <strong className="font-semibold"><Link href="/mutual-funds" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">mutual funds</Link></strong>, or what kind of <strong className="font-semibold"><Link href="/insurance" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">insurance protection</Link></strong> you actually need. Stockstrail was built to make those decisions easier, transparent, and goal-focused.
+                            <strong className="text-white">Personalized financial planning in India</strong> should not be complicated. Financial decisions can get confusing, especially when you are trying to figure out where to invest, how much to save in <strong className="font-semibold"><Link href="/mutual-funds" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">mutual funds</Link></strong>, or what kind of <strong className="font-semibold"><Link href="/insurance" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">insurance protection</Link></strong> you actually need. Stockstrail was built to make those decisions easier, transparent, and focused on your goals.
                         </p>
                     </div>
 
@@ -62,13 +63,13 @@ const AboutSection = () => {
                                 Our approach is simple. Your goals come first.
                             </h3>
                             <p className="text-white/85 text-sm sm:text-base lg:text-lg font-normal leading-relaxed [text-shadow:0_1px_2px_rgba(0,0,0,0.9)]">
-                                We don&apos;t start by asking which product you want. We first look at your milestones, investment horizon, <strong className="font-semibold"><Link href="/check-risk-profile" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">risk profile assessment</Link></strong>, and existing commitments. From there, we help you understand which financial options make sense for you.
+                                We do not start by asking which product you want. We first look at your milestones, investment horizon, <strong className="font-semibold"><Link href="/check-risk-profile" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">risk profile assessment</Link></strong>, and existing commitments. From there, we help you understand which financial options make sense for you.
                             </p>
                         </div>
 
                         <div>
                             <p className="text-white/85 text-sm sm:text-base lg:text-lg font-normal leading-relaxed [text-shadow:0_1px_2px_rgba(0,0,0,0.9)]">
-                                Whether you&apos;re starting your first <strong className="font-semibold"><Link href="/mutual-funds" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">SIP</Link></strong>, planning for your child&apos;s education, preparing for retirement, or looking to protect your family, we believe successful investing is about having a suitable financial plan, staying disciplined, and using our <strong className="font-semibold"><Link href="/calculators" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">financial calculators</Link></strong> to project long-term compounding.
+                                Whether you are starting your first <strong className="font-semibold"><Link href="/mutual-funds" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">SIP</Link></strong>, planning for your child education, preparing for retirement, or looking to protect your family, we believe successful investing is about having a suitable financial plan, staying disciplined, and using our <strong className="font-semibold"><Link href="/calculators" className="text-white hover:text-stockstrail-green-light transition-colors no-underline">financial calculators</Link></strong> to project long term compounding.
                             </p>
                         </div>
 
@@ -106,7 +107,7 @@ const AboutSection = () => {
                         href="/lets-talk"
                         className="inline-flex items-center gap-3 px-8 py-3.5 bg-white/[0.04] border border-white/20 rounded-full text-white font-semibold text-sm hover:bg-white/10 hover:border-stockstrail-green-light hover:scale-105 transition-all backdrop-blur-md"
                     >
-                        <span>Let&apos;s Talk 1-on-1</span>
+                        <span>Book Free Strategy Call</span>
                         <svg className="w-4 h-4 text-stockstrail-green-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                         </svg>
@@ -115,6 +116,4 @@ const AboutSection = () => {
             </div>
         </section>
     );
-};
-
-export default AboutSection;
+}

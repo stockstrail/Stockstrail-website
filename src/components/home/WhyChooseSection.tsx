@@ -2,58 +2,58 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const WhyChooseSectionComponent = () => {
+export default function WhyChooseSection() {
     const features = [
         {
             icon: "/assets/icons/frame-3.svg",
-            title: "Goal-First Planning",
-            badge: "Tailored Strategy",
-            description: "Custom investments built specifically around your family milestones and goals.",
+            title: "Your Goals Come First",
+            badge: "Tailored Planning",
+            description: "Custom investments built specifically around your family milestones and life dreams.",
             href: "/services",
         },
         {
             icon: "/assets/icons/frame-4.svg",
-            title: "Personalized Guidance",
-            badge: "Risk-Aligned",
-            description: "Asset allocation calculated directly from your personal risk appetite and horizon.",
+            title: "Personal Guidance",
+            badge: "Matched to You",
+            description: "Asset recommendations matched directly to your comfort level and time horizon.",
             href: "/check-risk-profile",
         },
         {
             icon: "/assets/icons/frame-2.svg",
             title: "AMFI Registered",
-            badge: "ARN-284122",
-            description: "Certified and compliant mutual fund distribution and advisory you can trust.",
+            badge: "ARN 284122",
+            description: "Certified and compliant mutual fund distribution and guidance you can count on.",
             href: "/commission-disclosure",
         },
         {
             icon: "/assets/icons/frame-1.svg",
             title: "100% Transparency",
-            badge: "Zero Bias",
-            description: "Fiduciary guidance with zero hidden commissions and complete clarity.",
+            badge: "Zero Hidden Fees",
+            description: "Honest guidance with clear disclosures and complete clarity at every step.",
             href: "/about",
         },
     ];
 
     return (
-        <section className="w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden isolate defer-render">
-            {/* PURE HIGH-PERFORMANCE CSS BACKDROP (0KB HTTP Overheads) */}
+        <section id="why-us" className="w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden isolate defer-render">
+            {/* DEDICATED SECTION 3D FINANCIAL BACKGROUND */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-                <div className="absolute inset-0 bg-[#011d1c]" />
-                <div
-                    className="absolute inset-0 opacity-40 mix-blend-screen"
-                    style={{
-                        background: `
-                            radial-gradient(ellipse 60% 50% at 80% 20%, rgba(0, 255, 151, 0.15), transparent 70%),
-                            radial-gradient(ellipse 50% 60% at 20% 80%, rgba(20, 184, 166, 0.15), transparent 70%)
-                        `,
-                    }}
+                <Image
+                    src="/assets/sections/whychoose-bg.webp"
+                    alt="Why Choose Stockstrail Architecture"
+                    fill
+                    loading="lazy"
+                    decoding="async"
+                    sizes="100vw"
+                    quality={60}
+                    className="object-cover object-center opacity-35 scale-105 filter brightness-105 contrast-115 pointer-events-none"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/90 via-[#011d1c]/50 to-[#011d1c]/90" />
-                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-emerald-500/15 rounded-full blur-[150px]" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/80 via-[#011d1c]/40 to-[#011d1c]/85" />
+                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-emerald-500/10 rounded-full blur-[150px]" />
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto">
-                {/* 3D Section Header */}
+                {/* Section Header */}
                 <div className="text-center mb-16 space-y-4">
                     <div className="inline-flex items-center gap-2 rounded-full border border-stockstrail-green-light/30 bg-stockstrail-green-light/10 px-4 py-1 text-xs font-semibold text-stockstrail-green-light uppercase tracking-wider backdrop-blur-md shadow-[0_0_15px_rgba(0,255,151,0.15)]">
                         <span className="w-2 h-2 rounded-full bg-stockstrail-green-light animate-pulse" />
@@ -69,11 +69,11 @@ const WhyChooseSectionComponent = () => {
                     </h2>
 
                     <p className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed [text-shadow:0_1px_2px_rgba(0,0,0,0.9)]">
-                        <strong>Trusted financial planning partner</strong> in India helping you build long-term wealth through transparent advice, AMFI-registered distributor support, and personalized guidance.
+                        <strong>Trusted financial planning partner</strong> in India helping you build long term wealth through transparent advice, AMFI registered distributor support, and personal guidance.
                     </p>
                 </div>
 
-                {/* 3D Elevated Feature Cards */}
+                {/* 4 Feature Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
                     {features.map((feature, index) => (
                         <Link
@@ -116,6 +116,4 @@ const WhyChooseSectionComponent = () => {
             </div>
         </section>
     );
-};
-
-export default WhyChooseSectionComponent;
+}

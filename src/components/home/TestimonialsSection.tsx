@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Review } from '@/lib/supabase';
 import { addReview, getRandomReviews } from '@/lib/database/reviews';
 
@@ -248,20 +249,20 @@ const TestimonialsSectionComponent = () => {
 
     return (
         <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden isolate defer-render">
-            {/* PURE HIGH-PERFORMANCE CSS BACKDROP (0KB HTTP Overheads) */}
+            {/* DEDICATED SECTION 3D FINANCIAL BACKGROUND */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-                <div className="absolute inset-0 bg-[#011d1c]" />
-                <div
-                    className="absolute inset-0 opacity-40 mix-blend-screen"
-                    style={{
-                        background: `
-                            radial-gradient(ellipse 60% 50% at 20% 20%, rgba(0, 255, 151, 0.15), transparent 70%),
-                            radial-gradient(ellipse 50% 60% at 80% 80%, rgba(20, 184, 166, 0.15), transparent 70%)
-                        `,
-                    }}
+                <Image
+                    src="/assets/sections/testimonials-bg.webp"
+                    alt="Client Testimonials Architecture"
+                    fill
+                    loading="lazy"
+                    decoding="async"
+                    sizes="100vw"
+                    quality={60}
+                    className="object-cover object-center opacity-35 scale-105 filter brightness-105 contrast-115 pointer-events-none"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/90 via-[#011d1c]/50 to-[#011d1c]/90" />
-                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-emerald-500/15 rounded-full blur-[150px]" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#011d1c]/80 via-[#011d1c]/40 to-[#011d1c]/85" />
+                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[150px]" />
             </div>
 
             <div className="max-w-7xl mx-auto relative z-10">
