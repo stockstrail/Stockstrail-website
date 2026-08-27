@@ -1,10 +1,14 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import PartnerLogosSection from '@/components/home/PartnerLogosSection';
 import ServicesSection from '@/components/home/ServicesSection';
 import WhyChooseSection from '@/components/home/WhyChooseSection';
 import AboutSection from '@/components/home/AboutSection';
 import CalculatorsSection from '@/components/home/CalculatorsSection';
+
+const PartnerLogosSection = dynamic(
+  () => import('@/components/home/PartnerLogosSection'),
+  { ssr: true }
+);
 
 const TestimonialsSection = dynamic(
   () => import('@/components/home/TestimonialsSection'),

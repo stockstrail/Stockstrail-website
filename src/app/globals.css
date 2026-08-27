@@ -18,10 +18,10 @@
   --color-brand-green-dark: #007d42;
   --color-brand-green-accent: #00d873;
 
-  /* Font families using next/font variables */
-  --font-product-sans: var(--font-inter), system-ui, sans-serif;
-  --font-work-sans: var(--font-work-sans), system-ui, sans-serif;
-  --font-montserrat: var(--font-montserrat), system-ui, sans-serif;
+  /* Font families using optimized next/font variables */
+  --font-product-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-work-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-montserrat: var(--font-inter), system-ui, -apple-system, sans-serif;
 }
 
 /* ================= CRITICAL BASE LAYER (Above-the-fold) ================= */

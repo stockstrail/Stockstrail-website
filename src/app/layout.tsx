@@ -1,33 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter, Work_Sans, Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 import Script from "next/script";
 import JsonLd from '@/components/common/JsonLd';
 import FloatingWhatsAppButton from "@/components/common/FloatingWhatsAppButton";
 import WebMCPRegistry from "@/components/common/WebMCPRegistry";
+
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
-  weight: ["400", "700"],
-  preload: true,
-  adjustFontFallback: true,
-});
-
-const workSans = Work_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-work-sans",
-  weight: ["400", "500", "600"],
-  preload: true,
-  adjustFontFallback: true,
-});
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-montserrat",
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
   preload: true,
   adjustFontFallback: true,
 });
@@ -134,7 +117,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${workSans.variable} ${montserrat.variable}`}
+      className={inter.variable}
     >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
