@@ -22,12 +22,57 @@ export const metadata: Metadata = {
       : (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000")
   ),
 
-  title: "Stockstrail - Financial Planning & Investment Guidance",
+  title: {
+    default: "Stockstrail - Financial Planning & Investment Guidance in India",
+    template: "%s | Stockstrail",
+  },
   description:
-    "Achieve financial independence with expert financial planning, investment guidance, and advisory services from Stockstrail.",
-  keywords:
-    "financial planning, investment, mutual funds, insurance, loan, fixed deposit, stockstrail",
-  authors: [{ name: "Stockstrail" }],
+    "Achieve financial independence with expert financial planning, mutual funds SIP, fixed deposits, insurance, and loan guidance from Stockstrail (AMFI ARN-284122).",
+  keywords: [
+    "Stockstrail",
+    "financial planning India",
+    "mutual funds distributor",
+    "SIP investment",
+    "fixed deposit advisory",
+    "term insurance",
+    "loan against mutual funds",
+    "LAMF",
+    "AMFI ARN 284122",
+    "Vikrant Bhardwaj",
+  ],
+  authors: [{ name: "Stockstrail", url: "https://www.stockstrail.in" }],
+  creator: "Stockstrail",
+  publisher: "Stockstrail",
+  category: "finance",
+  applicationName: "Stockstrail",
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  alternates: {
+    canonical: "https://www.stockstrail.in",
+  },
+
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    other: {
+      ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+        ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+        : {}),
+    },
+  },
+
   icons: {
     icon: { url: "/favicon.svg?v=3", type: "image/svg+xml" },
     shortcut: "/favicon.svg?v=3",
@@ -39,24 +84,24 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://www.stockstrail.in",
     siteName: "Stockstrail",
-    title: "Stockstrail - Financial Planning & Investment Guidance",
+    title: "Stockstrail - Financial Planning & Investment Guidance in India",
     description:
-      "Achieve financial independence with expert financial planning and investment guidance.",
+      "Achieve financial independence with expert financial planning, mutual funds SIP, insurance, and investment guidance from Stockstrail.",
     images: [
       {
-        url: "/og-stockstrail.png", // Must exist in /public
+        url: "/og-stockstrail.png",
         width: 1100,
         height: 630,
-        alt: "Stockstrail OG Image",
+        alt: "Stockstrail - Financial Planning & Investment Guidance",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Stockstrail - Financial Planning & Investment Guidance",
+    title: "Stockstrail - Financial Planning & Investment Guidance in India",
     description:
-      "Achieve financial independence with expert financial planning and investment guidance.",
+      "Achieve financial independence with expert financial planning and investment guidance from Stockstrail.",
     images: ["/og-stockstrail.png"],
   },
 };

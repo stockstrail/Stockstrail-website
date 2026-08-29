@@ -18,11 +18,13 @@ export function middleware(request: NextRequest) {
       return NextResponse.rewrite(url);
     }
   } else {
-    // On the main domain in production (non-localhost), redirect /learning/* paths to the learning subdomain
+    // On the main domain in production (non-localhost), redirect /learning/* paths directly to the canonical learning subdomain
     if (!isLocalhost && url.pathname.startsWith("/learning")) {
-      const learningHost = host.replace(/^www\./, "learning.");
+      const learningHost = host.includes("stockstrail.in")
+        ? "www.learning.stockstrail.in"
+        : host.replace(/^www\./, "learning.");
       const subPath = url.pathname.replace(/^\/learning/, "") || "/";
-      const redirectUrl = `${url.protocol}//${learningHost}${subPath}${url.search}`;
+      const redirectUrl = `https://${learningHost}${subPath}${url.search}`;
       return NextResponse.redirect(redirectUrl, { status: 301 });
     }
   }

@@ -1,10 +1,20 @@
 import { MetadataRoute } from 'next'
+import { headers } from 'next/headers'
 import { createClient } from '@/lib/supabase/server'
 import { getCategories, getCourses } from '@/lib/learning/supabase-db'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const mainBaseUrl = 'https://www.stockstrail.in'
   const learningBaseUrl = 'https://www.learning.stockstrail.in'
+
+  let isLearningSubdomain = false;
+  try {
+    const headersList = await headers();
+    const host = headersList.get('host') || '';
+    isLearningSubdomain = host.startsWith('learning.') || host.startsWith('www.learning.');
+  } catch {
+    // Default to main site if headers not available
+  }
 
   // 1. Main site static routes
   const mainStaticRoutes: MetadataRoute.Sitemap = [
@@ -164,7 +174,42 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  // 3. Fetch dynamic blog posts from Supabase
+  // If requested on the learning subdomain, return only learning routes
+  if (isLearningSubdomain) {
+    let categoryRoutes: MetadataRoute.Sitemap = []
+    try {
+      const categories = await getCategories()
+      categoryRoutes = categories.map((cat) => ({
+        url: `${learningBaseUrl}/categories/${cat.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      }))
+    } catch (e) {
+      console.error('Error fetching categories for sitemap:', e)
+    }
+
+    let courseRoutes: MetadataRoute.Sitemap = []
+    try {
+      const courses = await getCourses()
+      courseRoutes = courses.map((course) => ({
+        url: `${learningBaseUrl}/courses/${course.slug}`,
+        lastModified: new Date(course.updatedAt),
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      }))
+    } catch (e) {
+      console.error('Error fetching courses for sitemap:', e)
+    }
+
+    return [
+      ...learningStaticRoutes,
+      ...categoryRoutes,
+      ...courseRoutes,
+    ]
+  }
+
+  // 3. Fetch dynamic blog posts from Supabase for main site
   let blogRoutes: MetadataRoute.Sitemap = []
   try {
     const supabase = await createClient()
@@ -221,3 +266,4 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...courseRoutes,
   ]
 }
+

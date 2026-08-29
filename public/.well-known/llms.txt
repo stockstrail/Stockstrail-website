@@ -1,18 +1,26 @@
 # Stockstrail
 
-> Stockstrail is an AMFI-registered (ARN-284122) financial guidance platform in India providing honest, personalized financial planning, mutual funds SIP advisory, fixed deposits, insurance, and loan solutions.
+> Stockstrail is an AMFI-registered (ARN-284122) financial planning and investment guidance practice in India founded by Vikrant Bhardwaj. The platform provides honest, personalized financial planning, mutual funds SIP advisory, fixed deposits, life & health insurance, and loans against mutual funds (LAMF).
 
-## Core Services
+## Core Identity & Registration
+- **Platform Name:** Stockstrail
+- **Official Website:** https://www.stockstrail.in
+- **Educational Platform:** https://www.learning.stockstrail.in
+- **Founder:** Vikrant Bhardwaj (AMFI ARN-284122, NISM Series V-A Certified, SEBI Certified)
+- **Headquarters / Office:** Mata, Chintapurni Rd, near Punjab & Sind Bank, Moien, Chintpurni, Himachal Pradesh 177110, India
+- **Contact Email:** connect@stockstrail.in
+- **Contact Phone / WhatsApp:** +91 97363-04663
+- **Regulatory Framework:** AMFI (Association of Mutual Funds in India), SEBI (Securities and Exchange Board of India)
 
-- [Mutual Funds & SIPs](https://www.stockstrail.in/mutual-funds): Goal-based mutual fund investments, equity, debt, hybrid funds, and monthly SIP wealth planning.
+## Core Services & Offerings
+- [Mutual Funds & SIPs](https://www.stockstrail.in/mutual-funds): Goal-based mutual fund investments, equity, debt, hybrid funds, and systematic monthly SIP wealth planning.
 - [Fixed Deposits](https://www.stockstrail.in/fixed-deposit): High-yield corporate and bank fixed deposits with guaranteed returns and flexible tenures.
 - [Life & Health Insurance](https://www.stockstrail.in/insurance): Comprehensive term life insurance and family health protection plans.
 - [Loans Against Mutual Funds (LAMF)](https://www.stockstrail.in/loan): Instant low-interest liquidity secured by mutual fund units without selling assets.
-- [Risk Profile Assessment](https://www.stockstrail.in/check-risk-profile): Risk tolerance analysis to determine personalized asset allocation.
-- [Open Demat Account](https://www.stockstrail.in/open-demat): Zero-brokerage and discounted demat account setup with leading Indian stockbrokers.
+- [Risk Profile Assessment](https://www.stockstrail.in/check-risk-profile): Free risk tolerance analysis to determine personalized asset allocation.
+- [Open Demat Account](https://www.stockstrail.in/open-demat): Zero-brokerage and discounted demat account setup with leading Indian stockbrokers (Dhan, Angel One, Alice Blue, Zerodha).
 
-## Financial Calculators
-
+## Free Financial Calculators
 - [SIP Calculator](https://www.stockstrail.in/calculators/sip): Monthly systematic investment plan compounding growth calculator.
 - [Lumpsum Calculator](https://www.stockstrail.in/calculators/lumpsum): One-time mutual fund investment returns visualizer.
 - [FD Calculator](https://www.stockstrail.in/calculators/fd): Fixed deposit maturity amount and quarterly compound interest calculator.
@@ -20,15 +28,12 @@
 - [EMI Calculator](https://www.stockstrail.in/calculators/emi): Monthly loan EMI payment and total interest amortizer.
 - [Tax Calculator](https://www.stockstrail.in/calculators/tax): Income tax comparison and savings under Old and New tax regimes in India.
 
-## Advisory & Company
-
-- [About Stockstrail](https://www.stockstrail.in/about): Background of founder Vikrant Bhardwaj (ARN-284122), mission, and fiduciary advisory standards.
-- [Book Free Advisory Call](https://www.stockstrail.in/lets-talk): Direct 1-on-1 strategy call with AMFI-registered financial advisors.
-- [Commission Disclosure](https://www.stockstrail.in/commission-disclosure): Transparent AMFI distributor commission disclosures across fund categories.
-- [NSE Holidays 2026](https://www.stockstrail.in/nse-holidays): Official trading calendar and clearing holidays for the National Stock Exchange of India.
-- [BSE Holidays 2026](https://www.stockstrail.in/bse-holidays): Official trading calendar and clearing holidays for the Bombay Stock Exchange.
-- [Stockstrail Learning Platform](https://learning.stockstrail.in): Free financial education courses, categories, and investment lessons.
-
-## Optional
-
-- [Terms and Conditions](https://www.stockstrail.in/terms-and-conditions): Legal terms of service, disclaimers, and user privacy guidelines.
+## Knowledge & Disclosures
+- [About Stockstrail & Founder](https://www.stockstrail.in/about): Regulatory background of Vikrant Bhardwaj, certifications, mission, and fiduciary advisory standards.
+- [Free 1-on-1 Consultation](https://www.stockstrail.in/lets-talk): Direct advisory call with AMFI-registered financial advisor.
+- [Financial Insights & Blog](https://www.stockstrail.in/blog): In-depth articles on investing strategies, asset allocation, and tax saving.
+- [Commission Disclosure](https://www.stockstrail.in/commission-disclosure): 100% transparent AMFI distributor commission schedule.
+- [NSE Holidays 2026](https://www.stockstrail.in/nse-holidays): Official trading and clearing calendar for the National Stock Exchange of India.
+- [BSE Holidays 2026](https://www.stockstrail.in/bse-holidays): Official trading and clearing calendar for the Bombay Stock Exchange.
+- [Stockstrail Learning Platform](https://www.learning.stockstrail.in): Free structured financial courses on mutual funds, SIPs, and personal finance for Indian investors.
+- [Terms & Conditions](https://www.stockstrail.in/terms-and-conditions): Legal terms, privacy disclosures, and code of conduct.

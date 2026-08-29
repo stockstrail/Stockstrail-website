@@ -73,6 +73,19 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/llms-full.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/markdown; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
+          },
+        ],
+      },
+      {
         // Cache static assets (JS, CSS) for 1 year
         source: '/_next/static/:path*',
         headers: [
