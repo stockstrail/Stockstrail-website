@@ -14,7 +14,7 @@ export default function CalculatorsPageSEO() {
     },
     {
       question: "Can I receive direct guidance on investing after calculating my goals?",
-      answer: "Yes, you can schedule a free 1-on-1 strategy call with AMFI-registered founder Vikrant Bhardwaj (ARN-284122) for personalized portfolio guidance."
+      answer: "Yes, you can schedule a free 1-on-1 strategy call with Stockstrail's certified advisors (AMFI ARN-284122) for personalized portfolio guidance."
     },
     {
       question: "Can I check my Risk Profile before investing?",

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { MessageCircle, ArrowRight, ShieldCheck, CheckCircle2, Sparkles } from "lucide-react";
+import { MessageCircle, ArrowRight, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { formatIndianWords } from "./GrowthChart";
 
 interface CalculatorCTAProps {
@@ -24,15 +24,15 @@ export default function CalculatorCTA({
   const getWhatsAppMessage = () => {
     switch (type) {
       case "SIP":
-        return `Hi Vikrant, I used your Stockstrail SIP calculator and want to start investing ₹${amount.toLocaleString('en-IN')}/mo to target ${formattedTarget} in ${years} years. Please help me build my customized portfolio basket.`;
+        return `Hi Stockstrail team, I used your SIP calculator and want to start investing ₹${amount.toLocaleString('en-IN')}/mo to target ${formattedTarget} in ${years} years. Please help me build my customized portfolio basket.`;
       case "LUMPSUM":
-        return `Hi Vikrant, I used your Stockstrail calculator and want to invest a lumpsum amount of ₹${amount.toLocaleString('en-IN')} for ${years} years. Please recommend top fund options.`;
+        return `Hi Stockstrail team, I used your calculator and want to invest a lumpsum amount of ₹${amount.toLocaleString('en-IN')} for ${years} years. Please recommend top fund options.`;
       case "FD":
-        return `Hi Vikrant, I want to invest ₹${amount.toLocaleString('en-IN')} in high-yield AAA corporate Fixed Deposits. Please share available options.`;
+        return `Hi Stockstrail team, I want to invest ₹${amount.toLocaleString('en-IN')} in high-yield AAA corporate Fixed Deposits. Please share available options.`;
       case "EMI":
-        return `Hi Vikrant, I am looking for low-interest Loan Against Mutual Funds (LAMF) or Home Loan options for ₹${amount.toLocaleString('en-IN')}.`;
+        return `Hi Stockstrail team, I am looking for low-interest Loan Against Mutual Funds (LAMF) or Home Loan options for ₹${amount.toLocaleString('en-IN')}.`;
       default:
-        return `Hi Vikrant, I would like to schedule a free 1-on-1 wealth consultation with Stockstrail.`;
+        return `Hi Stockstrail team, I would like to schedule a free 1-on-1 wealth consultation with Stockstrail.`;
     }
   };
 
@@ -76,7 +76,7 @@ export default function CalculatorCTA({
           </h3>
 
           <p className="text-white/80 text-xs sm:text-sm leading-relaxed">
-            Turn this calculation into a real portfolio. Get a customized, research-backed mutual fund basket picked by AMFI-registered founder <strong className="text-white">Vikrant Bhardwaj</strong> — completely free with zero distributor markups.
+            Turn this calculation into a real portfolio. Get a customized, research-backed mutual fund basket curated by certified advisors at <strong className="text-white">Stockstrail</strong> (AMFI ARN-284122) — completely free with zero distributor markups.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-1 text-xs text-white/70">
@@ -104,7 +104,7 @@ export default function CalculatorCTA({
             className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-stockstrail-green-light text-black font-extrabold text-sm hover:bg-stockstrail-green-accent hover:shadow-[0_0_25px_rgba(0,255,151,0.6)] transition-all active:scale-95 text-center"
           >
             <MessageCircle className="w-4 h-4 fill-current" />
-            <span>Get My Plan on WhatsApp →</span>
+            <span>Chat with Us on WhatsApp →</span>
           </a>
 
           <Link

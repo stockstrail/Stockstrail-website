@@ -190,7 +190,7 @@ export default function RelatedCalculatorsNav({ currentType }: RelatedCalculator
         </div>
       </div>
 
-      {/* 3. Direct Founder Consultation Banner */}
+      {/* 3. Direct Advisory Consultation Banner */}
       <div className="rounded-2xl border border-stockstrail-green-light/40 bg-gradient-to-r from-[#012E27] to-[#011B17] p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="space-y-1">
           <div className="inline-flex items-center gap-1.5 text-stockstrail-green-light text-xs font-semibold">
@@ -201,7 +201,7 @@ export default function RelatedCalculatorsNav({ currentType }: RelatedCalculator
             Need help choosing the right funds or tax strategy?
           </h4>
           <p className="text-white/70 text-xs sm:text-sm max-w-xl">
-            Book a 1-on-1 confidential strategy session with Vikrant Bhardwaj to audit your existing investments and build an optimal wealth plan.
+            Book a 1-on-1 confidential strategy session with certified advisors at Stockstrail to audit your existing investments and build an optimal wealth plan.
           </p>
         </div>
 

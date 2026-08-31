@@ -28,7 +28,7 @@ export default function CalculatorsHeroSection({
   onTabSelect,
 }: CalculatorsHeroSectionProps) {
   const whatsappUrl =
-    "https://wa.me/919736304663?text=Hi%20Vikrant%2C%20I%20am%20using%20the%20Stockstrail%20Calculators%20and%20want%20guidance%20on%20building%20my%20portfolio.";
+    "https://wa.me/919736304663?text=Hi%20Stockstrail%20team%2C%20I%20am%20using%20the%20Stockstrail%20Calculators%20and%20want%20guidance%20on%20building%20my%20portfolio.";
 
   return (
     <div className="relative overflow-hidden rounded-3xl border border-stockstrail-green-light/25 bg-gradient-to-b from-[#022B24] via-[#021F1B] to-[#011613] p-6 sm:p-10 lg:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
@@ -110,7 +110,7 @@ export default function CalculatorsHeroSection({
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-stockstrail-green-light text-black font-extrabold text-sm hover:bg-stockstrail-green-accent hover:shadow-[0_0_25px_rgba(0,255,151,0.55)] hover:scale-105 active:scale-95 transition-all duration-300"
             >
               <MessageCircle className="w-4 h-4 fill-current" />
-              <span>Talk to Vikrant on WhatsApp →</span>
+              <span>Chat with Us on WhatsApp →</span>
             </a>
 
             <Link
