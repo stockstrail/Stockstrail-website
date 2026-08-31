@@ -69,9 +69,9 @@ export default function BreakdownDonut({
           </div>
         </div>
 
-        <div className="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
+        <div className="rounded-xl border border-[#5C9EAD]/30 bg-[#5C9EAD]/10 p-3 text-center">
           <div className="flex items-center justify-center gap-1.5 mb-1">
-            <span className="w-2.5 h-2.5 rounded-full bg-white/30" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#5C9EAD]" />
             <span className="text-[11px] uppercase tracking-wider text-white/70 font-medium">
               {investedLabel}
             </span>

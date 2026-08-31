@@ -48,16 +48,16 @@ export default function GrowthChart({
 
   const maxTotal = useMemo(() => {
     const max = Math.max(...data.map((d) => d.total), 1);
-    return max * 1.05; // 5% headroom for aesthetic spacing
+    return max * 1.05;
   }, [data]);
 
   // Chart dimensions
   const svgWidth = 600;
-  const svgHeight = 260;
-  const padLeft = 45;
+  const svgHeight = 250;
+  const padLeft = 50;
   const padRight = 20;
-  const padTop = 25;
-  const padBottom = 35;
+  const padTop = 20;
+  const padBottom = 32;
 
   const chartWidth = svgWidth - padLeft - padRight;
   const chartHeight = svgHeight - padTop - padBottom;
@@ -72,7 +72,7 @@ export default function GrowthChart({
     });
   }, [data, chartWidth, chartHeight, maxTotal, padLeft, padTop]);
 
-  // Build SVG Paths for smooth Area & Line
+  // Build SVG Paths
   const totalAreaPath = useMemo(() => {
     if (points.length < 2) return "";
     let p = `M ${points[0].x} ${padTop + chartHeight} L ${points[0].x} ${points[0].yTotal}`;
@@ -111,7 +111,7 @@ export default function GrowthChart({
     return p;
   }, [points]);
 
-  // Y-axis ticks (4 levels)
+  // Y-axis ticks
   const yTicks = useMemo(() => {
     return [0, 0.33, 0.66, 1].map((pct) => {
       const val = maxTotal * pct;
@@ -120,60 +120,54 @@ export default function GrowthChart({
     });
   }, [maxTotal, padTop, chartHeight]);
 
-  // X-axis label step to avoid clutter
+  // X-axis labels
   const xLabels = useMemo(() => {
     if (data.length <= 8) return points;
     const step = Math.ceil(data.length / 6);
     return points.filter((p, i) => i === 0 || i === points.length - 1 || i % step === 0);
   }, [points, data.length]);
 
-  const multiplier = activePoint.invested > 0 ? activePoint.total / activePoint.invested : 1;
-  const profitPct = activePoint.invested > 0 ? (activePoint.returns / activePoint.invested) * 100 : 0;
-
   return (
     <div className="w-full flex flex-col gap-4">
-      {/* Top Interactive Metric Pill */}
-      <div className="flex flex-wrap items-center justify-between gap-3 bg-gradient-to-r from-stockstrail-green-light/15 via-[#03362E]/60 to-[#01221D]/80 border border-stockstrail-green-light/30 rounded-2xl p-3 sm:p-4 backdrop-blur-md">
+      {/* Top Professional Summary Pill */}
+      <div className="flex flex-wrap items-center justify-between gap-3 bg-[#03241F]/80 border border-white/10 rounded-xl p-3 sm:p-4">
         <div className="flex items-center gap-2">
-          <span className="px-2.5 py-1 rounded-lg bg-stockstrail-green-light/20 text-stockstrail-green-light font-bold text-xs sm:text-sm border border-stockstrail-green-light/40">
+          <span className="px-2.5 py-1 rounded-md bg-stockstrail-green-light/15 text-stockstrail-green-light font-bold text-xs border border-stockstrail-green-light/30">
             Year {activePoint.year}
           </span>
-          <span className="text-white/60 text-xs sm:text-sm hidden sm:inline">
-            {hoveredIdx !== null ? "Timeline Inspection" : "Final Projected Wealth"}
+          <span className="text-white/60 text-xs">
+            {hoveredIdx !== null ? "Timeline View" : "Projected Maturity"}
           </span>
         </div>
 
-        <div className="flex items-center gap-3 sm:gap-5 text-right">
+        <div className="flex items-center gap-4 sm:gap-6 text-right">
           <div>
             <div className="text-[10px] sm:text-xs uppercase tracking-wider text-white/50">
-              Total Wealth
+              Total Value
             </div>
-            <div className="text-stockstrail-green-light font-bold text-base sm:text-xl">
+            <div className="text-stockstrail-green-light font-bold text-base sm:text-lg">
               {currencySymbol}{formatINR(activePoint.total)}
-              <span className="text-xs text-white/70 font-normal ml-1 hidden sm:inline">
+              <span className="text-xs text-white/60 font-normal ml-1 hidden sm:inline">
                 ({formatIndianWords(activePoint.total)})
               </span>
             </div>
           </div>
 
-          <div className="h-8 w-px bg-white/10 hidden sm:block" />
+          <div className="h-7 w-px bg-white/10 hidden sm:block" />
 
-          <div className="hidden sm:block">
+          <div>
             <div className="text-[10px] sm:text-xs uppercase tracking-wider text-white/50">
-              Wealth Multiplier
+              Est. Returns
             </div>
-            <div className="text-white font-semibold text-sm sm:text-base text-stockstrail-green-accent">
-              {multiplier.toFixed(2)}x <span className="text-xs text-stockstrail-green-light font-medium">(+{profitPct.toFixed(0)}%)</span>
+            <div className="text-white font-semibold text-sm sm:text-base">
+              +{currencySymbol}{formatINR(activePoint.returns)}
             </div>
           </div>
         </div>
       </div>
 
-      {/* SVG Compounding Visual Area Chart */}
-      <div className="relative w-full rounded-2xl border border-white/10 bg-[#021A15]/70 p-2 sm:p-4 overflow-hidden">
-        {/* Glow backdrop effect behind chart */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-stockstrail-green-light/5 rounded-full blur-3xl pointer-events-none" />
-
+      {/* SVG Chart with Distinct Color Separation */}
+      <div className="relative w-full rounded-2xl border border-white/10 bg-[#021A15]/80 p-3 sm:p-4 overflow-hidden">
         <svg
           viewBox={`0 0 ${svgWidth} ${svgHeight}`}
           className="w-full h-auto overflow-visible select-none"
@@ -181,27 +175,21 @@ export default function GrowthChart({
           onTouchEnd={() => setHoveredIdx(null)}
         >
           <defs>
-            {/* Gradient for Total Wealth (Top layer - glowing vibrant green) */}
+            {/* 1. Est. Returns / Total Wealth: Vibrant Emerald Green Gradient */}
             <linearGradient id="wealthGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#00FF97" stopOpacity="0.45" />
-              <stop offset="60%" stopColor="#00FF97" stopOpacity="0.15" />
+              <stop offset="0%" stopColor="#00FF97" stopOpacity="0.4" />
+              <stop offset="70%" stopColor="#00FF97" stopOpacity="0.1" />
               <stop offset="100%" stopColor="#00FF97" stopOpacity="0.0" />
             </linearGradient>
 
-            {/* Gradient for Invested Amount (Bottom layer - solid base) */}
+            {/* 2. Invested Amount: Distinct Steel / Slate Blue Gradient */}
             <linearGradient id="investedGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#256B5C" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="#11332C" stopOpacity="0.2" />
+              <stop offset="0%" stopColor="#386A7A" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#1E3E47" stopOpacity="0.2" />
             </linearGradient>
-
-            {/* Glow filter for the active line */}
-            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
           </defs>
 
-          {/* Horizontal Grid lines & Y-ticks */}
+          {/* Grid lines */}
           {yTicks.map((tick, i) => (
             <g key={i}>
               <line
@@ -224,25 +212,23 @@ export default function GrowthChart({
             </g>
           ))}
 
-          {/* Invested Area & Line (Bottom base) */}
+          {/* Invested Area & Line (Steel Slate Blue) */}
           <path d={investedAreaPath} fill="url(#investedGradient)" />
           <path
             d={investedLinePath}
             fill="none"
-            stroke="#4E9E8C"
+            stroke="#5C9EAD"
             strokeWidth="2"
             strokeDasharray="4,4"
-            opacity="0.8"
           />
 
-          {/* Total Wealth Area & Line (Top compounding wave) */}
+          {/* Total Wealth Area & Line (Emerald Green) */}
           <path d={totalAreaPath} fill="url(#wealthGradient)" />
           <path
             d={totalLinePath}
             fill="none"
             stroke="#00FF97"
-            strokeWidth="3"
-            filter="url(#glow)"
+            strokeWidth="2.5"
           />
 
           {/* X-axis Labels */}
@@ -250,9 +236,9 @@ export default function GrowthChart({
             <text
               key={p.year}
               x={p.x}
-              y={svgHeight - 8}
+              y={svgHeight - 6}
               fill={activePoint.year === p.year ? "#00FF97" : "rgba(255, 255, 255, 0.5)"}
-              fontSize="11"
+              fontSize="10"
               fontWeight={activePoint.year === p.year ? "bold" : "normal"}
               textAnchor="middle"
             >
@@ -260,7 +246,7 @@ export default function GrowthChart({
             </text>
           ))}
 
-          {/* Hover Crosshair & Data Pins */}
+          {/* Hover Capture */}
           {points.map((p) => {
             const isHovered = hoveredIdx === p.index;
             const isLast = hoveredIdx === null && p.index === points.length - 1;
@@ -268,7 +254,6 @@ export default function GrowthChart({
 
             return (
               <g key={p.year}>
-                {/* Invisible wide capture area for easy hover on mobile/desktop */}
                 <rect
                   x={p.x - chartWidth / (points.length * 2)}
                   y={padTop}
@@ -282,7 +267,6 @@ export default function GrowthChart({
 
                 {isActive && (
                   <g pointerEvents="none">
-                    {/* Vertical guideline */}
                     <line
                       x1={p.x}
                       y1={padTop}
@@ -291,35 +275,10 @@ export default function GrowthChart({
                       stroke="#00FF97"
                       strokeWidth="1.5"
                       strokeDasharray="3,3"
-                      opacity="0.8"
+                      opacity="0.7"
                     />
-
-                    {/* Total Wealth glowing pin */}
-                    <circle
-                      cx={p.x}
-                      cy={p.yTotal}
-                      r="6"
-                      fill="#00FF97"
-                      stroke="#021A15"
-                      strokeWidth="2"
-                    />
-                    <circle
-                      cx={p.x}
-                      cy={p.yTotal}
-                      r="10"
-                      fill="#00FF97"
-                      opacity="0.3"
-                    />
-
-                    {/* Invested pin */}
-                    <circle
-                      cx={p.x}
-                      cy={p.yInvested}
-                      r="4"
-                      fill="#79BCAE"
-                      stroke="#021A15"
-                      strokeWidth="1.5"
-                    />
+                    <circle cx={p.x} cy={p.yTotal} r="5" fill="#00FF97" stroke="#021A15" strokeWidth="2" />
+                    <circle cx={p.x} cy={p.yInvested} r="4" fill="#5C9EAD" stroke="#021A15" strokeWidth="1.5" />
                   </g>
                 )}
               </g>
@@ -327,40 +286,40 @@ export default function GrowthChart({
           })}
         </svg>
 
-        {/* Floating Tooltip Card */}
+        {/* Hover Detail Card */}
         {hoveredIdx !== null && (
-          <div className="mt-2 sm:mt-3 grid grid-cols-3 gap-2 bg-black/40 border border-white/10 rounded-xl p-2.5 text-center text-xs">
+          <div className="mt-2.5 grid grid-cols-3 gap-2 bg-[#011B16]/90 border border-white/10 rounded-xl p-2.5 text-center text-xs">
             <div>
-              <span className="text-white/50 block text-[10px] uppercase">Invested So Far</span>
+              <span className="text-white/50 block text-[10px] uppercase">Invested Amount</span>
               <span className="font-semibold text-white">₹{formatINR(activePoint.invested)}</span>
             </div>
             <div>
-              <span className="text-stockstrail-green-light block text-[10px] uppercase">Est. Profit (Gains)</span>
+              <span className="text-stockstrail-green-light block text-[10px] uppercase">Est. Returns</span>
               <span className="font-semibold text-stockstrail-green-light">+₹{formatINR(activePoint.returns)}</span>
             </div>
             <div>
-              <span className="text-white/50 block text-[10px] uppercase">Total Portfolio</span>
+              <span className="text-white/50 block text-[10px] uppercase">Total Value</span>
               <span className="font-bold text-stockstrail-green-accent">₹{formatINR(activePoint.total)}</span>
             </div>
           </div>
         )}
       </div>
 
-      {/* Legend & Insight */}
-      <div className="flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm text-white/70 px-1">
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-[#00FF97] shadow-[0_0_8px_#00FF97]" />
-            <span className="text-white font-medium">{returnsLabel} (Profit Growth)</span>
+      {/* Clean Professional Legend */}
+      <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-white/70 px-1">
+        <div className="flex items-center gap-5">
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-[#00FF97] shadow-[0_0_6px_#00FF97]" />
+            <span className="text-white font-medium">{returnsLabel}</span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-[#4E9E8C]" />
-            <span>{investedLabel} (Your Capital)</span>
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-[#5C9EAD]" />
+            <span className="text-white/80">{investedLabel}</span>
           </div>
         </div>
 
-        <div className="text-white/50 text-xs italic">
-          💡 Hover or touch any year to inspect your compounding wealth.
+        <div className="text-white/40 text-[11px]">
+          Hover or tap on any year to inspect compounding values.
         </div>
       </div>
     </div>

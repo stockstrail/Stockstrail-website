@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { TrendingUp, PieChart, TableProperties, Sparkles } from "lucide-react";
+import { TrendingUp, PieChart, TableProperties } from "lucide-react";
 import GrowthChart, { YearlyDataPoint, formatIndianWords } from "./GrowthChart";
 import BreakdownDonut from "./BreakdownDonut";
 import YearlyBreakdownTable from "./YearlyBreakdownTable";
@@ -90,7 +90,7 @@ const ValueChip = ({
           onBlur={handleBlur}
           onKeyDown={handleKeyDown}
           autoFocus
-          className="w-28 sm:w-36 px-3 py-1.5 rounded-xl border-2 border-stockstrail-green-light bg-[#032922] text-stockstrail-green-light font-bold text-right outline-none text-sm sm:text-base shadow-[0_0_15px_rgba(0,255,151,0.3)]"
+          className="w-28 sm:w-36 px-3 py-1.5 rounded-lg border-2 border-stockstrail-green-light bg-[#032922] text-stockstrail-green-light font-bold text-right outline-none text-sm sm:text-base shadow-[0_0_15px_rgba(0,255,151,0.3)]"
         />
       ) : (
         <span
@@ -98,7 +98,7 @@ const ValueChip = ({
           role="button"
           tabIndex={0}
           aria-label={ariaLabel}
-          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl border border-stockstrail-green-light/40 bg-stockstrail-green-light/10 text-stockstrail-green-light font-bold cursor-pointer hover:border-stockstrail-green-light hover:bg-stockstrail-green-light/20 transition-all text-sm sm:text-base min-w-[80px] sm:min-w-[100px] justify-end"
+          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-stockstrail-green-light/40 bg-stockstrail-green-light/10 text-stockstrail-green-light font-bold cursor-pointer hover:border-stockstrail-green-light hover:bg-stockstrail-green-light/20 transition-all text-sm sm:text-base min-w-[75px] sm:min-w-[90px] justify-end"
         >
           {prefix && <span className="text-white/60 text-xs sm:text-sm">{prefix}</span>}
           <span>{suffix === "%" ? formatRate(value) : formatINR(value)}</span>
@@ -132,7 +132,7 @@ export default function CalculatorWidget({
     }
   };
 
-  // State Variables
+  // State
   const [amount, setAmount] = useState(32500);
   const [rate, setRate] = useState(12);
   const [years, setYears] = useState(10);
@@ -162,7 +162,7 @@ export default function CalculatorWidget({
   const months = years * 12;
   const amountMax = tab === "LUMPSUM" || tab === "FD" ? 10000000 : 200000;
 
-  // 1. SIP Calculation & Timeline
+  // Calculations
   const sip = useMemo(() => {
     const i = Math.pow(1 + rate / 100, 1 / 12) - 1;
     const invested = amount * months;
@@ -184,7 +184,6 @@ export default function CalculatorWidget({
     return points;
   }, [amount, rate, years]);
 
-  // 2. Lumpsum Calculation & Timeline
   const lumpsum = useMemo(() => {
     const i = rate / 100;
     const principal = amount;
@@ -205,7 +204,6 @@ export default function CalculatorWidget({
     return points;
   }, [amount, rate, years]);
 
-  // 3. Fixed Deposit Calculation & Timeline
   const fd = useMemo(() => {
     const i = rate / 100;
     const principal = amount;
@@ -225,7 +223,6 @@ export default function CalculatorWidget({
     return points;
   }, [amount, rate, years]);
 
-  // 4. Recurring Deposit Calculation & Timeline
   const rd = useMemo(() => {
     const i = Math.pow(1 + rate / 100, 1 / 12) - 1;
     const n = months;
@@ -249,7 +246,6 @@ export default function CalculatorWidget({
     return points;
   }, [amount, rate, years]);
 
-  // 5. EMI Calculation
   const emiCalc = useMemo(() => {
     const R = emiRate / 100 / 12;
     const N = emiYears * 12;
@@ -260,7 +256,6 @@ export default function CalculatorWidget({
     return { emi, total, interest, principal: P, months: N };
   }, [emiPrincipal, emiRate, emiYears]);
 
-  // 6. Tax Calculation
   const computeHRAExemption = (basic: number, daAmt: number, hraAmt: number, rent: number, metro: boolean) => {
     if (rent <= 0 || hraAmt <= 0) return 0;
     const tenPercentRule = Math.max(0, rent - 0.1 * (basic + daAmt));
@@ -359,7 +354,6 @@ export default function CalculatorWidget({
       taxNew,
       cessNew,
       totalNew,
-      savings: totalOld - totalNew,
     };
   }, [
     taxIncome,
@@ -404,31 +398,31 @@ export default function CalculatorWidget({
       : [];
 
   return (
-    <div className="rounded-3xl border border-white/15 bg-gradient-to-b from-[#012822]/90 via-[#011C18]/90 to-[#011411]/95 p-5 sm:p-8 lg:p-10 shadow-2xl backdrop-blur-xl">
-      {/* Top Tab Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 mb-8 pb-5 border-b border-white/10">
-        <div className="flex flex-wrap gap-2 sm:gap-3">
+    <div className="rounded-3xl border border-white/10 bg-[#021A15]/90 p-5 sm:p-8 lg:p-10 shadow-2xl backdrop-blur-xl">
+      {/* Top Tab Bar - Clean, Professional (No Emojis) */}
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b border-white/10">
+        <div className="flex flex-wrap gap-2">
           {(["SIP", "LUMPSUM", "FD", "RD", "EMI", "TAX"] as Tab[]).map((t) => (
             <button
               key={t}
               onClick={() => handleTabClick(t)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 ${
+              className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium tracking-wide transition-all duration-200 ${
                 tab === t
-                  ? "bg-stockstrail-green-light text-[#012928] shadow-[0_0_20px_rgba(0,255,151,0.5)] scale-105"
-                  : "text-white/70 bg-white/5 border border-white/10 hover:border-stockstrail-green-light/50 hover:text-white hover:bg-white/10"
+                  ? "bg-stockstrail-green-light/20 text-stockstrail-green-light border border-stockstrail-green-light shadow-[0_0_12px_rgba(0,255,151,0.25)]"
+                  : "text-white/70 border border-transparent hover:border-white/20 hover:text-white"
               }`}
             >
-              {t === "SIP" ? "📈 SIP" : t === "LUMPSUM" ? "💰 Lumpsum" : t === "FD" ? "🏦 FD" : t === "RD" ? "🔄 RD" : t === "EMI" ? "💳 Loan EMI" : "📑 Income Tax"}
+              {t}
             </button>
           ))}
         </div>
 
-        {/* View Mode Switcher (For Growth tabs) */}
+        {/* View Mode Switcher */}
         {(["SIP", "LUMPSUM", "FD", "RD"] as Tab[]).includes(tab) && (
           <div className="inline-flex items-center gap-1 p-1 rounded-xl bg-black/40 border border-white/10 text-xs">
             <button
               onClick={() => setViewMode("CHART")}
-              className={`flex items-center gap-1 px-3 py-1.5 rounded-lg font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
                 viewMode === "CHART"
                   ? "bg-stockstrail-green-light/20 text-stockstrail-green-light border border-stockstrail-green-light/40"
                   : "text-white/60 hover:text-white"
@@ -439,7 +433,7 @@ export default function CalculatorWidget({
             </button>
             <button
               onClick={() => setViewMode("DONUT")}
-              className={`flex items-center gap-1 px-3 py-1.5 rounded-lg font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
                 viewMode === "DONUT"
                   ? "bg-stockstrail-green-light/20 text-stockstrail-green-light border border-stockstrail-green-light/40"
                   : "text-white/60 hover:text-white"
@@ -450,7 +444,7 @@ export default function CalculatorWidget({
             </button>
             <button
               onClick={() => setViewMode("TABLE")}
-              className={`flex items-center gap-1 px-3 py-1.5 rounded-lg font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
                 viewMode === "TABLE"
                   ? "bg-stockstrail-green-light/20 text-stockstrail-green-light border border-stockstrail-green-light/40"
                   : "text-white/60 hover:text-white"
@@ -464,15 +458,15 @@ export default function CalculatorWidget({
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-        {/* Left Side: Interactive Controls & Sliders */}
+        {/* Left Side: Controls */}
         <div className="lg:col-span-5 space-y-6">
           {(["SIP", "LUMPSUM", "FD", "RD"] as Tab[]).includes(tab) && (
             <div className="space-y-6">
-              {/* Amount Input */}
+              {/* Amount */}
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between text-white/80">
-                  <span className="uppercase tracking-wider text-xs font-semibold text-white/70">
-                    {tab === "LUMPSUM" || tab === "FD" ? "Principal Investment" : "Monthly Investment (SIP)"}
+                  <span className="uppercase tracking-wide text-xs font-semibold text-white/70">
+                    {tab === "LUMPSUM" || tab === "FD" ? "PRINCIPAL AMOUNT" : "MONTHLY INVESTMENT"}
                   </span>
                   <ValueChip
                     ariaLabel="amount"
@@ -490,8 +484,6 @@ export default function CalculatorWidget({
                   onChange={(e) => setAmount(Number(e.target.value))}
                   className="w-full accent-[#00FF97] h-2 bg-white/10 rounded-lg cursor-pointer"
                 />
-
-                {/* Quick Presets for Amount */}
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {(tab === "LUMPSUM" || tab === "FD"
                     ? [50000, 100000, 500000, 1000000]
@@ -500,10 +492,10 @@ export default function CalculatorWidget({
                     <button
                       key={val}
                       onClick={() => setAmount(val)}
-                      className={`text-[11px] px-2 py-0.5 rounded-lg border transition-all ${
+                      className={`text-[11px] px-2 py-0.5 rounded-md border transition-all ${
                         amount === val
-                          ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-bold"
-                          : "border-white/10 bg-white/5 text-white/60 hover:text-white hover:border-white/30"
+                          ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-semibold"
+                          : "border-white/10 bg-white/5 text-white/60 hover:text-white"
                       }`}
                     >
                       {tab === "LUMPSUM" || tab === "FD" ? formatIndianWords(val) : `+₹${(val / 1000).toFixed(0)}k`}
@@ -512,11 +504,11 @@ export default function CalculatorWidget({
                 </div>
               </div>
 
-              {/* Rate Input */}
+              {/* Rate */}
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between text-white/80">
-                  <span className="uppercase tracking-wider text-xs font-semibold text-white/70">
-                    Expected Return Rate (p.a.)
+                  <span className="uppercase tracking-wide text-xs font-semibold text-white/70">
+                    EXPECTED RETURN RATE (P.A.)
                   </span>
                   <ValueChip
                     ariaLabel="rate"
@@ -538,8 +530,6 @@ export default function CalculatorWidget({
                   onChange={(e) => setRate(Number(e.target.value))}
                   className="w-full accent-[#00FF97] h-2 bg-white/10 rounded-lg cursor-pointer"
                 />
-
-                {/* Quick Presets for Return Rate */}
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {(tab === "FD" || tab === "RD"
                     ? [6.5, 7.5, 8.5]
@@ -548,23 +538,23 @@ export default function CalculatorWidget({
                     <button
                       key={val}
                       onClick={() => setRate(val)}
-                      className={`text-[11px] px-2 py-0.5 rounded-lg border transition-all ${
+                      className={`text-[11px] px-2 py-0.5 rounded-md border transition-all ${
                         rate === val
-                          ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-bold"
-                          : "border-white/10 bg-white/5 text-white/60 hover:text-white hover:border-white/30"
+                          ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-semibold"
+                          : "border-white/10 bg-white/5 text-white/60 hover:text-white"
                       }`}
                     >
-                      {val}% {val >= 14 ? "(Equity)" : val === 12 ? "(Balanced)" : "(Conservative)"}
+                      {val}%
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* Years Input */}
+              {/* Years */}
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between text-white/80">
-                  <span className="uppercase tracking-wider text-xs font-semibold text-white/70">
-                    Time Period (Years)
+                  <span className="uppercase tracking-wide text-xs font-semibold text-white/70">
+                    TIME PERIOD (YEARS)
                   </span>
                   <ValueChip
                     ariaLabel="years"
@@ -582,17 +572,15 @@ export default function CalculatorWidget({
                   onChange={(e) => setYears(Number(e.target.value))}
                   className="w-full accent-[#00FF97] h-2 bg-white/10 rounded-lg cursor-pointer"
                 />
-
-                {/* Quick Presets for Years */}
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {[3, 5, 10, 15, 20, 25].map((y) => (
                     <button
                       key={y}
                       onClick={() => setYears(y)}
-                      className={`text-[11px] px-2.5 py-0.5 rounded-lg border transition-all ${
+                      className={`text-[11px] px-2 py-0.5 rounded-md border transition-all ${
                         years === y
-                          ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-bold"
-                          : "border-white/10 bg-white/5 text-white/60 hover:text-white hover:border-white/30"
+                          ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-semibold"
+                          : "border-white/10 bg-white/5 text-white/60 hover:text-white"
                       }`}
                     >
                       {y} Years
@@ -601,21 +589,21 @@ export default function CalculatorWidget({
                 </div>
               </div>
 
-              {/* Summary Cards */}
+              {/* Clean Summary Card (Original Wording) */}
               {activeResult && (
-                <div className="rounded-2xl border border-white/15 bg-black/30 p-4 sm:p-5 space-y-3 shadow-inner">
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5 space-y-3">
                   <div className="flex justify-between items-center text-sm">
-                    <span className="text-white/70">Total Invested</span>
-                    <span className="font-semibold text-white text-base">
+                    <span className="text-white/70">Invested Amount</span>
+                    <span className="font-semibold text-white">
                       ₹{formatINR(activeResult.invested)}
                       <span className="text-xs text-white/40 ml-1">({formatIndianWords(activeResult.invested)})</span>
                     </span>
                   </div>
 
                   <div className="flex justify-between items-center text-sm">
-                    <span className="text-white/70">Est. Profit (Returns)</span>
-                    <span className="font-bold text-stockstrail-green-light text-base">
-                      +₹{formatINR(activeResult.returns)}
+                    <span className="text-white/70">Est. Returns</span>
+                    <span className="font-semibold text-stockstrail-green-light">
+                      ₹{formatINR(activeResult.returns)}
                       <span className="text-xs text-stockstrail-green-light/70 ml-1">({formatIndianWords(activeResult.returns)})</span>
                     </span>
                   </div>
@@ -623,14 +611,9 @@ export default function CalculatorWidget({
                   <div className="w-full h-px bg-white/10 my-2" />
 
                   <div className="flex justify-between items-center">
-                    <div>
-                      <span className="text-xs uppercase tracking-wider text-white/50 block">Total Accumulated Wealth</span>
-                      <span className="text-xl sm:text-2xl font-extrabold text-white">
-                        ₹{formatINR(activeResult.value)}
-                      </span>
-                    </div>
-                    <span className="px-2.5 py-1 rounded-lg bg-stockstrail-green-light/20 text-stockstrail-green-light font-bold text-xs border border-stockstrail-green-light/40">
-                      {formatIndianWords(activeResult.value)}
+                    <span className="text-base font-bold text-white">Total Value</span>
+                    <span className="text-xl sm:text-2xl font-bold text-stockstrail-green-light">
+                      ₹{formatINR(activeResult.value)}
                     </span>
                   </div>
                 </div>
@@ -643,7 +626,7 @@ export default function CalculatorWidget({
             <div className="space-y-6">
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between text-white/80">
-                  <span className="uppercase tracking-wider text-xs font-semibold text-white/70">Loan Amount</span>
+                  <span className="uppercase tracking-wide text-xs font-semibold text-white/70">LOAN AMOUNT</span>
                   <ValueChip
                     ariaLabel="principal"
                     value={emiPrincipal}
@@ -660,26 +643,11 @@ export default function CalculatorWidget({
                   onChange={(e) => setEmiPrincipal(Number(e.target.value))}
                   className="w-full accent-[#00FF97] h-2 bg-white/10 rounded-lg cursor-pointer"
                 />
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {[500000, 1000000, 2500000, 5000000].map((val) => (
-                    <button
-                      key={val}
-                      onClick={() => setEmiPrincipal(val)}
-                      className={`text-[11px] px-2 py-0.5 rounded-lg border transition-all ${
-                        emiPrincipal === val
-                          ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-bold"
-                          : "border-white/10 bg-white/5 text-white/60 hover:text-white"
-                      }`}
-                    >
-                      {formatIndianWords(val)}
-                    </button>
-                  ))}
-                </div>
               </div>
 
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between text-white/80">
-                  <span className="uppercase tracking-wider text-xs font-semibold text-white/70">Interest Rate (p.a.)</span>
+                  <span className="uppercase tracking-wide text-xs font-semibold text-white/70">RATE OF INTEREST (P.A.)</span>
                   <ValueChip
                     ariaLabel="emurate"
                     value={emiRate}
@@ -700,7 +668,7 @@ export default function CalculatorWidget({
 
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between text-white/80">
-                  <span className="uppercase tracking-wider text-xs font-semibold text-white/70">Loan Tenure (Years)</span>
+                  <span className="uppercase tracking-wide text-xs font-semibold text-white/70">LOAN TENURE (YEARS)</span>
                   <ValueChip
                     ariaLabel="emiyears"
                     value={emiYears}
@@ -719,22 +687,22 @@ export default function CalculatorWidget({
                 />
               </div>
 
-              <div className="rounded-2xl border border-white/15 bg-black/30 p-4 sm:p-5 space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-white/70 text-sm">Monthly Loan EMI</span>
-                  <span className="font-extrabold text-stockstrail-green-light text-xl sm:text-2xl">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5 space-y-3">
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-white/70">Monthly EMI</span>
+                  <span className="font-bold text-stockstrail-green-light text-lg sm:text-xl">
                     ₹{formatINR(emiCalc.emi)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-sm">
-                  <span className="text-white/70">Total Interest Payable</span>
-                  <span className="font-semibold text-amber-300">
+                  <span className="text-white/70">Total Interest</span>
+                  <span className="font-semibold text-white">
                     ₹{formatINR(emiCalc.interest)}
                   </span>
                 </div>
                 <div className="w-full h-px bg-white/10 my-1" />
-                <div className="flex justify-between items-center text-sm font-bold text-white">
-                  <span>Total Amount Paid</span>
+                <div className="flex justify-between items-center text-base font-bold text-white">
+                  <span>Total Payment</span>
                   <span>₹{formatINR(emiCalc.total)}</span>
                 </div>
               </div>
@@ -746,18 +714,18 @@ export default function CalculatorWidget({
             <div className="space-y-5">
               <div className="flex flex-wrap gap-3 items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-white/70">Financial Year:</span>
+                  <span className="text-xs text-white/70">Assessment Year:</span>
                   <select
                     value={taxAY}
                     onChange={(e) => setTaxAY(e.target.value)}
                     className="bg-[#051C17] border border-white/20 rounded-lg px-2.5 py-1 text-xs text-white focus:outline-none focus:border-stockstrail-green-light"
                   >
-                    <option value="2026-27">FY 2025-26 (AY 2026-27)</option>
-                    <option value="2025-26">FY 2024-25 (AY 2025-26)</option>
+                    <option value="2026-27">2026-27 (FY 2025-26)</option>
+                    <option value="2025-26">2025-26 (FY 2024-25)</option>
                   </select>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-white/70">Age:</span>
+                  <span className="text-xs text-white/70">Age Category:</span>
                   <select
                     value={taxAgeCat}
                     onChange={(e) => setTaxAgeCat(e.target.value as any)}
@@ -772,7 +740,7 @@ export default function CalculatorWidget({
 
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between text-white/80">
-                  <span className="uppercase tracking-wider text-xs font-semibold text-white/70">Annual Gross Income</span>
+                  <span className="uppercase tracking-wide text-xs font-semibold text-white/70">ANNUAL GROSS INCOME</span>
                   <ValueChip
                     ariaLabel="income"
                     value={taxIncome}
@@ -789,27 +757,11 @@ export default function CalculatorWidget({
                   onChange={(e) => setTaxIncome(Number(e.target.value))}
                   className="w-full accent-[#00FF97] h-2 bg-white/10 rounded-lg cursor-pointer"
                 />
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {[800000, 1200000, 1500000, 2000000, 3000000].map((val) => (
-                    <button
-                      key={val}
-                      onClick={() => setTaxIncome(val)}
-                      className={`text-[11px] px-2 py-0.5 rounded-lg border transition-all ${
-                        taxIncome === val
-                          ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-bold"
-                          : "border-white/10 bg-white/5 text-white/60 hover:text-white"
-                      }`}
-                    >
-                      {formatIndianWords(val)}
-                    </button>
-                  ))}
-                </div>
               </div>
 
-              {/* Deductions inputs */}
               <div className="grid grid-cols-2 gap-3 pt-2">
                 <div>
-                  <span className="text-[11px] text-white/60 block mb-1">Section 80C (ELSS, PF)</span>
+                  <span className="text-[11px] text-white/60 block mb-1">Section 80C</span>
                   <input
                     type="number"
                     max={150000}
@@ -819,7 +771,7 @@ export default function CalculatorWidget({
                   />
                 </div>
                 <div>
-                  <span className="text-[11px] text-white/60 block mb-1">Section 80D (Health Ins.)</span>
+                  <span className="text-[11px] text-white/60 block mb-1">Section 80D</span>
                   <input
                     type="number"
                     max={100000}
@@ -833,23 +785,23 @@ export default function CalculatorWidget({
           )}
         </div>
 
-        {/* Right Side: Graph / Donut / Table Visualizer */}
+        {/* Right Side: Visualizer */}
         <div className="lg:col-span-7 flex flex-col items-center justify-center min-h-[340px]">
           {(["SIP", "LUMPSUM", "FD", "RD"] as Tab[]).includes(tab) && (
             <div className="w-full">
               {viewMode === "CHART" && (
                 <GrowthChart
                   data={activeYearlyData}
-                  investedLabel={tab === "LUMPSUM" || tab === "FD" ? "Principal Invested" : "Total SIP Invested"}
-                  returnsLabel="Estimated Profit"
+                  investedLabel={tab === "LUMPSUM" || tab === "FD" ? "Principal Amount" : "Invested Amount"}
+                  returnsLabel="Est. Returns"
                 />
               )}
               {viewMode === "DONUT" && activeResult && (
                 <BreakdownDonut
                   invested={activeResult.invested}
                   returns={activeResult.returns}
-                  investedLabel={tab === "LUMPSUM" || tab === "FD" ? "Principal" : "Invested"}
-                  returnsLabel="Profit Growth"
+                  investedLabel={tab === "LUMPSUM" || tab === "FD" ? "Principal" : "Invested Amount"}
+                  returnsLabel="Est. Returns"
                 />
               )}
               {viewMode === "TABLE" && (
@@ -871,20 +823,8 @@ export default function CalculatorWidget({
 
           {tab === "TAX" && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-              {/* New Regime Card */}
-              <div className={`rounded-2xl border p-5 transition-all ${
-                taxCalc.totalNew <= taxCalc.totalOld
-                  ? "border-stockstrail-green-light/50 bg-gradient-to-b from-[#02352C] to-[#011C18] shadow-[0_0_20px_rgba(0,255,151,0.15)]"
-                  : "border-white/10 bg-white/5"
-              }`}>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="font-bold text-white text-base">New Tax Regime</span>
-                  {taxCalc.totalNew <= taxCalc.totalOld && (
-                    <span className="px-2 py-0.5 rounded-md bg-stockstrail-green-light text-[#012928] text-[10px] font-extrabold flex items-center gap-1">
-                      <Sparkles className="w-3 h-3 fill-current" /> Recommended
-                    </span>
-                  )}
-                </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <div className="font-semibold text-white text-base mb-3">New Tax Regime</div>
                 <div className="space-y-2 text-xs text-white/80">
                   <div className="flex justify-between">
                     <span className="text-white/60">Taxable Income</span>
@@ -906,20 +846,8 @@ export default function CalculatorWidget({
                 </div>
               </div>
 
-              {/* Old Regime Card */}
-              <div className={`rounded-2xl border p-5 transition-all ${
-                taxCalc.totalOld < taxCalc.totalNew
-                  ? "border-stockstrail-green-light/50 bg-gradient-to-b from-[#02352C] to-[#011C18] shadow-[0_0_20px_rgba(0,255,151,0.15)]"
-                  : "border-white/10 bg-white/5"
-              }`}>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="font-bold text-white text-base">Old Tax Regime</span>
-                  {taxCalc.totalOld < taxCalc.totalNew && (
-                    <span className="px-2 py-0.5 rounded-md bg-stockstrail-green-light text-[#012928] text-[10px] font-extrabold flex items-center gap-1">
-                      <Sparkles className="w-3 h-3 fill-current" /> Recommended
-                    </span>
-                  )}
-                </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <div className="font-semibold text-white text-base mb-3">Old Tax Regime</div>
                 <div className="space-y-2 text-xs text-white/80">
                   <div className="flex justify-between">
                     <span className="text-white/60">Taxable Income</span>
@@ -945,7 +873,7 @@ export default function CalculatorWidget({
         </div>
       </div>
 
-      {/* High-Conversion Investment CTA */}
+      {/* CTA */}
       <CalculatorCTA
         type={tab}
         amount={tab === "EMI" ? emiPrincipal : amount}
