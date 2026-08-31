@@ -1,117 +1,134 @@
 import React from 'react';
+import Link from 'next/link';
 import ServiceFAQSection from '@/components/services/ServiceFAQSection';
+import RelatedCalculatorsNav from './RelatedCalculatorsNav';
 
 const faqs = [
   {
-    question: "How is a Lumpsum investment different from a SIP?",
-    answer: "Lumpsum means investing your entire amount at once, while SIP spreads it across monthly instalments."
+    question: "When is a Lumpsum investment preferred over a SIP?",
+    answer: "A lumpsum investment is ideal when you have surplus liquidity (such as annual bonuses, property sales, or matured investments) and a medium to long-term horizon (5+ years) to absorb short-term market cycles."
   },
   {
-    question: "How accurate is the Stockstrail Lumpsum Calculator?",
-    answer: "It provides an estimate based on your inputs. Actual returns depend on market performance."
+    question: "Can I use a Systematic Transfer Plan (STP) with a lumpsum amount?",
+    answer: "Yes. Many investors park a lumpsum in a low-volatility liquid or arbitrage fund and systematically transfer fixed amounts weekly or monthly into equity funds to benefit from rupee-cost averaging."
   },
   {
-    question: "Is a Lumpsum investment riskier than a Fixed Deposit?",
-    answer: "Yes, since Lumpsum investments go into market-linked Mutual Funds, returns aren't guaranteed like an FD."
+    question: "How does compounding impact long-term lumpsum investments?",
+    answer: "Because the entire capital starts compounding from day one, lumpsum investments can generate substantial capital appreciation over long tenures compared to staggered contributions."
   },
   {
-    question: "Can I use the Stockstrail Lumpsum Calculator for free?",
-    answer: "Yes, the calculator is completely free to use and provides instant results."
+    question: "What is the tax implication on lumpsum mutual fund redemptions?",
+    answer: "For equity mutual funds held for over 12 months, long-term capital gains (LTCG) above ₹1.25 lakh per financial year are taxed at 12.5% (as per Budget 2024 amendments). Short-term gains (under 12 months) are taxed at 20%."
   }
 ];
 
 const LumpsumCalculatorSEO: React.FC = () => {
   return (
-    <div className="w-full max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-white/80">
-      <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6">
-        <h1 className="text-3xl md:text-4xl font-bold text-white/90 mb-4 leading-tight">Stockstrail Lumpsum Calculator</h1>
-        <p className="leading-relaxed mb-4 text-lg">
-          Estimate the future value of a one-time investment in Mutual Funds instantly.
-        </p>
-        <p className="leading-relaxed text-lg">
-          Input your investment amount, expected return, and duration to project your maturity value and plan your wealth-building journey.
-        </p>
-        <div className="mt-6 flex"><button className="inline-flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-2 sm:py-3 bg-transparent border-2 border-white/20 rounded-full text-white w-fit hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,151,0.3)] transition-all duration-300 text-sm sm:text-base group">
-          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-stockstrail-green-accent rounded-full group-hover:scale-110 transition-transform duration-300"></div>
-          Use the Stockstrail Lumpsum Calculator
-        </button></div>
-      </div>
-
-      <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6">
-        <h2 className="text-2xl font-semibold text-white/90 mb-4">What is a Lumpsum Calculator?</h2>
-        <p className="leading-relaxed mb-4 text-lg">
-          A lumpsum investment means committing your entire amount at once. This calculator estimates its future value based on expected return and time invested.
-        </p>
-        <p className="leading-relaxed text-lg">
-          It gives you a clear picture of compound growth before you commit your funds.
+    <div className="w-full max-w-4xl mx-auto py-8 text-white/80 space-y-8">
+      {/* Header Overview */}
+      <div className="border-b border-white/10 pb-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">One-Time Lumpsum Wealth Creation</h2>
+        <p className="text-white/70 leading-relaxed text-sm sm:text-base">
+          Investing a one-time capital amount into mutual funds allows your entire principal to participate in market compounding from day one. Proper asset allocation and tenure selection are essential to maximizing risk-adjusted returns.
         </p>
       </div>
 
-      <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6">
-        <h2 className="text-2xl font-semibold text-white/90 mb-4">How it Works</h2>
-        <ol className="list-decimal list-inside space-y-2 text-lg">
-          <li>Enter your one-time investment amount.</li>
-          <li>Enter your expected annual rate of return.</li>
-          <li>Enter your investment duration in years.</li>
-          <li>Instantly see your estimated maturity value.</li>
-        </ol>
-      </div>
+      {/* How to Use This Calculator */}
+      <div className="space-y-4">
+        <h3 className="text-xl font-bold text-white tracking-wide">How to Use the Lumpsum Calculator</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-2">
+            <div className="w-7 h-7 rounded-full bg-stockstrail-green-light/20 text-stockstrail-green-light flex items-center justify-center font-bold text-xs border border-stockstrail-green-light/40">
+              1
+            </div>
+            <h4 className="font-semibold text-white text-sm">Principal Amount</h4>
+            <p className="text-white/60 text-xs leading-relaxed">
+              Enter your one-time available capital or surplus funds to be deployed.
+            </p>
+          </div>
 
-      <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6">
-        <h3 className="text-xl font-semibold text-white/90 mb-4">Example</h3>
-        <p className="leading-relaxed mb-4 text-lg">
-          A one-time investment of ₹1,00,000 for 10 years at a 12% expected annual return could grow to approximately ₹3.1 lakh.
-        </p>
-        <div className="bg-yellow-500/10 border border-yellow-500/20 text-yellow-200/90 p-4 rounded-lg">
-          <span className="mr-2">⚠️</span><strong>Note:</strong> This is an estimate. Actual returns depend on market conditions.
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-2">
+            <div className="w-7 h-7 rounded-full bg-stockstrail-green-light/20 text-stockstrail-green-light flex items-center justify-center font-bold text-xs border border-stockstrail-green-light/40">
+              2
+            </div>
+            <h4 className="font-semibold text-white text-sm">Expected Return</h4>
+            <p className="text-white/60 text-xs leading-relaxed">
+              Set the estimated annual compounding rate based on your chosen fund category.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-2">
+            <div className="w-7 h-7 rounded-full bg-stockstrail-green-light/20 text-stockstrail-green-light flex items-center justify-center font-bold text-xs border border-stockstrail-green-light/40">
+              3
+            </div>
+            <h4 className="font-semibold text-white text-sm">Investment Tenure</h4>
+            <p className="text-white/60 text-xs leading-relaxed">
+              Select the holding duration in years to give your capital maximum time to compound.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-2">
+            <div className="w-7 h-7 rounded-full bg-stockstrail-green-light/20 text-stockstrail-green-light flex items-center justify-center font-bold text-xs border border-stockstrail-green-light/40">
+              4
+            </div>
+            <h4 className="font-semibold text-white text-sm">Review Multiplier</h4>
+            <p className="text-white/60 text-xs leading-relaxed">
+              Analyze your total expected maturity value, wealth multiplier, and annual growth curve.
+            </p>
+          </div>
         </div>
       </div>
 
-      <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6">
-        <h2 className="text-2xl font-semibold text-white/90 mb-4">Lumpsum vs SIP</h2>
-        <div className="overflow-x-auto rounded-lg border border-white/10 mt-4">
-          <table className="w-full text-left border-collapse">
-            <thead className="bg-white/5">
-              <tr>
-                <th className="border-b border-white/10 py-3 px-4 font-semibold text-white/90">Feature</th>
-                <th className="border-b border-white/10 py-3 px-4 font-semibold text-white/90">Lumpsum</th>
-                <th className="border-b border-white/10 py-3 px-4 font-semibold text-white/90">SIP</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-white/10">
-              <tr className="hover:bg-white/[0.02] transition-colors">
-                <td className="py-3 px-4 text-white/80">Style</td>
-                <td className="py-3 px-4 text-white/80">One-time</td>
-                <td className="py-3 px-4 text-white/80">Fixed monthly</td>
-              </tr>
-              <tr className="hover:bg-white/[0.02] transition-colors">
-                <td className="py-3 px-4 text-white/80">Best for</td>
-                <td className="py-3 px-4 text-white/80">Surplus funds</td>
-                <td className="py-3 px-4 text-white/80">Regular income</td>
-              </tr>
-              <tr className="hover:bg-white/[0.02] transition-colors">
-                <td className="py-3 px-4 text-white/80">Risk</td>
-                <td className="py-3 px-4 text-white/80">Higher</td>
-                <td className="py-3 px-4 text-white/80">Lower (averaging)</td>
-              </tr>
-            </tbody>
-          </table>
+      {/* Strategic Options with Internal Links */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="rounded-xl border border-stockstrail-green-light/30 bg-stockstrail-green-light/5 p-5 space-y-2.5">
+          <h4 className="font-bold text-white text-base">Direct Mutual Fund Allocation</h4>
+          <p className="text-white/70 text-xs leading-relaxed">
+            Invest directly with leading AMCs across flexi-cap, multi-asset, and hybrid portfolios with zero distributor charges.
+          </p>
+          <Link
+            href="/mutual-funds"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-stockstrail-green-light hover:underline pt-1"
+          >
+            <span>Explore Mutual Fund Solutions →</span>
+          </Link>
+        </div>
+
+        <div className="rounded-xl border border-white/10 bg-white/5 p-5 space-y-2.5">
+          <h4 className="font-bold text-white text-base">Prefer Fixed Returns?</h4>
+          <p className="text-white/70 text-xs leading-relaxed">
+            Lock in guaranteed yields up to 9.1% p.a. with AAA-rated corporate fixed deposits from Bajaj Finance, Mahindra, and HDFC.
+          </p>
+          <Link
+            href="/fixed-deposit"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-stockstrail-green-light hover:underline pt-1"
+          >
+            <span>Explore High-Yield FDs →</span>
+          </Link>
         </div>
       </div>
 
-      <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6">
-        <h2 className="text-2xl font-semibold text-white/90 mb-4">Benefits & Who Should Use It</h2>
-        <ul className="list-disc list-inside space-y-2 text-lg mb-6">
-          <li>Compare investment amounts, tenures, and return rates.</li>
-          <li>Plan efficiently with bonuses, inheritances, or matured FD amounts.</li>
-          <li>Get a quick, no-obligation projection.</li>
-        </ul>
-        <p className="text-lg">
-          Ideal for anyone with a surplus of funds available immediately, looking to maximize long-term compound growth.
-        </p>
+      {/* Core Insights */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="rounded-xl border border-white/10 bg-white/5 p-5 space-y-2">
+          <h3 className="text-lg font-semibold text-white">Full-Tenure Compounding</h3>
+          <p className="text-white/70 text-sm leading-relaxed">
+            Unlike monthly instalments where later contributions compound for shorter durations, a lumpsum investment gives 100% of your capital the maximum possible time to compound. You can also evaluate staggered contributions with our <Link href="/calculators/sip" className="text-stockstrail-green-light hover:underline">SIP Calculator</Link>.
+          </p>
+        </div>
+
+        <div className="rounded-xl border border-white/10 bg-white/5 p-5 space-y-2">
+          <h3 className="text-lg font-semibold text-white">Strategic Horizon Selection</h3>
+          <p className="text-white/70 text-sm leading-relaxed">
+            For equity-oriented lumpsum investments, maintaining an investment horizon of 5 to 10+ years helps smooth out cyclical market volatility. Take our <Link href="/check-risk-profile" className="text-stockstrail-green-light hover:underline">Risk Profile Quiz</Link> to check your asset allocation.
+          </p>
+        </div>
       </div>
 
       <ServiceFAQSection faqs={faqs} />
+
+      {/* Cross-linking navigation */}
+      <RelatedCalculatorsNav currentType="lumpsum" />
     </div>
   );
 };

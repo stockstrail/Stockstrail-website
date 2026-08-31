@@ -10,8 +10,9 @@ const formatINR = (n: number) =>
 
 export interface EMIPoint {
   year: number;
-  principalPaid: number;
-  interestPaid: number;
+  principalPaidYear: number;
+  interestPaidYear: number;
+  totalPaidYear: number;
   remainingBalance: number;
 }
 
@@ -28,32 +29,42 @@ export default function EMIAmortizationChart({
   years,
   emi,
 }: EMIAmortizationChartProps) {
+  const [view, setView] = useState<"BREAKDOWN" | "TIMELINE" | "TABLE">("BREAKDOWN");
   const [hoveredYear, setHoveredYear] = useState<number | null>(null);
 
-  // Generate Year-by-Year Amortization Schedule
+  const totalPayment = emi * years * 12;
+  const totalInterest = Math.max(0, totalPayment - principal);
+  const principalRatio = totalPayment > 0 ? (principal / totalPayment) * 100 : 100;
+  const interestRatio = totalPayment > 0 ? (totalInterest / totalPayment) * 100 : 0;
+
+  // Generate Year-by-Year Amortization
   const schedule = useMemo<EMIPoint[]>(() => {
     const monthlyRate = rate / 100 / 12;
     const totalMonths = years * 12;
     let balance = principal;
-    let cumulativeInterest = 0;
-    let cumulativePrincipal = 0;
     const points: EMIPoint[] = [];
 
-    for (let m = 1; m <= totalMonths; m++) {
-      const interestForMonth = monthlyRate * balance;
-      const principalForMonth = Math.min(balance, emi - interestForMonth);
-      balance = Math.max(0, balance - principalForMonth);
-      cumulativeInterest += interestForMonth;
-      cumulativePrincipal += principalForMonth;
+    for (let yr = 1; yr <= years; yr++) {
+      let principalInYear = 0;
+      let interestInYear = 0;
 
-      if (m % 12 === 0 || m === totalMonths) {
-        points.push({
-          year: Math.ceil(m / 12),
-          principalPaid: cumulativePrincipal,
-          interestPaid: cumulativeInterest,
-          remainingBalance: balance,
-        });
+      for (let m = 1; m <= 12; m++) {
+        const monthNum = (yr - 1) * 12 + m;
+        if (monthNum > totalMonths) break;
+        const interestForMonth = monthlyRate * balance;
+        const principalForMonth = Math.min(balance, emi - interestForMonth);
+        balance = Math.max(0, balance - principalForMonth);
+        interestInYear += interestForMonth;
+        principalInYear += principalForMonth;
       }
+
+      points.push({
+        year: yr,
+        principalPaidYear: principalInYear,
+        interestPaidYear: interestInYear,
+        totalPaidYear: principalInYear + interestInYear,
+        remainingBalance: Math.max(0, balance),
+      });
     }
     return points;
   }, [principal, rate, years, emi]);
@@ -61,233 +72,220 @@ export default function EMIAmortizationChart({
   const activePoint =
     hoveredYear !== null && schedule[hoveredYear]
       ? schedule[hoveredYear]
-      : schedule[schedule.length - 1] || {
-          year: years,
-          principalPaid: principal,
-          interestPaid: 0,
-          remainingBalance: 0,
+      : schedule[0] || {
+          year: 1,
+          principalPaidYear: 0,
+          interestPaidYear: 0,
+          totalPaidYear: 0,
+          remainingBalance: principal,
         };
 
-  // SVG Chart Setup
-  const svgWidth = 600;
-  const svgHeight = 240;
-  const padLeft = 45;
-  const padRight = 20;
-  const padTop = 20;
-  const padBottom = 30;
-
-  const chartWidth = svgWidth - padLeft - padRight;
-  const chartHeight = svgHeight - padTop - padBottom;
-  const maxVal = Math.max(principal, ...schedule.map((s) => s.interestPaid + s.principalPaid), 1);
-
-  const points = useMemo(() => {
-    return schedule.map((d, index) => {
-      const x = padLeft + (index / Math.max(1, schedule.length - 1)) * chartWidth;
-      const yBalance = padTop + chartHeight - (d.remainingBalance / maxVal) * chartHeight;
-      const yInterest = padTop + chartHeight - (d.interestPaid / maxVal) * chartHeight;
-      return { ...d, x, yBalance, yInterest, index };
-    });
-  }, [schedule, chartWidth, chartHeight, maxVal, padLeft, padTop]);
-
-  // Balance Line Path
-  const balancePath = useMemo(() => {
-    if (points.length < 2) return "";
-    let p = `M ${points[0].x} ${points[0].yBalance}`;
-    for (let i = 1; i < points.length; i++) {
-      p += ` L ${points[i].x} ${points[i].yBalance}`;
-    }
-    return p;
-  }, [points]);
-
-  // Interest Line Path
-  const interestPath = useMemo(() => {
-    if (points.length < 2) return "";
-    let p = `M ${points[0].x} ${points[0].yInterest}`;
-    for (let i = 1; i < points.length; i++) {
-      p += ` L ${points[i].x} ${points[i].yInterest}`;
-    }
-    return p;
-  }, [points]);
-
-  const interestRatio = principal > 0 ? (activePoint.interestPaid / principal) * 100 : 0;
-
   return (
-    <div className="w-full flex flex-col gap-4">
-      {/* Top Interactive Metric Pill */}
-      <div className="flex flex-wrap items-center justify-between gap-3 bg-gradient-to-r from-stockstrail-green-light/15 via-[#03362E]/60 to-[#01221D]/80 border border-stockstrail-green-light/30 rounded-2xl p-3 sm:p-4 backdrop-blur-md">
-        <div className="flex items-center gap-2">
-          <span className="px-2.5 py-1 rounded-lg bg-stockstrail-green-light/20 text-stockstrail-green-light font-bold text-xs sm:text-sm border border-stockstrail-green-light/40">
-            Year {activePoint.year} of {years}
-          </span>
-          <span className="text-white/60 text-xs sm:text-sm">
-            Loan Amortization
-          </span>
+    <div className="w-full flex flex-col gap-5">
+      {/* View Toggle */}
+      <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-3">
+        <div className="text-xs font-semibold text-white/70 uppercase tracking-wide">
+          Loan Repayment Overview
         </div>
-
-        <div className="flex items-center gap-3 sm:gap-5 text-right">
-          <div>
-            <div className="text-[10px] sm:text-xs uppercase tracking-wider text-white/50">
-              Loan Balance Left
-            </div>
-            <div className="text-white font-bold text-base sm:text-lg">
-              ₹{formatINR(activePoint.remainingBalance)}
-            </div>
-          </div>
-
-          <div className="h-8 w-px bg-white/10 hidden sm:block" />
-
-          <div>
-            <div className="text-[10px] sm:text-xs uppercase tracking-wider text-white/50">
-              Cumulative Interest
-            </div>
-            <div className="text-amber-400 font-bold text-base sm:text-lg">
-              ₹{formatINR(activePoint.interestPaid)}
-              <span className="text-xs text-white/60 font-normal ml-1 hidden sm:inline">
-                ({interestRatio.toFixed(0)}% of loan)
-              </span>
-            </div>
-          </div>
+        <div className="inline-flex items-center gap-1 p-1 rounded-lg bg-black/40 border border-white/10 text-xs">
+          <button
+            onClick={() => setView("BREAKDOWN")}
+            className={`px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
+              view === "BREAKDOWN"
+                ? "bg-stockstrail-green-light/20 text-stockstrail-green-light border border-stockstrail-green-light/40"
+                : "text-white/60 hover:text-white"
+            }`}
+          >
+            Payment Split
+          </button>
+          <button
+            onClick={() => setView("TIMELINE")}
+            className={`px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
+              view === "TIMELINE"
+                ? "bg-stockstrail-green-light/20 text-stockstrail-green-light border border-stockstrail-green-light/40"
+                : "text-white/60 hover:text-white"
+            }`}
+          >
+            Timeline
+          </button>
+          <button
+            onClick={() => setView("TABLE")}
+            className={`px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
+              view === "TABLE"
+                ? "bg-stockstrail-green-light/20 text-stockstrail-green-light border border-stockstrail-green-light/40"
+                : "text-white/60 hover:text-white"
+            }`}
+          >
+            Table
+          </button>
         </div>
       </div>
 
-      {/* SVG Amortization Trajectory */}
-      <div className="relative w-full rounded-2xl border border-white/10 bg-[#021A15]/70 p-2 sm:p-4 overflow-hidden">
-        <svg
-          viewBox={`0 0 ${svgWidth} ${svgHeight}`}
-          className="w-full h-auto overflow-visible select-none"
-          onMouseLeave={() => setHoveredYear(null)}
-        >
-          {/* Grid lines */}
-          {[0, 0.5, 1].map((pct, i) => {
-            const y = padTop + chartHeight - pct * chartHeight;
-            return (
-              <g key={i}>
-                <line
-                  x1={padLeft}
-                  y1={y}
-                  x2={svgWidth - padRight}
-                  y2={y}
-                  stroke="rgba(255, 255, 255, 0.08)"
-                  strokeDasharray="3,3"
-                />
-                <text
-                  x={padLeft - 6}
-                  y={y + 3}
-                  fill="rgba(255, 255, 255, 0.4)"
-                  fontSize="10"
-                  textAnchor="end"
-                >
-                  {formatIndianWords(maxVal * pct)}
-                </text>
-              </g>
-            );
-          })}
+      {view === "BREAKDOWN" && (
+        <div className="flex flex-col items-center justify-center gap-6 py-2">
+          {/* Donut Visualizer */}
+          <div
+            className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full transition-all duration-300 p-2 shadow-[0_0_30px_rgba(0,0,0,0.4)]"
+            style={{
+              background: `conic-gradient(#5C9EAD 0% ${principalRatio}%, #FBBF24 ${principalRatio}% 100%)`,
+            }}
+          >
+            <div className="w-full h-full rounded-full bg-[#081C17] flex items-center justify-center flex-col text-center p-3">
+              <div className="text-xs text-white/50 uppercase tracking-wider">
+                Monthly EMI
+              </div>
+              <div className="text-stockstrail-green-light text-xl sm:text-2xl font-bold tracking-tight mt-1">
+                ₹{formatINR(emi)}
+              </div>
+              <div className="text-[11px] text-white/60 mt-1">
+                for {years * 12} Months
+              </div>
+            </div>
+          </div>
 
-          {/* Remaining Balance (Decreasing blue/teal curve) */}
-          <path
-            d={balancePath}
-            fill="none"
-            stroke="#00FF97"
-            strokeWidth="3"
-          />
+          {/* Cards for Principal vs Interest */}
+          <div className="grid grid-cols-2 gap-3 w-full max-w-md">
+            <div className="rounded-xl border border-[#5C9EAD]/40 bg-[#5C9EAD]/10 p-3.5 text-center">
+              <div className="flex items-center justify-center gap-1.5 mb-1">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#5C9EAD]" />
+                <span className="text-[11px] uppercase tracking-wider text-white/80 font-semibold">
+                  Principal Borrowed
+                </span>
+              </div>
+              <div className="text-white font-bold text-base sm:text-lg">
+                ₹{formatINR(principal)}
+              </div>
+              <div className="text-[10px] text-white/50">
+                {principalRatio.toFixed(1)}% of total payment
+              </div>
+            </div>
 
-          {/* Interest Paid (Increasing amber curve) */}
-          <path
-            d={interestPath}
-            fill="none"
-            stroke="#FBBF24"
-            strokeWidth="2.5"
-            strokeDasharray="4,4"
-          />
+            <div className="rounded-xl border border-amber-400/40 bg-amber-400/10 p-3.5 text-center">
+              <div className="flex items-center justify-center gap-1.5 mb-1">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#FBBF24]" />
+                <span className="text-[11px] uppercase tracking-wider text-amber-300 font-semibold">
+                  Total Interest Cost
+                </span>
+              </div>
+              <div className="text-amber-300 font-bold text-base sm:text-lg">
+                ₹{formatINR(totalInterest)}
+              </div>
+              <div className="text-[10px] text-amber-300/60">
+                {interestRatio.toFixed(1)}% of total payment
+              </div>
+            </div>
+          </div>
 
-          {/* X Axis Labels */}
-          {points.map((p) => (
-            <text
-              key={p.year}
-              x={p.x}
-              y={svgHeight - 6}
-              fill={activePoint.year === p.year ? "#00FF97" : "rgba(255, 255, 255, 0.5)"}
-              fontSize="10"
-              fontWeight={activePoint.year === p.year ? "bold" : "normal"}
-              textAnchor="middle"
-            >
-              Yr {p.year}
-            </text>
-          ))}
+          {/* Total Payment Bar */}
+          <div className="w-full max-w-md bg-black/40 border border-white/10 rounded-xl p-3.5 flex justify-between items-center text-sm">
+            <span className="text-white/70">Total Amount Payable</span>
+            <span className="text-white font-bold text-base sm:text-lg">
+              ₹{formatINR(totalPayment)}
+              <span className="text-xs text-white/50 ml-1.5 font-normal">({formatIndianWords(totalPayment)})</span>
+            </span>
+          </div>
+        </div>
+      )}
 
-          {/* Interactive Hover pins */}
-          {points.map((p) => {
-            const isHovered = hoveredYear === p.index;
-            const isLast = hoveredYear === null && p.index === points.length - 1;
-            const isActive = isHovered || isLast;
-
-            return (
-              <g key={p.year}>
-                <rect
-                  x={p.x - chartWidth / (points.length * 2)}
-                  y={padTop}
-                  width={chartWidth / Math.max(1, points.length - 1)}
-                  height={chartHeight}
-                  fill="transparent"
-                  className="cursor-pointer"
-                  onMouseEnter={() => setHoveredYear(p.index)}
-                  onTouchStart={() => setHoveredYear(p.index)}
-                />
-
-                {isActive && (
-                  <g pointerEvents="none">
-                    <line
-                      x1={p.x}
-                      y1={padTop}
-                      x2={p.x}
-                      y2={padTop + chartHeight}
-                      stroke="#00FF97"
-                      strokeWidth="1.5"
-                      strokeDasharray="2,2"
-                    />
-                    <circle cx={p.x} cy={p.yBalance} r="5" fill="#00FF97" />
-                    <circle cx={p.x} cy={p.yInterest} r="5" fill="#FBBF24" />
-                  </g>
-                )}
-              </g>
-            );
-          })}
-        </svg>
-
-        {hoveredYear !== null && (
-          <div className="mt-2 grid grid-cols-3 gap-2 bg-black/40 border border-white/10 rounded-xl p-2 text-center text-xs">
+      {view === "TIMELINE" && (
+        <div className="space-y-4">
+          <div className="rounded-xl bg-[#03241F] border border-white/10 p-3 flex justify-between items-center text-xs">
             <div>
-              <span className="text-white/50 block text-[10px]">Principal Repaid</span>
-              <span className="font-semibold text-white">₹{formatINR(activePoint.principalPaid)}</span>
+              <span className="text-white/50 block text-[10px] uppercase">Year {activePoint.year} Principal Paid</span>
+              <span className="font-semibold text-white">₹{formatINR(activePoint.principalPaidYear)}</span>
             </div>
             <div>
-              <span className="text-amber-400 block text-[10px]">Interest Paid</span>
-              <span className="font-semibold text-amber-400">₹{formatINR(activePoint.interestPaid)}</span>
+              <span className="text-amber-300 block text-[10px] uppercase">Year {activePoint.year} Interest Paid</span>
+              <span className="font-semibold text-amber-300">₹{formatINR(activePoint.interestPaidYear)}</span>
             </div>
             <div>
-              <span className="text-stockstrail-green-light block text-[10px]">Balance Left</span>
+              <span className="text-stockstrail-green-light block text-[10px] uppercase">Balance Remaining</span>
               <span className="font-semibold text-stockstrail-green-light">₹{formatINR(activePoint.remainingBalance)}</span>
             </div>
           </div>
-        )}
-      </div>
 
-      {/* Legend */}
-      <div className="flex items-center justify-between text-xs text-white/70 px-1">
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-[#00FF97]" />
-            <span className="text-white font-medium">Loan Balance Left</span>
+          {/* Stacked Bars for Each Year */}
+          <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
+            {schedule.map((item, idx) => {
+              const pPct = item.totalPaidYear > 0 ? (item.principalPaidYear / item.totalPaidYear) * 100 : 50;
+              const iPct = 100 - pPct;
+
+              return (
+                <div
+                  key={item.year}
+                  onMouseEnter={() => setHoveredYear(idx)}
+                  className={`p-2.5 rounded-lg border transition-all cursor-pointer ${
+                    hoveredYear === idx
+                      ? "border-stockstrail-green-light/60 bg-white/10"
+                      : "border-white/5 bg-white/[0.02] hover:bg-white/5"
+                  }`}
+                >
+                  <div className="flex justify-between text-xs mb-1.5">
+                    <span className="font-bold text-white">Year {item.year}</span>
+                    <span className="text-white/60">
+                      Balance: <strong className="text-white">₹{formatINR(item.remainingBalance)}</strong>
+                    </span>
+                  </div>
+
+                  <div className="w-full h-3 rounded-full bg-white/10 flex overflow-hidden">
+                    <div
+                      style={{ width: `${pPct}%` }}
+                      className="bg-[#5C9EAD] h-full"
+                      title={`Principal: ₹${formatINR(item.principalPaidYear)}`}
+                    />
+                    <div
+                      style={{ width: `${iPct}%` }}
+                      className="bg-[#FBBF24] h-full"
+                      title={`Interest: ₹${formatINR(item.interestPaidYear)}`}
+                    />
+                  </div>
+                </div>
+              );
+            })}
           </div>
-          <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-[#FBBF24]" />
-            <span className="text-amber-300">Interest Paid So Far</span>
+
+          <div className="flex items-center justify-between text-[11px] text-white/60 px-1 pt-1">
+            <div className="flex items-center gap-3">
+              <span className="flex items-center gap-1">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#5C9EAD]" />
+                Principal Repaid
+              </span>
+              <span className="flex items-center gap-1">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#FBBF24]" />
+                Interest Cost
+              </span>
+            </div>
+            <span>Scroll to view all years</span>
           </div>
         </div>
-        <div className="text-white/50 hidden sm:inline">
-          💡 Hover to see year-by-year loan amortization.
+      )}
+
+      {view === "TABLE" && (
+        <div className="w-full overflow-x-auto rounded-xl border border-white/10 max-h-72 overflow-y-auto">
+          <table className="w-full text-left text-xs border-collapse">
+            <thead className="bg-[#03241F] text-white/80 sticky top-0 border-b border-white/10">
+              <tr>
+                <th className="py-2.5 px-3">Year</th>
+                <th className="py-2.5 px-3">Principal Paid</th>
+                <th className="py-2.5 px-3">Interest Paid</th>
+                <th className="py-2.5 px-3">Total Paid</th>
+                <th className="py-2.5 px-3">Balance</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-white/5 text-white/70">
+              {schedule.map((row) => (
+                <tr key={row.year} className="hover:bg-white/5 transition-colors">
+                  <td className="py-2 px-3 font-semibold text-white">Year {row.year}</td>
+                  <td className="py-2 px-3 text-[#5C9EAD]">₹{formatINR(row.principalPaidYear)}</td>
+                  <td className="py-2 px-3 text-amber-300">₹{formatINR(row.interestPaidYear)}</td>
+                  <td className="py-2 px-3 text-white">₹{formatINR(row.totalPaidYear)}</td>
+                  <td className="py-2 px-3 font-medium text-stockstrail-green-light">₹{formatINR(row.remainingBalance)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </div>
+      )}
     </div>
   );
 }

@@ -1,13 +1,14 @@
 import React, { Suspense } from "react";
 import type { Metadata } from "next";
 import Layout from "@/components/layout/Layout";
+import CalculatorsHeroSection from "@/components/calculators/CalculatorsHeroSection";
 import CalculatorWidget from "@/components/calculators/CalculatorWidget";
 import CalculatorsPageSEO from "@/components/calculators/seo/CalculatorsPageSEO";
 
 export const metadata: Metadata = {
   title: "Financial Calculators - SIP, Lumpsum, FD, RD, EMI & Tax | Stockstrail",
   description:
-    "Free financial calculators for Indian investors. Calculate Mutual Fund SIP returns, Lumpsum growth, Fixed Deposit interest, RD maturity, Loan EMI, and Income Tax liability.",
+    "Free institutional-grade financial calculators for Indian investors. Calculate Mutual Fund SIP returns, Lumpsum wealth, Fixed Deposit interest, RD maturity, Loan EMI, and Income Tax liability.",
   keywords:
     "financial calculators, SIP calculator, lumpsum calculator, FD calculator, RD calculator, EMI calculator, income tax calculator, Stockstrail",
   alternates: {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Financial Calculators - SIP, Lumpsum, FD, RD, EMI & Tax | Stockstrail",
     description:
-      "Free financial calculators for Indian investors. Calculate Mutual Fund SIP returns, Lumpsum growth, Fixed Deposit interest, RD maturity, Loan EMI, and Income Tax liability.",
+      "Free institutional-grade financial calculators for Indian investors. Calculate Mutual Fund SIP returns, Lumpsum wealth, Fixed Deposit interest, RD maturity, Loan EMI, and Income Tax liability.",
     url: "https://www.stockstrail.in/calculators",
     siteName: "Stockstrail",
     locale: "en_IN",
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Financial Calculators - SIP, Lumpsum, FD, RD, EMI & Tax | Stockstrail",
     description:
-      "Free financial calculators for Indian investors. Calculate SIP, Lumpsum, FD, RD, EMI, and Tax.",
+      "Free institutional-grade financial calculators for Indian investors. Calculate SIP, Lumpsum, FD, RD, EMI, and Tax.",
     images: ["/og-stockstrail.png"],
   },
 };
@@ -44,19 +45,17 @@ export default function CalculatorsPage() {
     <Layout>
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <div className="max-w-6xl mx-auto space-y-10">
-          <div className="text-center space-y-4">
-            <h1 className="font-product-sans text-4xl sm:text-5xl lg:text-6xl font-normal uppercase gradient-text">
-              FINANCIAL CALCULATORS
-            </h1>
-            <p className="text-white/80 max-w-2xl mx-auto text-base sm:text-lg">
-              Plan your savings, wealth creation, debt management, and tax liability with accurate, easy-to-use calculators.
-            </p>
+          {/* Eye-Catching, Dedicated Showstopper Hero */}
+          <CalculatorsHeroSection />
+
+          {/* Live Interactive Calculator Engine */}
+          <div className="w-full">
+            <Suspense fallback={<div className="h-96 flex items-center justify-center text-white/50">Loading calculators...</div>}>
+              <CalculatorWidget initialTab="SIP" navigateOnTabChange={true} />
+            </Suspense>
           </div>
 
-          <Suspense fallback={<div className="h-96 flex items-center justify-center text-white/50">Loading calculators...</div>}>
-            <CalculatorWidget initialTab="SIP" navigateOnTabChange={false} />
-          </Suspense>
-
+          {/* SEO & Internal Links */}
           <CalculatorsPageSEO />
         </div>
       </section>

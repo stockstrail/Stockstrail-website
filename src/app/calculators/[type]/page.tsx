@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Layout from "@/components/layout/Layout";
 import CalculatorWidget, { Tab } from "@/components/calculators/CalculatorWidget";
+import DedicatedCalculatorHero, { DedicatedCalcType } from "@/components/calculators/DedicatedCalculatorHero";
 import SIPCalculatorSEO from "@/components/calculators/seo/SIPCalculatorSEO";
 import FDCalculatorSEO from "@/components/calculators/seo/FDCalculatorSEO";
 import LumpsumCalculatorSEO from "@/components/calculators/seo/LumpsumCalculatorSEO";
@@ -138,9 +139,14 @@ export default async function DedicatedCalculatorPage({ params }: Props) {
     <Layout>
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <div className="max-w-6xl mx-auto space-y-10">
+          {/* Unique, Specialized Hero for each Calculator */}
+          <DedicatedCalculatorHero type={normalizedType as DedicatedCalcType} />
+
+          {/* Interactive Calculator Engine */}
           <CalculatorWidget initialTab={config.tab} navigateOnTabChange={true} />
 
-          <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-5 text-white/80">
+          {/* Dedicated SEO & Guidance Section */}
+          <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-8 text-white/80">
             {normalizedType === "sip" && <SIPCalculatorSEO />}
             {normalizedType === "fd" && <FDCalculatorSEO />}
             {normalizedType === "lumpsum" && <LumpsumCalculatorSEO />}

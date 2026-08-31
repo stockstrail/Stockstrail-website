@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { TrendingUp, PieChart, TableProperties } from "lucide-react";
+import { TrendingUp, PieChart, TableProperties, ArrowUpRight } from "lucide-react";
 import GrowthChart, { YearlyDataPoint, formatIndianWords } from "./GrowthChart";
 import BreakdownDonut from "./BreakdownDonut";
 import YearlyBreakdownTable from "./YearlyBreakdownTable";
@@ -11,6 +11,8 @@ import CalculatorCTA from "./CalculatorCTA";
 
 export type Tab = "SIP" | "LUMPSUM" | "FD" | "RD" | "EMI" | "TAX";
 type ViewMode = "CHART" | "DONUT" | "TABLE";
+type StepUpType = "PERCENTAGE" | "AMOUNT";
+type StepUpFrequency = "YEARLY" | "HALF_YEARLY";
 
 const formatINR = (n: number) =>
   new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 }).format(
@@ -111,7 +113,7 @@ const ValueChip = ({
 
 export default function CalculatorWidget({
   initialTab = "SIP",
-  navigateOnTabChange = false,
+  navigateOnTabChange = true,
 }: {
   initialTab?: Tab;
   navigateOnTabChange?: boolean;
@@ -125,10 +127,9 @@ export default function CalculatorWidget({
   }, [initialTab]);
 
   const handleTabClick = (t: Tab) => {
+    setTab(t);
     if (navigateOnTabChange) {
       router.push(`/calculators/${t.toLowerCase()}`);
-    } else {
-      setTab(t);
     }
   };
 
@@ -136,6 +137,15 @@ export default function CalculatorWidget({
   const [amount, setAmount] = useState(32500);
   const [rate, setRate] = useState(12);
   const [years, setYears] = useState(10);
+
+  // Step-Up SIP State
+  const [stepUpEnabled, setStepUpEnabled] = useState(false);
+  const [stepUpType, setStepUpType] = useState<StepUpType>("PERCENTAGE");
+  const [stepUpFrequency, setStepUpFrequency] = useState<StepUpFrequency>("YEARLY");
+  const [stepUpPercent, setStepUpPercent] = useState(10);
+  const [stepUpAmount, setStepUpAmount] = useState(2500);
+
+  // Loan EMI State
   const [emiPrincipal, setEmiPrincipal] = useState(1000000);
   const [emiRate, setEmiRate] = useState(9.5);
   const [emiYears, setEmiYears] = useState(5);
@@ -162,8 +172,8 @@ export default function CalculatorWidget({
   const months = years * 12;
   const amountMax = tab === "LUMPSUM" || tab === "FD" ? 10000000 : 200000;
 
-  // Calculations
-  const sip = useMemo(() => {
+  // Regular SIP Base Calculation (for comparison)
+  const regularSip = useMemo(() => {
     const i = Math.pow(1 + rate / 100, 1 / 12) - 1;
     const invested = amount * months;
     const value = i === 0 ? invested : amount * ((Math.pow(1 + i, months) - 1) * (1 + i)) / i;
@@ -171,18 +181,105 @@ export default function CalculatorWidget({
     return { invested, returns, value };
   }, [amount, rate, months]);
 
+  // Step-Up SIP Calculation
+  const sip = useMemo(() => {
+    if (!stepUpEnabled) {
+      return regularSip;
+    }
+
+    const i = Math.pow(1 + rate / 100, 1 / 12) - 1;
+    const totalMonths = years * 12;
+    const interval = stepUpFrequency === "HALF_YEARLY" ? 6 : 12;
+
+    let totalInvested = 0;
+    let totalValue = 0;
+
+    for (let m = 1; m <= totalMonths; m++) {
+      const stepCount = Math.floor((m - 1) / interval);
+      let currentMonthly = amount;
+
+      if (stepUpType === "PERCENTAGE") {
+        currentMonthly = amount * Math.pow(1 + stepUpPercent / 100, stepCount);
+      } else {
+        currentMonthly = amount + stepCount * stepUpAmount;
+      }
+
+      totalInvested += currentMonthly;
+      const monthsRemaining = totalMonths - m + 1;
+      totalValue += i === 0 ? currentMonthly : currentMonthly * Math.pow(1 + i, monthsRemaining);
+    }
+
+    const returns = Math.max(0, totalValue - totalInvested);
+    return { invested: totalInvested, returns, value: totalValue };
+  }, [
+    stepUpEnabled,
+    stepUpType,
+    stepUpFrequency,
+    stepUpPercent,
+    stepUpAmount,
+    amount,
+    rate,
+    years,
+    regularSip,
+  ]);
+
+  // Yearly Breakdown Data for SIP (Supporting Step-Up)
   const yearlySIPData = useMemo<YearlyDataPoint[]>(() => {
     const i = Math.pow(1 + rate / 100, 1 / 12) - 1;
     const points: YearlyDataPoint[] = [];
+    const interval = stepUpFrequency === "HALF_YEARLY" ? 6 : 12;
+
     for (let yr = 1; yr <= years; yr++) {
-      const m = yr * 12;
-      const inv = amount * m;
-      const val = i === 0 ? inv : amount * ((Math.pow(1 + i, m) - 1) * (1 + i)) / i;
-      const ret = Math.max(0, val - inv);
-      points.push({ year: yr, invested: inv, returns: ret, total: val });
+      const totalMonthsInYear = yr * 12;
+      let cumulativeInvested = 0;
+      let cumulativeValue = 0;
+
+      for (let m = 1; m <= totalMonthsInYear; m++) {
+        const stepCount = Math.floor((m - 1) / interval);
+        let currentMonthly = amount;
+
+        if (stepUpEnabled) {
+          if (stepUpType === "PERCENTAGE") {
+            currentMonthly = amount * Math.pow(1 + stepUpPercent / 100, stepCount);
+          } else {
+            currentMonthly = amount + stepCount * stepUpAmount;
+          }
+        }
+
+        cumulativeInvested += currentMonthly;
+        const monthsRemaining = totalMonthsInYear - m + 1;
+        cumulativeValue += i === 0 ? currentMonthly : currentMonthly * Math.pow(1 + i, monthsRemaining);
+      }
+
+      const ret = Math.max(0, cumulativeValue - cumulativeInvested);
+      points.push({
+        year: yr,
+        invested: cumulativeInvested,
+        returns: ret,
+        total: cumulativeValue,
+      });
     }
     return points;
-  }, [amount, rate, years]);
+  }, [
+    years,
+    amount,
+    rate,
+    stepUpEnabled,
+    stepUpType,
+    stepUpFrequency,
+    stepUpPercent,
+    stepUpAmount,
+  ]);
+
+  // Final month installment calculation for Step-Up SIP
+  const finalMonthlyInstallment = useMemo(() => {
+    if (!stepUpEnabled) return amount;
+    const totalSteps = Math.floor((years * 12 - 1) / (stepUpFrequency === "HALF_YEARLY" ? 6 : 12));
+    if (stepUpType === "PERCENTAGE") {
+      return Math.round(amount * Math.pow(1 + stepUpPercent / 100, totalSteps));
+    }
+    return Math.round(amount + totalSteps * stepUpAmount);
+  }, [stepUpEnabled, stepUpType, stepUpFrequency, stepUpPercent, stepUpAmount, amount, years]);
 
   const lumpsum = useMemo(() => {
     const i = rate / 100;
@@ -399,14 +496,14 @@ export default function CalculatorWidget({
 
   return (
     <div className="rounded-3xl border border-white/10 bg-[#021A15]/90 p-5 sm:p-8 lg:p-10 shadow-2xl backdrop-blur-xl">
-      {/* Top Tab Bar - Clean, Professional (No Emojis) */}
+      {/* Top Tab Bar with Full Route Linking */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b border-white/10">
         <div className="flex flex-wrap gap-2">
           {(["SIP", "LUMPSUM", "FD", "RD", "EMI", "TAX"] as Tab[]).map((t) => (
             <button
               key={t}
               onClick={() => handleTabClick(t)}
-              className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium tracking-wide transition-all duration-200 ${
+              className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium tracking-wide transition-all duration-200 cursor-pointer ${
                 tab === t
                   ? "bg-stockstrail-green-light/20 text-stockstrail-green-light border border-stockstrail-green-light shadow-[0_0_12px_rgba(0,255,151,0.25)]"
                   : "text-white/70 border border-transparent hover:border-white/20 hover:text-white"
@@ -422,7 +519,7 @@ export default function CalculatorWidget({
           <div className="inline-flex items-center gap-1 p-1 rounded-xl bg-black/40 border border-white/10 text-xs">
             <button
               onClick={() => setViewMode("CHART")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all cursor-pointer ${
                 viewMode === "CHART"
                   ? "bg-stockstrail-green-light/20 text-stockstrail-green-light border border-stockstrail-green-light/40"
                   : "text-white/60 hover:text-white"
@@ -433,7 +530,7 @@ export default function CalculatorWidget({
             </button>
             <button
               onClick={() => setViewMode("DONUT")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all cursor-pointer ${
                 viewMode === "DONUT"
                   ? "bg-stockstrail-green-light/20 text-stockstrail-green-light border border-stockstrail-green-light/40"
                   : "text-white/60 hover:text-white"
@@ -444,7 +541,7 @@ export default function CalculatorWidget({
             </button>
             <button
               onClick={() => setViewMode("TABLE")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all cursor-pointer ${
                 viewMode === "TABLE"
                   ? "bg-stockstrail-green-light/20 text-stockstrail-green-light border border-stockstrail-green-light/40"
                   : "text-white/60 hover:text-white"
@@ -492,7 +589,7 @@ export default function CalculatorWidget({
                     <button
                       key={val}
                       onClick={() => setAmount(val)}
-                      className={`text-[11px] px-2 py-0.5 rounded-md border transition-all ${
+                      className={`text-[11px] px-2 py-0.5 rounded-md border transition-all cursor-pointer ${
                         amount === val
                           ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-semibold"
                           : "border-white/10 bg-white/5 text-white/60 hover:text-white"
@@ -503,6 +600,193 @@ export default function CalculatorWidget({
                   ))}
                 </div>
               </div>
+
+              {/* Step-Up SIP (Top-Up) Section for SIP Tab */}
+              {tab === "SIP" && (
+                <div className="rounded-2xl border border-stockstrail-green-light/30 bg-[#03261F]/70 p-4 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="w-5 h-5 rounded-md bg-stockstrail-green-light/20 text-stockstrail-green-light flex items-center justify-center">
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <span className="text-xs font-bold text-white uppercase tracking-wider block">
+                          Step-Up SIP (Top-Up)
+                        </span>
+                        <span className="text-[10px] text-white/60">
+                          Automatically increase your SIP as your income grows
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Switch */}
+                    <button
+                      onClick={() => setStepUpEnabled(!stepUpEnabled)}
+                      role="switch"
+                      aria-checked={stepUpEnabled}
+                      className={`w-11 h-6 flex items-center rounded-full p-1 transition-all duration-300 cursor-pointer ${
+                        stepUpEnabled
+                          ? "bg-stockstrail-green-light justify-end shadow-[0_0_12px_rgba(0,255,151,0.5)]"
+                          : "bg-white/20 justify-start"
+                      }`}
+                    >
+                      <div className="bg-black w-4 h-4 rounded-full shadow-md transition-all" />
+                    </button>
+                  </div>
+
+                  {stepUpEnabled && (
+                    <div className="space-y-4 pt-2 border-t border-white/10 animate-fadeIn">
+                      {/* Step-up Type & Frequency Toggles */}
+                      <div className="grid grid-cols-2 gap-2 text-xs">
+                        <div>
+                          <span className="text-[10px] text-white/50 block mb-1">Step-Up Mode:</span>
+                          <div className="inline-flex rounded-lg bg-black/40 p-0.5 border border-white/10 w-full">
+                            <button
+                              onClick={() => setStepUpType("PERCENTAGE")}
+                              className={`flex-1 py-1 rounded-md font-semibold transition-all cursor-pointer ${
+                                stepUpType === "PERCENTAGE"
+                                  ? "bg-stockstrail-green-light text-black"
+                                  : "text-white/60 hover:text-white"
+                              }`}
+                            >
+                              Percentage (%)
+                            </button>
+                            <button
+                              onClick={() => setStepUpType("AMOUNT")}
+                              className={`flex-1 py-1 rounded-md font-semibold transition-all cursor-pointer ${
+                                stepUpType === "AMOUNT"
+                                  ? "bg-stockstrail-green-light text-black"
+                                  : "text-white/60 hover:text-white"
+                              }`}
+                            >
+                              Fixed (₹)
+                            </button>
+                          </div>
+                        </div>
+
+                        <div>
+                          <span className="text-[10px] text-white/50 block mb-1">Frequency:</span>
+                          <div className="inline-flex rounded-lg bg-black/40 p-0.5 border border-white/10 w-full">
+                            <button
+                              onClick={() => setStepUpFrequency("YEARLY")}
+                              className={`flex-1 py-1 rounded-md font-semibold transition-all cursor-pointer ${
+                                stepUpFrequency === "YEARLY"
+                                  ? "bg-stockstrail-green-light text-black"
+                                  : "text-white/60 hover:text-white"
+                              }`}
+                            >
+                              Yearly
+                            </button>
+                            <button
+                              onClick={() => setStepUpFrequency("HALF_YEARLY")}
+                              className={`flex-1 py-1 rounded-md font-semibold transition-all cursor-pointer ${
+                                stepUpFrequency === "HALF_YEARLY"
+                                  ? "bg-stockstrail-green-light text-black"
+                                  : "text-white/60 hover:text-white"
+                              }`}
+                            >
+                              Half-Yearly
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Step-Up Value Slider */}
+                      {stepUpType === "PERCENTAGE" ? (
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between text-white/80">
+                            <span className="text-[11px] font-semibold uppercase text-white/70">
+                              {stepUpFrequency === "YEARLY" ? "Annual" : "Half-Yearly"} Step-Up (%)
+                            </span>
+                            <ValueChip
+                              ariaLabel="stepUpPercent"
+                              value={stepUpPercent}
+                              suffix="%"
+                              onChange={(n) => setStepUpPercent(Math.min(Math.max(n, 1), 50))}
+                            />
+                          </div>
+                          <input
+                            type="range"
+                            min={1}
+                            max={30}
+                            step={1}
+                            value={stepUpPercent}
+                            onChange={(e) => setStepUpPercent(Number(e.target.value))}
+                            className="w-full accent-[#00FF97] h-1.5 bg-white/10 rounded-lg cursor-pointer"
+                          />
+                          <div className="flex gap-1.5 pt-0.5">
+                            {[5, 10, 15, 20].map((val) => (
+                              <button
+                                key={val}
+                                onClick={() => setStepUpPercent(val)}
+                                className={`text-[10px] px-2 py-0.5 rounded border transition-all cursor-pointer ${
+                                  stepUpPercent === val
+                                    ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-bold"
+                                    : "border-white/10 bg-white/5 text-white/60 hover:text-white"
+                                }`}
+                              >
+                                {val}%
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between text-white/80">
+                            <span className="text-[11px] font-semibold uppercase text-white/70">
+                              {stepUpFrequency === "YEARLY" ? "Annual" : "Half-Yearly"} Step-Up (₹)
+                            </span>
+                            <ValueChip
+                              ariaLabel="stepUpAmount"
+                              value={stepUpAmount}
+                              prefix="₹ "
+                              onChange={(n) => setStepUpAmount(Math.min(Math.max(n, 100), 100000))}
+                            />
+                          </div>
+                          <input
+                            type="range"
+                            min={500}
+                            max={25000}
+                            step={500}
+                            value={stepUpAmount}
+                            onChange={(e) => setStepUpAmount(Number(e.target.value))}
+                            className="w-full accent-[#00FF97] h-1.5 bg-white/10 rounded-lg cursor-pointer"
+                          />
+                          <div className="flex gap-1.5 pt-0.5">
+                            {[1000, 2500, 5000, 10000].map((val) => (
+                              <button
+                                key={val}
+                                onClick={() => setStepUpAmount(val)}
+                                className={`text-[10px] px-2 py-0.5 rounded border transition-all cursor-pointer ${
+                                  stepUpAmount === val
+                                    ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-bold"
+                                    : "border-white/10 bg-white/5 text-white/60 hover:text-white"
+                                }`}
+                              >
+                                +₹{(val / 1000).toFixed(0)}k
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Dynamic Step-Up Wealth Acceleration Callout */}
+                      <div className="rounded-xl bg-black/40 border border-stockstrail-green-light/30 p-2.5 text-[11px] text-white/80 flex justify-between items-center">
+                        <div>
+                          <span className="text-white/50 block text-[10px]">Ending Monthly SIP (Yr {years})</span>
+                          <span className="font-bold text-white">₹{formatINR(finalMonthlyInstallment)}/mo</span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-stockstrail-green-light block text-[10px]">Extra Wealth vs Regular SIP</span>
+                          <span className="font-bold text-stockstrail-green-light">
+                            +₹{formatINR(Math.max(0, sip.value - regularSip.value))}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* Rate */}
               <div className="space-y-2.5">
@@ -538,7 +822,7 @@ export default function CalculatorWidget({
                     <button
                       key={val}
                       onClick={() => setRate(val)}
-                      className={`text-[11px] px-2 py-0.5 rounded-md border transition-all ${
+                      className={`text-[11px] px-2 py-0.5 rounded-md border transition-all cursor-pointer ${
                         rate === val
                           ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-semibold"
                           : "border-white/10 bg-white/5 text-white/60 hover:text-white"
@@ -577,7 +861,7 @@ export default function CalculatorWidget({
                     <button
                       key={y}
                       onClick={() => setYears(y)}
-                      className={`text-[11px] px-2 py-0.5 rounded-md border transition-all ${
+                      className={`text-[11px] px-2.5 py-0.5 rounded-md border transition-all cursor-pointer ${
                         years === y
                           ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-semibold"
                           : "border-white/10 bg-white/5 text-white/60 hover:text-white"
@@ -589,7 +873,7 @@ export default function CalculatorWidget({
                 </div>
               </div>
 
-              {/* Clean Summary Card (Original Wording) */}
+              {/* Summary Card */}
               {activeResult && (
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5 space-y-3">
                   <div className="flex justify-between items-center text-sm">
@@ -643,6 +927,21 @@ export default function CalculatorWidget({
                   onChange={(e) => setEmiPrincipal(Number(e.target.value))}
                   className="w-full accent-[#00FF97] h-2 bg-white/10 rounded-lg cursor-pointer"
                 />
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {[500000, 1000000, 2500000, 5000000, 10000000].map((val) => (
+                    <button
+                      key={val}
+                      onClick={() => setEmiPrincipal(val)}
+                      className={`text-[11px] px-2 py-0.5 rounded-md border transition-all cursor-pointer ${
+                        emiPrincipal === val
+                          ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-semibold"
+                          : "border-white/10 bg-white/5 text-white/60 hover:text-white"
+                      }`}
+                    >
+                      {formatIndianWords(val)}
+                    </button>
+                  ))}
+                </div>
               </div>
 
               <div className="space-y-2.5">
@@ -664,6 +963,21 @@ export default function CalculatorWidget({
                   onChange={(e) => setEmiRate(Number(e.target.value))}
                   className="w-full accent-[#00FF97] h-2 bg-white/10 rounded-lg cursor-pointer"
                 />
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {[8.5, 9.5, 11, 13].map((val) => (
+                    <button
+                      key={val}
+                      onClick={() => setEmiRate(val)}
+                      className={`text-[11px] px-2 py-0.5 rounded-md border transition-all cursor-pointer ${
+                        emiRate === val
+                          ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-semibold"
+                          : "border-white/10 bg-white/5 text-white/60 hover:text-white"
+                      }`}
+                    >
+                      {val}% {val === 8.5 ? "(Home)" : val === 9.5 ? "(LAMF)" : val === 11 ? "(Business)" : "(Personal)"}
+                    </button>
+                  ))}
+                </div>
               </div>
 
               <div className="space-y-2.5">
@@ -685,6 +999,21 @@ export default function CalculatorWidget({
                   onChange={(e) => setEmiYears(Number(e.target.value))}
                   className="w-full accent-[#00FF97] h-2 bg-white/10 rounded-lg cursor-pointer"
                 />
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {[1, 3, 5, 10, 15, 20].map((y) => (
+                    <button
+                      key={y}
+                      onClick={() => setEmiYears(y)}
+                      className={`text-[11px] px-2.5 py-0.5 rounded-md border transition-all cursor-pointer ${
+                        emiYears === y
+                          ? "bg-stockstrail-green-light/20 border-stockstrail-green-light text-stockstrail-green-light font-semibold"
+                          : "border-white/10 bg-white/5 text-white/60 hover:text-white"
+                      }`}
+                    >
+                      {y} {y === 1 ? "Year" : "Years"}
+                    </button>
+                  ))}
+                </div>
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5 space-y-3">
@@ -696,7 +1025,7 @@ export default function CalculatorWidget({
                 </div>
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-white/70">Total Interest</span>
-                  <span className="font-semibold text-white">
+                  <span className="font-semibold text-amber-300">
                     ₹{formatINR(emiCalc.interest)}
                   </span>
                 </div>

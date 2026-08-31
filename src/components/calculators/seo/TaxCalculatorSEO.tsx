@@ -1,84 +1,143 @@
 import React from 'react';
 import Link from 'next/link';
 import ServiceFAQSection from '@/components/services/ServiceFAQSection';
+import RelatedCalculatorsNav from './RelatedCalculatorsNav';
+
+const faqs = [
+  {
+    question: "How do I choose between the Old and New Tax Regimes?",
+    answer: "The New Tax Regime offers lower slab rates and a ₹75,000 standard deduction (for salaried individuals) with zero tax up to ₹12.75 lakh under Budget 2025 proposals. The Old Regime is advantageous if you claim large deductions under Section 80C, 80D, HRA, and home loan interest."
+  },
+  {
+    question: "What is the standard deduction for salaried individuals in FY 2025-26?",
+    answer: "Under the New Tax Regime, the standard deduction is ₹75,000 for salaried employees and pensioners. Under the Old Tax Regime, the standard deduction remains ₹50,000."
+  },
+  {
+    question: "What investments qualify for Section 80C deductions?",
+    answer: "Qualifying investments include ELSS (Equity Linked Savings Schemes) mutual funds, Public Provident Fund (PPF), Employee Provident Fund (EPF), National Savings Certificate (NSC), 5-year tax-saving FDs, and principal repayment on home loans, up to a maximum limit of ₹1,50,000 per financial year."
+  },
+  {
+    question: "Can business owners and professionals switch regimes annually?",
+    answer: "Salaried individuals can choose between regimes each financial year. Individuals with business or professional income can switch to the Old Regime only once in a lifetime, after which they must continue unless business income ceases."
+  }
+];
 
 export default function TaxCalculatorSEO() {
-  const faqs = [
-    {
-      question: "Should I choose the old or new tax regime?",
-      answer: "It depends on your deductions. Our calculator compares both regimes instantly so you can see which minimizes your tax."
-    },
-    {
-      question: "Can it account for Section 80C investments?",
-      answer: "Yes, enter your Section 80C investments like FDs or ELSS to see their impact under the old regime."
-    },
-    {
-      question: "Is the calculator updated with the latest tax rules?",
-      answer: "Yes, we apply the latest applicable income tax slabs and government rules."
-    },
-    {
-      question: "Is the Stockstrail Tax Calculator free to use?",
-      answer: "Yes, it is completely free and requires no documentation."
-    }
-  ];
-
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-12 md:py-16 text-white/80 space-y-6 leading-relaxed">
-      <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6">
-        <h1 className="text-3xl md:text-4xl font-bold text-white/90 mb-4">Stockstrail Tax Calculator</h1>
-        <p className="mb-4">
-          Confused about your income tax? Instantly estimate your liability and see whether the old or new regime suits you best.
-        </p>
-        <p className="mb-6">
-          Input your annual income and deductions to get your estimated tax payable in seconds. Plan your finances and tax-saving investments ahead of time.
-        </p>
-        <Link href="/calculators" className="inline-flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-2 sm:py-3 bg-transparent border-2 border-white/20 rounded-full text-white w-fit hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,151,0.3)] transition-all duration-300 text-sm sm:text-base group">
-          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-stockstrail-green-accent rounded-full group-hover:scale-110 transition-transform duration-300"></div>
-          
-          Use the Tax Calculator
-        
-        </Link>
-      </div>
-
-      <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6">
-        <h2 className="text-2xl md:text-3xl font-semibold text-white/90 mb-4">What is a Tax Calculator?</h2>
-        <p className="mb-4">
-          It estimates your tax owed based on income, deductions, and regime. The old regime offers deductions like 80C, while the new regime offers lower slab rates.
-        </p>
-        <p>
-          Our calculator uses the latest slabs so you can compare both regimes side by side with current regulations.
+    <div className="w-full max-w-4xl mx-auto py-8 text-white/80 space-y-8">
+      {/* Header Overview */}
+      <div className="border-b border-white/10 pb-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Income Tax Planning & Regime Comparison</h2>
+        <p className="text-white/70 leading-relaxed text-sm sm:text-base">
+          Choosing the most tax-efficient regime requires an accurate comparison of your gross taxable income against eligible exemptions and chapter VI-A deductions.
         </p>
       </div>
 
-      <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6">
-        <h2 className="text-2xl md:text-3xl font-semibold text-white/90 mb-4">How it Works</h2>
-        <ol className="list-decimal list-inside space-y-2 ml-2 mb-6">
-          <li>Enter total annual income from all sources.</li>
-          <li>Enter eligible deductions (e.g., Section 80C, 80D, home loan interest).</li>
-          <li>Choose a tax regime to compare outcomes.</li>
-          <li>View your estimated tax payable instantly.</li>
-        </ol>
+      {/* How to Use This Calculator */}
+      <div className="space-y-4">
+        <h3 className="text-xl font-bold text-white tracking-wide">How to Use the Tax Calculator</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-2">
+            <div className="w-7 h-7 rounded-full bg-stockstrail-green-light/20 text-stockstrail-green-light flex items-center justify-center font-bold text-xs border border-stockstrail-green-light/40">
+              1
+            </div>
+            <h4 className="font-semibold text-white text-sm">Select AY & Age</h4>
+            <p className="text-white/60 text-xs leading-relaxed">
+              Choose the Assessment Year and your age category to load the relevant tax slabs.
+            </p>
+          </div>
 
-        <h3 className="text-xl font-semibold text-white/90 mb-2">Example</h3>
-        <p className="mb-4">
-          Earn ₹10,00,000 annually? With ₹1,50,000 in 80C and ₹25,000 in 80D, instantly compare liabilities to pick the optimal regime.
-        </p>
-        <p className="bg-yellow-500/10 text-yellow-200/90 p-4 rounded-lg border border-yellow-500/20 text-sm">
-          ⚠️ Note: This is an illustrative estimate. Actual liability depends on complete income details and current tax rules.
-        </p>
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-2">
+            <div className="w-7 h-7 rounded-full bg-stockstrail-green-light/20 text-stockstrail-green-light flex items-center justify-center font-bold text-xs border border-stockstrail-green-light/40">
+              2
+            </div>
+            <h4 className="font-semibold text-white text-sm">Annual Income</h4>
+            <p className="text-white/60 text-xs leading-relaxed">
+              Enter your total annual gross income from salary, business, interest, and capital gains.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-2">
+            <div className="w-7 h-7 rounded-full bg-stockstrail-green-light/20 text-stockstrail-green-light flex items-center justify-center font-bold text-xs border border-stockstrail-green-light/40">
+              3
+            </div>
+            <h4 className="font-semibold text-white text-sm">Enter Deductions</h4>
+            <p className="text-white/60 text-xs leading-relaxed">
+              Input eligible deductions like Section 80C (up to ₹1.5L), 80D (health insurance), etc.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-2">
+            <div className="w-7 h-7 rounded-full bg-stockstrail-green-light/20 text-stockstrail-green-light flex items-center justify-center font-bold text-xs border border-stockstrail-green-light/40">
+              4
+            </div>
+            <h4 className="font-semibold text-white text-sm">Compare Regimes</h4>
+            <p className="text-white/60 text-xs leading-relaxed">
+              Instantly compare net tax liability under the New vs Old Regime side-by-side.
+            </p>
+          </div>
+        </div>
       </div>
 
-      <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6">
-        <h2 className="text-2xl md:text-3xl font-semibold text-white/90 mb-4">Benefits</h2>
-        <ul className="list-disc list-inside space-y-2 ml-2">
-          <li>Instantly compare old and new tax regimes.</li>
-          <li>See how tax-saving investments reduce your outgo.</li>
-          <li>Enable better year-round financial planning.</li>
-          <li>Completely free and easy to use.</li>
-        </ul>
+      {/* Tax Saving Strategy Cards with Direct Internal Links */}
+      <div className="space-y-4">
+        <h3 className="text-xl font-bold text-white tracking-wide">Popular Tax Optimization Strategies</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="rounded-xl border border-stockstrail-green-light/30 bg-stockstrail-green-light/5 p-5 space-y-3">
+            <div className="flex items-center justify-between">
+              <h4 className="text-base font-bold text-white">Save ₹46,800 with ELSS Funds</h4>
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-stockstrail-green-light/20 text-stockstrail-green-light font-bold">Section 80C</span>
+            </div>
+            <p className="text-white/70 text-xs leading-relaxed">
+              ELSS (Equity Linked Savings Scheme) has the shortest lock-in period (3 years) among all 80C instruments and offers equity-grade compounding potential.
+            </p>
+            <Link
+              href="/mutual-funds"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-stockstrail-green-light hover:underline"
+            >
+              <span>Explore Top ELSS Mutual Funds →</span>
+            </Link>
+          </div>
+
+          <div className="rounded-xl border border-white/10 bg-white/5 p-5 space-y-3">
+            <div className="flex items-center justify-between">
+              <h4 className="text-base font-bold text-white">Health Insurance Deductions</h4>
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/20 text-white/90 font-bold">Section 80D</span>
+            </div>
+            <p className="text-white/70 text-xs leading-relaxed">
+              Claim up to ₹25,000 (self & family) plus up to ₹50,000 for senior citizen parents for health insurance premiums paid during the financial year.
+            </p>
+            <Link
+              href="/financial-protection"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-stockstrail-green-light hover:underline"
+            >
+              <span>Review Insurance Protection Plans →</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Core Insights */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="rounded-xl border border-white/10 bg-white/5 p-5 space-y-2">
+          <h3 className="text-lg font-semibold text-white">New Tax Regime Features</h3>
+          <p className="text-white/70 text-sm leading-relaxed">
+            Designed to simplify tax filing with reduced slab rates and standard rebates. Salaried taxpayers benefit from a ₹75,000 standard deduction with minimal documentation overhead.
+          </p>
+        </div>
+
+        <div className="rounded-xl border border-white/10 bg-white/5 p-5 space-y-2">
+          <h3 className="text-lg font-semibold text-white">Old Tax Regime Deductions</h3>
+          <p className="text-white/70 text-sm leading-relaxed">
+            Allows taxpayers with substantial eligible deductions—including <Link href="/mutual-funds" className="text-stockstrail-green-light hover:underline">ELSS mutual funds</Link>, <Link href="/fixed-deposit" className="text-stockstrail-green-light hover:underline">tax-saving FDs</Link>, health insurance, and home loan interest—to lower their effective taxable income.
+          </p>
+        </div>
       </div>
 
       <ServiceFAQSection faqs={faqs} />
+
+      {/* Contextual Internal Linking Navigation */}
+      <RelatedCalculatorsNav currentType="tax" />
     </div>
   );
 }

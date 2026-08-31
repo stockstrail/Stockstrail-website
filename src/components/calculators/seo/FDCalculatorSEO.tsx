@@ -1,91 +1,124 @@
 import React from 'react';
 import Link from 'next/link';
 import ServiceFAQSection from '@/components/services/ServiceFAQSection';
+import RelatedCalculatorsNav from './RelatedCalculatorsNav';
 
 const faqs = [
   {
-    question: "How is FD interest calculated?",
-    answer: "FD interest is typically compounded quarterly. The calculator factors in your deposit, rate, tenure, and compounding frequency."
+    question: "How is Fixed Deposit interest compounded in India?",
+    answer: "Most commercial banks and corporate issuers compound fixed deposit interest on a quarterly basis. The interest earned in each quarter is added to the principal for subsequent compounding until maturity."
   },
   {
-    question: "Can I use the Stockstrail FD Calculator for a Senior Citizen FD?",
-    answer: "Yes, simply enter the higher Senior Citizen interest rate to see the adjusted maturity value."
+    question: "What is the difference between Cumulative and Non-Cumulative FDs?",
+    answer: "Under a Cumulative FD, interest is reinvested quarterly and paid in full upon maturity. Under a Non-Cumulative FD, interest is disbursed periodically (monthly, quarterly, or annually) to provide regular cash flow."
   },
   {
-    question: "What's the difference between cumulative and non-cumulative FD?",
-    answer: "Cumulative adds interest to the principal for payout at maturity. Non-cumulative pays out interest periodically."
+    question: "Are senior citizens entitled to higher Fixed Deposit interest rates?",
+    answer: "Yes, most Indian banks and AAA-rated corporate issuers offer an additional interest rate benefit of 0.25% to 0.75% per annum for senior citizens."
   },
   {
-    question: "Is the Stockstrail FD Calculator free to use?",
-    answer: "Yes, it is completely free and provides instant results without documentation."
+    question: "What is the tax treatment of Fixed Deposit interest?",
+    answer: "Interest earned on Fixed Deposits is fully taxable as per your individual income tax slab under 'Income from Other Sources', subject to TDS deductions as per Income Tax regulations."
   }
 ];
 
 export default function FDCalculatorSEO() {
   return (
-    <div className="w-full max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-white/80">
-      <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6">
-        <h1 className="text-3xl md:text-4xl font-bold text-white/90 mb-4 leading-tight">Stockstrail FD Calculator</h1>
-        <p className="leading-relaxed mb-4 text-lg">
-          Instantly calculate your Fixed Deposit (FD) maturity amount before you book.
+    <div className="w-full max-w-4xl mx-auto py-8 text-white/80 space-y-8">
+      {/* Header Overview */}
+      <div className="border-b border-white/10 pb-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Fixed Deposit (FD) Maturity & Growth</h2>
+        <p className="text-white/70 leading-relaxed text-sm sm:text-base">
+          Fixed Deposits remain one of India&apos;s most trusted capital preservation and guaranteed return vehicles. Understanding how compounding intervals affect your final maturity payout enables smarter allocation across tenures and issuers.
         </p>
-        <p className="leading-relaxed text-lg">
-          Remove the guesswork from FD planning. Compare banks, tenures, and payout options effortlessly.
+      </div>
+
+      {/* How to Use This Calculator */}
+      <div className="space-y-4">
+        <h3 className="text-xl font-bold text-white tracking-wide">How to Use the FD Calculator</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-2">
+            <div className="w-7 h-7 rounded-full bg-stockstrail-green-light/20 text-stockstrail-green-light flex items-center justify-center font-bold text-xs border border-stockstrail-green-light/40">
+              1
+            </div>
+            <h4 className="font-semibold text-white text-sm">Deposit Amount</h4>
+            <p className="text-white/60 text-xs leading-relaxed">
+              Enter the lump sum capital you intend to lock into the fixed deposit.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-2">
+            <div className="w-7 h-7 rounded-full bg-stockstrail-green-light/20 text-stockstrail-green-light flex items-center justify-center font-bold text-xs border border-stockstrail-green-light/40">
+              2
+            </div>
+            <h4 className="font-semibold text-white text-sm">Interest Rate</h4>
+            <p className="text-white/60 text-xs leading-relaxed">
+              Set the contracted annual interest rate offered by your bank or corporate issuer.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-2">
+            <div className="w-7 h-7 rounded-full bg-stockstrail-green-light/20 text-stockstrail-green-light flex items-center justify-center font-bold text-xs border border-stockstrail-green-light/40">
+              3
+            </div>
+            <h4 className="font-semibold text-white text-sm">Deposit Tenure</h4>
+            <p className="text-white/60 text-xs leading-relaxed">
+              Select the lock-in duration in years to match your liquidity requirements.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-2">
+            <div className="w-7 h-7 rounded-full bg-stockstrail-green-light/20 text-stockstrail-green-light flex items-center justify-center font-bold text-xs border border-stockstrail-green-light/40">
+              4
+            </div>
+            <h4 className="font-semibold text-white text-sm">Check Maturity</h4>
+            <p className="text-white/60 text-xs leading-relaxed">
+              View your guaranteed interest earnings and final maturity payout with quarterly compounding.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Corporate FD Opportunities Link */}
+      <div className="rounded-xl border border-stockstrail-green-light/30 bg-stockstrail-green-light/5 p-5 space-y-2.5">
+        <div className="flex items-center justify-between">
+          <h4 className="font-bold text-white text-base">Explore High-Yield Corporate Fixed Deposits</h4>
+          <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-stockstrail-green-light/20 text-stockstrail-green-light">
+            Up to 9.1% P.A.
+          </span>
+        </div>
+        <p className="text-white/70 text-xs leading-relaxed">
+          Earn higher guaranteed returns than standard savings accounts and traditional bank FDs with ICRA & CRISIL AAA-rated corporate deposits.
         </p>
-        <div className="mt-6 flex">
-          <Link href="/calculators" className="inline-flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-2 sm:py-3 bg-transparent border-2 border-white/20 rounded-full text-white w-fit hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,151,0.3)] transition-all duration-300 text-sm sm:text-base group">
-          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-stockstrail-green-accent rounded-full group-hover:scale-110 transition-transform duration-300"></div>
-          
-            Use the Stockstrail FD Calculator
-          
+        <Link
+          href="/fixed-deposit"
+          className="inline-flex items-center gap-1 text-xs font-semibold text-stockstrail-green-light hover:underline pt-1"
+        >
+          <span>View Curated Corporate FD Plans →</span>
         </Link>
+      </div>
+
+      {/* Core Insights */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="rounded-xl border border-white/10 bg-white/5 p-5 space-y-2">
+          <h3 className="text-lg font-semibold text-white">Quarterly Compounding Advantage</h3>
+          <p className="text-white/70 text-sm leading-relaxed">
+            Because interest is calculated and added to the principal quarterly, the effective annual yield on a fixed deposit is slightly higher than the nominal rate. Check the <Link href="/calculators/tax" className="text-stockstrail-green-light hover:underline">Tax Calculator</Link> to estimate post-tax returns.
+          </p>
         </div>
-      </div>
 
-      <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6">
-        <h2 className="text-2xl font-semibold text-white/90 mb-4">What is an FD Calculator?</h2>
-        <p className="leading-relaxed mb-4 text-lg">
-          A Fixed Deposit provides a guaranteed interest rate on a lump sum over a fixed tenure. 
-        </p>
-        <p className="leading-relaxed text-lg">
-          This calculator estimates your exact maturity value instantly, factoring in compounding frequency, helping you choose the best plan.
-        </p>
-      </div>
-
-      <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6">
-        <h2 className="text-2xl font-semibold text-white/90 mb-4">How it Works</h2>
-        <ol className="list-decimal list-inside space-y-2 text-lg">
-          <li>Enter your deposit amount.</li>
-          <li>Enter the interest rate offered.</li>
-          <li>Enter your tenure.</li>
-          <li>Choose cumulative or non-cumulative payout.</li>
-          <li>Instantly see your maturity amount and total interest.</li>
-        </ol>
-      </div>
-
-      <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6">
-        <h3 className="text-xl font-semibold text-white/90 mb-4">Example</h3>
-        <p className="leading-relaxed mb-4 text-lg">
-          Depositing ₹1,00,000 for 3 years at a 7.5% cumulative rate yields approximately ₹1,24,000 at maturity.
-        </p>
-        <div className="bg-yellow-500/10 border border-yellow-500/20 text-yellow-200/90 p-4 rounded-lg">
-          <span className="mr-2">⚠️</span><strong>Note:</strong> This is an estimate. Actual values depend on the bank's specific compounding method.
+        <div className="rounded-xl border border-white/10 bg-white/5 p-5 space-y-2">
+          <h3 className="text-lg font-semibold text-white">Bank vs Corporate Deposits</h3>
+          <p className="text-white/70 text-sm leading-relaxed">
+            High-rated corporate deposits offer higher yields than traditional bank FDs. If you prefer monthly savings instead of a one-time deposit, compare with our <Link href="/calculators/rd" className="text-stockstrail-green-light hover:underline">RD Calculator</Link>.
+          </p>
         </div>
-      </div>
-
-      <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mb-6">
-        <h2 className="text-2xl font-semibold text-white/90 mb-4">Benefits & Who Should Use It</h2>
-        <ul className="list-disc list-inside space-y-2 text-lg mb-6">
-          <li>Compare rates and tenures across different banks.</li>
-          <li>Plan effectively between cumulative and non-cumulative payouts.</li>
-          <li>Calculate returns for Senior Citizen or Tax-Saving FDs.</li>
-        </ul>
-        <p className="text-lg">
-          Ideal for anyone booking a new Fixed Deposit, senior citizens comparing payout options, or investors seeking safe, guaranteed returns.
-        </p>
       </div>
 
       <ServiceFAQSection faqs={faqs} />
+
+      {/* Cross-linking navigation */}
+      <RelatedCalculatorsNav currentType="fd" />
     </div>
   );
 }
