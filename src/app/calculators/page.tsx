@@ -54,7 +54,7 @@ export default function CalculatorsPage() {
           </div>
 
           <Suspense fallback={<div className="h-96 flex items-center justify-center text-white/50">Loading calculators...</div>}>
-            <CalculatorWidget initialTab="SIP" navigateOnTabChange={true} />
+            <CalculatorWidget initialTab="SIP" navigateOnTabChange={false} />
           </Suspense>
 
           <CalculatorsPageSEO />
