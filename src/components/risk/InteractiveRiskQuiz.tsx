@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { 
   ShieldCheck, 
@@ -15,10 +15,15 @@ import {
   Compass, 
   ChevronRight, 
   ChevronLeft,
-  MessageSquare
+  MessageSquare,
+  Loader2,
+  UserCheck,
+  Award,
+  Check
 } from 'lucide-react';
 import { addQuery } from '@/lib/database/queries';
 import { trackCustomEvent } from '@/lib/tracking/utm';
+import { getCurrentUser, signInWithGoogle, createClient } from '@/lib/supabase/client';
 
 export type RiskCategory = 
   | 'Conservative'
@@ -122,31 +127,31 @@ const riskQuestions: Question[] = [
   {
     id: 'q8',
     category: 'Investment Experience',
-    title: 'Have you invested in equity mutual funds or stocks before? If yes, for how long?',
+    title: 'What is your actual track record with equity mutual funds and capital markets?',
     options: [
-      { id: 'a', label: 'Never (First-time Investor)', desc: 'Only bank FDs, PPF, LIC policies, or gold so far', score: 1 },
-      { id: 'b', label: '1 to 3 Years', desc: 'Started recently during current market cycle', score: 4 },
-      { id: 'c', label: '3 to 5 Years', desc: 'Seen both bull rallies and temporary market pullbacks', score: 7 },
-      { id: 'd', label: 'More than 5 Years', desc: 'Experienced market cycles and experienced compounding', score: 10 },
+      { id: 'a', label: 'Complete Beginner (Zero Experience)', desc: 'Money has only been in Bank FDs, PPF, or Gold', score: 1 },
+      { id: 'b', label: 'Basic / Occasional Investor', desc: 'Have done 1 or 2 SIPs or tax-saving ELSS schemes', score: 4 },
+      { id: 'c', label: 'Experienced Investor (3+ years)', desc: 'Active in mutual funds across market bull and bear cycles', score: 7 },
+      { id: 'd', label: 'Advanced & Seasoned Investor (5+ years)', desc: 'Comfortable across multi-asset portfolios and stock cycles', score: 10 },
     ],
   },
   {
     id: 'q9',
-    category: 'Financial Awareness',
-    title: 'How actively do you follow financial news, personal finance podcasts, or market trends?',
+    category: 'Emergency Cushion',
+    title: 'Do you have 3 to 6 months of household expenses safely kept in emergency liquid funds or FDs?',
     options: [
-      { id: 'a', label: 'Rarely / No Interest', desc: 'I prefer simple automated plans without tracking news', score: 1 },
-      { id: 'b', label: 'Occasional Catch-up', desc: 'Only read headline news when major events happen', score: 4 },
-      { id: 'c', label: 'Weekly / Bi-weekly', desc: 'Follow personal finance, tax updates, and general economy', score: 7 },
-      { id: 'd', label: 'Regular Daily / Active', desc: 'Track business developments, market valuations, and macroeconomic trends', score: 10 },
+      { id: 'a', label: 'No emergency buffer', desc: 'Zero liquid savings; would need to liquidate investments', score: 1 },
+      { id: 'b', label: 'Less than 3 months buffer', desc: 'Minimal emergency reserves', score: 4 },
+      { id: 'c', label: '3 to 6 months fully funded', desc: 'Solid emergency cushion in high-yield liquid funds', score: 7 },
+      { id: 'd', label: 'More than 6 months funded + Term Insurance', desc: 'Complete safety cushion + pure term cover in place', score: 10 },
     ],
   },
   {
     id: 'q10',
     category: 'Decision Style',
-    title: 'How do you prefer making major family financial and investment decisions?',
+    title: 'When planning major financial investments, what is your primary decision-making method?',
     options: [
-      { id: 'a', label: 'I feel stressed and tend to delay', desc: 'Too many conflicting opinions cause decision paralysis', score: 1 },
+      { id: 'a', label: 'Follow Bank RM or Agent recommendations', desc: 'Rely on bank staff advice without deep personal check', score: 1 },
       { id: 'b', label: 'Tips from friends & social media', desc: 'Follow what colleagues or YouTube creators are doing', score: 4 },
       { id: 'c', label: 'Guided by Certified Professional', desc: 'Work with an AMFI-registered advisor to create an unbiased plan', score: 7 },
       { id: 'd', label: 'Self-researched with deep analysis', desc: 'Analyze data independently and make structured choices', score: 10 },
@@ -274,12 +279,13 @@ export default function InteractiveRiskQuiz() {
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [showResult, setShowResult] = useState<boolean>(false);
-  
-  // Lead capture state
-  const [leadName, setLeadName] = useState('');
-  const [leadPhone, setLeadPhone] = useState('');
-  const [leadSubmitted, setLeadSubmitted] = useState(false);
-  const [leadSubmitting, setLeadSubmitting] = useState(false);
+  const [authLoading, setAuthLoading] = useState<boolean>(false);
+
+  // User Profile State from Google Auth & Supabase
+  const [user, setUser] = useState<any>(null);
+  const [profile, setProfile] = useState<{ full_name: string | null; email: string; phone_number: string | null } | null>(null);
+  const [checkingUser, setCheckingUser] = useState<boolean>(true);
+  const [hasSavedToDb, setHasSavedToDb] = useState<boolean>(false);
 
   // Total score calculation (first 10 questions, each 1-10)
   const score = useMemo(() => {
@@ -297,7 +303,7 @@ export default function InteractiveRiskQuiz() {
   }, [answers]);
 
   // Determine category based on score and time horizon
-  const profile: ProfileBlueprint = useMemo(() => {
+  const profileBlueprint: ProfileBlueprint = useMemo(() => {
     const horizon = answers['q11']; // 'a' through 'e'
     
     let cat: RiskCategory = 'Moderate';
@@ -319,6 +325,91 @@ export default function InteractiveRiskQuiz() {
   const answeredCount = Object.keys(answers).length;
   const isComplete = answeredCount === riskQuestions.length;
 
+  // 1. Check user authentication on mount & resume pending answers if returning from Google login
+  useEffect(() => {
+    const initAuth = async () => {
+      try {
+        const currentUser = await getCurrentUser();
+        if (currentUser) {
+          setUser(currentUser);
+          const supabase = createClient();
+          const { data: userProf } = await supabase
+            .from('profiles')
+            .select('full_name, email, phone_number')
+            .eq('id', currentUser.id)
+            .single();
+
+          if (userProf) {
+            setProfile(userProf);
+          }
+
+          // Check if user just returned from Google OAuth / complete-profile with pending answers
+          if (typeof window !== 'undefined') {
+            const saved = sessionStorage.getItem('pending_risk_answers');
+            if (saved) {
+              try {
+                const parsed = JSON.parse(saved);
+                setAnswers(parsed);
+                setShowResult(true);
+                sessionStorage.removeItem('pending_risk_answers');
+              } catch (e) {
+                console.error('Error parsing pending answers:', e);
+              }
+            }
+          }
+        }
+      } catch (err) {
+        console.error('Error checking user:', err);
+      } finally {
+        setCheckingUser(false);
+      }
+    };
+
+    initAuth();
+  }, []);
+
+  // 2. Save result to database when user is authenticated & quiz is complete
+  useEffect(() => {
+    const saveCompletedAssessment = async () => {
+      if (showResult && user && profile && !hasSavedToDb && isComplete) {
+        try {
+          // Convert answers map to responses array
+          const responseList = Object.entries(answers).map(([key, val]) => ({
+            question_key: key,
+            option_selected: val,
+          }));
+
+          // Call API to save attempt
+          await fetch('/api/risk/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              responses: responseList,
+              score,
+              riskCategory: profileBlueprint.title,
+              investmentHorizon: horizonLabels[answers['q11'] || 'c'],
+            }),
+          });
+
+          // Also record query in queries table with real verified email & phone
+          await addQuery({
+            name: profile.full_name || user.email || 'Verified User',
+            phone: profile.phone_number || 'Google Verified',
+            email: user.email || 'risk-assessment@stockstrail.in',
+            service: `Risk Assessment (${profileBlueprint.title} - ${score}/100)`,
+            message: `Completed 11-question Risk Assessment with Google Login. Score: ${score}/100, Category: ${profileBlueprint.title}, Horizon: ${horizonLabels[answers['q11'] || 'c']}.`,
+          });
+
+          setHasSavedToDb(true);
+        } catch (err) {
+          console.error('Error saving assessment to database:', err);
+        }
+      }
+    };
+
+    saveCompletedAssessment();
+  }, [showResult, user, profile, hasSavedToDb, isComplete, answers, score, profileBlueprint]);
+
   const handleSelect = (questionId: string, optionId: string) => {
     setAnswers((prev) => ({ ...prev, [questionId]: optionId }));
     
@@ -334,59 +425,145 @@ export default function InteractiveRiskQuiz() {
     setShowResult(true);
     trackCustomEvent('risk_quiz_completed', {
       score,
-      category: profile.title,
+      category: profileBlueprint.title,
       horizon: answers['q11'] || 'c',
     });
   };
 
-  const handleLeadSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!leadName.trim() || !leadPhone.trim()) return;
-
-    const phoneDigits = leadPhone.replace(/\D/g, '');
-    if (phoneDigits.length < 10) return;
-
-    setLeadSubmitting(true);
+  const handleGoogleSignIn = async () => {
+    setAuthLoading(true);
     try {
-      await addQuery({
-        name: leadName.trim(),
-        phone: phoneDigits,
-        email: 'risk-assessment@stockstrail.in',
-        service: `Risk Quiz (${profile.title} - Score: ${score}/100)`,
-        message: `Completed Risk Quiz. Score: ${score}/100, Category: ${profile.title}, Horizon: ${horizonLabels[answers['q11'] || 'c']}. Requested custom allocation roadmap.`,
-      });
-      setLeadSubmitted(true);
-    } catch {
-      setLeadSubmitted(true);
-    } finally {
-      setLeadSubmitting(false);
+      await signInWithGoogle('/check-risk-profile?resume=true');
+    } catch (err) {
+      console.error('Google sign in error:', err);
+      setAuthLoading(false);
     }
   };
 
   const handleWhatsAppShare = () => {
     const horizonText = horizonLabels[answers['q11'] || 'c'];
-    const msg = `Hi Vikrant, I just took the Stockstrail Risk Score Quiz!%0A%0A*My Results:*%0A- *Risk Score:* ${score}/100%0A- *Category:* ${profile.title}%0A- *Horizon:* ${horizonText}%0A- *Recommended Mix:* ${profile.equityShare}% Equity / ${profile.debtShare}% Debt / ${profile.liquidShare}% Cash%0A%0AI would like a free 1-on-1 portfolio roadmap based on this.`;
+    const userName = profile?.full_name || 'there';
+    const msg = `Hi Vikrant, I just took the Stockstrail Risk Score Quiz!%0A%0A*My Results:*%0A- *Name:* ${userName}%0A- *Risk Score:* ${score}/100%0A- *Category:* ${profileBlueprint.title}%0A- *Horizon:* ${horizonText}%0A- *Recommended Mix:* ${profileBlueprint.equityShare}% Equity / ${profileBlueprint.debtShare}% Debt / ${profileBlueprint.liquidShare}% Cash%0A%0AI would like a free 1-on-1 portfolio roadmap based on this.`;
     
     trackCustomEvent('whatsapp_chat_initiated', {
       source_page: 'risk_quiz_results',
-      risk_category: profile.title,
+      risk_category: profileBlueprint.title,
       score,
     });
 
     window.open(`https://wa.me/919736304663?text=${msg}`, '_blank');
   };
 
+  // 1. Loading State while checking auth
+  if (checkingUser) {
+    return (
+      <div className="w-full max-w-xl mx-auto p-12 rounded-3xl bg-[#021817] border border-white/10 text-center space-y-4">
+        <Loader2 className="w-8 h-8 animate-spin text-emerald-400 mx-auto" />
+        <p className="text-sm text-slate-300 font-medium">Checking authentication status...</p>
+      </div>
+    );
+  }
+
+  // 2. MANDATORY GOOGLE AUTH GATE (If user is NOT signed in, display prominent Google Sign-In Card)
+  if (!user) {
+    return (
+      <div className="w-full max-w-2xl mx-auto space-y-8 animate-in fade-in duration-300 text-center">
+        
+        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#032420] via-[#021817] to-[#011413] border border-emerald-500/40 shadow-2xl space-y-7">
+          
+          {/* Top Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold uppercase tracking-wider mx-auto">
+            <ShieldCheck className="w-4 h-4" />
+            <span>100% Free · Google Verification Required</span>
+          </div>
+
+          <div className="space-y-3">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-white font-product-sans leading-tight">
+              Sign In with Google to Begin Your Assessment
+            </h2>
+            <p className="text-sm sm:text-base text-slate-300 max-w-lg mx-auto leading-relaxed">
+              We provide this comprehensive SEBI-aligned financial evaluation completely free. Signing in with Google ensures your personalized score and asset allocation report are safely saved to your verified account.
+            </p>
+          </div>
+
+          {/* Value Props Checklist */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-2xl bg-black/40 border border-white/10 text-left text-xs text-slate-200">
+            <div className="flex items-start gap-2">
+              <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+              <span>Real Risk Score (0–100 Scale)</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+              <span>Personalized Asset Allocation</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+              <span>Zero Spam Promise (AMFI Registered)</span>
+            </div>
+          </div>
+
+          {/* Big Mandatory Google Button */}
+          <button
+            type="button"
+            onClick={handleGoogleSignIn}
+            disabled={authLoading}
+            className="w-full flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-base transition-all duration-200 shadow-[0_0_30px_rgba(255,255,255,0.2)] cursor-pointer disabled:opacity-50"
+          >
+            {authLoading ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin text-slate-900" />
+                <span>Connecting with Google...</span>
+              </>
+            ) : (
+              <>
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                </svg>
+                <span>Continue with Google</span>
+              </>
+            )}
+          </button>
+
+          <p className="text-xs text-slate-400">
+            By continuing, you agree to verified identity authentication. We never sell or share your data.
+          </p>
+
+        </div>
+
+      </div>
+    );
+  }
+
   const currentQ = riskQuestions[currentStep];
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full max-w-4xl mx-auto space-y-6">
+      
+      {/* AUTH STATUS HEADER PILL */}
+      <div className="flex items-center justify-between p-3.5 px-5 rounded-2xl bg-white/[0.03] border border-white/10 text-xs text-slate-300">
+        <div className="flex items-center gap-2">
+          <UserCheck className="w-4 h-4 text-emerald-400" />
+          <span>
+            Verified Account: <strong>{profile?.full_name || user.email}</strong>
+            {profile?.phone_number && <span className="text-emerald-400 font-mono"> (+91 {profile.phone_number})</span>}
+          </span>
+        </div>
+
+        <span className="text-xs text-slate-400 font-mono">
+          SEBI-Aligned 11-Step Assessment
+        </span>
+      </div>
+
       {!showResult ? (
         <div className="space-y-8">
           
           {/* PROGRESS HEADER */}
           <div className="p-5 sm:p-6 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-md space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
-              <div className="flex items-center gap-2 text-stockstrail-green-light font-semibold uppercase tracking-wider">
+              <div className="flex items-center gap-2 text-emerald-400 font-semibold uppercase tracking-wider">
                 <Compass className="w-4 h-4" />
                 <span>Question {currentStep + 1} of {riskQuestions.length}</span>
                 <span className="text-white/40">|</span>
@@ -400,16 +577,16 @@ export default function InteractiveRiskQuiz() {
             {/* Visual Progress Track */}
             <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden">
               <div 
-                className="h-full bg-gradient-to-r from-emerald-400 to-stockstrail-green-light transition-all duration-300 rounded-full"
+                className="h-full bg-gradient-to-r from-emerald-400 to-teal-400 transition-all duration-300 rounded-full"
                 style={{ width: `${((currentStep + 1) / riskQuestions.length) * 100}%` }}
               />
             </div>
           </div>
 
           {/* QUESTION CARD */}
-          <div className="p-6 sm:p-10 rounded-3xl bg-[#021c1a]/95 border border-white/15 shadow-2xl space-y-6">
+          <div className="p-6 sm:p-10 rounded-3xl bg-[#021817] border border-white/15 shadow-2xl space-y-6 text-left">
             <div className="space-y-2">
-              <span className="text-xs font-mono text-stockstrail-green-light font-semibold uppercase tracking-wider">
+              <span className="text-xs font-mono text-emerald-400 font-semibold uppercase tracking-wider">
                 Assessment Step {currentStep + 1}
               </span>
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-snug">
@@ -428,7 +605,7 @@ export default function InteractiveRiskQuiz() {
                     onClick={() => handleSelect(currentQ.id, opt.id)}
                     className={`w-full text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 flex items-start justify-between gap-4 cursor-pointer ${
                       isSelected
-                        ? 'bg-stockstrail-green-light/15 border-stockstrail-green-light text-white shadow-[0_0_20px_rgba(0,255,151,0.2)]'
+                        ? 'bg-emerald-500/15 border-emerald-400 text-white shadow-[0_0_20px_rgba(16,185,129,0.2)]'
                         : 'bg-white/[0.02] border-white/10 hover:bg-white/[0.06] hover:border-white/30 text-white/85'
                     }`}
                   >
@@ -436,7 +613,7 @@ export default function InteractiveRiskQuiz() {
                       <div className="flex items-center gap-3">
                         <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${
                           isSelected 
-                            ? 'bg-stockstrail-green-light text-black font-bold' 
+                            ? 'bg-emerald-400 text-black font-bold' 
                             : 'bg-white/10 text-white/70'
                         }`}>
                           {opt.id.toUpperCase()}
@@ -455,7 +632,7 @@ export default function InteractiveRiskQuiz() {
                     <div className="shrink-0 mt-1">
                       <div className={`w-5 h-5 rounded-full border flex items-center justify-center ${
                         isSelected 
-                          ? 'border-stockstrail-green-light bg-stockstrail-green-light text-black' 
+                          ? 'border-emerald-400 bg-emerald-400 text-black' 
                           : 'border-white/30'
                       }`}>
                         {isSelected && <CheckCircle2 className="w-4 h-4" />}
@@ -472,7 +649,7 @@ export default function InteractiveRiskQuiz() {
                 type="button"
                 disabled={currentStep === 0}
                 onClick={() => setCurrentStep((s) => Math.max(0, s - 1))}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 hover:bg-white/10 text-white text-xs font-semibold disabled:opacity-30 disabled:pointer-events-none transition-all"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 hover:bg-white/10 text-white text-xs font-semibold disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer"
               >
                 <ChevronLeft className="w-4 h-4" />
                 Previous
@@ -483,7 +660,7 @@ export default function InteractiveRiskQuiz() {
                   type="button"
                   disabled={!answers[currentQ.id]}
                   onClick={() => setCurrentStep((s) => s + 1)}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-stockstrail-green-light text-black text-xs font-bold disabled:opacity-30 disabled:pointer-events-none transition-all shadow-[0_0_15px_rgba(0,255,151,0.2)]"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-emerald-400 text-black text-xs font-bold disabled:opacity-30 disabled:pointer-events-none transition-all shadow-[0_0_15px_rgba(16,185,129,0.2)] cursor-pointer"
                 >
                   Next Question
                   <ChevronRight className="w-4 h-4" />
@@ -493,7 +670,7 @@ export default function InteractiveRiskQuiz() {
                   type="button"
                   disabled={!isComplete}
                   onClick={handleCalculateClick}
-                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-emerald-400 to-stockstrail-green-light text-black text-xs sm:text-sm font-bold uppercase tracking-wider hover:scale-105 transition-all shadow-[0_0_25px_rgba(0,255,151,0.4)] cursor-pointer"
+                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-emerald-400 to-teal-400 text-black text-xs sm:text-sm font-bold uppercase tracking-wider hover:scale-105 transition-all shadow-[0_0_25px_rgba(16,185,129,0.4)] cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4" />
                   See My Risk Score &amp; Allocation
@@ -503,49 +680,49 @@ export default function InteractiveRiskQuiz() {
 
           </div>
 
-          {/* TRUST BADGE */}
+          {/* TRUST FOOTER */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-white/60 text-center">
             <div className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-stockstrail-green-light" />
-              <span>100% Free · No Registration Required</span>
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <span>100% Free · Real Verified Account</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-stockstrail-green-light" />
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
               <span>SEBI &amp; NISM Aligned Methodology</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Lock className="w-4 h-4 text-stockstrail-green-light" />
-              <span>Instant Unbiased Calculation</span>
+              <Lock className="w-4 h-4 text-emerald-400" />
+              <span>Zero Spam Promise</span>
             </div>
           </div>
 
         </div>
       ) : (
         /* ================= RESULT VIEW ================= */
-        <div className="space-y-8 animate-in fade-in duration-500">
+        <div className="space-y-8 animate-in fade-in duration-500 text-left">
           
           {/* RESULT HEADER CARD */}
-          <div className="p-6 sm:p-10 rounded-3xl bg-[#021f1c] border border-stockstrail-green-light/40 shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_40px_rgba(0,255,151,0.15)] space-y-8">
+          <div className="p-6 sm:p-10 rounded-3xl bg-[#021817] border border-emerald-500/40 shadow-2xl space-y-8">
             
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
               <div className="space-y-1">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stockstrail-green-light/10 border border-stockstrail-green-light/30 text-stockstrail-green-light text-xs font-mono font-semibold">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-semibold">
                   <CheckCircle2 className="w-3.5 h-3.5" />
-                  ASSESSMENT COMPLETE
+                  ASSESSMENT COMPLETE · VERIFIED PROFILE
                 </div>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
-                  Your Investment Profile: <span className="text-stockstrail-green-light">{profile.title}</span>
+                  Your Investment Profile: <span className="text-emerald-400">{profileBlueprint.title}</span>
                 </h2>
                 <p className="text-white/70 text-sm">
-                  {profile.tagline} · Time Horizon: <strong>{horizonLabels[answers['q11'] || 'c']}</strong>
+                  {profileBlueprint.tagline} · Time Horizon: <strong>{horizonLabels[answers['q11'] || 'c']}</strong>
                 </p>
               </div>
 
               {/* Score Dial Badge */}
               <div className="flex flex-col items-center sm:items-end shrink-0">
-                <div className="w-24 h-24 rounded-2xl bg-black/40 border border-white/15 flex flex-col items-center justify-center text-center p-2">
+                <div className="w-24 h-24 rounded-2xl bg-black/50 border border-emerald-500/30 flex flex-col items-center justify-center text-center p-2">
                   <span className="text-[10px] text-white/50 uppercase font-mono">Risk Score</span>
-                  <span className="text-3xl font-extrabold text-stockstrail-green-light font-mono">
+                  <span className="text-3xl font-extrabold text-emerald-400 font-mono">
                     {score}
                   </span>
                   <span className="text-[9px] text-white/40 font-mono">out of 100</span>
@@ -557,49 +734,49 @@ export default function InteractiveRiskQuiz() {
             <div className="space-y-4 p-5 sm:p-7 rounded-2xl bg-black/40 border border-white/10">
               <div className="flex items-center justify-between text-xs sm:text-sm">
                 <span className="font-bold text-white flex items-center gap-2">
-                  <PieChart className="w-4 h-4 text-stockstrail-green-light" />
+                  <PieChart className="w-4 h-4 text-emerald-400" />
                   Recommended Asset Allocation
                 </span>
                 <span className="text-emerald-400 font-mono text-xs">
-                  Expected Long-Term Return: {profile.expectedCagr} CAGR
+                  Expected Long-Term Return: {profileBlueprint.expectedCagr} CAGR
                 </span>
               </div>
 
               {/* Progress Bar */}
               <div className="h-4 w-full rounded-full overflow-hidden bg-white/10 flex">
                 <div 
-                  style={{ width: `${profile.equityShare}%` }} 
-                  className="bg-stockstrail-green-light h-full transition-all duration-700" 
-                  title={`Equity Mutual Funds: ${profile.equityShare}%`}
+                  style={{ width: `${profileBlueprint.equityShare}%` }} 
+                  className="bg-emerald-400 h-full transition-all duration-700" 
+                  title={`Equity Mutual Funds: ${profileBlueprint.equityShare}%`}
                 />
                 <div 
-                  style={{ width: `${profile.debtShare}%` }} 
+                  style={{ width: `${profileBlueprint.debtShare}%` }} 
                   className="bg-teal-400 h-full transition-all duration-700" 
-                  title={`Fixed Deposits & Debt: ${profile.debtShare}%`}
+                  title={`Fixed Deposits & Debt: ${profileBlueprint.debtShare}%`}
                 />
                 <div 
-                  style={{ width: `${profile.liquidShare}%` }} 
+                  style={{ width: `${profileBlueprint.liquidShare}%` }} 
                   className="bg-sky-400 h-full transition-all duration-700" 
-                  title={`Emergency Cash: ${profile.liquidShare}%`}
+                  title={`Emergency Cash: ${profileBlueprint.liquidShare}%`}
                 />
               </div>
 
               {/* 3 Metrics */}
               <div className="grid grid-cols-3 gap-3 pt-2 text-center text-xs">
                 <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
-                  <span className="text-lg font-bold text-stockstrail-green-light block">{profile.equityShare}%</span>
+                  <span className="text-lg font-bold text-emerald-400 block">{profileBlueprint.equityShare}%</span>
                   <span className="text-white/80 font-medium block">Equity Mutual Funds</span>
                   <span className="text-[10px] text-white/50">For wealth compounding</span>
                 </div>
 
                 <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
-                  <span className="text-lg font-bold text-teal-300 block">{profile.debtShare}%</span>
+                  <span className="text-lg font-bold text-teal-300 block">{profileBlueprint.debtShare}%</span>
                   <span className="text-white/80 font-medium block">Fixed Deposits &amp; Debt</span>
                   <span className="text-[10px] text-white/50">For capital preservation</span>
                 </div>
 
                 <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
-                  <span className="text-lg font-bold text-sky-300 block">{profile.liquidShare}%</span>
+                  <span className="text-lg font-bold text-sky-300 block">{profileBlueprint.liquidShare}%</span>
                   <span className="text-white/80 font-medium block">Emergency Liquid Cash</span>
                   <span className="text-[10px] text-white/50">Instant liquidity</span>
                 </div>
@@ -610,26 +787,26 @@ export default function InteractiveRiskQuiz() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-left">
               <div className="space-y-3 p-5 rounded-2xl bg-white/[0.02] border border-white/10">
                 <h3 className="font-bold text-white flex items-center gap-2">
-                  <Compass className="w-4 h-4 text-stockstrail-green-light" />
+                  <Compass className="w-4 h-4 text-emerald-400" />
                   Profile Suitability &amp; Strategy
                 </h3>
                 <p className="text-white/75 leading-relaxed text-xs sm:text-sm">
-                  {profile.suitability}
+                  {profileBlueprint.suitability}
                 </p>
                 <p className="text-white/60 leading-relaxed text-xs pt-1 border-t border-white/5">
-                  {profile.recommendation}
+                  {profileBlueprint.recommendation}
                 </p>
               </div>
 
               <div className="space-y-3 p-5 rounded-2xl bg-white/[0.02] border border-white/10">
                 <h3 className="font-bold text-white flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4 text-stockstrail-green-light" />
+                  <TrendingUp className="w-4 h-4 text-emerald-400" />
                   Suggested Fund Categories
                 </h3>
                 <ul className="space-y-2 text-xs sm:text-sm text-white/80">
-                  {profile.fundMix.map((item, idx) => (
+                  {profileBlueprint.fundMix.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-stockstrail-green-light mt-1.5 shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -637,104 +814,67 @@ export default function InteractiveRiskQuiz() {
               </div>
             </div>
 
-            {/* LEAD CAPTURE & CONSULTATION BRIDGE */}
-            <div className="pt-6 border-t border-white/10 space-y-6">
-              
-              {!leadSubmitted ? (
-                <div className="p-6 rounded-2xl bg-gradient-to-br from-emerald-950/40 via-[#012522] to-[#011a18] border border-stockstrail-green-light/30 space-y-4">
-                  <div className="space-y-1">
-                    <span className="text-xs font-mono text-stockstrail-green-light font-semibold uppercase">
-                      Next Step · 100% Free Human Guidance
-                    </span>
-                    <h4 className="text-lg font-bold text-white">
-                      Want Vikrant to design a custom mutual fund &amp; FD roadmap around this score?
-                    </h4>
-                    <p className="text-white/70 text-xs sm:text-sm">
-                      Enter your details below to receive a personalized PDF portfolio roadmap and schedule a free 1-on-1 strategy call with zero sales pressure.
-                    </p>
-                  </div>
-
-                  <form onSubmit={handleLeadSubmit} className="flex flex-col sm:flex-row gap-3 pt-2">
-                    <input
-                      type="text"
-                      required
-                      placeholder="Your Full Name"
-                      value={leadName}
-                      onChange={(e) => setLeadName(e.target.value)}
-                      className="flex-1 px-4 py-3 rounded-xl bg-black/40 border border-white/20 text-white placeholder:text-white/40 text-xs sm:text-sm focus:border-stockstrail-green-light outline-none"
-                    />
-                    <input
-                      type="tel"
-                      required
-                      placeholder="10-digit WhatsApp Number"
-                      value={leadPhone}
-                      onChange={(e) => setLeadPhone(e.target.value)}
-                      className="flex-1 px-4 py-3 rounded-xl bg-black/40 border border-white/20 text-white placeholder:text-white/40 text-xs sm:text-sm focus:border-stockstrail-green-light outline-none"
-                    />
-                    <button
-                      type="submit"
-                      disabled={leadSubmitting}
-                      className="px-6 py-3 rounded-xl bg-stockstrail-green-light text-black font-bold text-xs sm:text-sm hover:bg-white transition-all duration-200 shrink-0 shadow-[0_0_15px_rgba(0,255,151,0.3)] cursor-pointer"
-                    >
-                      {leadSubmitting ? 'Saving...' : 'Get Free Portfolio Plan'}
-                    </button>
-                  </form>
-                </div>
-              ) : (
-                <div className="p-6 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 text-center space-y-2">
-                  <div className="w-10 h-10 rounded-full bg-emerald-500/20 text-stockstrail-green-light flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-5 h-5" />
-                  </div>
-                  <h4 className="text-base font-bold text-white">Thank you, {leadName}!</h4>
-                  <p className="text-xs text-white/80 max-w-md mx-auto">
-                    Vikrant Bhardwaj will review your risk category ({profile.title}) and contact you via WhatsApp / Phone with a personalized investment roadmap.
-                  </p>
-                </div>
-              )}
-
-              {/* ACTION BUTTONS */}
-              <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setAnswers({});
-                    setCurrentStep(0);
-                    setShowResult(false);
-                    setLeadSubmitted(false);
-                  }}
-                  className="inline-flex items-center gap-2 text-white/60 hover:text-white text-xs font-semibold transition-colors"
-                >
-                  <RotateCcw className="w-3.5 h-3.5" />
-                  Retake Assessment
-                </button>
-
-                <div className="flex flex-wrap items-center gap-3">
-                  <button
-                    type="button"
-                    onClick={handleWhatsAppShare}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-900/60 hover:bg-emerald-800 border border-emerald-500/30 text-emerald-300 text-xs font-semibold transition-all cursor-pointer"
-                  >
-                    <MessageSquare className="w-3.5 h-3.5" />
-                    <span>Discuss on WhatsApp</span>
-                    <span>→</span>
-                  </button>
-
-                  <Link
-                    href="/lets-talk"
-                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-stockstrail-green-light text-black text-xs font-bold hover:scale-105 transition-all shadow-[0_0_15px_rgba(0,255,151,0.25)]"
-                  >
-                    <span>Schedule Free Strategy Call</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
+            {/* 1-ON-1 CONSULTATION ACTION CTA */}
+            <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#032420] via-[#021817] to-[#011413] border border-emerald-500/30 space-y-4 text-left">
+              <div className="space-y-1">
+                <span className="text-xs font-mono text-emerald-400 font-semibold uppercase">
+                  Direct Expert Advisory
+                </span>
+                <h4 className="text-lg sm:text-xl font-bold text-white">
+                  Discuss Your Personalized Portfolio with Vikrant Bhardwaj
+                </h4>
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  Your results have been saved to your verified account ({user?.email}). Connect directly on WhatsApp with AMFI-registered distributor Vikrant (ARN-284122) for a customized fund selection &amp; FD roadmap.
+                </p>
               </div>
 
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={handleWhatsAppShare}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs sm:text-sm transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] cursor-pointer"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Discuss on WhatsApp</span>
+                  <span>→</span>
+                </button>
+
+                <Link
+                  href="/lets-talk"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm transition-all"
+                >
+                  <span>Book Free Strategy Call</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* RETAKE BUTTON */}
+            <div className="flex items-center justify-between border-t border-white/10 pt-4">
+              <button
+                type="button"
+                onClick={() => {
+                  setAnswers({});
+                  setCurrentStep(0);
+                  setShowResult(false);
+                  setHasSavedToDb(false);
+                }}
+                className="inline-flex items-center gap-2 text-white/60 hover:text-white text-xs font-semibold transition-colors cursor-pointer"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                Retake Assessment
+              </button>
+
+              <span className="text-xs text-slate-400 font-mono">
+                AMFI ARN-284122 Verified
+              </span>
             </div>
 
           </div>
 
         </div>
       )}
+
     </div>
   );
 }

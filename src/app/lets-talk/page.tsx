@@ -315,12 +315,16 @@ export default function LetsTalk() {
                             className="w-full px-4 py-3 rounded-xl bg-[#0b1c1b] border border-white/15 text-white text-sm focus:border-stockstrail-green-light outline-none transition-colors cursor-pointer"
                           >
                             <option value="Mutual Funds SIP">Mutual Funds SIP &amp; Lumpsum</option>
-                            <option value="Fixed Deposit Advisory">Fixed Deposits (FD) Rates</option>
-                            <option value="Term & Health Insurance">Family Insurance (Term / Health)</option>
+                            <option value="Fixed Deposit Advisory">Corporate &amp; Bank Fixed Deposits (FD)</option>
+                            <option value="Term & Health Insurance">Family Health &amp; Term Insurance</option>
+                            <option value="Motor Insurance">Motor Insurance (Car / Two-Wheeler)</option>
+                            <option value="Income Tax Filing">Income Tax Filing (ITR) &amp; Tax Planning</option>
                             <option value="Loan Against Mutual Funds">Loan Against Mutual Funds (LAMF)</option>
+                            <option value="Personal & Home Loans">Personal, Home &amp; Business Loans</option>
                             <option value="Portfolio Review">Existing Portfolio Review (Free)</option>
-                            <option value="Retirement & Goal Planning">Retirement &amp; Goal Planning</option>
-                            <option value="Other Financial Services">Other Services</option>
+                            <option value="Retirement & Goal Planning">Retirement &amp; Child Goal Planning</option>
+                            <option value="Demat & Trading Guidance">Demat &amp; Trading Account Guidance</option>
+                            <option value="Other Financial Services">Other Financial Advisory</option>
                           </select>
                         </div>
                       </div>

@@ -380,8 +380,10 @@ export function AdminQueriesContent({ queries }: AdminQueriesContentProps) {
                     <SelectContent className="bg-[#072923] border-white/10 text-white">
                       <SelectItem value="mutual-funds">Mutual Funds</SelectItem>
                       <SelectItem value="fixed-deposit">Fixed Deposit</SelectItem>
-                      <SelectItem value="insurance">Insurance</SelectItem>
-                      <SelectItem value="loan">Loan</SelectItem>
+                      <SelectItem value="insurance">Health &amp; Term Insurance</SelectItem>
+                      <SelectItem value="motor-insurance">Motor Insurance (Car/Bike)</SelectItem>
+                      <SelectItem value="tax-filing">Tax Filing (ITR) &amp; Planning</SelectItem>
+                      <SelectItem value="loan">Loan (LAMF / Personal)</SelectItem>
                       <SelectItem value="others">Others</SelectItem>
                     </SelectContent>
                   </Select>

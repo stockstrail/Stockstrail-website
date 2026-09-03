@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Search, Filter, ArrowUpDown, Eye, Trash2, HelpCircle } from "lucide-react";
+import { Search, Filter, ArrowUpDown, Eye, Trash2, HelpCircle, Phone, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { RiskAnalysisModal } from "@/components/features/risk-assessment/modals/RiskAnalysisModal";
@@ -408,6 +408,9 @@ export function AdminDashboardContent({
                               Name
                             </th>
                             <th className="text-left py-3 px-4 text-white/70 font-medium text-sm">
+                              Phone / Contact
+                            </th>
+                            <th className="text-left py-3 px-4 text-white/70 font-medium text-sm">
                               Score
                             </th>
                             <th className="text-left py-3 px-4 text-white/70 font-medium text-sm">
@@ -451,6 +454,28 @@ export function AdminDashboardContent({
                                 </td>
                                 <td className="py-3 px-4 text-white/80">
                                   {profile?.full_name || "—"}
+                                </td>
+                                <td className="py-3 px-4">
+                                  {profile?.phone_number ? (
+                                    <div className="flex items-center gap-2">
+                                      <span className="font-mono text-sm text-emerald-400">
+                                        +91 {profile.phone_number}
+                                      </span>
+                                      <a
+                                        href={`https://wa.me/91${profile.phone_number.replace(/\D/g, "")}?text=${encodeURIComponent(
+                                          `Hi ${profile.full_name || ""}, I noticed your Stockstrail Risk Score of ${attempt.score}/100 (${attempt.risk_category}). Would you like to discuss your personalized mutual fund portfolio allocation?`
+                                        )}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="p-1 rounded-md bg-emerald-500/20 hover:bg-emerald-500/40 text-emerald-400 transition-colors"
+                                        title="Chat on WhatsApp"
+                                      >
+                                        <MessageSquare className="w-3.5 h-3.5" />
+                                      </a>
+                                    </div>
+                                  ) : (
+                                    <span className="text-white/40 text-xs italic">Not Provided</span>
+                                  )}
                                 </td>
                                 <td className="py-3 px-4">
                                   <span className="text-stockstrail-green-light font-semibold">

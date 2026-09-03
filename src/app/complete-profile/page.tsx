@@ -158,6 +158,12 @@ export default function CompleteProfilePage() {
         throw updateError;
       }
 
+      // Check if user came from pending risk assessment quiz
+      if (typeof window !== "undefined" && sessionStorage.getItem("pending_risk_answers")) {
+        router.push("/check-risk-profile?resume=true");
+        return;
+      }
+
       // Redirect to risk profile for new users, dashboard for existing
       const { data: attempts } = await supabase
         .from("risk_attempts")

@@ -63,7 +63,8 @@ export default async function AdminDashboardPage({
       profiles:user_id (
         id,
         email,
-        full_name
+        full_name,
+        phone_number
       )
     `
     );
