@@ -4,6 +4,7 @@ import Layout from "@/components/layout/Layout";
 import CalculatorsHeroSection from "@/components/calculators/CalculatorsHeroSection";
 import CalculatorWidget from "@/components/calculators/CalculatorWidget";
 import CalculatorsPageSEO from "@/components/calculators/seo/CalculatorsPageSEO";
+import CalculatorAdvisoryBridge from "@/components/calculators/CalculatorAdvisoryBridge";
 
 export const metadata: Metadata = {
   title: "Financial Calculators - SIP, Lumpsum, FD, RD, EMI & Tax | Stockstrail",
@@ -54,6 +55,9 @@ export default function CalculatorsPage() {
               <CalculatorWidget initialTab="SIP" navigateOnTabChange={true} />
             </Suspense>
           </div>
+
+          {/* Advisory Bridge */}
+          <CalculatorAdvisoryBridge type="SIP" />
 
           {/* SEO & Internal Links */}
           <CalculatorsPageSEO />

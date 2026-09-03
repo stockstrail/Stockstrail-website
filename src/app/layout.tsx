@@ -5,6 +5,7 @@ import Script from "next/script";
 import JsonLd from '@/components/common/JsonLd';
 import FloatingWhatsAppButton from "@/components/common/FloatingWhatsAppButton";
 import WebMCPRegistry from "@/components/common/WebMCPRegistry";
+import UtmTracker from "@/components/common/UtmTracker";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -251,6 +252,7 @@ export default function RootLayout({
         <JsonLd data={webSiteSchema} />
         <JsonLd data={localBusinessSchema} />
         <WebMCPRegistry />
+        <UtmTracker />
 
         <main className="relative min-h-screen">
           {children}

@@ -205,7 +205,7 @@ export default function Insurance() {
                   desc: "Life insurance plans designed for long-term savings and policy benefits, with guaranteed or non-guaranteed benefits depending on the specific product and its terms.",
                   link: "https://www.pbpartners.com/v2/partner/vikrant-bhardwaj-una-1JFZ",
                 },
-                
+
               ].map((item, i) => (
                 <div
                   key={i}
@@ -249,50 +249,57 @@ export default function Insurance() {
             </div>
             <h4 className="text-white font-semibold mb-3">Quick Guide</h4>
 
-<div className="space-y-4 text-white/80">
-  <div>
-    <p className="text-white font-semibold mb-1">Term Insurance</p>
-    <p className="text-sm">
-      Protects your family from loss of income and major financial responsibilities.
-    </p>
-  </div>
+            <div className="space-y-4 text-white/80">
+              <div>
+                <p className="text-white font-semibold mb-1">Term Insurance</p>
+                <p className="text-sm">
+                  Protects your family from loss of income and major financial responsibilities.
+                </p>
+              </div>
 
-  <div>
-    <p className="text-white font-semibold mb-1">Health Insurance</p>
-    <p className="text-sm">
-      Helps protect your savings from eligible medical and hospitalisation expenses.
-    </p>
-  </div>
+              <div>
+                <p className="text-white font-semibold mb-1">Health Insurance</p>
+                <p className="text-sm">
+                  Helps protect your savings from eligible medical and hospitalisation expenses.
+                </p>
+              </div>
 
-  <div>
-    <p className="text-white font-semibold mb-1">Traditional &amp; Savings Insurance</p>
-    <p className="text-sm">
-      Combines life insurance with long-term savings and policy benefits, depending on the specific product and policy terms.
-    </p>
-  </div>
-</div>
+              <div>
+                <p className="text-white font-semibold mb-1">Traditional &amp; Savings Insurance</p>
+                <p className="text-sm">
+                  Combines life insurance with long-term savings and policy benefits, depending on the specific product and policy terms.
+                </p>
+              </div>
+            </div>
 
-<a
-  href="https://insurance.assetplus.in/284122"
-  className="inline-block mt-5 text-stockstrail-green-light underline focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-stockstrail-green-light"
->
-  Explore Insurance Options
-</a>
+            <a
+              href="https://insurance.assetplus.in/284122"
+              className="inline-block mt-5 text-stockstrail-green-light underline focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-stockstrail-green-light"
+            >
+              Explore Insurance Options
+            </a>
           </aside>
         </div>
       </section>
 
       {/* CTA after intro overview */}
       <section className="px-4 sm:px-6 lg:px-8 py-8">
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
           <a
-            href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
+            href="/lets-talk"
+            className="inline-flex items-center gap-3 px-8 py-3.5 bg-stockstrail-green-light rounded-full text-black font-bold text-sm hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,255,151,0.3)] font-work-sans"
+          >
+            <div className="w-2.5 h-2.5 bg-black rounded-full" />
+            Get Free Family Insurance Guidance
+          </a>
+          <a
+            href="https://wa.me/919736304663?text=Hi%20Vikrant,%20I%20need%20unbiased%20advice%20on%20Term%20Insurance%20and%20Health%20Insurance."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 transition-all duration-300 font-work-sans font-medium"
+            className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/5 border border-white/20 rounded-full text-white hover:border-emerald-400 hover:bg-white/10 text-sm font-medium transition-all"
           >
-            <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
-            Get Personalised Insurance Guidance
+            <span>Ask Vikrant on WhatsApp</span>
+            <span>→</span>
           </a>
         </div>
       </section>
@@ -312,7 +319,7 @@ export default function Insurance() {
                 height={360}
                 loading="lazy"
                 className="w-full object-contain max-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
-            />
+              />
             </div>
           </div>
 
@@ -322,7 +329,7 @@ export default function Insurance() {
               Term Insurance: Protecting Your Family&apos;s Financial Future
             </h2>
             <p className="text-white/80 mb-4">
-             Term insurance is a pure protection plan that provides life cover for a chosen period. If the insured person dies during the policy term, the nominee receives the applicable death benefit according to the policy terms. It can help protect your family from loss of income, outstanding loans and long-term financial responsibilities.
+              Term insurance is a pure protection plan that provides life cover for a chosen period. If the insured person dies during the policy term, the nominee receives the applicable death benefit according to the policy terms. It can help protect your family from loss of income, outstanding loans and long-term financial responsibilities.
             </p>
 
             <h4 className="text-white font-semibold mb-2">What Can Term Insurance Protect?</h4>
@@ -346,36 +353,36 @@ export default function Insurance() {
 
             {/* Real case examples */}
             <div className="rounded-2xl p-6 bg-stockstrail-bg-light/30 border border-white/10 mt-6">
-  <h4 className="text-white font-semibold mb-3">Real-Life Situations</h4>
+              <h4 className="text-white font-semibold mb-3">Real-Life Situations</h4>
 
-  <div className="space-y-4 text-white/80">
-    <div>
-      <p className="font-semibold text-white">Young professional with a home loan</p>
-      <p>
-        A person with a new home loan and family responsibilities can use term insurance
-        to create financial protection for outstanding liabilities and the family&apos;s
-        future income needs.
-      </p>
-    </div>
+              <div className="space-y-4 text-white/80">
+                <div>
+                  <p className="font-semibold text-white">Young professional with a home loan</p>
+                  <p>
+                    A person with a new home loan and family responsibilities can use term insurance
+                    to create financial protection for outstanding liabilities and the family&apos;s
+                    future income needs.
+                  </p>
+                </div>
 
-    <div>
-      <p className="font-semibold text-white">Primary income earner with dependants</p>
-      <p>
-        When a family depends mainly on one person&apos;s income, term insurance can
-        provide financial support to the nominee if the insured person dies during the
-        policy term, subject to the policy terms.
-      </p>
-    </div>
+                <div>
+                  <p className="font-semibold text-white">Primary income earner with dependants</p>
+                  <p>
+                    When a family depends mainly on one person&apos;s income, term insurance can
+                    provide financial support to the nominee if the insured person dies during the
+                    policy term, subject to the policy terms.
+                  </p>
+                </div>
 
-    <div>
-      <p className="font-semibold text-white">Parent planning for long-term responsibilities</p>
-      <p>
-        Parents may consider term insurance to help protect future commitments such as
-        children&apos;s education, household expenses and other long-term financial goals.
-      </p>
-    </div>
-  </div>
-</div>
+                <div>
+                  <p className="font-semibold text-white">Parent planning for long-term responsibilities</p>
+                  <p>
+                    Parents may consider term insurance to help protect future commitments such as
+                    children&apos;s education, household expenses and other long-term financial goals.
+                  </p>
+                </div>
+              </div>
+            </div>
             <p className="text-white/70 mt-6 text-sm">
               Want to understand the difference between pure protection and
               savings-oriented life insurance? Read our{" "}
@@ -398,7 +405,7 @@ export default function Insurance() {
                 Explore Term Insurance Plans
               </a>
             </div>
-            
+
             {/* Mid-page CTA after Term Insurance
             <div className="mt-8">
               <a
@@ -431,57 +438,57 @@ export default function Insurance() {
 
             <h4 className="text-white font-semibold mb-2"> What to Look For in Health Insurance</h4>
             <ul className="list-disc list-inside text-white/80 space-y-2">
-  <li>
-    Check waiting periods for pre-existing diseases and specific treatments.
-  </li>
-  <li>
-    Review room-rent and ICU limits, disease-specific sub-limits and other coverage restrictions.
-  </li>
-  <li>
-    Understand co-payment, exclusions and the share of eligible claim expenses you may have to pay.
-  </li>
-  <li>
-    Check the cashless hospital network in the cities where you are likely to need treatment.
-  </li>
-  <li>
-    Review restoration or recharge benefits and understand when they apply under the policy.
-  </li>
-</ul>
+              <li>
+                Check waiting periods for pre-existing diseases and specific treatments.
+              </li>
+              <li>
+                Review room-rent and ICU limits, disease-specific sub-limits and other coverage restrictions.
+              </li>
+              <li>
+                Understand co-payment, exclusions and the share of eligible claim expenses you may have to pay.
+              </li>
+              <li>
+                Check the cashless hospital network in the cities where you are likely to need treatment.
+              </li>
+              <li>
+                Review restoration or recharge benefits and understand when they apply under the policy.
+              </li>
+            </ul>
 
             <h4 className="text-white font-semibold mt-6 mb-2">How Health Insurance Works</h4>
-           <ol className="list-decimal list-inside text-white/80 space-y-2">
-  <li>Choose a health insurance plan and sum insured based on your health needs, family members and budget.</li>
-  <li>Complete the application, disclose your medical history honestly, and provide any documents or medical tests required by the insurer.</li>
-  <li>Pay the premium after the insurer accepts the proposal and keep the policy active by renewing it on time.</li>
-  <li>When treatment is needed, use an eligible network hospital for cashless treatment where the policy and insurer&apos;s process allow it, or follow the reimbursement claim process as applicable.</li>
-  <li>The insurer assesses the claim according to the policy terms, coverage, exclusions and applicable limits before approving or settling the eligible amount.</li>
-</ol>
+            <ol className="list-decimal list-inside text-white/80 space-y-2">
+              <li>Choose a health insurance plan and sum insured based on your health needs, family members and budget.</li>
+              <li>Complete the application, disclose your medical history honestly, and provide any documents or medical tests required by the insurer.</li>
+              <li>Pay the premium after the insurer accepts the proposal and keep the policy active by renewing it on time.</li>
+              <li>When treatment is needed, use an eligible network hospital for cashless treatment where the policy and insurer&apos;s process allow it, or follow the reimbursement claim process as applicable.</li>
+              <li>The insurer assesses the claim according to the policy terms, coverage, exclusions and applicable limits before approving or settling the eligible amount.</li>
+            </ol>
 
             {/* Real Case Examples */}
             <div className="mt-6 rounded-2xl p-6 bg-stockstrail-bg-light/30 border border-white/10">
               <h4 className="text-white font-semibold mb-3">Real-World Situations</h4>
               <div className="space-y-4 text-white/80">
-  <div>
-    <p className="font-semibold text-white">Young professional buying health insurance for the first time</p>
-    <p>
-      Even if you are healthy today, buying a personal health insurance policy early can help you secure coverage before new health conditions arise. The important part is understanding the waiting periods, exclusions, cashless network and other policy terms before choosing a plan.
-    </p>
-  </div>
+                <div>
+                  <p className="font-semibold text-white">Young professional buying health insurance for the first time</p>
+                  <p>
+                    Even if you are healthy today, buying a personal health insurance policy early can help you secure coverage before new health conditions arise. The important part is understanding the waiting periods, exclusions, cashless network and other policy terms before choosing a plan.
+                  </p>
+                </div>
 
-  <div>
-    <p className="font-semibold text-white">Family looking beyond employer health cover</p>
-    <p>
-      Employer-provided health insurance can be useful, but its coverage may depend on your job and employer policy. A separate personal or family health insurance policy can provide additional protection, subject to its own terms, coverage and exclusions.
-    </p>
-  </div>
+                <div>
+                  <p className="font-semibold text-white">Family looking beyond employer health cover</p>
+                  <p>
+                    Employer-provided health insurance can be useful, but its coverage may depend on your job and employer policy. A separate personal or family health insurance policy can provide additional protection, subject to its own terms, coverage and exclusions.
+                  </p>
+                </div>
 
-  <div>
-    <p className="font-semibold text-white">Family member with an existing health condition</p>
-    <p>
-      Pre-existing conditions can affect eligibility, waiting periods, premium or other policy terms depending on the insurer and product. Full and accurate disclosure during the application is important so the insurer can assess the risk correctly.
-    </p>
-  </div>
-</div>
+                <div>
+                  <p className="font-semibold text-white">Family member with an existing health condition</p>
+                  <p>
+                    Pre-existing conditions can affect eligibility, waiting periods, premium or other policy terms depending on the insurer and product. Full and accurate disclosure during the application is important so the insurer can assess the risk correctly.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="mt-6">
@@ -506,13 +513,13 @@ export default function Insurance() {
                 height={360}
                 loading="lazy"
                 className="w-full object-contain max-h-[420px] group-hover:scale-105 transition-transform duration-300 bg-white/5"
-            />
+              />
             </div>
           </div>
         </div>
       </section>
 
-{/* ========================================================= */}
+      {/* ========================================================= */}
       {/* TRADITIONAL & SAVINGS INSURANCE SECTION */}
       {/* ========================================================= */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">
@@ -630,7 +637,7 @@ export default function Insurance() {
         </div>
       </section>
 
-            {/* ========================================================= */}
+      {/* ========================================================= */}
       {/* INSURANCE COMPARISON TABLE */}
       {/* ========================================================= */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">
@@ -718,7 +725,7 @@ export default function Insurance() {
         </div>
       </section>
 
-           {/* ========================================================= */}
+      {/* ========================================================= */}
       {/* WHICH INSURANCE MAY FIT YOUR SITUATION */}
       {/* ========================================================= */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-12">
@@ -783,34 +790,34 @@ export default function Insurance() {
       {/* FINAL CTA */}
       {/* ========================================================= */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/10">
-        <div className="max-w-6xl mx-auto text-center">
-          <h3 className="text-xl font-semibold text-white mb-3">
-            Ready to protect what matters?
+        <div className="max-w-4xl mx-auto p-8 rounded-3xl bg-[#021f1c] border border-stockstrail-green-light/30 text-center space-y-4 shadow-xl">
+          <h3 className="text-2xl sm:text-3xl font-bold text-white font-product-sans">
+            Have existing LIC or traditional policies? Get an honest second opinion.
           </h3>
-          <p className="text-white/80 mb-6">
-            Share a few details about your goals, responsibilities and protection needs,
-  and we&apos;ll help you explore suitable insurance options.
+          <p className="text-white/80 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
+            Send us your policy details. We&apos;ll calculate your real inflation-adjusted returns and tell you transparently whether to keep, surrender, or restructure your cover—100% free of charge.
           </p>
 
-          <a
-            href="https://insurance.assetplus.in/284122"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-white border-2 border-[#012928] rounded-full text-[#012928] hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-work-sans font-semibold group"
-          >
-            Explore Your Insurance Options
-          </a>
-          <p className="text-white/60 text-sm mt-4">
-            Prefer to discuss your situation first?{" "}
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <a
               href="/lets-talk"
-              className="text-stockstrail-green-light underline hover:no-underline"
+              className="inline-flex items-center gap-3 px-8 py-3.5 bg-stockstrail-green-light rounded-full text-black font-bold text-sm hover:bg-white hover:scale-105 transition-all duration-300 font-work-sans shadow-[0_0_20px_rgba(0,255,151,0.35)]"
             >
-              Talk to Stockstrail
+              Request Free Policy Review Call
             </a>
-            .
-          </p>
+            <a
+              href="https://insurance.assetplus.in/284122"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/5 border border-white/20 text-white text-xs sm:text-sm font-semibold rounded-full hover:bg-white/10 hover:border-emerald-400 transition-all"
+            >
+              <span>Instant Digital Portal</span>
+              <span>→</span>
+            </a>
+          </div>
         </div>
       </section>
-            {/* ========================================================= */}
+      {/* ========================================================= */}
       {/* INSURANCE FAQ SECTION */}
       {/* ========================================================= */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">

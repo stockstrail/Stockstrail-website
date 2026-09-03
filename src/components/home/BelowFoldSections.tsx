@@ -2,7 +2,6 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import ServicesSection from '@/components/home/ServicesSection';
 import WhyChooseSection from '@/components/home/WhyChooseSection';
-import AboutSection from '@/components/home/AboutSection';
 import CalculatorsSection from '@/components/home/CalculatorsSection';
 
 const PartnerLogosSection = dynamic(
@@ -33,7 +32,6 @@ export default function BelowFoldSections() {
       <CalculatorsSection />
       <WhyChooseSection />
       <TestimonialsSection />
-      <AboutSection />
       <HomePageSEOContent />
       <DisclaimerSection />
     </>

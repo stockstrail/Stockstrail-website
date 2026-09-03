@@ -129,14 +129,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${mainBaseUrl}/nse-holidays`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
+      changeFrequency: 'weekly',
+      priority: 0.9,
     },
     {
       url: `${mainBaseUrl}/bse-holidays`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
+      changeFrequency: 'weekly',
+      priority: 0.9,
     },
     {
       url: `${mainBaseUrl}/terms-and-conditions`,

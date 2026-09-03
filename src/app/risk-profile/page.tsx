@@ -20,11 +20,12 @@ export const metadata: Metadata = {
 export default async function RiskProfilePage() {
   const user = await getServerUser();
 
+  // If user is not logged in, direct them to the free un-gated assessment
   if (!user) {
-    redirect("/sign-in?redirect=/risk-profile");
+    redirect("/check-risk-profile");
   }
 
-  // Check if phone number exists
+  // Check if phone number exists for logged-in user
   const profile = await getServerProfile(user.id);
   if (!profile?.phone_number) {
     redirect("/complete-profile");
@@ -36,4 +37,3 @@ export default async function RiskProfilePage() {
     </SimpleLayout>
   );
 }
-

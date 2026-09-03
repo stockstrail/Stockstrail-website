@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Mutual Fund Investment | SIP & Lump Sum Investing | Stockstrail',
     description:
-     'Learn how mutual funds work, compare SIP and lump sum investing, understand fund categories and risk, and explore mutual fund options based on your goals.',
+      'Learn how mutual funds work, compare SIP and lump sum investing, understand fund categories and risk, and explore mutual fund options based on your goals.',
     url: 'https://www.stockstrail.in/mutual-funds',
     type: 'website',
   },
@@ -146,7 +146,7 @@ export default function MutualFunds() {
         </div>
       </section>
 
-      
+
 
       <section className="relative px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-6xl mx-auto">
@@ -221,15 +221,20 @@ export default function MutualFunds() {
 
       {/* CTA after 'What is a Mutual Fund' */}
       <section className="px-4 sm:px-6 lg:px-8 py-8">
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
           <a
-            href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-green-light hover:bg-stockstrail-green-light/10 hover:scale-105 transition-all duration-300 font-work-sans font-medium"
+            href="/lets-talk"
+            className="inline-flex items-center gap-3 px-8 py-3.5 bg-stockstrail-green-light rounded-full text-black font-bold text-sm hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,255,151,0.3)] font-work-sans"
           >
-            <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
-            Explore Mutual Funds - Start Investing
+            <div className="w-2.5 h-2.5 bg-black rounded-full" />
+            Book Free Mutual Fund Strategy Call
+          </a>
+          <a
+            href="/check-risk-profile"
+            className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/5 border border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:bg-white/10 text-sm font-medium transition-all"
+          >
+            <span>Take Free 2-Min Risk Quiz</span>
+            <span>→</span>
           </a>
         </div>
       </section>
@@ -292,7 +297,7 @@ export default function MutualFunds() {
                 Easy Access
               </h3>
               <p className="text-white/80">
-                    Open-ended mutual funds generally allow investors to redeem their units on business days, subject to the scheme&apos;s terms, exit load and applicable rules.
+                Open-ended mutual funds generally allow investors to redeem their units on business days, subject to the scheme&apos;s terms, exit load and applicable rules.
               </p>
             </div>
 
@@ -301,14 +306,14 @@ export default function MutualFunds() {
                 Wealth Growth
               </h3>
               <p className="text-white/80">
-               Mutual funds can help you build wealth over time through capital appreciation and, in some schemes, income distributions, depending on the investment and market performance.
+                Mutual funds can help you build wealth over time through capital appreciation and, in some schemes, income distributions, depending on the investment and market performance.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      
+
 
       <section className="relative px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-6xl mx-auto">
@@ -320,7 +325,7 @@ export default function MutualFunds() {
             <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
               <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-3">Equity Funds</h3>
               <p className="text-white/80 mb-4">
-                 Equity funds invest mainly in the shares of companies and are generally suited to investors seeking long-term growth who can accept market ups and downs.
+                Equity funds invest mainly in the shares of companies and are generally suited to investors seeking long-term growth who can accept market ups and downs.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -339,7 +344,7 @@ export default function MutualFunds() {
             <div className="bg-stockstrail-bg-light/30 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300">
               <h3 className="text-2xl font-semibold text-stockstrail-green-light mb-3">Debt Funds</h3>
               <p className="text-white/80 mb-4">
-               Debt funds invest mainly in fixed-income securities such as government and corporate bonds, certificates of deposit and other debt instruments. They are generally considered for investors looking for relatively lower volatility than equity funds.
+                Debt funds invest mainly in fixed-income securities such as government and corporate bonds, certificates of deposit and other debt instruments. They are generally considered for investors looking for relatively lower volatility than equity funds.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -385,16 +390,30 @@ export default function MutualFunds() {
 
       {/* Mid-page CTA after 'Types of Mutual Funds' */}
       <section className="px-4 sm:px-6 lg:px-8 py-10">
-        <div className="max-w-6xl mx-auto text-center">
-          <a
-            href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-stockstrail-green-accent/5 border-2 border-stockstrail-green-accent/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-bg hover:bg-stockstrail-green-accent transition-all duration-300 font-work-sans font-medium"
-          >
-            <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
-            Compare SIP Plans & Get Personalized Advice
-          </a>
+        <div className="max-w-4xl mx-auto p-6 sm:p-8 rounded-3xl bg-[#021f1c] border border-stockstrail-green-light/30 text-center space-y-4 shadow-xl">
+          <h3 className="text-xl sm:text-2xl font-bold text-white font-product-sans">
+            Unsure which mutual fund category fits your time horizon?
+          </h3>
+          <p className="text-white/75 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-work-sans">
+            Speak directly with AMFI-Registered Distributor Vikrant Bhardwaj (ARN-284122) to review your existing investments and build a custom SIP roadmap for free.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <a
+              href="/lets-talk"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-stockstrail-green-light text-black text-xs sm:text-sm font-bold hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,255,151,0.35)]"
+            >
+              <span>Get Custom Portfolio Recommendation</span>
+              <span>→</span>
+            </a>
+            <a
+              href="https://wa.me/919736304663?text=Hi%20Vikrant,%20I%20want%20to%20know%20which%20Mutual%20Fund%20SIP%20is%20suitable%20for%20my%20goals."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/20 text-white text-xs sm:text-sm font-semibold hover:bg-white/10 hover:border-emerald-400 transition-all"
+            >
+              <span>Ask on WhatsApp</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -715,20 +734,22 @@ export default function MutualFunds() {
               },
               { title: 'SIP Planning', desc: 'Build a SIP around your income, budget, goals and investment horizon, with the flexibility to adjust as your needs change.' },
               { title: 'Paperless Process', desc: 'Complete your mutual fund investment process online with simple KYC and digital onboarding, wherever available.' },
-              { title: 'Ongoing Support', desc: (
-                <>
-                  Get continued support as your goals or circumstances change. When you
-                  need to review your investments or discuss a new financial decision,
-                  you can{' '}
-                  <a
-                    href="/lets-talk"
-                    className="text-stockstrail-green-light hover:underline font-medium"
-                  >
-                    talk to Stockstrail
-                  </a>{' '}
-                  and discuss what has changed.
-                </>
-              ) },
+              {
+                title: 'Ongoing Support', desc: (
+                  <>
+                    Get continued support as your goals or circumstances change. When you
+                    need to review your investments or discuss a new financial decision,
+                    you can{' '}
+                    <a
+                      href="/lets-talk"
+                      className="text-stockstrail-green-light hover:underline font-medium"
+                    >
+                      talk to Stockstrail
+                    </a>{' '}
+                    and discuss what has changed.
+                  </>
+                )
+              },
             ].map((item, index) => (
               <div
                 key={index}
@@ -749,48 +770,69 @@ export default function MutualFunds() {
           </h2>
 
           <div className="space-y-4">
-           {[
-    'Tell us about your goals, investment needs and basic details',
-    'Complete your KYC and risk-profile assessment',
-    'Choose between a SIP or lump sum based on your situation',
-    'Explore suitable mutual fund options based on your goals and risk profile',
-    'Complete the investment process online through Stockstrail',
-    'Review your investments as your goals and needs change',
-].map((step, index) => (
-    <div
-        key={index}
-        className="flex gap-4 items-start bg-stockstrail-bg-light/50 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300"
-    >
-        <div className="shrink-0 w-10 h-10 bg-stockstrail-green-light rounded-full flex items-center justify-center text-black font-bold text-lg">
-            {index + 1}
-        </div>
-        <p className="text-white/80 pt-1">
-            {index === 1 ? (
-                <>
-                    Complete your KYC and{' '}
-                    <a
+            {[
+              'Tell us about your goals, investment needs and basic details',
+              'Complete your KYC and risk-profile assessment',
+              'Choose between a SIP or lump sum based on your situation',
+              'Explore suitable mutual fund options based on your goals and risk profile',
+              'Complete the investment process online through Stockstrail',
+              'Review your investments as your goals and needs change',
+            ].map((step, index) => (
+              <div
+                key={index}
+                className="flex gap-4 items-start bg-stockstrail-bg-light/50 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-stockstrail-green-light/30 transition-all duration-300"
+              >
+                <div className="shrink-0 w-10 h-10 bg-stockstrail-green-light rounded-full flex items-center justify-center text-black font-bold text-lg">
+                  {index + 1}
+                </div>
+                <p className="text-white/80 pt-1">
+                  {index === 1 ? (
+                    <>
+                      Complete your KYC and{' '}
+                      <a
                         href="/risk-profile"
                         className="text-stockstrail-green-light hover:underline"
-                    >
+                      >
                         risk-profile assessment
-                    </a>
-                </>
-            ) : (
-                step
-            )}
-        </p>
-    </div>
-))}
+                      </a>
+                    </>
+                  ) : (
+                    step
+                  )}
+                </p>
+              </div>
+            ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <a
-              href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white border-2 border-[#012928] rounded-full text-[#012928] hover:bg-white/90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 font-work-sans font-semibold group"
-            >
-              <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full group-hover:scale-125 transition-transform duration-300"></div>
-              Start Now. Let Your Money Work for You
-            </a>
+          <div className="mt-12 text-center space-y-4">
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <a
+                href="/lets-talk"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-stockstrail-green-light rounded-full text-black font-bold text-sm hover:bg-white hover:scale-105 transition-all duration-300 font-work-sans shadow-[0_0_25px_rgba(0,255,151,0.35)]"
+              >
+                <div className="w-3 h-3 bg-black rounded-full" />
+                Schedule Free Mutual Fund Consultation
+              </a>
+              <a
+                href="/check-risk-profile"
+                className="inline-flex items-center gap-2 px-7 py-4 bg-white/5 border border-white/20 rounded-full text-white hover:border-stockstrail-green-light hover:bg-white/10 font-work-sans font-semibold text-sm transition-all"
+              >
+                <span>Calculate Your Risk Score</span>
+                <span>→</span>
+              </a>
+            </div>
+            <p className="text-xs text-white/50">
+              Already know your target scheme? You can also{' '}
+              <a
+                href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-stockstrail-green-light hover:underline font-medium"
+              >
+                complete direct digital KYC onboarding
+              </a>{' '}
+              on our platform partner AssetPlus.
+            </p>
           </div>
         </div>
       </section>

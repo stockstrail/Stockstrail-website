@@ -10,6 +10,7 @@ import LumpsumCalculatorSEO from "@/components/calculators/seo/LumpsumCalculator
 import RDCalculatorSEO from "@/components/calculators/seo/RDCalculatorSEO";
 import EMICalculatorSEO from "@/components/calculators/seo/EMICalculatorSEO";
 import TaxCalculatorSEO from "@/components/calculators/seo/TaxCalculatorSEO";
+import CalculatorAdvisoryBridge from "@/components/calculators/CalculatorAdvisoryBridge";
 
 const VALID_TYPES = ["sip", "fd", "lumpsum", "rd", "emi", "tax"] as const;
 type CalculatorType = (typeof VALID_TYPES)[number];
@@ -144,6 +145,9 @@ export default async function DedicatedCalculatorPage({ params }: Props) {
 
           {/* Interactive Calculator Engine */}
           <CalculatorWidget initialTab={config.tab} navigateOnTabChange={true} />
+
+          {/* Dynamic Advisory Bridge */}
+          <CalculatorAdvisoryBridge type={normalizedType} />
 
           {/* Dedicated SEO & Guidance Section */}
           <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-8 text-white/80">

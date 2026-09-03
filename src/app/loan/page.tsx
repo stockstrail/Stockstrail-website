@@ -124,12 +124,12 @@ export default function Loan() {
             FIND THE RIGHT LOAN FOR YOUR FINANCIAL NEEDS
           </h1>
           <p className="text-white/80 max-w-3xl mx-auto leading-relaxed text-lg">
-           Whether you need funds for a personal expense, a home, your business, or a
-           short-term requirement, the right loan should fit your needs, repayment
-           capacity, and overall financial situation. Compare your options carefully,
-           understand the costs and terms, and if you hold eligible mutual funds,
-           consider a Loan Against Mutual Funds when accessing liquidity without
-           immediately redeeming your investments makes sense.
+            Whether you need funds for a personal expense, a home, your business, or a
+            short-term requirement, the right loan should fit your needs, repayment
+            capacity, and overall financial situation. Compare your options carefully,
+            understand the costs and terms, and if you hold eligible mutual funds,
+            consider a Loan Against Mutual Funds when accessing liquidity without
+            immediately redeeming your investments makes sense.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -258,35 +258,35 @@ export default function Loan() {
 
       {/* CTA after intro overview */}
       {/* CTA after intro overview */}
-<section className="px-4 sm:px-6 lg:px-8 py-8">
-  <div className="max-w-4xl mx-auto text-center">
-    <h3 className="text-white font-semibold text-xl mb-3">
-      Need help choosing the right loan?
-    </h3>
+      <section className="px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-white font-semibold text-xl mb-3">
+            Need help choosing the right loan?
+          </h3>
 
-    <p className="text-white/70 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-5">
-      Share your requirement and we’ll help you understand the available loan
-      options, key terms and what to consider before you proceed.
-    </p>
+          <p className="text-white/70 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-5">
+            Share your requirement and we’ll help you understand the available loan
+            options, key terms and what to consider before you proceed.
+          </p>
 
-    <a
-      href="/lets-talk"
-      className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-stockstrail-green-accent rounded-full text-stockstrail-green-accent font-semibold hover:bg-stockstrail-green-accent hover:text-black transition-colors"
-   >
-      Get Personalised Loan Guidance
-    </a>
+          <a
+            href="/lets-talk"
+            className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-stockstrail-green-accent rounded-full text-stockstrail-green-accent font-semibold hover:bg-stockstrail-green-accent hover:text-black transition-colors"
+          >
+            Get Personalised Loan Guidance
+          </a>
 
-    <p className="text-white/50 text-sm mt-4">
-      Prefer to discuss your situation first?{" "}
-      <a
-        href="/lets-talk"
-        className="text-stockstrail-green-light hover:underline"
-      >
-        Talk to Stockstrail.
-      </a>
-    </p>
-  </div>
-</section>
+          <p className="text-white/50 text-sm mt-4">
+            Prefer to discuss your situation first?{" "}
+            <a
+              href="/lets-talk"
+              className="text-stockstrail-green-light hover:underline"
+            >
+              Talk to Stockstrail.
+            </a>
+          </p>
+        </div>
+      </section>
 
       {/* LAMF SECTION */}
       <section id="lamf" className="relative scroll-mt-24 px-4 sm:px-6 lg:px-8 py-10 bg-stockstrail-bg-light/20">
@@ -337,14 +337,23 @@ export default function Loan() {
               </li>
             </ul>
 
-            <a
-              href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-3 rounded-lg bg-stockstrail-green-accent px-6 py-3 font-medium text-black transition-all duration-200 hover:-translate-y-0.5 hover:bg-stockstrail-green-light hover:shadow-lg"
-            >
-              Explore LAMF Options
-            </a>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href="/lets-talk"
+                className="inline-flex items-center gap-2 rounded-full bg-stockstrail-green-light px-6 py-3 font-bold text-xs sm:text-sm text-black transition-all duration-200 hover:scale-105 hover:bg-white shadow-[0_0_15px_rgba(0,255,151,0.3)]"
+              >
+                <span>Check Your LAMF Limit (Free)</span>
+                <span>→</span>
+              </a>
+              <a
+                href="https://wa.me/919736304663?text=Hi%20Vikrant,%20I%20want%20to%20know%20about%20Loan%20Against%20Mutual%20Funds%20(LAMF)."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/20 px-5 py-3 font-semibold text-xs sm:text-sm text-white hover:bg-white/10"
+              >
+                <span>Ask on WhatsApp</span>
+              </a>
+            </div>
 
             <h4 className="text-white font-semibold mt-6 mb-2">
               How LAMF Works
@@ -493,16 +502,31 @@ export default function Loan() {
 
       {/* Mid-page CTA */}
       <section className="px-4 sm:px-6 lg:px-8 py-10">
-        <div className="max-w-6xl mx-auto text-center">
-          <a
-            href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-stockstrail-green-accent/5 border-2 border-stockstrail-green-accent/20 rounded-full text-white hover:border-stockstrail-green-light hover:text-stockstrail-bg hover:bg-stockstrail-green-accent transition-all duration-300 font-work-sans font-medium"
-          >
-            <div className="w-3 h-3 bg-stockstrail-green-accent rounded-full" />
-            Check Loan Options & Start Application
-          </a>
+        <div className="max-w-4xl mx-auto p-6 sm:p-8 rounded-3xl bg-[#021f1c] border border-stockstrail-green-light/30 text-center space-y-4 shadow-xl">
+          <h3 className="text-xl sm:text-2xl font-bold text-white font-product-sans">
+            Need urgent liquidity without triggering capital gains taxes?
+          </h3>
+          <p className="text-white/75 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-work-sans">
+            A Loan Against Mutual Funds (LAMF) lets you pledge your existing portfolio at low interest rates within 24 hours. Your monthly SIPs keep growing undisturbed.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <a
+              href="/lets-talk"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-stockstrail-green-light text-black text-xs sm:text-sm font-bold hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,255,151,0.35)]"
+            >
+              <span>Get Free Loan &amp; LAMF Guidance</span>
+              <span>→</span>
+            </a>
+            <a
+              href="https://flow.assetplus.in/client_onboarding/?advisor=659a79c11af778e82872513a"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/20 text-white text-xs sm:text-sm font-semibold hover:bg-white/10 transition-all"
+            >
+              <span>Digital Portal</span>
+              <span>→</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -598,7 +622,7 @@ export default function Loan() {
         </div>
       </section>
 
-       {/* WHY STOCKSTRAIL */}
+      {/* WHY STOCKSTRAIL */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-semibold gradient-text mb-4 text-center">
@@ -707,7 +731,7 @@ export default function Loan() {
         </div>
       </section>
 
-      
+
 
       {/* FINAL CTA */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">
@@ -729,7 +753,7 @@ export default function Loan() {
         </div>
       </section>
 
-{/* LOAN FAQ */}
+      {/* LOAN FAQ */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-12 bg-stockstrail-bg-light/20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-semibold gradient-text mb-4 text-center">

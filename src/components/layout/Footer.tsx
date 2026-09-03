@@ -1,8 +1,8 @@
+import React from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { ArrowRight, Facebook, Linkedin, Instagram, Send } from 'lucide-react';
+import { ArrowRight, Facebook, Linkedin, Instagram, Send, Phone, Mail, MapPin, ShieldCheck } from 'lucide-react';
 
-// Dynamically import BackToTopButton to reduce initial bundle
 const BackToTopButton = dynamic(() => import('./BackToTopButton'), {
   loading: () => null
 });
@@ -55,170 +55,247 @@ const StockstrailLogo = () => (
       </defs>
     </svg>
     <div className="flex items-baseline">
-      <span className="text-white font-product-sans text-[28px] font-bold">Stocks</span>
-      <span className="text-white font-product-sans text-[28px] font-normal">trail</span>
+      <span className="text-white font-product-sans text-[26px] font-bold">Stocks</span>
+      <span className="text-white font-product-sans text-[26px] font-normal">trail</span>
     </div>
   </div>
 );
 
-const FooterSection = ({
-  title,
-  children,
-  className = ""
-}: {
-  title: string;
-  children: React.ReactNode;
-  className?: string;
-}) => (
-  <div className={`flex flex-col gap-4 ${className}`}>
-    <p className="text-white font-montserrat font-semibold text-lg uppercase tracking-wider">
-      {title}
-    </p>
-    <div className="flex flex-col gap-4">
-      {children}
-    </div>
-  </div>
-);
-
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-black/75 py-16 px-4 sm:px-6 lg:px-8 w-full defer-render">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16">
-          {/* Our Service */}
-          <FooterSection title="Our Service">
-            <div className="space-y-4">
-              <p className="text-white font-montserrat text-base leading-relaxed max-w-none">
-                Mon-Fri 7 a.m. to 10 p.m. Sat. and Sun. 8 a.m. to 6 p.m.
-              </p>
-              <p className="text-white font-montserrat text-base">
-                Financial advice Monday to Friday, 8 a.m. to 6 p.m.
-              </p>
-              <div className="flex flex-col gap-2">
-                <a href="tel:+919736304663" aria-label="Call Stockstrail at +91 97363-04663" className="text-white font-montserrat text-base hover:text-stockstrail-green-light transition-colors duration-300 underline inline-flex items-center min-h-[44px]">
-                  +91 97363-04663
-                </a>
-                <a href="mailto:connect@stockstrail.in" aria-label="Email Stockstrail at connect@stockstrail.in" className="text-white font-montserrat text-base hover:text-stockstrail-green-light transition-colors duration-300 underline inline-flex items-center min-h-[44px]">
+    <footer className="bg-[#011413] border-t border-white/10 pt-16 pb-12 px-4 sm:px-6 lg:px-8 w-full text-white/80">
+      <div className="max-w-7xl mx-auto space-y-12">
+        
+        {/* TOP MAIN 4 COLUMNS */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
+          
+          {/* COLUMN 1: BRAND & CREDENTIALS (4 COLS) */}
+          <div className="lg:col-span-4 space-y-5">
+            <Link href="/" className="inline-block hover:opacity-90 transition-opacity">
+              <StockstrailLogo />
+            </Link>
+
+            <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
+              Personalized financial planning and wealth guidance for Indian families and global NRIs. Transparent, unbiased advice focused on your family milestones.
+            </p>
+
+            {/* Regulatory Badge */}
+            <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-1.5 text-xs">
+              <div className="flex items-center gap-2 text-stockstrail-green-light font-bold">
+                <ShieldCheck className="w-4 h-4" />
+                <span>AMFI Registered Distributor</span>
+              </div>
+              <div className="text-white/80 font-mono text-[11px]">
+                ARN-284122 · NISM Series V-A Certified
+              </div>
+              <div className="text-white/50 text-[10px]">
+                Founder &amp; Principal Advisor: Vikrant Bhardwaj
+              </div>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="flex items-center gap-3 pt-1">
+              <a
+                href="https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Stockstrail on Facebook"
+                className="w-8 h-8 rounded-full bg-white/5 hover:bg-stockstrail-green-light hover:text-black flex items-center justify-center text-white/70 transition-all"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/stockstrail/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Stockstrail on LinkedIn"
+                className="w-8 h-8 rounded-full bg-white/5 hover:bg-stockstrail-green-light hover:text-black flex items-center justify-center text-white/70 transition-all"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.instagram.com/stockstrail/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Stockstrail on Instagram"
+                className="w-8 h-8 rounded-full bg-white/5 hover:bg-stockstrail-green-light hover:text-black flex items-center justify-center text-white/70 transition-all"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://t.me/stockstrail"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Stockstrail on Telegram"
+                className="w-8 h-8 rounded-full bg-white/5 hover:bg-stockstrail-green-light hover:text-black flex items-center justify-center text-white/70 transition-all"
+              >
+                <Send className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* COLUMN 2: FINANCIAL SERVICES (3 COLS) */}
+          <div className="lg:col-span-3 space-y-4">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-stockstrail-green-light">
+              Financial Solutions
+            </h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm">
+              <li>
+                <Link href="/mutual-funds" className="hover:text-stockstrail-green-light transition-colors">
+                  Mutual Funds SIP &amp; Lumpsum
+                </Link>
+              </li>
+              <li>
+                <Link href="/fixed-deposit" className="hover:text-stockstrail-green-light transition-colors">
+                  Fixed Deposits (FD) Advisory
+                </Link>
+              </li>
+              <li>
+                <Link href="/insurance" className="hover:text-stockstrail-green-light transition-colors">
+                  Term &amp; Health Insurance
+                </Link>
+              </li>
+              <li>
+                <Link href="/loan" className="hover:text-stockstrail-green-light transition-colors">
+                  Loan Against Mutual Funds (LAMF)
+                </Link>
+              </li>
+              <li>
+                <Link href="/open-demat" className="hover:text-stockstrail-green-light transition-colors">
+                  Demat &amp; Trading Account
+                </Link>
+              </li>
+              <li>
+                <Link href="/financial-protection" className="hover:text-stockstrail-green-light transition-colors">
+                  Comprehensive Wealth Protection
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* COLUMN 3: PLANNING TOOLS & KNOWLEDGE (2 COLS) */}
+          <div className="lg:col-span-2 space-y-4">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-stockstrail-green-light">
+              Tools &amp; Learning
+            </h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm">
+              <li>
+                <Link href="/check-risk-profile" className="hover:text-stockstrail-green-light transition-colors flex items-center gap-1.5 font-medium text-emerald-300">
+                  <span className="w-1.5 h-1.5 rounded-full bg-stockstrail-green-light" />
+                  Free Risk Score Quiz
+                </Link>
+              </li>
+              <li>
+                <Link href="/calculators/sip" className="hover:text-stockstrail-green-light transition-colors">
+                  SIP Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/calculators/lumpsum" className="hover:text-stockstrail-green-light transition-colors">
+                  Lumpsum Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/calculators/fd" className="hover:text-stockstrail-green-light transition-colors">
+                  FD Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="hover:text-stockstrail-green-light transition-colors">
+                  Financial Insights Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/learning" className="hover:text-stockstrail-green-light transition-colors">
+                  Stockstrail Academy
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* COLUMN 4: DIRECT CONTACT & OFFICE (3 COLS) */}
+          <div className="lg:col-span-3 space-y-4">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-stockstrail-green-light">
+              Connect With Us
+            </h3>
+            <div className="space-y-3 text-xs sm:text-sm">
+              <div className="flex items-start gap-2.5">
+                <Phone className="w-4 h-4 text-stockstrail-green-light shrink-0 mt-0.5" />
+                <div>
+                  <a href="tel:+919736304663" className="hover:text-stockstrail-green-light font-semibold text-white block">
+                    +91 97363-04663
+                  </a>
+                  <span className="text-[11px] text-white/50">Mon–Sat 9:00 AM – 8:00 PM IST</span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-2.5">
+                <Mail className="w-4 h-4 text-stockstrail-green-light shrink-0 mt-0.5" />
+                <a href="mailto:connect@stockstrail.in" className="hover:text-stockstrail-green-light text-white break-all">
                   connect@stockstrail.in
                 </a>
               </div>
-              <Link href="/lets-talk" aria-label="Get in touch with Stockstrail advisors" className="flex items-center gap-4 cursor-pointer group hover:text-stockstrail-green-light transition-colors duration-300 min-h-[44px]">
-                <span className="text-white font-montserrat text-base group-hover:text-stockstrail-green-light transition-colors duration-300">
-                  Get in touch with us
-                </span>
-                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 group-hover:text-stockstrail-green-light transition-all duration-300" />
-              </Link>
-            </div>
-          </FooterSection>
 
-          {/* Important Link */}
-          <FooterSection title="Important Link">
-            <div className="space-y-2">
-              <Link href="/services" aria-label="View all financial services" className="flex items-center min-h-[44px] text-white font-work-sans text-base hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300">
-                Services
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-stockstrail-green-light shrink-0 mt-0.5" />
+                <span className="text-[11px] text-white/70 leading-relaxed">
+                  Mata, Chintapurni Rd, near Punjab &amp; Sind Bank, Moien, Chintpurni, Himachal Pradesh 177110
+                </span>
+              </div>
+
+              <div className="pt-2">
+                <Link
+                  href="/lets-talk"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-stockstrail-green-light text-black text-xs font-bold hover:bg-white transition-all shadow-[0_0_15px_rgba(0,255,151,0.2)]"
+                >
+                  <span>Book Free Strategy Call</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* STATUTORY REGULATORY & COMPLIANCE STRIP */}
+        <div className="pt-8 border-t border-white/10 space-y-4 text-xs text-white/60">
+          <div className="p-4 rounded-2xl bg-black/40 border border-white/5 space-y-2">
+            <p className="font-semibold text-white/80">
+              Regulatory Disclosures &amp; Statutory Risk Notice:
+            </p>
+            <p className="text-[11px] text-white/60 leading-relaxed">
+              <strong>Stockstrail</strong> is an AMFI-Registered Mutual Fund Distributor (ARN-284122). We distribute mutual funds and financial products and receive standard commissions from Asset Management Companies (AMCs) as disclosed in our commission schedule. Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not indicative of future returns.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 text-[11px]">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+              <Link href="/about" className="hover:text-stockstrail-green-light transition-colors">
+                About Stockstrail
               </Link>
-              <Link href="/about" aria-label="Learn about Stockstrail" className="flex items-center min-h-[44px] text-white font-work-sans text-base hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300">
-                About Us
-              </Link>
-              <Link href="/blog" aria-label="Read Stockstrail financial blog" className="flex items-center min-h-[44px] text-white font-work-sans text-base hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300">
-                Blog
-              </Link>
-              <Link href="/calculators" aria-label="Use financial calculators" className="flex items-center min-h-[44px] text-white font-work-sans text-base hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300">
-                Calculators
-              </Link>
-              <Link href="/commission-disclosure" aria-label="View commission disclosure details" className="flex items-center min-h-[44px] text-white font-work-sans text-base hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300">
+              <Link href="/commission-disclosure" className="hover:text-stockstrail-green-light transition-colors">
                 Commission Disclosure
               </Link>
-            </div>
-          </FooterSection>
-
-          {/* Download */}
-          <FooterSection title="Download">
-            <div className="space-y-4">
-              <a href="/CoC/revisedcoc.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download Code of Conduct PDF document" className="flex items-center gap-4 cursor-pointer group hover:text-stockstrail-green-light transition-colors duration-300 min-h-[44px]">
-                <span className="text-white font-montserrat text-base group-hover:text-stockstrail-green-light transition-colors duration-300">
-                  Code of Conduct
-                </span>
-                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 group-hover:text-stockstrail-green-light transition-all duration-300" />
+              <a href="/CoC/revisedcoc.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-stockstrail-green-light transition-colors">
+                Code of Conduct
               </a>
-            </div>
-          </FooterSection>
-
-          {/* Holidays Calendar */}
-          <FooterSection title="Holidays Calendar">
-            <div className="space-y-3">
-              <Link href="/nse-holidays" aria-label="View NSE Holiday List 2026" className="block text-white hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300 group cursor-pointer">
-                <div className="flex items-center justify-between gap-4 p-3 rounded-md hover:bg-white/5 transition-colors duration-200 min-h-[44px]">
-                  <div>
-                    <div className="text-white font-montserrat text-base group-hover:text-stockstrail-green-light">
-                      NSE Holiday List 2026
-                    </div>
-                    <div className="text-white/70 text-xs mt-1 max-w-[220px]">
-                        Republic Day - Jan 26, 2026 · Holi - Mar 03, 2026 · Good Friday - Apr 03, 2026
-                    </div>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-white group-hover:text-stockstrail-green-light group-hover:translate-x-1 transition-all" />
-                </div>
+              <Link href="/terms-and-conditions" className="hover:text-stockstrail-green-light transition-colors">
+                Terms &amp; Conditions
               </Link>
-
-              <Link href="/bse-holidays" aria-label="View BSE Holiday List 2026" className="block text-white hover:text-stockstrail-green-light hover:translate-x-2 transition-all duration-300 group cursor-pointer">
-                <div className="flex items-center justify-between gap-4 p-3 rounded-md hover:bg-white/5 transition-colors duration-200 min-h-[44px]">
-                  <div>
-                    <div className="text-white font-montserrat text-base group-hover:text-stockstrail-green-light">
-                      BSE Holiday List 2026
-                    </div>
-                    <div className="text-white/70 text-xs mt-1 max-w-[220px]">
-                      Republic Day - Jan 26, 2026 · Holi - Mar 03, 2026 · Christmas - Dec 25, 2026
-                    </div>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-white group-hover:text-stockstrail-green-light group-hover:translate-x-1 transition-all" />
-                </div>
+              <Link href="/nse-holidays" className="hover:text-stockstrail-green-light transition-colors">
+                Market Holidays
               </Link>
             </div>
-          </FooterSection>
-        </div>
 
-        {/* Back to top fixed button */}
-        <BackToTopButton />
-
-        {/* Social Media Links with >= 44px touch targets */}
-        <div className="flex justify-center items-center gap-4 sm:gap-6 mb-12 mt-20">
-          <a href="https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/" target="_blank" rel="noopener noreferrer" aria-label="Visit Stockstrail on Facebook" className="min-w-[48px] min-h-[48px] flex items-center justify-center p-3 rounded-full text-white hover:text-stockstrail-green-light hover:scale-125 transition-all duration-300">
-            <Facebook className="w-6 h-6" />
-          </a>
-          <a href="https://www.linkedin.com/company/stockstrail/" target="_blank" rel="noopener noreferrer" aria-label="Visit Stockstrail on LinkedIn" className="min-w-[48px] min-h-[48px] flex items-center justify-center p-3 rounded-full text-white hover:text-stockstrail-green-light hover:scale-125 transition-all duration-300">
-            <Linkedin className="w-6 h-6" />
-          </a>
-          <a href="https://www.instagram.com/stockstrail/" target="_blank" rel="noopener noreferrer" aria-label="Visit Stockstrail on Instagram" className="min-w-[48px] min-h-[48px] flex items-center justify-center p-3 rounded-full text-white hover:text-stockstrail-green-light hover:scale-125 transition-all duration-300">
-            <Instagram className="w-6 h-6" />
-          </a>
-          <a href="https://t.me/stockstrail" target="_blank" rel="noopener noreferrer" aria-label="Join Stockstrail on Telegram" className="min-w-[48px] min-h-[48px] flex items-center justify-center p-3 rounded-full text-white hover:text-stockstrail-green-light hover:scale-125 transition-all duration-300">
-            <Send className="w-6 h-6" />
-          </a>
-        </div>
-
-        {/* Divider */}
-        <div className="w-full h-px bg-white/50 mb-8"></div>
-
-        {/* Bottom Links and Copyright */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <Link href="/terms-and-conditions" target="_blank" className="min-h-[44px] inline-flex items-center text-white hover:text-stockstrail-green-light font-montserrat text-xs leading-relaxed transition-colors duration-300">
-            Terms and Conditions & Cancellation Policy
-          </Link>
-          <p className="text-white font-montserrat text-xs leading-relaxed">
-            © 2026 Stockstrail. All Rights Reserved.
-          </p>
-        </div>
-
-        {/* Logo at bottom */}
-        <div className="flex justify-center mt-12">
-          <div className="hover:scale-105 transition-transform duration-300">
-            <StockstrailLogo />
+            <p className="text-white/40">
+              © 2026 Stockstrail. All Rights Reserved.
+            </p>
           </div>
         </div>
+
       </div>
+
+      <BackToTopButton />
     </footer>
   );
-};
-
-export default Footer;
+}

@@ -185,13 +185,23 @@ export function AdminQueriesContent({ queries }: AdminQueriesContentProps) {
                             </a>
                           </td>
                           <td className="py-3 px-4 text-white/80 text-sm">
-                            <a
-                              href={`tel:${query.phone}`}
-                              className="text-stockstrail-green-light hover:underline flex items-center gap-1"
-                            >
-                              <Phone className="w-3 h-3" />
-                              {query.phone}
-                            </a>
+                            <div className="flex items-center gap-2">
+                              <a
+                                href={`tel:${query.phone}`}
+                                className="text-stockstrail-green-light hover:underline flex items-center gap-1"
+                              >
+                                <Phone className="w-3 h-3" />
+                                {query.phone}
+                              </a>
+                              <a
+                                href={`https://wa.me/91${query.phone.replace(/\D/g, '')}?text=Hi%20${encodeURIComponent(query.name)},%20this%20is%20Vikrant%20from%20Stockstrail%20following%20up%20on%20your%20${encodeURIComponent(query.service)}%20enquiry.`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-800 text-[10px] font-bold"
+                              >
+                                WhatsApp
+                              </a>
+                            </div>
                           </td>
                           <td className="py-3 px-4">
                             <span
@@ -255,13 +265,23 @@ export function AdminQueriesContent({ queries }: AdminQueriesContentProps) {
                               <Mail className="w-3 h-3 flex-shrink-0" />
                               {query.email}
                             </a>
-                            <a
-                              href={`tel:${query.phone}`}
-                              className="text-stockstrail-green-light hover:underline text-xs flex items-center gap-1"
-                            >
-                              <Phone className="w-3 h-3 flex-shrink-0" />
-                              {query.phone}
-                            </a>
+                            <div className="flex items-center gap-2 pt-0.5">
+                              <a
+                                href={`tel:${query.phone}`}
+                                className="text-stockstrail-green-light hover:underline text-xs flex items-center gap-1"
+                              >
+                                <Phone className="w-3 h-3 flex-shrink-0" />
+                                {query.phone}
+                              </a>
+                              <a
+                                href={`https://wa.me/91${query.phone.replace(/\D/g, '')}?text=Hi%20${encodeURIComponent(query.name)},%20this%20is%20Vikrant%20from%20Stockstrail%20following%20up%20on%20your%20${encodeURIComponent(query.service)}%20enquiry.`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold"
+                              >
+                                WhatsApp
+                              </a>
+                            </div>
                           </div>
                         </div>
                         <div className="flex gap-1">

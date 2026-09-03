@@ -1,284 +1,268 @@
+import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Layout from "@/components/layout/Layout";
+import Layout from '@/components/layout/Layout';
+import JsonLd from '@/components/common/JsonLd';
+import MarketHolidaysHub from '@/components/holidays/MarketHolidaysHub';
+import MarketHolidaysFAQ from '@/components/holidays/MarketHolidaysFAQ';
+import { HOLIDAY_FAQS_DATA } from '@/lib/holidays/data';
+import { ChevronRight, Calendar, Sparkles, Building2, Layers } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'BSE Holiday List 2026 | Stockstrail',
+  title: 'BSE & NSE Holiday Calendar 2026 - Bombay Stock Exchange Holidays | Stockstrail',
   description:
-    'Complete list of official BSE trading holidays for 2026 including national, festival, and weekend holidays across Equity, Equity Derivatives, SLB, Commodity Derivatives, and EGR segments.',
+    'Official BSE & NSE Holiday Calendar for 2026. Complete calendar of Bombay Stock Exchange trading holidays across Equities, Derivatives, Commodity split sessions, and Muhurat Trading.',
+  keywords: [
+    'bse holiday calendar 2026',
+    'nse holiday calendar 2026',
+    'bse holiday list 2026',
+    'nse holiday list 2026',
+    'is today stock market holiday',
+    'is today trading holiday in India',
+    'is today working day in stock market',
+    'share market holiday today',
+    'is share market open today',
+    'bombay stock exchange holidays',
+    'market holidays in september 2026',
+    'september holidays 2026',
+    '7 september 2026 day',
+    'central government holidays 2026',
+    'muhurat trading 2026 bse',
+    'mcx holiday list 2026'
+  ],
   alternates: {
     canonical: 'https://www.stockstrail.in/bse-holidays',
   },
   openGraph: {
-    title: 'BSE Holiday List 2026 | Stockstrail',
+    title: 'BSE & NSE Holiday Calendar 2026 | Stockstrail',
     description:
-      'Complete list of official BSE trading holidays for 2026 including national, festival, and weekend holidays.',
+      'Official Bombay Stock Exchange (BSE) & NSE trading holidays for 2026 across all market segments.',
     url: 'https://www.stockstrail.in/bse-holidays',
     siteName: 'Stockstrail',
     locale: 'en_IN',
-    type: 'website',
+    type: 'article',
     images: [
       {
         url: '/og-stockstrail.png',
         width: 1100,
         height: 630,
-        alt: 'BSE Holidays 2026 Stockstrail',
+        alt: 'BSE & NSE Holiday Calendar 2026',
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "BSE Holiday List 2026 | Stockstrail",
-    description: "Complete list of official BSE trading holidays for 2026 across all segments.",
-    images: ["/og-stockstrail.png"],
+    card: 'summary_large_image',
+    title: 'BSE & NSE Holiday Calendar 2026 | Stockstrail',
+    description:
+      'Official trading holidays for the Bombay Stock Exchange (BSE) and National Stock Exchange (NSE) for 2026.',
+    images: ['/og-stockstrail.png'],
   },
+};
+
+// 1. FAQ Schema for Google Rich Snippets & AEO Answer Engines
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: HOLIDAY_FAQS_DATA.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+// 2. Structured Dataset Schema for Generative AI (GEO)
+const datasetJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  name: 'BSE and NSE Trading Holidays Calendar 2026',
+  description:
+    'Official list of 15 trading holidays, 4 weekend festivals, and Muhurat Trading session schedule for Bombay Stock Exchange in 2026.',
+  url: 'https://www.stockstrail.in/bse-holidays',
+  keywords: [
+    'BSE holidays 2026',
+    'NSE holidays 2026',
+    'Stock market trading calendar 2026',
+    'Bombay Stock Exchange holidays',
+  ],
+  creator: {
+    '@type': 'Organization',
+    name: 'Stockstrail',
+    url: 'https://www.stockstrail.in',
+  },
+  temporalCoverage: '2026-01-01/2026-12-31',
+  spatialCoverage: {
+    '@type': 'Place',
+    name: 'India',
+  },
+};
+
+// 3. Breadcrumb Schema
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://www.stockstrail.in',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Market Resources',
+      item: 'https://www.stockstrail.in/services',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'BSE & NSE Holiday Calendar 2026',
+      item: 'https://www.stockstrail.in/bse-holidays',
+    },
+  ],
 };
 
 export default function BseHolidays() {
   return (
     <Layout>
-      <div className="pt-20 pb-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto text-white font-work-sans">
+      <JsonLd data={faqJsonLd} />
+      <JsonLd data={datasetJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
+
+      <section className="px-4 sm:px-6 lg:px-8 pt-28 pb-24 min-h-screen bg-[#010e0d] text-slate-100">
+        <div className="max-w-5xl mx-auto space-y-12">
           
-          <h1 className="text-4xl sm:text-5xl font-normal text-center mb-8 gradient-text font-product-sans uppercase">
-            BSE Holiday List 2026
-          </h1>
-          <p className="text-white/80 mb-5 leading-relaxed">
-            <strong>BSE Holiday List 2026 on Stockstrail</strong> is your complete, authoritative reference for every trading holiday observed by the Bombay Stock Exchange (BSE) this year. Whether you are tracking <Link href="/mutual-funds" className="text-stockstrail-green-light hover:underline font-semibold">Mutual Funds</Link>, managing a <Link href="/open-demat" className="text-stockstrail-green-light hover:underline font-semibold">Demat Account</Link>, checking <Link href="/fixed-deposit" className="text-stockstrail-green-light hover:underline font-semibold">Fixed Deposits (FD)</Link>, reviewing your <Link href="/check-risk-profile" className="text-stockstrail-green-light hover:underline font-semibold">Risk Profile</Link>, planning <Link href="/loan" className="text-stockstrail-green-light hover:underline font-semibold">Loans</Link>, or renewing <Link href="/insurance" className="text-stockstrail-green-light hover:underline font-semibold">Insurance</Link>, knowing BSE market holidays helps you plan your financial moves with precision.
-          </p>
-          <p className="text-white/80 mb-5 leading-relaxed">
-            The <em>BSE Holiday List 2026 powered by Stockstrail</em> covers all segments - Equity, Equity Derivatives, SLB, Commodity Derivatives, and Electronic Gold Receipts (EGR) - so investors and traders across India never miss a critical market date.
-          </p>
-          <p className="text-white/80 mb-5 leading-relaxed">
-            Bookmark BSE Holiday List 2026 | Stockstrail today and share it with your investment circle. Stockstrail is your trusted financial partner - offering guidance on <Link href="/mutual-funds" className="text-stockstrail-green-light hover:underline font-semibold">Mutual Fund investments</Link>, <Link href="/loan" className="text-stockstrail-green-light hover:underline font-semibold">Loan comparisons</Link>, <Link href="/calculators/fd" className="text-stockstrail-green-light hover:underline font-semibold">FD rates & calculator</Link>, <Link href="/check-risk-profile" className="text-stockstrail-green-light hover:underline font-semibold">Risk Profile assessments</Link>, <Link href="/insurance" className="text-stockstrail-green-light hover:underline font-semibold">Insurance plans</Link>, and helping you <Link href="/open-demat" className="text-stockstrail-green-light hover:underline font-semibold">open a Demat Account</Link> seamlessly - all in one place, serving investors pan India.
-          </p>
+          {/* Breadcrumb Navigation */}
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-sm text-slate-400 font-mono">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
+            <Link href="/services" className="hover:text-white transition-colors">Market Resources</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
+            <span className="text-emerald-400 font-semibold">BSE &amp; NSE Holiday Calendar 2026</span>
+          </nav>
 
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">
-            Stockstrail BSE Holiday List 2026 - Equity, Equity Derivatives & SLB Segments
-          </h2>
-          <p className="text-white/80 mb-5 leading-relaxed">
-            The Bombay Stock Exchange (BSE) observes <strong>15 trading holidays</strong> in 2026 across its Equity, Equity Derivatives, and Securities Lending & Borrowing (SLB) segments. Use this table to plan your <strong>Mutual Fund SIP dates</strong>, <strong>Loan EMI schedules</strong>, <strong>FD maturity tracking</strong>, and all investment activities with Stockstrail.
-          </p>
+          {/* H1 Main Page Title */}
+          <header className="space-y-4 text-left border-b border-white/10 pb-6">
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white font-product-sans leading-tight">
+              BSE &amp; NSE Holiday Calendar 2026
+            </h1>
+            <p className="text-base sm:text-lg text-slate-200 max-w-4xl leading-relaxed">
+              Official schedule of trading, settlement, and clearing holidays observed by the <strong>Bombay Stock Exchange (BSE)</strong> and <strong>National Stock Exchange (NSE)</strong> across Equity, Derivatives, Commodity, and Electronic Gold Receipts (EGR) segments for 2026.
+            </p>
+          </header>
 
-          <div className="rounded-lg border border-white/20 p-4 overflow-x-auto mb-8 bg-white/5 shadow-lg">
-            <table className="w-full text-left min-w-[600px]">
-              <thead>
-                <tr>
-                  <th className="text-white font-montserrat text-xs lg:text-sm uppercase pb-3 px-4 border-b border-white/20">Holiday</th>
-                  <th className="text-white font-montserrat text-xs lg:text-sm uppercase pb-3 px-4 border-b border-white/20">Date</th>
-                  <th className="text-white font-montserrat text-xs lg:text-sm uppercase pb-3 px-4 border-b border-white/20">Day</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/5">
-                {[
-                  ["Republic Day", "January 26, 2026", "Monday"],
-                  ["Holi", "March 03, 2026", "Tuesday"],
-                  ["Shri Ram Navami", "March 26, 2026", "Thursday"],
-                  ["Shri Mahavir Jayanti", "March 31, 2026", "Tuesday"],
-                  ["Good Friday", "April 03, 2026", "Friday"],
-                  ["Dr. Baba Saheb Ambedkar Jayanti", "April 14, 2026", "Tuesday"],
-                  ["Maharashtra Day", "May 01, 2026", "Friday"],
-                  ["Bakri Id", "May 28, 2026", "Thursday"],
-                  ["Muharram", "June 26, 2026", "Friday"],
-                  ["Ganesh Chaturthi", "September 14, 2026", "Monday"],
-                  ["Mahatma Gandhi Jayanti", "October 02, 2026", "Friday"],
-                  ["Dussehra", "October 20, 2026", "Tuesday"],
-                  ["Diwali - Balipratipada", "November 10, 2026", "Tuesday"],
-                  ["Prakash Gurpurb Sri Guru Nanak Dev", "November 24, 2026", "Tuesday"],
-                  ["Christmas", "December 25, 2026", "Friday"],
-                ].map(([holiday, date, day]) => (
-                  <tr key={holiday} className="hover:bg-white/3 transition-colors">
-                    <td className="py-3 px-4 text-white font-medium whitespace-normal">{holiday}</td>
-                    <td className="py-3 px-4 text-white/80 whitespace-normal">{date}</td>
-                    <td className="py-3 px-4 text-white/80 whitespace-normal">{day}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          {/* Main Interactive Hub */}
+          <MarketHolidaysHub primaryExchange="BSE" />
 
-          <p className="text-white/80 mb-5 leading-relaxed">
-            Planning to <strong>open a Demat Account</strong>? Or check your <strong>Risk Profile</strong> before your next equity investment? Make sure you check this <strong>BSE Holiday List 2026</strong> from Stockstrail to avoid placing orders on non-trading days - your transactions will simply not execute.
-          </p>
+          {/* Key Highlights & Trading Observations for 2026 (Attractive, Color-Accented Cards) */}
+          <section aria-labelledby="bse-notes-heading" className="p-7 sm:p-9 rounded-2xl bg-[#021817] border border-white/15 space-y-6 text-left shadow-xl">
+            <div className="border-b border-white/10 pb-3">
+              <h2 id="bse-notes-heading" className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                BSE Segment Rules &amp; Operational Observations
+              </h2>
+              <p className="text-sm text-slate-300 pt-1">
+                Detailed segment rules and session timings observed by the Bombay Stock Exchange (BSE).
+              </p>
+            </div>
 
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">
-            Stockstrail - BSE Holidays 2026 Falling on Saturday or Sunday
-          </h2>
-          <p className="text-white/80 mb-5 leading-relaxed">
-            Some important national holidays in 2026 fall on weekends, meaning the BSE market is already closed. These dates do <strong>not</strong> result in an additional weekday off. Stockstrail lists them here so you can plan your <strong>Insurance renewals</strong>, <strong>FD bookings</strong>, and <strong>Mutual Fund investments</strong> without confusion.
-          </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              
+              {/* Card 1: Equities & Derivatives (Emerald) */}
+              <article className="p-6 rounded-2xl bg-gradient-to-br from-[#042823] to-[#021817] border border-emerald-500/30 hover:border-emerald-400/50 transition-all space-y-3 shadow-lg">
+                <div className="flex items-center justify-between">
+                  <span className="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold uppercase tracking-wider">
+                    Core Markets
+                  </span>
+                  <Layers className="w-4 h-4 text-emerald-400" />
+                </div>
+                <h3 className="text-lg font-bold text-emerald-400">
+                  1. Equities, Derivatives &amp; Debt Segments
+                </h3>
+                <div className="text-sm text-slate-200 space-y-2 leading-relaxed">
+                  <p>
+                    On all 15 official trading holidays, BSE equity and derivative order matching is suspended. Normal trading resumes at 09:15 AM on the following business day.
+                  </p>
+                </div>
+              </article>
 
-          <div className="rounded-lg border border-white/20 p-4 overflow-x-auto mb-8 bg-white/5 shadow-lg">
-            <table className="w-full text-left min-w-[600px]">
-              <thead>
-                <tr>
-                  <th className="text-white font-montserrat text-xs lg:text-sm uppercase pb-3 px-4 border-b border-white/20">Holiday</th>
-                  <th className="text-white font-montserrat text-xs lg:text-sm uppercase pb-3 px-4 border-b border-white/20">Date</th>
-                  <th className="text-white font-montserrat text-xs lg:text-sm uppercase pb-3 px-4 border-b border-white/20">Day</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/5">
-                {[
-                  ["Mahashivratri", "February 15, 2026", "Sunday"],
-                  ["Id-Ul-Fitr (Ramadan Eid)", "March 21, 2026", "Saturday"],
-                  ["Independence Day", "August 15, 2026", "Saturday"],
-                  ["Diwali Laxmi Pujan*", "November 08, 2026", "Sunday"],
-                ].map(([holiday, date, day]) => (
-                  <tr key={holiday} className="hover:bg-white/3 transition-colors">
-                    <td className="py-3 px-4 text-white font-medium whitespace-normal">{holiday}</td>
-                    <td className="py-3 px-4 text-white/80 whitespace-normal">{date}</td>
-                    <td className="py-3 px-4 text-white/80 whitespace-normal">{day}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              {/* Card 2: Split Sessions (Amber) */}
+              <article className="p-6 rounded-2xl bg-gradient-to-br from-[#261e06] to-[#021817] border border-amber-500/30 hover:border-amber-400/50 transition-all space-y-3 shadow-lg">
+                <div className="flex items-center justify-between">
+                  <span className="px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold uppercase tracking-wider">
+                    Commodity &amp; Gold
+                  </span>
+                  <Calendar className="w-4 h-4 text-amber-400" />
+                </div>
+                <h3 className="text-lg font-bold text-amber-400">
+                  2. Commodity Derivatives &amp; EGR Split Sessions
+                </h3>
+                <div className="text-sm text-slate-200 space-y-2 leading-relaxed">
+                  <p>
+                    For select holidays (such as Holi, Ram Navami, and Ganesh Chaturthi), the morning session (9 AM - 5 PM) remains closed, while the evening session (5 PM - 11:30 PM) is operational for commodities and electronic gold receipts.
+                  </p>
+                </div>
+              </article>
 
-          <p className="text-amber-400/90 mb-5 font-work-sans leading-relaxed bg-amber-400/10 p-3 rounded border border-amber-400/20">
-            <strong>⚠ Special Note: Muhurat Trading</strong> - BSE will conduct Muhurat Trading on <strong>Sunday, November 08, 2026</strong> (Diwali Laxmi Pujan). This is an auspicious one-hour symbolic trading session. Exact timings will be announced by BSE closer to the date. Stockstrail will update you as soon as timings are confirmed.
-          </p>
+              {/* Card 3: September 2026 (Sky / Cyan) */}
+              <article className="p-6 rounded-2xl bg-gradient-to-br from-[#05232c] to-[#021817] border border-sky-500/30 hover:border-sky-400/50 transition-all space-y-3 shadow-lg">
+                <div className="flex items-center justify-between">
+                  <span className="px-3 py-1 rounded-full bg-sky-500/15 border border-sky-500/30 text-sky-400 text-xs font-mono font-bold uppercase tracking-wider">
+                    September Focus
+                  </span>
+                  <Building2 className="w-4 h-4 text-sky-400" />
+                </div>
+                <h3 className="text-lg font-bold text-sky-400">
+                  3. September 2026 BSE Trading Status
+                </h3>
+                <div className="text-sm text-slate-200 space-y-2 leading-relaxed">
+                  <p>
+                    <strong>Ganesh Chaturthi (Sept 14, 2026):</strong> Full day closure for BSE equity and derivatives.
+                  </p>
+                  <p>
+                    <strong>September 7, 2026:</strong> Regular trading day with standard hours (09:15 AM – 03:30 PM IST).
+                  </p>
+                </div>
+              </article>
 
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">
-            BSE Market Timings 2026 - Stockstrail Reference Guide
-          </h2>
-          <p className="text-white/80 mb-5 leading-relaxed">
-            Knowing <strong>BSE market timings</strong> is as important as knowing holidays. Whether you're placing a <strong>Mutual Fund order</strong>, checking your <strong>Demat Account</strong> portfolio, or tracking <strong>Loan disbursals tied to market rates</strong>, Stockstrail keeps you informed about every session.
-          </p>
+              {/* Card 4: Muhurat Trading (Violet / Purple) */}
+              <article className="p-6 rounded-2xl bg-gradient-to-br from-[#1e0e2d] to-[#021817] border border-purple-500/30 hover:border-purple-400/50 transition-all space-y-3 shadow-lg">
+                <div className="flex items-center justify-between">
+                  <span className="px-3 py-1 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-400 text-xs font-mono font-bold uppercase tracking-wider">
+                    Diwali 2026
+                  </span>
+                  <Sparkles className="w-4 h-4 text-purple-400" />
+                </div>
+                <h3 className="text-lg font-bold text-purple-400">
+                  4. BSE Muhurat Trading 2026
+                </h3>
+                <div className="text-sm text-slate-200 space-y-2 leading-relaxed">
+                  <p>
+                    Special 1-hour Diwali Muhurat Trading session will be conducted on <strong>Sunday, November 08, 2026 (Diwali Laxmi Pujan)</strong> in the evening.
+                  </p>
+                </div>
+              </article>
 
-          <h3 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Pre-Open Session</h3>
-          <p className="text-white/80 mb-5 leading-relaxed">Order entry and modification: <strong>09:00 AM to 09:15 AM</strong></p>
+            </div>
+          </section>
 
-          <h3 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Regular Trading Session</h3>
-          <p className="text-white/80 mb-5 leading-relaxed"><strong>Market Open: 09:15 AM</strong> | <strong>Market Close: 03:30 PM</strong></p>
+          {/* FAQ Component */}
+          <MarketHolidaysFAQ />
 
-          <h3 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Block Deal Sessions</h3>
-          <p className="text-white/80 mb-5 leading-relaxed"><strong>Morning Window:</strong> 08:45 AM to 09:00 AM<br /><strong>Afternoon Window:</strong> 02:05 PM to 02:20 PM</p>
-
-          <h3 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">Closing Session</h3>
-          <p className="text-white/80 mb-5 leading-relaxed"><strong>03:40 PM to 04:00 PM</strong></p>
-
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">
-            BSE Holidays 2026 - Commodity Derivatives & EGR Segment | Stockstrail
-          </h2>
-          <p className="text-white/80 mb-5 leading-relaxed">
-            The Commodity Derivatives and Electronic Gold Receipts (EGR) segment operates on a split-session schedule - <strong>Morning (9 AM - 5 PM)</strong> and <strong>Evening (5 PM - 11:30/11:55 PM)</strong>. Some holidays close only one session while the other remains open. Stockstrail presents the full schedule below.
-          </p>
-
-          <div className="rounded-lg border border-white/20 p-4 overflow-x-auto mb-8 bg-white/5 shadow-lg">
-            <table className="w-full text-left min-w-[600px]">
-              <thead>
-                <tr>
-                  <th className="text-white font-montserrat text-xs lg:text-sm uppercase pb-3 px-4 border-b border-white/20">Date</th>
-                  <th className="text-white font-montserrat text-xs lg:text-sm uppercase pb-3 px-4 border-b border-white/20">Day</th>
-                  <th className="text-white font-montserrat text-xs lg:text-sm uppercase pb-3 px-4 border-b border-white/20">Holiday</th>
-                  <th className="text-white font-montserrat text-xs lg:text-sm uppercase pb-3 px-4 border-b border-white/20">Morning (9 - 5)</th>
-                  <th className="text-white font-montserrat text-xs lg:text-sm uppercase pb-3 px-4 border-b border-white/20">Evening (5 - 11:30/11:55)</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/5">
-                {[
-                  ["January 01, 2026", "Thursday", "New Year's Day", "Open", "Closed"],
-                  ["January 26, 2026", "Monday", "Republic Day", "Closed", "Closed"],
-                  ["March 03, 2026", "Tuesday", "Holi", "Closed", "Open"],
-                  ["March 26, 2026", "Thursday", "Shri Ram Navami", "Closed", "Open"],
-                  ["March 31, 2026", "Tuesday", "Shri Mahavir Jayanti", "Closed", "Open"],
-                  ["April 03, 2026", "Friday", "Good Friday", "Closed", "Closed"],
-                  ["April 14, 2026", "Tuesday", "Dr. Baba Saheb Ambedkar Jayanti", "Closed", "Open"],
-                  ["May 01, 2026", "Friday", "Maharashtra Day", "Closed", "Open"],
-                  ["May 28, 2026", "Thursday", "Bakri Id", "Closed", "Open"],
-                  ["June 26, 2026", "Friday", "Muharram", "Closed", "Open"],
-                  ["September 14, 2026", "Monday", "Ganesh Chaturthi", "Closed", "Open"],
-                  ["October 02, 2026", "Friday", "Mahatma Gandhi Jayanti", "Closed", "Closed"],
-                  ["October 20, 2026", "Tuesday", "Dussehra", "Closed", "Open"],
-                  ["November 10, 2026", "Tuesday", "Diwali Balipratipada", "Closed", "Open"],
-                  ["November 24, 2026", "Tuesday", "Prakash Gurpurb Sri Guru Nanak Dev", "Closed", "Open"],
-                  ["December 25, 2026", "Friday", "Christmas", "Closed", "Closed"],
-                ].map(([date, day, desc, morn, eve]) => (
-                  <tr key={date} className="hover:bg-white/3 transition-colors">
-                    <td className="py-3 px-4 text-white/80 whitespace-normal">{date}</td>
-                    <td className="py-3 px-4 text-white/80 whitespace-normal">{day}</td>
-                    <td className="py-3 px-4 text-white font-medium whitespace-normal">{desc}</td>
-                    <td className="py-3 px-4 text-white/80 whitespace-normal">{morn}</td>
-                    <td className="py-3 px-4 text-white/80 whitespace-normal">{eve}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="text-white/80 mb-5 leading-relaxed">
-            If you hold <strong>Gold ETFs</strong> or trade in <strong>commodity-linked Mutual Funds</strong>, this table is your essential planning reference from Stockstrail.
-          </p>
-
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">
-            Stockstrail in Himachal Pradesh - BSE Holiday 2026 Guide for All 12 Districts
-          </h2>
-          <p className="text-white/80 mb-5 leading-relaxed">
-            Stockstrail is proudly serving investors across all <strong>12 districts of Himachal Pradesh</strong>. Whether you are based in the mountains or the valleys of Himachal, our platform brings you complete <strong>BSE Holiday 2026 information</strong>, <strong>Mutual Fund advisory</strong>, <strong>Loan guidance</strong>, <strong>FD comparisons</strong>, <strong>Insurance plans</strong>, <strong>Risk Profile tools</strong>, and the ability to <strong>open a Demat Account</strong> online - right from your home.
-          </p>
-
-          {/* Additional text segments */}
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">
-            Shimla - Stockstrail Investment Services & BSE Holiday 2026
-          </h2>
-          <p className="text-white/80 mb-5 leading-relaxed">
-            Are you in <strong>Shimla</strong> wondering how to invest wisely during BSE trading holidays? Stockstrail is here. If you're in Shimla and exploring <strong>Mutual Funds</strong>, planning a <strong>Home Loan</strong>, booking an <strong>FD</strong>, checking your <strong>Risk Profile</strong>, or looking to <strong>open a Demat Account</strong>, Stockstrail gives you a one-stop digital platform tailored for Shimla investors. Don't let a BSE holiday catch you off guard - plan your trades using this 2026 holiday list.
-          </p>
-
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">
-            Kangra - BSE Holidays 2026 & Financial Services by Stockstrail
-          </h2>
-          <p className="text-white/80 mb-5 leading-relaxed">
-            Investors in <strong>Kangra</strong> - home to Dharamshala and the Kangra Valley - can access all <strong>BSE Holiday 2026 updates</strong>, <strong>Mutual Fund SIP starters</strong>, <strong>FD interest comparisons</strong>, <strong>Insurance policies</strong>, and <strong>Loan EMI calculators</strong> on Stockstrail. Whether you're near Palampur or Nurpur, Stockstrail's financial services are designed for you.
-          </p>
-
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">
-            Stockstrail - Pan India BSE Holiday 2026 Tracker & Investment Platform
-          </h2>
-          <p className="text-white/80 mb-5 leading-relaxed">
-            While Stockstrail has deep roots in North India, we serve investors <strong>pan India</strong> - from Kashmir to Kanyakumari, Gujarat to Assam. The <strong>BSE Holiday List 2026</strong> matters equally to investors in Mumbai, Bangalore, Chennai, Kolkata, Hyderabad, Pune, Ahmedabad, and every city and town across India.
-          </p>
-          <ul className="list-disc pl-5 mb-6 space-y-2 text-white/80">
-            <li>Complete BSE Holiday 2026 Schedule - Equity, Derivatives, Commodity, and EGR segments</li>
-            <li>Mutual Fund Investment Advisory - SIP planning, lump sum investments, fund comparisons</li>
-            <li>Loan Services - Home Loans, Personal Loans, Business Loans, Education Loans</li>
-            <li>Fixed Deposit (FD) Comparisons - Best FD rates from leading banks and NBFCs</li>
-            <li>Risk Profile Assessment - Understand your risk appetite before investing</li>
-            <li>Insurance Advisory - Life Insurance, Health Insurance, Term Plans, ULIPs</li>
-            <li>Open a Demat Account - Seamless online account opening with zero paperwork</li>
-          </ul>
-
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">
-            Frequently Asked Questions - BSE Holiday 2026 & Stockstrail Services
-          </h2>
-          
-          <h3 className="text-xl font-semibold text-white mt-8 mb-4">Q1. When is the BSE closed in 2026?</h3>
-          <p className="text-white/80 mb-5 leading-relaxed">
-            The BSE observes <strong>15 official trading holidays</strong> in 2026, starting with <strong>Republic Day on January 26</strong> and ending with <strong>Christmas on December 25</strong>. Refer to the complete Stockstrail BSE Holiday List 2026 table above for all dates.
-          </p>
-
-          <h3 className="text-xl font-semibold text-white mt-8 mb-4">Q2. Is BSE open on Diwali 2026?</h3>
-          <p className="text-white/80 mb-5 leading-relaxed">
-            The BSE will be closed on <strong>November 10, 2026 (Diwali - Balipratipada)</strong>. However, <strong>Muhurat Trading</strong> is scheduled on <strong>Sunday, November 08, 2026 (Diwali Laxmi Pujan)</strong>. Timings will be announced by BSE closer to the date. Stockstrail will update you immediately.
-          </p>
-
-          <h2 className="text-2xl font-semibold text-white mt-10 mb-5 border-b border-white/10 pb-2">
-            BSE Holiday List 2026 - Stay Informed, Stay Invested with Stockstrail
-          </h2>
-          <p className="text-white/80 mb-5 leading-relaxed">
-            The <strong>BSE Holiday List 2026</strong> is more than just a calendar - it is an essential tool for every investor planning their financial moves across the year. From <strong>Republic Day in January</strong> to <strong>Christmas in December</strong>, knowing when the markets are closed helps you optimise <strong>SIP dates</strong>, <strong>FD bookings</strong>, <strong>Loan repayments</strong>, and <strong>Demat Account activities</strong>.
-          </p>
-
-          <p className="text-white/80 mb-5 leading-relaxed">
-            <strong>Visit www.stockstrail.in/bse-holidays</strong> for the most up-to-date BSE Holiday 2026 information and to explore all Stockstrail financial services. Your wealth-building journey starts here.
-          </p>
-
-          <blockquote className="border-l-4 border-white/20 pl-4 my-6 text-white/70 italic bg-white/5 p-4 rounded-r-lg">
-            <strong>Disclaimer:</strong> The BSE Holiday List 2026 provided above is based on official BSE announcements and is subject to change. Investors are advised to verify holiday schedules on the official BSE website (www.bseindia.com) before executing critical transactions. Stockstrail does not take responsibility for any trading decisions made based solely on this information. Mutual Fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Loans and FD rates are indicative and subject to lender terms and conditions.
-          </blockquote>
+          {/* Statutory Notice */}
+          <footer className="p-6 rounded-2xl bg-black/50 border border-white/15 text-xs sm:text-sm text-slate-300 leading-relaxed text-left space-y-2">
+            <p>
+              <strong>Official Notice:</strong> The trading holiday schedule on this page is compiled from notifications released by the Bombay Stock Exchange (BSE) and National Stock Exchange of India (NSE). Holiday schedules are subject to revision as notified on <a href="https://www.bseindia.com" target="_blank" rel="noopener noreferrer" className="text-emerald-400 font-semibold hover:underline">bseindia.com</a> and <a href="https://www.nseindia.com" target="_blank" rel="noopener noreferrer" className="text-emerald-400 font-semibold hover:underline">nseindia.com</a>.
+            </p>
+            <p>
+              Stockstrail is an AMFI-Registered Mutual Fund Distributor (ARN-284122) providing disciplined financial planning and advisory services.
+            </p>
+          </footer>
 
         </div>
-      </div>
+      </section>
     </Layout>
   );
 }
