@@ -3,6 +3,9 @@ import { headers } from 'next/headers'
 import { createClient } from '@/lib/supabase/server'
 import { getCategories, getCourses } from '@/lib/learning/supabase-db'
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const mainBaseUrl = 'https://www.stockstrail.in'
   const learningBaseUrl = 'https://www.learning.stockstrail.in'
