@@ -7,7 +7,7 @@ import ServiceGEOSection from "@/components/services/ServiceGEOSection";
 const faqs = [
   {
     question: "How do I open a Demat Account through Stockstrail?",
-    answer: "Visit stockstrail.in/open-demat and select your preferred partner broker (Dhan, Angel One, Alice Blue, or Zerodha). Complete the online KYC — PAN, Aadhaar, bank details, selfie — in under 15 minutes. Stockstrail's team will guide you through account setup and help you on your investment journey."
+    answer: "Visit stockstrail.in/services/open-demat and select your preferred partner broker (Dhan, Angel One, Alice Blue, or Zerodha). Complete the online KYC — PAN, Aadhaar, bank details, selfie — in under 15 minutes. Stockstrail's team will guide you through account setup and help you on your investment journey."
   },
   {
     question: "What documents are required to open a Demat account?",
@@ -34,13 +34,13 @@ export const metadata: Metadata = {
   keywords:
     "demat account, open demat, stock trading, share market, IPO, equity investment, stockstrail, online trading",
   alternates: {
-    canonical: "https://www.stockstrail.in/open-demat",
+    canonical: "https://www.stockstrail.in/services/open-demat",
   },
   openGraph: {
     title: "Open Demat Account - Start Stock Market Investing | Stockstrail",
     description:
       "Open a free Demat account and start investing in stocks, IPOs, and mutual funds. Zero charges, quick KYC, expert support.",
-    url: "https://www.stockstrail.in/open-demat",
+    url: "https://www.stockstrail.in/services/open-demat",
     type: "website",
     locale: "en_IN",
     images: ["/og-stockstrail.png"],

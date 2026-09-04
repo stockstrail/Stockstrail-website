@@ -120,7 +120,7 @@ export default function RDCalculatorSEO() {
         <div className="rounded-xl border border-white/10 bg-white/5 p-5 space-y-2">
           <h3 className="text-lg font-semibold text-white">Systematic Cash-Flow Management</h3>
           <p className="text-white/70 text-sm leading-relaxed">
-            By setting aside a predetermined monthly instalment, investors can plan for upcoming planned expenses. Explore our <Link href="/mutual-funds" className="text-stockstrail-green-light hover:underline">Mutual Funds solutions</Link> for wealth creation.
+            By setting aside a predetermined monthly instalment, investors can plan for upcoming planned expenses. Explore our <Link href="/services/mutual-funds" className="text-stockstrail-green-light hover:underline">Mutual Funds solutions</Link> for wealth creation.
           </p>
         </div>
       </div>

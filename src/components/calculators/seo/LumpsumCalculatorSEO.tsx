@@ -87,7 +87,7 @@ const LumpsumCalculatorSEO: React.FC = () => {
             Invest directly with leading AMCs across flexi-cap, multi-asset, and hybrid portfolios with zero distributor charges.
           </p>
           <Link
-            href="/mutual-funds"
+            href="/services/mutual-funds"
             className="inline-flex items-center gap-1 text-xs font-semibold text-stockstrail-green-light hover:underline pt-1"
           >
             <span>Explore Mutual Fund Solutions →</span>
@@ -100,7 +100,7 @@ const LumpsumCalculatorSEO: React.FC = () => {
             Lock in guaranteed yields up to 9.1% p.a. with AAA-rated corporate fixed deposits from Bajaj Finance, Mahindra, and HDFC.
           </p>
           <Link
-            href="/fixed-deposit"
+            href="/services/fixed-deposit"
             className="inline-flex items-center gap-1 text-xs font-semibold text-stockstrail-green-light hover:underline pt-1"
           >
             <span>Explore High-Yield FDs →</span>

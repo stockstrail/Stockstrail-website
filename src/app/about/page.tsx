@@ -240,15 +240,15 @@ export default function AboutPage() {
           {/* Deeply relatable, human-written hero paragraph with natural service links */}
           <p className="text-white/85 text-base sm:text-lg lg:text-xl font-work-sans leading-relaxed max-w-3xl mx-auto">
             Every rupee you save is meant for your family’s future—your children’s education, a comfortable home, or a peaceful retirement. We help you invest with complete peace of mind: choosing the right{' '}
-            <Link href="/mutual-funds" className="text-stockstrail-green-light font-medium underline decoration-stockstrail-green-light/40 hover:text-white transition-colors">
+            <Link href="/services/mutual-funds" className="text-stockstrail-green-light font-medium underline decoration-stockstrail-green-light/40 hover:text-white transition-colors">
               mutual funds
             </Link>{' '}
             for steady growth, protecting your loved ones with simple{' '}
-            <Link href="/insurance" className="text-stockstrail-green-light font-medium underline decoration-stockstrail-green-light/40 hover:text-white transition-colors">
+            <Link href="/services/insurance" className="text-stockstrail-green-light font-medium underline decoration-stockstrail-green-light/40 hover:text-white transition-colors">
               term insurance
             </Link>
             , and keeping emergency cash safe in high-interest{' '}
-            <Link href="/fixed-deposit" className="text-stockstrail-green-light font-medium underline decoration-stockstrail-green-light/40 hover:text-white transition-colors">
+            <Link href="/services/fixed-deposit" className="text-stockstrail-green-light font-medium underline decoration-stockstrail-green-light/40 hover:text-white transition-colors">
               fixed deposits
             </Link>
             . We listen first, explain everything in simple words, and never push products you don’t need.
@@ -636,15 +636,15 @@ export default function AboutPage() {
 
               <p>
                 Only after understanding your real family needs do we create a simple plan together. We pick good{' '}
-                <Link href="/mutual-funds" className="text-stockstrail-green-light underline decoration-stockstrail-green-light/40 hover:text-white transition-colors">
+                <Link href="/services/mutual-funds" className="text-stockstrail-green-light underline decoration-stockstrail-green-light/40 hover:text-white transition-colors">
                   Mutual Funds
                 </Link>{' '}
                 to grow your wealth, safe{' '}
-                <Link href="/fixed-deposit" className="text-stockstrail-green-light underline decoration-stockstrail-green-light/40 hover:text-white transition-colors">
+                <Link href="/services/fixed-deposit" className="text-stockstrail-green-light underline decoration-stockstrail-green-light/40 hover:text-white transition-colors">
                   Fixed Deposits
                 </Link>{' '}
                 for emergency money, and pure{' '}
-                <Link href="/insurance" className="text-stockstrail-green-light underline decoration-stockstrail-green-light/40 hover:text-white transition-colors">
+                <Link href="/services/insurance" className="text-stockstrail-green-light underline decoration-stockstrail-green-light/40 hover:text-white transition-colors">
                   Term Insurance
                 </Link>{' '}
                 so your family is always protected. And before you invest a single rupee, you can{' '}
@@ -1009,7 +1009,7 @@ export default function AboutPage() {
             
             {/* 1. Mutual Funds */}
             <Link
-              href="/mutual-funds"
+              href="/services/mutual-funds"
               className="p-6 sm:p-7 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-stockstrail-green-light/60 hover:bg-stockstrail-green-light/[0.02] transition-all flex flex-col justify-between group space-y-5"
             >
               <div className="space-y-3">
@@ -1034,7 +1034,7 @@ export default function AboutPage() {
 
             {/* 2. Fixed Deposits */}
             <Link
-              href="/fixed-deposit"
+              href="/services/fixed-deposit"
               className="p-6 sm:p-7 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-stockstrail-green-light/60 hover:bg-stockstrail-green-light/[0.02] transition-all flex flex-col justify-between group space-y-5"
             >
               <div className="space-y-3">
@@ -1059,7 +1059,7 @@ export default function AboutPage() {
 
             {/* 3. Insurance Protection */}
             <Link
-              href="/insurance"
+              href="/services/insurance"
               className="p-6 sm:p-7 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-stockstrail-green-light/60 hover:bg-stockstrail-green-light/[0.02] transition-all flex flex-col justify-between group space-y-5"
             >
               <div className="space-y-3">
@@ -1084,7 +1084,7 @@ export default function AboutPage() {
 
             {/* 4. Loans Against MF */}
             <Link
-              href="/loan"
+              href="/services/loan"
               className="p-6 sm:p-7 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-stockstrail-green-light/60 hover:bg-stockstrail-green-light/[0.02] transition-all flex flex-col justify-between group space-y-5"
             >
               <div className="space-y-3">
@@ -1109,7 +1109,7 @@ export default function AboutPage() {
 
             {/* 5. Paperless Demat */}
             <Link
-              href="/open-demat"
+              href="/services/open-demat"
               className="p-6 sm:p-7 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-stockstrail-green-light/60 hover:bg-stockstrail-green-light/[0.02] transition-all flex flex-col justify-between group space-y-5"
             >
               <div className="space-y-3">
@@ -1218,8 +1218,8 @@ export default function AboutPage() {
                   Relevant Services:
                 </div>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <Link href="/mutual-funds" className="text-stockstrail-green-light hover:underline">Mutual Funds</Link> ·{' '}
-                  <Link href="/open-demat" className="text-stockstrail-green-light hover:underline">Demat Account</Link> ·{' '}
+                  <Link href="/services/mutual-funds" className="text-stockstrail-green-light hover:underline">Mutual Funds</Link> ·{' '}
+                  <Link href="/services/open-demat" className="text-stockstrail-green-light hover:underline">Demat Account</Link> ·{' '}
                   <Link href="/check-risk-profile" className="text-stockstrail-green-light hover:underline">Risk Profile</Link>
                 </div>
               </div>
@@ -1262,8 +1262,8 @@ export default function AboutPage() {
                   Explore Planning:
                 </div>
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <Link href="/fixed-deposit" className="text-stockstrail-green-light hover:underline">Fixed Deposits</Link> ·{' '}
-                  <Link href="/insurance" className="text-stockstrail-green-light hover:underline">Insurance Cover</Link> ·{' '}
+                  <Link href="/services/fixed-deposit" className="text-stockstrail-green-light hover:underline">Fixed Deposits</Link> ·{' '}
+                  <Link href="/services/insurance" className="text-stockstrail-green-light hover:underline">Insurance Cover</Link> ·{' '}
                   <Link href="/lets-talk" className="text-stockstrail-green-light hover:underline">Book Meeting</Link>
                 </div>
               </div>

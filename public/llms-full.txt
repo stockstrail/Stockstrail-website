@@ -17,25 +17,25 @@ Stockstrail is a certified, AMFI-registered mutual fund distributor (ARN-284122)
 ## 2. Core Service Areas
 
 ### A. Mutual Funds & SIP Advisory
-- URL: https://www.stockstrail.in/mutual-funds
+- URL: https://www.stockstrail.in/services/mutual-funds
 - Goal-based mutual fund investments (Equity, Debt, Hybrid, Index, and ELSS Tax-Saving Funds).
 - Tailored monthly Systematic Investment Plans (SIP) and lump-sum investment guidance.
 - Complete portfolio health checks, asset rebalancing, and fund performance monitoring.
 
 ### B. High-Yield Fixed Deposits (FD)
-- URL: https://www.stockstrail.in/fixed-deposit
+- URL: https://www.stockstrail.in/services/fixed-deposit
 - Safe, predictable capital growth via leading bank and AAA-rated corporate fixed deposits.
 - Cumulative and regular interest payout structures (Monthly, Quarterly, Annually).
 - Tax-saving 5-year fixed deposits under Section 80C.
 
 ### C. Life & Health Insurance Protection
-- URL: https://www.stockstrail.in/insurance
+- URL: https://www.stockstrail.in/services/insurance
 - Pure term life insurance ensuring 10–15× annual income replacement.
 - Comprehensive family floater and individual health insurance with zero room rent capping.
 - Guaranteed income plans and traditional savings solutions.
 
 ### D. Loans Against Mutual Funds (LAMF) & Credit
-- URL: https://www.stockstrail.in/loan
+- URL: https://www.stockstrail.in/services/loan
 - Instant liquidity at low interest rates without selling investments or interrupting compounding.
 - Business loans and home loans with end-to-end documentation guidance.
 
@@ -44,7 +44,7 @@ Stockstrail is a certified, AMFI-registered mutual fund distributor (ARN-284122)
 - Interactive 11-point profiling to map risk capacity, investment horizon, and psychological risk tolerance into customized equity-debt allocations.
 
 ### F. Demat & Trading Account Setup
-- URL: https://www.stockstrail.in/open-demat
+- URL: https://www.stockstrail.in/services/open-demat
 - Seamless onboarding with premier Indian brokers (Dhan, Angel One, Alice Blue, Zerodha).
 
 ## 3. Financial Calculators

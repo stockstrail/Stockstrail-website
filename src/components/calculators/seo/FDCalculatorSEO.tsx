@@ -91,7 +91,7 @@ export default function FDCalculatorSEO() {
           Earn higher guaranteed returns than standard savings accounts and traditional bank FDs with ICRA & CRISIL AAA-rated corporate deposits.
         </p>
         <Link
-          href="/fixed-deposit"
+          href="/services/fixed-deposit"
           className="inline-flex items-center gap-1 text-xs font-semibold text-stockstrail-green-light hover:underline pt-1"
         >
           <span>View Curated Corporate FD Plans →</span>

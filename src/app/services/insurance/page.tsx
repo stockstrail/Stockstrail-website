@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   keywords:
     "term insurance, health insurance, traditional insurance, savings insurance, life insurance, health insurance plans, term insurance plans, traditional savings plans, insurance planning, Stockstrail",
   alternates: {
-    canonical: "https://www.stockstrail.in/insurance",
+    canonical: "https://www.stockstrail.in/services/insurance",
   },
   openGraph: {
     title: "Insurance Plans: Term, Health & Savings | Stockstrail",
     description:
       "Explore term insurance, health insurance and traditional savings plans. Compare coverage, understand policy terms and explore suitable insurance options with Stockstrail.",
-    url: "https://www.stockstrail.in/insurance",
+    url: "https://www.stockstrail.in/services/insurance",
     siteName: "Stockstrail",
     locale: "en_IN",
     type: "website",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
 const insuranceWebPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  '@id': 'https://www.stockstrail.in/insurance#webpage',
-  url: 'https://www.stockstrail.in/insurance',
+  '@id': 'https://www.stockstrail.in/services/insurance#webpage',
+  url: 'https://www.stockstrail.in/services/insurance',
   name: 'Insurance Plans: Term, Health & Savings | Stockstrail',
   description:
     'Explore term insurance, health insurance and traditional savings plans. Compare coverage, understand waiting periods, benefits and policy terms with Stockstrail.',
@@ -46,10 +46,10 @@ const insuranceWebPageSchema = {
 const insuranceServiceSchema = {
   '@context': 'https://schema.org',
   '@type': 'FinancialService',
-  '@id': 'https://www.stockstrail.in/insurance#service',
+  '@id': 'https://www.stockstrail.in/services/insurance#service',
   name: 'Stockstrail Insurance Advisory',
   description: 'Expert advice on Term Life Insurance, Health Insurance (Mediclaim), Motor, and Traditional Savings Plans.',
-  url: 'https://www.stockstrail.in/insurance',
+  url: 'https://www.stockstrail.in/services/insurance',
   provider: {
     '@type': 'FinancialService',
     name: 'Stockstrail',

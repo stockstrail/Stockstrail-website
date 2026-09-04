@@ -92,7 +92,7 @@ export default function TaxCalculatorSEO() {
               ELSS (Equity Linked Savings Scheme) has the shortest lock-in period (3 years) among all 80C instruments and offers equity-grade compounding potential.
             </p>
             <Link
-              href="/mutual-funds"
+              href="/services/mutual-funds"
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-stockstrail-green-light hover:underline"
             >
               <span>Explore Top ELSS Mutual Funds →</span>
@@ -108,7 +108,7 @@ export default function TaxCalculatorSEO() {
               Claim up to ₹25,000 (self & family) plus up to ₹50,000 for senior citizen parents for health insurance premiums paid during the financial year.
             </p>
             <Link
-              href="/financial-protection"
+              href="/services/financial-protection"
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-stockstrail-green-light hover:underline"
             >
               <span>Review Insurance Protection Plans →</span>
@@ -129,7 +129,7 @@ export default function TaxCalculatorSEO() {
         <div className="rounded-xl border border-white/10 bg-white/5 p-5 space-y-2">
           <h3 className="text-lg font-semibold text-white">Old Tax Regime Deductions</h3>
           <p className="text-white/70 text-sm leading-relaxed">
-            Allows taxpayers with substantial eligible deductions—including <Link href="/mutual-funds" className="text-stockstrail-green-light hover:underline">ELSS mutual funds</Link>, <Link href="/fixed-deposit" className="text-stockstrail-green-light hover:underline">tax-saving FDs</Link>, health insurance, and home loan interest—to lower their effective taxable income.
+            Allows taxpayers with substantial eligible deductions—including <Link href="/services/mutual-funds" className="text-stockstrail-green-light hover:underline">ELSS mutual funds</Link>, <Link href="/services/fixed-deposit" className="text-stockstrail-green-light hover:underline">tax-saving FDs</Link>, health insurance, and home loan interest—to lower their effective taxable income.
           </p>
         </div>
       </div>

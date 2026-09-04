@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   keywords:
     "fixed deposit, FD, fixed deposit investment, FD interest rates, FD maturity, tax saving fixed deposit, senior citizen FD, cumulative FD, non cumulative FD, FD premature withdrawal",
   alternates: {
-    canonical: "https://www.stockstrail.in/fixed-deposit",
+    canonical: "https://www.stockstrail.in/services/fixed-deposit",
   },
   openGraph: {
     title: "Fixed Deposits (FD): Rates, Types, Tax & Withdrawal | Stockstrail",
     description:
       "Understand FD rates, payout options, tax-saving FDs, withdrawal rules, deposit insurance and how to compare fixed deposit options.",
-    url: "https://www.stockstrail.in/fixed-deposit",
+    url: "https://www.stockstrail.in/services/fixed-deposit",
     siteName: "Stockstrail",
     type: "website",
     locale: "en_IN",
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
 const fixedDepositWebPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  '@id': 'https://www.stockstrail.in/fixed-deposit#webpage',
-  url: 'https://www.stockstrail.in/fixed-deposit',
+  '@id': 'https://www.stockstrail.in/services/fixed-deposit#webpage',
+  url: 'https://www.stockstrail.in/services/fixed-deposit',
   name: 'Fixed Deposits (FD): Rates, Types, Tax & Withdrawal | Stockstrail',
   description:
     'Understand fixed deposits, FD interest payouts, tenures, tax-saving FDs, premature withdrawal, deposit insurance and how to compare FD options before investing.',
@@ -47,10 +47,10 @@ const fixedDepositWebPageSchema = {
 const fixedDepositServiceSchema = {
   '@context': 'https://schema.org',
   '@type': 'FinancialService',
-  '@id': 'https://www.stockstrail.in/fixed-deposit#service',
+  '@id': 'https://www.stockstrail.in/services/fixed-deposit#service',
   name: 'Stockstrail Fixed Deposit Advisory',
   description: 'Guidance on Fixed Deposits, interest payouts, tenures, tax-saving FDs, and partner comparisons.',
-  url: 'https://www.stockstrail.in/fixed-deposit',
+  url: 'https://www.stockstrail.in/services/fixed-deposit',
   provider: {
     '@type': 'FinancialService',
     name: 'Stockstrail',
@@ -136,7 +136,7 @@ export default function FixedDeposit() {
 
               <p className="text-white/70 leading-relaxed mt-4">
                 If you are comparing FDs with market-linked options, explore our
-                <Link href="/mutual-funds" className="ml-1 text-stockstrail-green-light hover:underline font-medium">
+                <Link href="/services/mutual-funds" className="ml-1 text-stockstrail-green-light hover:underline font-medium">
                   Mutual Funds guide
                 </Link>
                 . You can also use our
@@ -260,7 +260,7 @@ export default function FixedDeposit() {
 
           <p className="mt-6 text-center text-white/70">
             Looking at the wider picture? Compare this with our
-            <Link href="/mutual-funds" className="ml-1 text-stockstrail-green-light hover:underline font-medium">
+            <Link href="/services/mutual-funds" className="ml-1 text-stockstrail-green-light hover:underline font-medium">
               Mutual Funds options
             </Link>
             and use our
@@ -431,7 +431,7 @@ export default function FixedDeposit() {
           <div className="mt-6 text-center">
             <p className="text-white/70">
               If you are deciding between predictable deposits and market-linked options, read our
-              <Link href="/mutual-funds" className="ml-1 text-stockstrail-green-light hover:underline font-medium">
+              <Link href="/services/mutual-funds" className="ml-1 text-stockstrail-green-light hover:underline font-medium">
                 Mutual Funds guide
               </Link>
               for a broader comparison.
@@ -696,11 +696,11 @@ export default function FixedDeposit() {
           <div className="mt-10 rounded-xl border border-white/10 bg-stockstrail-bg-light/30 p-6">
             <h3 className="text-lg font-semibold text-stockstrail-green-light mb-3">Related Financial Guides</h3>
             <div className="flex flex-wrap gap-x-5 gap-y-3">
-              <Link href="/mutual-funds" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Mutual Funds</Link>
+              <Link href="/services/mutual-funds" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Mutual Funds</Link>
               <Link href="/calculators/fd" className="text-white/80 hover:text-stockstrail-green-light hover:underline">FD Calculator</Link>
               <Link href="/calculators" className="text-white/80 hover:text-stockstrail-green-light hover:underline">All Calculators</Link>
-              <Link href="/insurance" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Insurance</Link>
-              <Link href="/financial-protection" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Financial Protection</Link>
+              <Link href="/services/insurance" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Insurance</Link>
+              <Link href="/services/financial-protection" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Financial Protection</Link>
               <Link href="/lets-talk" className="text-white/80 hover:text-stockstrail-green-light hover:underline">Talk to Stockstrail</Link>
             </div>
           </div>

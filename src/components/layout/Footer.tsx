@@ -141,32 +141,32 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
-                <Link href="/mutual-funds" className="hover:text-stockstrail-green-light transition-colors">
+                <Link href="/services/mutual-funds" className="hover:text-stockstrail-green-light transition-colors">
                   Mutual Funds SIP &amp; Lumpsum
                 </Link>
               </li>
               <li>
-                <Link href="/fixed-deposit" className="hover:text-stockstrail-green-light transition-colors">
+                <Link href="/services/fixed-deposit" className="hover:text-stockstrail-green-light transition-colors">
                   Fixed Deposits (FD) Advisory
                 </Link>
               </li>
               <li>
-                <Link href="/insurance" className="hover:text-stockstrail-green-light transition-colors">
+                <Link href="/services/insurance" className="hover:text-stockstrail-green-light transition-colors">
                   Term &amp; Health Insurance
                 </Link>
               </li>
               <li>
-                <Link href="/loan" className="hover:text-stockstrail-green-light transition-colors">
+                <Link href="/services/loan" className="hover:text-stockstrail-green-light transition-colors">
                   Loan Against Mutual Funds (LAMF)
                 </Link>
               </li>
               <li>
-                <Link href="/open-demat" className="hover:text-stockstrail-green-light transition-colors">
+                <Link href="/services/open-demat" className="hover:text-stockstrail-green-light transition-colors">
                   Demat &amp; Trading Account
                 </Link>
               </li>
               <li>
-                <Link href="/financial-protection" className="hover:text-stockstrail-green-light transition-colors">
+                <Link href="/services/financial-protection" className="hover:text-stockstrail-green-light transition-colors">
                   Comprehensive Wealth Protection
                 </Link>
               </li>

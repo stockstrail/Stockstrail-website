@@ -50,7 +50,7 @@ const servicesSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Mutual Funds Advisory & Distribution',
-          url: 'https://www.stockstrail.in/mutual-funds',
+          url: 'https://www.stockstrail.in/services/mutual-funds',
         },
       },
       {
@@ -58,7 +58,7 @@ const servicesSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Fixed Deposits (FD)',
-          url: 'https://www.stockstrail.in/fixed-deposit',
+          url: 'https://www.stockstrail.in/services/fixed-deposit',
         },
       },
       {
@@ -66,7 +66,7 @@ const servicesSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Life & Health Insurance',
-          url: 'https://www.stockstrail.in/insurance',
+          url: 'https://www.stockstrail.in/services/insurance',
         },
       },
       {
@@ -74,7 +74,7 @@ const servicesSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Loan Against Mutual Funds (LAMF) & Loans',
-          url: 'https://www.stockstrail.in/loan',
+          url: 'https://www.stockstrail.in/services/loan',
         },
       },
     ],

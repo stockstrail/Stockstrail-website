@@ -91,7 +91,7 @@ export default function EMICalculatorSEO() {
           Unlock instant liquidity in hours with a Loan Against Mutual Funds (LAMF). Pay interest only on what you withdraw while your portfolio keeps growing.
         </p>
         <Link
-          href="/loan"
+          href="/services/loan"
           className="inline-flex items-center gap-1 text-xs font-semibold text-stockstrail-green-light hover:underline pt-1"
         >
           <span>Explore Loan Against Mutual Funds (LAMF) →</span>
@@ -103,14 +103,14 @@ export default function EMICalculatorSEO() {
         <div className="rounded-xl border border-white/10 bg-white/5 p-5 space-y-2">
           <h3 className="text-lg font-semibold text-white">Tenure vs Interest Outgo</h3>
           <p className="text-white/70 text-sm leading-relaxed">
-            A longer loan tenure reduces your monthly EMI burden but substantially increases the cumulative interest paid over the life of the loan. Choosing an optimal balance is key to debt efficiency. Also ensure your family is protected with a <Link href="/financial-protection" className="text-stockstrail-green-light hover:underline">Term Life Insurance Plan</Link> covering your loan liability.
+            A longer loan tenure reduces your monthly EMI burden but substantially increases the cumulative interest paid over the life of the loan. Choosing an optimal balance is key to debt efficiency. Also ensure your family is protected with a <Link href="/services/financial-protection" className="text-stockstrail-green-light hover:underline">Term Life Insurance Plan</Link> covering your loan liability.
           </p>
         </div>
 
         <div className="rounded-xl border border-white/10 bg-white/5 p-5 space-y-2">
           <h3 className="text-lg font-semibold text-white">Amortization Trajectory</h3>
           <p className="text-white/70 text-sm leading-relaxed">
-            Understanding the amortization schedule helps you track how much of your monthly EMI goes towards principal reduction versus interest cost across each year of the loan. Plan to build wealth with <Link href="/mutual-funds" className="text-stockstrail-green-light hover:underline">Mutual Funds</Link> to offset loan costs.
+            Understanding the amortization schedule helps you track how much of your monthly EMI goes towards principal reduction versus interest cost across each year of the loan. Plan to build wealth with <Link href="/services/mutual-funds" className="text-stockstrail-green-light hover:underline">Mutual Funds</Link> to offset loan costs.
           </p>
         </div>
       </div>

@@ -14,14 +14,14 @@ export const metadata: Metadata = {
     'financial protection, financial protection planning, financial planning, insurance planning, financial security, motor insurance, travel insurance, term insurance, health insurance, tax filing, emergency savings, Stockstrail',
 
   alternates: {
-    canonical: 'https://www.stockstrail.in/financial-protection',
+    canonical: 'https://www.stockstrail.in/services/financial-protection',
   },
 
   openGraph: {
     title: 'Financial Protection & Planning | Stockstrail',
     description:
       'Plan for the financial risks that can affect your family, income, assets and goals. Explore insurance, savings and other financial solutions with Stockstrail.',
-    url: 'https://www.stockstrail.in/financial-protection',
+    url: 'https://www.stockstrail.in/services/financial-protection',
     type: 'website',
   },
 
@@ -249,7 +249,7 @@ export default function Others() {
                 plans may combine protection with other policy features. We
                 cover these options in more detail on our{' '}
                 <a
-                  href="/insurance"
+                  href="/services/insurance"
                   className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
                 >
                   Insurance page
@@ -262,14 +262,14 @@ export default function Others() {
                 Financial protection also needs to fit into the rest of your
                 financial plan. Your{' '}
                 <a
-                  href="/mutual-funds"
+                  href="/services/mutual-funds"
                   className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
                 >
                   mutual fund investments
                 </a>
                 , emergency savings,{' '}
                 <a
-                  href="/loan"
+                  href="/services/loan"
                   className="text-stockstrail-green-light hover:text-white hover:underline transition-colors"
                 >
                   borrowing
@@ -294,7 +294,7 @@ export default function Others() {
 
               <div className="mt-6 flex flex-wrap gap-x-5 gap-y-3 text-sm">
                 <a
-                  href="/insurance"
+                  href="/services/insurance"
                   className="text-white/80 hover:text-stockstrail-green-light hover:underline transition-colors"
                 >
                   Explore Insurance
@@ -610,7 +610,7 @@ export default function Others() {
               <p className="text-white/70 leading-relaxed mb-5">
                 Stockstrail&apos;s dedicated{' '}
                 <a
-                  href="/insurance"
+                  href="/services/insurance"
                   className="text-stockstrail-green-light hover:underline"
                 >
                   Insurance page
@@ -630,7 +630,7 @@ export default function Others() {
 
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="/insurance"
+                  href="/services/insurance"
                   className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border-2 border-stockstrail-green-light rounded-full text-stockstrail-green-light hover:bg-stockstrail-green-light hover:text-stockstrail-bg transition-all font-work-sans font-medium"
                 >
                   Explore Insurance

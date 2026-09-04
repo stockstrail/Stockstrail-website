@@ -13,12 +13,14 @@
 - **Regulatory Framework:** AMFI (Association of Mutual Funds in India), SEBI (Securities and Exchange Board of India)
 
 ## Core Services & Offerings
-- [Mutual Funds & SIPs](https://www.stockstrail.in/mutual-funds): Goal-based mutual fund investments, equity, debt, hybrid funds, and systematic monthly SIP wealth planning.
-- [Fixed Deposits](https://www.stockstrail.in/fixed-deposit): High-yield corporate and bank fixed deposits with guaranteed returns and flexible tenures.
-- [Life & Health Insurance](https://www.stockstrail.in/insurance): Comprehensive term life insurance and family health protection plans.
-- [Loans Against Mutual Funds (LAMF)](https://www.stockstrail.in/loan): Instant low-interest liquidity secured by mutual fund units without selling assets.
+- [All Financial Services](https://www.stockstrail.in/services): Comprehensive financial ecosystem across mutual funds, FDs, insurance, loans, and protection.
+- [Mutual Funds & SIPs](https://www.stockstrail.in/services/mutual-funds): Goal-based mutual fund investments, equity, debt, hybrid funds, and systematic monthly SIP wealth planning.
+- [Fixed Deposits](https://www.stockstrail.in/services/fixed-deposit): High-yield corporate and bank fixed deposits with guaranteed returns and flexible tenures.
+- [Life & Health Insurance](https://www.stockstrail.in/services/insurance): Comprehensive term life insurance and family health protection plans.
+- [Loans Against Mutual Funds (LAMF)](https://www.stockstrail.in/services/loan): Instant low-interest liquidity secured by mutual fund units without selling assets.
+- [Financial Protection & Planning](https://www.stockstrail.in/services/financial-protection): Emergency savings, motor, travel, and tax filing financial protection.
 - [Risk Profile Assessment](https://www.stockstrail.in/check-risk-profile): Free risk tolerance analysis to determine personalized asset allocation.
-- [Open Demat Account](https://www.stockstrail.in/open-demat): Zero-brokerage and discounted demat account setup with leading Indian stockbrokers (Dhan, Angel One, Alice Blue, Zerodha).
+- [Open Demat Account](https://www.stockstrail.in/services/open-demat): Zero-brokerage and discounted demat account setup with leading Indian stockbrokers (Dhan, Angel One, Alice Blue, Zerodha).
 
 ## Free Financial Calculators
 - [SIP Calculator](https://www.stockstrail.in/calculators/sip): Monthly systematic investment plan compounding growth calculator.

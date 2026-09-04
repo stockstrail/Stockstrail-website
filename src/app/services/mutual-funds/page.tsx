@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Mutual Fund Investment | SIP & Lump Sum Investing | Stockstrail',
     description:
       'Learn how mutual funds work, compare SIP and lump sum investing, understand fund categories and risk, and explore mutual fund options based on your goals.',
-    url: 'https://www.stockstrail.in/mutual-funds',
+    url: 'https://www.stockstrail.in/services/mutual-funds',
     type: 'website',
   },
   twitter: {
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
       'Learn how mutual funds work, compare SIP and lump sum investing, understand fund categories and risk, and explore mutual fund options based on your goals.',
   },
   alternates: {
-    canonical: 'https://www.stockstrail.in/mutual-funds',
+    canonical: 'https://www.stockstrail.in/services/mutual-funds',
   },
 
 };
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  '@id': 'https://www.stockstrail.in/mutual-funds#webpage',
-  url: 'https://www.stockstrail.in/mutual-funds',
+  '@id': 'https://www.stockstrail.in/services/mutual-funds#webpage',
+  url: 'https://www.stockstrail.in/services/mutual-funds',
   name: 'Mutual Fund Investment | SIP & Lump Sum Investing | Stockstrail',
   description:
     'Learn how mutual funds work, compare SIP and lump sum investing, understand fund categories and risk, and explore mutual fund options based on your goals with Stockstrail.',
@@ -41,7 +41,7 @@ const jsonLd = {
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  '@id': 'https://www.stockstrail.in/mutual-funds#faq',
+  '@id': 'https://www.stockstrail.in/services/mutual-funds#faq',
   mainEntity: [
     {
       '@type': 'Question',
@@ -97,11 +97,11 @@ const faqJsonLd = {
 const mutualFundServiceSchema = {
   '@context': 'https://schema.org',
   '@type': 'FinancialService',
-  '@id': 'https://www.stockstrail.in/mutual-funds#service',
+  '@id': 'https://www.stockstrail.in/services/mutual-funds#service',
   name: 'Stockstrail Mutual Fund Advisory & Distribution',
   description:
     'AMFI-registered mutual fund distributor providing personalized portfolio guidance, SIP planning, and lump sum investing strategies.',
-  url: 'https://www.stockstrail.in/mutual-funds',
+  url: 'https://www.stockstrail.in/services/mutual-funds',
   provider: {
     '@type': 'FinancialService',
     name: 'Stockstrail',
@@ -200,7 +200,7 @@ export default function MutualFunds() {
                 on your income, available savings, goal and time horizon. Before choosing
                 where the money should go, you can also compare mutual funds with{' '}
                 <a
-                  href="/fixed-deposit"
+                  href="/services/fixed-deposit"
                   className="text-stockstrail-green-light hover:underline font-medium"
                 >
                   fixed deposits
@@ -283,7 +283,7 @@ export default function MutualFunds() {
                 horizon. If you are comparing mutual funds with a more predictable
                 deposit-based option, see our{' '}
                 <a
-                  href="/fixed-deposit"
+                  href="/services/fixed-deposit"
                   className="text-stockstrail-green-light hover:underline font-medium"
                 >
                   Fixed Deposit guide
@@ -879,7 +879,7 @@ export default function MutualFunds() {
             </a>
 
             <a
-              href="/fixed-deposit"
+              href="/services/fixed-deposit"
               className="bg-stockstrail-bg-light/40 rounded-xl p-5 border border-white/10 hover:border-stockstrail-green-light/40 transition-all duration-300"
             >
               <h3 className="text-stockstrail-green-light font-semibold mb-2">
@@ -892,7 +892,7 @@ export default function MutualFunds() {
             </a>
 
             <a
-              href="/insurance"
+              href="/services/insurance"
               className="bg-stockstrail-bg-light/40 rounded-xl p-5 border border-white/10 hover:border-stockstrail-green-light/40 transition-all duration-300"
             >
               <h3 className="text-stockstrail-green-light font-semibold mb-2">
@@ -904,7 +904,7 @@ export default function MutualFunds() {
             </a>
 
             <a
-              href="/loan"
+              href="/services/loan"
               className="bg-stockstrail-bg-light/40 rounded-xl p-5 border border-white/10 hover:border-stockstrail-green-light/40 transition-all duration-300"
             >
               <h3 className="text-stockstrail-green-light font-semibold mb-2">
@@ -917,7 +917,7 @@ export default function MutualFunds() {
             </a>
 
             <a
-              href="/financial-protection"
+              href="/services/financial-protection"
               className="bg-stockstrail-bg-light/40 rounded-xl p-5 border border-white/10 hover:border-stockstrail-green-light/40 transition-all duration-300"
             >
               <h3 className="text-stockstrail-green-light font-semibold mb-2">

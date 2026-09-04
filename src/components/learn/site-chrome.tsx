@@ -219,7 +219,7 @@ export function SiteFooter() {
               {[
                 { label: "Main Website", href: "https://www.stockstrail.in" },
                 { label: "Services", href: "https://www.stockstrail.in/services" },
-                { label: "Mutual Funds", href: "https://www.stockstrail.in/mutual-funds" },
+                { label: "Mutual Funds", href: "https://www.stockstrail.in/services/mutual-funds" },
                 { label: "Let's Talk", href: "https://www.stockstrail.in/lets-talk" },
               ].map(({ label, href }) => (
                 <li key={href}>

@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   keywords:
     "loan against mutual funds, LAMF, loan against mutual funds India, business loan, home loan, personal loan, Stockstrail loans",
   alternates: {
-    canonical: "https://www.stockstrail.in/loan",
+    canonical: "https://www.stockstrail.in/services/loan",
   },
   openGraph: {
     title: "Loan Against Mutual Funds (LAMF), Business & Home Loans | Stockstrail",
     description:
       "Access funds without unnecessarily selling investments. Explore LAMF, business loans and home loans with clear, practical guidance.",
-    url: "https://www.stockstrail.in/loan",
+    url: "https://www.stockstrail.in/services/loan",
     siteName: "Stockstrail",
     locale: "en_IN",
     type: "website",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
 const loanWebPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  '@id': 'https://www.stockstrail.in/loan#webpage',
-  url: 'https://www.stockstrail.in/loan',
+  '@id': 'https://www.stockstrail.in/services/loan#webpage',
+  url: 'https://www.stockstrail.in/services/loan',
   name: 'Loans - LAMF, Business & Home Loans | Stockstrail',
   description:
     'Explore Loan Against Mutual Funds, business loans, and home loans with expert guidance, clear terms, and support.',
@@ -46,10 +46,10 @@ const loanWebPageSchema = {
 const loanServiceSchema = {
   '@context': 'https://schema.org',
   '@type': 'FinancialService',
-  '@id': 'https://www.stockstrail.in/loan#service',
+  '@id': 'https://www.stockstrail.in/services/loan#service',
   name: 'Stockstrail Loan Advisory',
   description: 'Expert assistance on Loan Against Mutual Funds (LAMF), Personal Loans, Business Loans, and Home Loans.',
-  url: 'https://www.stockstrail.in/loan',
+  url: 'https://www.stockstrail.in/services/loan',
   provider: {
     '@type': 'FinancialService',
     name: 'Stockstrail',

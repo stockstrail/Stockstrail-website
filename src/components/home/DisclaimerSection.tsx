@@ -22,7 +22,7 @@ const DisclaimerSection = () => {
                 <div className="bg-[#021716]/85 border border-white/12 rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] space-y-6 text-left">
                     <p className="text-white/85 text-xs sm:text-sm lg:text-base font-normal leading-relaxed [text-shadow:0_1px_2px_rgba(0,0,0,0.9)]">
                         <strong className="text-white">AMFI-registered distributor disclosure: </strong>
-                        Stockstrail is operated by <strong className="text-stockstrail-green-light font-bold">Vikrant Bhardwaj</strong>, an AMFI Registered Mutual Fund Distributor (<Link href="/commission-disclosure" className="text-stockstrail-green-light font-bold hover:underline">ARN-284122</Link>). This website is intended to provide educational information and facilitate investments in <Link href="/mutual-funds" className="text-stockstrail-green-light font-medium hover:underline">mutual funds</Link> through authorised platforms.
+                        Stockstrail is operated by <strong className="text-stockstrail-green-light font-bold">Vikrant Bhardwaj</strong>, an AMFI Registered Mutual Fund Distributor (<Link href="/commission-disclosure" className="text-stockstrail-green-light font-bold hover:underline">ARN-284122</Link>). This website is intended to provide educational information and facilitate investments in <Link href="/services/mutual-funds" className="text-stockstrail-green-light font-medium hover:underline">mutual funds</Link> through authorised platforms.
                     </p>
 
                     <p className="text-white/85 text-xs sm:text-sm lg:text-base font-normal leading-relaxed [text-shadow:0_1px_2px_rgba(0,0,0,0.9)]">

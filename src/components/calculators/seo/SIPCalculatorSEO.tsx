@@ -123,7 +123,7 @@ const SIPCalculatorSEO: React.FC = () => {
             Invest in top-performing large-cap, flexi-cap, and index mutual funds with zero advisory fees and direct AMC allocation.
           </p>
           <Link
-            href="/mutual-funds"
+            href="/services/mutual-funds"
             className="inline-flex items-center gap-1 text-xs font-semibold text-stockstrail-green-light hover:underline pt-1"
           >
             <span>Explore Mutual Funds Portfolios →</span>

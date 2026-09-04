@@ -23,6 +23,10 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     '/auth/*',
     '/sign-in',
     '/complete-profile',
+    '/*?tab=*',
+    '/*?type=*',
+    '/calculators?*',
+    '/calculators/*?*',
   ];
 
   return {

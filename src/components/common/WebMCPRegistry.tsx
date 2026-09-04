@@ -126,12 +126,12 @@ export default function WebMCPRegistry() {
             execute: async () => {
               return {
                 services: [
-                  { name: 'Mutual Funds & SIPs', url: 'https://www.stockstrail.in/mutual-funds' },
-                  { name: 'Fixed Deposits', url: 'https://www.stockstrail.in/fixed-deposit' },
-                  { name: 'Life & Health Insurance', url: 'https://www.stockstrail.in/insurance' },
-                  { name: 'Loans Against Mutual Funds (LAMF)', url: 'https://www.stockstrail.in/loan' },
+                  { name: 'Mutual Funds & SIPs', url: 'https://www.stockstrail.in/services/mutual-funds' },
+                  { name: 'Fixed Deposits', url: 'https://www.stockstrail.in/services/fixed-deposit' },
+                  { name: 'Life & Health Insurance', url: 'https://www.stockstrail.in/services/insurance' },
+                  { name: 'Loans Against Mutual Funds (LAMF)', url: 'https://www.stockstrail.in/services/loan' },
                   { name: 'Risk Profile Assessment', url: 'https://www.stockstrail.in/check-risk-profile' },
-                  { name: 'Open Demat Account', url: 'https://www.stockstrail.in/open-demat' }
+                  { name: 'Open Demat Account', url: 'https://www.stockstrail.in/services/open-demat' }
                 ]
               };
             }

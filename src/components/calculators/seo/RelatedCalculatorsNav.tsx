@@ -66,19 +66,19 @@ const RELATED_SERVICES = [
   {
     title: "Mutual Fund Portfolios",
     desc: "Zero-commission direct AMC investment & goal planning.",
-    href: "/mutual-funds",
+    href: "/services/mutual-funds",
     badge: "Direct Allocation",
   },
   {
     title: "High-Yield Corporate FDs",
     desc: "AAA-rated bank & corporate fixed deposits up to 9.1% p.a.",
-    href: "/fixed-deposit",
+    href: "/services/fixed-deposit",
     badge: "Guaranteed",
   },
   {
     title: "Loan Against Mutual Funds",
     desc: "Instant liquidity starting at 9.5% p.a. without selling units.",
-    href: "/loan",
+    href: "/services/loan",
     badge: "Low Interest",
   },
   {
@@ -90,13 +90,13 @@ const RELATED_SERVICES = [
   {
     title: "Tax-Saving ELSS Funds",
     desc: "Save up to ₹46,800 in tax under Section 80C with 3-yr lock-in.",
-    href: "/financial-protection",
+    href: "/services/financial-protection",
     badge: "Section 80C",
   },
   {
     title: "Open Free Demat Account",
     desc: "Seamless, 100% paperless onboarding for Indian investors.",
-    href: "/open-demat",
+    href: "/services/open-demat",
     badge: "Zero AMC",
   },
 ];

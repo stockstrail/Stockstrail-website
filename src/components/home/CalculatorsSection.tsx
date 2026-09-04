@@ -169,7 +169,7 @@ export default function CalculatorsSection() {
                     </Link>
 
                     <Link
-                        href="/mutual-funds"
+                        href="/services/mutual-funds"
                         className="inline-flex items-center gap-3 px-8 py-3.5 bg-white/[0.04] border border-white/20 rounded-full text-white font-semibold text-sm hover:bg-white/10 hover:border-stockstrail-green-light hover:scale-105 transition-all backdrop-blur-md"
                     >
                         <span>Start Mutual Fund SIP</span>
