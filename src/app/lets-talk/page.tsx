@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Layout from '@/components/layout/Layout';
 import JsonLd from '@/components/common/JsonLd';
 import { addQuery } from '@/lib/database/queries';
@@ -19,6 +20,44 @@ import {
   ArrowRight,
   MessageSquare
 } from 'lucide-react';
+
+/* ---------------- EYE-CATCHING ANIMATED LOGO GIF (NEVER REMOVE) ---------------- */
+const StockstrailLogoBW = () => (
+  <div className="flex items-center justify-center group gap-2 sm:gap-3">
+    {/* Mobile logo */}
+    <Image
+      src="/stockstrail_logo.gif"
+      alt="Stockstrail Logo"
+      width={96}
+      height={96}
+      className="w-20 h-20 xs:w-24 xs:h-24 sm:hidden group-hover:scale-110 transition-transform duration-500 object-contain"
+      sizes="(max-width: 390px) 80px, (max-width: 640px) 96px, 0px"
+      quality={90}
+      priority
+      unoptimized
+    />
+    {/* Desktop logo */}
+    <Image
+      src="/1..gif"
+      alt="Stockstrail Logo"
+      width={200}
+      height={200}
+      className="hidden sm:block w-32 h-32 lg:w-36 lg:h-36 group-hover:scale-110 transition-transform duration-500 object-contain"
+      sizes="(max-width: 768px) 144px, (max-width: 1024px) 192px, 300px"
+      quality={90}
+      priority
+      unoptimized
+    />
+    <div className="flex items-baseline">
+      <span className="text-white font-product-sans text-4xl sm:text-5xl font-bold group-hover:text-stockstrail-green-light transition-colors duration-500">
+        Stocks
+      </span>
+      <span className="text-white font-product-sans text-4xl sm:text-5xl font-normal group-hover:text-stockstrail-green-light transition-colors duration-500">
+        trail
+      </span>
+    </div>
+  </div>
+);
 
 export default function LetsTalk() {
   const [form, setForm] = useState({
@@ -129,8 +168,13 @@ export default function LetsTalk() {
           <div className="absolute w-[700px] h-[400px] bg-stockstrail-green-light/10 rounded-full blur-[140px] left-1/2 -translate-x-1/2 top-20" />
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto space-y-12">
+        <div className="relative z-10 max-w-6xl mx-auto space-y-10">
           
+          {/* TOP CENTER ANIMATED LOGO GIF */}
+          <div className="flex justify-center -mb-2">
+            <StockstrailLogoBW />
+          </div>
+
           {/* TOP INTRO HEADER */}
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-stockstrail-green-light/30 bg-stockstrail-green-light/10 text-stockstrail-green-light text-xs font-mono uppercase tracking-wider font-semibold">
