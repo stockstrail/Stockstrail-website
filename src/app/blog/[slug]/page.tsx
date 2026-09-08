@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight, ShieldCheck, UserCheck, Sparkles, CheckCircl
 import Layout from '@/components/layout/Layout';
 import ReadingProgressBar from '@/components/blog/ReadingProgressBar';
 import ArticleActionBar from '@/components/blog/ArticleActionBar';
-import ArticleTableOfContents from '@/components/blog/ArticleTableOfContents';
+import ArticleTableOfContents, { slugify } from '@/components/blog/ArticleTableOfContents';
 import ArticleFeedback from '@/components/blog/ArticleFeedback';
 import AdSenseSlot from '@/components/blog/AdSenseSlot';
 import BlogNewsletterCard from '@/components/blog/BlogNewsletterCard';
@@ -26,6 +26,19 @@ import {
 } from '@/components/ui/accordion';
 
 export const dynamic = 'force-dynamic';
+
+function getNodeText(node: any): string {
+  if (typeof node === 'string' || typeof node === 'number') {
+    return String(node);
+  }
+  if (Array.isArray(node)) {
+    return node.map(getNodeText).join('');
+  }
+  if (node && typeof node === 'object' && 'props' in node && node.props && node.props.children) {
+    return getNodeText(node.props.children);
+  }
+  return '';
+}
 
 const LOCAL_BLOG_COVERS: Record<string, string> = {
   'why-is-the-market-down-a-salaried-employee-s-action-guide': '/blog/why-is-the-market-down.jpg',
@@ -278,12 +291,32 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     </div>
                   )}
 
-                  {/* Render Markdown content */}
+                  {/* Render Markdown content with auto-linked TOC IDs */}
                   <div className="blog-content prose prose-sm sm:prose-base lg:prose-lg mx-auto w-full prose-invert pt-2">
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
                       rehypePlugins={[rehypeRaw]}
                       components={{
+                        h1: ({ children, ...props }) => {
+                          const text = getNodeText(children);
+                          const id = slugify(text);
+                          return <h1 id={id} className="scroll-mt-28" {...props}>{children}</h1>;
+                        },
+                        h2: ({ children, ...props }) => {
+                          const text = getNodeText(children);
+                          const id = slugify(text);
+                          return <h2 id={id} className="scroll-mt-28" {...props}>{children}</h2>;
+                        },
+                        h3: ({ children, ...props }) => {
+                          const text = getNodeText(children);
+                          const id = slugify(text);
+                          return <h3 id={id} className="scroll-mt-28" {...props}>{children}</h3>;
+                        },
+                        h4: ({ children, ...props }) => {
+                          const text = getNodeText(children);
+                          const id = slugify(text);
+                          return <h4 id={id} className="scroll-mt-28" {...props}>{children}</h4>;
+                        },
                         a: ({ node, href, children, ...props }) => {
                           if (href && href.match(/\.(jpeg|jpg|gif|png|webp)$/i)) {
                             return <img src={href} alt={String(children)} className="w-full h-auto rounded-xl shadow-lg" />;
