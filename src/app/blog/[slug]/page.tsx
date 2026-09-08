@@ -6,7 +6,8 @@ import { ChevronLeft, ChevronRight, ShieldCheck, UserCheck, Sparkles, CheckCircl
 import Layout from '@/components/layout/Layout';
 import ReadingProgressBar from '@/components/blog/ReadingProgressBar';
 import ArticleActionBar from '@/components/blog/ArticleActionBar';
-import ArticleTableOfContents, { slugify } from '@/components/blog/ArticleTableOfContents';
+import ArticleTableOfContents from '@/components/blog/ArticleTableOfContents';
+import { slugify } from '@/lib/slugify';
 import ArticleFeedback from '@/components/blog/ArticleFeedback';
 import AdSenseSlot from '@/components/blog/AdSenseSlot';
 import BlogNewsletterCard from '@/components/blog/BlogNewsletterCard';
@@ -298,7 +299,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     </div>
                   )}
 
-                    {/* Render Markdown content with auto-linked TOC IDs */}
+                    {/* Render Markdown content with auto-linked TOC IDs & Premium Tables */}
                     <div className="blog-content prose prose-sm sm:prose-base lg:prose-lg mx-auto w-full prose-invert pt-2">
                       <ReactMarkdown
                         remarkPlugins={[remarkGfm]}
@@ -308,7 +309,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                             const text = getNodeText(children);
                             const id = slugify(text);
                             return (
-                              <h1 id={id} data-toc-id={id} className="scroll-mt-28 font-product-sans font-bold text-2xl sm:text-3xl text-white pt-4 pb-2" {...props}>
+                              <h1 id={id} data-toc-id={id} className="scroll-mt-28 font-product-sans font-bold text-2xl sm:text-3xl text-white pt-6 pb-2" {...props}>
                                 {children}
                               </h1>
                             );
@@ -334,7 +335,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                               <h3
                                 id={id}
                                 data-toc-id={id}
-                                className="scroll-mt-28 font-product-sans font-semibold text-lg sm:text-xl text-[#00ff97] pt-4 pb-1"
+                                className="scroll-mt-28 font-product-sans font-semibold text-lg sm:text-xl text-[#00ff97] pt-5 pb-1"
                                 {...props}
                               >
                                 {children}
@@ -348,13 +349,60 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                               <h4
                                 id={id}
                                 data-toc-id={id}
-                                className="scroll-mt-28 font-product-sans font-medium text-base text-slate-200 pt-3 pb-1"
+                                className="scroll-mt-28 font-product-sans font-medium text-base text-slate-200 pt-4 pb-1"
                                 {...props}
                               >
                                 {children}
                               </h4>
                             );
                           },
+                          table: ({ children, ...props }) => (
+                            <div className="overflow-x-auto my-8 rounded-2xl border-2 border-emerald-500/30 bg-[#021f1a]/95 shadow-2xl">
+                              <table className="w-full text-left text-sm text-slate-100 divide-y divide-white/10" {...props}>
+                                {children}
+                              </table>
+                            </div>
+                          ),
+                          thead: ({ children, ...props }) => (
+                            <thead className="bg-[#033027] text-[#00ff97] font-product-sans font-bold uppercase text-xs tracking-wider border-b-2 border-emerald-500/40" {...props}>
+                              {children}
+                            </thead>
+                          ),
+                          tbody: ({ children, ...props }) => (
+                            <tbody className="divide-y divide-white/10 bg-[#011b17]/80" {...props}>
+                              {children}
+                            </tbody>
+                          ),
+                          tr: ({ children, ...props }) => (
+                            <tr className="hover:bg-white/5 transition-colors" {...props}>
+                              {children}
+                            </tr>
+                          ),
+                          th: ({ children, ...props }) => (
+                            <th className="px-5 py-4 font-bold text-[#00ff97] text-xs uppercase tracking-wider" {...props}>
+                              {children}
+                            </th>
+                          ),
+                          td: ({ children, ...props }) => (
+                            <td className="px-5 py-4 text-slate-100 border-b border-white/5 leading-relaxed text-sm" {...props}>
+                              {children}
+                            </td>
+                          ),
+                          blockquote: ({ children, ...props }) => (
+                            <blockquote className="border-l-4 border-[#00ff97] pl-5 py-3 my-6 bg-gradient-to-r from-emerald-950/40 to-transparent rounded-r-2xl italic text-slate-200" {...props}>
+                              {children}
+                            </blockquote>
+                          ),
+                          p: ({ children, ...props }) => (
+                            <p className="text-slate-200 text-sm sm:text-base leading-relaxed my-4 font-work-sans" {...props}>
+                              {children}
+                            </p>
+                          ),
+                          strong: ({ children, ...props }) => (
+                            <strong className="text-white font-bold" {...props}>
+                              {children}
+                            </strong>
+                          ),
                           a: ({ node, href, children, ...props }) => {
                             if (href && href.match(/\.(jpeg|jpg|gif|png|webp)$/i)) {
                               return <img src={href} alt={String(children)} className="w-full h-auto rounded-xl shadow-lg my-4" />;

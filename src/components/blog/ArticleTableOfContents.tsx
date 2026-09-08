@@ -2,24 +2,14 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import { ChevronDown, ChevronRight, Compass, Sparkles, BookOpen, CheckCircle2 } from "lucide-react";
+import { slugify } from "@/lib/slugify";
+
+export { slugify };
 
 export interface TOCItem {
   id: string;
   text: string;
   level: number;
-}
-
-export function slugify(text: string): string {
-  if (!text) return "";
-  return text
-    .toLowerCase()
-    .trim()
-    .replace(/<[^>]+>/g, "") // remove any html tags
-    .replace(/^[#\s*_-]+/, "") // remove leading hashes/markdown
-    .replace(/^[0-9]+[.\s)]+/, "") // remove leading numbers like "1. " or "1) "
-    .replace(/[^\w\s-]/g, "") // remove punctuation
-    .replace(/[\s_-]+/g, "-") // collapse spaces into hyphen
-    .replace(/^-+|-+$/g, ""); // trim hyphens
 }
 
 function parseInitialHeadings(rawMarkdown: string): TOCItem[] {
@@ -30,13 +20,12 @@ function parseInitialHeadings(rawMarkdown: string): TOCItem[] {
   for (const line of lines) {
     const trimmed = line.trim();
     // Match ## or ### or ####
-    const match = trimmed.match(/^(#{2,4})\s+(.+)$/);
+    const match = trimmed.match(/^(#{1,4})\s+(.+)$/);
     if (match) {
       const level = match[1].length;
-      // Strip any inner markdown like **bold**, *italic*, `code`
       const rawText = match[2].replace(/[*_`#]/g, "").trim();
       const cleanText = rawText.replace(/^[0-9]+[.\s)]+/, "").trim();
-      if (cleanText.length > 1) {
+      if (cleanText.length > 2 && !cleanText.toLowerCase().includes("author") && !cleanText.toLowerCase().includes("table of contents")) {
         const id = slugify(cleanText) || slugify(rawText);
         items.push({
           id,
@@ -47,21 +36,45 @@ function parseInitialHeadings(rawMarkdown: string): TOCItem[] {
     }
   }
 
-  // Fallback: If no markdown headings found, check for HTML <h2> / <h3>
+  // Fallback 1: If no markdown headings found, check for HTML <h1> / <h2> / <h3>
   if (items.length === 0) {
-    const htmlRegex = /<h([2-4])[^>]*>(.*?)<\/h\1>/gi;
+    const htmlRegex = /<h([1-4])[^>]*>(.*?)<\/h\1>/gi;
     let htmlMatch;
     while ((htmlMatch = htmlRegex.exec(rawMarkdown)) !== null) {
       const level = parseInt(htmlMatch[1], 10);
       const rawText = htmlMatch[2].replace(/<[^>]+>/g, "").replace(/[*_`#]/g, "").trim();
       const cleanText = rawText.replace(/^[0-9]+[.\s)]+/, "").trim();
-      if (cleanText.length > 1) {
+      if (cleanText.length > 2) {
         const id = slugify(cleanText) || slugify(rawText);
         items.push({
           id,
           text: cleanText,
           level: level >= 3 ? 3 : 2,
         });
+      }
+    }
+  }
+
+  // Fallback 2: Standalone question or bold title lines
+  if (items.length === 0) {
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (
+        trimmed.length > 10 &&
+        trimmed.length < 90 &&
+        !trimmed.startsWith("http") &&
+        !trimmed.startsWith("{") &&
+        !trimmed.startsWith("@") &&
+        (trimmed.endsWith("?") || (trimmed.startsWith("**") && trimmed.endsWith("**")) || /^[A-Z][A-Za-z0-9\s—:,-]+$/.test(trimmed))
+      ) {
+        const cleanText = trimmed.replace(/[*_`#]/g, "").replace(/^[0-9]+[.\s)]+/, "").trim();
+        if (cleanText.length > 3) {
+          items.push({
+            id: slugify(cleanText),
+            text: cleanText,
+            level: 2,
+          });
+        }
       }
     }
   }
