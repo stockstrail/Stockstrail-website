@@ -189,6 +189,20 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.svg?v=3" />
         <link rel="apple-touch-icon" href="/favicon.svg?v=3" />
 
+        {/* RSS / Atom Feed Discovery for Google Discover & News Aggregators */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Stockstrail - Financial Intelligence & Regulatory Dispatch"
+          href="https://www.stockstrail.in/feed.xml"
+        />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Stockstrail RSS Feed"
+          href="https://www.stockstrail.in/rss.xml"
+        />
+
         {/* Analytics Bootstrap (GA4 + Microsoft Clarity loaded after first interaction or idle for 0ms TBT) */}
         <Script id="analytics-bootstrap" strategy="afterInteractive">
           {`(function(){

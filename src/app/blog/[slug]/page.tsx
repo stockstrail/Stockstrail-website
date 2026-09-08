@@ -14,6 +14,7 @@ import BlogNewsletterCard from '@/components/blog/BlogNewsletterCard';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 import MobileShareButton from '@/components/blog/MobileShareButton';
 import PreferredSourceBadge from '@/components/blog/PreferredSourceBadge';
+import ArticleKeyTakeaways from '@/components/blog/ArticleKeyTakeaways';
 import { createClient } from '@/lib/supabase/server';
 import { BlogFAQ } from '@/types';
 import JsonLd from '@/components/common/JsonLd';
@@ -185,7 +186,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       name: authorName,
       jobTitle: 'AMFI Registered Mutual Fund Distributor',
       identifier: 'ARN-284122',
-      knowsAbout: ['Mutual Funds', 'SIP Investments', 'SEBI Regulations', 'Personal Finance India', 'Asset Allocation'],
+      knowsAbout: [
+        'Mutual Funds India',
+        'Systematic Investment Plan',
+        'SEBI Regulations',
+        'Asset Allocation & Risk Profiling',
+        'Income Tax Planning'
+      ],
       url: `${baseUrl}/about`
     },
     publisher: {
@@ -196,7 +203,34 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         '@type': 'ImageObject',
         url: `${baseUrl}/stockstrail.png`
       },
-      publishingPrinciples: `${baseUrl}/terms-and-conditions`
+      publishingPrinciples: `${baseUrl}/editorial-policy`,
+      correctionsPolicy: `${baseUrl}/editorial-policy#corrections`
+    },
+    about: [
+      {
+        '@type': 'Thing',
+        name: 'Securities and Exchange Board of India',
+        sameAs: 'https://www.wikidata.org/wiki/Q3518596'
+      },
+      {
+        '@type': 'Thing',
+        name: 'Mutual Fund',
+        sameAs: 'https://www.wikidata.org/wiki/Q191196'
+      },
+      {
+        '@type': 'Thing',
+        name: 'Systematic Investment Plan',
+        sameAs: 'https://www.wikidata.org/wiki/Q7663795'
+      },
+      {
+        '@type': 'Thing',
+        name: 'Association of Mutual Funds in India',
+        sameAs: 'https://www.wikidata.org/wiki/Q4809756'
+      }
+    ],
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['#key-takeaways', 'h1', 'article > header']
     },
     isAccessibleForFree: true,
     inLanguage: 'en-IN',
@@ -206,6 +240,47 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       '@type': 'WebPage',
       '@id': currentUrl
     }
+  };
+
+  // Structured Information Gain Key Takeaways for AI Overviews & Search Snippets
+  const TAKEAWAYS_BY_SLUG: Record<string, { fastAnswer: string; points: string[] }> = {
+    "sebi-mutual-fund-nomination-rule-september-2026": {
+      fastAnswer: "SEBI's mandatory nominee rule is effective September 1, 2026. If uncompleted, mutual fund folios will be frozen for redemptions, switches, and SIPs. Investors can register up to 3 nominees online via MF Central, CAMS, or KFintech.",
+      points: [
+        "Strict Deadline: September 1, 2026 across all physical and demat mutual fund folios in India.",
+        "Non-Compliance Penalty: Complete freeze on fresh SIP investments, switches, and withdrawals.",
+        "Nomination Rules: Allocate percentage shares among up to 3 nominees totaling exactly 100%.",
+        "How to Update: Instant 2-minute OTP-based online update via MF Central or AMFI-registered distributor (ARN-284122)."
+      ]
+    },
+    "why-is-the-market-down-a-salaried-employee-s-action-guide": {
+      fastAnswer: "Market corrections of 5–15% are healthy historical wealth-building phases. Salaried employees should maintain active SIPs without pausing, avoid panic redemptions, and rebalance towards asset allocation targets.",
+      points: [
+        "Never Pause SIPs: Market dips allow you to accumulate higher mutual fund units at discounted NAVs.",
+        "Maintain Asset Allocation: Target 60–70% equity for long-term goals and 20–30% in debt/FD for stability.",
+        "Emergency Shield: Keep 6–12 months of living expenses liquid before allocating additional surplus into equities.",
+        "Tax Harvesting: Utilize market pullbacks to reset capital gains within the ₹1.25 Lakh annual tax-exempt limit."
+      ]
+    },
+    "the-financial-story-of-himachal-pradesh-s-emplyoee": {
+      fastAnswer: "Himachal Pradesh salaried professionals and government employees can build a ₹1+ Crore retirement corpus by pairing GPF/NPS with disciplined ₹5,000–₹15,000 monthly equity mutual fund SIPs.",
+      points: [
+        "Overcoming Inflation: Traditional pension schemes need equity mutual fund growth to beat real healthcare and education inflation.",
+        "Goal-Based Roadmaps: Structured milestone planning tailored for families across Shimla, Kangra, Mandi, and Una.",
+        "Tax Optimization: Maximize Section 80C deductions using curated ELSS mutual funds with 3-year lock-ins.",
+        "Certified Advisory: Dedicated local and pan-India financial planning by AMFI ARN-284122."
+      ]
+    }
+  };
+
+  const currentTakeaways = TAKEAWAYS_BY_SLUG[slug] || {
+    fastAnswer: post.excerpt || "Get certified mutual fund insights and disciplined financial planning tailored to your family goals.",
+    points: [
+      "Authored and reviewed by AMFI-registered mutual fund distributor Vikrant Bhardwaj (ARN-284122).",
+      "Fact-checked against official SEBI master circulars and AMFI industry data.",
+      "Zero commercial sponsor bias — objective, goal-first financial analysis.",
+      "Optimized for citation across Google Discover, AI Overviews, and financial research."
+    ]
   };
 
   return (
@@ -297,19 +372,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     category={category}
                   />
 
-                  {/* Finshots / Groww Style: 30-Second Fast-Track Key Takeaways */}
-                  {post.excerpt && (
-                    <div className="p-6 rounded-2xl bg-gradient-to-br from-[#02241f] via-[#043329] to-[#011614] border-2 border-[#00ff97]/30 space-y-3 shadow-xl relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-[#00ff97]/15 blur-2xl rounded-full pointer-events-none" />
-                      <div className="flex items-center gap-2 text-[#00ff97] font-mono text-xs font-bold uppercase tracking-wider">
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#00ff97] animate-pulse" />
-                        <span>30-Second Fast Track Summary</span>
-                      </div>
-                      <p className="text-slate-200 text-sm sm:text-base leading-relaxed italic font-work-sans">
-                        &ldquo;{post.excerpt}&rdquo;
-                      </p>
-                    </div>
-                  )}
+                  {/* Executive Summary & AI Key Takeaways (Structured for Google SGE / AI Overviews) */}
+                  <ArticleKeyTakeaways
+                    title={post.title}
+                    fastAnswer={currentTakeaways.fastAnswer}
+                    points={currentTakeaways.points}
+                    category={category}
+                  />
 
                   {/* Mobile In-Article Table of Contents Quick Jump */}
                   {sanitizedContent && (

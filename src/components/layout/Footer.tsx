@@ -297,6 +297,9 @@ export default function Footer() {
               <Link href="/about" className="hover:text-stockstrail-green-light transition-colors">
                 About Stockstrail
               </Link>
+              <Link href="/editorial-policy" className="hover:text-stockstrail-green-light transition-colors font-medium text-emerald-300">
+                Editorial Policy
+              </Link>
               <Link href="/commission-disclosure" className="hover:text-stockstrail-green-light transition-colors">
                 Commission Disclosure
               </Link>

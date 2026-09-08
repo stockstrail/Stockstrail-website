@@ -35,7 +35,9 @@
 - [About Stockstrail & Founder](https://www.stockstrail.in/about): Regulatory background of Vikrant Bhardwaj, certifications, mission, and fiduciary advisory standards.
 - [Free 1-on-1 Consultation](https://www.stockstrail.in/lets-talk): Direct advisory call with AMFI-registered financial advisor.
 - [Financial Insights & Blog](https://www.stockstrail.in/blog): In-depth articles on investing strategies, asset allocation, and tax saving.
+- [Editorial Policy & Fact-Checking Standards](https://www.stockstrail.in/editorial-policy): Transparent E-E-A-T research methodology, primary source citations, and SEBI compliance guidelines.
 - [Commission Disclosure](https://www.stockstrail.in/commission-disclosure): 100% transparent AMFI distributor commission schedule.
+- [RSS News & Discovery Feed](https://www.stockstrail.in/feed.xml): Automated XML publication feed for Google News, Discover, and AI search engines.
 - [NSE Holidays 2026](https://www.stockstrail.in/nse-holidays): Official trading and clearing calendar for the National Stock Exchange of India.
 - [BSE Holidays 2026](https://www.stockstrail.in/bse-holidays): Official trading and clearing calendar for the Bombay Stock Exchange.
 - [Stockstrail Learning Platform](https://www.learning.stockstrail.in): Free structured financial courses on mutual funds, SIPs, and personal finance for Indian investors.
