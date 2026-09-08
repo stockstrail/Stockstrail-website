@@ -68,13 +68,13 @@ export default function BlogNewsletterCard({
       <div className={`overflow-hidden rounded-2xl border-2 border-[#00ff97]/30 bg-[#031d1a] backdrop-blur-md p-5 text-left space-y-3.5 shadow-xl ${className}`}>
         <div className="flex items-center gap-2 text-[#00ff97] text-xs font-mono font-bold uppercase tracking-wider">
           <BellRing className="w-4 h-4 text-[#00ff97] animate-bounce" />
-          <span>Get Instant Updates</span>
+          <span>The Stockstrail Dispatch</span>
         </div>
         <h4 className="text-base font-bold text-white font-product-sans leading-snug">
-          Never Miss a Market Opportunity
+          Free Weekly Market &amp; Mutual Fund Insights
         </h4>
         <p className="text-xs text-slate-300 font-work-sans leading-relaxed">
-          Get weekly curated SEBI guidelines, SIP fund picks, and tax hacks straight in your inbox.
+          Get weekly curated SEBI guidelines, SIP fund analysis, and tax-saving strategies straight in your inbox.
         </p>
         <form onSubmit={handleSubmit} className="space-y-2.5 pt-1">
           <input
@@ -90,7 +90,7 @@ export default function BlogNewsletterCard({
             disabled={loading}
             className="w-full py-3 rounded-xl bg-[#00ff97] text-[#012928] font-bold text-xs sm:text-sm hover:bg-white hover:text-black transition-all duration-300 shadow-[0_0_20px_rgba(0,255,151,0.4)] flex items-center justify-center gap-2 font-work-sans active:scale-95"
           >
-            <span>{loading ? "Subscribing..." : "Join 15,000+ Readers"}</span>
+            <span>{loading ? "Subscribing..." : "Subscribe for Free Updates"}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </form>
@@ -114,7 +114,7 @@ export default function BlogNewsletterCard({
         </h3>
 
         <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-work-sans">
-          Join <strong className="text-white">15,000+ smart Indian investors</strong> who read our 3-minute breakdowns on mutual funds, SEBI regulatory changes, and portfolio building strategies.
+          Receive clear, jargon-free breakdowns on mutual funds, SEBI regulatory changes, and disciplined portfolio building strategies straight to your inbox.
         </p>
 
         <form onSubmit={handleSubmit} className="pt-2 flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto">

@@ -1,77 +1,96 @@
 import React from "react";
-import { Sparkles, Users, TrendingUp, CheckCircle, ArrowRight, Mail, MessageCircle } from "lucide-react";
+import Link from "next/link";
+import { ShieldCheck, Target, RefreshCw, CheckCircle2, ArrowRight, MessageCircle, PhoneCall } from "lucide-react";
 
 export default function SponsorCallout() {
   return (
-    <div className="my-16 overflow-hidden rounded-3xl border border-emerald-500/30 bg-gradient-to-br from-[#021c17] via-[#04332b] to-[#011412] p-8 sm:p-12 relative shadow-2xl">
-      <div className="absolute -top-24 -right-24 w-72 h-72 bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none" />
+    <div className="my-16 overflow-hidden rounded-3xl border-2 border-[#00ff97]/30 bg-gradient-to-br from-[#021c17] via-[#04332b] to-[#011412] p-8 sm:p-12 relative shadow-2xl">
+      <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#00ff97]/10 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div className="lg:col-span-7 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[11px] font-mono font-bold uppercase tracking-wider text-emerald-300">
-            <Sparkles className="w-3.5 h-3.5 text-[#00ff97]" />
-            <span>Stockstrail Partner & Media Network</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-[11px] font-mono font-bold uppercase tracking-wider text-[#00ff97]">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#00ff97]" />
+            <span>AMFI Registered Distributor • ARN-284122</span>
           </div>
 
           <h3 className="font-product-sans text-2xl sm:text-3xl lg:text-4xl font-normal uppercase text-white leading-tight">
-            Advertise Your Brand to <span className="gradient-text">India&apos;s Active Investors</span>
+            Build Disciplined Wealth with <span className="gradient-text">Goal-Based Financial Planning</span>
           </h3>
 
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-work-sans">
-            Reach verified salaried professionals, mutual fund allocators, and wealth creators through our high-trust editorial publications, newsletters, and native sponsor slots.
+          <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-work-sans">
+            Whether you are starting your first ₹1,000 monthly SIP or seeking a second opinion on an existing portfolio, Stockstrail provides honest, data-backed guidance tailored directly to your family&apos;s financial milestones.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
-            <div className="p-3.5 rounded-xl bg-black/40 border border-white/10">
-              <div className="text-lg sm:text-xl font-bold font-mono text-[#00ff97]">50,000+</div>
-              <div className="text-[11px] text-white/60">Monthly Readers</div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-3">
+            <div className="p-3.5 rounded-2xl bg-black/40 border border-white/10 space-y-1">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-[#00ff97]">
+                <Target className="w-4 h-4" />
+                <span>Goal-First</span>
+              </div>
+              <p className="text-[11px] text-slate-300 leading-snug">
+                Portfolios mapped to retirement, child education, and emergency funds.
+              </p>
             </div>
-            <div className="p-3.5 rounded-xl bg-black/40 border border-white/10">
-              <div className="text-lg sm:text-xl font-bold font-mono text-[#00ff97]">82%</div>
-              <div className="text-[11px] text-white/60">Salaried & HNIs</div>
+
+            <div className="p-3.5 rounded-2xl bg-black/40 border border-white/10 space-y-1">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-[#00ff97]">
+                <ShieldCheck className="w-4 h-4" />
+                <span>Zero Pressure</span>
+              </div>
+              <p className="text-[11px] text-slate-300 leading-snug">
+                Transparent distributor disclosures and zero sales push.
+              </p>
             </div>
-            <div className="p-3.5 rounded-xl bg-black/40 border border-white/10 col-span-2 sm:col-span-1">
-              <div className="text-lg sm:text-xl font-bold font-mono text-[#00ff97]">3.8 Min</div>
-              <div className="text-[11px] text-white/60">Avg. Read Time</div>
+
+            <div className="p-3.5 rounded-2xl bg-black/40 border border-white/10 space-y-1">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-[#00ff97]">
+                <RefreshCw className="w-4 h-4" />
+                <span>Periodic Review</span>
+              </div>
+              <p className="text-[11px] text-slate-300 leading-snug">
+                Quarterly portfolio check-ups and disciplined rebalancing.
+              </p>
             </div>
           </div>
         </div>
 
-        <div className="lg:col-span-5 bg-[#011412]/90 backdrop-blur-md rounded-2xl p-6 border border-emerald-500/30 space-y-4">
+        <div className="lg:col-span-5 bg-[#011412]/95 backdrop-blur-md rounded-2xl p-6 sm:p-7 border border-emerald-500/35 space-y-4 shadow-xl">
           <h4 className="text-lg font-bold font-product-sans text-white">
-            Get Our 2026 Media Kit
+            Schedule a Free Strategy Call
           </h4>
           <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300 font-work-sans">
             <li className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-[#00ff97] shrink-0" />
-              <span>Dedicated Sponsored Articles & Deep Dives</span>
+              <CheckCircle2 className="w-4 h-4 text-[#00ff97] shrink-0" />
+              <span>100% Free Initial Portfolio Audit</span>
             </li>
             <li className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-[#00ff97] shrink-0" />
-              <span>Leaderboard & High-CTR Native Banner Slots</span>
+              <CheckCircle2 className="w-4 h-4 text-[#00ff97] shrink-0" />
+              <span>Personal Risk Profile &amp; Asset Allocation</span>
             </li>
             <li className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-[#00ff97] shrink-0" />
-              <span>Newsletter Placements to 15,000+ Subscribers</span>
+              <CheckCircle2 className="w-4 h-4 text-[#00ff97] shrink-0" />
+              <span>NISM Certified Wealth Advisor Support</span>
             </li>
           </ul>
 
-          <div className="pt-3 space-y-2.5">
-            <a
-              href="https://wa.me/919736304663?text=Hi%20Stockstrail%2C%20I%20would%20like%20to%20request%20your%20Media%20Kit%20and%20discuss%20advertising%20opportunities."
-              target="_blank"
-              rel="noopener noreferrer"
+          <div className="pt-2 space-y-2.5">
+            <Link
+              href="/lets-talk"
               className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#00ff97] text-[#012928] font-bold text-xs sm:text-sm hover:bg-white hover:text-black transition-all duration-300 shadow-[0_0_25px_rgba(0,255,151,0.45)] active:scale-95"
             >
-              <MessageCircle className="w-4 h-4 fill-[#012928]" />
-              <span>Inquire via WhatsApp</span>
-            </a>
+              <PhoneCall className="w-4 h-4 text-[#012928]" />
+              <span>Book Strategy Call</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
             <a
-              href="mailto:connect@stockstrail.in?subject=Advertising%20%26%20Sponsorship%20Inquiry%20-%20Stockstrail"
+              href="https://wa.me/919736304663?text=Hi%20Stockstrail%2C%20I%20would%20like%20to%20consult%20with%20an%20advisor%20regarding%20my%20mutual%20fund%20investments."
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs font-semibold transition-all"
             >
-              <Mail className="w-4 h-4" />
-              <span>Email: connect@stockstrail.in</span>
+              <MessageCircle className="w-4 h-4 text-[#00ff97]" />
+              <span>Message on WhatsApp</span>
             </a>
           </div>
         </div>

@@ -222,7 +222,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {/* Floating Mobile Share Button */}
           <MobileShareButton />
 
-          {/* Leaderboard Top Sponsor Slot */}
+          {/* Leaderboard Top Advisory Slot */}
           <AdSenseSlot format="leaderboard" className="mb-8" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
@@ -433,7 +433,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                       </ReactMarkdown>
                     </div>
 
-                  {/* Mid-Article Native Sponsor Insight */}
+                  {/* Mid-Article Native Advisory Insight */}
                   <AdSenseSlot format="in-article" />
 
                   {/* Reader Feedback Scoring Widget */}
@@ -506,7 +506,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               {/* Table of Contents */}
               {post.content && <ArticleTableOfContents content={post.content} />}
 
-              {/* Sticky Sidebar Sponsor / Google Ad Slot */}
+              {/* Sticky Sidebar Advisory / Google Ad Slot */}
               <AdSenseSlot format="sidebar" />
 
               {/* Author & Advisory Profile Card */}

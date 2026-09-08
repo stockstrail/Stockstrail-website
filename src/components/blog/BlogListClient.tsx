@@ -253,11 +253,11 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
             </div>
           )}
 
-          {/* In-Feed Native Sponsorship Card */}
+          {/* In-Feed Advisory Card */}
           <AdSenseSlot format="in-article" />
         </div>
 
-        {/* Right Sidebar: Trending Posts & Newsletter & Sponsor Slot */}
+        {/* Right Sidebar: Trending Posts & Newsletter & Advisory Slot */}
         <aside className="lg:col-span-4 space-y-6">
           {/* Trending / Most Read Widget */}
           <div className="rounded-2xl border border-emerald-500/25 bg-[#031d1a]/85 backdrop-blur-md p-6 shadow-xl space-y-5">
@@ -292,7 +292,7 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
           {/* Compact Newsletter Subscription */}
           <BlogNewsletterCard variant="compact" />
 
-          {/* Sidebar Sponsor / Ad Slot */}
+          {/* Sidebar Advisory / Ad Slot */}
           <AdSenseSlot format="sidebar" />
         </aside>
       </div>
@@ -300,7 +300,7 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
       {/* Full Width Newsletter Subscription Banner */}
       <BlogNewsletterCard variant="full" />
 
-      {/* Direct Sponsor Acquisition Banner */}
+      {/* Goal-Based Planning Advisory Banner */}
       <SponsorCallout />
     </div>
   );
