@@ -279,9 +279,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
                   {/* Finshots / Groww Style: 30-Second Fast-Track Key Takeaways */}
                   {post.excerpt && (
-                    <div className="p-6 rounded-2xl bg-gradient-to-br from-[#02241f] via-[#043329] to-[#011614] border border-emerald-500/40 space-y-3 shadow-xl relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-2xl rounded-full pointer-events-none" />
-                      <div className="flex items-center gap-2 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">
+                    <div className="p-6 rounded-2xl bg-gradient-to-br from-[#02241f] via-[#043329] to-[#011614] border-2 border-[#00ff97]/30 space-y-3 shadow-xl relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-[#00ff97]/15 blur-2xl rounded-full pointer-events-none" />
+                      <div className="flex items-center gap-2 text-[#00ff97] font-mono text-xs font-bold uppercase tracking-wider">
                         <span className="w-2.5 h-2.5 rounded-full bg-[#00ff97] animate-pulse" />
                         <span>30-Second Fast Track Summary</span>
                       </div>
@@ -291,43 +291,89 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     </div>
                   )}
 
-                  {/* Render Markdown content with auto-linked TOC IDs */}
-                  <div className="blog-content prose prose-sm sm:prose-base lg:prose-lg mx-auto w-full prose-invert pt-2">
-                    <ReactMarkdown
-                      remarkPlugins={[remarkGfm]}
-                      rehypePlugins={[rehypeRaw]}
-                      components={{
-                        h1: ({ children, ...props }) => {
-                          const text = getNodeText(children);
-                          const id = slugify(text);
-                          return <h1 id={id} className="scroll-mt-28" {...props}>{children}</h1>;
-                        },
-                        h2: ({ children, ...props }) => {
-                          const text = getNodeText(children);
-                          const id = slugify(text);
-                          return <h2 id={id} className="scroll-mt-28" {...props}>{children}</h2>;
-                        },
-                        h3: ({ children, ...props }) => {
-                          const text = getNodeText(children);
-                          const id = slugify(text);
-                          return <h3 id={id} className="scroll-mt-28" {...props}>{children}</h3>;
-                        },
-                        h4: ({ children, ...props }) => {
-                          const text = getNodeText(children);
-                          const id = slugify(text);
-                          return <h4 id={id} className="scroll-mt-28" {...props}>{children}</h4>;
-                        },
-                        a: ({ node, href, children, ...props }) => {
-                          if (href && href.match(/\.(jpeg|jpg|gif|png|webp)$/i)) {
-                            return <img src={href} alt={String(children)} className="w-full h-auto rounded-xl shadow-lg" />;
+                  {/* Mobile In-Article Table of Contents Quick Jump */}
+                  {post.content && (
+                    <div className="block lg:hidden my-6">
+                      <ArticleTableOfContents content={post.content} />
+                    </div>
+                  )}
+
+                    {/* Render Markdown content with auto-linked TOC IDs */}
+                    <div className="blog-content prose prose-sm sm:prose-base lg:prose-lg mx-auto w-full prose-invert pt-2">
+                      <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeRaw]}
+                        components={{
+                          h1: ({ children, ...props }) => {
+                            const text = getNodeText(children);
+                            const id = slugify(text);
+                            return (
+                              <h1 id={id} data-toc-id={id} className="scroll-mt-28 font-product-sans font-bold text-2xl sm:text-3xl text-white pt-4 pb-2" {...props}>
+                                {children}
+                              </h1>
+                            );
+                          },
+                          h2: ({ children, ...props }) => {
+                            const text = getNodeText(children);
+                            const id = slugify(text);
+                            return (
+                              <h2
+                                id={id}
+                                data-toc-id={id}
+                                className="scroll-mt-28 font-product-sans font-bold text-xl sm:text-2xl text-white pt-6 pb-2 border-b border-white/10"
+                                {...props}
+                              >
+                                {children}
+                              </h2>
+                            );
+                          },
+                          h3: ({ children, ...props }) => {
+                            const text = getNodeText(children);
+                            const id = slugify(text);
+                            return (
+                              <h3
+                                id={id}
+                                data-toc-id={id}
+                                className="scroll-mt-28 font-product-sans font-semibold text-lg sm:text-xl text-[#00ff97] pt-4 pb-1"
+                                {...props}
+                              >
+                                {children}
+                              </h3>
+                            );
+                          },
+                          h4: ({ children, ...props }) => {
+                            const text = getNodeText(children);
+                            const id = slugify(text);
+                            return (
+                              <h4
+                                id={id}
+                                data-toc-id={id}
+                                className="scroll-mt-28 font-product-sans font-medium text-base text-slate-200 pt-3 pb-1"
+                                {...props}
+                              >
+                                {children}
+                              </h4>
+                            );
+                          },
+                          a: ({ node, href, children, ...props }) => {
+                            if (href && href.match(/\.(jpeg|jpg|gif|png|webp)$/i)) {
+                              return <img src={href} alt={String(children)} className="w-full h-auto rounded-xl shadow-lg my-4" />;
+                            }
+                            return (
+                              <a
+                                href={href}
+                                className="text-[#00ff97] hover:underline underline-offset-4 font-medium transition-colors"
+                                {...props}
+                              >
+                                {children}
+                              </a>
+                            );
                           }
-                          return <a href={href} {...props}>{children}</a>;
-                        }
-                      }}
-                    >
-                      {post.content}
-                    </ReactMarkdown>
-                  </div>
+                        }}
+                      >
+                        {post.content}
+                      </ReactMarkdown>
+                    </div>
 
                   {/* Mid-Article Native Sponsor Insight */}
                   <AdSenseSlot format="in-article" />
