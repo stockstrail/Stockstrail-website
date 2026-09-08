@@ -9,34 +9,29 @@ import { HOLIDAY_FAQS_DATA } from '@/lib/holidays/data';
 import { ChevronRight, Calendar, Sparkles, Building2, Layers } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'BSE & NSE Holiday Calendar 2026 - Bombay Stock Exchange Holidays | Stockstrail',
+  title: 'BSE Holiday Calendar 2026: Bombay Stock Exchange Trading Holiday List | Stockstrail',
   description:
-    'Official BSE & NSE Holiday Calendar for 2026. Complete calendar of Bombay Stock Exchange trading holidays across Equities, Derivatives, Commodity split sessions, and Muhurat Trading.',
+    'Official BSE Holiday List 2026. Explore Bombay Stock Exchange market holidays across Equities, Derivatives, Commodity split sessions, and settlement dates.',
   keywords: [
     'bse holiday calendar 2026',
-    'nse holiday calendar 2026',
     'bse holiday list 2026',
-    'nse holiday list 2026',
-    'is today stock market holiday',
-    'is today trading holiday in India',
-    'is today working day in stock market',
-    'share market holiday today',
-    'is share market open today',
     'bombay stock exchange holidays',
-    'market holidays in september 2026',
-    'september holidays 2026',
-    '7 september 2026 day',
-    'central government holidays 2026',
+    'bse holidays 2026',
+    'bse holidays list',
+    'is bse open today',
+    'bse holiday',
+    'bse trading holidays 2026',
     'muhurat trading 2026 bse',
-    'mcx holiday list 2026'
+    'mcx holiday list 2026',
+    'bse share market holiday'
   ],
   alternates: {
     canonical: 'https://www.stockstrail.in/bse-holidays',
   },
   openGraph: {
-    title: 'BSE & NSE Holiday Calendar 2026 | Stockstrail',
+    title: 'BSE Holiday Calendar 2026 | Stockstrail',
     description:
-      'Official Bombay Stock Exchange (BSE) & NSE trading holidays for 2026 across all market segments.',
+      'Official Bombay Stock Exchange (BSE) trading holidays for 2026 across all market segments.',
     url: 'https://www.stockstrail.in/bse-holidays',
     siteName: 'Stockstrail',
     locale: 'en_IN',
@@ -46,15 +41,15 @@ export const metadata: Metadata = {
         url: '/og-stockstrail.png',
         width: 1100,
         height: 630,
-        alt: 'BSE & NSE Holiday Calendar 2026',
+        alt: 'BSE Holiday Calendar 2026',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BSE & NSE Holiday Calendar 2026 | Stockstrail',
+    title: 'BSE Holiday Calendar 2026 | Stockstrail',
     description:
-      'Official trading holidays for the Bombay Stock Exchange (BSE) and National Stock Exchange (NSE) for 2026.',
+      'Official trading holidays for the Bombay Stock Exchange (BSE) for 2026.',
     images: ['/og-stockstrail.png'],
   },
 };

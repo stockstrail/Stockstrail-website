@@ -142,6 +142,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
+      url: `${mainBaseUrl}/check-risk-profile`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${mainBaseUrl}/terms-and-conditions`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
@@ -155,30 +161,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  // 2. Learning platform static routes
-  const learningStaticRoutes: MetadataRoute.Sitemap = [
-    {
-      url: learningBaseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1.0,
-    },
-    {
-      url: `${learningBaseUrl}/categories`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${learningBaseUrl}/courses`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-  ]
-
   // If requested on the learning subdomain, return only learning routes
   if (isLearningSubdomain) {
+    const learningStaticRoutes: MetadataRoute.Sitemap = [
+      {
+        url: learningBaseUrl,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 1.0,
+      },
+      {
+        url: `${learningBaseUrl}/categories`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.9,
+      },
+      {
+        url: `${learningBaseUrl}/courses`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.9,
+      },
+    ]
+
     let categoryRoutes: MetadataRoute.Sitemap = []
     try {
       const categories = await getCategories()
@@ -212,7 +217,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ]
   }
 
-  // 3. Fetch dynamic blog posts from Supabase for main site
+  // 2. Fetch dynamic blog posts from Supabase for main site
   let blogRoutes: MetadataRoute.Sitemap = []
   try {
     const supabase = await createClient()
@@ -233,40 +238,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error('Error fetching blog posts for sitemap:', error)
   }
 
-  // 4. Fetch dynamic learning categories
-  let categoryRoutes: MetadataRoute.Sitemap = []
-  try {
-    const categories = await getCategories()
-    categoryRoutes = categories.map((cat) => ({
-      url: `${learningBaseUrl}/categories/${cat.slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    }))
-  } catch (e) {
-    console.error('Error fetching categories for sitemap:', e)
-  }
-
-  // 5. Fetch dynamic learning courses
-  let courseRoutes: MetadataRoute.Sitemap = []
-  try {
-    const courses = await getCourses()
-    courseRoutes = courses.map((course) => ({
-      url: `${learningBaseUrl}/courses/${course.slug}`,
-      lastModified: new Date(course.updatedAt),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    }))
-  } catch (e) {
-    console.error('Error fetching courses for sitemap:', e)
-  }
-
   return [
     ...mainStaticRoutes,
     ...blogRoutes,
-    ...learningStaticRoutes,
-    ...categoryRoutes,
-    ...courseRoutes,
   ]
 }
 

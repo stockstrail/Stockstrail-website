@@ -156,22 +156,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/demat',
-        destination: '/open-demat',
+        destination: '/services/open-demat',
         permanent: true,
       },
       {
         source: '/financial-planning',
         destination: '/services',
-        permanent: true,
-      },
-      {
-        source: '/services/loan',
-        destination: '/loan',
-        permanent: true,
-      },
-      {
-        source: '/services/fixed-deposit',
-        destination: '/fixed-deposit',
         permanent: true,
       },
     ];

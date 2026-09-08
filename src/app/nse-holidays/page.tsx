@@ -9,25 +9,22 @@ import { HOLIDAY_FAQS_DATA } from '@/lib/holidays/data';
 import { ChevronRight, Calendar, Sparkles, Building2, RefreshCw } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'NSE & BSE Holiday Calendar 2026 - Stock Market Trading Holidays India | Stockstrail',
+  title: 'NSE Holidays 2026: Is Share Market Open Today? Holiday Calendar | Stockstrail',
   description:
-    'Official NSE & BSE Holiday Calendar 2026. Complete list of 15 trading holidays, live market working day status, September holiday dates, MCX split sessions, and Diwali Muhurat Trading timings.',
+    'Check if Indian stock market is open today. Complete NSE & BSE Holiday Calendar 2026 with 15 official trading closures, live market status, MCX timings, and Muhurat trading.',
   keywords: [
-    'nse holiday calendar 2026',
-    'bse holiday calendar 2026',
-    'nse holiday list 2026',
-    'bse holiday list 2026',
+    'is share market open today',
     'is today stock market holiday',
+    'nse holiday calendar 2026',
+    'nse holiday list 2026',
+    'share market holiday today',
     'is today trading holiday in India',
     'is today working day in stock market',
-    'share market holiday today',
-    'is share market open today',
+    'bse holiday calendar 2026',
+    'bse holiday list 2026',
     'stock market holidays 2026',
     'market holidays in september 2026',
     'september holidays 2026',
-    '7 september 2026 day',
-    'central government holidays 2026',
-    'central govt holidays 2026',
     'muhurat trading 2026 date and time',
     'mcx holiday list 2026',
     'stock market trading calendar India'
@@ -36,7 +33,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.stockstrail.in/nse-holidays',
   },
   openGraph: {
-    title: 'NSE & BSE Holiday Calendar 2026 | Stockstrail',
+    title: 'NSE Holidays 2026: Is Share Market Open Today? | Stockstrail',
     description:
       'Official NSE & BSE trading holidays for 2026. Check real-time live trading status, equity closures, commodity sessions, and Muhurat Trading.',
     url: 'https://www.stockstrail.in/nse-holidays',
@@ -54,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NSE & BSE Holiday Calendar 2026 | Stockstrail',
+    title: 'NSE Holidays 2026: Is Share Market Open Today? | Stockstrail',
     description:
       'Official trading holidays for the National Stock Exchange (NSE) and Bombay Stock Exchange (BSE) for 2026.',
     images: ['/og-stockstrail.png'],
