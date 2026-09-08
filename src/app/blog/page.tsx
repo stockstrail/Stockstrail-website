@@ -115,11 +115,28 @@ export default async function BlogPage({
                 const authorName = 'Vikrant Bhardwaj';
                 const postPath = `/blog/${post.slug}`;
                 const coverImage = LOCAL_BLOG_COVERS[post.slug] || post.image_url;
+                const wordCount = post.content ? post.content.split(/\s+/).length : 400;
+                const readTimeMinutes = Math.max(2, Math.ceil(wordCount / 220));
+                
+                // Determine clean category badge
+                let category = 'INVESTING';
+                const lowerTitle = post.title.toLowerCase();
+                if (lowerTitle.includes('nomination') || lowerTitle.includes('sebi') || lowerTitle.includes('rule')) {
+                  category = 'REGULATION';
+                } else if (lowerTitle.includes('market down') || lowerTitle.includes('vix') || lowerTitle.includes('correction')) {
+                  category = 'MARKET STRATEGY';
+                } else if (lowerTitle.includes('tax') || lowerTitle.includes('taxation')) {
+                  category = 'TAX PLANNING';
+                } else if (lowerTitle.includes('sip') || lowerTitle.includes('lump sum') || lowerTitle.includes('mutual fund')) {
+                  category = 'MUTUAL FUNDS';
+                } else if (lowerTitle.includes('himachal') || lowerTitle.includes('salaried') || lowerTitle.includes('employee')) {
+                  category = 'WEALTH PLANNING';
+                }
                 
                 return (
                   <article
                     key={post.id}
-                    className="relative group bg-[#051613]/50 backdrop-blur-md rounded-2xl overflow-hidden border border-emerald-900/40 hover:border-emerald-500/50 hover:shadow-[0_8px_40px_rgba(0,255,151,0.12)] transition-all duration-500 hover:-translate-y-1 flex flex-col h-full"
+                    className="relative group bg-[#051613]/70 backdrop-blur-md rounded-2xl overflow-hidden border border-emerald-900/40 hover:border-emerald-500/50 hover:shadow-[0_8px_40px_rgba(0,255,151,0.15)] transition-all duration-500 hover:-translate-y-1 flex flex-col h-full"
                   >
                     {/* Inner glowing accent */}
                     <div className="absolute inset-0 bg-gradient-to-b from-stockstrail-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -134,7 +151,17 @@ export default async function BlogPage({
                             className="object-cover group-hover/img:scale-105 transition-transform duration-700 ease-out"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#051613] via-transparent to-transparent opacity-80" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#051613] via-transparent to-transparent opacity-70" />
+                          
+                          {/* Category Badge */}
+                          <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#011a18]/85 border border-emerald-500/40 text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-300 backdrop-blur-md">
+                            {category}
+                          </div>
+
+                          {/* Read Time Pill */}
+                          <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono text-slate-300 backdrop-blur-md">
+                            ⏱️ {readTimeMinutes} min read
+                          </div>
                         </div>
                       ) : (
                         <div className="w-full aspect-[16/9] relative bg-gradient-to-br from-emerald-900/40 to-[#051613] flex items-center justify-center">
@@ -150,28 +177,28 @@ export default async function BlogPage({
 
                     <div className="flex-1 flex flex-col p-5 sm:p-6 relative z-10">
                       <div className="flex-1">
-                        <h2 className="text-lg sm:text-xl font-semibold mb-2 font-product-sans leading-snug text-stockstrail-green group-hover:text-emerald-300 transition-colors duration-300 line-clamp-2">
+                        <h2 className="text-lg sm:text-xl font-semibold mb-2 font-product-sans leading-snug text-white group-hover:text-emerald-300 transition-colors duration-300 line-clamp-2">
                           <Link href={postPath} className="focus:outline-none before:absolute before:inset-0">
                             {post.title}
                           </Link>
                         </h2>
                         {post.excerpt && (
-                          <p className="text-white/60 text-sm leading-relaxed mb-4 line-clamp-2 font-work-sans">
+                          <p className="text-white/60 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2 font-work-sans">
                             {post.excerpt}
                           </p>
                         )}
                       </div>
 
-                      <div className="flex items-center justify-between pt-5 mt-auto border-t border-white/5 group-hover:border-emerald-500/20 transition-colors duration-500">
-                        <p className="text-white/40 text-xs sm:text-sm font-work-sans flex items-center gap-1.5">
+                      <div className="flex items-center justify-between pt-4 mt-auto border-t border-white/5 group-hover:border-emerald-500/20 transition-colors duration-500">
+                        <p className="text-white/40 text-xs font-work-sans flex items-center gap-1.5">
                            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                           </svg>
                           {format(new Date(post.created_at), 'MMM d, yyyy')}
                         </p>
-                        <Link href={postPath} className="relative z-20 inline-flex items-center gap-1.5 bg-gradient-to-r from-emerald-500/20 to-stockstrail-green/20 hover:from-emerald-400/40 hover:to-stockstrail-green/40 border border-emerald-500/30 hover:border-emerald-400 text-stockstrail-green hover:text-white font-medium transition-all duration-300 font-work-sans text-xs sm:text-sm px-4 py-1.5 rounded-full shadow-[0_0_15px_rgba(0,255,151,0.1)] hover:shadow-[0_0_20px_rgba(0,255,151,0.3)] backdrop-blur-md group-hover:gap-2.5">
-                          Read Post
-                          <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <Link href={postPath} className="relative z-20 inline-flex items-center gap-1.5 bg-emerald-500/10 hover:bg-emerald-500/25 border border-emerald-500/30 hover:border-emerald-400 text-emerald-300 hover:text-white font-medium transition-all duration-300 font-work-sans text-xs px-3.5 py-1.5 rounded-full shadow-[0_0_15px_rgba(0,255,151,0.1)] hover:shadow-[0_0_20px_rgba(0,255,151,0.3)] backdrop-blur-md group-hover:gap-2">
+                          Read Article
+                          <svg className="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                           </svg>
                         </Link>

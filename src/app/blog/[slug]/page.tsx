@@ -198,32 +198,54 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className="lg:col-span-2">
               <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-stockstrail-green-light/20 hover:bg-white/10 hover:border-stockstrail-green-light/40 hover:shadow-[0_0_30px_rgba(0,255,151,0.2)] transition-all duration-500 flex flex-col">
                 <div className="flex-1 p-8">
-                  <article className="space-y-10 text-white">
-                    <div className="text-center space-y-8">
-                      <h1 className="font-product-sans text-3xl sm:text-4xl lg:text-4xl font-normal uppercase gradient-text leading-tight">
+                  <article className="space-y-8 text-white">
+                    <header className="text-center space-y-6">
+                      <h1 className="font-product-sans text-3xl sm:text-4xl lg:text-5xl font-normal uppercase gradient-text leading-tight max-w-4xl mx-auto">
                         {post.title}
                       </h1>
-                      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base pb-8 border-b border-white/10 max-w-3xl mx-auto">
-                        <p className="text-stockstrail-green-light font-work-sans uppercase tracking-wider font-medium">
+                      <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm pb-6 border-b border-white/10 max-w-3xl mx-auto">
+                        <span className="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-mono font-bold uppercase tracking-wider text-[11px]">
+                          AMFI ARN-284122
+                        </span>
+                        <p className="text-stockstrail-green-light font-work-sans uppercase tracking-wider font-semibold">
                           {authorName}
                         </p>
-                        <span className="hidden sm:block text-white/30">•</span>
-                        <p className="text-white/50 font-work-sans">
+                        <span className="text-white/30">•</span>
+                        <p className="text-white/60 font-work-sans">
                           {format(new Date(post.created_at), 'd MMMM, yyyy')}
                         </p>
+                        <span className="text-white/30">•</span>
+                        <p className="text-emerald-400 font-mono text-xs">
+                          ⏱️ {Math.max(2, Math.ceil((post.content?.split(/\s+/).length || 400) / 220))} min read
+                        </p>
                       </div>
-                    </div>
+                    </header>
+
                     {featuredImage && (
-                      <div className="mb-10 w-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(0,255,151,0.1)]">
+                      <div className="w-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(0,255,151,0.15)] aspect-[16/9] relative bg-[#0a1a17]">
                         <img 
                           src={featuredImage} 
                           alt={post.image_alt || post.title} 
-                          className="w-full h-auto max-h-[60vh] object-cover hover:scale-105 transition-transform duration-700"
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out"
                         />
                       </div>
                     )}
+
+                    {/* Quick Summary / Key Takeaways Box (Groww / Finshots Style) */}
+                    {post.excerpt && (
+                      <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-[#02211d] to-[#011413] border border-emerald-500/30 space-y-2.5 shadow-lg">
+                        <div className="flex items-center gap-2 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                          <span>30-Second Key Takeaway</span>
+                        </div>
+                        <p className="text-slate-200 text-sm sm:text-base leading-relaxed italic">
+                          &ldquo;{post.excerpt}&rdquo;
+                        </p>
+                      </div>
+                    )}
+
                     {/* Render Markdown content with raw HTML support for legacy posts */}
-                    <div className="blog-content prose prose-sm sm:prose-base lg:prose-lg mx-auto w-full prose-invert">
+                    <div className="blog-content prose prose-sm sm:prose-base lg:prose-lg mx-auto w-full prose-invert pt-4">
                       <ReactMarkdown
                         remarkPlugins={[remarkGfm]}
                         rehypePlugins={[rehypeRaw]}
@@ -238,6 +260,30 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                       >
                         {post.content}
                       </ReactMarkdown>
+                    </div>
+
+                    {/* Actionable Editorial CTA Card */}
+                    <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#042823] to-[#021817] border border-emerald-500/40 text-center space-y-4 shadow-xl">
+                      <h3 className="text-xl sm:text-2xl font-bold font-product-sans text-white">
+                        Need Personalized Guidance on Your Portfolio?
+                      </h3>
+                      <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+                        Stockstrail is an AMFI-Registered Mutual Fund Distributor (ARN-284122). Take our free 2-minute risk assessment or book a 1-on-1 strategy call with our certified advisors.
+                      </p>
+                      <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+                        <Link
+                          href="/check-risk-profile"
+                          className="px-6 py-3 rounded-full bg-stockstrail-green-light text-black font-bold text-xs sm:text-sm hover:bg-white transition-all shadow-[0_0_20px_rgba(0,255,151,0.3)]"
+                        >
+                          Take Free Risk Quiz
+                        </Link>
+                        <Link
+                          href="/lets-talk"
+                          className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-xs sm:text-sm transition-all"
+                        >
+                          Book Free Strategy Call →
+                        </Link>
+                      </div>
                     </div>
                   </article>
                 </div>
