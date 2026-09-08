@@ -4,28 +4,27 @@ import Image from "next/image";
 import ImageCarousel from '@/components/ui/ImageCarousel';
 
 export const metadata: Metadata = {
-  title: 'Mutual Fund Investment | SIP & Lump Sum Investing | Stockstrail',
+  title: 'Mutual Funds India: Best SIP & Lumpsum Investment Advisory | Stockstrail',
   description:
-    'Learn how mutual funds work, compare SIP and lump sum investing, understand fund categories and risk, and explore mutual fund options based on your goals with Stockstrail.',
+    'Start disciplined mutual fund investing with Stockstrail (AMFI ARN-284122). Compare SIP vs lumpsum options, equity and debt fund categories, and get personalized wealth guidance.',
   keywords:
-    'mutual fund investment, mutual funds, SIP, lump sum investment, equity funds, debt funds, hybrid funds, mutual fund distributor',
+    'mutual fund investment, mutual funds India, best SIP funds, SIP investment, lump sum investment, equity funds, debt funds, hybrid funds, mutual fund distributor, AMFI registered distributor, Stockstrail',
   openGraph: {
-    title: 'Mutual Fund Investment | SIP & Lump Sum Investing | Stockstrail',
+    title: 'Mutual Funds India: Best SIP & Lumpsum Investment Advisory | Stockstrail',
     description:
-      'Learn how mutual funds work, compare SIP and lump sum investing, understand fund categories and risk, and explore mutual fund options based on your goals.',
+      'Start disciplined mutual fund investing with Stockstrail (AMFI ARN-284122). Compare SIP vs lumpsum options, equity and debt fund categories, and get personalized wealth guidance.',
     url: 'https://www.stockstrail.in/services/mutual-funds',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mutual Fund Investment | SIP & Lump Sum Investing | Stockstrail',
+    title: 'Mutual Funds India: Best SIP & Lumpsum Investment Advisory | Stockstrail',
     description:
-      'Learn how mutual funds work, compare SIP and lump sum investing, understand fund categories and risk, and explore mutual fund options based on your goals.',
+      'Start disciplined mutual fund investing with Stockstrail (AMFI ARN-284122). Compare SIP vs lumpsum options, equity and debt fund categories, and get personalized wealth guidance.',
   },
   alternates: {
     canonical: 'https://www.stockstrail.in/services/mutual-funds',
   },
-
 };
 const jsonLd = {
   '@context': 'https://schema.org',

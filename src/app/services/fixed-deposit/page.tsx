@@ -6,16 +6,16 @@ import ImageCarousel from '@/components/ui/ImageCarousel';
 import JsonLd from '@/components/common/JsonLd';
 
 export const metadata: Metadata = {
-  title: "Fixed Deposits (FD): Rates, Types, Tax & Withdrawal | Stockstrail",
+  title: "Fixed Deposit (FD) Guide 2026: Types, Interest Rates & Tax Rules | Stockstrail",
   description:
-    "Understand fixed deposits, FD interest payouts, tenures, tax-saving FDs, premature withdrawal, deposit insurance and how to compare FD options before investing.",
+    "Complete guide to Fixed Deposits in India. Explore types of fixed deposits, Bank vs Corporate FD interest rates, senior citizen benefits, tax rules, and calculation.",
   keywords:
-    "fixed deposit, FD, fixed deposit investment, FD interest rates, FD maturity, tax saving fixed deposit, senior citizen FD, cumulative FD, non cumulative FD, FD premature withdrawal",
+    "types of fixed deposit, fixed deposit, FD, fixed deposit investment, FD interest rates 2026, FD maturity, tax saving fixed deposit, senior citizen FD, cumulative FD, non cumulative FD, corporate fixed deposit",
   alternates: {
     canonical: "https://www.stockstrail.in/services/fixed-deposit",
   },
   openGraph: {
-    title: "Fixed Deposits (FD): Rates, Types, Tax & Withdrawal | Stockstrail",
+    title: "Fixed Deposit (FD) Guide 2026: Types, Interest Rates & Tax Rules | Stockstrail",
     description:
       "Understand FD rates, payout options, tax-saving FDs, withdrawal rules, deposit insurance and how to compare fixed deposit options.",
     url: "https://www.stockstrail.in/services/fixed-deposit",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fixed Deposits (FD): Rates, Types, Tax & Withdrawal | Stockstrail",
+    title: "Fixed Deposit (FD) Guide 2026: Types, Interest Rates & Tax Rules | Stockstrail",
     description:
       "Understand FD rates, payout options, tax-saving FDs, withdrawal rules, deposit insurance and how to compare fixed deposit options.",
     images: ["/og-stockstrail.png"],

@@ -5,18 +5,18 @@ import ImageCarousel from '@/components/ui/ImageCarousel';
 import JsonLd from '@/components/common/JsonLd';
 
 export const metadata: Metadata = {
-  title: "Insurance Plans: Term, Health & Savings | Stockstrail",
+  title: "Term & Health Insurance in India: Plans & Comparison | Stockstrail",
   description:
-    "Explore term insurance, health insurance and traditional savings plans. Compare coverage, understand waiting periods, benefits and policy terms, and explore suitable options with Stockstrail.",
+    "Protect your family with top Term Life and Health Insurance plans in India. Compare 99%+ claim settlement ratios, cashless network hospitals, critical illness riders, and get expert advisory from Stockstrail.",
   keywords:
-    "term insurance, health insurance, traditional insurance, savings insurance, life insurance, health insurance plans, term insurance plans, traditional savings plans, insurance planning, Stockstrail",
+    "term insurance India, health insurance plans, best term insurance 2026, life insurance, medical insurance, claim settlement ratio, health insurance for family, critical illness cover, Stockstrail insurance",
   alternates: {
     canonical: "https://www.stockstrail.in/services/insurance",
   },
   openGraph: {
-    title: "Insurance Plans: Term, Health & Savings | Stockstrail",
+    title: "Term & Health Insurance in India: Plans & Comparison | Stockstrail",
     description:
-      "Explore term insurance, health insurance and traditional savings plans. Compare coverage, understand policy terms and explore suitable insurance options with Stockstrail.",
+      "Protect your family with top Term Life and Health Insurance plans in India. Compare claim settlement ratios, cashless network hospitals, and get expert advisory from Stockstrail.",
     url: "https://www.stockstrail.in/services/insurance",
     siteName: "Stockstrail",
     locale: "en_IN",
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Insurance Plans: Term, Health & Savings | Stockstrail",
+    title: "Term & Health Insurance in India: Plans & Comparison | Stockstrail",
     description:
-      "Explore term insurance, health insurance and traditional savings plans with comprehensive comparison and guidance.",
+      "Protect your family with top Term Life and Health Insurance plans in India with unbiased advisory from Stockstrail.",
     images: ["/og-stockstrail.png"],
   },
 };

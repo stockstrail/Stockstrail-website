@@ -5,18 +5,18 @@ import ImageCarousel from "@/components/ui/ImageCarousel";
 import JsonLd from "@/components/common/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Loan Against Mutual Funds (LAMF), Business & Home Loans | Stockstrail",
+  title: "Loan Against Mutual Funds (LAMF) & Business Loans in India | Stockstrail",
   description:
-    "Explore Loan Against Mutual Funds (LAMF), business loans, and home loans with expert guidance, clear terms, and support through the application process.",
+    "Get instant Loan Against Mutual Funds (LAMF) without selling your investments. Compare low interest rates starting from 9%, zero foreclosure charges, and quick approval with Stockstrail.",
   keywords:
-    "loan against mutual funds, LAMF, loan against mutual funds India, business loan, home loan, personal loan, Stockstrail loans",
+    "loan against mutual funds, LAMF, loan against mutual funds India, LAMF interest rate, loan against shares, business loan, home loan, Stockstrail loans",
   alternates: {
     canonical: "https://www.stockstrail.in/services/loan",
   },
   openGraph: {
-    title: "Loan Against Mutual Funds (LAMF), Business & Home Loans | Stockstrail",
+    title: "Loan Against Mutual Funds (LAMF) & Business Loans in India | Stockstrail",
     description:
-      "Access funds without unnecessarily selling investments. Explore LAMF, business loans and home loans with clear, practical guidance.",
+      "Get instant Loan Against Mutual Funds (LAMF) without selling your investments. Low interest rates, zero foreclosure charges, and quick approval.",
     url: "https://www.stockstrail.in/services/loan",
     siteName: "Stockstrail",
     locale: "en_IN",
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Loan Against Mutual Funds (LAMF), Business & Home Loans | Stockstrail",
+    title: "Loan Against Mutual Funds (LAMF) & Business Loans in India | Stockstrail",
     description:
-      "Access funds without unnecessarily selling investments. Explore LAMF, business loans and home loans with clear, practical guidance.",
+      "Get instant Loan Against Mutual Funds (LAMF) without selling your investments. Low interest rates, zero foreclosure charges, and quick approval.",
     images: ["/og-stockstrail.png"],
   },
 };
