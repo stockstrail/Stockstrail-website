@@ -13,6 +13,7 @@ import AdSenseSlot from '@/components/blog/AdSenseSlot';
 import BlogNewsletterCard from '@/components/blog/BlogNewsletterCard';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 import MobileShareButton from '@/components/blog/MobileShareButton';
+import PreferredSourceBadge from '@/components/blog/PreferredSourceBadge';
 import { createClient } from '@/lib/supabase/server';
 import { BlogFAQ } from '@/types';
 import JsonLd from '@/components/common/JsonLd';
@@ -43,25 +44,23 @@ function getNodeText(node: any): string {
 }
 
 const LOCAL_BLOG_COVERS: Record<string, string> = {
-  'why-is-the-market-down-a-salaried-employee-s-action-guide': '/blog/why-is-the-market-down.jpg',
-  'sebi-mutual-fund-nomination-rule-september-2026': '/blog/sebi-mutual-fund-nomination-rule-september-2026.jpg',
-  'the-financial-story-of-himachal-pradesh-s-emplyoee': '/blog/the-financial-story-of-himachal-pradesh-s-emplyoee.jpg',
+  "why-is-the-market-down-a-salaried-employee-s-action-guide": "/blog/why-is-the-market-down.jpg",
+  "sebi-mutual-fund-nomination-rule-september-2026": "/blog/sebi-mutual-fund-nomination-rule-september-2026.jpg",
+  "the-financial-story-of-himachal-pradesh-s-emplyoee": "/blog/the-financial-story-of-himachal-pradesh-s-emplyoee.jpg",
 };
 
 function getCategoryFromTitle(title: string): string {
   const lower = title.toLowerCase();
-  if (lower.includes('nomination') || lower.includes('sebi') || lower.includes('rule')) {
-    return 'REGULATION';
-  } else if (lower.includes('market down') || lower.includes('vix') || lower.includes('correction')) {
-    return 'MARKET STRATEGY';
-  } else if (lower.includes('tax') || lower.includes('taxation')) {
-    return 'TAX PLANNING';
-  } else if (lower.includes('sip') || lower.includes('lump sum') || lower.includes('mutual fund')) {
-    return 'MUTUAL FUNDS';
-  } else if (lower.includes('himachal') || lower.includes('salaried') || lower.includes('employee')) {
-    return 'WEALTH PLANNING';
+  if (lower.includes("nomination") || lower.includes("sebi") || lower.includes("rule")) {
+    return "REGULATION";
+  } else if (lower.includes("market down") || lower.includes("vix") || lower.includes("fall")) {
+    return "MARKET STRATEGY";
+  } else if (lower.includes("tax") || lower.includes("taxation")) {
+    return "WEALTH PLANNING";
+  } else if (lower.includes("himachal") || lower.includes("salaried") || lower.includes("employee")) {
+    return "WEALTH PLANNING";
   }
-  return 'MUTUAL FUNDS';
+  return "MUTUAL FUNDS";
 }
 
 export async function generateMetadata(
@@ -177,23 +176,30 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   const articleSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': ['Article', 'NewsArticle'],
     headline: post.title,
     description: post.meta_description || post.excerpt,
     image: featuredImage,
     author: {
       '@type': 'Person',
       name: authorName,
-      url: baseUrl
+      jobTitle: 'AMFI Registered Mutual Fund Distributor',
+      identifier: 'ARN-284122',
+      knowsAbout: ['Mutual Funds', 'SIP Investments', 'SEBI Regulations', 'Personal Finance India', 'Asset Allocation'],
+      url: `${baseUrl}/about`
     },
     publisher: {
       '@type': 'Organization',
       name: 'Stockstrail',
+      url: baseUrl,
       logo: {
         '@type': 'ImageObject',
         url: `${baseUrl}/stockstrail.png`
-      }
+      },
+      publishingPrinciples: `${baseUrl}/terms-and-conditions`
     },
+    isAccessibleForFree: true,
+    inLanguage: 'en-IN',
     datePublished: post.created_at,
     dateModified: post.updated_at || post.created_at,
     mainEntityOfPage: {
@@ -249,7 +255,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                       {post.title}
                     </h1>
 
-                    {/* Verified Author Attribution Bar */}
+                    {/* Verified Author Attribution & Preferred Source Bar */}
                     <div className="flex items-center justify-between py-4 border-y border-white/10 flex-wrap gap-4">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-[#00ff97] text-black font-bold flex items-center justify-center font-product-sans text-sm shadow-[0_0_15px_rgba(0,255,151,0.3)]">
@@ -265,6 +271,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                           </div>
                         </div>
                       </div>
+
+                      {/* Google News & AI Preferred Source Badge */}
+                      <PreferredSourceBadge variant="pill" />
                     </div>
                   </header>
 
@@ -462,6 +471,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                       </Link>
                     </div>
                   </div>
+                  {/* Editorial Standards & E-E-A-T Fact-Check Verification */}
+                  <div className="mt-8 p-5 sm:p-6 rounded-2xl bg-black/40 border border-emerald-500/25 space-y-3">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#00ff97] uppercase">
+                        <ShieldCheck className="w-4 h-4 text-[#00ff97]" />
+                        <span>Editorial Integrity &amp; Fact-Check Standard</span>
+                      </div>
+                      <span className="text-[10px] text-white/50 font-mono">SEBI Compliant • E-E-A-T Verified</span>
+                    </div>
+                    <p className="text-xs text-slate-300 leading-relaxed font-work-sans">
+                      All research and regulatory interpretations published by Stockstrail are authored and reviewed by AMFI-registered mutual fund distributor <strong>Vikrant Bhardwaj (ARN-284122)</strong>. Content is independently prepared with zero sponsor bias and formatted for transparent citation across Google Discover, AI Overviews, and financial researchers.
+                    </p>
+                  </div>
                 </article>
               </div>
 
@@ -505,6 +527,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <aside className="lg:col-span-4 sticky-sidebar space-y-6">
               {/* Table of Contents */}
               {post.content && <ArticleTableOfContents content={post.content} />}
+
+              {/* Google News & AI Preferred Source Card */}
+              <PreferredSourceBadge variant="card" />
 
               {/* Sticky Sidebar Advisory / Google Ad Slot */}
               <AdSenseSlot format="sidebar" />

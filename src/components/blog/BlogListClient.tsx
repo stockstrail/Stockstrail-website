@@ -8,6 +8,7 @@ import { Sparkles, ArrowRight, Bookmark, Flame, ShieldCheck, Newspaper } from "l
 import AdSenseSlot from "./AdSenseSlot";
 import BlogNewsletterCard from "./BlogNewsletterCard";
 import SponsorCallout from "./SponsorCallout";
+import PreferredSourceBadge from "./PreferredSourceBadge";
 
 interface BlogPost {
   id: string;
@@ -65,9 +66,12 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
   const gridPosts = selectedCategory === "ALL" && searchQuery === "" ? filteredPosts.slice(1) : filteredPosts;
 
   return (
-    <div className="space-y-16">
-      {/* Editorial Leaderboard Sponsor Banner */}
+    <div className="space-y-12">
+      {/* Editorial Leaderboard Advisory Banner */}
       <AdSenseSlot format="leaderboard" />
+
+      {/* Google News & AI Preferred Source Ribbon */}
+      <PreferredSourceBadge variant="banner" />
 
       {/* Featured Editor's Pick Story (Only when not filtering) */}
       {featuredPost && selectedCategory === "ALL" && searchQuery === "" && (
@@ -291,6 +295,9 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
 
           {/* Compact Newsletter Subscription */}
           <BlogNewsletterCard variant="compact" />
+
+          {/* Google News & AI Preferred Source Card */}
+          <PreferredSourceBadge variant="card" />
 
           {/* Sidebar Advisory / Ad Slot */}
           <AdSenseSlot format="sidebar" />
