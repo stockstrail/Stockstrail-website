@@ -122,9 +122,9 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
                 </div>
                 <Link
                   href={`/blog/${featuredPost.slug}`}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-emerald-500 to-[#00ff97] text-black font-bold text-xs sm:text-sm hover:opacity-90 transition-all shadow-[0_0_20px_rgba(0,255,151,0.25)]"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#00ff97] text-[#012928] font-bold text-xs sm:text-sm hover:bg-white hover:text-black transition-all duration-300 shadow-[0_0_25px_rgba(0,255,151,0.45)] hover:scale-105 active:scale-95"
                 >
-                  <span>Read Story</span>
+                  <span>Read Full Story</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -142,10 +142,10 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-300 font-work-sans ${
+                className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-300 font-work-sans ${
                   isActive
-                    ? "bg-[#00ff97] text-black shadow-[0_0_20px_rgba(0,255,151,0.35)] scale-105"
-                    : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white border border-white/10"
+                    ? "bg-[#00ff97] text-[#012928] shadow-[0_0_20px_rgba(0,255,151,0.4)] scale-105"
+                    : "bg-white/10 text-white hover:bg-white/20 hover:text-white border border-white/15"
                 }`}
               >
                 {cat}
@@ -154,13 +154,13 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
           })}
         </div>
 
-        <div className="relative w-full md:w-64">
+        <div className="relative w-full md:w-72">
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search articles..."
-            className="w-full pl-4 pr-4 py-2 rounded-full bg-black/40 border border-white/10 text-white placeholder-white/40 text-xs focus:outline-none focus:border-emerald-400 transition-colors"
+            placeholder="Search insights..."
+            className="w-full pl-4 pr-4 py-2.5 rounded-full bg-black/60 border border-white/20 text-white placeholder-white/40 text-xs focus:outline-none focus:border-[#00ff97] focus:ring-1 focus:ring-[#00ff97] transition-all"
           />
         </div>
       </div>
@@ -170,15 +170,15 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
         {/* Main Grid */}
         <div className="lg:col-span-8 space-y-8">
           {gridPosts.length === 0 ? (
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-12 text-center space-y-3">
-              <p className="text-white text-lg font-product-sans">No matching insights found</p>
-              <p className="text-white/60 text-sm">Try resetting filters or searching for different keywords.</p>
+            <div className="bg-[#031d1a]/80 backdrop-blur-xl border-2 border-white/10 rounded-3xl p-12 text-center space-y-4">
+              <p className="text-white text-xl font-bold font-product-sans">No matching insights found</p>
+              <p className="text-slate-300 text-sm">Try resetting filters or searching for different keywords.</p>
               <button
                 onClick={() => {
                   setSelectedCategory("ALL");
                   setSearchQuery("");
                 }}
-                className="px-4 py-2 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold"
+                className="px-6 py-2.5 rounded-full bg-[#00ff97] text-[#012928] text-xs font-bold shadow-[0_0_15px_rgba(0,255,151,0.4)]"
               >
                 Reset Filters
               </button>
@@ -195,7 +195,7 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
                 return (
                   <article
                     key={post.id}
-                    className="group bg-[#041a17]/70 backdrop-blur-md rounded-2xl overflow-hidden border border-emerald-900/40 hover:border-emerald-500/50 hover:shadow-[0_8px_40px_rgba(0,255,151,0.15)] transition-all duration-500 hover:-translate-y-1 flex flex-col h-full"
+                    className="group bg-[#041a17]/90 backdrop-blur-md rounded-2xl overflow-hidden border border-emerald-500/25 hover:border-[#00ff97]/60 hover:shadow-[0_8px_40px_rgba(0,255,151,0.2)] transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
                   >
                     <Link href={postPath} className="block w-full shrink-0 relative overflow-hidden group/img cursor-pointer">
                       <div className="w-full aspect-[16/9] relative bg-[#0a1a17]">
@@ -209,14 +209,14 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-950 to-[#02110e]">
-                            <Sparkles className="w-6 h-6 text-emerald-400" />
+                            <Sparkles className="w-6 h-6 text-[#00ff97]" />
                           </div>
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-[#041a17] via-transparent to-transparent opacity-70" />
-                        <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#011a18]/85 border border-emerald-500/40 text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-300 backdrop-blur-md">
+                        <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#011a18]/90 border border-[#00ff97]/40 text-[10px] font-mono font-bold uppercase tracking-wider text-[#00ff97] backdrop-blur-md">
                           {category}
                         </div>
-                        <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/60 border border-white/10 text-[10px] font-mono text-slate-300 backdrop-blur-md">
+                        <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/70 border border-white/10 text-[10px] font-mono text-slate-200 backdrop-blur-md">
                           ⏱️ {readTimeMinutes} min
                         </div>
                       </div>
@@ -224,25 +224,25 @@ export default function BlogListClient({ posts }: { posts: BlogPost[] }) {
 
                     <div className="flex-1 flex flex-col p-5 sm:p-6">
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold mb-2 font-product-sans leading-snug text-white group-hover:text-emerald-300 transition-colors line-clamp-2">
+                        <h3 className="text-lg font-semibold mb-2 font-product-sans leading-snug text-white group-hover:text-[#00ff97] transition-colors line-clamp-2">
                           <Link href={postPath}>{post.title}</Link>
                         </h3>
                         {post.excerpt && (
-                          <p className="text-white/60 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2 font-work-sans">
+                          <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2 font-work-sans">
                             {post.excerpt}
                           </p>
                         )}
                       </div>
 
-                      <div className="flex items-center justify-between pt-4 mt-auto border-t border-white/5">
-                        <span className="text-white/40 text-xs font-work-sans">
+                      <div className="flex items-center justify-between pt-4 mt-auto border-t border-white/10">
+                        <span className="text-white/50 text-xs font-work-sans">
                           {format(new Date(post.created_at), "MMM d, yyyy")}
                         </span>
                         <Link
                           href={postPath}
-                          className="inline-flex items-center gap-1.5 text-xs text-emerald-300 hover:text-white font-semibold transition-colors"
+                          className="inline-flex items-center gap-1.5 text-xs text-[#00ff97] hover:text-white font-bold transition-colors"
                         >
-                          <span>Read</span>
+                          <span>Read Article</span>
                           <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
                       </div>

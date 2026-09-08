@@ -94,10 +94,10 @@ export default function ArticleActionBar({
         <button
           onClick={toggleBookmark}
           aria-label="Save Article"
-          className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${
+          className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-300 ${
             isBookmarked
-              ? "bg-[#00ff97] text-black shadow-[0_0_15px_rgba(0,255,151,0.4)]"
-              : "bg-white/10 text-white hover:bg-white/20 border border-white/10"
+              ? "bg-[#00ff97] text-[#012928] shadow-[0_0_15px_rgba(0,255,151,0.5)]"
+              : "bg-white/10 text-white hover:bg-[#00ff97] hover:text-black border border-white/15"
           }`}
         >
           {isBookmarked ? (
@@ -107,7 +107,7 @@ export default function ArticleActionBar({
             </>
           ) : (
             <>
-              <Bookmark className="w-3.5 h-3.5 text-stockstrail-green" />
+              <Bookmark className="w-3.5 h-3.5 text-[#00ff97]" />
               <span>Save</span>
             </>
           )}
@@ -119,10 +119,10 @@ export default function ArticleActionBar({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on WhatsApp"
-          className="p-2 rounded-full bg-white/10 text-white hover:bg-[#25D366] hover:text-black transition-all"
+          className="p-2 rounded-full bg-[#25D366]/20 text-[#25D366] hover:bg-[#25D366] hover:text-black transition-all border border-[#25D366]/40"
           title="Share on WhatsApp"
         >
-          <MessageCircle className="w-3.5 h-3.5" />
+          <MessageCircle className="w-3.5 h-3.5 fill-current" />
         </a>
 
         {/* Telegram Share */}
@@ -131,7 +131,7 @@ export default function ArticleActionBar({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on Telegram"
-          className="p-2 rounded-full bg-white/10 text-white hover:bg-[#229ED9] hover:text-white transition-all"
+          className="p-2 rounded-full bg-[#229ED9]/20 text-[#229ED9] hover:bg-[#229ED9] hover:text-white transition-all border border-[#229ED9]/40"
           title="Share on Telegram"
         >
           <Send className="w-3.5 h-3.5" />
@@ -143,7 +143,7 @@ export default function ArticleActionBar({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on LinkedIn"
-          className="p-2 rounded-full bg-white/10 text-white hover:bg-[#0A66C2] hover:text-white transition-all hidden sm:inline-flex"
+          className="p-2 rounded-full bg-white/10 text-white hover:bg-[#0A66C2] hover:text-white transition-all hidden sm:inline-flex border border-white/10"
           title="Share on LinkedIn"
         >
           <Linkedin className="w-3.5 h-3.5" />
@@ -153,10 +153,10 @@ export default function ArticleActionBar({
         <button
           onClick={handleCopy}
           aria-label="Copy Link"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 text-white hover:bg-stockstrail-green hover:text-black transition-all text-xs font-semibold border border-white/10"
+          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 text-white hover:bg-[#00ff97] hover:text-black transition-all text-xs font-semibold border border-white/15"
           title="Copy Link"
         >
-          {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+          {copied ? <Check className="w-3.5 h-3.5 text-[#00ff97]" /> : <Copy className="w-3.5 h-3.5" />}
           <span>{copied ? "Copied" : "Copy"}</span>
         </button>
       </div>

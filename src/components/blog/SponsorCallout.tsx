@@ -61,16 +61,16 @@ export default function SponsorCallout() {
               href="https://wa.me/919736304663?text=Hi%20Stockstrail%2C%20I%20would%20like%20to%20request%20your%20Media%20Kit%20and%20discuss%20advertising%20opportunities."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-[#00ff97] text-black font-bold text-xs sm:text-sm hover:opacity-95 transition-all shadow-[0_0_20px_rgba(0,255,151,0.25)]"
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#00ff97] text-[#012928] font-bold text-xs sm:text-sm hover:bg-white hover:text-black transition-all duration-300 shadow-[0_0_25px_rgba(0,255,151,0.45)] active:scale-95"
             >
-              <MessageCircle className="w-4 h-4" />
+              <MessageCircle className="w-4 h-4 fill-[#012928]" />
               <span>Inquire via WhatsApp</span>
             </a>
             <a
               href="mailto:connect@stockstrail.in?subject=Advertising%20%26%20Sponsorship%20Inquiry%20-%20Stockstrail"
-              className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-white text-xs font-semibold transition-all"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs font-semibold transition-all"
             >
-              <Mail className="w-3.5 h-3.5" />
+              <Mail className="w-4 h-4" />
               <span>Email: connect@stockstrail.in</span>
             </a>
           </div>

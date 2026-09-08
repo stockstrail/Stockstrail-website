@@ -1,4 +1,4 @@
-﻿import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss";
 import animatePlugin from "tailwindcss-animate";
 
 const config: Config = {
@@ -22,11 +22,15 @@ const config: Config = {
         stockstrail: {
           bg: "hsl(var(--background))",
           "bg-light": "#0b3b34",
+          green: "#00FF97",
           "green-light": "#00FF97",
           "green-accent": "#007D42",
         },
         // Backwards compat simple names used in CSS
         "stockstrail-bg": "hsl(var(--background))",
+        "stockstrail-green": "#00FF97",
+        "stockstrail-green-light": "#00FF97",
+        "stockstrail-green-accent": "#007D42",
       },
       fontFamily: {
         "product-sans": [

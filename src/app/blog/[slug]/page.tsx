@@ -303,23 +303,23 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   <ArticleFeedback postTitle={post.title} />
 
                   {/* Actionable Strategy CTA Card */}
-                  <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#042823] to-[#021817] border border-emerald-500/40 text-center space-y-4 shadow-xl">
+                  <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#042823] via-[#021f1c] to-[#011412] border-2 border-[#00ff97]/35 text-center space-y-4 shadow-2xl">
                     <h3 className="text-xl sm:text-2xl font-bold font-product-sans text-white">
                       Need Certified Guidance on Your Mutual Funds Portfolio?
                     </h3>
-                    <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed font-work-sans">
+                    <p className="text-slate-200 text-sm sm:text-base max-w-xl mx-auto leading-relaxed font-work-sans">
                       Stockstrail is an AMFI-Registered Mutual Fund Distributor (ARN-284122). Take our free 2-minute risk assessment or speak directly with our certified advisors.
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
                       <Link
                         href="/check-risk-profile"
-                        className="px-6 py-3 rounded-full bg-stockstrail-green text-black font-bold text-xs sm:text-sm hover:bg-white transition-all shadow-[0_0_20px_rgba(0,255,151,0.3)]"
+                        className="px-7 py-3.5 rounded-full bg-[#00ff97] text-[#012928] font-bold text-xs sm:text-sm hover:bg-white hover:text-black transition-all duration-300 shadow-[0_0_25px_rgba(0,255,151,0.45)] hover:scale-105"
                       >
                         Take Free Risk Quiz
                       </Link>
                       <Link
                         href="/lets-talk"
-                        className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-xs sm:text-sm transition-all"
+                        className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 text-white font-semibold text-xs sm:text-sm transition-all"
                       >
                         Book Free Strategy Call →
                       </Link>
@@ -339,9 +339,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                       <AccordionItem
                         key={index}
                         value={`faq-${index}`}
-                        className="bg-white/5 border border-white/10 rounded-xl px-6 data-[state=open]:border-stockstrail-green/50 transition-colors"
+                        className="bg-white/5 border border-white/10 rounded-xl px-6 data-[state=open]:border-[#00ff97]/60 transition-colors"
                       >
-                        <AccordionTrigger className="text-left text-white text-base sm:text-lg font-work-sans py-4 hover:no-underline hover:text-stockstrail-green">
+                        <AccordionTrigger className="text-left text-white text-base sm:text-lg font-work-sans py-4 hover:no-underline hover:text-[#00ff97]">
                           {faq.question}
                         </AccordionTrigger>
                         <AccordionContent className="text-white/80 text-sm sm:text-base leading-relaxed pb-6 whitespace-pre-line">
@@ -373,9 +373,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <AdSenseSlot format="sidebar" />
 
               {/* Author & Advisory Profile Card */}
-              <div className="bg-[#031d1a]/90 backdrop-blur-md rounded-2xl p-6 border border-emerald-500/30 space-y-4 shadow-xl">
+              <div className="bg-[#031d1a]/95 backdrop-blur-md rounded-2xl p-6 border-2 border-emerald-500/30 space-y-4 shadow-xl">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-[#00ff97] text-black font-bold flex items-center justify-center font-product-sans text-lg">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-400 to-[#00ff97] text-black font-bold flex items-center justify-center font-product-sans text-lg shadow-[0_0_15px_rgba(0,255,151,0.4)]">
                     VB
                   </div>
                   <div>
@@ -383,27 +383,27 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                       <span>Vikrant Bhardwaj</span>
                       <ShieldCheck className="w-4 h-4 text-[#00ff97]" />
                     </h4>
-                    <p className="text-xs text-emerald-400 font-mono">Mutual Fund Distributor</p>
+                    <p className="text-xs text-[#00ff97] font-mono font-bold">Mutual Fund Distributor</p>
                   </div>
                 </div>
 
-                <p className="text-xs text-slate-300 leading-relaxed font-work-sans">
-                  AMFI Registered (ARN-284122) & NISM certified wealth advisor guiding retail and salaried investors across India to build long-term wealth through disciplined asset allocation.
+                <p className="text-xs text-slate-200 leading-relaxed font-work-sans">
+                  AMFI Registered (ARN-284122) &amp; NISM certified wealth advisor guiding retail and salaried investors across India to build long-term wealth through disciplined asset allocation.
                 </p>
 
-                <div className="pt-2 border-t border-white/10 space-y-2">
+                <div className="pt-2 border-t border-white/10 space-y-2.5">
                   <a
                     href="https://wa.me/919736304663"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-500/25 transition-all text-xs font-semibold"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-[#25D366] text-black font-bold hover:brightness-110 transition-all text-xs sm:text-sm shadow-[0_0_20px_rgba(37,211,102,0.35)] active:scale-95"
                   >
-                    <MessageCircle className="w-4 h-4 text-[#25D366]" />
+                    <MessageCircle className="w-4 h-4 fill-black" />
                     <span>WhatsApp Advisor</span>
                   </a>
                   <a
                     href="tel:+919736304663"
-                    className="w-full inline-flex items-center justify-center gap-2 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white/80 text-xs font-medium transition-all"
+                    className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold transition-all"
                   >
                     <Phone className="w-3.5 h-3.5" />
                     <span>+91 97363-04663</span>
