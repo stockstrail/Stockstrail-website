@@ -542,3 +542,80 @@
   color: #ffffff;
   font-weight: 600;
 }
+
+/* ================= BLOG ARTICLE CONTENT & TABLE STYLING ================= */
+
+.blog-content {
+  color: #e2e8f0;
+}
+
+.blog-content table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  background-color: #021f1a !important;
+  border: 1px solid rgba(0, 255, 151, 0.25) !important;
+  border-radius: 1rem !important;
+  overflow: hidden !important;
+  margin: 2rem 0 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.blog-content thead,
+.blog-content thead tr,
+.blog-content tr[style*="background-color:#012928"] {
+  background-color: #03352b !important;
+  color: #00ff97 !important;
+}
+
+.blog-content th {
+  background-color: #03352b !important;
+  color: #00ff97 !important;
+  padding: 14px 18px !important;
+  border-bottom: 2px solid rgba(0, 255, 151, 0.3) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+  font-family: var(--font-product-sans), sans-serif !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  font-size: 0.8rem !important;
+}
+
+.blog-content tbody tr,
+.blog-content tr[style*="background-color:#f6f6f6"],
+.blog-content tr[style*="background-color:#fff"],
+.blog-content tr[style*="background-color:#ffffff"],
+.blog-content tr[style*="background:#f6f6f6"],
+.blog-content tr[style*="background:#fff"] {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.blog-content tbody tr:nth-child(even) {
+  background-color: rgba(0, 255, 151, 0.04) !important;
+}
+
+.blog-content tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.blog-content td {
+  color: #f1f5f9 !important;
+  padding: 14px 18px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+  background-color: transparent !important;
+  font-size: 0.925rem !important;
+  line-height: 1.6 !important;
+}
+
+.blog-content td:last-child,
+.blog-content th:last-child {
+  border-right: none !important;
+}
+
+.blog-content td strong,
+.blog-content td b {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}

@@ -162,7 +162,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const authorName = "Vikrant Bhardwaj";
   const featuredImage = LOCAL_BLOG_COVERS[slug] || post.image_url;
   const category = getCategoryFromTitle(post.title);
-  const wordCount = post.content ? post.content.split(/\s+/).length : 400;
+  
+  // Sanitize any legacy light-theme inline background styles from embedded tables
+  const sanitizedContent = (post.content || '')
+    .replace(/style="[^"]*background-color\s*:\s*#(?:f6f6f6|fff|ffffff|eee|f9f9f9|f0f0f0|fafafa|f5f5f5|e5e5e5)[^"]*"/gi, '')
+    .replace(/style="[^"]*background\s*:\s*#(?:f6f6f6|fff|ffffff|eee|f9f9f9|f0f0f0|fafafa|f5f5f5|e5e5e5)[^"]*"/gi, '')
+    .replace(/style="[^"]*background-color\s*:\s*#012928;[^"]*"/gi, '')
+    .replace(/bgcolor="[^"]*"/gi, '');
+
+  const wordCount = sanitizedContent ? sanitizedContent.split(/\s+/).length : 400;
   const readTimeMinutes = Math.max(2, Math.ceil(wordCount / 220));
 
   const articleSchema = {
@@ -293,9 +301,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   )}
 
                   {/* Mobile In-Article Table of Contents Quick Jump */}
-                  {post.content && (
+                  {sanitizedContent && (
                     <div className="block lg:hidden my-6">
-                      <ArticleTableOfContents content={post.content} />
+                      <ArticleTableOfContents content={sanitizedContent} />
                     </div>
                   )}
 
@@ -419,7 +427,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                           }
                         }}
                       >
-                        {post.content}
+                        {sanitizedContent}
                       </ReactMarkdown>
                     </div>
 

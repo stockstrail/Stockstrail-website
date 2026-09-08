@@ -96,44 +96,52 @@ export default function ArticleTableOfContents({
   const [readProgress, setReadProgress] = useState(0);
 
   useEffect(() => {
-    // DOM Scanner: scans live DOM headings to guarantee exact IDs and bindings
+    // DOM Scanner: scans live DOM headings & section titles to guarantee exact IDs and bindings
     const scanAndBindDOM = () => {
       const articleEl = document.querySelector(".blog-content");
       if (!articleEl) return;
 
-      const domHeadings = articleEl.querySelectorAll<HTMLElement>("h1, h2, h3, h4");
+      const domElements = articleEl.querySelectorAll<HTMLElement>("h1, h2, h3, h4, p");
       const discoveredItems: TOCItem[] = [];
 
-      domHeadings.forEach((el, index) => {
+      domElements.forEach((el, index) => {
         const rawText = el.textContent?.trim() || "";
-        if (!rawText || rawText.length < 2) return;
+        if (!rawText || rawText.length < 3) return;
 
-        // Strip any accidental markdown or hashes from text
-        const cleanText = rawText
-          .replace(/^[#\s*_-]+/, "")
-          .replace(/^[0-9]+[.\s)]+/, "")
-          .replace(/[*_`]/g, "")
-          .trim();
+        const isHeadingTag = /^h[1-4]$/i.test(el.tagName);
+        const isStandaloneTitle = !isHeadingTag && (
+          rawText.length < 90 &&
+          !rawText.endsWith(".") &&
+          (rawText.endsWith("?") || el.querySelector("strong") || el.querySelector("b") || /^[A-Z][A-Za-z0-9\s—:,-]+$/.test(rawText))
+        );
 
-        // Assign guaranteed ID to DOM element
-        let id = el.id;
-        if (!id) {
-          id = slugify(cleanText) || slugify(rawText) || `section-${index + 1}`;
-          el.id = id;
+        if (isHeadingTag || isStandaloneTitle) {
+          const cleanText = rawText
+            .replace(/^[#\s*_-]+/, "")
+            .replace(/^[0-9]+[.\s)]+/, "")
+            .replace(/[*_`]/g, "")
+            .trim();
+
+          if (cleanText.length > 3 && !cleanText.toLowerCase().includes("author") && !cleanText.toLowerCase().includes("table of contents")) {
+            let id = el.id;
+            if (!id) {
+              id = slugify(cleanText) || slugify(rawText) || `section-${index + 1}`;
+              el.id = id;
+            }
+
+            el.setAttribute("data-toc-id", id);
+            el.style.scrollMarginTop = "110px";
+
+            const tagName = el.tagName.toLowerCase();
+            const level = tagName === "h3" || tagName === "h4" ? 3 : 2;
+
+            discoveredItems.push({
+              id,
+              text: cleanText,
+              level,
+            });
+          }
         }
-
-        // Set data attribute for fallback lookup
-        el.setAttribute("data-toc-id", id);
-        el.style.scrollMarginTop = "110px";
-
-        const tagName = el.tagName.toLowerCase();
-        const level = tagName === "h3" || tagName === "h4" ? 3 : 2;
-
-        discoveredItems.push({
-          id,
-          text: cleanText,
-          level,
-        });
       });
 
       if (discoveredItems.length > 0) {
@@ -153,7 +161,7 @@ export default function ArticleTableOfContents({
       if (!articleEl) return;
 
       const domHeadings = Array.from(
-        articleEl.querySelectorAll<HTMLElement>("h1, h2, h3, h4")
+        articleEl.querySelectorAll<HTMLElement>("[data-toc-id], h1, h2, h3, h4")
       );
 
       if (domHeadings.length === 0) return;
@@ -198,17 +206,19 @@ export default function ArticleTableOfContents({
       targetElement = document.querySelector(`[data-toc-id="${targetId}"]`) as HTMLElement;
     }
 
-    // 3. Fallback: Search all headings inside blog content
+    // 3. Fallback: Search all elements inside blog content
     if (!targetElement) {
       const articleEl = document.querySelector(".blog-content");
       if (articleEl) {
-        const allHeadings = articleEl.querySelectorAll<HTMLElement>("h1, h2, h3, h4");
-        for (const h of Array.from(allHeadings)) {
+        const allElements = articleEl.querySelectorAll<HTMLElement>("h1, h2, h3, h4, p, strong, b");
+        for (const h of Array.from(allElements)) {
           const text = h.textContent?.trim() || "";
-          if (slugify(text) === targetId || text.toLowerCase().includes(targetId.replace(/-/g, " "))) {
+          const textSlug = slugify(text);
+          if (textSlug === targetId || textSlug.includes(targetId) || targetId.includes(textSlug)) {
             targetElement = h;
             targetElement.id = targetId;
             targetElement.setAttribute("data-toc-id", targetId);
+            targetElement.style.scrollMarginTop = "110px";
             break;
           }
         }
