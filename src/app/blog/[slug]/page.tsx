@@ -151,13 +151,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const baseUrl = siteUrl.replace(/\/$/, '');
   const currentUrl = `${baseUrl}/blog/${resolvedParams.slug}`;
   const authorName = "Vikrant Bhardwaj";
+  const featuredImage = LOCAL_BLOG_COVERS[slug] || post.image_url;
 
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: post.title,
     description: post.meta_description || post.excerpt,
-    image: post.image_url,
+    image: featuredImage,
     author: {
       '@type': 'Person',
       name: authorName,
