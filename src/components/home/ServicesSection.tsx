@@ -26,17 +26,6 @@ const services = [
     badgeColor: "bg-emerald-500/15 border-emerald-500/30 text-emerald-400",
   },
   {
-    title: "FIXED DEPOSIT",
-    badge: "Guaranteed Returns",
-    description:
-      "High return fixed deposits with guaranteed interest and zero market risk. Compare and book secure bank and corporate fixed deposits with competitive interest rates and flexible payout options.",
-    href: "/services/fixed-deposit",
-    icon: Landmark,
-    accentColor: "from-amber-400 to-emerald-400",
-    glowColor: "rgba(245, 158, 11, 0.35)",
-    badgeColor: "bg-amber-500/15 border-amber-500/30 text-amber-400",
-  },
-  {
     title: "INSURANCE",
     badge: "Family Protection",
     description:
@@ -48,8 +37,30 @@ const services = [
     badgeColor: "bg-teal-500/15 border-teal-500/30 text-teal-400",
   },
   {
+    title: "FIXED DEPOSIT",
+    badge: "Guaranteed Returns",
+    description:
+      "High return fixed deposits with guaranteed interest and zero market risk. Compare and book secure bank and corporate fixed deposits with competitive interest rates and flexible payout options.",
+    href: "/services/fixed-deposit",
+    icon: Landmark,
+    accentColor: "from-amber-400 to-emerald-400",
+    glowColor: "rgba(245, 158, 11, 0.35)",
+    badgeColor: "bg-amber-500/15 border-amber-500/30 text-amber-400",
+  },
+  {
+    title: "DEMAT ACCOUNT",
+    badge: "Zero AMC Options",
+    description:
+      "Open a 100% digital, paperless Demat and Trading Account with India's top trusted brokers (Dhan, Angel One, Zerodha). Start investing in stocks, IPOs, and ETFs with expert support.",
+    href: "/services/open-demat",
+    icon: Sparkles,
+    accentColor: "from-cyan-400 to-blue-500",
+    glowColor: "rgba(6, 182, 212, 0.35)",
+    badgeColor: "bg-cyan-500/15 border-cyan-500/30 text-cyan-400",
+  },
+  {
     title: "LOAN",
-    badge: "Instant Cash",
+    badge: "Instant Liquidity",
     description:
       "Low interest loans against mutual funds (LAMF), Home Loans, and Business Loans. Access quick liquidity without selling your investments, supported by transparent terms and fast processing.",
     href: "/services/loan",
@@ -59,11 +70,11 @@ const services = [
     badgeColor: "bg-purple-500/15 border-purple-500/30 text-purple-400",
   },
   {
-    title: "OTHERS",
-    badge: "Demat & Risk Quiz",
+    title: "RISK & PROTECTION",
+    badge: "Free Assessment",
     description:
-      "Free online Demat and trading account opening, tax planning guidance, and a comprehensive Risk Profile assessment to build a personalized long-term asset strategy.",
-    href: "/services/financial-protection",
+      "Take our free 11-question Risk Profile quiz to discover your investor DNA, plus get expert guidance on tax filing, motor insurance, and complete family financial protection.",
+    href: "/check-risk-profile",
     icon: Sparkles,
     accentColor: "from-emerald-400 to-teal-400",
     glowColor: "rgba(20, 184, 166, 0.35)",

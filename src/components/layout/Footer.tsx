@@ -146,18 +146,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services/fixed-deposit" className="hover:text-stockstrail-green-light transition-colors">
-                  Fixed Deposits (FD) Advisory
-                </Link>
-              </li>
-              <li>
                 <Link href="/services/insurance" className="hover:text-stockstrail-green-light transition-colors">
                   Term &amp; Health Insurance
                 </Link>
               </li>
               <li>
-                <Link href="/services/loan" className="hover:text-stockstrail-green-light transition-colors">
-                  Loan Against Mutual Funds (LAMF)
+                <Link href="/services/fixed-deposit" className="hover:text-stockstrail-green-light transition-colors">
+                  Fixed Deposits (FD) Advisory
                 </Link>
               </li>
               <li>
@@ -166,8 +161,19 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/services/loan" className="hover:text-stockstrail-green-light transition-colors">
+                  Loan Against Mutual Funds (LAMF)
+                </Link>
+              </li>
+              <li>
+                <Link href="/check-risk-profile" className="hover:text-stockstrail-green-light transition-colors flex items-center gap-1.5 font-medium text-emerald-300">
+                  <span className="w-1.5 h-1.5 rounded-full bg-stockstrail-green-light" />
+                  Free Risk Profile Quiz
+                </Link>
+              </li>
+              <li>
                 <Link href="/services/financial-protection" className="hover:text-stockstrail-green-light transition-colors">
-                  Comprehensive Wealth Protection
+                  Other Protection &amp; Tax Services
                 </Link>
               </li>
             </ul>
