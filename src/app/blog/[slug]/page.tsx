@@ -19,6 +19,7 @@ import JsonLd from '@/components/common/JsonLd';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
+import { BLOG_CONTENT_OVERRIDES } from '@/data/blog-content-overrides';
 import {
   Accordion,
   AccordionContent,
@@ -164,7 +165,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const category = getCategoryFromTitle(post.title);
   
   // Sanitize any legacy light-theme inline background styles from embedded tables
-  const sanitizedContent = (post.content || '')
+  const rawContent = BLOG_CONTENT_OVERRIDES[slug] || post.content || '';
+  const sanitizedContent = rawContent
     .replace(/style="[^"]*background-color\s*:\s*#(?:f6f6f6|fff|ffffff|eee|f9f9f9|f0f0f0|fafafa|f5f5f5|e5e5e5)[^"]*"/gi, '')
     .replace(/style="[^"]*background\s*:\s*#(?:f6f6f6|fff|ffffff|eee|f9f9f9|f0f0f0|fafafa|f5f5f5|e5e5e5)[^"]*"/gi, '')
     .replace(/style="[^"]*background-color\s*:\s*#012928;[^"]*"/gi, '')
