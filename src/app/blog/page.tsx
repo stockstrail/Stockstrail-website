@@ -41,6 +41,12 @@ export const metadata: Metadata = {
   },
 };
 
+const LOCAL_BLOG_COVERS: Record<string, string> = {
+  'why-is-the-market-down-a-salaried-employee-s-action-guide': '/blog/why-is-the-market-down.jpg',
+  'sebi-mutual-fund-nomination-rule-september-2026': '/blog/sebi-mutual-fund-nomination-rule-september-2026.jpg',
+  'the-financial-story-of-himachal-pradesh-s-emplyoee': '/blog/the-financial-story-of-himachal-pradesh-s-emplyoee.jpg',
+};
+
 export default async function BlogPage({
   searchParams,
 }: {
@@ -108,6 +114,7 @@ export default async function BlogPage({
               {posts.map((post) => {
                 const authorName = 'Vikrant Bhardwaj';
                 const postPath = `/blog/${post.slug}`;
+                const coverImage = LOCAL_BLOG_COVERS[post.slug] || post.image_url;
                 
                 return (
                   <article
@@ -118,19 +125,19 @@ export default async function BlogPage({
                     <div className="absolute inset-0 bg-gradient-to-b from-stockstrail-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                     
                     <Link href={postPath} className="block w-full shrink-0 relative overflow-hidden group/img cursor-pointer">
-                      {post.image_url ? (
-                        <div className="w-full h-48 sm:h-56 relative bg-[#0a1a17]">
+                      {coverImage ? (
+                        <div className="w-full aspect-[16/9] relative bg-[#0a1a17]">
                           <Image
-                            src={post.image_url}
+                            src={coverImage}
                             alt={post.image_alt || post.title}
                             fill
                             className="object-cover group-hover/img:scale-105 transition-transform duration-700 ease-out"
-                            sizes="(max-width: 768px) 100vw, 50vw"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#051613] via-transparent to-transparent opacity-80" />
                         </div>
                       ) : (
-                        <div className="w-full h-48 sm:h-56 relative bg-gradient-to-br from-emerald-900/40 to-[#051613] flex items-center justify-center">
+                        <div className="w-full aspect-[16/9] relative bg-gradient-to-br from-emerald-900/40 to-[#051613] flex items-center justify-center">
                           <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay" />
                           <div className="w-16 h-16 rounded-full bg-stockstrail-green/10 flex items-center justify-center border border-stockstrail-green/20 group-hover/img:scale-110 group-hover/img:bg-stockstrail-green/20 transition-all duration-500">
                              <svg className="w-8 h-8 text-stockstrail-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -139,7 +146,6 @@ export default async function BlogPage({
                           </div>
                         </div>
                       )}
-                      
                     </Link>
 
                     <div className="flex-1 flex flex-col p-5 sm:p-6 relative z-10">

@@ -55,14 +55,18 @@ const ContactCard = () => {
   );
 };
 
+const LOCAL_BLOG_COVERS: Record<string, string> = {
+  'why-is-the-market-down-a-salaried-employee-s-action-guide': '/blog/why-is-the-market-down.jpg',
+  'sebi-mutual-fund-nomination-rule-september-2026': '/blog/sebi-mutual-fund-nomination-rule-september-2026.jpg',
+  'the-financial-story-of-himachal-pradesh-s-emplyoee': '/blog/the-financial-story-of-himachal-pradesh-s-emplyoee.jpg',
+};
+
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
   const resolvedParams = await params;
   const slug = resolvedParams?.slug;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.stockstrail.in";
-  const baseUrl = siteUrl.replace(/\/$/, '');
-  const postUrl = `${baseUrl}/blog/${slug}`;
+  const postUrl = `https://www.stockstrail.in/blog/${slug}`;
 
   const supabase = await createClient();
   const { data: post } = await supabase
@@ -81,8 +85,9 @@ export async function generateMetadata(
   const title = post.meta_title || post.title;
   const description = post.meta_description || post.excerpt || "Stockstrail blog post";
   const authorName = "Vikrant Bhardwaj";
-  const ogImages = post.image_url
-    ? [{ url: post.image_url }]
+  const heroImage = LOCAL_BLOG_COVERS[slug] || post.image_url;
+  const ogImages = heroImage
+    ? [{ url: heroImage.startsWith('http') ? heroImage : `https://www.stockstrail.in${heroImage}` }]
     : [{ url: "/og-stockstrail.png", width: 1100, height: 630, alt: title }];
 
   return {
@@ -207,10 +212,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         </p>
                       </div>
                     </div>
-                    {post.image_url && (
+                    {featuredImage && (
                       <div className="mb-10 w-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(0,255,151,0.1)]">
                         <img 
-                          src={post.image_url} 
+                          src={featuredImage} 
                           alt={post.image_alt || post.title} 
                           className="w-full h-auto max-h-[60vh] object-cover hover:scale-105 transition-transform duration-700"
                         />
