@@ -3,13 +3,13 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { 
   TrendingUp, 
   Landmark, 
   ShieldCheck, 
   Wallet, 
-  Sparkles,
+  BarChart3,
+  Gauge,
   ArrowRight
 } from 'lucide-react';
 
@@ -53,7 +53,7 @@ const services = [
     description:
       "Open a 100% digital, paperless Demat and Trading Account with India's top trusted brokers (Dhan, Angel One, Zerodha). Start investing in stocks, IPOs, and ETFs with expert support.",
     href: "/services/open-demat",
-    icon: Sparkles,
+    icon: BarChart3,
     accentColor: "from-cyan-400 to-blue-500",
     glowColor: "rgba(6, 182, 212, 0.35)",
     badgeColor: "bg-cyan-500/15 border-cyan-500/30 text-cyan-400",
@@ -70,12 +70,12 @@ const services = [
     badgeColor: "bg-purple-500/15 border-purple-500/30 text-purple-400",
   },
   {
-    title: "RISK & PROTECTION",
-    badge: "Free Assessment",
+    title: "RISK PROFILE",
+    badge: "Risk Appetite Assessment",
     description:
-      "Take our free 11-question Risk Profile quiz to discover your investor DNA, plus get expert guidance on tax filing, motor insurance, and complete family financial protection.",
+      "Measure your risk appetite with our free 11-question assessment. Discover your investor DNA and get personalized asset allocation recommendations tailored to your comfort level.",
     href: "/check-risk-profile",
-    icon: Sparkles,
+    icon: Gauge,
     accentColor: "from-emerald-400 to-teal-400",
     glowColor: "rgba(20, 184, 166, 0.35)",
     badgeColor: "bg-stockstrail-green-light/15 border-stockstrail-green-light/30 text-stockstrail-green-light",
@@ -162,21 +162,12 @@ export default function ServicesSection() {
                   </div>
 
                   <div className="flex flex-col sm:flex-row items-center justify-between relative z-10 gap-4 sm:gap-6">
-                    {/* 3D Holographic Icon Pod */}
+                    {/* Icon Pod with Clean Vector Icon */}
                     <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl p-[1px] bg-gradient-to-br from-white/20 to-white/5 shrink-0 group-hover:scale-105 group-hover:rotate-1 transition-all duration-300 shadow-[0_8px_20px_rgba(0,0,0,0.5)]">
                       <div className="w-full h-full rounded-2xl bg-gradient-to-br from-[#072e2a] to-[#011816] flex items-center justify-center relative overflow-hidden border border-white/10">
-                        {/* Trail miniature backdrop */}
-                        <div className="absolute inset-0 opacity-40 group-hover:opacity-75 transition-opacity">
-                          <Image
-                            src="/assets/sections/services-trail-bg.png"
-                            alt=""
-                            fill
-                            className="object-cover object-center scale-150"
-                          />
-                        </div>
-                        <div className="absolute inset-0 bg-[#021917]/60" />
+                        <div className="absolute inset-0 bg-[#021917]/70" />
                         
-                        {/* 3D Vector Icon */}
+                        {/* Authentic Vector Icon */}
                         <IconComponent 
                           className="w-7 h-7 sm:w-8 sm:h-8 text-white relative z-10 transition-transform duration-300 group-hover:scale-110 filter drop-shadow-[0_0_12px_rgba(0,255,151,0.8)]" 
                           strokeWidth={2.2}
@@ -220,3 +211,5 @@ export default function ServicesSection() {
     </section>
   );
 }
+
+
