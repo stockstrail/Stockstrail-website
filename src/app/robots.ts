@@ -1,15 +1,14 @@
 import { MetadataRoute } from 'next'
 import { headers } from 'next/headers'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+export const revalidate = 86400
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
   let isLearningSubdomain = false;
   try {
     const headersList = await headers();
     const host = headersList.get('host') || '';
-    isLearningSubdomain = host.startsWith('learning.') || host.startsWith('www.learning.');
+    isLearningSubdomain = host.startsWith('learning.') || host === 'learning.stockstrail.in';
   } catch {
     // Default to main site if headers not available
   }
@@ -23,10 +22,6 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     '/auth/*',
     '/sign-in',
     '/complete-profile',
-    '/*?tab=*',
-    '/*?type=*',
-    '/calculators?*',
-    '/calculators/*?*',
   ];
 
   return {
@@ -64,7 +59,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       { userAgent: 'CCBot', allow: '/' },
     ],
     sitemap: isLearningSubdomain
-      ? 'https://www.learning.stockstrail.in/sitemap.xml'
+      ? 'https://learning.stockstrail.in/sitemap.xml'
       : 'https://www.stockstrail.in/sitemap.xml',
   }
 }

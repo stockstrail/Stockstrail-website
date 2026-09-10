@@ -5,7 +5,7 @@ Stockstrail is a certified, AMFI-registered mutual fund distributor (ARN-284122)
 ## 1. Practice Overview
 - **Practice Name:** Stockstrail
 - **Website:** https://www.stockstrail.in
-- **Learning Academy:** https://www.learning.stockstrail.in
+- **Learning Academy:** https://learning.stockstrail.in
 - **Founder & Principal Advisor:** Vikrant Bhardwaj
 - **AMFI Registration Number (ARN):** ARN-284122
 - **Certifications:** NISM Series V-A (Mutual Fund Distributors Certification), SEBI – Investor Certification Examination
@@ -56,7 +56,7 @@ Stockstrail is a certified, AMFI-registered mutual fund distributor (ARN-284122)
 - **Income Tax Calculator:** https://www.stockstrail.in/calculators/tax
 
 ## 4. Stockstrail Learning Platform
-- URL: https://www.learning.stockstrail.in
+- URL: https://learning.stockstrail.in
 - 100% free, distraction-free financial education for Indian retail investors.
 - Structured modules on mutual funds, SIP mastery, ELSS & tax saving, insurance fundamentals, demat accounts, and retirement planning.
 - Zero login requirements, zero ads, SEBI-aligned content.

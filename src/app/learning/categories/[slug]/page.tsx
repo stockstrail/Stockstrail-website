@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const shareImage = category.ogImage || category.coverImage || category.thumbnail;
-  const pageUrl = `https://www.learning.stockstrail.in/categories/${slug}`;
+  const pageUrl = `https://learning.stockstrail.in/categories/${slug}`;
   const description = category.description;
 
   return {
@@ -68,19 +68,19 @@ export default async function CategoryDetailPage({ params }: Props) {
         "@type": "ListItem",
         position: 1,
         name: "Learning Home",
-        item: "https://www.learning.stockstrail.in",
+        item: "https://learning.stockstrail.in",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Categories",
-        item: "https://www.learning.stockstrail.in/categories",
+        item: "https://learning.stockstrail.in/categories",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: category.name,
-        item: `https://www.learning.stockstrail.in/categories/${slug}`,
+        item: `https://learning.stockstrail.in/categories/${slug}`,
       },
     ],
   };

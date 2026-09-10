@@ -447,7 +447,7 @@ export default function MutualFunds() {
             <p className="text-white/70">
               Want to understand mutual funds before you invest? Explore the free{' '}
               <a
-                href="https://www.learning.stockstrail.in/"
+                href="https://learning.stockstrail.in/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-stockstrail-green-light hover:underline font-medium"

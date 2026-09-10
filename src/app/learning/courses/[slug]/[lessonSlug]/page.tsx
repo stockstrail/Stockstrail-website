@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = lesson ? `${lesson.title} — ${c.title} | Stockstrail Learning` : `${c.title} — Stockstrail Learning`;
   const firstBlock = lesson?.blocks.find((b) => "text" in b && typeof (b as { text?: unknown }).text === "string") as { text: string } | undefined;
   const description = firstBlock?.text ? firstBlock.text.slice(0, 160) : c.tagline || c.description;
-  const pageUrl = `https://www.learning.stockstrail.in/courses/${slug}/${lessonSlug}`;
+  const pageUrl = `https://learning.stockstrail.in/courses/${slug}/${lessonSlug}`;
   const shareImage = c.ogImage || c.coverImage;
 
   return {
@@ -89,19 +89,19 @@ export default async function CourseLessonPage({ params }: Props) {
         "@type": "ListItem",
         position: 1,
         name: "Learning Home",
-        item: "https://www.learning.stockstrail.in",
+        item: "https://learning.stockstrail.in",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: course.title,
-        item: `https://www.learning.stockstrail.in/courses/${slug}`,
+        item: `https://learning.stockstrail.in/courses/${slug}`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: lesson.title,
-        item: `https://www.learning.stockstrail.in/courses/${slug}/${lessonSlug}`,
+        item: `https://learning.stockstrail.in/courses/${slug}/${lessonSlug}`,
       },
     ],
   };

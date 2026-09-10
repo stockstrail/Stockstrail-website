@@ -3,18 +3,20 @@ import { headers } from 'next/headers'
 import { createClient } from '@/lib/supabase/server'
 import { getCategories, getCourses } from '@/lib/learning/supabase-db'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+export const revalidate = 86400
+
+const STATIC_LASTMOD_RECENT = new Date('2026-03-01T00:00:00Z')
+const STATIC_LASTMOD_ANNUAL = new Date('2026-01-01T00:00:00Z')
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const mainBaseUrl = 'https://www.stockstrail.in'
-  const learningBaseUrl = 'https://www.learning.stockstrail.in'
+  const learningBaseUrl = 'https://learning.stockstrail.in'
 
   let isLearningSubdomain = false;
   try {
     const headersList = await headers();
     const host = headersList.get('host') || '';
-    isLearningSubdomain = host.startsWith('learning.') || host.startsWith('www.learning.');
+    isLearningSubdomain = host.startsWith('learning.') || host === 'learning.stockstrail.in';
   } catch {
     // Default to main site if headers not available
   }
@@ -23,145 +25,145 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const mainStaticRoutes: MetadataRoute.Sitemap = [
     {
       url: mainBaseUrl,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: `${mainBaseUrl}/blog`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${mainBaseUrl}/about`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${mainBaseUrl}/services`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${mainBaseUrl}/services/mutual-funds`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${mainBaseUrl}/services/fixed-deposit`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${mainBaseUrl}/services/insurance`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${mainBaseUrl}/services/loan`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${mainBaseUrl}/services/financial-protection`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${mainBaseUrl}/services/open-demat`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${mainBaseUrl}/calculators`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${mainBaseUrl}/calculators/sip`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${mainBaseUrl}/calculators/fd`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${mainBaseUrl}/calculators/lumpsum`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${mainBaseUrl}/calculators/rd`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${mainBaseUrl}/calculators/emi`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${mainBaseUrl}/calculators/tax`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${mainBaseUrl}/lets-talk`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${mainBaseUrl}/nse-holidays`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${mainBaseUrl}/bse-holidays`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${mainBaseUrl}/check-risk-profile`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${mainBaseUrl}/terms-and-conditions`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_ANNUAL,
       changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
       url: `${mainBaseUrl}/commission-disclosure`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_ANNUAL,
       changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
       url: `${mainBaseUrl}/editorial-policy`,
-      lastModified: new Date(),
+      lastModified: STATIC_LASTMOD_RECENT,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
@@ -172,19 +174,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const learningStaticRoutes: MetadataRoute.Sitemap = [
       {
         url: learningBaseUrl,
-        lastModified: new Date(),
+        lastModified: STATIC_LASTMOD_RECENT,
         changeFrequency: 'weekly',
         priority: 1.0,
       },
       {
         url: `${learningBaseUrl}/categories`,
-        lastModified: new Date(),
+        lastModified: STATIC_LASTMOD_RECENT,
         changeFrequency: 'weekly',
         priority: 0.9,
       },
       {
         url: `${learningBaseUrl}/courses`,
-        lastModified: new Date(),
+        lastModified: STATIC_LASTMOD_RECENT,
         changeFrequency: 'weekly',
         priority: 0.9,
       },
@@ -195,7 +197,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const categories = await getCategories()
       categoryRoutes = categories.map((cat) => ({
         url: `${learningBaseUrl}/categories/${cat.slug}`,
-        lastModified: new Date(),
+        lastModified: STATIC_LASTMOD_RECENT,
         changeFrequency: 'weekly' as const,
         priority: 0.8,
       }))
@@ -208,7 +210,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const courses = await getCourses()
       courseRoutes = courses.map((course) => ({
         url: `${learningBaseUrl}/courses/${course.slug}`,
-        lastModified: new Date(course.updatedAt),
+        lastModified: new Date(course.updatedAt || '2026-03-01T00:00:00Z'),
         changeFrequency: 'weekly' as const,
         priority: 0.8,
       }))
@@ -229,13 +231,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const supabase = await createClient()
     const { data: posts, error } = await supabase
       .from("blogs")
-      .select("slug, updated_at")
+      .select("slug, updated_at, created_at")
       .eq("published", true)
 
     if (!error && posts) {
       blogRoutes = posts.map((post) => ({
         url: `${mainBaseUrl}/blog/${post.slug}`,
-        lastModified: new Date(post.updated_at),
+        lastModified: new Date(post.updated_at || post.created_at || '2026-03-01T00:00:00Z'),
         changeFrequency: 'monthly' as const,
         priority: 0.7,
       }))
@@ -249,4 +251,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...blogRoutes,
   ]
 }
+
 

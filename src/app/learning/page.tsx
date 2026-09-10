@@ -19,11 +19,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Stockstrail Learning — Free Investing & Personal Finance Courses for India",
     description: "Free structured courses on mutual funds, SIP, insurance, tax saving, stock market, and retirement planning — built for Indian investors.",
-    url: "https://www.learning.stockstrail.in",
+    url: "https://learning.stockstrail.in",
     siteName: "Stockstrail Learning",
   },
   alternates: {
-    canonical: "https://www.learning.stockstrail.in",
+    canonical: "https://learning.stockstrail.in",
   }
 };
 
@@ -38,7 +38,7 @@ export default async function HomePage() {
     '@type': 'WebSite',
     name: 'Stockstrail Learning',
     alternateName: ['Stockstrail Courses', 'Stockstrail Academy'],
-    url: 'https://www.learning.stockstrail.in/',
+    url: 'https://learning.stockstrail.in/',
   };
 
   return (

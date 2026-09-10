@@ -3,34 +3,43 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
-  const host = request.headers.get("host") || "";
+  const rawHost = request.headers.get("host") || "";
+  const host = rawHost.toLowerCase().split(":")[0]; // strip port if any
   const cleanPath = url.pathname;
-
-  // Matches learning.stockstrail.in OR www.learning.stockstrail.in (and local equivalents)
-  const isLearningSubdomain =
-    host.startsWith("learning.") || host.startsWith("www.learning.");
 
   const isLocalhost = host.includes("localhost") || host.includes("127.0.0.1");
 
+  // 1. Apex Domain 301 Permanent Redirect: stockstrail.in -> www.stockstrail.in
+  if (!isLocalhost && host === "stockstrail.in") {
+    const destinationUrl = `https://www.stockstrail.in${url.pathname}${url.search}`;
+    return NextResponse.redirect(destinationUrl, { status: 301 });
+  }
+
+  // 2. Subdomain Normalization: www.learning.stockstrail.in -> learning.stockstrail.in
+  if (!isLocalhost && host === "www.learning.stockstrail.in") {
+    const destinationUrl = `https://learning.stockstrail.in${url.pathname}${url.search}`;
+    return NextResponse.redirect(destinationUrl, { status: 301 });
+  }
+
+  // Check if current request is on the learning subdomain
+  const isLearningSubdomain = host === "learning.stockstrail.in" || host.startsWith("learning.");
+
   if (isLearningSubdomain) {
-    // If the path does not already start with /learning, /admin, or /api, rewrite it internally
+    // If on learning subdomain and path doesn't start with /learning, /admin, or /api, rewrite internally to /learning
     if (!url.pathname.startsWith("/learning") && !url.pathname.startsWith("/admin") && !url.pathname.startsWith("/api")) {
       url.pathname = `/learning${url.pathname}`;
       return NextResponse.rewrite(url);
     }
   } else {
-    // On the main domain in production (non-localhost), redirect /learning/* paths directly to the canonical learning subdomain
+    // On the main domain (www.stockstrail.in) in production, redirect /learning/* paths to the canonical learning subdomain
     if (!isLocalhost && url.pathname.startsWith("/learning")) {
-      const learningHost = host.includes("stockstrail.in")
-        ? "www.learning.stockstrail.in"
-        : host.replace(/^www\./, "learning.");
       const subPath = url.pathname.replace(/^\/learning/, "") || "/";
-      const redirectUrl = `https://${learningHost}${subPath}${url.search}`;
+      const redirectUrl = `https://learning.stockstrail.in${subPath}${url.search}`;
       return NextResponse.redirect(redirectUrl, { status: 301 });
     }
   }
 
-  // 301 Permanent Redirects for Legacy Service URLs to new /services/* canonical routes
+  // 3. 301 Permanent Redirects for Legacy Service URLs to new /services/* canonical routes
   const legacyServices: Record<string, string> = {
     "/mutual-funds": "/services/mutual-funds",
     "/fixed-deposit": "/services/fixed-deposit",
@@ -47,15 +56,14 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(redirectUrl, { status: 301 });
   }
 
-  // Trailing slash normalization for services (e.g. /services/mutual-funds/ -> /services/mutual-funds)
+  // 4. Trailing slash normalization for services (e.g. /services/mutual-funds/ -> /services/mutual-funds)
   if (cleanPath.startsWith("/services/") && url.pathname.endsWith("/")) {
     const normalizedPath = url.pathname.replace(/\/+$/, "");
     const redirectUrl = new URL(normalizedPath, request.url);
     return NextResponse.redirect(redirectUrl, { status: 301 });
   }
 
-  // Canonical normalization for Financial Calculators
-  // Eliminates duplicate parameterized URLs (e.g., /calculators?tab=SIP, /calculators?type=fd, trailing slashes)
+  // 5. Canonical normalization for Financial Calculators
   if (cleanPath === "/calculators" || cleanPath === "/calculators/" || cleanPath.startsWith("/calculators/")) {
     const tabParam = (url.searchParams.get("tab") || url.searchParams.get("type") || "").toLowerCase().trim();
     const validTabs: Record<string, string> = {
@@ -67,22 +75,16 @@ export function middleware(request: NextRequest) {
       tax: "/calculators/tax",
     };
 
-    // 1. If a tab or type query parameter is provided, 301 redirect to its dedicated canonical page
+    // If a tab or type query parameter is provided on /calculators, 301 redirect to its dedicated canonical page
     if (tabParam && validTabs[tabParam]) {
       const redirectUrl = new URL(validTabs[tabParam], request.url);
       return NextResponse.redirect(redirectUrl, { status: 301 });
     }
 
-    // 2. Trailing slash normalization (e.g. /calculators/ -> /calculators, /calculators/sip/ -> /calculators/sip)
+    // Trailing slash normalization (e.g. /calculators/ -> /calculators, /calculators/sip/ -> /calculators/sip)
     if (url.pathname.length > 1 && url.pathname.endsWith("/")) {
       const normalizedPath = url.pathname.replace(/\/+$/, "");
       const redirectUrl = new URL(normalizedPath, request.url);
-      return NextResponse.redirect(redirectUrl, { status: 301 });
-    }
-
-    // 3. If any extraneous or unknown query parameters exist on /calculators or /calculators/*, strip them and 301 redirect to the clean canonical URL
-    if (url.search) {
-      const redirectUrl = new URL(url.pathname, request.url);
       return NextResponse.redirect(redirectUrl, { status: 301 });
     }
   }

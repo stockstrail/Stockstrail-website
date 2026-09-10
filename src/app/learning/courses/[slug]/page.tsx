@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const shareImage = c.ogImage || c.coverImage;
-  const pageUrl = `https://www.learning.stockstrail.in/courses/${slug}`;
+  const pageUrl = `https://learning.stockstrail.in/courses/${slug}`;
 
   return {
     title: `${c.title} — Stockstrail Learning`,
@@ -71,19 +71,15 @@ export default async function CourseDetailPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "Course",
     "name": course.title,
-    "description": course.description,
+    "description": course.tagline || course.description,
     "provider": {
-      "@type": "Organization",
+      "@type": "EducationalOrganization",
       "name": "Stockstrail Learning",
-      "sameAs": "https://www.stockstrail.in"
+      "url": "https://learning.stockstrail.in"
     },
     "educationalLevel": course.difficulty,
-    "timeRequired": `PT${course.minutes}M`,
-    "hasCourseInstance": {
-      "@type": "CourseInstance",
-      "courseMode": "online",
-      "courseWorkload": `PT${course.minutes}M`
-    }
+    "inLanguage": "en-IN",
+    "isAccessibleForFree": true,
   };
 
   const faqSchema = {
@@ -107,7 +103,7 @@ export default async function CourseDetailPage({ params }: Props) {
         "@type": "ListItem",
         position: 1,
         name: "Learning Home",
-        item: "https://www.learning.stockstrail.in",
+        item: "https://learning.stockstrail.in",
       },
       ...(category
         ? [
@@ -115,13 +111,13 @@ export default async function CourseDetailPage({ params }: Props) {
               "@type": "ListItem",
               position: 2,
               name: category.name,
-              item: `https://www.learning.stockstrail.in/categories/${category.slug}`,
+              item: `https://learning.stockstrail.in/categories/${category.slug}`,
             },
             {
               "@type": "ListItem",
               position: 3,
               name: course.title,
-              item: `https://www.learning.stockstrail.in/courses/${slug}`,
+              item: `https://learning.stockstrail.in/courses/${slug}`,
             },
           ]
         : [
@@ -129,7 +125,7 @@ export default async function CourseDetailPage({ params }: Props) {
               "@type": "ListItem",
               position: 2,
               name: course.title,
-              item: `https://www.learning.stockstrail.in/courses/${slug}`,
+              item: `https://learning.stockstrail.in/courses/${slug}`,
             },
           ]),
     ],

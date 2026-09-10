@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     "Indian Retail Investor Guide"
   ],
   alternates: {
-    canonical: "https://www.learning.stockstrail.in/about",
+    canonical: "https://learning.stockstrail.in/about",
   },
   openGraph: {
     title: "About Stockstrail Learning — Free Financial Education Hub for Indian Investors",
     description: "A 100% free, structured financial education platform by Stockstrail. Master Mutual Funds, SIPs, Tax Planning, and Wealth Building with zero jargon and zero paywalls.",
-    url: "https://www.learning.stockstrail.in/about",
+    url: "https://learning.stockstrail.in/about",
     siteName: "Stockstrail Learning",
     locale: "en_IN",
     type: "website",
@@ -45,20 +45,20 @@ export default function AboutPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Learning Home",
-            "item": "https://www.learning.stockstrail.in"
+            "item": "https://learning.stockstrail.in"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "About",
-            "item": "https://www.learning.stockstrail.in/about"
+            "item": "https://learning.stockstrail.in/about"
           }
         ]
       },
       {
         "@type": "EducationalOrganization",
         "name": "Stockstrail Learning",
-        "url": "https://www.learning.stockstrail.in",
+        "url": "https://learning.stockstrail.in",
         "description": "Stockstrail Learning is the free financial education portal by Stockstrail, providing structured courses on mutual funds, SIPs, insurance, and tax planning for Indian retail investors.",
         "parentOrganization": {
           "@type": "FinancialService",
