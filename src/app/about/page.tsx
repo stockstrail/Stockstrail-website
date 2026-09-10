@@ -1308,7 +1308,7 @@ export default function AboutPage() {
                 <div className="flex flex-wrap gap-2 text-xs">
                   <Link href="/commission-disclosure" className="text-stockstrail-green-light hover:underline">Disclosures</Link> ·{' '}
                   <a href="/CoC/revisedcoc.pdf" target="_blank" className="text-stockstrail-green-light hover:underline">Code of Conduct</a> ·{' '}
-                  <Link href="/learning" className="text-stockstrail-green-light hover:underline">Learning Hub</Link>
+                  <Link href="https://learning.stockstrail.in" className="text-stockstrail-green-light hover:underline">Learning Hub</Link>
                 </div>
               </div>
             </div>
@@ -1548,7 +1548,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
             <Link
-              href="/learning"
+              href="https://learning.stockstrail.in"
               className="p-7 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-stockstrail-green-light/50 transition-all group hover:-translate-y-1 flex flex-col justify-between space-y-6"
             >
               <div className="space-y-4">

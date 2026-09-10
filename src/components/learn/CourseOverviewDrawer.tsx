@@ -112,7 +112,7 @@ export function CourseOverviewDrawer({ course, onClose }: Props) {
     if (!displayCourse) return;
     const slug = displayCourse.slug;
     handleClose();
-    router.push(`/learning/courses/${slug}?enroll=1`);
+    router.push(`/courses/${slug}?enroll=1`);
   };
 
   const toggleModule = (idx: number) => {

@@ -230,7 +230,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/learning" className="hover:text-stockstrail-green-light transition-colors">
+                <Link href="https://learning.stockstrail.in" className="hover:text-stockstrail-green-light transition-colors">
                   Stockstrail Academy
                 </Link>
               </li>

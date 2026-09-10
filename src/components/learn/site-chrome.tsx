@@ -13,7 +13,7 @@ const NAV = [
 
 export function LearnLogo({ className = "" }: { className?: string }) {
   return (
-    <Link href="/learning" className={`flex items-center gap-2.5 ${className}`} aria-label="Stockstrail Learning home">
+    <Link href="/" className={`flex items-center gap-2.5 ${className}`} aria-label="Stockstrail Learning home">
       <svg width="32" height="35" viewBox="0 0 32 35" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" aria-hidden="true">
         <rect x="3.74" y="16.02" width="20.89" height="3.72" fill="url(#g)" />
         <path d="M1.15 18.55C0.92 18.32 0.92 17.94 1.15 17.71L15.59 3.52c0.5-0.49 1.3-0.48 1.8 0.01l1.28 1.28c0.5 0.5 0.5 1.31 0 1.83L6.53 18.58c-1.49 1.47-3.89 1.46-5.38-0.03Z" fill="#00D873" />
@@ -50,8 +50,8 @@ export function SiteHeader() {
         <nav className="hidden lg:flex items-center">
           <div className="flex items-center bg-white/5 backdrop-blur-[37.5px] px-14 py-4 rounded-[45px] space-x-16 hover:bg-white/10 transition-all duration-300">
             {NAV.map((n) => {
-              const href = n.to === "/" ? "/learning" : `/learning${n.to}`;
-              const isActive = n.to === "/" ? pathname === "/learning" : pathname.startsWith(href);
+              const href = n.to;
+              const isActive = n.to === "/" ? pathname === "/" || pathname === "/learning" : pathname === n.to || pathname.startsWith(`${n.to}/`) || pathname.startsWith(`/learning${n.to}`);
               return (
                 <Link
                   key={n.to}
@@ -96,7 +96,7 @@ export function SiteHeader() {
         <div className="lg:hidden border-t border-white/10 px-5 py-4 bg-[#012928]">
           <nav className="flex flex-col space-y-3">
             {NAV.map((n) => {
-              const href = n.to === "/" ? "/learning" : `/learning${n.to}`;
+              const href = n.to;
               return (
                 <Link
                   key={n.to}
@@ -153,7 +153,7 @@ export function SiteFooter() {
                 </p>
               </div>
               <Link
-                href="/learning/courses"
+                href="/courses"
                 className="shrink-0 inline-flex items-center gap-3 px-7 py-3.5 bg-[#00D873] text-[#012928] rounded-full font-semibold hover:shadow-[0_0_24px_rgba(0,216,115,0.35)] hover:scale-105 transition-all duration-300"
               >
                 Browse Courses
@@ -198,9 +198,9 @@ export function SiteFooter() {
             <h4 className="text-xs uppercase tracking-[0.2em] text-[#00D873]/80 font-semibold mb-5">Learn</h4>
             <ul className="space-y-3">
               {[
-                { label: "All Courses", href: "/learning/courses" },
-                { label: "Categories", href: "/learning/categories" },
-                { label: "About Learning", href: "/learning/about" },
+                { label: "All Courses", href: "/courses" },
+                { label: "Categories", href: "/categories" },
+                { label: "About Learning", href: "/about" },
               ].map(({ label, href }) => (
                 <li key={href}>
                   <Link href={href} className="group flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors duration-300">

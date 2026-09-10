@@ -118,7 +118,7 @@ export function LearningHeroSection() {
             {/* ACTION BUTTONS */}
             <div className="flex flex-wrap items-center gap-3 pt-1">
               <Link
-                href="/learning/courses"
+                href="/courses"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--color-brand-green)] px-6 py-2.5 text-xs sm:text-sm font-bold text-[color:var(--color-brand-bg)] hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,229,153,0.35)]"
               >
                 <span>Explore Free Courses</span>
@@ -189,7 +189,7 @@ export function LearningHeroSection() {
                 <div className="bg-[#04201E]/90 border border-white/10 rounded-xl p-3.5 sm:p-4 shadow-md space-y-2.5 hover:border-emerald-500/30 transition-all">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-semibold text-white">Course Categories</span>
-                    <span className="text-[10px] text-white/50 hover:text-[color:var(--color-brand-green)] cursor-pointer">View all ›</span>
+                    <Link href="/categories" className="text-[10px] text-white/50 hover:text-[color:var(--color-brand-green)]">View all ›</Link>
                   </div>
 
                   <div className="space-y-2.5">

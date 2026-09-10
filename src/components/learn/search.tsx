@@ -70,7 +70,7 @@ export function SearchBar({ size = "lg", autoFocus = false }: { size?: "lg" | "m
   const go = (r: SearchResult) => {
     setOpen(false);
     setQ("");
-    router.push(`/learning/courses/${r.courseSlug}`);
+    router.push(`/courses/${r.courseSlug}`);
   };
 
   return (
@@ -135,7 +135,7 @@ export function SearchBar({ size = "lg", autoFocus = false }: { size?: "lg" | "m
           )}
           <div className="border-t border-[color:var(--color-brand-border)] px-4 py-2 text-[11px] text-white/40 flex items-center justify-between">
             <span>Tip: press ↑ ↓ to navigate, ↵ to open.</span>
-            <Link href="/learning/courses" className="text-[color:var(--color-brand-green)] hover:underline">Browse all →</Link>
+            <Link href="/courses" className="text-[color:var(--color-brand-green)] hover:underline">Browse all →</Link>
           </div>
         </div>
       )}

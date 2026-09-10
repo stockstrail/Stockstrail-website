@@ -105,13 +105,13 @@ export function CoursePageClient({ course, category, related, initialLessonSlug 
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 h-14 flex items-center justify-between gap-4">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-white/50 min-w-0">
-            <Link href="/learning" className="hover:text-white shrink-0">Home</Link>
+            <Link href="/" className="hover:text-white shrink-0">Home</Link>
             <span>/</span>
-            <Link href="/learning/courses" className="hover:text-white shrink-0">Courses</Link>
+            <Link href="/courses" className="hover:text-white shrink-0">Courses</Link>
             {cat && (
               <>
                 <span>/</span>
-                <Link href={`/learning/categories/${cat.slug}`} className="hover:text-white shrink-0">{cat.name}</Link>
+                <Link href={`/categories/${cat.slug}`} className="hover:text-white shrink-0">{cat.name}</Link>
               </>
             )}
             <span>/</span>

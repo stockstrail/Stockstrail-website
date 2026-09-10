@@ -48,7 +48,7 @@ export function CourseThumbnail({ course, className = "" }: { course: Course; cl
 export function CourseCard({ course }: { course: Course }) {
   return (
     <Link
-      href={`/learning/courses/${course.slug}`}
+      href={`/courses/${course.slug}`}
       className="group card-surface rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:border-[color:var(--color-brand-green)]/50 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(0,255,151,0.25)]"
     >
       <CourseThumbnail course={course} className="aspect-[16/9]" />
@@ -87,7 +87,7 @@ export function CourseCard({ course }: { course: Course }) {
 export function CategoryCard({ category, count }: { category: Category; count: number }) {
   return (
     <Link
-      href={`/learning/categories/${category.slug}`}
+      href={`/categories/${category.slug}`}
       className="group relative card-surface rounded-2xl p-5 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--color-brand-green)]/50"
     >
       <div className={`pointer-events-none absolute -top-14 -right-10 h-40 w-40 rounded-full bg-gradient-to-br ${category.accent} blur-2xl opacity-70 group-hover:opacity-100 transition-opacity`} />

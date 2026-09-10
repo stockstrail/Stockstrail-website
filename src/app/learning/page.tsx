@@ -27,6 +27,49 @@ export const metadata: Metadata = {
   }
 };
 
+const FAQS_DATA = [
+  {
+    q: "What is Stockstrail Learning, and who is it for?",
+    a: "Stockstrail Learning is a dedicated, distraction-free educational platform designed for Indian retail investors, beginner savers, and intermediate wealth builders. It provides structured, SEBI-aware courses to help you master mutual funds, SIPs, insurance, retirement, and tax planning without jargon or product pitches."
+  },
+  {
+    q: "Is this learning platform free, and do I need to create an account?",
+    a: "Yes, Stockstrail Learning is 100% free and always will be. We believe financial literacy should be accessible to everyone. There are no paywalls, no login requirements, no ads, and no sign-ups. You can start reading any course instantly."
+  },
+  {
+    q: "How do structured courses differ from scattered financial blogs?",
+    a: "Most financial advice online is scattered across isolated articles or videos, making it hard to build a coherent system. Stockstrail Learning uses structured, progressive modules. Each course acts as a step-by-step pathway from basic definitions to advanced, goal-based execution — with quizzes and key takeaways at each stage."
+  },
+  {
+    q: "Which course should I start with if I'm a complete beginner?",
+    a: "Start with Financial Planning Basics to understand the hierarchy of needs — emergency fund, insurance, then investments. Then take the Mutual Funds course followed by SIP Mastery. This three-course sequence gives you a complete foundation for independent investing."
+  },
+  {
+    q: "Do the courses cover Indian-specific regulations and tax laws?",
+    a: "Yes, absolutely. Every lesson uses INR amounts, SEBI and AMFI terminology, Indian fund categories (ELSS, ULIP, NPS, PPF), and Indian tax law (Section 80C, 80D, LTCG, STCG). There are no generic global examples — this content is built specifically for Indian investors."
+  },
+  {
+    q: "Who writes and curates the course content?",
+    a: "Our courses are curated by financial professionals with years of advisory experience, aligned with SEBI investor education guidelines and AMFI-registered standards. All content is fact-checked and updated regularly to reflect the latest tax rules and SEBI regulations."
+  },
+  {
+    q: "What is the difference between a Direct and Regular mutual fund plan?",
+    a: "In a Regular plan, a distributor earns a commission from the AMC, which raises the expense ratio — typically by 0.5% to 1% annually. In a Direct plan, you invest without an intermediary, paying a lower expense ratio. Over 20+ years, this difference can amount to 10–20% of your final corpus. Our Mutual Funds course covers this in detail."
+  },
+  {
+    q: "How does Stockstrail Learning connect to the main Stockstrail website?",
+    a: "Stockstrail Learning serves as the educational subdomain of stockstrail.in. Once you build your knowledge foundation here, you can use the main website's tools — such as the free online Risk Profile Assessment, consultation booking, or direct advisory from an AMFI-Registered Mutual Fund Distributor for personalised investment guidance."
+  },
+  {
+    q: "Can I learn about insurance on this platform?",
+    a: "Yes. Our Insurance Fundamentals course explains the difference between term insurance and endowment/ULIP plans, how to calculate the right cover (typically 10–15× annual income), and why you should never mix insurance and investment in a single product. It is one of the most important courses for new earners."
+  },
+  {
+    q: "How is progress tracked across courses?",
+    a: "Each course tracks your progress within a session. You can move through modules and lessons at your own pace using the sidebar navigation. Key Takeaways, the Knowledge Check quiz, and FAQ sections are accessible from the sidebar at any point during the course."
+  },
+];
+
 export default async function HomePage() {
   const categories = await getCategories();
   const courses = await getCourses();
@@ -41,9 +84,23 @@ export default async function HomePage() {
     url: 'https://learning.stockstrail.in/',
   };
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS_DATA.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.a,
+      },
+    })),
+  };
+
   return (
     <>
       <JsonLd data={webSiteSchema} />
+      <JsonLd data={faqSchema} />
       {/* HERO SECTION */}
       <LearningHeroSection />
 
@@ -79,7 +136,7 @@ export default async function HomePage() {
               Hand-picked courses that give you the strongest foundation, whether you're just starting or already investing.
             </p>
           </div>
-          <Link href="/learning/courses" className="inline-flex items-center gap-1 text-sm font-medium text-[color:var(--color-brand-green)] hover:underline">
+          <Link href="/courses" className="inline-flex items-center gap-1 text-sm font-medium text-[color:var(--color-brand-green)] hover:underline">
             View all courses →
           </Link>
         </div>
@@ -95,7 +152,7 @@ export default async function HomePage() {
               What do you want to learn today?
             </h2>
           </div>
-          <Link href="/learning/categories" className="inline-flex items-center gap-1 text-sm font-medium text-[color:var(--color-brand-green)] hover:underline">
+          <Link href="/categories" className="inline-flex items-center gap-1 text-sm font-medium text-[color:var(--color-brand-green)] hover:underline">
             All categories →
           </Link>
         </div>
@@ -145,10 +202,10 @@ export default async function HomePage() {
           <div className="hidden sm:block absolute top-8 left-[calc(12.5%+1rem)] right-[calc(12.5%+1rem)] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" aria-hidden />
           <div className="grid gap-6 sm:grid-cols-4">
             {[
-              { step: "1", label: "Beginner", title: "Build the Base", desc: "Emergency fund → Term Insurance → Health Insurance. Secure before you grow.", link: "/learning/courses/financial-planning-basics", tag: "Start here" },
-              { step: "2", label: "Foundation", title: "Start Investing", desc: "Mutual Funds → SIP Mastery → how NAV, expense ratios, and compounding work.", link: "/learning/courses/mutual-funds", tag: "Most popular" },
-              { step: "3", label: "Intermediate", title: "Grow & Save Tax", desc: "ELSS, PPF, NPS under Section 80C. Reduce your tax bill while growing wealth.", link: "/learning/courses/tax-saving-investments", tag: "High impact" },
-              { step: "4", label: "Advanced", title: "Plan for the Future", desc: "Retirement corpus sizing, goal-based portfolios, SWP withdrawals.", link: "/learning/courses/retirement-planning-101", tag: "Long term" },
+              { step: "1", label: "Beginner", title: "Build the Base", desc: "Emergency fund → Term Insurance → Health Insurance. Secure before you grow.", link: "/courses/financial-planning-basics", tag: "Start here" },
+              { step: "2", label: "Foundation", title: "Start Investing", desc: "Mutual Funds → SIP Mastery → how NAV, expense ratios, and compounding work.", link: "/courses/mutual-funds", tag: "Most popular" },
+              { step: "3", label: "Intermediate", title: "Grow & Save Tax", desc: "ELSS, PPF, NPS under Section 80C. Reduce your tax bill while growing wealth.", link: "/courses/tax-saving-investments", tag: "High impact" },
+              { step: "4", label: "Advanced", title: "Plan for the Future", desc: "Retirement corpus sizing, goal-based portfolios, SWP withdrawals.", link: "/courses/retirement-planning-101", tag: "Long term" },
             ].map((r, i) => (
               <Link key={i} href={r.link} className="group relative card-surface rounded-2xl p-6 hover:border-[color:var(--color-brand-green)]/30 transition-all">
                 <div className="flex items-center justify-between mb-4">
@@ -173,18 +230,18 @@ export default async function HomePage() {
         </h2>
         <div className="flex flex-wrap justify-center gap-3">
           {[
-            { label: "Mutual Funds", href: "/learning/courses/mutual-funds" },
-            { label: "SIP Investing", href: "/learning/courses/sip-mastery" },
-            { label: "Term Insurance", href: "/learning/courses/insurance-fundamentals" },
-            { label: "ELSS & 80C", href: "/learning/courses/tax-saving-investments" },
-            { label: "Stock Market", href: "/learning/courses/stock-market-basics" },
-            { label: "Demat Account", href: "/learning/courses/demat-accounts-guide" },
-            { label: "Retirement Planning", href: "/learning/courses/retirement-planning-101" },
-            { label: "Fixed Deposits", href: "/learning/courses/fixed-deposits-explained" },
-            { label: "Budgeting", href: "/learning/courses/personal-finance-foundations" },
-            { label: "Goal-Based Investing", href: "/learning/courses/goal-based-investing" },
-            { label: "Financial Planning", href: "/learning/courses/financial-planning-basics" },
-            { label: "NPS & PPF", href: "/learning/courses/tax-saving-investments" },
+            { label: "Mutual Funds", href: "/courses/mutual-funds" },
+            { label: "SIP Investing", href: "/courses/sip-mastery" },
+            { label: "Term Insurance", href: "/courses/insurance-fundamentals" },
+            { label: "ELSS & 80C", href: "/courses/tax-saving-investments" },
+            { label: "Stock Market", href: "/courses/stock-market-basics" },
+            { label: "Demat Account", href: "/courses/demat-accounts-guide" },
+            { label: "Retirement Planning", href: "/courses/retirement-planning-101" },
+            { label: "Fixed Deposits", href: "/courses/fixed-deposits-explained" },
+            { label: "Budgeting", href: "/courses/personal-finance-foundations" },
+            { label: "Goal-Based Investing", href: "/courses/goal-based-investing" },
+            { label: "Financial Planning", href: "/courses/financial-planning-basics" },
+            { label: "NPS & PPF", href: "/courses/tax-saving-investments" },
           ].map((t) => (
             <Link
               key={t.label}
@@ -227,7 +284,7 @@ export default async function HomePage() {
               </p>
             </div>
             <div className="pt-6 mt-6 border-t border-white/5">
-              <Link href="/learning/courses/mutual-funds" className="inline-flex items-center gap-1.5 text-xs text-[#00ff97] font-medium hover:text-white transition-colors">
+              <Link href="/courses/mutual-funds" className="inline-flex items-center gap-1.5 text-xs text-[#00ff97] font-medium hover:text-white transition-colors">
                 Explore Wealth Courses
                 <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:translate-x-0.5">
                   <path d="M5 12h14M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -254,7 +311,7 @@ export default async function HomePage() {
               </p>
             </div>
             <div className="pt-6 mt-6 border-t border-white/5">
-              <Link href="/learning/courses/insurance-fundamentals" className="inline-flex items-center gap-1.5 text-xs text-sky-400 font-medium hover:text-white transition-colors">
+              <Link href="/courses/insurance-fundamentals" className="inline-flex items-center gap-1.5 text-xs text-sky-400 font-medium hover:text-white transition-colors">
                 Explore Risk Courses
                 <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:translate-x-0.5">
                   <path d="M5 12h14M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -281,7 +338,7 @@ export default async function HomePage() {
               </p>
             </div>
             <div className="pt-6 mt-6 border-t border-white/5">
-              <Link href="/learning/courses/tax-saving-investments" className="inline-flex items-center gap-1.5 text-xs text-amber-400 font-medium hover:text-white transition-colors">
+              <Link href="/courses/tax-saving-investments" className="inline-flex items-center gap-1.5 text-xs text-amber-400 font-medium hover:text-white transition-colors">
                 Explore Tax Courses
                 <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:translate-x-0.5">
                   <path d="M5 12h14M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -415,10 +472,10 @@ export default async function HomePage() {
             Start with our most popular course and build a portfolio you actually understand.
           </p>
           <div className="relative mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link href="/learning/courses/mutual-funds" className="inline-flex items-center gap-2 rounded-full bg-[color:var(--color-brand-green)] px-6 py-3 text-sm font-semibold text-[color:var(--color-brand-bg)] hover:bg-white transition-colors">
+            <Link href="/courses/mutual-funds" className="inline-flex items-center gap-2 rounded-full bg-[color:var(--color-brand-green)] px-6 py-3 text-sm font-semibold text-[color:var(--color-brand-bg)] hover:bg-white transition-colors">
               Start with Mutual Funds
             </Link>
-            <Link href="/learning/courses" className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-brand-border)] px-6 py-3 text-sm font-medium text-white hover:border-white/40 transition-colors">
+            <Link href="/courses" className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-brand-border)] px-6 py-3 text-sm font-medium text-white hover:border-white/40 transition-colors">
               Browse all courses
             </Link>
           </div>

@@ -81,7 +81,44 @@ const servicesSchema = {
   },
 };
 
-export default function ServicesPage() {
+import { redirect, RedirectType } from 'next/navigation';
+
+const SERVICE_PARAM_MAP: Record<string, string> = {
+  'mutual-funds': '/services/mutual-funds',
+  mutualfunds: '/services/mutual-funds',
+  mf: '/services/mutual-funds',
+  sip: '/services/mutual-funds',
+  'fixed-deposit': '/services/fixed-deposit',
+  fixeddeposit: '/services/fixed-deposit',
+  fd: '/services/fixed-deposit',
+  insurance: '/services/insurance',
+  ins: '/services/insurance',
+  loan: '/services/loan',
+  loans: '/services/loan',
+  lamf: '/services/loan',
+  'open-demat': '/services/open-demat',
+  demat: '/services/open-demat',
+  'financial-protection': '/services/financial-protection',
+  protection: '/services/financial-protection',
+};
+
+interface ServicesPageProps {
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export default async function ServicesPage({ searchParams }: ServicesPageProps) {
+  const resolvedParams = searchParams ? await searchParams : {};
+  const query = (
+    (typeof resolvedParams.service === 'string' ? resolvedParams.service : '') ||
+    (typeof resolvedParams.tab === 'string' ? resolvedParams.tab : '') ||
+    (typeof resolvedParams.type === 'string' ? resolvedParams.type : '') ||
+    (typeof resolvedParams.s === 'string' ? resolvedParams.s : '')
+  ).toLowerCase().trim();
+
+  if (query && SERVICE_PARAM_MAP[query]) {
+    redirect(SERVICE_PARAM_MAP[query], RedirectType.replace);
+  }
+
   return (
     <>
       <script

@@ -41,7 +41,7 @@ export default function CoursesPageClient({ initialCourses, initialCategories }:
         </div>
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8 lg:px-12 pt-14 pb-8">
           <nav aria-label="Breadcrumb" className="text-xs text-white/50">
-            <Link href="/learning" className="hover:text-white">Home</Link> <span className="mx-1">/</span> <span className="text-white/80">Courses</span>
+            <Link href="/" className="hover:text-white">Home</Link> <span className="mx-1">/</span> <span className="text-white/80">Courses</span>
           </nav>
           <h1 className="mt-4 text-4xl sm:text-5xl text-white" style={{ fontFamily: "var(--font-product-sans)" }}>
             All Courses

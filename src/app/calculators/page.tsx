@@ -6,6 +6,8 @@ import CalculatorWidget from "@/components/calculators/CalculatorWidget";
 import CalculatorsPageSEO from "@/components/calculators/seo/CalculatorsPageSEO";
 import CalculatorAdvisoryBridge from "@/components/calculators/CalculatorAdvisoryBridge";
 
+import { redirect, RedirectType } from "next/navigation";
+
 export const metadata: Metadata = {
   title: "Financial Calculators - SIP, Lumpsum, FD, RD, EMI & Tax | Stockstrail",
   description:
@@ -41,7 +43,38 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CalculatorsPage() {
+const CALC_PARAM_MAP: Record<string, string> = {
+  sip: "/calculators/sip",
+  fd: "/calculators/fd",
+  "fixed-deposit": "/calculators/fd",
+  lumpsum: "/calculators/lumpsum",
+  "lump-sum": "/calculators/lumpsum",
+  rd: "/calculators/rd",
+  "recurring-deposit": "/calculators/rd",
+  emi: "/calculators/emi",
+  loan: "/calculators/emi",
+  tax: "/calculators/tax",
+  "income-tax": "/calculators/tax",
+};
+
+interface CalculatorsPageProps {
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export default async function CalculatorsPage({ searchParams }: CalculatorsPageProps) {
+  const resolvedParams = searchParams ? await searchParams : {};
+  const query = (
+    (typeof resolvedParams.tab === "string" ? resolvedParams.tab : "") ||
+    (typeof resolvedParams.type === "string" ? resolvedParams.type : "") ||
+    (typeof resolvedParams.calc === "string" ? resolvedParams.calc : "") ||
+    (typeof resolvedParams.calculator === "string" ? resolvedParams.calculator : "") ||
+    (typeof resolvedParams.t === "string" ? resolvedParams.t : "")
+  ).toLowerCase().trim();
+
+  if (query && CALC_PARAM_MAP[query]) {
+    redirect(CALC_PARAM_MAP[query], RedirectType.replace);
+  }
+
   return (
     <Layout>
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-16">

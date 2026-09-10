@@ -184,7 +184,7 @@ export default function MutualFunds() {
                 with the money. Your goal, investment period and comfort with market
                 fluctuations all matter. Our{' '}
                 <a
-                  href="/risk-profile"
+                  href="/check-risk-profile"
                   className="text-stockstrail-green-light hover:underline font-medium"
                 >
                   risk profile assessment
@@ -365,7 +365,7 @@ export default function MutualFunds() {
                 and the relatively lower volatility of debt-oriented investments. The right
                 mix depends on your{' '}
                 <a
-                  href="/risk-profile"
+                  href="/check-risk-profile"
                   className="text-stockstrail-green-light hover:underline font-medium"
                 >
                   risk profile
@@ -701,7 +701,7 @@ export default function MutualFunds() {
               Check the fund&apos;s objective, portfolio, Riskometer, investment horizon
               and major risk factors before investing. You can also take our{' '}
               <a
-                href="/risk-profile"
+                href="/check-risk-profile"
                 className="text-stockstrail-green-light hover:underline font-medium"
               >
                 risk profile assessment

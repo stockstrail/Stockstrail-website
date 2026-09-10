@@ -95,9 +95,9 @@ export default async function CategoryDetailPage({ params }: Props) {
         <span className="glow-blob top-[-100px] left-[-100px] h-[420px] w-[420px]" />
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 py-14 animate-fade-up">
           <nav aria-label="Breadcrumb" className="text-xs text-white/50">
-            <Link href="/learning" className="hover:text-white">Home</Link>
+            <Link href="/" className="hover:text-white">Home</Link>
             <span className="mx-1">/</span>
-            <Link href="/learning/categories" className="hover:text-white">Categories</Link>
+            <Link href="/categories" className="hover:text-white">Categories</Link>
             <span className="mx-1">/</span>
             <span className="text-white/80">{category.name}</span>
           </nav>

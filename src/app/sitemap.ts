@@ -190,6 +190,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: 'weekly',
         priority: 0.9,
       },
+      {
+        url: `${learningBaseUrl}/about`,
+        lastModified: STATIC_LASTMOD_RECENT,
+        changeFrequency: 'weekly',
+        priority: 0.8,
+      },
     ]
 
     let categoryRoutes: MetadataRoute.Sitemap = []

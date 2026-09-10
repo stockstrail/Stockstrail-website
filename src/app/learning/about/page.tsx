@@ -123,8 +123,6 @@ export default function AboutPage() {
             <nav aria-label="Breadcrumb" className="text-xs text-white/50 flex items-center gap-2">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
-              <Link href="/learning" className="hover:text-white transition-colors">Learning</Link>
-              <span>/</span>
               <span className="text-stockstrail-green-light font-medium">About</span>
             </nav>
 
@@ -292,32 +290,32 @@ export default function AboutPage() {
                 {
                   title: "Mutual Funds & SIPs",
                   desc: "Learn NAV, expense ratios, equity vs debt allocation, SIP compounding, and direct plans.",
-                  href: "/learning/courses/mutual-funds-guide"
+                  href: "/courses/mutual-funds"
                 },
                 {
                   title: "Tax Saving Strategies",
                   desc: "Master Section 80C, 80D, ELSS, PPF, NPS, and capital gains tax optimization (LTCG/STCG).",
-                  href: "/learning/courses/tax-saving-investments"
+                  href: "/courses/tax-saving-investments"
                 },
                 {
                   title: "Risk & Asset Profiling",
                   desc: "Understand how to evaluate risk tolerance, asset allocation split, and rebalancing principles.",
-                  href: "/learning/courses/risk-management-basics"
+                  href: "/courses/financial-planning-basics"
                 },
                 {
                   title: "Insurance & Shielding",
                   desc: "Decode term life vs. ULIPs, health insurance coverage, and protecting family assets.",
-                  href: "/learning/courses/insurance-planning"
+                  href: "/courses/insurance-fundamentals"
                 },
                 {
                   title: "Emergency Cash & FD",
                   desc: "Build a 6-month safety net, emergency liquid reserves, and smart FD laddering.",
-                  href: "/learning/courses/emergency-fund-building"
+                  href: "/courses/fixed-deposits-explained"
                 },
                 {
                   title: "Retirement & SWP",
                   desc: "Plan inflation-adjusted retirement corpuses and systematic withdrawal plans for monthly income.",
-                  href: "/learning/courses/retirement-planning-india"
+                  href: "/courses/retirement-planning-101"
                 }
               ].map((track, idx) => (
                 <div key={idx} className="card-surface rounded-2xl p-5 border border-white/10 hover:border-stockstrail-green-light/40 transition-all duration-300 flex flex-col justify-between space-y-4">
@@ -382,7 +380,7 @@ export default function AboutPage() {
 
             <div className="grid gap-4 sm:grid-cols-3 pt-2">
               <Link 
-                href="/about" 
+                href="https://www.stockstrail.in/about" 
                 className="p-5 rounded-2xl bg-black/30 border border-white/10 hover:border-stockstrail-green-light transition-all group"
               >
                 <div className="text-stockstrail-green-light font-semibold text-sm group-hover:text-white transition-colors">
@@ -392,7 +390,7 @@ export default function AboutPage() {
               </Link>
 
               <Link 
-                href="/check-risk-profile" 
+                href="https://www.stockstrail.in/check-risk-profile" 
                 className="p-5 rounded-2xl bg-black/30 border border-white/10 hover:border-stockstrail-green-light transition-all group"
               >
                 <div className="text-stockstrail-green-light font-semibold text-sm group-hover:text-white transition-colors">
@@ -402,7 +400,7 @@ export default function AboutPage() {
               </Link>
 
               <Link 
-                href="/lets-talk" 
+                href="https://www.stockstrail.in/lets-talk" 
                 className="p-5 rounded-2xl bg-black/30 border border-white/10 hover:border-stockstrail-green-light transition-all group"
               >
                 <div className="text-stockstrail-green-light font-semibold text-sm group-hover:text-white transition-colors">
@@ -463,13 +461,13 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4 pt-2">
               <Link 
-                href="/learning/courses" 
+                href="/courses" 
                 className="inline-flex items-center gap-2 rounded-full bg-[color:var(--color-brand-green)] px-7 py-3.5 text-sm font-semibold text-[color:var(--color-brand-bg)] hover:bg-white transition-all shadow-lg hover:scale-105"
               >
                 Explore All Free Courses →
               </Link>
               <Link 
-                href="/about" 
+                href="https://www.stockstrail.in/about" 
                 className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-all"
               >
                 Visit Main Website About Page
