@@ -120,11 +120,53 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'FinancialService'],
     name: 'Stockstrail',
+    alternateName: ['Stockstrail Financial', 'Stockstrail India'],
+    description: 'AMFI-Registered Mutual Fund Distributor (ARN-284122) providing personalized financial planning, mutual funds SIP, fixed deposits, insurance, and loan advisory across India.',
     image: 'https://www.stockstrail.in/stockstrail.png',
-    '@id': 'https://www.stockstrail.in',
+    '@id': 'https://www.stockstrail.in/#organization',
     url: 'https://www.stockstrail.in',
     telephone: '+919736304663',
     email: 'connect@stockstrail.in',
+    priceRange: '₹₹',
+    currenciesAccepted: 'INR',
+    paymentAccepted: 'Net Banking, UPI, Cheque, NEFT',
+    areaServed: [
+      {
+        '@type': 'Country',
+        name: 'India'
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Himachal Pradesh'
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Punjab'
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Chandigarh'
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Delhi NCR'
+      }
+    ],
+    knowsAbout: [
+      'Mutual Funds',
+      'Systematic Investment Plan (SIP)',
+      'Financial Planning',
+      'Health Insurance Claim Assistance',
+      'Term Life Insurance',
+      'Corporate Fixed Deposits',
+      'Loan Against Mutual Funds (LAMF)',
+      'AMFI ARN-284122'
+    ],
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 31.8105,
+      longitude: 76.1367
+    },
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Mata, Chintapurni Rd, near Punjab & Sind Bank, Moien',
