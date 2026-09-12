@@ -15,8 +15,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let isLearningSubdomain = false;
   try {
     const headersList = await headers();
-    const host = headersList.get('host') || '';
-    isLearningSubdomain = host.startsWith('learning.') || host === 'learning.stockstrail.in';
+    const host = (headersList.get('host') || '').toLowerCase();
+    isLearningSubdomain =
+      host.startsWith('learning.') ||
+      host === 'learning.stockstrail.in' ||
+      host.startsWith('www.learning.') ||
+      host === 'www.learning.stockstrail.in';
   } catch {
     // Default to main site if headers not available
   }
