@@ -192,7 +192,9 @@ export default function RootLayout({
     sameAs: [
       'https://www.facebook.com/Stockstrail',
       'https://www.instagram.com/stockstrail',
-      'https://www.linkedin.com/company/stockstrail'
+      'https://www.linkedin.com/company/stockstrail',
+      'https://www.crunchbase.com/organization/stockstrail',
+      'https://tracxn.com/d/companies/stockstrail/'
     ]
   };
 
