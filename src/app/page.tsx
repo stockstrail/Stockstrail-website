@@ -6,15 +6,15 @@ import ClientOverlays from '@/components/home/ClientOverlays';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Stockstrail - Personalized Financial Planning & Investment Guidance in India',
-  description: 'Stockstrail provides honest, personalized financial planning, Mutual Funds SIP advisory, Fixed Deposits, Term Insurance, and Loans in India (AMFI ARN-284122).',
-  keywords: 'Stockstrail, Personalized Financial Planning, Investment Guidance in India, Mutual Funds SIP, Lumpsum Investment, Fixed Deposit Rates, Term Insurance Plans, Health Insurance, Loan Against Mutual Funds, LAMF, Open Demat Account, AMFI ARN 284122',
+  title: 'Stockstrail - Official Website | Financial Planning & Investment Platform India',
+  description: 'Stockstrail (AMFI ARN-284122) is India\'s trusted financial planning and investment platform. Expert advisory on Mutual Funds SIP, Term Insurance, Fixed Deposits, and Loans.',
+  keywords: 'Stockstrail, Stockstrail official website, Stockstrail financial planning, Mutual Funds SIP India, Vikrant Bhardwaj, AMFI ARN 284122, Term Insurance, Wealth Management India',
   alternates: {
     canonical: 'https://www.stockstrail.in',
   },
   openGraph: {
-    title: 'Stockstrail - Financial Planning & Investment Guidance in India',
-    description: 'At Stockstrail, we provide honest, jargon-free financial planning and investment guidance. Explore Mutual Funds SIP, FD, Insurance, and Loans across India.',
+    title: 'Stockstrail - Official Website | Financial Planning & Investment Platform',
+    description: 'Personalized, honest, and expert financial planning and mutual funds distribution in India by Stockstrail (ARN-284122).',
     url: 'https://www.stockstrail.in',
     siteName: 'Stockstrail',
     locale: 'en_IN',
@@ -24,14 +24,14 @@ export const metadata: Metadata = {
         url: '/og-stockstrail.png',
         width: 1100,
         height: 630,
-        alt: 'Stockstrail Financial Planning & Investment Guidance',
+        alt: 'Stockstrail - Official Financial Planning & Investment Platform',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Stockstrail - Financial Planning & Investment Guidance in India',
-    description: 'At Stockstrail, we provide honest, jargon-free financial planning and investment guidance.',
+    title: 'Stockstrail - Official Website | Financial Planning & Investment Platform',
+    description: 'Expert financial planning and mutual funds guidance in India by Stockstrail.',
     images: ['/og-stockstrail.png'],
   },
 };

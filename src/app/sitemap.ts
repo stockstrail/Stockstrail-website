@@ -5,8 +5,8 @@ import { getCategories, getCourses } from '@/lib/learning/supabase-db'
 
 export const revalidate = 86400
 
-const STATIC_LASTMOD_RECENT = new Date('2026-03-01T00:00:00Z')
-const STATIC_LASTMOD_ANNUAL = new Date('2026-01-01T00:00:00Z')
+const CURRENT_TIMESTAMP = new Date('2026-09-15T00:00:00Z')
+const ANNUAL_TIMESTAMP = new Date('2026-01-01T00:00:00Z')
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const mainBaseUrl = 'https://www.stockstrail.in'
@@ -25,179 +25,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Default to main site if headers not available
   }
 
-  // 1. Main site static routes
-  const mainStaticRoutes: MetadataRoute.Sitemap = [
-    {
-      url: mainBaseUrl,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'weekly',
-      priority: 1.0,
-    },
-    {
-      url: `${mainBaseUrl}/blog`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${mainBaseUrl}/about`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${mainBaseUrl}/services`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${mainBaseUrl}/services/mutual-funds`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${mainBaseUrl}/services/fixed-deposit`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${mainBaseUrl}/services/insurance`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${mainBaseUrl}/services/loan`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${mainBaseUrl}/services/financial-protection`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${mainBaseUrl}/services/open-demat`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${mainBaseUrl}/calculators`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${mainBaseUrl}/calculators/sip`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${mainBaseUrl}/calculators/fd`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${mainBaseUrl}/calculators/lumpsum`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${mainBaseUrl}/calculators/rd`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${mainBaseUrl}/calculators/emi`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${mainBaseUrl}/calculators/tax`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${mainBaseUrl}/lets-talk`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${mainBaseUrl}/nse-holidays`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${mainBaseUrl}/bse-holidays`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${mainBaseUrl}/check-risk-profile`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${mainBaseUrl}/terms-and-conditions`,
-      lastModified: STATIC_LASTMOD_ANNUAL,
-      changeFrequency: 'yearly',
-      priority: 0.5,
-    },
-    {
-      url: `${mainBaseUrl}/commission-disclosure`,
-      lastModified: STATIC_LASTMOD_ANNUAL,
-      changeFrequency: 'yearly',
-      priority: 0.5,
-    },
-    {
-      url: `${mainBaseUrl}/editorial-policy`,
-      lastModified: STATIC_LASTMOD_RECENT,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-  ]
-
-  // If requested on the learning subdomain, return only learning routes
+  // 1. Learning Subdomain Routes
   if (isLearningSubdomain) {
     const learningStaticRoutes: MetadataRoute.Sitemap = [
       {
         url: learningBaseUrl,
-        lastModified: STATIC_LASTMOD_RECENT,
-        changeFrequency: 'weekly',
+        lastModified: CURRENT_TIMESTAMP,
+        changeFrequency: 'daily',
         priority: 1.0,
       },
       {
         url: `${learningBaseUrl}/categories`,
-        lastModified: STATIC_LASTMOD_RECENT,
+        lastModified: CURRENT_TIMESTAMP,
         changeFrequency: 'weekly',
         priority: 0.9,
       },
       {
         url: `${learningBaseUrl}/courses`,
-        lastModified: STATIC_LASTMOD_RECENT,
+        lastModified: CURRENT_TIMESTAMP,
         changeFrequency: 'weekly',
         priority: 0.9,
       },
       {
         url: `${learningBaseUrl}/about`,
-        lastModified: STATIC_LASTMOD_RECENT,
-        changeFrequency: 'weekly',
+        lastModified: CURRENT_TIMESTAMP,
+        changeFrequency: 'monthly',
         priority: 0.8,
       },
     ]
@@ -207,7 +59,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const categories = await getCategories()
       categoryRoutes = categories.map((cat) => ({
         url: `${learningBaseUrl}/categories/${cat.slug}`,
-        lastModified: STATIC_LASTMOD_RECENT,
+        lastModified: CURRENT_TIMESTAMP,
         changeFrequency: 'weekly' as const,
         priority: 0.8,
       }))
@@ -220,7 +72,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const courses = await getCourses()
       courseRoutes = courses.map((course) => ({
         url: `${learningBaseUrl}/courses/${course.slug}`,
-        lastModified: new Date(course.updatedAt || '2026-03-01T00:00:00Z'),
+        lastModified: new Date(course.updatedAt || CURRENT_TIMESTAMP),
         changeFrequency: 'weekly' as const,
         priority: 0.8,
       }))
@@ -235,7 +87,155 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ]
   }
 
-  // 2. Fetch dynamic blog posts from Supabase for main site
+  // 2. Main Site High-Priority Static Routes
+  const mainStaticRoutes: MetadataRoute.Sitemap = [
+    {
+      url: mainBaseUrl,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'daily',
+      priority: 1.0,
+    },
+    {
+      url: `${mainBaseUrl}/about`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${mainBaseUrl}/services`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${mainBaseUrl}/services/mutual-funds`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${mainBaseUrl}/services/insurance`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${mainBaseUrl}/services/fixed-deposit`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/services/loan`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/services/financial-protection`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/services/open-demat`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/calculators`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${mainBaseUrl}/calculators/sip`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${mainBaseUrl}/calculators/fd`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/calculators/lumpsum`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/calculators/emi`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/calculators/tax`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/calculators/rd`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${mainBaseUrl}/lets-talk`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${mainBaseUrl}/check-risk-profile`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/blog`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+    {
+      url: `${mainBaseUrl}/bse-holidays`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/nse-holidays`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${mainBaseUrl}/editorial-policy`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${mainBaseUrl}/terms-and-conditions`,
+      lastModified: ANNUAL_TIMESTAMP,
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    {
+      url: `${mainBaseUrl}/commission-disclosure`,
+      lastModified: ANNUAL_TIMESTAMP,
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+  ]
+
+  // 3. Dynamic Blog Articles from Database
   let blogRoutes: MetadataRoute.Sitemap = []
   try {
     const supabase = await createClient()
@@ -247,9 +247,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     if (!error && posts) {
       blogRoutes = posts.map((post) => ({
         url: `${mainBaseUrl}/blog/${post.slug}`,
-        lastModified: new Date(post.updated_at || post.created_at || '2026-03-01T00:00:00Z'),
-        changeFrequency: 'monthly' as const,
-        priority: 0.7,
+        lastModified: new Date(post.updated_at || post.created_at || CURRENT_TIMESTAMP),
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
       }))
     }
   } catch (error) {

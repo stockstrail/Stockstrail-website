@@ -112,19 +112,30 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Stockstrail',
-    alternateName: ['Stockstrail Financial', 'Stockstrail India'],
+    alternateName: ['Stockstrail Financial', 'Stockstrail India', 'Stockstrail Official'],
     url: 'https://www.stockstrail.in/',
+    publisher: {
+      '@id': 'https://www.stockstrail.in/#organization',
+    },
   };
 
-  const localBusinessSchema = {
+  const organizationSchema = {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'FinancialService'],
-    name: 'Stockstrail',
-    alternateName: ['Stockstrail Financial', 'Stockstrail India'],
-    description: 'AMFI-Registered Mutual Fund Distributor (ARN-284122) providing personalized financial planning, mutual funds SIP, fixed deposits, insurance, and loan advisory across India.',
-    image: 'https://www.stockstrail.in/stockstrail.png',
+    '@type': ['Organization', 'FinancialService', 'LocalBusiness'],
     '@id': 'https://www.stockstrail.in/#organization',
+    name: 'Stockstrail',
+    legalName: 'Stockstrail Financial Services',
+    alternateName: ['Stockstrail Financial', 'Stockstrail India'],
     url: 'https://www.stockstrail.in',
+    logo: 'https://www.stockstrail.in/stockstrail.png',
+    image: 'https://www.stockstrail.in/stockstrail.png',
+    description: 'AMFI-Registered Mutual Fund Distributor (ARN-284122) providing personalized financial planning, mutual funds SIP, fixed deposits, insurance, and loan advisory across India.',
+    founder: {
+      '@type': 'Person',
+      name: 'Vikrant Bhardwaj',
+      jobTitle: 'Founder & Principal Financial Consultant',
+    },
+    foundingDate: '2023',
     telephone: '+919736304663',
     email: 'connect@stockstrail.in',
     priceRange: '₹₹',
@@ -304,7 +315,7 @@ export default function RootLayout({
 
       <body className="antialiased">
         <JsonLd data={webSiteSchema} />
-        <JsonLd data={localBusinessSchema} />
+        <JsonLd data={organizationSchema} />
         <WebMCPRegistry />
         <UtmTracker />
 
