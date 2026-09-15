@@ -3,7 +3,8 @@ import { headers } from 'next/headers'
 import { createClient } from '@/lib/supabase/server'
 import { getCategories, getCourses } from '@/lib/learning/supabase-db'
 
-export const revalidate = 86400
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 const CURRENT_TIMESTAMP = new Date('2026-09-15T00:00:00Z')
 const ANNUAL_TIMESTAMP = new Date('2026-01-01T00:00:00Z')
