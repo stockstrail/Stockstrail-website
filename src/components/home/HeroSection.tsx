@@ -39,7 +39,7 @@ export default function HeroSection() {
                 className="text-4xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-white leading-[1.12]"
                 style={{ fontFamily: "var(--font-product-sans)" }}
               >
-                Smart Investing for Your Family. <br />
+                Stockstrail – Smart Investing for Your Family. <br />
                 <span className="gradient-text font-extrabold">
                   Clear, Honest Guidance.
                 </span>
