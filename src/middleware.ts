@@ -14,12 +14,16 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(destinationUrl, { status: 301 });
   }
 
-  // Check if current request is on the learning subdomain (supports learning.stockstrail.in & www.learning.stockstrail.in)
+  // 2. Redirect www.learning.stockstrail.in -> learning.stockstrail.in
+  if (!isLocalhost && (host === "www.learning.stockstrail.in" || host.startsWith("www.learning."))) {
+    const destinationUrl = `https://learning.stockstrail.in${pathname}${rawUrl.search}`;
+    return NextResponse.redirect(destinationUrl, { status: 301 });
+  }
+
+  // Check if current request is on the learning subdomain
   const isLearningSubdomain =
     host === "learning.stockstrail.in" ||
-    host === "www.learning.stockstrail.in" ||
-    host.startsWith("learning.") ||
-    host.startsWith("www.learning.");
+    host.startsWith("learning.");
 
   if (isLearningSubdomain) {
     // If on learning subdomain and path doesn't start with /learning, /admin, or /api, rewrite internally to /learning
