@@ -100,6 +100,24 @@ export function AdminBlogsContent() {
     }
   };
 
+  const handleDeleteAll = async () => {
+    if (!confirm(`Are you sure you want to delete ALL ${blogs.length} blog posts? This action cannot be undone.`)) return;
+    
+    setLoading(true);
+    try {
+      const supabase = createClient();
+      for (const blog of blogs) {
+        await supabase.from("blogs").delete().eq("id", blog.id);
+      }
+      await fetchBlogs();
+    } catch (err) {
+      console.error("Error deleting all blogs:", err);
+      alert("Failed to delete some blog posts.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleSave = () => {
     fetchBlogs();
     setEditorOpen(false);
@@ -119,13 +137,26 @@ export function AdminBlogsContent() {
               Create, edit, and publish blog posts
             </p>
           </header>
-          <Button 
-            onClick={handleCreate}
-            className="bg-gradient-to-r from-emerald-400 to-stockstrail-green-light hover:from-emerald-300 hover:to-stockstrail-green text-[#031815] font-semibold shadow-[0_0_20px_rgba(0,255,151,0.25)] hover:shadow-[0_0_30px_rgba(0,255,151,0.5)] transition-all duration-300 hover:-translate-y-0.5 border border-emerald-300/30 rounded-xl px-6"
-          >
-            <Plus className="w-5 h-5 mr-2" />
-            Create Post
-          </Button>
+          <div className="flex items-center gap-3">
+            {blogs.length > 0 && (
+              <Button 
+                onClick={handleDeleteAll}
+                disabled={loading}
+                variant="outline"
+                className="border-red-500/30 text-red-400 hover:text-white hover:bg-red-500/20 rounded-xl px-4"
+              >
+                <Trash2 className="w-4 h-4 mr-2" />
+                Delete All ({blogs.length})
+              </Button>
+            )}
+            <Button 
+              onClick={handleCreate}
+              className="bg-gradient-to-r from-emerald-400 to-stockstrail-green-light hover:from-emerald-300 hover:to-stockstrail-green text-[#031815] font-semibold shadow-[0_0_20px_rgba(0,255,151,0.25)] hover:shadow-[0_0_30px_rgba(0,255,151,0.5)] transition-all duration-300 hover:-translate-y-0.5 border border-emerald-300/30 rounded-xl px-6"
+            >
+              <Plus className="w-5 h-5 mr-2" />
+              Create Post
+            </Button>
+          </div>
         </div>
 
         <Card className="bg-white/5 border-white/10">

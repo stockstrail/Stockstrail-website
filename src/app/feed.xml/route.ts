@@ -24,11 +24,7 @@ export async function GET() {
     .order('created_at', { ascending: false })
     .limit(50);
 
-  const LOCAL_BLOG_COVERS: Record<string, string> = {
-    "why-is-the-market-down-a-salaried-employee-s-action-guide": "/blog/why-is-the-market-down.jpg",
-    "sebi-mutual-fund-nomination-rule-september-2026": "/blog/sebi-mutual-fund-nomination-rule-september-2026.jpg",
-    "the-financial-story-of-himachal-pradesh-s-emplyoee": "/blog/the-financial-story-of-himachal-pradesh-s-emplyoee.jpg",
-  };
+  const LOCAL_BLOG_COVERS: Record<string, string> = {};
 
   const blogItems = (posts || []).map((post) => {
     const postUrl = `${siteUrl}/blog/${post.slug}`;

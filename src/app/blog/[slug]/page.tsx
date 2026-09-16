@@ -44,11 +44,8 @@ function getNodeText(node: any): string {
   return '';
 }
 
-const LOCAL_BLOG_COVERS: Record<string, string> = {
-  "why-is-the-market-down-a-salaried-employee-s-action-guide": "/blog/why-is-the-market-down.jpg",
-  "sebi-mutual-fund-nomination-rule-september-2026": "/blog/sebi-mutual-fund-nomination-rule-september-2026.jpg",
-  "the-financial-story-of-himachal-pradesh-s-emplyoee": "/blog/the-financial-story-of-himachal-pradesh-s-emplyoee.jpg",
-};
+const LOCAL_BLOG_COVERS: Record<string, string> = {};
+
 
 function getCategoryFromTitle(title: string): string {
   const lower = title.toLowerCase();
