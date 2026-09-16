@@ -47,7 +47,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(lowerUrl, { status: 301 });
   }
 
-  // 4. Trailing slash normalization: remove trailing slash (e.g. /calculators/ -> /calculators)
+  // 4. Trailing slash normalization: remove trailing slash (e.g. /about/ -> /about)
   if (
     pathname.length > 1 &&
     pathname.endsWith("/") &&
@@ -56,111 +56,6 @@ export function middleware(request: NextRequest) {
     const cleanSlashPath = pathname.replace(/\/+$/, "");
     const cleanUrl = new URL(cleanSlashPath + rawUrl.search, request.url);
     return NextResponse.redirect(cleanUrl, { status: 301 });
-  }
-
-  // 5. Calculator Clean URL Normalization (Eliminates ?tab=SIP, ?type=sip, ?calc=sip duplicate URLs)
-  const isCalcPath = pathname === "/calculators" || pathname.startsWith("/calculators/");
-  if (isCalcPath) {
-    const searchParams = rawUrl.searchParams;
-    const calcQuery = (
-      searchParams.get("tab") ||
-      searchParams.get("type") ||
-      searchParams.get("calc") ||
-      searchParams.get("calculator") ||
-      searchParams.get("t") ||
-      ""
-    ).toLowerCase().trim();
-
-    const calcMapping: Record<string, string> = {
-      sip: "/calculators/sip",
-      fd: "/calculators/fd",
-      "fixed-deposit": "/calculators/fd",
-      lumpsum: "/calculators/lumpsum",
-      "lump-sum": "/calculators/lumpsum",
-      rd: "/calculators/rd",
-      "recurring-deposit": "/calculators/rd",
-      emi: "/calculators/emi",
-      loan: "/calculators/emi",
-      tax: "/calculators/tax",
-      "income-tax": "/calculators/tax",
-    };
-
-    // If query parameter maps to a calculator, 301 redirect to clean canonical URL with no query params
-    if (calcQuery && calcMapping[calcQuery]) {
-      const canonicalCalcUrl = new URL(calcMapping[calcQuery], request.url);
-      canonicalCalcUrl.search = ""; // strip duplicate query string
-      return NextResponse.redirect(canonicalCalcUrl, { status: 301 });
-    }
-
-    // If already on a dedicated calculator page (e.g. /calculators/sip) with redundant tab query params, strip them
-    if (pathname.startsWith("/calculators/") && (searchParams.has("tab") || searchParams.has("type") || searchParams.has("calc"))) {
-      const cleanCalcSubUrl = new URL(pathname, request.url);
-      cleanCalcSubUrl.search = "";
-      return NextResponse.redirect(cleanCalcSubUrl, { status: 301 });
-    }
-  }
-
-  // 6. Services Clean URL Normalization (Eliminates ?service=..., ?tab=..., and legacy /mutual-funds paths)
-  const legacyServices: Record<string, string> = {
-    "/mutual-funds": "/services/mutual-funds",
-    "/fixed-deposit": "/services/fixed-deposit",
-    "/insurance": "/services/insurance",
-    "/loan": "/services/loan",
-    "/financial-protection": "/services/financial-protection",
-    "/open-demat": "/services/open-demat",
-  };
-
-  const normalizedCleanPath = pathname.replace(/\/+$/, "") || "/";
-  if (legacyServices[normalizedCleanPath]) {
-    const destination = legacyServices[normalizedCleanPath];
-    const redirectUrl = new URL(destination, request.url);
-    redirectUrl.search = "";
-    return NextResponse.redirect(redirectUrl, { status: 301 });
-  }
-
-  const isServicesPath = pathname === "/services" || pathname.startsWith("/services/");
-  if (isServicesPath) {
-    const searchParams = rawUrl.searchParams;
-    const serviceQuery = (
-      searchParams.get("service") ||
-      searchParams.get("tab") ||
-      searchParams.get("type") ||
-      searchParams.get("s") ||
-      ""
-    ).toLowerCase().trim();
-
-    const serviceMapping: Record<string, string> = {
-      "mutual-funds": "/services/mutual-funds",
-      mutualfunds: "/services/mutual-funds",
-      mf: "/services/mutual-funds",
-      sip: "/services/mutual-funds",
-      "fixed-deposit": "/services/fixed-deposit",
-      fixeddeposit: "/services/fixed-deposit",
-      fd: "/services/fixed-deposit",
-      insurance: "/services/insurance",
-      ins: "/services/insurance",
-      loan: "/services/loan",
-      loans: "/services/loan",
-      lamf: "/services/loan",
-      "open-demat": "/services/open-demat",
-      demat: "/services/open-demat",
-      "financial-protection": "/services/financial-protection",
-      protection: "/services/financial-protection",
-    };
-
-    // If query parameter maps to a service, 301 redirect to clean canonical URL
-    if (serviceQuery && serviceMapping[serviceQuery]) {
-      const canonicalServiceUrl = new URL(serviceMapping[serviceQuery], request.url);
-      canonicalServiceUrl.search = ""; // strip duplicate query string
-      return NextResponse.redirect(canonicalServiceUrl, { status: 301 });
-    }
-
-    // If already on a dedicated service page (e.g. /services/mutual-funds) with redundant query params, strip them
-    if (pathname.startsWith("/services/") && (searchParams.has("service") || searchParams.has("tab") || searchParams.has("type"))) {
-      const cleanServiceSubUrl = new URL(pathname, request.url);
-      cleanServiceSubUrl.search = "";
-      return NextResponse.redirect(cleanServiceSubUrl, { status: 301 });
-    }
   }
 
   return NextResponse.next();

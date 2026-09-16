@@ -146,26 +146,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  // Permanent 301 redirects
-  async redirects() {
-    return [
-      {
-        source: '/contact',
-        destination: '/lets-talk',
-        permanent: true,
-      },
-      {
-        source: '/demat',
-        destination: '/services/open-demat',
-        permanent: true,
-      },
-      {
-        source: '/financial-planning',
-        destination: '/services',
-        permanent: true,
-      },
-    ];
-  },
 };
 
 export default nextConfig;
