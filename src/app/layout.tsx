@@ -31,6 +31,14 @@ export const metadata: Metadata = {
     "Achieve financial independence with expert financial planning, mutual funds SIP, fixed deposits, insurance, and loan guidance from Stockstrail (AMFI ARN-284122).",
   keywords: [
     "Stockstrail",
+    "STOCKSTRAIL",
+    "stockstrail",
+    "Stocks Trail",
+    "StocksTrail",
+    "Stockstrail.in",
+    "www.stockstrail.in",
+    "Stockstrail official",
+    "Stockstrail financial",
     "financial planning India",
     "mutual funds distributor",
     "SIP investment",
@@ -111,11 +119,32 @@ export default function RootLayout({
   const webSiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': 'https://www.stockstrail.in/#website',
     name: 'Stockstrail',
-    alternateName: ['Stockstrail Financial', 'Stockstrail India', 'Stockstrail Official'],
-    url: 'https://www.stockstrail.in/',
+    alternateName: [
+      'Stockstrail',
+      'STOCKSTRAIL',
+      'stockstrail',
+      'Stocks Trail',
+      'StocksTrail',
+      'Stockstrail.in',
+      'www.stockstrail.in',
+      'Stockstrail Financial',
+      'Stockstrail India',
+      'Stockstrail Official Website'
+    ],
+    url: 'https://www.stockstrail.in',
+    inLanguage: 'en-IN',
     publisher: {
       '@id': 'https://www.stockstrail.in/#organization',
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://learning.stockstrail.in/categories?search={search_term_string}',
+      },
+      'query-input': 'required name=search_term_string',
     },
   };
 
@@ -125,8 +154,20 @@ export default function RootLayout({
     '@id': 'https://www.stockstrail.in/#organization',
     name: 'Stockstrail',
     legalName: 'Stockstrail Financial Services',
-    alternateName: ['Stockstrail Financial', 'Stockstrail India'],
+    alternateName: [
+      'Stockstrail',
+      'STOCKSTRAIL',
+      'stockstrail',
+      'Stocks Trail',
+      'StocksTrail',
+      'Stockstrail.in',
+      'www.stockstrail.in',
+      'Stockstrail Financial',
+      'Stockstrail India',
+      'Stockstrail Official'
+    ],
     url: 'https://www.stockstrail.in',
+    mainEntityOfPage: 'https://www.stockstrail.in',
     logo: 'https://www.stockstrail.in/stockstrail.png',
     image: 'https://www.stockstrail.in/stockstrail.png',
     description: 'AMFI-Registered Mutual Fund Distributor (ARN-284122) providing personalized financial planning, mutual funds SIP, fixed deposits, insurance, and loan advisory across India.',
@@ -201,11 +242,15 @@ export default function RootLayout({
       closes: '20:00'
     },
     sameAs: [
-      'https://www.facebook.com/Stockstrail',
-      'https://www.instagram.com/stockstrail',
+      'https://www.linkedin.com/company/stockstrail/',
       'https://www.linkedin.com/company/stockstrail',
+      'https://www.instagram.com/stockstrail/',
+      'https://www.instagram.com/stockstrail',
+      'https://www.facebook.com/Stockstrail',
+      'https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/',
       'https://www.crunchbase.com/organization/stockstrail',
-      'https://tracxn.com/d/companies/stockstrail/'
+      'https://tracxn.com/d/companies/stockstrail/',
+      'https://t.me/stockstrail'
     ]
   };
 
