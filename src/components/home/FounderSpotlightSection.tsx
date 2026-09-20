@@ -89,8 +89,8 @@ export default function FounderSpotlightSection() {
                   </div>
 
                   <div className="p-3 rounded-2xl bg-black/40 border border-white/10 space-y-0.5">
-                    <span className="text-[10px] uppercase font-mono text-sky-300 block">SEBI Certified</span>
-                    <span className="text-xs font-bold text-white block">Investor Exam</span>
+                    <span className="text-[10px] uppercase font-mono text-sky-300 block">NISM Certified</span>
+                    <span className="text-xs font-bold text-white block">NISM Certification</span>
                     <span className="text-[10px] text-white/50 block">Investor Protection</span>
                   </div>
                 </div>
@@ -102,7 +102,7 @@ export default function FounderSpotlightSection() {
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="font-bold text-white text-sm block">Vikrant Bhardwaj</span>
-                    <span className="text-xs text-white/60">Founder &amp; Principal Financial Advisor</span>
+                    <span className="text-xs text-white/60">Founder &amp; Principal Financial Consultant</span>
                   </div>
                   <div className="text-[11px] font-mono text-stockstrail-green-light bg-stockstrail-green-light/10 px-3 py-1 rounded-full border border-stockstrail-green-light/20">
                     ₹0 Consultation Fee

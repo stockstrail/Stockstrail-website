@@ -673,7 +673,7 @@ export default function AboutPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-stockstrail-green-light shrink-0" />
-                    <span><strong>SEBI Certified:</strong> Investor Exam</span>
+                    <span><strong>NISM Certified:</strong> Investor Certification</span>
                   </div>
                 </div>
               </div>
@@ -691,7 +691,7 @@ export default function AboutPage() {
                     — Vikrant Bhardwaj, Founder
                   </div>
                   <div className="text-white/50 font-mono">
-                    AMFI ARN-284122 · NISM & SEBI Certified
+                    AMFI ARN-284122 · NISM Certified
                   </div>
                 </div>
               </div>
@@ -1411,7 +1411,7 @@ export default function AboutPage() {
                 100% Registered with AMFI (ARN-284122) & Certified
               </h3>
               <p className="text-white/70 text-sm font-work-sans leading-relaxed">
-                Fully registered with the Association of Mutual Funds in India (ARN-284122) and verified NISM/SEBI certified for your safety.
+                Fully registered with the Association of Mutual Funds in India (ARN-284122) and NISM Series V-A certified.
               </p>
             </div>
 
@@ -1729,7 +1729,7 @@ export default function AboutPage() {
             </div>
 
             <p className="text-white/60 text-xs text-center font-work-sans">
-              National Institute of Securities Markets (NISM) & SEBI certified verification for Vikrant Bhardwaj (AMFI ARN-284122).
+              National Institute of Securities Markets (NISM) certified verification for Vikrant Bhardwaj (AMFI ARN-284122).
             </p>
           </div>
         </div>
