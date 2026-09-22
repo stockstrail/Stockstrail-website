@@ -47,15 +47,53 @@ const nextConfig: NextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   transpilePackages: [],
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'stockstrail.in',
+          },
+        ],
+        destination: 'https://www.stockstrail.in/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.learning.stockstrail.in',
+          },
+        ],
+        destination: 'https://learning.stockstrail.in/:path*',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
-        // AI Agentic Browsing Discovery Header
+        // AI Agentic Browsing Discovery Header & Core Security Headers
         source: '/:path*',
         headers: [
           {
             key: 'Link',
             value: '</llms.txt>; rel="llms-txt"',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
           },
         ],
       },

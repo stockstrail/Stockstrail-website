@@ -4,6 +4,8 @@ import { getCategories, getCourses } from "@/lib/learning/supabase-db";
 import { CategoryCard } from "@/components/learn/cards";
 import JsonLd from "@/components/common/JsonLd";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Categories — Stockstrail Learning",
   description: "Browse finance topics — mutual funds, SIP, insurance, stocks, tax, retirement and more.",

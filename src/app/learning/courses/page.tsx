@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { getCategories, getCourses } from "@/lib/learning/supabase-db";
 import CoursesPageClient from "./CoursesPageClient";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "All Courses — Stockstrail Learning",
   description: "Browse every finance course on Stockstrail Learning. Filter by difficulty, category and reading time.",

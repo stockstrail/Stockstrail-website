@@ -29,7 +29,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 1800;
 
 function getNodeText(node: any): string {
   if (typeof node === 'string' || typeof node === 'number') {

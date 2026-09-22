@@ -1,10 +1,8 @@
 import { MetadataRoute } from 'next'
-import { headers } from 'next/headers'
 import { createClient } from '@/lib/supabase/server'
 import { getCategories, getCourses } from '@/lib/learning/supabase-db'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+export const revalidate = 3600
 
 const CURRENT_TIMESTAMP = new Date('2026-09-15T00:00:00Z')
 const ANNUAL_TIMESTAMP = new Date('2026-01-01T00:00:00Z')
@@ -13,79 +11,58 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const mainBaseUrl = 'https://www.stockstrail.in'
   const learningBaseUrl = 'https://learning.stockstrail.in'
 
-  let isLearningSubdomain = false;
+  // 1. Learning Platform Routes
+  const learningStaticRoutes: MetadataRoute.Sitemap = [
+    {
+      url: learningBaseUrl,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+    {
+      url: `${learningBaseUrl}/categories`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${learningBaseUrl}/courses`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${learningBaseUrl}/about`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+  ]
+
+  let categoryRoutes: MetadataRoute.Sitemap = []
   try {
-    const headersList = await headers();
-    const host = (headersList.get('host') || '').toLowerCase();
-    isLearningSubdomain =
-      host.startsWith('learning.') ||
-      host === 'learning.stockstrail.in' ||
-      host.startsWith('www.learning.') ||
-      host === 'www.learning.stockstrail.in';
-  } catch {
-    // Default to main site if headers not available
+    const categories = await getCategories()
+    categoryRoutes = (categories || []).map((cat) => ({
+      url: `${learningBaseUrl}/categories/${cat.slug}`,
+      lastModified: CURRENT_TIMESTAMP,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }))
+  } catch (e) {
+    console.error('Error fetching categories for sitemap:', e)
   }
 
-  // 1. Learning Subdomain Routes
-  if (isLearningSubdomain) {
-    const learningStaticRoutes: MetadataRoute.Sitemap = [
-      {
-        url: learningBaseUrl,
-        lastModified: CURRENT_TIMESTAMP,
-        changeFrequency: 'daily',
-        priority: 1.0,
-      },
-      {
-        url: `${learningBaseUrl}/categories`,
-        lastModified: CURRENT_TIMESTAMP,
-        changeFrequency: 'weekly',
-        priority: 0.9,
-      },
-      {
-        url: `${learningBaseUrl}/courses`,
-        lastModified: CURRENT_TIMESTAMP,
-        changeFrequency: 'weekly',
-        priority: 0.9,
-      },
-      {
-        url: `${learningBaseUrl}/about`,
-        lastModified: CURRENT_TIMESTAMP,
-        changeFrequency: 'monthly',
-        priority: 0.8,
-      },
-    ]
-
-    let categoryRoutes: MetadataRoute.Sitemap = []
-    try {
-      const categories = await getCategories()
-      categoryRoutes = categories.map((cat) => ({
-        url: `${learningBaseUrl}/categories/${cat.slug}`,
-        lastModified: CURRENT_TIMESTAMP,
-        changeFrequency: 'weekly' as const,
-        priority: 0.8,
-      }))
-    } catch (e) {
-      console.error('Error fetching categories for sitemap:', e)
-    }
-
-    let courseRoutes: MetadataRoute.Sitemap = []
-    try {
-      const courses = await getCourses()
-      courseRoutes = courses.map((course) => ({
-        url: `${learningBaseUrl}/courses/${course.slug}`,
-        lastModified: new Date(course.updatedAt || CURRENT_TIMESTAMP),
-        changeFrequency: 'weekly' as const,
-        priority: 0.8,
-      }))
-    } catch (e) {
-      console.error('Error fetching courses for sitemap:', e)
-    }
-
-    return [
-      ...learningStaticRoutes,
-      ...categoryRoutes,
-      ...courseRoutes,
-    ]
+  let courseRoutes: MetadataRoute.Sitemap = []
+  try {
+    const courses = await getCourses()
+    courseRoutes = (courses || []).map((course) => ({
+      url: `${learningBaseUrl}/courses/${course.slug}`,
+      lastModified: new Date(course.updatedAt || CURRENT_TIMESTAMP),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }))
+  } catch (e) {
+    console.error('Error fetching courses for sitemap:', e)
   }
 
   // 2. Main Site High-Priority Static Routes
@@ -260,6 +237,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     ...mainStaticRoutes,
     ...blogRoutes,
+    ...learningStaticRoutes,
+    ...categoryRoutes,
+    ...courseRoutes,
   ]
 }
 

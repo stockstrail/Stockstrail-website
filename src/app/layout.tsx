@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
 
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "rTrWl_3Dit2pTBS0gd0H1YMWttCOgJyvLMnZx5YNevc",
     other: {
       ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
         ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
@@ -242,9 +242,7 @@ export default function RootLayout({
       closes: '20:00'
     },
     sameAs: [
-      'https://www.linkedin.com/company/stockstrail/',
       'https://www.linkedin.com/company/stockstrail',
-      'https://www.instagram.com/stockstrail/',
       'https://www.instagram.com/stockstrail',
       'https://www.facebook.com/Stockstrail',
       'https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/',

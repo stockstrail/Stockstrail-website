@@ -7,6 +7,8 @@ import { SearchBar } from "@/components/learn/search";
 import { LearningHeroSection } from "@/components/learn/LearningHeroSection";
 import JsonLd from "@/components/common/JsonLd";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Stockstrail Learning — Free Investing & Personal Finance Courses for India",
   description: "Free structured courses on mutual funds, SIP, insurance, tax saving, stock market, and retirement planning — built for Indian investors. No login, no ads, SEBI-aware content.",
