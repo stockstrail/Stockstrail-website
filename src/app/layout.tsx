@@ -79,9 +79,17 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: { url: "/favicon.svg?v=3", type: "image/svg+xml" },
-    shortcut: "/favicon.svg?v=3",
-    apple: "/favicon.svg?v=3",
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon-48x48.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+      { url: "/favicon.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 
   openGraph: {
@@ -278,10 +286,14 @@ export default function RootLayout({
           `
         }} />
 
-        {/* Favicon - explicit link for Google and all browsers */}
-        <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml" sizes="any" />
-        <link rel="shortcut icon" href="/favicon.svg?v=3" />
-        <link rel="apple-touch-icon" href="/favicon.svg?v=3" />
+        {/* Favicons: Standard multi-resolution for Google Search, mobile SERP, & all browsers */}
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
         {/* RSS / Atom Feed Discovery for Google Discover & News Aggregators */}
         <link

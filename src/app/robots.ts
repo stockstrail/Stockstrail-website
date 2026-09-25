@@ -24,6 +24,7 @@ export default function robots(): MetadataRoute.Robots {
       },
       // 1. Major Web Search Engines & Browsers
       { userAgent: 'Googlebot', allow: '/', disallow: privateRoutes },
+      { userAgent: 'Google-Favicons', allow: '/' },
       { userAgent: 'Googlebot-Image', allow: '/' },
       { userAgent: 'Googlebot-News', allow: '/' },
       { userAgent: 'Google-InspectionTool', allow: '/', disallow: privateRoutes },
