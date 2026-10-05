@@ -122,16 +122,10 @@ export default function RootLayout({
     '@id': 'https://www.stockstrail.in/#website',
     name: 'Stockstrail',
     alternateName: [
-      'Stockstrail',
-      'STOCKSTRAIL',
-      'stockstrail',
       'Stocks Trail',
-      'StocksTrail',
-      'Stockstrail.in',
-      'www.stockstrail.in',
       'Stockstrail Financial',
-      'Stockstrail India',
-      'Stockstrail Official Website'
+      'Stockstrail Financial Services',
+      'Stockstrail India'
     ],
     url: 'https://www.stockstrail.in',
     inLanguage: 'en-IN',
@@ -155,16 +149,10 @@ export default function RootLayout({
     name: 'Stockstrail',
     legalName: 'Stockstrail Financial Services',
     alternateName: [
-      'Stockstrail',
-      'STOCKSTRAIL',
-      'stockstrail',
       'Stocks Trail',
-      'StocksTrail',
-      'Stockstrail.in',
-      'www.stockstrail.in',
       'Stockstrail Financial',
-      'Stockstrail India',
-      'Stockstrail Official'
+      'Stockstrail Financial Services',
+      'Stockstrail India'
     ],
     url: 'https://www.stockstrail.in',
     mainEntityOfPage: 'https://www.stockstrail.in',
@@ -248,7 +236,8 @@ export default function RootLayout({
       'https://www.facebook.com/people/Stockstrail-Stockstrail/100089234534696/',
       'https://www.crunchbase.com/organization/stockstrail',
       'https://tracxn.com/d/companies/stockstrail/',
-      'https://t.me/stockstrail'
+      'https://t.me/stockstrail',
+      'https://maps.google.com/?q=Stockstrail+Chintpurni'
     ]
   };
 
