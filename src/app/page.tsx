@@ -6,8 +6,9 @@ import ClientOverlays from '@/components/home/ClientOverlays';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Stockstrail | Financial Planning & Investment Platform India',
-  description: 'Stockstrail (AMFI ARN-284122) is India\'s trusted financial planning and investment platform. Expert advisory on Mutual Funds SIP, Term Insurance, Fixed Deposits, and Loans.',
+  title: 'Stockstrail | Financial Planning & Mutual Fund SIP in India',
+  description:
+    'Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, FDs and loans. Book a free strategy call.',
   keywords: [
     'Stockstrail',
     'Stocks Trail',
@@ -22,8 +23,9 @@ export const metadata: Metadata = {
     canonical: 'https://www.stockstrail.in',
   },
   openGraph: {
-    title: 'Stockstrail | Financial Planning & Investment Platform India',
-    description: 'Personalized, honest, and expert financial planning and mutual funds distribution in India by Stockstrail (ARN-284122).',
+    title: 'Stockstrail | Financial Planning & Mutual Fund SIP in India',
+    description:
+      'Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, FDs and loans. Book a free strategy call.',
     url: 'https://www.stockstrail.in',
     siteName: 'Stockstrail',
     locale: 'en_IN',
@@ -31,16 +33,17 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/og-stockstrail.png',
-        width: 1100,
+        width: 1200,
         height: 630,
-        alt: 'Stockstrail - Financial Planning & Investment Platform',
+        alt: 'Stockstrail | Financial Planning & Mutual Fund SIP in India',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Stockstrail | Financial Planning & Investment Platform India',
-    description: 'Expert financial planning and mutual funds guidance in India by Stockstrail.',
+    title: 'Stockstrail | Financial Planning & Mutual Fund SIP in India',
+    description:
+      'Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, FDs and loans. Book a free strategy call.',
     images: ['/og-stockstrail.png'],
   },
 };

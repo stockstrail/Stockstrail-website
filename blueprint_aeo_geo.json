@@ -1,0 +1,107 @@
+[
+  {
+    "AEO / GEO playbook: being the source AI answers and Google quote": "Google states that optimising for AI Overviews and AI Mode is still SEO, so most of this is about being clear, consistent, fresh and trustworthy.",
+    "__EMPTY": "",
+    "__EMPTY_1": "",
+    "__EMPTY_2": "",
+    "__EMPTY_3": ""
+  },
+  {
+    "AEO / GEO playbook: being the source AI answers and Google quote": "#",
+    "__EMPTY": "Lever",
+    "__EMPTY_1": "What to do",
+    "__EMPTY_2": "Where on Stockstrail",
+    "__EMPTY_3": "Why it matters"
+  },
+  {
+    "AEO / GEO playbook: being the source AI answers and Google quote": "1",
+    "__EMPTY": "Treat AEO/GEO as SEO",
+    "__EMPTY_1": "Google's guide 'Optimizing your website for generative AI features on Google Search' (15 May 2026) treats AI Overviews/AI Mode as ordinary SEO: same index, no extra files or special markup required for Google.",
+    "__EMPTY_2": "Whole site",
+    "__EMPTY_3": "Prioritise crawlable, indexable, genuinely helpful pages over 'AI tricks'."
+  },
+  {
+    "AEO / GEO playbook: being the source AI answers and Google quote": "2",
+    "__EMPTY": "Answer-first writing",
+    "__EMPTY_1": "Under every question heading put a direct 40-60 word answer first, then the detail, table or example.",
+    "__EMPTY_2": "FAQs, blog posts, learning lessons",
+    "__EMPTY_3": "AI Overviews and snippets lift concise, self-contained answers."
+  },
+  {
+    "AEO / GEO playbook: being the source AI answers and Google quote": "3",
+    "__EMPTY": "Cover the whole query fan-out",
+    "__EMPTY_1": "For each pillar, answer the sub-questions people ask next: cost, eligibility, tax, risks, alternatives, how to start.",
+    "__EMPTY_2": "LAMF, FD, MF, insurance pages",
+    "__EMPTY_3": "Generative search expands one query into many sub-queries; broad coverage gives more chances to be cited."
+  },
+  {
+    "AEO / GEO playbook: being the source AI answers and Google quote": "4",
+    "__EMPTY": "Use tables and lists for comparisons",
+    "__EMPTY_1": "Direct vs Regular, Term vs ULIP, FD vs RD vs SIP, Old vs New tax regime as simple HTML tables.",
+    "__EMPTY_2": "Blog + learning",
+    "__EMPTY_3": "Structured comparisons are easy to quote."
+  },
+  {
+    "AEO / GEO playbook: being the source AI answers and Google quote": "5",
+    "__EMPTY": "Make entity facts identical everywhere",
+    "__EMPTY_1": "Name, ARN-284122, founder, address, phone, hours, services and counts (AMCs, clients) must match across site, Google Business Profile, LinkedIn, Facebook, Instagram and directories. Use sameAs in schema.",
+    "__EMPTY_2": "Sitewide",
+    "__EMPTY_3": "Consistent facts help search and AI systems resolve who you are."
+  },
+  {
+    "AEO / GEO playbook: being the source AI answers and Google quote": "6",
+    "__EMPTY": "Show real expertise and sources",
+    "__EMPTY_1": "Named author/reviewer with credentials, 'Last reviewed' date, and links to primary sources (SEBI, AMFI, RBI, NSE, IRDAI, Income Tax Dept).",
+    "__EMPTY_2": "Every article",
+    "__EMPTY_3": "Financial content is YMYL: trust signals matter more."
+  },
+  {
+    "AEO / GEO playbook: being the source AI answers and Google quote": "7",
+    "__EMPTY": "Publish original value",
+    "__EMPTY_1": "Your calculators, Himachal income-based SIP tables and plain-English explainers are the 'unique point of view' Google asks for. Add more local/data-driven pieces.",
+    "__EMPTY_2": "Calculators, blog",
+    "__EMPTY_3": "Generic rewrites of what Groww/ET Money say will not be cited."
+  },
+  {
+    "AEO / GEO playbook: being the source AI answers and Google quote": "8",
+    "__EMPTY": "Keep facts fresh",
+    "__EMPTY_1": "Put the year and a last-updated date on tax, FD, LAMF and holiday pages; update after each Budget, RBI or SEBI change.",
+    "__EMPTY_2": "Tax, FD, LAMF, NSE/BSE",
+    "__EMPTY_3": "Stale answers (for example the SEBI nomination post) lose trust and clicks."
+  },
+  {
+    "AEO / GEO playbook: being the source AI answers and Google quote": "9",
+    "__EMPTY": "Structured data that matches the page",
+    "__EMPTY_1": "Organization/FinancialService, WebSite, BreadcrumbList, BlogPosting, Person, WebApplication (calculators), Course. Keep markup consistent with visible content.",
+    "__EMPTY_2": "Sitewide",
+    "__EMPTY_3": "Helps understanding; not a ranking guarantee."
+  },
+  {
+    "AEO / GEO playbook: being the source AI answers and Google quote": "10",
+    "__EMPTY": "FAQ markup: optional",
+    "__EMPTY_1": "Since 2023 Google shows FAQ rich results only for a few authoritative government and health sites. Keep visible FAQs for users and AI readers, but do not expect a rich result from FAQPage markup.",
+    "__EMPTY_2": "FAQs",
+    "__EMPTY_3": "Avoid wasted effort."
+  },
+  {
+    "AEO / GEO playbook: being the source AI answers and Google quote": "11",
+    "__EMPTY": "Earn real mentions",
+    "__EMPTY_1": "Genuine third-party listings and mentions (AMFI/advisor directories, local news, LinkedIn articles, helpful answers on forums). Google warns that seeking inauthentic mentions can be treated as spam.",
+    "__EMPTY_2": "Off-site",
+    "__EMPTY_3": "Corroboration across sources builds authority."
+  },
+  {
+    "AEO / GEO playbook: being the source AI answers and Google quote": "12",
+    "__EMPTY": "Non-Google AI engines",
+    "__EMPTY_1": "ChatGPT, Perplexity, Claude and Copilot use their own crawlers and indexes. Decide deliberately which crawlers to allow in robots.txt; llms.txt is optional and has no proven effect on Google.",
+    "__EMPTY_2": "robots.txt",
+    "__EMPTY_3": "Be visible where you want to be cited."
+  },
+  {
+    "AEO / GEO playbook: being the source AI answers and Google quote": "13",
+    "__EMPTY": "Measure it",
+    "__EMPTY_1": "Track queries/impressions in Search Console and Bing Webmaster Tools; monthly, test 10-15 real customer prompts (for example 'how much SIP should I start in Himachal Pradesh') and log whether Stockstrail is cited.",
+    "__EMPTY_2": "Process",
+    "__EMPTY_3": "Turns AEO/GEO into a feedback loop."
+  }
+]

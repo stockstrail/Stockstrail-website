@@ -3,13 +3,37 @@ import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: 'Terms and Conditions & Cancellation Policy | Stockstrail',
+  title: 'Terms & Conditions and Cancellation Policy | Stockstrail',
   description:
-    "Read Stockstrail's Terms and Conditions and Cancellation Policy for all financial services including mutual funds, fixed deposits, insurance, loans, and demat accounts.",
+    "Read Stockstrail's terms of use and cancellation policy covering mutual funds, fixed deposits, insurance, loans and Demat account services.",
   keywords:
     'terms and conditions, cancellation policy, stockstrail, financial services',
   alternates: {
     canonical: 'https://www.stockstrail.in/terms-and-conditions',
+  },
+  openGraph: {
+    title: 'Terms & Conditions and Cancellation Policy | Stockstrail',
+    description:
+      "Read Stockstrail's terms of use and cancellation policy covering mutual funds, fixed deposits, insurance, loans and Demat account services.",
+    url: 'https://www.stockstrail.in/terms-and-conditions',
+    siteName: 'Stockstrail',
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: '/og-stockstrail.png',
+        width: 1200,
+        height: 630,
+        alt: 'Terms & Conditions and Cancellation Policy | Stockstrail',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms & Conditions and Cancellation Policy | Stockstrail',
+    description:
+      "Read Stockstrail's terms of use and cancellation policy covering mutual funds, fixed deposits, insurance, loans and Demat account services.",
+    images: ['/og-stockstrail.png'],
   },
 };
 

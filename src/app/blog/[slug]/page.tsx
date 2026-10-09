@@ -61,12 +61,16 @@ function getCategoryFromTitle(title: string): string {
   return "MUTUAL FUNDS";
 }
 
+import { BLOG_METADATA } from '@/lib/seo/blueprint-meta';
+
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
   const resolvedParams = await params;
   const slug = resolvedParams?.slug;
   const postUrl = `https://www.stockstrail.in/blog/${slug}`;
+
+  const blueprintMeta = slug ? BLOG_METADATA[slug] : undefined;
 
   const supabase = await createClient();
   const { data: post } = await supabase
@@ -75,25 +79,22 @@ export async function generateMetadata(
     .eq("slug", slug)
     .single();
 
-  if (!post) {
-    return {
-      title: "Blog Post Not Found | Stockstrail",
-      description: "Read our latest financial insights",
-    };
+  if (!post && !blueprintMeta) {
+    return {};
   }
 
-  const title = post.meta_title || post.title;
-  const description = post.meta_description || post.excerpt || "Stockstrail blog post";
+  const title = blueprintMeta?.title || post?.meta_title || post?.title || "Stockstrail Blog";
+  const description = blueprintMeta?.description || post?.meta_description || post?.excerpt || "Stockstrail blog post";
   const authorName = "Vikrant Bhardwaj";
-  const heroImage = LOCAL_BLOG_COVERS[slug] || post.image_url;
+  const heroImage = slug ? (LOCAL_BLOG_COVERS[slug] || post?.image_url) : post?.image_url;
   const ogImages = heroImage
-    ? [{ url: heroImage.startsWith('http') ? heroImage : `https://www.stockstrail.in${heroImage}` }]
-    : [{ url: "/og-stockstrail.png", width: 1100, height: 630, alt: title }];
+    ? [{ url: heroImage.startsWith('http') ? heroImage : `https://www.stockstrail.in${heroImage}`, width: 1200, height: 630 }]
+    : [{ url: "/og-stockstrail.png", width: 1200, height: 630, alt: title }];
 
   return {
-    title: `${title} | Stockstrail`,
-    description: description,
-    keywords: post.meta_keywords,
+    title,
+    description,
+    keywords: post?.meta_keywords,
     alternates: {
       canonical: postUrl,
     },
@@ -103,7 +104,7 @@ export async function generateMetadata(
       description: description,
       url: postUrl,
       siteName: "Stockstrail",
-      publishedTime: post.created_at,
+      publishedTime: post?.created_at,
       authors: [authorName],
       images: ogImages,
     },

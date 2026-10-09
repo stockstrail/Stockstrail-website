@@ -1,33 +1,36 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Let's Talk - Connect With Stockstrail Financial Experts",
-  description: "Have questions or need assistance? Reach out to Stockstrail's financial experts today for guidance on mutual funds, insurance, and more.",
+  title: 'Contact Stockstrail | Book a Free Financial Planning Call',
+  description:
+    'Talk to Stockstrail about SIPs, insurance, FDs or loans. Book a free strategy call or message us on WhatsApp, Mon-Sat 9 AM-8 PM IST. No sales pressure.',
   keywords: "contact stockstrail, let's talk, financial experts, mutual funds advice, insurance guidance",
   alternates: {
-    canonical: "https://www.stockstrail.in/lets-talk",
+    canonical: 'https://www.stockstrail.in/lets-talk',
   },
   openGraph: {
-    title: "Let's Talk - Connect With Stockstrail Financial Experts",
-    description: "Reach out to Stockstrail's financial experts today for guidance on mutual funds, insurance, and more.",
-    url: "https://www.stockstrail.in/lets-talk",
-    siteName: "Stockstrail",
-    locale: "en_IN",
-    type: "website",
+    title: 'Contact Stockstrail | Book a Free Financial Planning Call',
+    description:
+      'Talk to Stockstrail about SIPs, insurance, FDs or loans. Book a free strategy call or message us on WhatsApp, Mon-Sat 9 AM-8 PM IST. No sales pressure.',
+    url: 'https://www.stockstrail.in/lets-talk',
+    siteName: 'Stockstrail',
+    locale: 'en_IN',
+    type: 'website',
     images: [
       {
-        url: "/og-stockstrail.png",
-        width: 1100,
+        url: '/og-stockstrail.png',
+        width: 1200,
         height: 630,
-        alt: "Let's Talk Stockstrail",
+        alt: 'Contact Stockstrail | Book a Free Financial Planning Call',
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Let's Talk - Connect With Stockstrail Financial Experts",
-    description: "Reach out to Stockstrail's financial experts today.",
-    images: ["/og-stockstrail.png"],
+    card: 'summary_large_image',
+    title: 'Contact Stockstrail | Book a Free Financial Planning Call',
+    description:
+      'Talk to Stockstrail about SIPs, insurance, FDs or loans. Book a free strategy call or message us on WhatsApp, Mon-Sat 9 AM-8 PM IST. No sales pressure.',
+    images: ['/og-stockstrail.png'],
   },
 };
 

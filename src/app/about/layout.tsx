@@ -1,47 +1,36 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Stockstrail | Financial Planning & Investment Guidance in India',
-
+  title: 'About Stockstrail | Vikrant Bhardwaj, AMFI ARN-284122',
   description:
-    'Learn about Stockstrail, an AMFI-registered practice founded by Vikrant Bhardwaj (ARN-284122) to make financial planning and investment decisions easier to understand, with goal-focused guidance across India.',
-
+    'Meet Vikrant Bhardwaj, founder of Stockstrail, an AMFI-registered mutual fund distributor (ARN-284122) in Himachal Pradesh serving 200+ clients across India.',
   alternates: {
     canonical: 'https://www.stockstrail.in/about',
   },
 
   openGraph: {
-    title: 'About Stockstrail | Financial Planning & Investment Guidance in India',
-
+    title: 'About Stockstrail | Vikrant Bhardwaj, AMFI ARN-284122',
     description:
-      'Learn about Stockstrail, an AMFI-registered practice founded by Vikrant Bhardwaj (ARN-284122) to make financial planning and investment decisions easier to understand, with goal-focused guidance across India.',
-
+      'Meet Vikrant Bhardwaj, founder of Stockstrail, an AMFI-registered mutual fund distributor (ARN-284122) in Himachal Pradesh serving 200+ clients across India.',
     url: 'https://www.stockstrail.in/about',
-
     siteName: 'Stockstrail',
-
     locale: 'en_IN',
-
     type: 'website',
-
     images: [
       {
         url: '/og-stockstrail.png',
-        width: 1100,
+        width: 1200,
         height: 630,
-        alt: 'About Stockstrail - Financial Planning & Investment Guidance',
+        alt: 'About Stockstrail | Vikrant Bhardwaj, AMFI ARN-284122',
       },
     ],
   },
 
   twitter: {
     card: 'summary_large_image',
-
-    title: 'About Stockstrail | Financial Planning & Investment Guidance in India',
-
+    title: 'About Stockstrail | Vikrant Bhardwaj, AMFI ARN-284122',
     description:
-      'Learn about Stockstrail, an AMFI-registered practice founded by Vikrant Bhardwaj (ARN-284122) to make financial planning and investment decisions easier to understand across India.',
-
+      'Meet Vikrant Bhardwaj, founder of Stockstrail, an AMFI-registered mutual fund distributor (ARN-284122) in Himachal Pradesh serving 200+ clients across India.',
     images: ['/og-stockstrail.png'],
   },
 };

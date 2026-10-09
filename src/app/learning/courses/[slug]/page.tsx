@@ -12,24 +12,28 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+import { LEARNING_COURSE_METADATA } from "@/lib/seo/blueprint-meta";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const c = await getCourseBySlug(slug);
-  if (!c) {
-    return {
-      title: "Course not found — Stockstrail Learning",
-    };
+  const meta = slug ? LEARNING_COURSE_METADATA[slug] : undefined;
+
+  if (!c && !meta) {
+    return {};
   }
 
-  const shareImage = c.ogImage || c.coverImage;
+  const title = meta?.title || (c ? `${c.title} | Stockstrail` : "Course | Stockstrail");
+  const description = meta?.description || c?.tagline || c?.description || "Free finance course by Stockstrail Learning.";
+  const shareImage = c?.ogImage || c?.coverImage;
   const pageUrl = `https://learning.stockstrail.in/courses/${slug}`;
 
   return {
-    title: `${c.title} — Stockstrail Learning`,
-    description: c.tagline || c.description,
+    title,
+    description,
     openGraph: {
-      title: c.title,
-      description: c.tagline || c.description,
+      title,
+      description,
       type: "article",
       url: pageUrl,
       siteName: "Stockstrail Learning",
@@ -38,15 +42,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             url: shareImage,
             width: 1200,
             height: 630,
-            alt: c.title,
+            alt: title,
           }]
-        : undefined,
+        : [{
+            url: "/og-stockstrail.png",
+            width: 1200,
+            height: 630,
+            alt: title,
+          }],
     },
     twitter: {
       card: "summary_large_image",
-      title: c.title,
-      description: c.tagline || c.description,
-      images: shareImage ? [shareImage] : undefined,
+      title,
+      description,
+      images: shareImage ? [shareImage] : ["/og-stockstrail.png"],
     },
     alternates: {
       canonical: pageUrl,

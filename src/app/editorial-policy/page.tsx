@@ -7,9 +7,34 @@ import JsonLd from '@/components/common/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Editorial Policy & Fact-Checking Standards | Stockstrail',
-  description: 'Stockstrail editorial policy, E-E-A-T research methodology, AMFI & SEBI compliance standards, and fact-checking principles for financial intelligence.',
+  description:
+    'How Stockstrail researches, writes and fact-checks financial content: sources, review process, AMFI and SEBI compliance standards and how we correct errors.',
   alternates: {
     canonical: 'https://www.stockstrail.in/editorial-policy',
+  },
+  openGraph: {
+    title: 'Editorial Policy & Fact-Checking Standards | Stockstrail',
+    description:
+      'How Stockstrail researches, writes and fact-checks financial content: sources, review process, AMFI and SEBI compliance standards and how we correct errors.',
+    url: 'https://www.stockstrail.in/editorial-policy',
+    siteName: 'Stockstrail',
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: '/og-stockstrail.png',
+        width: 1200,
+        height: 630,
+        alt: 'Editorial Policy & Fact-Checking Standards | Stockstrail',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Editorial Policy & Fact-Checking Standards | Stockstrail',
+    description:
+      'How Stockstrail researches, writes and fact-checks financial content: sources, review process, AMFI and SEBI compliance standards and how we correct errors.',
+    images: ['/og-stockstrail.png'],
   },
 };
 

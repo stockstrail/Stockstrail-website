@@ -26,49 +26,49 @@ const TYPE_METADATA: Record<
 > = {
   sip: {
     tab: "SIP",
-    title: "SIP Calculator - Calculate Mutual Fund SIP Returns Online | Stockstrail",
+    title: "SIP Calculator with Step-Up: Estimate Returns | Stockstrail",
     description:
-      "Estimate your Systematic Investment Plan (SIP) returns with Stockstrail's free SIP calculator. Plan your wealth creation with accurate compound interest projections.",
+      "Free SIP calculator with step-up option. See how a monthly mutual fund SIP could grow with compounding, view the year-wise schedule and plan goals. No login.",
     keywords:
       "SIP calculator, mutual fund SIP calculator, calculate SIP returns, systematic investment plan calculator, Stockstrail SIP",
   },
   fd: {
     tab: "FD",
-    title: "Fixed Deposit (FD) Calculator - Calculate FD Maturity & Interest | Stockstrail",
+    title: "FD Calculator: Calculate Maturity & Interest | Stockstrail",
     description:
-      "Calculate your Fixed Deposit (FD) interest earnings and maturity amount accurately with compounding options. Compare bank and corporate FD returns.",
+      "Calculate FD maturity amount and interest with monthly, quarterly or yearly compounding. Compare bank and corporate FD returns instantly. Free, no login.",
     keywords:
       "FD calculator, fixed deposit calculator, calculate FD interest, FD maturity calculator, bank FD returns",
   },
   lumpsum: {
     tab: "LUMPSUM",
-    title: "Lumpsum Calculator - Calculate One-Time Mutual Fund Returns | Stockstrail",
+    title: "Lumpsum Calculator: Mutual Fund Returns | Stockstrail",
     description:
-      "Estimate the future value of your one-time lumpsum mutual fund investment with Stockstrail's free lumpsum return calculator.",
+      "Estimate the future value of a one-time mutual fund lumpsum investment. Enter amount, expected return and years to see growth. Free, no login.",
     keywords:
       "lumpsum calculator, one time investment calculator, mutual fund lumpsum returns, lumpsum wealth calculator",
   },
   rd: {
     tab: "RD",
-    title: "Recurring Deposit (RD) Calculator - Calculate RD Maturity Online | Stockstrail",
+    title: "RD Calculator: Recurring Deposit Maturity | Stockstrail",
     description:
-      "Calculate your Recurring Deposit (RD) maturity amount and interest earned with monthly compounding using Stockstrail's RD calculator.",
+      "Calculate recurring deposit (RD) maturity amount and interest earned on your monthly deposits. Plan savings goals with Stockstrail's free RD calculator.",
     keywords:
       "RD calculator, recurring deposit calculator, calculate RD interest, RD maturity calculator",
   },
   emi: {
     tab: "EMI",
-    title: "Loan EMI Calculator - Home, Car, Business & Personal Loans | Stockstrail",
+    title: "Loan EMI Calculator: Home, Car & Personal Loan | Stockstrail",
     description:
-      "Calculate your monthly loan EMI, total interest payable, and amortization schedule for home loans, business loans, and loans against mutual funds.",
+      "Calculate monthly loan EMI, total interest and the amortization schedule for home, car, personal and business loans. Free EMI calculator by Stockstrail.",
     keywords:
       "EMI calculator, loan EMI calculator, home loan EMI, personal loan EMI, calculate loan instalment",
   },
   tax: {
     tab: "TAX",
-    title: "Income Tax Calculator FY 2025-26 & 2026-27 - Old vs New Regime | Stockstrail",
+    title: "Income Tax Calculator FY 2026-27 (Old vs New) | Stockstrail",
     description:
-      "Compare Old vs New Tax Regime under Budget 2024 and 2025 slabs. Calculate tax liability, 87A rebate, standard deduction, and HRA exemption.",
+      "Compare old vs new tax regime for FY 2026-27 (AY 2027-28). Check slabs, standard deduction, 87A rebate and HRA exemption, and see which regime saves more tax.",
     keywords:
       "income tax calculator, old vs new regime calculator, calculate income tax india, budget 2025 tax calculator, section 87a rebate",
   },
@@ -88,9 +88,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const meta = TYPE_METADATA[normalizedType];
 
   if (!meta) {
-    return {
-      title: "Calculator Not Found | Stockstrail",
-    };
+    return {};
   }
 
   const url = `https://www.stockstrail.in/calculators/${normalizedType}`;
@@ -112,7 +110,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [
         {
           url: "/og-stockstrail.png",
-          width: 1100,
+          width: 1200,
           height: 630,
           alt: meta.title,
         },

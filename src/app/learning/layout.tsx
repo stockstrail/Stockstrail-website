@@ -6,11 +6,11 @@ import JsonLd from "@/components/common/JsonLd";
 export const metadata: Metadata = {
   metadataBase: new URL("https://learning.stockstrail.in"),
   title: {
-    default: "Stockstrail Learning — Free Investing & Personal Finance Courses for India",
-    template: "%s | Stockstrail Learning",
+    default: "Stockstrail Learning: Free Investing & Finance Courses India",
+    template: "%s",
   },
   description:
-    "Free structured courses on mutual funds, SIP, insurance, tax saving, stock market, and retirement planning — built for Indian investors. 100% free forever, SEBI-aware content.",
+    "Free, structured courses on mutual funds, SIP, insurance, tax saving, stock market and retirement for Indian investors. No login, no ads, no sales pitch.",
   keywords: [
     "Stockstrail Learning",
     "free finance courses India",
@@ -50,23 +50,23 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://learning.stockstrail.in",
     siteName: "Stockstrail Learning",
-    title: "Stockstrail Learning — Free Investing & Personal Finance Courses for India",
+    title: "Stockstrail Learning: Free Investing & Finance Courses India",
     description:
-      "Free structured courses on mutual funds, SIP, insurance, tax saving, stock market, and retirement planning — built for Indian investors.",
+      "Free, structured courses on mutual funds, SIP, insurance, tax saving, stock market and retirement for Indian investors. No login, no ads, no sales pitch.",
     images: [
       {
         url: "/og-stockstrail.png",
-        width: 1100,
+        width: 1200,
         height: 630,
-        alt: "Stockstrail Learning — Free Investing & Personal Finance Courses",
+        alt: "Stockstrail Learning: Free Investing & Finance Courses India",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stockstrail Learning — Free Investing & Personal Finance Courses for India",
+    title: "Stockstrail Learning: Free Investing & Finance Courses India",
     description:
-      "Free structured courses on mutual funds, SIP, insurance, tax saving, stock market, and retirement planning — built for Indian investors.",
+      "Free, structured courses on mutual funds, SIP, insurance, tax saving, stock market and retirement for Indian investors. No login, no ads, no sales pitch.",
     images: ["/og-stockstrail.png"],
   },
 };

@@ -1,0 +1,683 @@
+=== MAIN SITE PAGES (49) ===
+[1] [Core] Home Page
+  URL:   https://www.stockstrail.in
+  Title: Stockstrail | Financial Planning & Mutual Fund SIP in India
+  Desc:  Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, FDs and loans. Book a free strategy call.
+  Index: index
+  Notes: Dropped 'India's trusted' (unverifiable superlative) and 'Expert advisory' (see compliance fix F7). Home H1 ('Smart Investing for Your Family...') has no primary keyword: suggest 'Financial Planning & Mutual Fund Guidance in India'. Add Organization + FinancialService + WebSite schema with sameAs links.
+[2] [Core] About Us
+  URL:   https://www.stockstrail.in/about
+  Title: About Stockstrail | Vikrant Bhardwaj, AMFI ARN-284122
+  Desc:  Meet Vikrant Bhardwaj, founder of Stockstrail, an AMFI-registered mutual fund distributor (ARN-284122) in Himachal Pradesh serving 200+ clients across India.
+  Index: index
+  Notes: Live site currently serves an OLDER title/description than your sheet ('About Us | Stockstrail — Founder, Certifications & Our Approach'): confirm what is deployed. Put the person + credential in the title: this is the authority page AI systems cite. Remove the 'SEBI Registered' label next to the SEBI exam certificate (exam certification is not registration). Add Person schema + author page.
+[3] [Core] Services Directory
+  URL:   https://www.stockstrail.in/services
+  Title: Mutual Funds, Insurance, FD & Loan Services | Stockstrail
+  Desc:  Explore Stockstrail's services: mutual fund SIPs, term & health insurance, fixed deposits, loan against mutual funds and Demat accounts. AMFI ARN-284122.
+  Index: index
+  Notes: Hub page: every service card should link to the canonical /services/... URL (About and Blog footers currently link to non-canonical /mutual-funds, /loan etc.).
+[4] [Core] Let's Talk (Consultation)
+  URL:   https://www.stockstrail.in/lets-talk
+  Title: Contact Stockstrail | Book a Free Financial Planning Call
+  Desc:  Talk to Stockstrail about SIPs, insurance, FDs or loans. Book a free strategy call or message us on WhatsApp, Mon-Sat 9 AM-8 PM IST. No sales pressure.
+  Index: index
+  Notes: Navigational 'contact' intent + transactional CTA. Add ContactPage schema; keep name, address (Moien, Chintpurni, HP 177110), phone and hours identical to your Google Business Profile.
+[5] [Services] Mutual Funds Advisory
+  URL:   https://www.stockstrail.in/services/mutual-funds
+  Title: Mutual Fund SIP & Lumpsum Investment in India | Stockstrail
+  Desc:  Start a mutual fund SIP or lumpsum with Stockstrail (AMFI ARN-284122). Compare equity, debt and hybrid funds, check your risk profile and book a free call.
+  Index: index
+  Notes: LIVE <title> renders 'Stockstrail | Stockstrail' (brand twice): fix the title template (F1). Dropped 'Best' (superlative; AMFI/SEBI advertising code) and 'Advisory'. Page links to the noindex /risk-profile in places: link /check-risk-profile instead.
+[6] [Services] Insurance Planning
+  URL:   https://www.stockstrail.in/services/insurance
+  Title: Compare Term & Health Insurance in India | Stockstrail
+  Desc:  Compare term life and health insurance in India: claim settlement ratio, cover amount, cashless hospitals and riders. Get a free policy review from Stockstrail.
+  Index: index
+  Notes: Removed '99%+ claim settlement' from meta: the figure varies by insurer and year; use it only if the page cites IRDAI data. Your AMFI ARN does not cover insurance: show your IRDAI licence / POSP / agency disclosure on this page (F8).
+[7] [Services] Fixed Deposits
+  URL:   https://www.stockstrail.in/services/fixed-deposit
+  Title: Fixed Deposit Guide 2026: Types, Rates & Tax | Stockstrail
+  Desc:  Understand fixed deposits in India: bank vs corporate FDs, senior citizen rates, TDS, tax rules and FD laddering. Calculate returns, then talk to Stockstrail.
+  Index: index
+  Notes: Year in title lifts CTR on rate queries: refresh every January. Rate claims differ across your pages (About: 'up to 7.5%'; SIP page: 'up to 9.1%'): make one dated, sourced figure (F12).
+[8] [Services] Loan Against Mutual Funds (LAMF)
+  URL:   https://www.stockstrail.in/services/loan
+  Title: Loan Against Mutual Funds (LAMF) Rates & Apply | Stockstrail
+  Desc:  Borrow against your mutual funds without selling them. Check LAMF interest rates, loan-to-value, eligibility and how to apply with Stockstrail (ARN-284122).
+  Index: index
+  Notes: Timely: RBI issued new LAMF rules on 13 Feb 2026 (₹1 crore cap effective July 2026): add a 'What changed in 2026' section. Meta avoids a fixed rate: market range is roughly 8-13% p.a. and your pages quote 9% (meta) and 9.5% (SIP page).
+[9] [Services] Financial Protection
+  URL:   https://www.stockstrail.in/services/financial-protection
+  Title: Financial Protection Planning for Families | Stockstrail
+  Desc:  Build a family safety net: term and health insurance, emergency fund, motor and travel cover and tax-filing support. Start with a free Stockstrail review.
+  Index: index
+  Notes: Overlaps with /services/insurance. Keep this as the umbrella page (emergency fund, motor/travel, tax filing) and cross-link both ways to avoid cannibalisation.
+[10] [Services] Open Demat Account
+  URL:   https://www.stockstrail.in/services/open-demat
+  Title: Open Demat & Trading Account Online in India | Stockstrail
+  Desc:  Open a paperless Demat and trading account online with leading brokers. Learn the KYC steps, documents and charges, then get step-by-step help from Stockstrail.
+  Index: index
+  Notes: 'Open demat account' head term is owned by brokers (Zerodha, Groww, Angel One): win with specifics (documents, charges, NRI/minor accounts, Himachal). Drop 'India's top brokers' (superlative). Disclose your partner/referral status with each broker (F8).
+[11] [Calculators] Calculators Hub
+  URL:   https://www.stockstrail.in/calculators
+  Title: Free Financial Calculators: SIP, FD, EMI & Tax | Stockstrail
+  Desc:  Use Stockstrail's free calculators for SIP, lumpsum, FD, RD, loan EMI and income tax FY 2026-27. Instant results, no login. Plan goals with realistic numbers.
+  Index: index
+  Notes: Removed 'institutional-grade' (unverifiable). Roadmap: SWP, PPF, NPS, retirement, goal and CAGR calculators are high-demand gaps (see Keyword Map).
+[12] [Calculators] SIP Calculator
+  URL:   https://www.stockstrail.in/calculators/sip
+  Title: SIP Calculator with Step-Up: Estimate Returns | Stockstrail
+  Desc:  Free SIP calculator with step-up option. See how a monthly mutual fund SIP could grow with compounding, view the year-wise schedule and plan goals. No login.
+  Index: index
+  Notes: LIVE <title> duplicates the brand ('| Stockstrail | Stockstrail'). Your page already has Step-Up, so 'step up SIP calculator' (strong mid-tail) is a legitimate target. Add an inflation-adjusted toggle to also capture 'SIP calculator with inflation'. Add WebApplication schema and an 'estimates, not guaranteed' note. 'SIP calculator' head term is dominated by Groww/ET Money/AMCs: win the long-tail first.
+[13] [Calculators] FD Calculator
+  URL:   https://www.stockstrail.in/calculators/fd
+  Title: FD Calculator: Calculate Maturity & Interest | Stockstrail
+  Desc:  Calculate FD maturity amount and interest with monthly, quarterly or yearly compounding. Compare bank and corporate FD returns instantly. Free, no login.
+  Index: index
+  Notes: Confirm the calculator really offers monthly/quarterly/yearly compounding before shipping this description.
+[14] [Calculators] Lumpsum Calculator
+  URL:   https://www.stockstrail.in/calculators/lumpsum
+  Title: Lumpsum Calculator: Mutual Fund Returns | Stockstrail
+  Desc:  Estimate the future value of a one-time mutual fund lumpsum investment. Enter amount, expected return and years to see growth. Free, no login.
+  Index: index
+  Notes: Add a 'compare with SIP' panel: it targets the 'SIP vs lumpsum' cluster and links the two calculators.
+[15] [Calculators] RD Calculator
+  URL:   https://www.stockstrail.in/calculators/rd
+  Title: RD Calculator: Recurring Deposit Maturity | Stockstrail
+  Desc:  Calculate recurring deposit (RD) maturity amount and interest earned on your monthly deposits. Plan savings goals with Stockstrail's free RD calculator.
+  Index: index
+  Notes: Old meta said 'monthly compounding'; most Indian bank RDs compound quarterly. Check your calculator logic matches how banks actually compute.
+[16] [Calculators] Loan EMI Calculator
+  URL:   https://www.stockstrail.in/calculators/emi
+  Title: Loan EMI Calculator: Home, Car & Personal Loan | Stockstrail
+  Desc:  Calculate monthly loan EMI, total interest and the amortization schedule for home, car, personal and business loans. Free EMI calculator by Stockstrail.
+  Index: index
+  Notes: Very high demand but dominated by banks and aggregators; pair with the learning lesson 'How EMI works' for long-tail traffic.
+[17] [Calculators] Income Tax Calculator
+  URL:   https://www.stockstrail.in/calculators/tax
+  Title: Income Tax Calculator FY 2026-27 (Old vs New) | Stockstrail
+  Desc:  Compare old vs new tax regime for FY 2026-27 (AY 2027-28). Check slabs, standard deduction, 87A rebate and HRA exemption, and see which regime saves more tax.
+  Index: index
+  Notes: Old meta cited Budget 2024/2025 slabs. Budget 2026 (1 Feb 2026) left slabs unchanged for FY 2026-27 and the new regime still makes income up to ₹12 lakh effectively tax-free via the 87A rebate. The Income-tax Act 2025 replaces the 1961 Act from 1 Apr 2026: many section numbers (87A, 80C) are being re-mapped, so verify before quoting them. Seasonal peak Jan-Jul.
+[18] [Market Tools] NSE Holidays 2026
+  URL:   https://www.stockstrail.in/nse-holidays
+  Title: NSE Holidays 2026: Is Share Market Open Today? | Stockstrail
+  Desc:  NSE and BSE holiday list 2026 with live market status: 15 trading holidays, Muhurat Trading on Sunday 8 Nov, MCX timings and upcoming market closures.
+  Index: index
+  Notes: Verified: 15 weekday trading holidays in 2026 (equity); Muhurat Trading is Sunday 8 Nov 2026 per NSE circular, timings to be announced. Seasonal: after 8 Nov change to 'NSE Holidays 2026 & 2027'; publish the 2027 list when NSE releases it (usually mid/late Dec). Remaining 2026 closures after today: 20 Oct, 10 Nov, 24 Nov, 25 Dec.
+[19] [Market Tools] BSE Holidays 2026
+  URL:   https://www.stockstrail.in/bse-holidays
+  Title: BSE Holidays 2026: Stock Market Holiday List | Stockstrail
+  Desc:  Full BSE holiday list 2026 for equity, derivatives and commodity sessions, plus settlement holidays, upcoming closures and the Diwali Muhurat Trading date.
+  Index: index
+  Notes: Cross-link to /nse-holidays. NSE and BSE share the equity holiday calendar: add a one-line 'same as NSE' answer-first sentence for AI Overviews. Do not say 'Official' unless it is copied from the BSE circular.
+[20] [Market Tools] Risk Profile Assessment
+  URL:   https://www.stockstrail.in/check-risk-profile
+  Title: Investor Risk Profile Test: Free 2-Minute Quiz | Stockstrail
+  Desc:  Take Stockstrail's free 11-question risk profile quiz. Find your risk tolerance and get an indicative equity-debt mix for your SIPs and fixed deposits.
+  Index: index
+  Notes: Removed 'SEBI-aligned' and 'recommendations': you are an AMFI distributor, not a SEBI-registered adviser. Keep 'indicative' wording and add a result-page disclaimer. Internal links elsewhere should point here, not to the noindex /risk-profile.
+[21] [Blog] Blog Home
+  URL:   https://www.stockstrail.in/blog
+  Title: Mutual Fund, SIP & Personal Finance Blog | Stockstrail
+  Desc:  Plain-English guides on mutual funds, SIPs, insurance, tax and SEBI rules for Indian investors, written by Stockstrail's AMFI-registered team (ARN-284122).
+  Index: index
+  Notes: Live site serves an older blog title ('Financial Insights & Investment Strategies Blog | Stockstrail | Stockstrail'): confirm deployment, and fix the duplicate brand. Add category filters (Mutual Funds / Tax / Insurance / Markets) as crawlable URLs and a visible 'Start here: Mutual Funds Guide' pillar link.
+[22] [Blog Post] #1 GST cut & Ayushman Bharat
+  URL:   https://www.stockstrail.in/blog/2025-best-time-family-health-government-benefits
+  Title: Health Insurance GST Cut & Ayushman Bharat | Stockstrail
+  Desc:  How the 2025 GST reform and Ayushman Bharat expansion made health insurance cheaper for Indian families, and the steps to review or buy your cover.
+  Index: index
+  Notes: Slug starts with '2025' and reads 'best-time...': it will look stale in 2027. Add 'Last updated' and refresh facts for 2026; consider a shorter slug with 301.
+[23] [Blog Post] #2 Lenskart IPO
+  URL:   https://www.stockstrail.in/blog/lenskart-ipo-investor-guide
+  Title: Lenskart IPO: Risks & Takeaways for Investors | Stockstrail
+  Desc:  Lenskart's ₹7,278 crore IPO explained: what happened, valuation and other risks, and what retail investors should weigh now. Educational, not a recommendation.
+  Index: index
+  Notes: News-driven: traffic decays. Add a 'what happened after listing' update to keep it useful, and keep the 'not a recommendation' disclaimer (you are not a SEBI research analyst).
+[24] [Blog Post] #3 Small-cap correction
+  URL:   https://www.stockstrail.in/blog/small-cap-correction-real-portfolio-damage
+  Title: Small-Cap Correction Explained: Portfolio Risk | Stockstrail
+  Desc:  Small-cap stocks fell sharply while the Nifty 50 stayed near highs. Why the real damage is investor behaviour, and how to protect your portfolio and SIPs.
+  Index: index
+  Notes: Time-bound: add the date range of the correction in the first paragraph and a 'Last updated' stamp.
+[25] [Blog Post] #4 Mutual fund FAQs
+  URL:   https://www.stockstrail.in/blog/final-answers-mutual-fund-faqs-25-beginner-questions-answered-stockstrail
+  Title: Mutual Fund FAQs: 25+ Beginner Questions | Stockstrail
+  Desc:  Can you lose money in mutual funds? What is NAV? Direct or Regular plan? Clear answers to 25+ beginner mutual fund questions from Stockstrail (ARN-284122).
+  Index: index
+  Notes: Best AEO candidate on the site: each Q&A should open with a 40-60 word direct answer. The slug ('final-answers-...-stockstrail') and the on-page title ('Final Answers...') are weak: rename to 'Mutual Fund FAQs' and 301 the slug.
+[26] [Blog Post] #5 Types of mutual funds (Ch.4)
+  URL:   https://www.stockstrail.in/blog/types-of-mutual-funds-in-india-explained-2026-guide-stockstrail
+  Title: Types of Mutual Funds in India (2026 Guide) | Stockstrail
+  Desc:  Understand equity, debt, hybrid, index, ELSS and sectoral mutual funds in plain English: how each type works, its risk level and who it suits.
+  Index: index
+  Notes: URGENT: the current <title> is a raw slug ('Stockstrail-Mutual-Funds-Chapter-4'). This is a high-volume topic: also link it from /services/mutual-funds.
+[27] [Blog Post] #6 India VIX
+  URL:   https://www.stockstrail.in/blog/what-is-india-vix-why-stockstrail-track-it-every-single-day
+  Title: What Is India VIX? How Investors Use It | Stockstrail
+  Desc:  India VIX measures expected market volatility. Learn how to read it, common mistakes to avoid, and how it can guide your SIP and mutual fund decisions.
+  Index: index
+  Notes: Slug contains 'why-stockstrail-track-it-every-single-day' (brand stuffing, 41 characters). Shorten to /blog/what-is-india-vix with 301. A live VIX value widget would add repeat traffic.
+[28] [Blog Post] #7 Term vs life insurance
+  URL:   https://www.stockstrail.in/blog/term-insurance-vs-life-insurance-india-2026-which-one-truly-protects-your-family-stockstrail
+  Title: Term vs Life Insurance in India (2026) | Stockstrail
+  Desc:  Term insurance or life insurance: which protects your family better? Compare premium, cover, tax rules and claim settlement ratio, then book a free review.
+  Index: index
+  Notes: Old title was 85+ chars and truncated in Google. High-volume comparison: use a comparison table (answer-first) so AI Overviews can lift it. Slug is 90+ chars: shorten with 301.
+[29] [Blog Post] #8 Are mutual funds safe (Ch.3)
+  URL:   https://www.stockstrail.in/blog/chapter3-are-mutual-funds-safe-understanding-mutual-fund-risk-in-india
+  Title: Are Mutual Funds Safe in India? Key Risks | Stockstrail
+  Desc:  Are mutual funds safe? Learn about market risk and volatility in Indian mutual funds, and how to manage them without fear or panic. Plain-English guide.
+  Index: index
+  Notes: Strong question-style keyword. Open the article with a 2-sentence direct answer, then the detail.
+[30] [Blog Post] #9 20 mistakes (Ch.9)
+  URL:   https://www.stockstrail.in/blog/chapter-9-20-biggest-mutual-fund-mistakes-investors-make-stockstrail
+  Title: 20 Biggest Mutual Fund Mistakes to Avoid | Stockstrail
+  Desc:  Most investors don't fail because of bad funds, they fail because of behaviour. See the 20 biggest mutual fund mistakes and how to avoid each one.
+  Index: index
+  Notes: Remove 'Chapter 9' from the on-page title: chapter numbers do not help searchers. Keep the series via a pillar page (F14).
+[31] [Blog Post] #10 Returns (Ch.7)
+  URL:   https://www.stockstrail.in/blog/chapter-7-how-much-return-can-you-expect-from-mutual-funds-stockstrail
+  Title: How Much Return Do Mutual Funds Give? | Stockstrail
+  Desc:  Mutual funds can't guarantee returns. Learn what is realistic, how compounding and market cycles work, and why time in the market beats timing it.
+  Index: index
+  Notes: Never publish a return % in meta without a dated source and a disclaimer: keep it qualitative. Link to /calculators/sip.
+[32] [Blog Post] #11 How MFs work (Ch.2)
+  URL:   https://www.stockstrail.in/blog/chapter-2-how-mutual-funds-actually-work-in-india-a-behind-the-scenes-guide
+  Title: How Mutual Funds Work in India: NAV & Units | Stockstrail
+  Desc:  See how mutual funds work behind the scenes in India: fund managers, NAV, units and regulation, explained simply for new investors.
+  Index: index
+  Notes: Pair with the learning lesson 'What is a mutual fund' via a 'Free course' link to build the cluster.
+[33] [Blog Post] #12 How to invest (Ch.1)
+  URL:   https://www.stockstrail.in/blog/how-to-invest-in-mutual-funds-in-india-the-complete-beginner-s-guide-2026
+  Title: How to Invest in Mutual Funds in India (2026) | Stockstrail
+  Desc:  New to investing? Learn how to start investing in mutual funds in India in 2026: KYC, choosing a fund, SIP or lumpsum, and avoiding beginner mistakes.
+  Index: index
+  Notes: Highest-volume blog topic you own. Make this the flagship of the pillar page and link to /services/mutual-funds with a clear CTA. Slug has 'beginner-s' (stray hyphen).
+[34] [Blog Post] #13 Choose a fund (Ch.6)
+  URL:   https://www.stockstrail.in/blog/chapter-6-how-to-choose-the-right-mutual-fund-in-india-2026-guide-stockstrail
+  Title: How to Choose a Mutual Fund: 10-Step Guide | Stockstrail
+  Desc:  Overwhelmed by thousands of mutual funds? Use Stockstrail's 10-step framework to choose a fund by goals, risk and horizon, not hype or past returns.
+  Index: index
+  Notes: Numbered framework = good featured-snippet / AI Overview format: keep the 10 steps as an <ol> with short bold step names.
+[35] [Blog Post] #14 MF taxation (Ch.8)
+  URL:   https://www.stockstrail.in/blog/chapter-8-mutual-fund-taxation-in-india-2026-explained-simply-stockstrail
+  Title: Mutual Fund Tax in India (2026): LTCG & STCG | Stockstrail
+  Desc:  How are mutual funds taxed in India in 2026? Capital gains, holding periods, SIP taxation and dividend tax, explained in plain language.
+  Index: index
+  Notes: YMYL + changes often: add 'Last reviewed' date, cite the Income Tax Department/Finance Act, and re-check after each Budget and after the Income-tax Act 2025 transition.
+[36] [Blog Post] #15 SIP for HP salaried
+  URL:   https://www.stockstrail.in/blog/the-financial-story-of-himachal-pradesh-s-emplyoee
+  Title: SIP for Salaried People in Himachal Pradesh | Stockstrail
+  Desc:  How much SIP should a salaried person in Himachal Pradesh start? District-wise guide to all 12 districts with income-based SIP tables and real numbers.
+  Index: index
+  Notes: Your best local-SEO asset (low competition). FIX NOW: the slug has a typo ('emplyoee') and the blog-list headline reads 'Emplyoee': new slug /blog/sip-for-salaried-himachal-pradesh + 301. Create a national version ('how much SIP by salary') to capture non-HP traffic.
+[37] [Blog Post] #16 SIP vs lump sum (Ch.5)
+  URL:   https://www.stockstrail.in/blog/chapter-5-sip-vs-lump-sum-which-investment-method-is-right-for-you-stockstrail
+  Title: SIP vs Lumpsum: Which Is Better for You? | Stockstrail
+  Desc:  SIP or lumpsum: which builds more wealth? See the real difference with examples, when each works best, and how to pick the right method for your goals.
+  Index: index
+  Notes: Spelling: use 'lumpsum' consistently (matches your calculator and the dominant search spelling). Embed the lumpsum + SIP calculators. Consolidate with the learning lesson (point the lesson's canonical or link clearly) to avoid two pages competing.
+[38] [Blog Post] #17 IT layoffs money plan
+  URL:   https://www.stockstrail.in/blog/indian-it-earnings-week-2026-ai-pressure-layoffs-fresher-hiring-and-what-investors-should-do-stockstrail-indian-it-layoffs-vs-fresher-hiring-smart-money-plan-for-2026
+  Title: IT Layoffs 2026: A 5-Step Money Plan | Stockstrail
+  Desc:  IT earnings season brings layoff and fresher-hiring headlines. See what they mean for your SIP, FD and emergency fund, with a 5-step plan from Stockstrail.
+  Index: index
+  Notes: Old description said 'TCS reports on 8 Oct' (yesterday): already stale, so the new one is evergreen. Slug is 166 characters (keyword-stuffed + duplicated): replace with /blog/it-layoffs-money-plan-2026 and 301.
+[39] [Blog Post] #18 SEBI nomination rule
+  URL:   https://www.stockstrail.in/blog/sebi-mutual-fund-nomination-rule-september-2026
+  Title: SEBI Nomination Rules 2026: Add a Nominee | Stockstrail
+  Desc:  SEBI's revised nomination rules for mutual fund folios and demat accounts are now in effect (from 1 Sept 2026). See what changed, who must nominate and how.
+  Index: index
+  Notes: STALE: the old title says 'Before September 1' but it is now 9 Oct 2026: past-deadline wording hurts trust and CTR. Rewrite the page as a 'how to add a nominee now' guide and re-verify every detail against the SEBI circular before publishing.
+[40] [Blog Post] #19 Market down guide
+  URL:   https://www.stockstrail.in/blog/why-is-the-market-down-a-salaried-employee-s-action-guide
+  Title: Market Down? 5 Steps for Salaried Investors | Stockstrail
+  Desc:  Markets have fallen for weeks. Here is why, and 5 practical steps every salaried professional should take, from SIPs to emergency funds and insurance.
+  Index: index
+  Notes: Old title ended mid-phrase ('...Action'). Time-sensitive wording ('fallen for weeks'): add the date and a 'Last updated' stamp, or reword once the market recovers.
+[41] [Legal & Trust] Editorial Policy
+  URL:   https://www.stockstrail.in/editorial-policy
+  Title: Editorial Policy & Fact-Checking Standards | Stockstrail
+  Desc:  How Stockstrail researches, writes and fact-checks financial content: sources, review process, AMFI and SEBI compliance standards and how we correct errors.
+  Index: index
+  Notes: Title was already good. Description rewritten for people, not jargon ('E-E-A-T', 'financial intelligence'). Link to this page from every article footer/byline.
+[42] [Legal & Trust] Terms & Conditions
+  URL:   https://www.stockstrail.in/terms-and-conditions
+  Title: Terms & Conditions and Cancellation Policy | Stockstrail
+  Desc:  Read Stockstrail's terms of use and cancellation policy covering mutual funds, fixed deposits, insurance, loans and Demat account services.
+  Index: index
+  Notes: Low SEO value: keep indexable for trust (YMYL sites are expected to show legal pages). Fix the stray 'Terms of Service' vs 'Terms & Conditions' naming used elsewhere on the site.
+[43] [Legal & Trust] Commission Disclosure
+  URL:   https://www.stockstrail.in/commission-disclosure
+  Title: Commission Disclosure: How Stockstrail Earns Money
+  Desc:  Transparent disclosure of the commissions Stockstrail (ARN-284122) earns from mutual fund AMCs and partners, how they are paid and what it means for you.
+  Index: index
+  Notes: Old title repeated the brand ('Stockstrail Commission Disclosure | Stockstrail'). New title already contains the brand, so set it as an absolute title with no template suffix. Remove 'zero hidden fees' (absolute claim); say 'all commissions are disclosed here'.
+[44] [Account & Admin] User Sign-In
+  URL:   https://www.stockstrail.in/sign-in
+  Title: Sign In | Stockstrail
+  Desc:  Sign in to your Stockstrail account to view your risk profile and investment history.
+  Index: NOINDEX
+  Notes: Currently index,follow and inheriting the home-page description (duplicate content). Set robots to noindex,nofollow and remove from the sitemap (F3).
+[45] [Account & Admin] Complete Profile
+  URL:   https://www.stockstrail.in/complete-profile
+  Title: Complete Your Profile | Stockstrail
+  Desc:  Complete your Stockstrail profile to save your risk assessment and get a personalised financial plan.
+  Index: NOINDEX
+  Notes: Gated page marked index,follow: set noindex,nofollow (F3).
+[46] [Account & Admin] Risk Questionnaire
+  URL:   https://www.stockstrail.in/risk-profile
+  Title: Risk Profiling Questionnaire | Stockstrail
+  Desc:  Answer 11 questions to find your risk tolerance and investment horizon and get an indicative allocation profile.
+  Index: NOINDEX
+  Notes: Keep noindex. But several indexable pages link here: point those links to /check-risk-profile so link equity goes to the indexable page.
+[47] [Account & Admin] User Dashboard
+  URL:   https://www.stockstrail.in/dashboard
+  Title: Dashboard | Stockstrail
+  Desc:  View your risk profile and investment history.
+  Index: NOINDEX
+  Notes: Already noindex. No change needed.
+[48] [Account & Admin] Admin Sign-In
+  URL:   https://www.stockstrail.in/admin/sign-in
+  Title: Admin Sign In | Stockstrail
+  Desc:  Stockstrail administration login.
+  Index: NOINDEX
+  Notes: Already noindex. Also disallow /admin/ in robots.txt (note: robots.txt does not secure it).
+[49] [Account & Admin] Admin Dashboard
+  URL:   https://www.stockstrail.in/admin/dashboard
+  Title: Admin Dashboard | Stockstrail
+  Desc:  Admin panel for managing risk profiles.
+  Index: NOINDEX
+  Notes: Already noindex. No change needed.
+
+=== LEARNING PAGES (52) ===
+[1] [Learning Hub] Learning Home
+  URL:   https://learning.stockstrail.in
+  Title: Stockstrail Learning: Free Investing & Finance Courses India
+  Desc:  Free, structured courses on mutual funds, SIP, insurance, tax saving, stock market and retirement for Indian investors. No login, no ads, no sales pitch.
+  Index: index
+  Notes: Remove 'SEBI-aware' (vague). Home must link to every course with descriptive anchors. Add Organization schema (publisher = Stockstrail) so the subdomain inherits brand entity; consider moving under stockstrail.in/learn long-term (F21).
+[2] [Learning Hub] About Learning Hub
+  URL:   https://learning.stockstrail.in/about
+  Title: About Stockstrail Learning | Free Finance Education India
+  Desc:  Stockstrail Learning is a free finance education hub for Indian investors: mutual funds, SIPs, tax saving and risk profiling without jargon or sales pitches.
+  Index: index
+  Notes: Name the author/reviewer (Vikrant Bhardwaj, ARN-284122, NISM V-A) on this page: it is the trust page for the subdomain.
+[3] [Learning Hub] Categories Directory
+  URL:   https://learning.stockstrail.in/categories
+  Title: Finance Topics & Courses: Browse All | Stockstrail Learning
+  Desc:  Browse finance topics on Stockstrail Learning: mutual funds, SIP, insurance, stock market, demat, tax saving, loans, retirement and financial planning.
+  Index: index
+  Notes: Old title/description were too thin to rank or earn clicks.
+[4] [Learning Hub] Courses Directory
+  URL:   https://learning.stockstrail.in/courses
+  Title: All Free Finance Courses in India | Stockstrail Learning
+  Desc:  Browse all 12 free finance courses: mutual funds, SIP, insurance, tax saving, retirement and more. Filter by difficulty, category and reading time.
+  Index: index
+  Notes: '12' must be kept in sync with the catalogue: render it from the database (avoid hard-coding).
+[5] [Learning Category] personal-finance-basics
+  URL:   https://learning.stockstrail.in/categories/personal-finance-basics
+  Title: Personal Finance Basics: Free Courses | Stockstrail
+  Desc:  Learn to manage daily money, budget well, get out of debt and choose the right insurance for your family with free personal finance basics courses.
+  Index: index
+  Notes: DUPLICATE of /categories/personal-finance (near-identical topic). Merge into one category and 301 the other (F10).
+[6] [Learning Category] mutual-funds
+  URL:   https://learning.stockstrail.in/categories/mutual-funds
+  Title: Mutual Fund Courses for Beginners (Free) | Stockstrail
+  Desc:  Free mutual fund courses and lessons: what mutual funds are, NAV, expense ratios, direct vs regular plans, SIP vs lumpsum and taxation.
+  Index: index
+  Notes: Old title/description were thin: now topic-specific and benefit-led.
+[7] [Learning Category] sip
+  URL:   https://learning.stockstrail.in/categories/sip
+  Title: SIP Courses: Learn Systematic Investing | Stockstrail
+  Desc:  Learn how SIPs work with free lessons on rupee cost averaging, step-up SIPs, compounding and common SIP myths for Indian investors.
+  Index: index
+  Notes: Old title/description were thin: now topic-specific and benefit-led.
+[8] [Learning Category] swp
+  URL:   https://learning.stockstrail.in/categories/swp
+  Title: SWP Courses: Systematic Withdrawal Plans | Stockstrail
+  Desc:  Learn how a Systematic Withdrawal Plan (SWP) can create regular income from your mutual fund investments, and when it makes sense.
+  Index: NOINDEX
+  Notes: No course currently sits in this category (thin page): set noindex until an SWP course exists. SWP calculator + course is a good high-demand pair.
+[9] [Learning Category] insurance
+  URL:   https://learning.stockstrail.in/categories/insurance
+  Title: Insurance Courses: Term, Health & More | Stockstrail
+  Desc:  Free insurance courses for Indian families: term vs traditional plans, health insurance riders, claim settlement ratios and how much cover you need.
+  Index: index
+  Notes: Old title/description were thin: now topic-specific and benefit-led.
+[10] [Learning Category] stock-market
+  URL:   https://learning.stockstrail.in/categories/stock-market
+  Title: Stock Market Courses for Beginners | Stockstrail
+  Desc:  Learn how the stock market works with free beginner courses on shares, Sensex and Nifty, market cycles and long-term investing.
+  Index: index
+  Notes: Old title/description were thin: now topic-specific and benefit-led.
+[11] [Learning Category] demat
+  URL:   https://learning.stockstrail.in/categories/demat
+  Title: Demat Account Courses: Open & Use Safely | Stockstrail
+  Desc:  Free lessons on how to open, use and secure a Demat and trading account in India, with NSDL and CDSL depositories explained in simple steps.
+  Index: index
+  Notes: Old title/description were thin: now topic-specific and benefit-led.
+[12] [Learning Category] personal-finance
+  URL:   https://learning.stockstrail.in/categories/personal-finance
+  Title: Personal Finance Courses: Budgeting & Saving | Stockstrail
+  Desc:  Free personal finance courses on budgeting, saving and healthy money habits, including the 50/30/20 rule and emergency funds.
+  Index: index
+  Notes: Merge with personal-finance-basics (see above) and keep this as the single canonical category.
+[13] [Learning Category] tax-saving
+  URL:   https://learning.stockstrail.in/categories/tax-saving
+  Title: Tax Saving Courses: 80C, ELSS & NPS | Stockstrail
+  Desc:  Free tax saving courses for Indian taxpayers: Section 80C, ELSS, NPS, health deductions and choosing between the old and new tax regime.
+  Index: index
+  Notes: Section numbers are being re-mapped under the Income-tax Act 2025: keep '80C' (people still search it) but explain the mapping on-page.
+[14] [Learning Category] loans
+  URL:   https://learning.stockstrail.in/categories/loans
+  Title: Loan Courses: EMI, Credit Score & Prepayment | Stockstrail
+  Desc:  Free loan courses: how EMIs split between interest and principal, how credit scores work, prepayment math and how to avoid debt traps.
+  Index: index
+  Notes: Old title/description were thin: now topic-specific and benefit-led.
+[15] [Learning Category] retirement
+  URL:   https://learning.stockstrail.in/categories/retirement
+  Title: Retirement Planning Courses (Free) | Stockstrail
+  Desc:  Free retirement planning courses: calculate your corpus, factor in inflation and build lifelong cash flow for a stress-free retirement in India.
+  Index: index
+  Notes: Old title/description were thin: now topic-specific and benefit-led.
+[16] [Learning Category] financial-planning
+  URL:   https://learning.stockstrail.in/categories/financial-planning
+  Title: Financial Planning Courses: Goals & Wealth | Stockstrail
+  Desc:  Free financial planning courses: set goals, build an emergency fund, manage debt and match your investments to time horizons.
+  Index: index
+  Notes: Old title/description were thin: now topic-specific and benefit-led.
+[17] [Learning Category] fixed-deposits
+  URL:   https://learning.stockstrail.in/categories/fixed-deposits
+  Title: Fixed Deposit Courses: Rates, Tax & Laddering | Stockstrail
+  Desc:  Free fixed deposit courses: bank vs corporate FDs, cumulative interest, tax implications and FD laddering for safe, predictable returns.
+  Index: index
+  Notes: Old title/description were thin: now topic-specific and benefit-led.
+[18] [Learning Course] mutual-funds
+  URL:   https://learning.stockstrail.in/courses/mutual-funds
+  Title: Mutual Funds Course for Beginners (Free) | Stockstrail
+  Desc:  Free beginner-to-intermediate mutual fund course for Indian investors: NAV, expense ratio, direct vs regular, SIP vs lumpsum, taxation and common mistakes.
+  Index: index
+  Notes: Old title (80+ chars) was truncated. Add Course schema (name, description, provider = Stockstrail) and link every lesson from this page.
+[19] [Learning Course] sip-mastery
+  URL:   https://learning.stockstrail.in/courses/sip-mastery
+  Title: SIP Course: Step-Up SIP & Rupee Cost Averaging | Stockstrail
+  Desc:  Master SIPs with a free course on rupee cost averaging, step-up SIPs, compounding and the biggest SIP myths. Built for Indian investors.
+  Index: index
+  Notes: Old title (80+ chars) was truncated. Add Course schema (name, description, provider = Stockstrail) and link every lesson from this page.
+[20] [Learning Course] insurance-fundamentals
+  URL:   https://learning.stockstrail.in/courses/insurance-fundamentals
+  Title: Insurance Course: Term, Health & Claim Ratios | Stockstrail
+  Desc:  Learn term vs traditional plans, health insurance riders and claim settlement ratios in this free insurance course for Indian families.
+  Index: index
+  Notes: Old title (80+ chars) was truncated. Add Course schema (name, description, provider = Stockstrail) and link every lesson from this page.
+[21] [Learning Course] stock-market-basics
+  URL:   https://learning.stockstrail.in/courses/stock-market-basics
+  Title: Stock Market Basics Course for Beginners | Stockstrail
+  Desc:  Learn how shares, Sensex, Nifty and market cycles work in this free stock market course, and build a long-term investing mindset.
+  Index: index
+  Notes: Old title (80+ chars) was truncated. Add Course schema (name, description, provider = Stockstrail) and link every lesson from this page.
+[22] [Learning Course] demat-accounts-guide
+  URL:   https://learning.stockstrail.in/courses/demat-accounts-guide
+  Title: Demat Account Course: Open, Use & Secure | Stockstrail
+  Desc:  A free walkthrough to open, operate and safeguard your Demat and trading account, with NSDL and CDSL depositories explained step by step.
+  Index: index
+  Notes: Old title (80+ chars) was truncated. Add Course schema (name, description, provider = Stockstrail) and link every lesson from this page.
+[23] [Learning Course] tax-saving-investments
+  URL:   https://learning.stockstrail.in/courses/tax-saving-investments
+  Title: Tax Saving Course: 80C, ELSS, NPS & Regimes | Stockstrail
+  Desc:  Free course on tax saving in India: Section 80C, ELSS, NPS, health deductions and how to choose between the old and new tax regime.
+  Index: index
+  Notes: Old title (80+ chars) was truncated. Add Course schema (name, description, provider = Stockstrail) and link every lesson from this page.
+[24] [Learning Course] retirement-planning-101
+  URL:   https://learning.stockstrail.in/courses/retirement-planning-101
+  Title: Retirement Planning Course: Build Your Corpus | Stockstrail
+  Desc:  Free retirement planning course: calculate your target corpus, beat inflation and create lifelong cash flow. Made for Indian investors.
+  Index: index
+  Notes: Old title (80+ chars) was truncated. Add Course schema (name, description, provider = Stockstrail) and link every lesson from this page.
+[25] [Learning Course] financial-planning-basics
+  URL:   https://learning.stockstrail.in/courses/financial-planning-basics
+  Title: Financial Planning Basics Course (Free) | Stockstrail
+  Desc:  Learn financial planning basics: build an emergency fund, manage debt, get the right insurance and align your money with life goals. Free course.
+  Index: index
+  Notes: Old title (80+ chars) was truncated. Add Course schema (name, description, provider = Stockstrail) and link every lesson from this page.
+[26] [Learning Course] goal-based-investing
+  URL:   https://learning.stockstrail.in/courses/goal-based-investing
+  Title: Goal-Based Investing Course: Dreams to Numbers | Stockstrail
+  Desc:  Match time horizons and risk profile to goals like child education, a home or retirement with this free goal-based investing course.
+  Index: index
+  Notes: Old title (80+ chars) was truncated. Add Course schema (name, description, provider = Stockstrail) and link every lesson from this page.
+[27] [Learning Course] fixed-deposits-explained
+  URL:   https://learning.stockstrail.in/courses/fixed-deposits-explained
+  Title: Fixed Deposit Course: Bank vs Corporate FDs | Stockstrail
+  Desc:  Free course on fixed deposits: bank vs corporate FDs, cumulative interest, tax implications and FD laddering strategies for predictable returns.
+  Index: index
+  Notes: Old title (80+ chars) was truncated. Add Course schema (name, description, provider = Stockstrail) and link every lesson from this page.
+[28] [Learning Course] personal-finance-foundations
+  URL:   https://learning.stockstrail.in/courses/personal-finance-foundations
+  Title: Personal Finance Course: Budgeting & Savings | Stockstrail
+  Desc:  Master your daily money with the 50/30/20 budgeting rule, emergency savings and ways to avoid lifestyle creep. A free personal finance course.
+  Index: index
+  Notes: Old title (80+ chars) was truncated. Add Course schema (name, description, provider = Stockstrail) and link every lesson from this page.
+[29] [Learning Course] loans-decoded
+  URL:   https://learning.stockstrail.in/courses/loans-decoded
+  Title: Loans Course: EMI, Credit Score & Prepayment | Stockstrail
+  Desc:  Learn how credit scores, EMIs and prepayment work and how to avoid debt traps. A free loans and credit course for Indian borrowers.
+  Index: index
+  Notes: Old title (80+ chars) was truncated. Add Course schema (name, description, provider = Stockstrail) and link every lesson from this page.
+[30] [Learning Lesson] mutual-funds / what-is-a-mutual-fund
+  URL:   https://learning.stockstrail.in/courses/mutual-funds/what-is-a-mutual-fund
+  Title: What Is a Mutual Fund? Meaning & How It Works | Stockstrail
+  Desc:  A mutual fund pools money from many investors into a diversified basket of securities run by a professional manager. Learn how it works in this free lesson.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[31] [Learning Lesson] mutual-funds / history
+  URL:   https://learning.stockstrail.in/courses/mutual-funds/history
+  Title: History of Mutual Funds in India: UTI to Today | Stockstrail
+  Desc:  India's mutual fund story: UTI in 1963, private AMCs in the 1990s and the SIP boom today. A quick history lesson from Stockstrail Learning.
+  Index: index
+  Notes: Meta avoids the old AUM figure (the lesson says 'more than ₹60 lakh crore'). Update the on-page number to the latest AMFI month-end AUM and date-stamp it.
+[32] [Learning Lesson] mutual-funds / types
+  URL:   https://learning.stockstrail.in/courses/mutual-funds/types
+  Title: Types of Mutual Funds: Equity, Debt & Hybrid | Stockstrail
+  Desc:  Mutual funds are classified by asset class, structure and strategy. Learn the main types, equity, debt and hybrid, and which suits which goal.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[33] [Learning Lesson] mutual-funds / nav-and-expense-ratio
+  URL:   https://learning.stockstrail.in/courses/mutual-funds/nav-and-expense-ratio
+  Title: NAV & Expense Ratio in Mutual Funds Explained | Stockstrail
+  Desc:  NAV is the price of one mutual fund unit: total assets minus liabilities, divided by units outstanding. Learn NAV and how the expense ratio affects returns.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[34] [Learning Lesson] mutual-funds / direct-vs-regular
+  URL:   https://learning.stockstrail.in/courses/mutual-funds/direct-vs-regular
+  Title: Direct vs Regular Mutual Fund Plans Explained | Stockstrail
+  Desc:  Direct and Regular plans hold the same portfolio and fund manager but differ in expense ratio and support. Learn which plan suits you.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[35] [Learning Lesson] mutual-funds / sip-vs-lumpsum
+  URL:   https://learning.stockstrail.in/courses/mutual-funds/sip-vs-lumpsum
+  Title: SIP vs Lumpsum Investment: Key Differences | Stockstrail
+  Desc:  SIP spreads your money across market ups and downs with rupee cost averaging; lumpsum puts it to work at once. Learn when each approach fits.
+  Index: index
+  Notes: Overlaps with blog post #16 (SIP vs Lump Sum). Differentiate: lesson = definition + quick rule; blog = deep dive + examples. Cross-link both ways.
+[36] [Learning Lesson] mutual-funds / taxation
+  URL:   https://learning.stockstrail.in/courses/mutual-funds/taxation
+  Title: Mutual Fund Taxation: LTCG vs STCG Explained | Stockstrail
+  Desc:  Mutual fund tax depends on asset class (equity or debt) and holding period (LTCG or STCG). Learn how gains are taxed in India in this free lesson.
+  Index: index
+  Notes: Overlaps with blog #14. Keep this lesson short and link to the blog for rates; re-check wording after every Budget.
+[37] [Learning Lesson] mutual-funds / mistakes
+  URL:   https://learning.stockstrail.in/courses/mutual-funds/mistakes
+  Title: Common Mutual Fund Mistakes to Avoid | Stockstrail
+  Desc:  Chasing last year's top performers, stopping SIPs in corrections and investing without clear goals. Learn the common mutual fund mistakes and how to avoid them.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[38] [Learning Lesson] sip-mastery / rupee-cost-averaging
+  URL:   https://learning.stockstrail.in/courses/sip-mastery/rupee-cost-averaging
+  Title: Rupee Cost Averaging Explained with SIP | Stockstrail
+  Desc:  When markets fall, a fixed SIP buys more units; when they rise, it buys fewer. Learn how rupee cost averaging works and what it can and cannot do.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[39] [Learning Lesson] sip-mastery / step-up-sip
+  URL:   https://learning.stockstrail.in/courses/sip-mastery/step-up-sip
+  Title: Step-Up SIP: What It Is & How It Grows Wealth | Stockstrail
+  Desc:  A step-up SIP raises your monthly investment each year, for example by 10%, and can lift your final corpus considerably. See how it works in this free lesson.
+  Index: index
+  Notes: Old description claimed a 10% step-up 'can almost double' wealth: that is an unqualified outcome claim. Show the maths (assumptions, years, return) on the page or soften it.
+[40] [Learning Lesson] sip-mastery / sip-myths
+  URL:   https://learning.stockstrail.in/courses/sip-mastery/sip-myths
+  Title: SIP Myths: 3 Common Misconceptions Busted | Stockstrail
+  Desc:  Does SIP guarantee profit? Is it only for small investors? Can you not stop it? Bust three common SIP myths in this free lesson.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[41] [Learning Lesson] insurance-fundamentals / term-vs-traditional
+  URL:   https://learning.stockstrail.in/courses/insurance-fundamentals/term-vs-traditional
+  Title: Term vs Traditional Insurance Plans Explained | Stockstrail
+  Desc:  Pure-protection term insurance gives high cover at low cost. Learn why you should not mix investment with insurance and how traditional plans differ.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[42] [Learning Lesson] insurance-fundamentals / health-insurance-checklist
+  URL:   https://learning.stockstrail.in/courses/insurance-fundamentals/health-insurance-checklist
+  Title: Health Insurance Checklist: What to Look For | Stockstrail
+  Desc:  Before you buy health insurance, check room rent limits, restoration benefit, pre-existing disease waiting periods and claim settlement ratio. Free checklist.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[43] [Learning Lesson] stock-market-basics / what-is-a-stock
+  URL:   https://learning.stockstrail.in/courses/stock-market-basics/what-is-a-stock
+  Title: What Is a Stock? Meaning for Beginners | Stockstrail
+  Desc:  A stock is an ownership share in a business, entitling you to a fraction of its profits and equity value. Learn how stocks work in this free beginner lesson.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[44] [Learning Lesson] stock-market-basics / indices
+  URL:   https://learning.stockstrail.in/courses/stock-market-basics/indices
+  Title: Sensex vs Nifty: Market Indices Explained | Stockstrail
+  Desc:  Sensex and Nifty 50 track India's top companies and act as market benchmarks. Learn how they are built and what they tell you about the market.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[45] [Learning Lesson] demat-accounts-guide / demat-basics
+  URL:   https://learning.stockstrail.in/courses/demat-accounts-guide/demat-basics
+  Title: What Is a Demat Account? How It Works | Stockstrail
+  Desc:  A Demat account holds your shares and securities in electronic form with NSDL or CDSL. Learn how it works and how it differs from a trading account.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[46] [Learning Lesson] tax-saving-investments / 80c-breakdown
+  URL:   https://learning.stockstrail.in/courses/tax-saving-investments/80c-breakdown
+  Title: Section 80C & ELSS: Save Tax Under Old Regime | Stockstrail
+  Desc:  Section 80C allows deductions up to ₹1.5 lakh under the old tax regime, and ELSS has the shortest lock-in at 3 years. Learn how to use it wisely.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[47] [Learning Lesson] retirement-planning-101 / corpus-calc
+  URL:   https://learning.stockstrail.in/courses/retirement-planning-101/corpus-calc
+  Title: How to Calculate Your Retirement Corpus | Stockstrail
+  Desc:  Factor in inflation, post-retirement expenses and life expectancy to arrive at your retirement corpus, your financial freedom number. Free lesson.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[48] [Learning Lesson] financial-planning-basics / hierarchy-of-needs
+  URL:   https://learning.stockstrail.in/courses/financial-planning-basics/hierarchy-of-needs
+  Title: Financial Planning Steps: Where to Start | Stockstrail
+  Desc:  Start with an emergency fund and life and health insurance before volatile market investments. Learn the financial hierarchy of needs in this free lesson.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[49] [Learning Lesson] goal-based-investing / time-horizons
+  URL:   https://learning.stockstrail.in/courses/goal-based-investing/time-horizons
+  Title: Short, Medium & Long-Term Investment Options | Stockstrail
+  Desc:  Short-term goals under 3 years suit liquid or debt funds, medium-term goals hybrid funds and long-term goals (7+ years) diversified equity. Learn why.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[50] [Learning Lesson] fixed-deposits-explained / fd-laddering
+  URL:   https://learning.stockstrail.in/courses/fixed-deposits-explained/fd-laddering
+  Title: FD Laddering Strategy: How It Works | Stockstrail
+  Desc:  Split a lump sum across FDs of different maturities to keep liquidity while locking in higher rates. Learn how FD laddering works in this free lesson.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[51] [Learning Lesson] personal-finance-foundations / budget-50-30-20
+  URL:   https://learning.stockstrail.in/courses/personal-finance-foundations/budget-50-30-20
+  Title: 50/30/20 Budget Rule Explained for India | Stockstrail
+  Desc:  Spend 50% on needs and 30% on wants, and save at least 20%. Learn how to apply the 50/30/20 budgeting rule on an Indian salary in this free lesson.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+[52] [Learning Lesson] loans-decoded / how-emi-splits
+  URL:   https://learning.stockstrail.in/courses/loans-decoded/how-emi-splits
+  Title: How EMI Works: Interest vs Principal Split | Stockstrail
+  Desc:  In the early years of a loan, most of each EMI goes to interest, not principal. Learn how an EMI splits over time and why prepayment helps.
+  Index: index
+  Notes: Old title (~90 chars) was truncated and led with a label, not the query. Add a link back to the parent course, next/previous lesson and a 'Try the calculator' CTA.
+
+=== FIXES (24) ===
+[F1] [P1] [Title tags] Brand name appears twice in the rendered <title> on many pages.
+  Evidence: Live pages: /services/mutual-funds, /blog, /calculators/sip all end '| Stockstrail | Stockstrail'. Home and About render correctly.
+  Fix:      Use a title template ('%s | Stockstrail') and remove '| Stockstrail' from per-page titles, or set an absolute title on pages that already contain the brand.
+[F2] [P1] [Deployment] Your sheet and the live site disagree on some metadata.
+  Evidence: About live title: 'About Us | Stockstrail — Founder, Certifications & Our Approach'; Blog live title: 'Financial Insights & Investment Strategies Blog | Stockstrail | Stockstrail'. Your sheet lists different values.
+  Fix:      Confirm which version is deployed, purge CDN/ISR cache, then treat the final sheet as the single source of truth.
+[F3] [P1] [Indexing] Gated pages are indexable and carry the home-page description.
+  Evidence: /sign-in and /complete-profile are 'index, follow' with inherited root meta (your sheet).
+  Fix:      Set robots to noindex,nofollow and remove both from the XML sitemap.
+[F4] [P1] [Title tags] A blog post title is a raw slug.
+  Evidence: Blog #5: 'Stockstrail-Mutual-Funds-Chapter-4 | Stockstrail'.
+  Fix:      Replace with the new title (see Meta - Main Site).
+[F5] [P1] [Content freshness] Time-bound article now reads as out of date.
+  Evidence: Blog #18 says 'Before September 1' but today is 9 Oct 2026.
+  Fix:      Rewrite as a 'how to add a nominee now' guide, re-verify against the SEBI circular, add 'Last updated'.
+[F6] [P1] [Compliance / trust] Fee and commission claims contradict your own disclosure.
+  Evidence: SIP calculator page: '100% Free Advice', 'zero distributor markups', 'Direct AMC Execution', 'zero advisory fees', 'Zero-commission direct AMC investment', footer 'unbiased advice'. Home disclosure: 'we receive commissions from AMCs'. MF page FAQ: Regular plans include distribution expenses.
+  Fix:      Make every page consistent with the commission disclosure. Remove absolute claims ('zero', 'unbiased', 'top-performing'). Have a compliance professional review.
+[F7] [P1] [Compliance / trust] Titles such as 'advisor', 'SEBI-certified' and a 'SEBI Registered' label may mislead.
+  Evidence: About page: label 'SEBI Registered' beside a SEBI Investor Certification exam certificate; 'SEBI-Certified Advisor'; footer 'Founder & Principal Advisor'; 'certified financial advisor'.
+  Fix:      You are an AMFI-registered mutual fund distributor (ARN-284122). An exam certificate is not SEBI registration. Use 'AMFI-registered mutual fund distributor' and have compliance confirm whether 'advisor/advisory' wording is acceptable. I am not a lawyer; please verify.
+[F8] [P1] [Regulatory disclosures] Disclosures for insurance, loans and Demat were not visible on the pages I read.
+  Evidence: Pages I read show only AMFI / NISM / SEBI-exam credentials. An AMFI ARN does not cover insurance distribution, loan sourcing or broker referrals.
+  Fix:      On each of those service pages show the relevant licence / partner status (for example IRDAI licence or POSP details, lending partners, broker partner relationship) next to the CTA.
+[F9] [P2] [Internal links] Footers/body links point to non-canonical or noindex URLs.
+  Evidence: About links: /mutual-funds, /fixed-deposit, /insurance, /loan, /risk-profile. Blog footer: /mutual-funds, /fixed-deposit, /insurance, /loan, /open-demat, /financial-protection, /learning. MF page links /risk-profile (noindex). About/Blog 'Learn' link uses www.learning.stockstrail.in.
+  Fix:      Link straight to canonicals: /services/..., /check-risk-profile, https://learning.stockstrail.in. Avoid relying on redirects.
+[F10] [P2] [Duplicate topics] Two near-identical learning categories.
+  Evidence: /categories/personal-finance-basics and /categories/personal-finance.
+  Fix:      Merge into one category and 301 the other.
+[F11] [P2] [Thin pages] Empty category page.
+  Evidence: /categories/swp has no matching course.
+  Fix:      noindex until an SWP course exists (then build an SWP calculator too).
+[F12] [P2] [Fact consistency] The same fact differs between pages.
+  Evidence: '40+ AMCs' (Home) vs '25+ AMCs' (About). FD 'up to 7.5%' (About) vs 'up to 9.1%' (SIP page). LAMF 'from 9%' (meta) vs 'from 9.5%' (SIP page).
+  Fix:      Keep one dated, sourced number in one place and reference it everywhere. Inconsistent facts hurt trust and AI answer extraction.
+[F13] [P2] [URLs] Very long, typo or keyword-stuffed blog slugs.
+  Evidence: IT layoffs post slug = 166 characters; term-vs-life = 92; India VIX slug has 'why-stockstrail-track-it-every-single-day'; 'emplyoee' typo; 'chapter-N' and '-stockstrail' suffixes; 'beginner-s'.
+  Fix:      Create short slugs for the worst offenders, 301 old to new, update canonicals, sitemap and internal links. Leave good URLs alone.
+[F14] [P2] [Topical authority] Chapter series is scattered.
+  Evidence: Posts titled Chapter 2-9 (and FAQs) are not tied together.
+  Fix:      Build a pillar page 'Mutual Funds Guide for Beginners' linking all chapters, with next/previous links in each chapter.
+[F15] [P2] [E-E-A-T] No visible author/reviewer layer on articles.
+  Evidence: Blog pages I read show no byline or review date.
+  Fix:      Add author byline linking to a Vikrant Bhardwaj profile (credentials: AMFI ARN, NISM V-A), 'Last reviewed' date, and primary sources (SEBI, AMFI, RBI, NSE, IRDAI) on every article.
+[F16] [P2] [Structured data] Schema coverage unknown/incomplete.
+  Evidence: Not verified for every page.
+  Fix:      Add Organization/FinancialService + WebSite + BreadcrumbList site-wide; BlogPosting on articles; WebApplication on calculators; Course on learning courses; Person for the founder. Do NOT mark up your own testimonials as AggregateRating (self-serving reviews are not eligible).
+[F17] [P2] [Rendering] FAQ answers did not appear in the fetched page text.
+  Evidence: On Home, About and SIP Calculator the FAQ questions were visible but the answers were not in the text I could fetch (likely collapsed accordions).
+  Fix:      In Search Console use URL Inspection > View crawled page to confirm the answers are in the server-rendered HTML. If not, render them server-side.
+[F18] [P2] [Social / OG] Same OG image everywhere; one page has none.
+  Evidence: og-stockstrail.png (1100x630) on all pages; /services/mutual-funds meta shows no og:image.
+  Fix:      Use 1200x630 images, ideally per page type (service, calculator, blog, course), with og:image on every page.
+[F19] [P3] [Meta keywords] meta keywords tag is present.
+  Evidence: Google ignores it.
+  Fix:      Optional: remove from the template to reduce noise. No SEO benefit either way.
+[F20] [P2] [Local SEO] Local signals are thin.
+  Evidence: About page repeats the same sentence for 12 districts; I could not see a Google Business Profile in my checks.
+  Fix:      Claim/optimise the Google Business Profile (Moien, Chintpurni, HP 177110), keep NAP identical everywhere, collect genuine reviews, and build ONE Himachal hub page with unique local content.
+[F21] [P3] [Architecture] Learning content lives on a subdomain.
+  Evidence: learning.stockstrail.in is canonical; /learning on the main site 301s to it.
+  Fix:      Consider consolidating under stockstrail.in/learn in future so authority accrues to one host. If you keep the subdomain, link to it prominently and mirror brand/entity schema.
+[F22] [P2] [Seasonal] Time-sensitive opportunities.
+  Evidence: Muhurat Trading is Sunday 8 Nov 2026; NSE/BSE 2027 holiday lists usually appear mid/late Dec; tax pages peak Jan-Jul.
+  Fix:      Publish the Muhurat section now, the 2027 holiday pages in Dec, and refresh tax/FD/LAMF pages each Budget or RBI/SEBI change.
+[F23] [P2] [Crawling] Robots.txt, sitemap and AI-crawler rules not verified.
+  Evidence: I could not fetch these files.
+  Fix:      Check robots.txt (allow Googlebot; decide on GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot), keep the XML sitemap to indexable canonical URLs only, and submit it in Google Search Console and Bing Webmaster Tools.
+[F24] [P3] [Content roadmap] High-demand calculator and comparison gaps.
+  Evidence: See Keyword Map: SWP, PPF, NPS, retirement, CAGR calculators; FD vs SIP; LAMF vs personal loan.
+  Fix:      Add in the order shown in the Keyword Map.

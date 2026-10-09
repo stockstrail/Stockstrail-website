@@ -5,29 +5,36 @@ import ImageCarousel from "@/components/ui/ImageCarousel";
 import JsonLd from "@/components/common/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Loan Against Mutual Funds (LAMF) & Business Loans in India | Stockstrail",
+  title: 'Loan Against Mutual Funds (LAMF) Rates & Apply | Stockstrail',
   description:
-    "Get instant Loan Against Mutual Funds (LAMF) without selling your investments. Compare low interest rates starting from 9%, zero foreclosure charges, and quick approval with Stockstrail.",
+    'Borrow against your mutual funds without selling them. Check LAMF interest rates, loan-to-value, eligibility and how to apply with Stockstrail (ARN-284122).',
   keywords:
     "loan against mutual funds, LAMF, loan against mutual funds India, LAMF interest rate, loan against shares, business loan, home loan, Stockstrail loans",
   alternates: {
     canonical: "https://www.stockstrail.in/services/loan",
   },
   openGraph: {
-    title: "Loan Against Mutual Funds (LAMF) & Business Loans in India | Stockstrail",
+    title: 'Loan Against Mutual Funds (LAMF) Rates & Apply | Stockstrail',
     description:
-      "Get instant Loan Against Mutual Funds (LAMF) without selling your investments. Low interest rates, zero foreclosure charges, and quick approval.",
+      'Borrow against your mutual funds without selling them. Check LAMF interest rates, loan-to-value, eligibility and how to apply with Stockstrail (ARN-284122).',
     url: "https://www.stockstrail.in/services/loan",
     siteName: "Stockstrail",
     locale: "en_IN",
     type: "website",
-    images: ["/og-stockstrail.png"],
+    images: [
+      {
+        url: "/og-stockstrail.png",
+        width: 1200,
+        height: 630,
+        alt: 'Loan Against Mutual Funds (LAMF) Rates & Apply | Stockstrail',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Loan Against Mutual Funds (LAMF) & Business Loans in India | Stockstrail",
+    title: 'Loan Against Mutual Funds (LAMF) Rates & Apply | Stockstrail',
     description:
-      "Get instant Loan Against Mutual Funds (LAMF) without selling your investments. Low interest rates, zero foreclosure charges, and quick approval.",
+      'Borrow against your mutual funds without selling them. Check LAMF interest rates, loan-to-value, eligibility and how to apply with Stockstrail (ARN-284122).',
     images: ["/og-stockstrail.png"],
   },
 };

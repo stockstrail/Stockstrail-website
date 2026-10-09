@@ -8,24 +8,30 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+import { LEARNING_CATEGORY_METADATA } from "@/lib/seo/blueprint-meta";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const category = await getCategoryBySlug(slug);
-  if (!category) {
-    return {
-      title: "Category not found — Stockstrail Learning",
-    };
+  const meta = slug ? LEARNING_CATEGORY_METADATA[slug] : undefined;
+
+  if (!category && !meta) {
+    return {};
   }
 
-  const shareImage = category.ogImage || category.coverImage || category.thumbnail;
+  const title = meta?.title || `${category?.name || "Topic"} Courses — Stockstrail Learning`;
+  const description = meta?.description || category?.description || "Browse courses on Stockstrail Learning.";
+  const isNoindex = meta?.indexing === 'noindex';
+
+  const shareImage = category?.ogImage || category?.coverImage || category?.thumbnail;
   const pageUrl = `https://learning.stockstrail.in/categories/${slug}`;
-  const description = category.description;
 
   return {
-    title: `${category.name} Courses — Stockstrail Learning`,
+    title,
     description,
+    ...(isNoindex ? { robots: { index: false, follow: false } } : {}),
     openGraph: {
-      title: `${category.name} Courses — Stockstrail Learning`,
+      title,
       description,
       type: "website",
       url: pageUrl,
@@ -35,15 +41,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             url: shareImage,
             width: 1200,
             height: 630,
-            alt: `${category.name} — Stockstrail Learning`,
+            alt: title,
           }]
-        : undefined,
+        : [{
+            url: "/og-stockstrail.png",
+            width: 1200,
+            height: 630,
+            alt: title,
+          }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${category.name} Courses — Stockstrail Learning`,
+      title,
       description,
-      images: shareImage ? [shareImage] : undefined,
+      images: shareImage ? [shareImage] : ["/og-stockstrail.png"],
     },
     alternates: {
       canonical: pageUrl,

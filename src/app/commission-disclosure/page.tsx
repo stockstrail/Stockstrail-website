@@ -3,11 +3,35 @@ import Layout from "@/components/layout/Layout";
 import ServiceFAQSection from "@/components/services/ServiceFAQSection";
 
 export const metadata: Metadata = {
-  title: 'Stockstrail Commission Disclosure',
+  title: 'Commission Disclosure: How Stockstrail Earns Money',
   description:
-    "Transparent disclosure of Stockstrail's Mutual Funds distribution and brokerage earnings. We believe in complete transparency with zero hidden fees.",
+    'Transparent disclosure of the commissions Stockstrail (ARN-284122) earns from mutual fund AMCs and partners, how they are paid and what it means for you.',
   alternates: {
     canonical: 'https://www.stockstrail.in/commission-disclosure',
+  },
+  openGraph: {
+    title: 'Commission Disclosure: How Stockstrail Earns Money',
+    description:
+      'Transparent disclosure of the commissions Stockstrail (ARN-284122) earns from mutual fund AMCs and partners, how they are paid and what it means for you.',
+    url: 'https://www.stockstrail.in/commission-disclosure',
+    siteName: 'Stockstrail',
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: '/og-stockstrail.png',
+        width: 1200,
+        height: 630,
+        alt: 'Commission Disclosure: How Stockstrail Earns Money',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Commission Disclosure: How Stockstrail Earns Money',
+    description:
+      'Transparent disclosure of the commissions Stockstrail (ARN-284122) earns from mutual fund AMCs and partners, how they are paid and what it means for you.',
+    images: ['/og-stockstrail.png'],
   },
 };
 

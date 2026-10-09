@@ -7,12 +7,30 @@ import JsonLd from "@/components/common/JsonLd";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Categories — Stockstrail Learning",
-  description: "Browse finance topics — mutual funds, SIP, insurance, stocks, tax, retirement and more.",
+  title: 'Finance Topics & Courses: Browse All | Stockstrail Learning',
+  description:
+    'Browse finance topics on Stockstrail Learning: mutual funds, SIP, insurance, stock market, demat, tax saving, loans, retirement and financial planning.',
   openGraph: {
-    title: "Categories — Stockstrail Learning",
-    description: "Browse finance topics on Stockstrail Learning.",
+    title: 'Finance Topics & Courses: Browse All | Stockstrail Learning',
+    description:
+      'Browse finance topics on Stockstrail Learning: mutual funds, SIP, insurance, stock market, demat, tax saving, loans, retirement and financial planning.',
     url: "https://learning.stockstrail.in/categories",
+    siteName: "Stockstrail Learning",
+    images: [
+      {
+        url: "/og-stockstrail.png",
+        width: 1200,
+        height: 630,
+        alt: 'Finance Topics & Courses: Browse All | Stockstrail Learning',
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: 'Finance Topics & Courses: Browse All | Stockstrail Learning',
+    description:
+      'Browse finance topics on Stockstrail Learning: mutual funds, SIP, insurance, stock market, demat, tax saving, loans, retirement and financial planning.',
+    images: ["/og-stockstrail.png"],
   },
   alternates: {
     canonical: "https://learning.stockstrail.in/categories",

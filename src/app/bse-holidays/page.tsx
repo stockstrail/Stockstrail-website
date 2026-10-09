@@ -9,9 +9,9 @@ import { HOLIDAY_FAQS_DATA } from '@/lib/holidays/data';
 import { ChevronRight, Calendar, Sparkles, Building2, Layers } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'BSE Holiday Calendar 2026: Bombay Stock Exchange Trading Holiday List | Stockstrail',
+  title: 'BSE Holidays 2026: Stock Market Holiday List | Stockstrail',
   description:
-    'Official BSE Holiday List 2026. Explore Bombay Stock Exchange market holidays across Equities, Derivatives, Commodity split sessions, and settlement dates.',
+    'Full BSE holiday list 2026 for equity, derivatives and commodity sessions, plus settlement holidays, upcoming closures and the Diwali Muhurat Trading date.',
   keywords: [
     'bse holiday calendar 2026',
     'bse holiday list 2026',
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     canonical: 'https://www.stockstrail.in/bse-holidays',
   },
   openGraph: {
-    title: 'BSE Holiday Calendar 2026 | Stockstrail',
+    title: 'BSE Holidays 2026: Stock Market Holiday List | Stockstrail',
     description:
-      'Official Bombay Stock Exchange (BSE) trading holidays for 2026 across all market segments.',
+      'Full BSE holiday list 2026 for equity, derivatives and commodity sessions, plus settlement holidays, upcoming closures and the Diwali Muhurat Trading date.',
     url: 'https://www.stockstrail.in/bse-holidays',
     siteName: 'Stockstrail',
     locale: 'en_IN',
@@ -39,17 +39,17 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/og-stockstrail.png',
-        width: 1100,
+        width: 1200,
         height: 630,
-        alt: 'BSE Holiday Calendar 2026',
+        alt: 'BSE Holidays 2026: Stock Market Holiday List | Stockstrail',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BSE Holiday Calendar 2026 | Stockstrail',
+    title: 'BSE Holidays 2026: Stock Market Holiday List | Stockstrail',
     description:
-      'Official trading holidays for the Bombay Stock Exchange (BSE) for 2026.',
+      'Full BSE holiday list 2026 for equity, derivatives and commodity sessions, plus settlement holidays, upcoming closures and the Diwali Muhurat Trading date.',
     images: ['/og-stockstrail.png'],
   },
 };

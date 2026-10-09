@@ -11,15 +11,17 @@ export const revalidate = 1800;
 const POSTS_PER_PAGE = 9;
 
 export const metadata: Metadata = {
-  title: 'Financial Insights, Mutual Funds & Wealth Journal | Stockstrail',
-  description: 'Certified financial analysis, SEBI regulations, mutual fund strategies, and salaried wealth management from AMFI Registered experts (ARN-284122).',
+  title: 'Mutual Fund, SIP & Personal Finance Blog | Stockstrail',
+  description:
+    "Plain-English guides on mutual funds, SIPs, insurance, tax and SEBI rules for Indian investors, written by Stockstrail's AMFI-registered team (ARN-284122).",
   keywords: 'Financial Blog India, Stockstrail Blog, Mutual Funds Guide, SEBI Guidelines, Salaried Wealth Planning, Best SIP 2026',
   alternates: {
     canonical: 'https://www.stockstrail.in/blog',
   },
   openGraph: {
-    title: 'Financial Insights, Mutual Funds & Wealth Journal | Stockstrail',
-    description: 'Certified financial analysis, SEBI regulations, mutual fund strategies, and salaried wealth management from AMFI Registered experts.',
+    title: 'Mutual Fund, SIP & Personal Finance Blog | Stockstrail',
+    description:
+      "Plain-English guides on mutual funds, SIPs, insurance, tax and SEBI rules for Indian investors, written by Stockstrail's AMFI-registered team (ARN-284122).",
     url: 'https://www.stockstrail.in/blog',
     siteName: 'Stockstrail',
     locale: 'en_IN',
@@ -27,16 +29,17 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/og-stockstrail.png',
-        width: 1100,
+        width: 1200,
         height: 630,
-        alt: 'Stockstrail Financial Journal',
+        alt: 'Mutual Fund, SIP & Personal Finance Blog | Stockstrail',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Financial Insights & Investment Strategies | Stockstrail',
-    description: 'Read the latest articles on financial planning, mutual funds, and wealth creation.',
+    title: 'Mutual Fund, SIP & Personal Finance Blog | Stockstrail',
+    description:
+      "Plain-English guides on mutual funds, SIPs, insurance, tax and SEBI rules for Indian investors, written by Stockstrail's AMFI-registered team (ARN-284122).",
     images: ['/og-stockstrail.png'],
   },
 };

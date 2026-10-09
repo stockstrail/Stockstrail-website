@@ -6,22 +6,37 @@ import JsonLd from '@/components/common/JsonLd';
 import { ShieldCheck, HelpCircle, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free Risk Profile Assessment - Discover Your Investment Comfort | Stockstrail',
+  title: 'Investor Risk Profile Test: Free 2-Minute Quiz | Stockstrail',
   description:
-    'Take our free 2-minute SEBI-aligned 11-question risk profiling quiz. Calculate your risk tolerance score and get personalized asset allocation recommendations for mutual funds and fixed deposits.',
+    "Take Stockstrail's free 11-question risk profile quiz. Find your risk tolerance and get an indicative equity-debt mix for your SIPs and fixed deposits.",
   keywords:
     'risk profile assessment, risk score quiz, investment risk tolerance, asset allocation India, mutual fund risk, Stockstrail risk calculator',
   alternates: {
     canonical: 'https://www.stockstrail.in/check-risk-profile',
   },
   openGraph: {
-    title: 'Free Risk Profile Assessment | Stockstrail',
+    title: 'Investor Risk Profile Test: Free 2-Minute Quiz | Stockstrail',
     description:
-      'Take our free 2-minute 11-question risk assessment and discover your ideal asset allocation between mutual funds, fixed deposits, and emergency cash.',
+      "Take Stockstrail's free 11-question risk profile quiz. Find your risk tolerance and get an indicative equity-debt mix for your SIPs and fixed deposits.",
     url: 'https://www.stockstrail.in/check-risk-profile',
     siteName: 'Stockstrail',
     locale: 'en_IN',
     type: 'website',
+    images: [
+      {
+        url: '/og-stockstrail.png',
+        width: 1200,
+        height: 630,
+        alt: 'Investor Risk Profile Test: Free 2-Minute Quiz | Stockstrail',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Investor Risk Profile Test: Free 2-Minute Quiz | Stockstrail',
+    description:
+      "Take Stockstrail's free 11-question risk profile quiz. Find your risk tolerance and get an indicative equity-debt mix for your SIPs and fixed deposits.",
+    images: ['/og-stockstrail.png'],
   },
 };
 

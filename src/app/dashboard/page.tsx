@@ -4,9 +4,19 @@ import SimpleLayout from "@/components/layout/SimpleLayout";
 import { DashboardContent } from "@/components/features/risk-assessment/dashboard/DashboardContent";
 import type { RiskAttempt } from "@/lib/supabase/types";
 
-export const metadata = {
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Dashboard | Stockstrail",
-  description: "View your risk profile and investment history",
+  description: "View your risk profile and investment history.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    canonical: "https://www.stockstrail.in/dashboard",
+  },
 };
 
 export default async function DashboardPage() {

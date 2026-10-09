@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About Stockstrail Learning — Free Financial Education Hub for Indian Investors",
-  description: "Discover Stockstrail Learning — a 100% free, structured financial education hub for Indian retail investors. Learn about Mutual Funds, SIPs, Tax Saving, Risk Profiling, and Personal Finance without jargon or sales pitches.",
+  title: 'About Stockstrail Learning | Free Finance Education India',
+  description:
+    'Stockstrail Learning is a free finance education hub for Indian investors: mutual funds, SIPs, tax saving and risk profiling without jargon or sales pitches.',
   keywords: [
     "Stockstrail Learning",
     "Financial Education India",
@@ -20,17 +21,28 @@ export const metadata: Metadata = {
     canonical: "https://learning.stockstrail.in/about",
   },
   openGraph: {
-    title: "About Stockstrail Learning — Free Financial Education Hub for Indian Investors",
-    description: "A 100% free, structured financial education platform by Stockstrail. Master Mutual Funds, SIPs, Tax Planning, and Wealth Building with zero jargon and zero paywalls.",
+    title: 'About Stockstrail Learning | Free Finance Education India',
+    description:
+      'Stockstrail Learning is a free finance education hub for Indian investors: mutual funds, SIPs, tax saving and risk profiling without jargon or sales pitches.',
     url: "https://learning.stockstrail.in/about",
     siteName: "Stockstrail Learning",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "/og-stockstrail.png",
+        width: 1200,
+        height: 630,
+        alt: 'About Stockstrail Learning | Free Finance Education India',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Stockstrail Learning — Free Financial Education Hub",
-    description: "Structured, jargon-free personal finance and mutual fund courses for Indian investors. 100% free forever.",
+    title: 'About Stockstrail Learning | Free Finance Education India',
+    description:
+      'Stockstrail Learning is a free finance education hub for Indian investors: mutual funds, SIPs, tax saving and risk profiling without jargon or sales pitches.',
+    images: ["/og-stockstrail.png"],
   },
 };
 

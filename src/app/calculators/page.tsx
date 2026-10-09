@@ -9,18 +9,18 @@ import CalculatorAdvisoryBridge from "@/components/calculators/CalculatorAdvisor
 import { redirect, RedirectType } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Financial Calculators - SIP, Lumpsum, FD, RD, EMI & Tax | Stockstrail",
+  title: 'Free Financial Calculators: SIP, FD, EMI & Tax | Stockstrail',
   description:
-    "Free institutional-grade financial calculators for Indian investors. Calculate Mutual Fund SIP returns, Lumpsum wealth, Fixed Deposit interest, RD maturity, Loan EMI, and Income Tax liability.",
+    "Use Stockstrail's free calculators for SIP, lumpsum, FD, RD, loan EMI and income tax FY 2026-27. Instant results, no login. Plan goals with realistic numbers.",
   keywords:
     "financial calculators, SIP calculator, lumpsum calculator, FD calculator, RD calculator, EMI calculator, income tax calculator, Stockstrail",
   alternates: {
     canonical: "https://www.stockstrail.in/calculators",
   },
   openGraph: {
-    title: "Financial Calculators - SIP, Lumpsum, FD, RD, EMI & Tax | Stockstrail",
+    title: 'Free Financial Calculators: SIP, FD, EMI & Tax | Stockstrail',
     description:
-      "Free institutional-grade financial calculators for Indian investors. Calculate Mutual Fund SIP returns, Lumpsum wealth, Fixed Deposit interest, RD maturity, Loan EMI, and Income Tax liability.",
+      "Use Stockstrail's free calculators for SIP, lumpsum, FD, RD, loan EMI and income tax FY 2026-27. Instant results, no login. Plan goals with realistic numbers.",
     url: "https://www.stockstrail.in/calculators",
     siteName: "Stockstrail",
     locale: "en_IN",
@@ -28,17 +28,17 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-stockstrail.png",
-        width: 1100,
+        width: 1200,
         height: 630,
-        alt: "Stockstrail Financial Calculators",
+        alt: "Free Financial Calculators: SIP, FD, EMI & Tax | Stockstrail",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Financial Calculators - SIP, Lumpsum, FD, RD, EMI & Tax | Stockstrail",
+    title: 'Free Financial Calculators: SIP, FD, EMI & Tax | Stockstrail',
     description:
-      "Free institutional-grade financial calculators for Indian investors. Calculate SIP, Lumpsum, FD, RD, EMI, and Tax.",
+      "Use Stockstrail's free calculators for SIP, lumpsum, FD, RD, loan EMI and income tax FY 2026-27. Instant results, no login. Plan goals with realistic numbers.",
     images: ["/og-stockstrail.png"],
   },
 };

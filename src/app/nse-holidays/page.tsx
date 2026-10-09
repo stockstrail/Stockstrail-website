@@ -9,9 +9,9 @@ import { HOLIDAY_FAQS_DATA } from '@/lib/holidays/data';
 import { ChevronRight, Calendar, Sparkles, Building2, RefreshCw } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'NSE Holidays 2026: Is Share Market Open Today? Holiday Calendar | Stockstrail',
+  title: 'NSE Holidays 2026: Is Share Market Open Today? | Stockstrail',
   description:
-    'Check if Indian stock market is open today. Complete NSE & BSE Holiday Calendar 2026 with 15 official trading closures, live market status, MCX timings, and Muhurat trading.',
+    'NSE and BSE holiday list 2026 with live market status: 15 trading holidays, Muhurat Trading on Sunday 8 Nov, MCX timings and upcoming market closures.',
   keywords: [
     'is share market open today',
     'is today stock market holiday',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'NSE Holidays 2026: Is Share Market Open Today? | Stockstrail',
     description:
-      'Official NSE & BSE trading holidays for 2026. Check real-time live trading status, equity closures, commodity sessions, and Muhurat Trading.',
+      'NSE and BSE holiday list 2026 with live market status: 15 trading holidays, Muhurat Trading on Sunday 8 Nov, MCX timings and upcoming market closures.',
     url: 'https://www.stockstrail.in/nse-holidays',
     siteName: 'Stockstrail',
     locale: 'en_IN',
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/og-stockstrail.png',
-        width: 1100,
+        width: 1200,
         height: 630,
-        alt: 'NSE & BSE Holiday Calendar 2026',
+        alt: 'NSE Holidays 2026: Is Share Market Open Today? | Stockstrail',
       },
     ],
   },
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'NSE Holidays 2026: Is Share Market Open Today? | Stockstrail',
     description:
-      'Official trading holidays for the National Stock Exchange (NSE) and Bombay Stock Exchange (BSE) for 2026.',
+      'NSE and BSE holiday list 2026 with live market status: 15 trading holidays, Muhurat Trading on Sunday 8 Nov, MCX timings and upcoming market closures.',
     images: ['/og-stockstrail.png'],
   },
 };

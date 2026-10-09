@@ -1,0 +1,126 @@
+[
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Prepared 9 Oct 2026 from a live read of stockstrail.in plus current search data.",
+    "__EMPTY": ""
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "WHAT'S IN THIS FILE",
+    "__EMPTY": ""
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Meta - Main Site",
+    "__EMPTY": "49 pages of stockstrail.in: new title + description, keywords, intent, priority, indexing and implementation notes, next to your current values."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Meta - Learning",
+    "__EMPTY": "52 pages of learning.stockstrail.in (hub, categories, courses, lessons)."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Keyword Map",
+    "__EMPTY": "41 target keywords mapped to pages, with estimated demand / competition and the realistic winnability."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Fix List",
+    "__EMPTY": "24 technical, content and compliance issues found on the live site, prioritised."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "AEO-GEO Playbook",
+    "__EMPTY": "13 levers for being cited in AI Overviews, AI Mode and other AI answers."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "RULES USED FOR EVERY TITLE AND DESCRIPTION",
+    "__EMPTY": ""
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Brand",
+    "__EMPTY": "'Stockstrail' appears in every title. Home leads with the brand; other pages lead with the keyword and close with '| Stockstrail'."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Title length",
+    "__EMPTY": "60 characters or fewer so most are not cut off. Google has no fixed limit; truncation depends on pixel width."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Description length",
+    "__EMPTY": "About 125-160 characters with the key point in the first ~120. Google states there is no length limit and truncates to fit the device width; it only sometimes uses your description, and descriptions are not a ranking factor. Their job is clarity and click-through."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Claims",
+    "__EMPTY": "No 'best', 'top', 'guaranteed', 'unbiased', 'zero commission' or unverifiable numbers. Rates, tax and holiday facts were checked against current sources (see below)."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Compliance wording",
+    "__EMPTY": "Stockstrail is described as an 'AMFI-registered mutual fund distributor (ARN-284122)'. Review Fix List F6-F8 with a compliance professional."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "LIVE QA (formulas)",
+    "__EMPTY": ""
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Main-site pages covered",
+    "__EMPTY": 49
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Learning pages covered",
+    "__EMPTY": 52
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "New titles over 60 characters",
+    "__EMPTY": 0
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "New descriptions over 160 characters",
+    "__EMPTY": 0
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "OLD titles over 60 characters",
+    "__EMPTY": 70
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Avg. new title length",
+    "__EMPTY": 54.4
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "FACTS CHECKED (9 Oct 2026) AND SOURCES",
+    "__EMPTY": ""
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "NSE/BSE holidays 2026",
+    "__EMPTY": "15 weekday equity trading holidays (Outlook Money, Tata Mutual Fund, Finology). Muhurat Trading is Sunday 8 Nov 2026, confirmed in an NSE circular; timings are announced closer to the date. Remaining 2026 closures after today: 20 Oct, 10 Nov, 24 Nov, 25 Dec."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Income tax FY 2026-27",
+    "__EMPTY": "Budget 2026 (1 Feb 2026) made no change to slabs; new regime remains default; income up to ₹12 lakh effectively tax-free via the 87A rebate; standard deduction ₹75,000 (new) / ₹50,000 (old). The Income-tax Act 2025 replaces the 1961 Act from 1 Apr 2026 (Tata Capital, BankBazaar, Bajaj Finserv, Basunivesh). Verify section numbering before quoting 87A/80C."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Loan against mutual funds",
+    "__EMPTY": "RBI issued revised LAMF rules on 13 Feb 2026, with a ₹1 crore cap effective July 2026 (Upstox). Market rates broadly 8-13% p.a. (JM Financial, Stable Money, Upstox). Your own pages quote 9% and 9.5%: keep one dated figure."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Google meta guidance",
+    "__EMPTY": "Google Search Central, 'Control your snippets in search results': no length limit; truncated to device width; meta description used only when Google considers it more accurate than page text."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Google and AI search",
+    "__EMPTY": "Google, 'Optimizing your website for generative AI features on Google Search' (15 May 2026), as summarised by Search Engine Journal, Practical Ecommerce and others: Google treats AI Overviews/AI Mode optimisation as SEO, with no additional technical requirements. I read these secondary summaries, not Google's primary page."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "LIMITS OF THIS WORK",
+    "__EMPTY": ""
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "No keyword-volume tool",
+    "__EMPTY": "I could not access Keyword Planner, Semrush or Search Console, so volumes are not exact. Use the Keyword Map as a prioritised hypothesis and confirm with your own Search Console data."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Pages actually read live",
+    "__EMPTY": "Home, About, Services > Mutual Funds, SIP Calculator and Blog home. Other pages were rewritten from your sheet; confirm each description matches what its page actually says before publishing."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Not verified",
+    "__EMPTY": "robots.txt, XML sitemap, structured data, Core Web Vitals, backlinks, Search Console health."
+  },
+  {
+    "Stockstrail SEO / AEO / GEO blueprint": "Not legal advice",
+    "__EMPTY": "Compliance flags (Fix List F6-F8) are for review by a qualified professional."
+  }
+]

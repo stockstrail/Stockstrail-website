@@ -5,29 +5,36 @@ import ImageCarousel from '@/components/ui/ImageCarousel';
 import JsonLd from '@/components/common/JsonLd';
 
 export const metadata: Metadata = {
-  title: "Term & Health Insurance in India: Plans & Comparison | Stockstrail",
+  title: 'Compare Term & Health Insurance in India | Stockstrail',
   description:
-    "Protect your family with top Term Life and Health Insurance plans in India. Compare 99%+ claim settlement ratios, cashless network hospitals, critical illness riders, and get expert advisory from Stockstrail.",
+    'Compare term life and health insurance in India: claim settlement ratio, cover amount, cashless hospitals and riders. Get a free policy review from Stockstrail.',
   keywords:
     "term insurance India, health insurance plans, best term insurance 2026, life insurance, medical insurance, claim settlement ratio, health insurance for family, critical illness cover, Stockstrail insurance",
   alternates: {
     canonical: "https://www.stockstrail.in/services/insurance",
   },
   openGraph: {
-    title: "Term & Health Insurance in India: Plans & Comparison | Stockstrail",
+    title: 'Compare Term & Health Insurance in India | Stockstrail',
     description:
-      "Protect your family with top Term Life and Health Insurance plans in India. Compare claim settlement ratios, cashless network hospitals, and get expert advisory from Stockstrail.",
+      'Compare term life and health insurance in India: claim settlement ratio, cover amount, cashless hospitals and riders. Get a free policy review from Stockstrail.',
     url: "https://www.stockstrail.in/services/insurance",
     siteName: "Stockstrail",
     locale: "en_IN",
     type: "website",
-    images: ["/og-stockstrail.png"],
+    images: [
+      {
+        url: "/og-stockstrail.png",
+        width: 1200,
+        height: 630,
+        alt: 'Compare Term & Health Insurance in India | Stockstrail',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Term & Health Insurance in India: Plans & Comparison | Stockstrail",
+    title: 'Compare Term & Health Insurance in India | Stockstrail',
     description:
-      "Protect your family with top Term Life and Health Insurance plans in India with unbiased advisory from Stockstrail.",
+      'Compare term life and health insurance in India: claim settlement ratio, cover amount, cashless hospitals and riders. Get a free policy review from Stockstrail.',
     images: ["/og-stockstrail.png"],
   },
 };

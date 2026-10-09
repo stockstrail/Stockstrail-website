@@ -42,12 +42,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let categoryRoutes: MetadataRoute.Sitemap = []
   try {
     const categories = await getCategories()
-    categoryRoutes = (categories || []).map((cat) => ({
-      url: `${learningBaseUrl}/categories/${cat.slug}`,
-      lastModified: CURRENT_TIMESTAMP,
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    }))
+    categoryRoutes = (categories || [])
+      .filter((cat) => cat.slug !== 'swp')
+      .map((cat) => ({
+        url: `${learningBaseUrl}/categories/${cat.slug}`,
+        lastModified: CURRENT_TIMESTAMP,
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      }))
   } catch (e) {
     console.error('Error fetching categories for sitemap:', e)
   }

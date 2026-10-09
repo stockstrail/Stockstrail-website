@@ -24,11 +24,12 @@ export const metadata: Metadata = {
   ),
 
   title: {
-    default: "Stockstrail - Financial Planning & Investment Guidance in India",
-    template: "%s | Stockstrail",
+    default: "Stockstrail | Financial Planning & Mutual Fund SIP in India",
+    template: "%s",
   },
   description:
-    "Achieve financial independence with expert financial planning, mutual funds SIP, fixed deposits, insurance, and loan guidance from Stockstrail (AMFI ARN-284122).",
+    "Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, FDs and loans. Book a free strategy call.",
+
   keywords: [
     "Stockstrail",
     "STOCKSTRAIL",
@@ -89,24 +90,24 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://www.stockstrail.in",
     siteName: "Stockstrail",
-    title: "Stockstrail - Financial Planning & Investment Guidance in India",
+    title: "Stockstrail | Financial Planning & Mutual Fund SIP in India",
     description:
-      "Achieve financial independence with expert financial planning, mutual funds SIP, insurance, and investment guidance from Stockstrail.",
+      "Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, FDs and loans. Book a free strategy call.",
     images: [
       {
         url: "/og-stockstrail.png",
-        width: 1100,
+        width: 1200,
         height: 630,
-        alt: "Stockstrail - Financial Planning & Investment Guidance",
+        alt: "Stockstrail | Financial Planning & Mutual Fund SIP in India",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Stockstrail - Financial Planning & Investment Guidance in India",
+    title: "Stockstrail | Financial Planning & Mutual Fund SIP in India",
     description:
-      "Achieve financial independence with expert financial planning and investment guidance from Stockstrail.",
+      "Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, FDs and loans. Book a free strategy call.",
     images: ["/og-stockstrail.png"],
   },
 };
@@ -204,8 +205,8 @@ export default function RootLayout({
     ],
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 31.8105,
-      longitude: 76.1367
+      latitude: 31.803886,
+      longitude: 76.1098365
     },
     address: {
       '@type': 'PostalAddress',

@@ -6,8 +6,7 @@ import { getServerUser, getServerProfile } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
   title: "Risk Profiling Questionnaire | Stockstrail",
-  description:
-    "Answer 11 questions to determine your risk tolerance, investment horizon, and get an indicative allocation profile aligned with Stockstrail's methodology.",
+  description: "Answer 11 questions to find your risk tolerance and investment horizon and get an indicative allocation profile.",
   alternates: {
     canonical: "https://www.stockstrail.in/risk-profile",
   },

@@ -28,28 +28,36 @@ const faqs = [
 ];
 
 export const metadata: Metadata = {
-  title: "Open Demat Account - Start Stock Market Investing | Stockstrail",
+  title: 'Open Demat & Trading Account Online in India | Stockstrail',
   description:
-    "Open a free Demat account with Stockstrail. Trade stocks, mutual funds, IPOs, and more with India's top brokers. Zero account opening charges, seamless KYC, and expert guidance.",
+    'Open a paperless Demat and trading account online with leading brokers. Learn the KYC steps, documents and charges, then get step-by-step help from Stockstrail.',
   keywords:
     "demat account, open demat, stock trading, share market, IPO, equity investment, stockstrail, online trading",
   alternates: {
     canonical: "https://www.stockstrail.in/services/open-demat",
   },
   openGraph: {
-    title: "Open Demat Account - Start Stock Market Investing | Stockstrail",
+    title: 'Open Demat & Trading Account Online in India | Stockstrail',
     description:
-      "Open a free Demat account and start investing in stocks, IPOs, and mutual funds. Zero charges, quick KYC, expert support.",
+      'Open a paperless Demat and trading account online with leading brokers. Learn the KYC steps, documents and charges, then get step-by-step help from Stockstrail.',
     url: "https://www.stockstrail.in/services/open-demat",
+    siteName: "Stockstrail",
     type: "website",
     locale: "en_IN",
-    images: ["/og-stockstrail.png"],
+    images: [
+      {
+        url: "/og-stockstrail.png",
+        width: 1200,
+        height: 630,
+        alt: 'Open Demat & Trading Account Online in India | Stockstrail',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Open Demat Account - Start Stock Market Investing | Stockstrail",
+    title: 'Open Demat & Trading Account Online in India | Stockstrail',
     description:
-      "Open a free Demat account and start investing in stocks, IPOs, and mutual funds. Zero charges, quick KYC, expert support.",
+      'Open a paperless Demat and trading account online with leading brokers. Learn the KYC steps, documents and charges, then get step-by-step help from Stockstrail.',
     images: ["/og-stockstrail.png"],
   },
 };

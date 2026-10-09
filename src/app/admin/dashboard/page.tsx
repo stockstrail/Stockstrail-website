@@ -8,10 +8,6 @@ import { AdminQueriesContent } from "@/components/features/risk-assessment/admin
 import type { RiskAttemptWithProfile } from "@/lib/supabase/types";
 import type { Review, QueryRecord } from "@/lib/supabase";
 
-export const metadata = {
-  title: "Admin Dashboard | Stockstrail",
-  description: "Admin panel for managing risk profiles",
-};
 
 export const dynamic = 'force-dynamic';
 

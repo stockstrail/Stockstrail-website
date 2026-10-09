@@ -10,24 +10,30 @@ interface Props {
   params: Promise<{ slug: string; lessonSlug: string }>;
 }
 
+import { LEARNING_LESSON_METADATA } from "@/lib/seo/blueprint-meta";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, lessonSlug } = await params;
+  const key = `${slug}/${lessonSlug}`;
+  const meta = LEARNING_LESSON_METADATA[key];
+
   const c = await getCourseBySlug(slug);
-  if (!c) {
-    return {
-      title: "Course not found — Stockstrail Learning",
-    };
+  if (!c && !meta) {
+    return {};
   }
 
-  const lesson = c.modules
+  const lesson = c?.modules
     .flatMap((m) => m.lessons)
     .find((l) => l.slug === lessonSlug);
 
-  const title = lesson ? `${lesson.title} — ${c.title} | Stockstrail Learning` : `${c.title} — Stockstrail Learning`;
+  const fallbackTitle = lesson ? `${lesson.title} — ${c?.title || "Course"} | Stockstrail` : `${c?.title || "Lesson"} | Stockstrail`;
   const firstBlock = lesson?.blocks.find((b) => "text" in b && typeof (b as { text?: unknown }).text === "string") as { text: string } | undefined;
-  const description = firstBlock?.text ? firstBlock.text.slice(0, 160) : c.tagline || c.description;
+  const fallbackDesc = firstBlock?.text ? firstBlock.text.slice(0, 160) : c?.tagline || c?.description || "Free finance lesson by Stockstrail Learning.";
+
+  const title = meta?.title || fallbackTitle;
+  const description = meta?.description || fallbackDesc;
   const pageUrl = `https://learning.stockstrail.in/courses/${slug}/${lessonSlug}`;
-  const shareImage = c.ogImage || c.coverImage;
+  const shareImage = c?.ogImage || c?.coverImage;
 
   return {
     title,
@@ -47,13 +53,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
               alt: title,
             },
           ]
-        : undefined,
+        : [
+            {
+              url: "/og-stockstrail.png",
+              width: 1200,
+              height: 630,
+              alt: title,
+            },
+          ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: shareImage ? [shareImage] : undefined,
+      images: shareImage ? [shareImage] : ["/og-stockstrail.png"],
     },
     alternates: {
       canonical: pageUrl,

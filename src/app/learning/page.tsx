@@ -10,8 +10,9 @@ import JsonLd from "@/components/common/JsonLd";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Stockstrail Learning — Free Investing & Personal Finance Courses for India",
-  description: "Free structured courses on mutual funds, SIP, insurance, tax saving, stock market, and retirement planning — built for Indian investors. No login, no ads, SEBI-aware content.",
+  title: 'Stockstrail Learning: Free Investing & Finance Courses India',
+  description:
+    'Free, structured courses on mutual funds, SIP, insurance, tax saving, stock market and retirement for Indian investors. No login, no ads, no sales pitch.',
   keywords: "mutual fund course India, SIP investing guide, ELSS tax saving, financial literacy India, free investing course, personal finance India, SEBI AMFI, retirement planning India",
   icons: {
     icon: { url: "/favicon.svg?v=3", type: "image/svg+xml" },
@@ -19,10 +20,26 @@ export const metadata: Metadata = {
     apple: "/favicon.svg?v=3",
   },
   openGraph: {
-    title: "Stockstrail Learning — Free Investing & Personal Finance Courses for India",
-    description: "Free structured courses on mutual funds, SIP, insurance, tax saving, stock market, and retirement planning — built for Indian investors.",
+    title: 'Stockstrail Learning: Free Investing & Finance Courses India',
+    description:
+      'Free, structured courses on mutual funds, SIP, insurance, tax saving, stock market and retirement for Indian investors. No login, no ads, no sales pitch.',
     url: "https://learning.stockstrail.in",
     siteName: "Stockstrail Learning",
+    images: [
+      {
+        url: "/og-stockstrail.png",
+        width: 1200,
+        height: 630,
+        alt: 'Stockstrail Learning: Free Investing & Finance Courses India',
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: 'Stockstrail Learning: Free Investing & Finance Courses India',
+    description:
+      'Free, structured courses on mutual funds, SIP, insurance, tax saving, stock market and retirement for Indian investors. No login, no ads, no sales pitch.',
+    images: ["/og-stockstrail.png"],
   },
   alternates: {
     canonical: "https://learning.stockstrail.in",

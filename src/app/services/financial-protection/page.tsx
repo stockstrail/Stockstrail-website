@@ -5,11 +5,9 @@ import ServiceFAQSection from '@/components/services/ServiceFAQSection';
 import ServiceGEOSection from '@/components/services/ServiceGEOSection';
 
 export const metadata: Metadata = {
-  title: 'Financial Protection & Insurance Planning | Stockstrail',
-
+  title: 'Financial Protection Planning for Families | Stockstrail',
   description:
-    'Understand and plan your financial protection with Stockstrail. Explore insurance, emergency savings, motor and travel insurance, tax filing support and financial solutions based on your needs.',
-
+    'Build a family safety net: term and health insurance, emergency fund, motor and travel cover and tax-filing support. Start with a free Stockstrail review.',
   keywords:
     'financial protection, financial protection planning, financial planning, insurance planning, financial security, motor insurance, travel insurance, term insurance, health insurance, tax filing, emergency savings, Stockstrail',
 
@@ -18,18 +16,29 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: 'Financial Protection & Planning | Stockstrail',
+    title: 'Financial Protection Planning for Families | Stockstrail',
     description:
-      'Plan for the financial risks that can affect your family, income, assets and goals. Explore insurance, savings and other financial solutions with Stockstrail.',
+      'Build a family safety net: term and health insurance, emergency fund, motor and travel cover and tax-filing support. Start with a free Stockstrail review.',
     url: 'https://www.stockstrail.in/services/financial-protection',
+    siteName: 'Stockstrail',
+    locale: 'en_IN',
     type: 'website',
+    images: [
+      {
+        url: '/og-stockstrail.png',
+        width: 1200,
+        height: 630,
+        alt: 'Financial Protection Planning for Families | Stockstrail',
+      },
+    ],
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Financial Protection & Planning | Stockstrail',
+    title: 'Financial Protection Planning for Families | Stockstrail',
     description:
-      'Explore financial protection, insurance, savings and other financial solutions based on your needs with Stockstrail.',
+      'Build a family safety net: term and health insurance, emergency fund, motor and travel cover and tax-filing support. Start with a free Stockstrail review.',
+    images: ['/og-stockstrail.png'],
   },
 };
 

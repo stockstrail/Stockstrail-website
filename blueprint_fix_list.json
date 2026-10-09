@@ -1,0 +1,236 @@
+[
+  {
+    "Fix list: issues found on the live site, in priority order": "IDs (F1, F7 ...) are referenced from the notes on the Meta sheets. P1 = do first. Compliance items are flags for review by a qualified professional, not legal advice.",
+    "__EMPTY": "",
+    "__EMPTY_1": "",
+    "__EMPTY_2": "",
+    "__EMPTY_3": "",
+    "__EMPTY_4": "",
+    "__EMPTY_5": ""
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "ID",
+    "__EMPTY": "Priority",
+    "__EMPTY_1": "Area",
+    "__EMPTY_2": "Issue",
+    "__EMPTY_3": "Where / evidence",
+    "__EMPTY_4": "Recommended fix",
+    "__EMPTY_5": "Owner"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F1",
+    "__EMPTY": "P1",
+    "__EMPTY_1": "Title tags",
+    "__EMPTY_2": "Brand name appears twice in the rendered <title> on many pages.",
+    "__EMPTY_3": "Live pages: /services/mutual-funds, /blog, /calculators/sip all end '| Stockstrail | Stockstrail'. Home and About render correctly.",
+    "__EMPTY_4": "Use a title template ('%s | Stockstrail') and remove '| Stockstrail' from per-page titles, or set an absolute title on pages that already contain the brand.",
+    "__EMPTY_5": "Developer"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F2",
+    "__EMPTY": "P1",
+    "__EMPTY_1": "Deployment",
+    "__EMPTY_2": "Your sheet and the live site disagree on some metadata.",
+    "__EMPTY_3": "About live title: 'About Us | Stockstrail — Founder, Certifications & Our Approach'; Blog live title: 'Financial Insights & Investment Strategies Blog | Stockstrail | Stockstrail'. Your sheet lists different values.",
+    "__EMPTY_4": "Confirm which version is deployed, purge CDN/ISR cache, then treat the final sheet as the single source of truth.",
+    "__EMPTY_5": "Developer"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F3",
+    "__EMPTY": "P1",
+    "__EMPTY_1": "Indexing",
+    "__EMPTY_2": "Gated pages are indexable and carry the home-page description.",
+    "__EMPTY_3": "/sign-in and /complete-profile are 'index, follow' with inherited root meta (your sheet).",
+    "__EMPTY_4": "Set robots to noindex,nofollow and remove both from the XML sitemap.",
+    "__EMPTY_5": "Developer"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F4",
+    "__EMPTY": "P1",
+    "__EMPTY_1": "Title tags",
+    "__EMPTY_2": "A blog post title is a raw slug.",
+    "__EMPTY_3": "Blog #5: 'Stockstrail-Mutual-Funds-Chapter-4 | Stockstrail'.",
+    "__EMPTY_4": "Replace with the new title (see Meta - Main Site).",
+    "__EMPTY_5": "Content"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F5",
+    "__EMPTY": "P1",
+    "__EMPTY_1": "Content freshness",
+    "__EMPTY_2": "Time-bound article now reads as out of date.",
+    "__EMPTY_3": "Blog #18 says 'Before September 1' but today is 9 Oct 2026.",
+    "__EMPTY_4": "Rewrite as a 'how to add a nominee now' guide, re-verify against the SEBI circular, add 'Last updated'.",
+    "__EMPTY_5": "Content"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F6",
+    "__EMPTY": "P1",
+    "__EMPTY_1": "Compliance / trust",
+    "__EMPTY_2": "Fee and commission claims contradict your own disclosure.",
+    "__EMPTY_3": "SIP calculator page: '100% Free Advice', 'zero distributor markups', 'Direct AMC Execution', 'zero advisory fees', 'Zero-commission direct AMC investment', footer 'unbiased advice'. Home disclosure: 'we receive commissions from AMCs'. MF page FAQ: Regular plans include distribution expenses.",
+    "__EMPTY_4": "Make every page consistent with the commission disclosure. Remove absolute claims ('zero', 'unbiased', 'top-performing'). Have a compliance professional review.",
+    "__EMPTY_5": "Founder + compliance"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F7",
+    "__EMPTY": "P1",
+    "__EMPTY_1": "Compliance / trust",
+    "__EMPTY_2": "Titles such as 'advisor', 'SEBI-certified' and a 'SEBI Registered' label may mislead.",
+    "__EMPTY_3": "About page: label 'SEBI Registered' beside a SEBI Investor Certification exam certificate; 'SEBI-Certified Advisor'; footer 'Founder & Principal Advisor'; 'certified financial advisor'.",
+    "__EMPTY_4": "You are an AMFI-registered mutual fund distributor (ARN-284122). An exam certificate is not SEBI registration. Use 'AMFI-registered mutual fund distributor' and have compliance confirm whether 'advisor/advisory' wording is acceptable. I am not a lawyer; please verify.",
+    "__EMPTY_5": "Founder + compliance"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F8",
+    "__EMPTY": "P1",
+    "__EMPTY_1": "Regulatory disclosures",
+    "__EMPTY_2": "Disclosures for insurance, loans and Demat were not visible on the pages I read.",
+    "__EMPTY_3": "Pages I read show only AMFI / NISM / SEBI-exam credentials. An AMFI ARN does not cover insurance distribution, loan sourcing or broker referrals.",
+    "__EMPTY_4": "On each of those service pages show the relevant licence / partner status (for example IRDAI licence or POSP details, lending partners, broker partner relationship) next to the CTA.",
+    "__EMPTY_5": "Founder + compliance"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F9",
+    "__EMPTY": "P2",
+    "__EMPTY_1": "Internal links",
+    "__EMPTY_2": "Footers/body links point to non-canonical or noindex URLs.",
+    "__EMPTY_3": "About links: /mutual-funds, /fixed-deposit, /insurance, /loan, /risk-profile. Blog footer: /mutual-funds, /fixed-deposit, /insurance, /loan, /open-demat, /financial-protection, /learning. MF page links /risk-profile (noindex). About/Blog 'Learn' link uses www.learning.stockstrail.in.",
+    "__EMPTY_4": "Link straight to canonicals: /services/..., /check-risk-profile, https://learning.stockstrail.in. Avoid relying on redirects.",
+    "__EMPTY_5": "Developer"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F10",
+    "__EMPTY": "P2",
+    "__EMPTY_1": "Duplicate topics",
+    "__EMPTY_2": "Two near-identical learning categories.",
+    "__EMPTY_3": "/categories/personal-finance-basics and /categories/personal-finance.",
+    "__EMPTY_4": "Merge into one category and 301 the other.",
+    "__EMPTY_5": "Content"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F11",
+    "__EMPTY": "P2",
+    "__EMPTY_1": "Thin pages",
+    "__EMPTY_2": "Empty category page.",
+    "__EMPTY_3": "/categories/swp has no matching course.",
+    "__EMPTY_4": "noindex until an SWP course exists (then build an SWP calculator too).",
+    "__EMPTY_5": "Content"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F12",
+    "__EMPTY": "P2",
+    "__EMPTY_1": "Fact consistency",
+    "__EMPTY_2": "The same fact differs between pages.",
+    "__EMPTY_3": "'40+ AMCs' (Home) vs '25+ AMCs' (About). FD 'up to 7.5%' (About) vs 'up to 9.1%' (SIP page). LAMF 'from 9%' (meta) vs 'from 9.5%' (SIP page).",
+    "__EMPTY_4": "Keep one dated, sourced number in one place and reference it everywhere. Inconsistent facts hurt trust and AI answer extraction.",
+    "__EMPTY_5": "Content"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F13",
+    "__EMPTY": "P2",
+    "__EMPTY_1": "URLs",
+    "__EMPTY_2": "Very long, typo or keyword-stuffed blog slugs.",
+    "__EMPTY_3": "IT layoffs post slug = 166 characters; term-vs-life = 92; India VIX slug has 'why-stockstrail-track-it-every-single-day'; 'emplyoee' typo; 'chapter-N' and '-stockstrail' suffixes; 'beginner-s'.",
+    "__EMPTY_4": "Create short slugs for the worst offenders, 301 old to new, update canonicals, sitemap and internal links. Leave good URLs alone.",
+    "__EMPTY_5": "Developer"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F14",
+    "__EMPTY": "P2",
+    "__EMPTY_1": "Topical authority",
+    "__EMPTY_2": "Chapter series is scattered.",
+    "__EMPTY_3": "Posts titled Chapter 2-9 (and FAQs) are not tied together.",
+    "__EMPTY_4": "Build a pillar page 'Mutual Funds Guide for Beginners' linking all chapters, with next/previous links in each chapter.",
+    "__EMPTY_5": "Content"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F15",
+    "__EMPTY": "P2",
+    "__EMPTY_1": "E-E-A-T",
+    "__EMPTY_2": "No visible author/reviewer layer on articles.",
+    "__EMPTY_3": "Blog pages I read show no byline or review date.",
+    "__EMPTY_4": "Add author byline linking to a Vikrant Bhardwaj profile (credentials: AMFI ARN, NISM V-A), 'Last reviewed' date, and primary sources (SEBI, AMFI, RBI, NSE, IRDAI) on every article.",
+    "__EMPTY_5": "Content"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F16",
+    "__EMPTY": "P2",
+    "__EMPTY_1": "Structured data",
+    "__EMPTY_2": "Schema coverage unknown/incomplete.",
+    "__EMPTY_3": "Not verified for every page.",
+    "__EMPTY_4": "Add Organization/FinancialService + WebSite + BreadcrumbList site-wide; BlogPosting on articles; WebApplication on calculators; Course on learning courses; Person for the founder. Do NOT mark up your own testimonials as AggregateRating (self-serving reviews are not eligible).",
+    "__EMPTY_5": "Developer"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F17",
+    "__EMPTY": "P2",
+    "__EMPTY_1": "Rendering",
+    "__EMPTY_2": "FAQ answers did not appear in the fetched page text.",
+    "__EMPTY_3": "On Home, About and SIP Calculator the FAQ questions were visible but the answers were not in the text I could fetch (likely collapsed accordions).",
+    "__EMPTY_4": "In Search Console use URL Inspection > View crawled page to confirm the answers are in the server-rendered HTML. If not, render them server-side.",
+    "__EMPTY_5": "Developer"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F18",
+    "__EMPTY": "P2",
+    "__EMPTY_1": "Social / OG",
+    "__EMPTY_2": "Same OG image everywhere; one page has none.",
+    "__EMPTY_3": "og-stockstrail.png (1100x630) on all pages; /services/mutual-funds meta shows no og:image.",
+    "__EMPTY_4": "Use 1200x630 images, ideally per page type (service, calculator, blog, course), with og:image on every page.",
+    "__EMPTY_5": "Design + developer"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F19",
+    "__EMPTY": "P3",
+    "__EMPTY_1": "Meta keywords",
+    "__EMPTY_2": "meta keywords tag is present.",
+    "__EMPTY_3": "Google ignores it.",
+    "__EMPTY_4": "Optional: remove from the template to reduce noise. No SEO benefit either way.",
+    "__EMPTY_5": "Developer"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F20",
+    "__EMPTY": "P2",
+    "__EMPTY_1": "Local SEO",
+    "__EMPTY_2": "Local signals are thin.",
+    "__EMPTY_3": "About page repeats the same sentence for 12 districts; I could not see a Google Business Profile in my checks.",
+    "__EMPTY_4": "Claim/optimise the Google Business Profile (Moien, Chintpurni, HP 177110), keep NAP identical everywhere, collect genuine reviews, and build ONE Himachal hub page with unique local content.",
+    "__EMPTY_5": "Founder"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F21",
+    "__EMPTY": "P3",
+    "__EMPTY_1": "Architecture",
+    "__EMPTY_2": "Learning content lives on a subdomain.",
+    "__EMPTY_3": "learning.stockstrail.in is canonical; /learning on the main site 301s to it.",
+    "__EMPTY_4": "Consider consolidating under stockstrail.in/learn in future so authority accrues to one host. If you keep the subdomain, link to it prominently and mirror brand/entity schema.",
+    "__EMPTY_5": "Founder + developer"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F22",
+    "__EMPTY": "P2",
+    "__EMPTY_1": "Seasonal",
+    "__EMPTY_2": "Time-sensitive opportunities.",
+    "__EMPTY_3": "Muhurat Trading is Sunday 8 Nov 2026; NSE/BSE 2027 holiday lists usually appear mid/late Dec; tax pages peak Jan-Jul.",
+    "__EMPTY_4": "Publish the Muhurat section now, the 2027 holiday pages in Dec, and refresh tax/FD/LAMF pages each Budget or RBI/SEBI change.",
+    "__EMPTY_5": "Content"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F23",
+    "__EMPTY": "P2",
+    "__EMPTY_1": "Crawling",
+    "__EMPTY_2": "Robots.txt, sitemap and AI-crawler rules not verified.",
+    "__EMPTY_3": "I could not fetch these files.",
+    "__EMPTY_4": "Check robots.txt (allow Googlebot; decide on GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot), keep the XML sitemap to indexable canonical URLs only, and submit it in Google Search Console and Bing Webmaster Tools.",
+    "__EMPTY_5": "Developer"
+  },
+  {
+    "Fix list: issues found on the live site, in priority order": "F24",
+    "__EMPTY": "P3",
+    "__EMPTY_1": "Content roadmap",
+    "__EMPTY_2": "High-demand calculator and comparison gaps.",
+    "__EMPTY_3": "See Keyword Map: SWP, PPF, NPS, retirement, CAGR calculators; FD vs SIP; LAMF vs personal loan.",
+    "__EMPTY_4": "Add in the order shown in the Keyword Map.",
+    "__EMPTY_5": "Content"
+  }
+]
