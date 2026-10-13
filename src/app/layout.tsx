@@ -152,7 +152,7 @@ export default function RootLayout({
 
   const organizationSchema = {
     '@context': 'https://schema.org',
-    '@type': ['Organization', 'FinancialService', 'LocalBusiness'],
+    '@type': ['Organization', 'FinancialService'],
     '@id': 'https://www.stockstrail.in/#organization',
     name: 'Stockstrail',
     legalName: 'Stockstrail Financial Services',
