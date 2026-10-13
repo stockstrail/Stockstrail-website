@@ -6,7 +6,7 @@ import ClientOverlays from '@/components/home/ClientOverlays';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Stockstrail | Financial Planning & Mutual Fund SIP in India',
+  title: 'Stockstrail - Official Website | Financial Planning & Mutual Fund SIP in India',
   description:
     'Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, FDs and loans. Book a free strategy call.',
   keywords: [

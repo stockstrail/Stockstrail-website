@@ -8,7 +8,7 @@ export interface PageMetadataRecord {
 
 export const MAIN_SITE_METADATA: Record<string, PageMetadataRecord> = {
   "/": {
-    title: "Stockstrail | Financial Planning & Mutual Fund SIP in India",
+    title: "Stockstrail - Official Website | Financial Planning & Mutual Fund SIP in India",
     description: "Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, FDs and loans. Book a free strategy call.",
     canonical: "https://www.stockstrail.in",
     indexing: "index",

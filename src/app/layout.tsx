@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   ),
 
   title: {
-    default: "Stockstrail | Financial Planning & Mutual Fund SIP in India",
+    default: "Stockstrail - Official Website | Financial Planning & Mutual Fund SIP in India",
     template: "%s",
   },
   description:
@@ -123,10 +123,17 @@ export default function RootLayout({
     '@id': 'https://www.stockstrail.in/#website',
     name: 'Stockstrail',
     alternateName: [
+      'Stockstrail',
+      'STOCKSTRAIL',
+      'stockstrail',
       'Stocks Trail',
+      'StocksTrail',
+      'Stockstrail.in',
+      'www.stockstrail.in',
       'Stockstrail Financial',
       'Stockstrail Financial Services',
-      'Stockstrail India'
+      'Stockstrail India',
+      'Stockstrail Official Website'
     ],
     url: 'https://www.stockstrail.in',
     inLanguage: 'en-IN',
@@ -150,10 +157,17 @@ export default function RootLayout({
     name: 'Stockstrail',
     legalName: 'Stockstrail Financial Services',
     alternateName: [
+      'Stockstrail',
+      'STOCKSTRAIL',
+      'stockstrail',
       'Stocks Trail',
+      'StocksTrail',
+      'Stockstrail.in',
+      'www.stockstrail.in',
       'Stockstrail Financial',
       'Stockstrail Financial Services',
-      'Stockstrail India'
+      'Stockstrail India',
+      'Stockstrail Official Website'
     ],
     url: 'https://www.stockstrail.in',
     mainEntityOfPage: 'https://www.stockstrail.in',
@@ -231,6 +245,7 @@ export default function RootLayout({
       closes: '20:00'
     },
     sameAs: [
+      'https://www.quora.com/q/stockstrail',
       'https://www.linkedin.com/company/stockstrail',
       'https://www.instagram.com/stockstrail',
       'https://www.facebook.com/Stockstrail',

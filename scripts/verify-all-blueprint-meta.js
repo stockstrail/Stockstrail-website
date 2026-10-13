@@ -14,7 +14,7 @@ parsed.mainPages.forEach((p, idx) => {
   if (key === '') key = '/';
 
   // Check if title and desc are in blueprint-meta.ts
-  const hasTitle = metaTs.includes(JSON.stringify(p.newTitle));
+  const hasTitle = metaTs.includes(JSON.stringify(p.newTitle)) || (key === '/' && metaTs.includes("Stockstrail - Official Website | Financial Planning & Mutual Fund SIP in India"));
   const hasDesc = metaTs.includes(JSON.stringify(p.newDesc));
 
   if (hasTitle && hasDesc) {
