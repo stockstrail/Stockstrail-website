@@ -181,6 +181,8 @@ const Header = () => {
           {/* Logo */}
           <Link
             href="/"
+            aria-label="Stockstrail Official Website"
+            title="Stockstrail Official Website"
             className="hover:opacity-80 hover:scale-105 transition-all duration-300 group"
           >
             <StockstrailLogo />

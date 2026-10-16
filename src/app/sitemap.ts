@@ -4,7 +4,7 @@ import { getCategories, getCourses } from '@/lib/learning/supabase-db'
 
 export const revalidate = 3600
 
-const CURRENT_TIMESTAMP = new Date('2026-09-15T00:00:00Z')
+const CURRENT_TIMESTAMP = new Date('2026-10-16T00:00:00Z')
 const ANNUAL_TIMESTAMP = new Date('2026-01-01T00:00:00Z')
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

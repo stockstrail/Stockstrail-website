@@ -71,7 +71,12 @@ export default function Footer() {
           
           {/* COLUMN 1: BRAND & CREDENTIALS (4 COLS) */}
           <div className="lg:col-span-4 space-y-5">
-            <Link href="/" className="inline-block hover:opacity-90 transition-opacity">
+            <Link
+              href="/"
+              aria-label="Stockstrail Official Website"
+              title="Stockstrail Official Website"
+              className="inline-block hover:opacity-90 transition-opacity"
+            >
               <StockstrailLogo />
             </Link>
 

@@ -71,6 +71,11 @@ const nextConfig: NextConfig = {
         destination: 'https://learning.stockstrail.in/:path*',
         permanent: true,
       },
+      {
+        source: '/contact',
+        destination: '/lets-talk',
+        permanent: true,
+      },
     ];
   },
   async headers() {
@@ -144,17 +149,8 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        // Favicons: revalidate so updates reflect immediately
-        source: '/favicon.svg',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=0, must-revalidate',
-          },
-        ],
-      },
-      {
-        source: '/icon.svg',
+        // Favicons & Manifest: revalidate so Googlebot and all browsers pick up icon changes immediately
+        source: '/(favicon.*|apple-touch-icon.*|site.webmanifest)',
         headers: [
           {
             key: 'Cache-Control',

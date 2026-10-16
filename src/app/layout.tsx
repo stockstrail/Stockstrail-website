@@ -80,9 +80,17 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: { url: "/favicon.svg?v=3", type: "image/svg+xml" },
-    shortcut: "/favicon.svg?v=3",
-    apple: "/favicon.svg?v=3",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 
   openGraph: {
@@ -117,39 +125,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const webSiteSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    '@id': 'https://www.stockstrail.in/#website',
-    name: 'Stockstrail',
-    alternateName: [
-      'Stockstrail',
-      'STOCKSTRAIL',
-      'stockstrail',
-      'Stocks Trail',
-      'StocksTrail',
-      'Stockstrail.in',
-      'www.stockstrail.in',
-      'Stockstrail Financial',
-      'Stockstrail Financial Services',
-      'Stockstrail India',
-      'Stockstrail Official Website'
-    ],
-    url: 'https://www.stockstrail.in',
-    inLanguage: 'en-IN',
-    publisher: {
-      '@id': 'https://www.stockstrail.in/#organization',
-    },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: 'https://learning.stockstrail.in/categories?search={search_term_string}',
-      },
-      'query-input': 'required name=search_term_string',
-    },
-  };
-
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'FinancialService'],
@@ -171,8 +146,8 @@ export default function RootLayout({
     ],
     url: 'https://www.stockstrail.in',
     mainEntityOfPage: 'https://www.stockstrail.in',
-    logo: 'https://www.stockstrail.in/stockstrail.png',
-    image: 'https://www.stockstrail.in/stockstrail.png',
+    logo: 'https://www.stockstrail.in/favicon-512x512.png',
+    image: 'https://www.stockstrail.in/favicon-512x512.png',
     description: 'AMFI-Registered Mutual Fund Distributor (ARN-284122) providing personalized financial planning, mutual funds SIP, fixed deposits, insurance, and loan advisory across India.',
     founder: {
       '@type': 'Person',
@@ -283,10 +258,13 @@ export default function RootLayout({
           `
         }} />
 
-        {/* Favicon - explicit link for Google and all browsers */}
-        <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml" sizes="any" />
-        <link rel="shortcut icon" href="/favicon.svg?v=3" />
-        <link rel="apple-touch-icon" href="/favicon.svg?v=3" />
+        {/* Favicon - explicit links for Google Search, Googlebot-Image and all browsers */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48" />
+        <link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+        <link rel="manifest" href="/site.webmanifest" />
 
         {/* RSS / Atom Feed Discovery for Google Discover & News Aggregators */}
         <link
@@ -362,7 +340,6 @@ export default function RootLayout({
       </head>
 
       <body className="antialiased">
-        <JsonLd data={webSiteSchema} />
         <JsonLd data={organizationSchema} />
         <WebMCPRegistry />
         <UtmTracker />
