@@ -13,7 +13,7 @@ export function cn(...inputs: ClassValue[]) {
 export function formatDate(dateString: string): string {
   try {
     const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', {
+    return date.toLocaleDateString('en-IN', {
       month: 'short',
       day: 'numeric',
       year: 'numeric'
@@ -69,8 +69,8 @@ export function isValidEmail(email: string): boolean {
 /**
  * Format currency
  */
-export function formatCurrency(amount: number, currency: string = 'USD'): string {
-  return new Intl.NumberFormat('en-US', {
+export function formatCurrency(amount: number, currency: string = 'INR'): string {
+  return new Intl.NumberFormat('en-IN', {
     style: 'currency',
     currency
   }).format(amount)

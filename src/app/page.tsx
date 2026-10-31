@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import Layout from '@/components/layout/Layout';
 import HeroSection from '@/components/home/HeroSection';
+import ConsultationHeroSection from '@/components/home/ConsultationHeroSection';
 import BelowFoldSections from '@/components/home/BelowFoldSections';
 import ClientOverlays from '@/components/home/ClientOverlays';
 import JsonLd from '@/components/common/JsonLd';
@@ -22,6 +23,9 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.stockstrail.in',
+    languages: {
+      'en-IN': 'https://www.stockstrail.in',
+    },
   },
   openGraph: {
     title: 'Stockstrail | Financial Planning & Mutual Fund SIP in India',
@@ -88,6 +92,7 @@ export default function Home() {
       <JsonLd data={webSiteSchema} />
       <div className="flex flex-col w-full overflow-hidden">
         <HeroSection />
+        <ConsultationHeroSection />
         <BelowFoldSections />
         <Suspense fallback={null}>
           <ClientOverlays />

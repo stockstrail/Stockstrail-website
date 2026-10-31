@@ -22,6 +22,12 @@ export const metadata: Metadata = {
       ? "https://www.stockstrail.in"
       : (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000")
   ),
+  alternates: {
+    canonical: "https://www.stockstrail.in",
+    languages: {
+      "en-IN": "https://www.stockstrail.in",
+    },
+  },
 
   title: {
     default: "Stockstrail - Official Website | Financial Planning & Mutual Fund SIP in India",
@@ -130,6 +136,7 @@ export default function RootLayout({
     '@type': ['Organization', 'FinancialService'],
     '@id': 'https://www.stockstrail.in/#organization',
     name: 'Stockstrail',
+    inLanguage: 'en-IN',
     legalName: 'Stockstrail Financial Services',
     alternateName: [
       'Stockstrail',
@@ -235,12 +242,13 @@ export default function RootLayout({
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID || "up26ltx46a";
   return (
     <html
-      lang="en"
+      lang="en-IN"
       suppressHydrationWarning
       className={inter.variable}
     >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="content-language" content="en-IN" />
         <meta name="theme-color" content="#00ff97" />
         <meta name="msapplication-TileColor" content="#012928" />
 
