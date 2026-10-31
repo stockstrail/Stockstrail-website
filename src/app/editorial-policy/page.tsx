@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description:
     'How Stockstrail researches, writes and fact-checks financial content: sources, review process, AMFI and SEBI compliance standards and how we correct errors.',
   alternates: {
-    canonical: 'https://www.stockstrail.in/editorial-policy',
+    canonical: 'https://stockstrail.in/editorial-policy',
   },
   openGraph: {
     title: 'Editorial Policy & Fact-Checking Standards | Stockstrail',
     description:
       'How Stockstrail researches, writes and fact-checks financial content: sources, review process, AMFI and SEBI compliance standards and how we correct errors.',
-    url: 'https://www.stockstrail.in/editorial-policy',
+    url: 'https://stockstrail.in/editorial-policy',
     siteName: 'Stockstrail',
     locale: 'en_IN',
     type: 'website',
@@ -44,13 +44,13 @@ export default function EditorialPolicyPage() {
     '@type': 'AboutPage',
     name: 'Stockstrail Editorial Standards & Fact-Checking Policy',
     description: 'Editorial standards, primary source research verification, and AMFI ARN-284122 compliance methodology.',
-    url: 'https://www.stockstrail.in/editorial-policy',
+    url: 'https://stockstrail.in/editorial-policy',
     publisher: {
       '@type': 'Organization',
       name: 'Stockstrail',
-      url: 'https://www.stockstrail.in',
-      logo: 'https://www.stockstrail.in/stockstrail.png',
-      publishingPrinciples: 'https://www.stockstrail.in/editorial-policy'
+      url: 'https://stockstrail.in',
+      logo: 'https://stockstrail.in/stockstrail.png',
+      publishingPrinciples: 'https://stockstrail.in/editorial-policy'
     }
   };
 

@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   keywords:
     "financial calculators, SIP calculator, lumpsum calculator, FD calculator, RD calculator, EMI calculator, income tax calculator, Stockstrail",
   alternates: {
-    canonical: "https://www.stockstrail.in/calculators",
+    canonical: "https://stockstrail.in/calculators",
   },
   openGraph: {
     title: 'Free Financial Calculators: SIP, FD, EMI & Tax | Stockstrail',
     description:
       "Use Stockstrail's free calculators for SIP, lumpsum, FD, RD, loan EMI and income tax FY 2026-27. Instant results, no login. Plan goals with realistic numbers.",
-    url: "https://www.stockstrail.in/calculators",
+    url: "https://stockstrail.in/calculators",
     siteName: "Stockstrail",
     locale: "en_IN",
     type: "website",

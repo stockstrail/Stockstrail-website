@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "retirement planning India",
     "personal finance academy",
   ],
-  authors: [{ name: "Stockstrail", url: "https://www.stockstrail.in" }],
+  authors: [{ name: "Stockstrail", url: "https://stockstrail.in" }],
   creator: "Stockstrail",
   publisher: "Stockstrail Learning",
   category: "finance",
@@ -82,7 +82,7 @@ export default function LearningLayout({ children }: { children: React.ReactNode
     parentOrganization: {
       "@type": "FinancialService",
       name: "Stockstrail",
-      url: "https://www.stockstrail.in",
+      url: "https://stockstrail.in",
     },
   };
 

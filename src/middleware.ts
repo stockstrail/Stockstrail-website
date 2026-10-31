@@ -8,9 +8,9 @@ export function middleware(request: NextRequest) {
   const pathname = rawUrl.pathname;
   const isLocalhost = host.includes("localhost") || host.includes("127.0.0.1");
 
-  // 1. Apex Domain 301 Permanent Redirect: stockstrail.in -> www.stockstrail.in
-  if (!isLocalhost && host === "stockstrail.in") {
-    const destinationUrl = `https://www.stockstrail.in${pathname}${rawUrl.search}`;
+  // 1. WWW Domain 301 Permanent Redirect: www.stockstrail.in -> stockstrail.in
+  if (!isLocalhost && host === "www.stockstrail.in") {
+    const destinationUrl = `https://stockstrail.in${pathname}${rawUrl.search}`;
     return NextResponse.redirect(destinationUrl, { status: 301 });
   }
 
@@ -32,7 +32,7 @@ export function middleware(request: NextRequest) {
       return NextResponse.rewrite(rawUrl);
     }
   } else {
-    // On the main domain (www.stockstrail.in) in production, redirect /learning/* paths to the canonical learning subdomain
+    // On the main domain (stockstrail.in) in production, redirect /learning/* paths to the canonical learning subdomain
     if (!isLocalhost && pathname.startsWith("/learning")) {
       const subPath = pathname.replace(/^\/learning/, "") || "/";
       const redirectUrl = `https://learning.stockstrail.in${subPath}${rawUrl.search}`;

@@ -19,22 +19,22 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NODE_ENV === "production"
-      ? "https://www.stockstrail.in"
+      ? "https://stockstrail.in"
       : (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000")
   ),
   alternates: {
-    canonical: "https://www.stockstrail.in",
+    canonical: "https://stockstrail.in/",
     languages: {
-      "en-IN": "https://www.stockstrail.in",
+      "en-IN": "https://stockstrail.in/",
     },
   },
 
   title: {
-    default: "Stockstrail - Official Website | Financial Planning & Mutual Fund SIP in India",
+    default: "Stockstrail | Financial Planning & Investment Services",
     template: "%s",
   },
   description:
-    "Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, FDs and loans. Book a free strategy call.",
+    "Stockstrail provides financial planning and investment services. Explore our services and connect with our team.",
 
   keywords: [
     "Stockstrail",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     "AMFI ARN 284122",
     "Vikrant Bhardwaj",
   ],
-  authors: [{ name: "Stockstrail", url: "https://www.stockstrail.in" }],
+  authors: [{ name: "Stockstrail", url: "https://stockstrail.in" }],
   creator: "Stockstrail",
   publisher: "Stockstrail",
   category: "finance",
@@ -102,11 +102,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://www.stockstrail.in",
+    url: "https://stockstrail.in/",
     siteName: "Stockstrail",
-    title: "Stockstrail | Financial Planning & Mutual Fund SIP in India",
+    title: "Stockstrail | Financial Planning & Investment Services",
     description:
-      "Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, FDs and loans. Book a free strategy call.",
+      "Stockstrail provides financial planning and investment services. Explore our services and connect with our team.",
     images: [
       {
         url: "/og-stockstrail.png",
@@ -119,9 +119,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Stockstrail | Financial Planning & Mutual Fund SIP in India",
+    title: "Stockstrail | Financial Planning & Investment Services",
     description:
-      "Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, FDs and loans. Book a free strategy call.",
+      "Stockstrail provides financial planning and investment services. Explore our services and connect with our team.",
     images: ["/og-stockstrail.png"],
   },
 };
@@ -134,7 +134,7 @@ export default function RootLayout({
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'FinancialService'],
-    '@id': 'https://www.stockstrail.in/#organization',
+    '@id': 'https://stockstrail.in/#organization',
     name: 'Stockstrail',
     inLanguage: 'en-IN',
     legalName: 'Stockstrail Financial Services',
@@ -151,10 +151,10 @@ export default function RootLayout({
       'Stockstrail India',
       'Stockstrail Official Website'
     ],
-    url: 'https://www.stockstrail.in',
-    mainEntityOfPage: 'https://www.stockstrail.in',
-    logo: 'https://www.stockstrail.in/favicon-512x512.png',
-    image: 'https://www.stockstrail.in/favicon-512x512.png',
+    url: 'https://stockstrail.in/',
+    mainEntityOfPage: 'https://stockstrail.in/',
+    logo: 'https://stockstrail.in/stockstrail.png',
+    image: 'https://stockstrail.in/stockstrail.png',
     description: 'AMFI-Registered Mutual Fund Distributor (ARN-284122) providing personalized financial planning, mutual funds SIP, fixed deposits, insurance, and loan advisory across India.',
     founder: {
       '@type': 'Person',
@@ -279,13 +279,13 @@ export default function RootLayout({
           rel="alternate"
           type="application/rss+xml"
           title="Stockstrail - Financial Intelligence & Regulatory Dispatch"
-          href="https://www.stockstrail.in/feed.xml"
+          href="https://stockstrail.in/feed.xml"
         />
         <link
           rel="alternate"
           type="application/rss+xml"
           title="Stockstrail RSS Feed"
-          href="https://www.stockstrail.in/rss.xml"
+          href="https://stockstrail.in/rss.xml"
         />
 
         {/* Analytics Bootstrap (GA4 + Microsoft Clarity loaded after first interaction or idle for 0ms TBT) */}

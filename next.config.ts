@@ -54,10 +54,10 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: 'host',
-            value: 'stockstrail.in',
+            value: 'www.stockstrail.in',
           },
         ],
-        destination: 'https://www.stockstrail.in/:path*',
+        destination: 'https://stockstrail.in/:path*',
         permanent: true,
       },
       {
@@ -99,6 +99,15 @@ const nextConfig: NextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
+          },
+        ],
+      },
+      {
+        source: '/',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, must-revalidate',
           },
         ],
       },

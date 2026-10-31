@@ -7,12 +7,12 @@ export default function robots(): MetadataRoute.Robots {
   const privateRoutes = [
     '/admin',
     '/admin/*',
-    '/dashboard',
-    '/dashboard/*',
+
+
     '/api/*',
     '/auth/*',
-    '/sign-in',
-    '/complete-profile',
+
+
   ];
 
   return {
@@ -78,7 +78,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'YouBot', allow: '/', disallow: privateRoutes },
     ],
     sitemap: [
-      'https://www.stockstrail.in/sitemap.xml',
+      'https://stockstrail.in/sitemap.xml',
       'https://learning.stockstrail.in/sitemap.xml',
     ],
   }

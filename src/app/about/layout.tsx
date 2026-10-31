@@ -5,14 +5,14 @@ export const metadata: Metadata = {
   description:
     'Meet Vikrant Bhardwaj, founder of Stockstrail, an AMFI-registered mutual fund distributor (ARN-284122) in Himachal Pradesh serving 200+ clients across India.',
   alternates: {
-    canonical: 'https://www.stockstrail.in/about',
+    canonical: 'https://stockstrail.in/about',
   },
 
   openGraph: {
     title: 'About Stockstrail | Vikrant Bhardwaj, AMFI ARN-284122',
     description:
       'Meet Vikrant Bhardwaj, founder of Stockstrail, an AMFI-registered mutual fund distributor (ARN-284122) in Himachal Pradesh serving 200+ clients across India.',
-    url: 'https://www.stockstrail.in/about',
+    url: 'https://stockstrail.in/about',
     siteName: 'Stockstrail',
     locale: 'en_IN',
     type: 'website',
@@ -44,7 +44,7 @@ const founderSchema = {
   worksFor: {
     '@type': 'FinancialService',
     name: 'Stockstrail',
-    url: 'https://www.stockstrail.in',
+    url: 'https://stockstrail.in',
   },
   sameAs: [
     'https://www.linkedin.com/in/vikrantbhardwaj/',

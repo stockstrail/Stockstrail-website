@@ -8,9 +8,9 @@ import JsonLd from '@/components/common/JsonLd';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Stockstrail - Official Website | Financial Planning & Mutual Fund SIP in India',
+  title: 'Stockstrail | Financial Planning & Investment Services',
   description:
-    'Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, FDs and loans. Book a free strategy call.',
+    'Stockstrail provides financial planning and investment services. Explore our services and connect with our team.',
   keywords: [
     'Stockstrail',
     'Stocks Trail',
@@ -22,16 +22,16 @@ export const metadata: Metadata = {
     'Wealth Management India',
   ],
   alternates: {
-    canonical: 'https://www.stockstrail.in',
+    canonical: 'https://stockstrail.in/',
     languages: {
-      'en-IN': 'https://www.stockstrail.in',
+      'en-IN': 'https://stockstrail.in/',
     },
   },
   openGraph: {
-    title: 'Stockstrail | Financial Planning & Mutual Fund SIP in India',
+    title: 'Stockstrail | Financial Planning & Investment Services',
     description:
-      'Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, FDs and loans. Book a free strategy call.',
-    url: 'https://www.stockstrail.in',
+      'Stockstrail provides financial planning and investment services. Explore our services and connect with our team.',
+    url: 'https://stockstrail.in/',
     siteName: 'Stockstrail',
     locale: 'en_IN',
     type: 'website',
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Stockstrail | Financial Planning & Mutual Fund SIP in India',
+    title: 'Stockstrail | Financial Planning & Investment Services',
     description:
-      'Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, FDs and loans. Book a free strategy call.',
+      'Stockstrail provides financial planning and investment services. Explore our services and connect with our team.',
     images: ['/og-stockstrail.png'],
   },
 };
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 const webSiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  '@id': 'https://www.stockstrail.in/#website',
+  '@id': 'https://stockstrail.in/#website',
   name: 'Stockstrail',
   alternateName: [
     'Stockstrail',
@@ -71,10 +71,10 @@ const webSiteSchema = {
     'Stockstrail India',
     'Stockstrail Official Website'
   ],
-  url: 'https://www.stockstrail.in',
+  url: 'https://stockstrail.in/',
   inLanguage: 'en-IN',
   publisher: {
-    '@id': 'https://www.stockstrail.in/#organization',
+    '@id': 'https://stockstrail.in/#organization',
   },
   potentialAction: {
     '@type': 'SearchAction',

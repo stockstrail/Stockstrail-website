@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description:
     'Transparent disclosure of the commissions Stockstrail (ARN-284122) earns from mutual fund AMCs and partners, how they are paid and what it means for you.',
   alternates: {
-    canonical: 'https://www.stockstrail.in/commission-disclosure',
+    canonical: 'https://stockstrail.in/commission-disclosure',
   },
   openGraph: {
     title: 'Commission Disclosure: How Stockstrail Earns Money',
     description:
       'Transparent disclosure of the commissions Stockstrail (ARN-284122) earns from mutual fund AMCs and partners, how they are paid and what it means for you.',
-    url: 'https://www.stockstrail.in/commission-disclosure',
+    url: 'https://stockstrail.in/commission-disclosure',
     siteName: 'Stockstrail',
     locale: 'en_IN',
     type: 'website',

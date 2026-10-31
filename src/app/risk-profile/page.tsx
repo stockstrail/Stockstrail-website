@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: "Risk Profiling Questionnaire | Stockstrail",
   description: "Answer 11 questions to find your risk tolerance and investment horizon and get an indicative allocation profile.",
   alternates: {
-    canonical: "https://www.stockstrail.in/risk-profile",
+    canonical: "https://stockstrail.in/risk-profile",
   },
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
 };
 

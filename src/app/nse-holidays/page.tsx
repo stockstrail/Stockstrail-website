@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     'stock market trading calendar India'
   ],
   alternates: {
-    canonical: 'https://www.stockstrail.in/nse-holidays',
+    canonical: 'https://stockstrail.in/nse-holidays',
   },
   openGraph: {
     title: 'NSE Holidays 2026: Is Share Market Open Today? | Stockstrail',
     description:
       'NSE and BSE holiday list 2026 with live market status: 15 trading holidays, Muhurat Trading on Sunday 8 Nov, MCX timings and upcoming market closures.',
-    url: 'https://www.stockstrail.in/nse-holidays',
+    url: 'https://stockstrail.in/nse-holidays',
     siteName: 'Stockstrail',
     locale: 'en_IN',
     type: 'article',
@@ -79,7 +79,7 @@ const datasetJsonLd = {
   name: 'NSE and BSE Trading Holidays Calendar 2026',
   description:
     'Official list of 15 trading holidays, 4 weekend festivals, and Muhurat Trading session schedule for Indian stock exchanges in 2026.',
-  url: 'https://www.stockstrail.in/nse-holidays',
+  url: 'https://stockstrail.in/nse-holidays',
   keywords: [
     'NSE holidays 2026',
     'BSE holidays 2026',
@@ -89,7 +89,7 @@ const datasetJsonLd = {
   creator: {
     '@type': 'Organization',
     name: 'Stockstrail',
-    url: 'https://www.stockstrail.in',
+    url: 'https://stockstrail.in',
   },
   temporalCoverage: '2026-01-01/2026-12-31',
   spatialCoverage: {
@@ -107,19 +107,19 @@ const breadcrumbJsonLd = {
       '@type': 'ListItem',
       position: 1,
       name: 'Home',
-      item: 'https://www.stockstrail.in',
+      item: 'https://stockstrail.in',
     },
     {
       '@type': 'ListItem',
       position: 2,
       name: 'Market Resources',
-      item: 'https://www.stockstrail.in/services',
+      item: 'https://stockstrail.in/services',
     },
     {
       '@type': 'ListItem',
       position: 3,
       name: 'NSE & BSE Holiday Calendar 2026',
-      item: 'https://www.stockstrail.in/nse-holidays',
+      item: 'https://stockstrail.in/nse-holidays',
     },
   ],
 };

@@ -4,11 +4,11 @@ export const metadata: Metadata = {
   title: "Complete Your Profile | Stockstrail",
   description: "Complete your Stockstrail profile to save your risk assessment and get a personalised financial plan.",
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
   alternates: {
-    canonical: "https://www.stockstrail.in/complete-profile",
+    canonical: "https://stockstrail.in/complete-profile",
   },
 };
 
