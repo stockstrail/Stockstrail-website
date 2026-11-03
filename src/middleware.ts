@@ -1,3 +1,4 @@
+
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
@@ -8,31 +9,32 @@ export function middleware(request: NextRequest) {
   const pathname = rawUrl.pathname;
   const isLocalhost = host.includes("localhost") || host.includes("127.0.0.1");
 
-  // 1. WWW Domain 301 Permanent Redirect: www.stockstrail.in -> stockstrail.in
-  if (!isLocalhost && host === "www.stockstrail.in") {
-    const destinationUrl = `https://stockstrail.in${pathname}${rawUrl.search}`;
-    return NextResponse.redirect(destinationUrl, { status: 301 });
-  }
-
-  // 2. Redirect www.learning.stockstrail.in -> learning.stockstrail.in
-  if (!isLocalhost && (host === "www.learning.stockstrail.in" || host.startsWith("www.learning."))) {
+  // 1. Redirect www.learning.stockstrail.in -> learning.stockstrail.in
+  if (
+    !isLocalhost &&
+    (host === "www.learning.stockstrail.in" || host.startsWith("www.learning."))
+  ) {
     const destinationUrl = `https://learning.stockstrail.in${pathname}${rawUrl.search}`;
     return NextResponse.redirect(destinationUrl, { status: 301 });
   }
 
-  // Check if current request is on the learning subdomain
+  // 2. Check if current request is on the learning subdomain
   const isLearningSubdomain =
     host === "learning.stockstrail.in" ||
     host.startsWith("learning.");
 
   if (isLearningSubdomain) {
     // If on learning subdomain and path doesn't start with /learning, /admin, or /api, rewrite internally to /learning
-    if (!pathname.startsWith("/learning") && !pathname.startsWith("/admin") && !pathname.startsWith("/api")) {
+    if (
+      !pathname.startsWith("/learning") &&
+      !pathname.startsWith("/admin") &&
+      !pathname.startsWith("/api")
+    ) {
       rawUrl.pathname = `/learning${pathname}`;
       return NextResponse.rewrite(rawUrl);
     }
   } else {
-    // On the main domain (stockstrail.in) in production, redirect /learning/* paths to the canonical learning subdomain
+    // On the main domain in production, redirect /learning/* paths to the learning subdomain
     if (!isLocalhost && pathname.startsWith("/learning")) {
       const subPath = pathname.replace(/^\/learning/, "") || "/";
       const redirectUrl = `https://learning.stockstrail.in${subPath}${rawUrl.search}`;
@@ -40,7 +42,7 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // 3. Uppercase path normalization: redirect uppercase URLs to lowercase (e.g. /Calculators/SIP -> /calculators/sip)
+  // 3. Uppercase path normalization
   if (
     pathname !== pathname.toLowerCase() &&
     !pathname.startsWith("/api") &&
@@ -51,7 +53,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(lowerUrl, { status: 301 });
   }
 
-  // 4. Trailing slash normalization: remove trailing slash (e.g. /about/ -> /about)
+  // 4. Trailing slash normalization
   if (
     pathname.length > 1 &&
     pathname.endsWith("/") &&
@@ -77,5 +79,3 @@ export const config = {
     "/((?!api|_next/static|_next/image|.*\\..*).*)",
   ],
 };
-
-
