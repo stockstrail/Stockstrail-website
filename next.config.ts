@@ -1,3 +1,4 @@
+
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -49,17 +50,6 @@ const nextConfig: NextConfig = {
   transpilePackages: [],
   async redirects() {
     return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.stockstrail.in',
-          },
-        ],
-        destination: 'https://stockstrail.in/:path*',
-        permanent: true,
-      },
       {
         source: '/:path*',
         has: [
