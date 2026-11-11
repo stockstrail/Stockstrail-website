@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://stockstrail.in/complete-profile",
+    canonical: "https://www.stockstrail.in/complete-profile",
   },
 };
 

@@ -6,13 +6,13 @@ export const metadata: Metadata = {
     'Talk to Stockstrail about SIPs, insurance, FDs or loans. Book a free strategy call or message us on WhatsApp, Mon-Sat 9 AM-8 PM IST. No sales pressure.',
   keywords: "contact stockstrail, let's talk, financial experts, mutual funds advice, insurance guidance",
   alternates: {
-    canonical: 'https://stockstrail.in/lets-talk',
+    canonical: 'https://www.stockstrail.in/lets-talk',
   },
   openGraph: {
     title: 'Contact Stockstrail | Book a Free Financial Planning Call',
     description:
       'Talk to Stockstrail about SIPs, insurance, FDs or loans. Book a free strategy call or message us on WhatsApp, Mon-Sat 9 AM-8 PM IST. No sales pressure.',
-    url: 'https://stockstrail.in/lets-talk',
+    url: 'https://www.stockstrail.in/lets-talk',
     siteName: 'Stockstrail',
     locale: 'en_IN',
     type: 'website',
@@ -39,7 +39,7 @@ const contactSchema = {
   '@type': 'ContactPage',
   name: "Let's Talk - Stockstrail Advisory Consultation",
   description: 'Connect directly with Stockstrail founder and AMFI-registered financial advisors.',
-  url: 'https://stockstrail.in/lets-talk',
+  url: 'https://www.stockstrail.in/lets-talk',
   mainEntity: {
     '@type': 'FinancialService',
     name: 'Stockstrail',

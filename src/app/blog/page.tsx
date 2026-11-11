@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     "Plain-English guides on mutual funds, SIPs, insurance, tax and SEBI rules for Indian investors, written by Stockstrail's AMFI-registered team (ARN-284122).",
   keywords: 'Financial Blog India, Stockstrail Blog, Mutual Funds Guide, SEBI Guidelines, Salaried Wealth Planning, Best SIP 2026',
   alternates: {
-    canonical: 'https://stockstrail.in/blog',
+    canonical: 'https://www.stockstrail.in/blog',
   },
   openGraph: {
     title: 'Mutual Fund, SIP & Personal Finance Blog | Stockstrail',
     description:
       "Plain-English guides on mutual funds, SIPs, insurance, tax and SEBI rules for Indian investors, written by Stockstrail's AMFI-registered team (ARN-284122).",
-    url: 'https://stockstrail.in/blog',
+    url: 'https://www.stockstrail.in/blog',
     siteName: 'Stockstrail',
     locale: 'en_IN',
     type: 'website',

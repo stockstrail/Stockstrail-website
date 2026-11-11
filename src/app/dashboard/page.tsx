@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     follow: false,
   },
   alternates: {
-    canonical: "https://stockstrail.in/dashboard",
+    canonical: "https://www.stockstrail.in/dashboard",
   },
 };
 

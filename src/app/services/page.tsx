@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   keywords:
     'mutual funds services, fixed deposit, insurance plans, loans, financial services, SIP, investment services',
   alternates: {
-    canonical: 'https://stockstrail.in/services',
+    canonical: 'https://www.stockstrail.in/services',
   },
   openGraph: {
     title: 'Mutual Funds, Insurance, FD & Loan Services | Stockstrail',
     description:
       "Explore Stockstrail's services: mutual fund SIPs, term & health insurance, fixed deposits, loan against mutual funds and Demat accounts. AMFI ARN-284122.",
-    url: 'https://stockstrail.in/services',
+    url: 'https://www.stockstrail.in/services',
     siteName: 'Stockstrail',
     locale: 'en_IN',
     type: 'website',
@@ -39,15 +39,15 @@ export const metadata: Metadata = {
 const servicesSchema = {
   '@context': 'https://schema.org',
   '@type': 'FinancialService',
-  '@id': 'https://stockstrail.in/services#service',
+  '@id': 'https://www.stockstrail.in/services#service',
   name: 'Stockstrail Financial Services',
   description:
     'Comprehensive financial services including Mutual Funds distribution, Fixed Deposits, Term & Health Insurance, and Loans.',
-  url: 'https://stockstrail.in/services',
+  url: 'https://www.stockstrail.in/services',
   provider: {
     '@type': 'FinancialService',
     name: 'Stockstrail',
-    url: 'https://stockstrail.in',
+    url: 'https://www.stockstrail.in',
   },
   areaServed: 'IN',
   hasOfferCatalog: {
@@ -59,7 +59,7 @@ const servicesSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Mutual Funds Advisory & Distribution',
-          url: 'https://stockstrail.in/services/mutual-funds',
+          url: 'https://www.stockstrail.in/services/mutual-funds',
         },
       },
       {
@@ -67,7 +67,7 @@ const servicesSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Fixed Deposits (FD)',
-          url: 'https://stockstrail.in/services/fixed-deposit',
+          url: 'https://www.stockstrail.in/services/fixed-deposit',
         },
       },
       {
@@ -75,7 +75,7 @@ const servicesSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Life & Health Insurance',
-          url: 'https://stockstrail.in/services/insurance',
+          url: 'https://www.stockstrail.in/services/insurance',
         },
       },
       {
@@ -83,7 +83,7 @@ const servicesSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Loan Against Mutual Funds (LAMF) & Loans',
-          url: 'https://stockstrail.in/services/loan',
+          url: 'https://www.stockstrail.in/services/loan',
         },
       },
     ],

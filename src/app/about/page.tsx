@@ -101,20 +101,20 @@ export default function AboutPage() {
     '@graph': [
       {
         '@type': 'AboutPage',
-        '@id': 'https://stockstrail.in/about#webpage',
-        url: 'https://stockstrail.in/about',
+        '@id': 'https://www.stockstrail.in/about#webpage',
+        url: 'https://www.stockstrail.in/about',
         name: 'About Stockstrail | Financial Planning & Investment Guidance in India',
         description:
           'Learn about Stockstrail—an AMFI-registered mutual fund distributor (ARN-284122) founded by Vikrant Bhardwaj. Honest, goal-first mutual fund, insurance, and financial planning across India.',
         isPartOf: {
           '@type': 'WebSite',
-          '@id': 'https://stockstrail.in/#website',
+          '@id': 'https://www.stockstrail.in/#website',
           name: 'Stockstrail',
-          url: 'https://stockstrail.in',
+          url: 'https://www.stockstrail.in',
         },
         mainEntity: {
           '@type': 'FinancialService',
-          '@id': 'https://stockstrail.in/#organization',
+          '@id': 'https://www.stockstrail.in/#organization',
         },
         breadcrumb: {
           '@type': 'BreadcrumbList',
@@ -123,24 +123,24 @@ export default function AboutPage() {
               '@type': 'ListItem',
               position: 1,
               name: 'Home',
-              item: 'https://stockstrail.in',
+              item: 'https://www.stockstrail.in',
             },
             {
               '@type': 'ListItem',
               position: 2,
               name: 'About',
-              item: 'https://stockstrail.in/about',
+              item: 'https://www.stockstrail.in/about',
             },
           ],
         },
       },
       {
         '@type': ['FinancialService', 'Organization'],
-        '@id': 'https://stockstrail.in/#organization',
+        '@id': 'https://www.stockstrail.in/#organization',
         name: 'Stockstrail',
-        url: 'https://stockstrail.in',
-        logo: 'https://stockstrail.in/stockstrail.png',
-        image: 'https://stockstrail.in/og-stockstrail.png',
+        url: 'https://www.stockstrail.in',
+        logo: 'https://www.stockstrail.in/stockstrail.png',
+        image: 'https://www.stockstrail.in/og-stockstrail.png',
         description:
           'Pan-India financial planning and investment guidance practice with deep roots in Himachal Pradesh and strong accessibility across North India. AMFI Registered Mutual Fund Distributor ARN-284122.',
         telephone: '+919736304663',
@@ -161,7 +161,7 @@ export default function AboutPage() {
         ],
         founder: {
           '@type': 'Person',
-          '@id': 'https://stockstrail.in/#founder',
+          '@id': 'https://www.stockstrail.in/#founder',
           name: 'Vikrant Bhardwaj',
           jobTitle: 'Founder & AMFI-Registered Mutual Fund Distributor',
           hasCredential: [
@@ -195,7 +195,7 @@ export default function AboutPage() {
       },
       {
         '@type': 'FAQPage',
-        '@id': 'https://stockstrail.in/about#faq',
+        '@id': 'https://www.stockstrail.in/about#faq',
         mainEntity: faqs.map((faq) => ({
           '@type': 'Question',
           name: faq.question,

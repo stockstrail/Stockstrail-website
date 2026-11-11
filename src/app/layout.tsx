@@ -19,13 +19,13 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NODE_ENV === "production"
-      ? "https://stockstrail.in"
+      ? "https://www.stockstrail.in"
       : (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000")
   ),
   alternates: {
-    canonical: "https://stockstrail.in/",
+    canonical: "https://www.stockstrail.in/",
     languages: {
-      "en-IN": "https://stockstrail.in/",
+      "en-IN": "https://www.stockstrail.in/",
     },
   },
 
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     "AMFI ARN 284122",
     "Vikrant Bhardwaj",
   ],
-  authors: [{ name: "Stockstrail", url: "https://stockstrail.in" }],
+  authors: [{ name: "Stockstrail", url: "https://www.stockstrail.in" }],
   creator: "Stockstrail",
   publisher: "Stockstrail",
   category: "finance",
@@ -102,7 +102,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://stockstrail.in/",
+    url: "https://www.stockstrail.in/",
     siteName: "Stockstrail",
     title: "Stockstrail - Official Website | Financial Planning & Investment Services",
     description:
@@ -134,7 +134,7 @@ export default function RootLayout({
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'FinancialService'],
-    '@id': 'https://stockstrail.in/#organization',
+    '@id': 'https://www.stockstrail.in/#organization',
     name: 'Stockstrail',
     inLanguage: 'en-IN',
     legalName: 'Stockstrail Financial Services',
@@ -151,10 +151,10 @@ export default function RootLayout({
       'Stockstrail India',
       'Stockstrail Official Website'
     ],
-    url: 'https://stockstrail.in/',
-    mainEntityOfPage: 'https://stockstrail.in/',
-    logo: 'https://stockstrail.in/stockstrail.png',
-    image: 'https://stockstrail.in/stockstrail.png',
+    url: 'https://www.stockstrail.in/',
+    mainEntityOfPage: 'https://www.stockstrail.in/',
+    logo: 'https://www.stockstrail.in/stockstrail.png',
+    image: 'https://www.stockstrail.in/stockstrail.png',
     description: 'AMFI-Registered Mutual Fund Distributor (ARN-284122) providing personalized financial planning, mutual funds SIP, fixed deposits, insurance, and loan advisory across India.',
     founder: {
       '@type': 'Person',
@@ -279,13 +279,13 @@ export default function RootLayout({
           rel="alternate"
           type="application/rss+xml"
           title="Stockstrail - Financial Intelligence & Regulatory Dispatch"
-          href="https://stockstrail.in/feed.xml"
+          href="https://www.stockstrail.in/feed.xml"
         />
         <link
           rel="alternate"
           type="application/rss+xml"
           title="Stockstrail RSS Feed"
-          href="https://stockstrail.in/rss.xml"
+          href="https://www.stockstrail.in/rss.xml"
         />
 
         {/* Analytics Bootstrap (GA4 + Microsoft Clarity loaded after first interaction or idle for 0ms TBT) */}

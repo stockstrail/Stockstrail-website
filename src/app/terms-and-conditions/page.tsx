@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   keywords:
     'terms and conditions, cancellation policy, stockstrail, financial services',
   alternates: {
-    canonical: 'https://stockstrail.in/terms-and-conditions',
+    canonical: 'https://www.stockstrail.in/terms-and-conditions',
   },
   openGraph: {
     title: 'Terms & Conditions and Cancellation Policy | Stockstrail',
     description:
       "Read Stockstrail's terms of use and cancellation policy covering mutual funds, fixed deposits, insurance, loans and Demat account services.",
-    url: 'https://stockstrail.in/terms-and-conditions',
+    url: 'https://www.stockstrail.in/terms-and-conditions',
     siteName: 'Stockstrail',
     locale: 'en_IN',
     type: 'website',

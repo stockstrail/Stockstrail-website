@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     follow: false,
   },
   alternates: {
-    canonical: "https://stockstrail.in/admin/dashboard",
+    canonical: "https://www.stockstrail.in/admin/dashboard",
   },
 };
 

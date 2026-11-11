@@ -22,16 +22,16 @@ export const metadata: Metadata = {
     'Wealth Management India',
   ],
   alternates: {
-    canonical: 'https://stockstrail.in/',
+    canonical: 'https://www.stockstrail.in/',
     languages: {
-      'en-IN': 'https://stockstrail.in/',
+      'en-IN': 'https://www.stockstrail.in/',
     },
   },
   openGraph: {
     title: 'Stockstrail - Official Website | Financial Planning & Investment Services',
     description:
       'Stockstrail provides financial planning and investment services. Explore our services and connect with our team.',
-    url: 'https://stockstrail.in/',
+    url: 'https://www.stockstrail.in/',
     siteName: 'Stockstrail',
     locale: 'en_IN',
     type: 'website',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 const webSiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  '@id': 'https://stockstrail.in/#website',
+  '@id': 'https://www.stockstrail.in/#website',
   name: 'Stockstrail',
   alternateName: [
     'Stockstrail',
@@ -71,10 +71,10 @@ const webSiteSchema = {
     'Stockstrail India',
     'Stockstrail Official Website'
   ],
-  url: 'https://stockstrail.in/',
+  url: 'https://www.stockstrail.in/',
   inLanguage: 'en-IN',
   publisher: {
-    '@id': 'https://stockstrail.in/#organization',
+    '@id': 'https://www.stockstrail.in/#organization',
   },
   potentialAction: {
     '@type': 'SearchAction',

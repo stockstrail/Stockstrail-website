@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   keywords:
     'risk profile assessment, risk score quiz, investment risk tolerance, asset allocation India, mutual fund risk, Stockstrail risk calculator',
   alternates: {
-    canonical: 'https://stockstrail.in/check-risk-profile',
+    canonical: 'https://www.stockstrail.in/check-risk-profile',
   },
   openGraph: {
     title: 'Investor Risk Profile Test: Free 2-Minute Quiz | Stockstrail',
     description:
       "Take Stockstrail's free 11-question risk profile quiz. Find your risk tolerance and get an indicative equity-debt mix for your SIPs and fixed deposits.",
-    url: 'https://stockstrail.in/check-risk-profile',
+    url: 'https://www.stockstrail.in/check-risk-profile',
     siteName: 'Stockstrail',
     locale: 'en_IN',
     type: 'website',
@@ -46,11 +46,11 @@ const quizSchema = {
   name: 'Stockstrail Risk Profile Assessment',
   description:
     'Free 11-question investment risk profiling tool providing personalized asset allocation recommendations for Indian investors.',
-  url: 'https://stockstrail.in/check-risk-profile',
+  url: 'https://www.stockstrail.in/check-risk-profile',
   provider: {
     '@type': 'FinancialService',
     name: 'Stockstrail',
-    url: 'https://stockstrail.in',
+    url: 'https://www.stockstrail.in',
   },
   areaServed: 'IN',
 };

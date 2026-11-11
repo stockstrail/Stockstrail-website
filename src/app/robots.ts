@@ -78,7 +78,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'YouBot', allow: '/', disallow: privateRoutes },
     ],
     sitemap: [
-      'https://stockstrail.in/sitemap.xml',
+      'https://www.stockstrail.in/sitemap.xml',
       'https://learning.stockstrail.in/sitemap.xml',
     ],
   }

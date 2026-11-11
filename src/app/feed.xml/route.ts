@@ -14,7 +14,7 @@ function escapeXml(unsafe: string): string {
 }
 
 export async function GET() {
-  const siteUrl = 'https://stockstrail.in';
+  const siteUrl = 'https://www.stockstrail.in';
   const supabase = await createClient();
 
   const { data: posts } = await supabase

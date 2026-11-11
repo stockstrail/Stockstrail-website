@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     'bse share market holiday'
   ],
   alternates: {
-    canonical: 'https://stockstrail.in/bse-holidays',
+    canonical: 'https://www.stockstrail.in/bse-holidays',
   },
   openGraph: {
     title: 'BSE Holidays 2026: Stock Market Holiday List | Stockstrail',
     description:
       'Full BSE holiday list 2026 for equity, derivatives and commodity sessions, plus settlement holidays, upcoming closures and the Diwali Muhurat Trading date.',
-    url: 'https://stockstrail.in/bse-holidays',
+    url: 'https://www.stockstrail.in/bse-holidays',
     siteName: 'Stockstrail',
     locale: 'en_IN',
     type: 'article',
@@ -75,7 +75,7 @@ const datasetJsonLd = {
   name: 'BSE and NSE Trading Holidays Calendar 2026',
   description:
     'Official list of 15 trading holidays, 4 weekend festivals, and Muhurat Trading session schedule for Bombay Stock Exchange in 2026.',
-  url: 'https://stockstrail.in/bse-holidays',
+  url: 'https://www.stockstrail.in/bse-holidays',
   keywords: [
     'BSE holidays 2026',
     'NSE holidays 2026',
@@ -85,7 +85,7 @@ const datasetJsonLd = {
   creator: {
     '@type': 'Organization',
     name: 'Stockstrail',
-    url: 'https://stockstrail.in',
+    url: 'https://www.stockstrail.in',
   },
   temporalCoverage: '2026-01-01/2026-12-31',
   spatialCoverage: {
@@ -103,19 +103,19 @@ const breadcrumbJsonLd = {
       '@type': 'ListItem',
       position: 1,
       name: 'Home',
-      item: 'https://stockstrail.in',
+      item: 'https://www.stockstrail.in',
     },
     {
       '@type': 'ListItem',
       position: 2,
       name: 'Market Resources',
-      item: 'https://stockstrail.in/services',
+      item: 'https://www.stockstrail.in/services',
     },
     {
       '@type': 'ListItem',
       position: 3,
       name: 'BSE & NSE Holiday Calendar 2026',
-      item: 'https://stockstrail.in/bse-holidays',
+      item: 'https://www.stockstrail.in/bse-holidays',
     },
   ],
 };

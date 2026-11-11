@@ -14,7 +14,7 @@ const CURRENT_TIMESTAMP = new Date()
 const ANNUAL_TIMESTAMP = new Date('2026-01-01T00:00:00Z')
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const mainBaseUrl = 'https://stockstrail.in'
+  const mainBaseUrl = 'https://www.stockstrail.in'
   const learningBaseUrl = 'https://learning.stockstrail.in'
 
   const urlMap = new Map<string, MetadataRoute.Sitemap[number]>()
