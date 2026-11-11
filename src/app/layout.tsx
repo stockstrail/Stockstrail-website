@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
 
   title: {
-    default: "Stockstrail | Financial Planning & Investment Services",
+    default: "Stockstrail - Official Website | Financial Planning & Investment Services",
     template: "%s",
   },
   description:
@@ -104,7 +104,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://stockstrail.in/",
     siteName: "Stockstrail",
-    title: "Stockstrail | Financial Planning & Investment Services",
+    title: "Stockstrail - Official Website | Financial Planning & Investment Services",
     description:
       "Stockstrail provides financial planning and investment services. Explore our services and connect with our team.",
     images: [
@@ -119,7 +119,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Stockstrail | Financial Planning & Investment Services",
+    title: "Stockstrail - Official Website | Financial Planning & Investment Services",
     description:
       "Stockstrail provides financial planning and investment services. Explore our services and connect with our team.",
     images: ["/og-stockstrail.png"],

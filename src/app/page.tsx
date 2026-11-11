@@ -8,7 +8,7 @@ import JsonLd from '@/components/common/JsonLd';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Stockstrail | Financial Planning & Investment Services',
+  title: 'Stockstrail - Official Website | Financial Planning & Investment Services',
   description:
     'Stockstrail provides financial planning and investment services. Explore our services and connect with our team.',
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Stockstrail | Financial Planning & Investment Services',
+    title: 'Stockstrail - Official Website | Financial Planning & Investment Services',
     description:
       'Stockstrail provides financial planning and investment services. Explore our services and connect with our team.',
     url: 'https://stockstrail.in/',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Stockstrail | Financial Planning & Investment Services',
+    title: 'Stockstrail - Official Website | Financial Planning & Investment Services',
     description:
       'Stockstrail provides financial planning and investment services. Explore our services and connect with our team.',
     images: ['/og-stockstrail.png'],
