@@ -26,7 +26,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 1. Main Site High-Priority Static Routes
   const mainStaticRoutes: MetadataRoute.Sitemap = [
     {
-      url: mainBaseUrl,
+      url: `${mainBaseUrl}/`,
       lastModified: CURRENT_TIMESTAMP,
       changeFrequency: 'daily',
       priority: 1.0,
@@ -213,7 +213,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 4. Learning Platform Static Hub Routes
   const learningStaticRoutes: MetadataRoute.Sitemap = [
     {
-      url: learningBaseUrl,
+      url: `${learningBaseUrl}/`,
       lastModified: CURRENT_TIMESTAMP,
       changeFrequency: 'daily',
       priority: 0.9,
