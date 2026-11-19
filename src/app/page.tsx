@@ -8,12 +8,18 @@ import JsonLd from '@/components/common/JsonLd';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Stockstrail - Official Website | Financial Planning & Investment Services',
+  title: 'Stockstrail - Official Website | Financial Planning & Mutual Fund SIP in India',
   description:
-    'Stockstrail provides financial planning and investment services. Explore our services and connect with our team.',
+    'Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, fixed deposits, and loans. Book a free consultation.',
   keywords: [
     'Stockstrail',
+    'stockstrail',
+    'stockstraail',
     'Stocks Trail',
+    'StocksTrail',
+    'Stockstrail.in',
+    'www.stockstrail.in',
+    'Stockstrail official website',
     'Stockstrail financial planning',
     'Mutual Funds SIP India',
     'Vikrant Bhardwaj',
@@ -21,6 +27,17 @@ export const metadata: Metadata = {
     'Term Insurance',
     'Wealth Management India',
   ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   alternates: {
     canonical: 'https://www.stockstrail.in/',
     languages: {
@@ -28,9 +45,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Stockstrail - Official Website | Financial Planning & Investment Services',
+    title: 'Stockstrail - Official Website | Financial Planning & Mutual Fund SIP in India',
     description:
-      'Stockstrail provides financial planning and investment services. Explore our services and connect with our team.',
+      'Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, fixed deposits, and loans. Book a free consultation.',
     url: 'https://www.stockstrail.in/',
     siteName: 'Stockstrail',
     locale: 'en_IN',
@@ -46,9 +63,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Stockstrail - Official Website | Financial Planning & Investment Services',
+    title: 'Stockstrail - Official Website | Financial Planning & Mutual Fund SIP in India',
     description:
-      'Stockstrail provides financial planning and investment services. Explore our services and connect with our team.',
+      'Stockstrail (AMFI ARN-284122) guides families and salaried professionals on mutual fund SIPs, term & health insurance, fixed deposits, and loans. Book a free consultation.',
     images: ['/og-stockstrail.png'],
   },
 };
@@ -62,6 +79,7 @@ const webSiteSchema = {
     'Stockstrail',
     'STOCKSTRAIL',
     'stockstrail',
+    'stockstraail',
     'Stocks Trail',
     'StocksTrail',
     'Stockstrail.in',
@@ -101,4 +119,3 @@ export default function Home() {
     </Layout>
   );
 }
-
