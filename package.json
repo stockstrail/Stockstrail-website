@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "audit:seo": "node scripts/seo-audit-guard.js"
   },
   "dependencies": {
     "@hello-pangea/dnd": "^18.0.1",
