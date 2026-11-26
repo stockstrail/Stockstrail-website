@@ -5,6 +5,7 @@ import CalculatorsHeroSection from "@/components/calculators/CalculatorsHeroSect
 import CalculatorWidget from "@/components/calculators/CalculatorWidget";
 import CalculatorsPageSEO from "@/components/calculators/seo/CalculatorsPageSEO";
 import CalculatorAdvisoryBridge from "@/components/calculators/CalculatorAdvisoryBridge";
+import JsonLd from "@/components/common/JsonLd";
 
 import { redirect, RedirectType } from "next/navigation";
 
@@ -57,6 +58,25 @@ const CALC_PARAM_MAP: Record<string, string> = {
   "income-tax": "/calculators/tax",
 };
 
+const calculatorsBreadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://www.stockstrail.in/',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Calculators',
+      item: 'https://www.stockstrail.in/calculators',
+    },
+  ],
+};
+
 interface CalculatorsPageProps {
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
@@ -77,6 +97,7 @@ export default async function CalculatorsPage({ searchParams }: CalculatorsPageP
 
   return (
     <Layout>
+      <JsonLd data={calculatorsBreadcrumbSchema} />
       <section className="relative px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <div className="max-w-6xl mx-auto space-y-10">
           {/* Eye-Catching, Dedicated Showstopper Hero */}

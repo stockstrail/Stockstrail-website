@@ -5,6 +5,7 @@ import BlogListClient from '@/components/blog/BlogListClient';
 import { createClient } from '@/lib/supabase/server';
 import type { Metadata } from 'next';
 import { Sparkles, Newspaper } from 'lucide-react';
+import JsonLd from '@/components/common/JsonLd';
 
 export const revalidate = 1800;
 
@@ -81,8 +82,28 @@ export default async function BlogPage({
     console.error("Error fetching blogs:", error);
   }
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.stockstrail.in/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: 'https://www.stockstrail.in/blog',
+      },
+    ],
+  };
+
   return (
     <Layout>
+      <JsonLd data={breadcrumbSchema} />
       <div className="relative pt-24 pb-32 px-4 sm:px-6 lg:px-8 min-h-screen overflow-hidden">
         {/* Deep emerald luxury background */}
         <div className="absolute inset-0 -z-10 bg-[#011412]" />

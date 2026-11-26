@@ -56,6 +56,25 @@ const contactSchema = {
   },
 };
 
+const letsTalkBreadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://www.stockstrail.in/',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: "Let's Talk",
+      item: 'https://www.stockstrail.in/lets-talk',
+    },
+  ],
+};
+
 export default function LetsTalkLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
@@ -63,6 +82,12 @@ export default function LetsTalkLayout({ children }: { children: React.ReactNode
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(contactSchema).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(letsTalkBreadcrumbSchema).replace(/</g, '\\u003c'),
         }}
       />
       {children}

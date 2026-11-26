@@ -111,6 +111,25 @@ const SERVICE_PARAM_MAP: Record<string, string> = {
   protection: '/services/financial-protection',
 };
 
+const servicesBreadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://www.stockstrail.in/',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Services',
+      item: 'https://www.stockstrail.in/services',
+    },
+  ],
+};
+
 interface ServicesPageProps {
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
@@ -134,6 +153,12 @@ export default async function ServicesPage({ searchParams }: ServicesPageProps) 
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(servicesSchema).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(servicesBreadcrumbSchema).replace(/</g, '\\u003c'),
         }}
       />
       <ServicesPageContent />
