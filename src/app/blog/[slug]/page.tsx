@@ -122,14 +122,35 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const slug = resolvedParams?.slug;
   
   const supabase = await createClient();
-  const { data: post, error } = await supabase
+  const { data: dbPost, error } = await supabase
     .from("blogs")
     .select(`*, profiles:author_id(full_name)`)
     .eq("slug", slug)
     .single();
 
-  if (error || !post) {
-    notFound();
+  let post = dbPost;
+  if (!post) {
+    const blueprintMeta = slug ? BLOG_METADATA[slug] : undefined;
+    const blueprintContent = slug ? BLOG_CONTENT_OVERRIDES[slug] : undefined;
+    if (blueprintMeta) {
+      post = {
+        id: slug,
+        slug: slug,
+        title: blueprintMeta.title.replace(/ \| Stockstrail$/, ''),
+        excerpt: blueprintMeta.description,
+        meta_description: blueprintMeta.description,
+        content: blueprintContent || blueprintMeta.description,
+        image_url: '/og-stockstrail.png',
+        image_alt: blueprintMeta.title,
+        created_at: '2026-01-01T00:00:00.000Z',
+        updated_at: '2026-11-20T00:00:00.000Z',
+        published: true,
+        faqs: [],
+        profiles: { full_name: 'Vikrant Bhardwaj' },
+      } as any;
+    } else {
+      notFound();
+    }
   }
 
   // Fetch latest published posts for related recommendations
@@ -281,10 +302,36 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     ]
   };
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: `${baseUrl}/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: `${baseUrl}/blog`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: currentUrl,
+      },
+    ],
+  };
+
   return (
     <Layout>
       <ReadingProgressBar />
       <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
       {faqSchema && <JsonLd data={faqSchema} />}
 
       <div className="pt-24 pb-28 px-4 sm:px-6 lg:px-8 min-h-screen">
@@ -395,9 +442,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                             const text = getNodeText(children);
                             const id = slugify(text);
                             return (
-                              <h1 id={id} data-toc-id={id} className="scroll-mt-28 font-product-sans font-bold text-2xl sm:text-3xl text-white pt-6 pb-2" {...props}>
+                              <h2 id={id} data-toc-id={id} className="scroll-mt-28 font-product-sans font-bold text-2xl sm:text-3xl text-white pt-6 pb-2" {...props}>
                                 {children}
-                              </h1>
+                              </h2>
                             );
                           },
                           h2: ({ children, ...props }) => {
