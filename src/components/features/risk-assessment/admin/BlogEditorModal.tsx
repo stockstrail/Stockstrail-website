@@ -333,6 +333,17 @@ export function BlogEditorModal({ blog, open, onOpenChange, onSave }: BlogEditor
         if (error) throw error;
       }
 
+      // Trigger On-Demand Revalidation & Search Engine Notification
+      try {
+        await fetch("/api/revalidate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ slug: payload.slug, oldSlug: blog?.slug }),
+        });
+      } catch (revErr) {
+        console.warn("Non-blocking revalidation notice:", revErr);
+      }
+
       onSave();
     } catch (err: any) {
       console.error("Error saving blog:", err);

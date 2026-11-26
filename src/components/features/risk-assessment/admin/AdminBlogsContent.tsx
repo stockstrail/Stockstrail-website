@@ -91,6 +91,13 @@ export function AdminBlogsContent() {
       const supabase = createClient();
       const { error } = await supabase.from("blogs").delete().eq("id", id);
       if (error) throw error;
+      try {
+        await fetch("/api/revalidate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ path: "/blog" }),
+        });
+      } catch (_) {}
       await fetchBlogs();
     } catch (err) {
       console.error("Error deleting blog:", err);
