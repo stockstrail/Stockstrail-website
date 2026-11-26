@@ -4,8 +4,8 @@ export const metadata: Metadata = {
   title: "Sign In | Stockstrail",
   description: "Sign in to your Stockstrail account to view your risk profile and investment history.",
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
   alternates: {
     canonical: "https://www.stockstrail.in/sign-in",

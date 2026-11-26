@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { BLOG_CONTENT_OVERRIDES } from '@/data/blog-content-overrides';
+import { BLOG_METADATA } from '@/lib/seo/blueprint-meta';
 
 export const dynamic = 'force-dynamic';
 
@@ -24,9 +25,27 @@ export async function GET() {
     .order('created_at', { ascending: false })
     .limit(50);
 
+  let activePosts = posts && posts.length > 0 ? posts : [];
+  if (activePosts.length === 0) {
+    // Resilient fallback to curated baseline articles if Supabase is dormant
+    activePosts = Object.keys(BLOG_METADATA).map((slug) => {
+      const meta = BLOG_METADATA[slug];
+      return {
+        id: slug,
+        slug: slug,
+        title: meta.title.replace(/ \| Stockstrail$/, ''),
+        excerpt: meta.description,
+        content: BLOG_CONTENT_OVERRIDES[slug] || meta.description,
+        image_url: '/og-stockstrail.png',
+        created_at: '2026-01-01T00:00:00.000Z',
+        updated_at: '2026-11-20T00:00:00.000Z',
+      };
+    }) as any;
+  }
+
   const LOCAL_BLOG_COVERS: Record<string, string> = {};
 
-  const blogItems = (posts || []).map((post) => {
+  const blogItems = activePosts.map((post) => {
     const postUrl = `${siteUrl}/blog/${post.slug}`;
     const rawContent = BLOG_CONTENT_OVERRIDES[post.slug] || post.content || post.excerpt || '';
     const cleanContent = rawContent.replace(/<[^>]*>?/gm, '').slice(0, 500);
