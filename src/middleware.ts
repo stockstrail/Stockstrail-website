@@ -1,6 +1,7 @@
 
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { BLOG_SLUG_REDIRECTS } from "@/lib/seo/slug-redirects";
 
 export function middleware(request: NextRequest) {
   const rawUrl = request.nextUrl.clone();
@@ -62,6 +63,15 @@ export function middleware(request: NextRequest) {
     const cleanSlashPath = pathname.replace(/\/+$/, "");
     const cleanUrl = new URL(cleanSlashPath + rawUrl.search, request.url);
     return NextResponse.redirect(cleanUrl, { status: 301 });
+  }
+
+  // 5. Blog slug redirect mapping
+  if (pathname.startsWith("/blog/")) {
+    const slug = pathname.replace(/^\/blog\//, "").replace(/\/+$/, "");
+    if (BLOG_SLUG_REDIRECTS[slug]) {
+      const destination = new URL(`/blog/${BLOG_SLUG_REDIRECTS[slug]}${rawUrl.search}`, request.url);
+      return NextResponse.redirect(destination, { status: 301 });
+    }
   }
 
   return NextResponse.next();
